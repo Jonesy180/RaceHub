@@ -1,5 +1,18 @@
+# RaceHub
+
+Working restore package for GitHub Pages.
+
+## Version
+
 RaceHub v4.1.8 Smooth Celebration
-- Record celebration auto-fades after 3 seconds.
-- Adds temporary mini record banner.
-- Celebration button says Start <next event> where possible.
-Upload to Netlify.
+
+## Files needed in repository root
+
+- index.html
+- manifest.webmanifest
+- service-worker.js
+- favicon.png
+- icons/
+
+GitHub Pages URL:
+https://jonesy180.github.io/RaceHub/

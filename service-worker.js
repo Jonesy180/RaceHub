@@ -1,18 +1,5 @@
-# RaceHub
-
-Working restore package for GitHub Pages.
-
-## Version
-
-RaceHub v4.1.8 Smooth Celebration
-
-## Files needed in repository root
-
-- index.html
-- manifest.webmanifest
-- service-worker.js
-- favicon.png
-- icons/
-
-GitHub Pages URL:
-https://jonesy180.github.io/RaceHub/
+const CACHE_NAME='racehub-v4-1-8-smooth-celebration';
+const ASSETS=['./','./index.html','./manifest.webmanifest','./favicon.png','./icons/icon-192.png','./icons/icon-512.png'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))));self.clients.claim();});
+self.addEventListener('fetch',e=>{e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));});
