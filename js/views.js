@@ -1,18 +1,89 @@
 // RaceHub v4.3b — Views
 function renderFestival(){
+ const totalCars=state.cars.length;
  const completedCars=state.cars.filter(c=>carIsComplete(c.id)).length;
- const remainingCars=Math.max(0,state.cars.length-completedCars);
- const ev=eventById(state.currentEventId||'drag'), st=eventStats(ev.id), leader=st.leader;
+ const remainingCars=Math.max(0,totalCars-completedCars);
+ const festivalPct=totalCars?Math.round((completedCars/totalCars)*100):0;
+
+ const ev=eventById(state.currentEventId||'drag');
+ const st=eventStats(ev.id);
+ const leader=st.leader;
  const next=waitingCars(ev.id)[0];
+
  const cc=currentCar();
  const ccDone=cc?carCompletedEvents(cc.id).size:0;
  const ccNext=cc?nextEventForCar(cc.id):null;
- $('festival').innerHTML=`<div class="card"><h2>Race Night Dashboard</h2>${cc?`<div class="raceNightPanel"><h2>▶️ Race Night In Progress</h2><p><b>${esc(carName(cc))}</b></p><div class="progress"><div class="bar" style="width:${Math.round(ccDone/7*100)}%"></div></div><p class="small">${ccDone}/7 events complete · Next: ${ccNext?esc(ccNext.name):'—'}</p><button class="btn bigStart" onclick="continueCurrentCar()">Continue Current Car</button><button class="btn secondary" onclick="beginDirectorShow(true)">🎲 Draw Different Random Car</button></div>`:''}<div class="raceDirector"><h2>🏁 Race Night Mode</h2><p class="small">RaceHub chooses a random car, then guides it through all 7 events.</p><button class="btn bigStart" onclick="beginDirectorShow()">🏁 Start Race Night</button></div>
- 
-${(()=>{const leg=legendaryRecord(); if(!leg)return ''; const ev=eventById(leg.eventId), car=carById(leg.carId); return `<div class="legacyCard"><h3>👑 Legendary Record</h3><b>${esc(ev.name)}</b><br>${esc(car?carName(car):leg.carId)}<br><span class="small">${esc(daysText(leg.held))}</span></div>`})()}
-<div class="grid"><div class="resultBox"><div class="small">Cars completed</div><h2>${completedCars}</h2></div><div class="resultBox"><div class="small">Cars remaining</div><h2>${remainingCars}</h2></div></div>
- <h3>Current Event</h3><div class="eventCard" onclick="openEvent('${ev.id}','waiting')"><div class="eventTop"><b>🏁 ${esc(ev.name)}</b><span class="badge">${st.done}/${st.total}</span></div><div class="progress"><div class="bar" style="width:${st.pct}%"></div></div><div class="small">${leader?'Record: '+esc(fmt(ev.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div><div class="small">Next waiting: ${next?esc(carName(next)):'—'}</div></div>
- </div>`;
+
+ const legendaryHtml=(()=>{
+  const leg=legendaryRecord();
+  if(!leg)return '';
+  const legendaryEvent=eventById(leg.eventId);
+  const legendaryCar=carById(leg.carId);
+  return `<div class="legacyCard">
+    <h3>👑 Legendary Record</h3>
+    <b>${esc(legendaryEvent.name)}</b><br>
+    ${esc(legendaryCar?carName(legendaryCar):leg.carId)}<br>
+    <span class="small">${esc(daysText(leg.held))}</span>
+  </div>`;
+ })();
+
+ const raceNightHtml=cc?`
+  <div class="raceNightPanel">
+   <h2>▶️ Race Night In Progress</h2>
+   <p><b>${esc(carName(cc))}</b></p>
+   <div class="progress">
+    <div class="bar" style="width:${Math.round(ccDone/7*100)}%"></div>
+   </div>
+   <p class="small">${ccDone}/7 events complete · Next: ${ccNext?esc(ccNext.name):'—'}</p>
+   <button class="btn bigStart" onclick="continueCurrentCar()">Continue Current Car</button>
+   <button class="btn secondary" onclick="beginDirectorShow(true)">🎲 Draw Different Random Car</button>
+  </div>
+ `:`
+  <div class="raceDirector">
+   <h2>🏁 Race Night Mode</h2>
+   <p class="small">RaceHub chooses a random car, then guides it through all 7 events.</p>
+   <button class="btn bigStart" onclick="beginDirectorShow()">🏁 Start Race Night</button>
+  </div>
+ `;
+
+ $('festival').innerHTML=`
+  <div class="card">
+   <h2>Festival Control</h2>
+
+   <div class="grid">
+    <div class="resultBox">
+     <div class="small">Cars completed</div>
+     <h2>${completedCars}</h2>
+    </div>
+    <div class="resultBox">
+     <div class="small">Cars remaining</div>
+     <h2>${remainingCars}</h2>
+    </div>
+   </div>
+
+   <h3>Festival Progress</h3>
+   <div class="progress">
+    <div class="bar" style="width:${festivalPct}%"></div>
+   </div>
+   <p class="small">${completedCars} / ${totalCars} cars completed · ${festivalPct}%</p>
+
+   <h3>Current Event</h3>
+   <div class="eventCard" onclick="openEvent('${ev.id}','waiting')">
+    <div class="eventTop">
+     <b>🏁 ${esc(ev.name)}</b>
+     <span class="badge">${st.done}/${st.total}</span>
+    </div>
+    <div class="progress">
+     <div class="bar" style="width:${st.pct}%"></div>
+    </div>
+    <div class="small">${leader?'Record: '+esc(fmt(ev.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div>
+    <div class="small">Next waiting: ${next?esc(carName(next)):'—'}</div>
+   </div>
+
+   ${legendaryHtml}
+   ${raceNightHtml}
+  </div>
+ `;
 }
 
 function renderEvents(){

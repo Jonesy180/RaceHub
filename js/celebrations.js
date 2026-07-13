@@ -34,6 +34,60 @@ function vibrateRecord(){
   if(state.settings && state.settings.vibrate && navigator.vibrate) navigator.vibrate([80,40,120,40,180]);
 }
 
+function festivalMilestoneForCount(count,total){
+  const milestones=[
+    {count:25,icon:'🥉',title:'25 CARS COMPLETE!',line:'The opening milestone is secured.'},
+    {count:50,icon:'🥈',title:'50 CARS COMPLETE!',line:'The Festival campaign is gathering pace.'},
+    {count:100,icon:'🥇',title:'100 CARS COMPLETE!',line:'A century of cars has crossed the line.'},
+    {count:250,icon:'💎',title:'250 CARS COMPLETE!',line:'A quarter-thousand cars conquered.'},
+    {count:500,icon:'👑',title:'500 CARS COMPLETE!',line:'Legendary Festival status achieved.'}
+  ];
+  if(total>0 && count>=total){
+    return {count:total,icon:'🏁',title:'FESTIVAL COMPLETE!',line:`All ${total} cars have completed every event.`};
+  }
+  return milestones.find(m=>m.count===count)||null;
+}
+
+function showFestivalMilestone(count,total){
+  const milestone=festivalMilestoneForCount(count,total);
+  if(!milestone)return;
+
+  state.milestonesShown=Array.isArray(state.milestonesShown)?state.milestonesShown:[];
+  const key=String(milestone.count);
+  if(state.milestonesShown.includes(key))return;
+
+  state.milestonesShown.push(key);
+  save();
+
+  const old=document.getElementById('festivalMilestoneOverlay');
+  if(old)old.remove();
+
+  const pct=total?Math.round((count/total)*100):0;
+  const html=`<div id="festivalMilestoneOverlay" class="celebrationOverlay">
+    <div class="celebrationCard">
+      <div style="font-size:64px">${milestone.icon}</div>
+      <div class="recordTitle">${esc(milestone.title)}</div>
+      <div class="recordCar">${esc(milestone.line)}</div>
+      <div class="legacyCard">
+        <b>${count} / ${total} cars complete</b>
+        <div class="progress"><div class="bar" style="width:${pct}%"></div></div>
+        <div class="small">${pct}% of the Festival complete</div>
+      </div>
+      <button class="btn bigStart" onclick="closeFestivalMilestone()">Continue Racing</button>
+    </div>
+  </div>`;
+
+  document.body.insertAdjacentHTML('beforeend',html);
+  playRecordSound();
+  vibrateRecord();
+  launchConfetti();
+}
+
+function closeFestivalMilestone(){
+  const overlay=document.getElementById('festivalMilestoneOverlay');
+  if(overlay)overlay.remove();
+}
+
 function launchConfetti(){
   if(state.settings && state.settings.confetti===false) return;
   const overlay=document.getElementById('celebrationOverlay');
@@ -169,6 +223,7 @@ function safeShowRecordCelebration(payload){
 function saveResult(){
  const ev=eventById(currentEventId), carId=$('carSelect').value, value=parseResult(ev.id,$('resultInput').value);
  if(!carId||!isFinite(value)){toast('Enter a valid result');return;}
+ const completedBefore=state.cars.filter(c=>carIsComplete(c.id)).length;
  const before=eventStats(ev.id).leader;
  const isRecord=!before || (isLong(ev.id)?value>before.value:value<before.value);
  const r={id:'r'+Date.now(),eventId:ev.id,carId,value,date:new Date().toISOString()};
@@ -177,6 +232,10 @@ function saveResult(){
  state.currentCarId=carId;
  if(carIsComplete(carId)) state.currentCarId=null;
  save();
+ const completedAfter=state.cars.filter(c=>carIsComplete(c.id)).length;
+ const milestoneReached=completedAfter>completedBefore
+   ? festivalMilestoneForCount(completedAfter,state.cars.length)
+   : null;
  const car=carById(carId);
  const nextEv=nextEventForCar(carId);
  const runStats=allPendingRuns();
@@ -209,6 +268,13 @@ function saveResult(){
      continueAction: nextEv ? `directorNextEvent('${carId}','${nextEv.id}')` : `showCarComplete('${carId}')`,
      nextEventName: nextEv ? nextEv.name : ''
    }),250);
+ }
+
+ if(milestoneReached){
+   setTimeout(
+     ()=>showFestivalMilestone(completedAfter,state.cars.length),
+     isRecord?4300:450
+   );
  }
 
 }
