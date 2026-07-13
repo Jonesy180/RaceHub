@@ -1,18 +1,17 @@
-# RaceHub
+# RaceHub v4.3a Developer Preview
 
-Working restore package for GitHub Pages.
+First milestone of the Championship Insights update.
 
-## Version
+## Added
+- Editable car manufacturer, model and year.
+- Garage status for completed, in-progress and unstarted cars.
+- Festival counters now show cars completed and cars remaining.
+- Safe state normalisation while retaining the existing local-storage key.
 
-RaceHub v4.1.8 Smooth Celebration
+## Preserved
+- Existing results and progress.
+- Race Director.
+- Record history and celebrations.
+- GitHub Pages/PWA installation.
 
-## Files needed in repository root
-
-- index.html
-- manifest.webmanifest
-- service-worker.js
-- favicon.png
-- icons/
-
-GitHub Pages URL:
-https://jonesy180.github.io/RaceHub/
+This is a developer preview for testing before the statistics work begins.

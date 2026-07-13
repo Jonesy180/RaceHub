@@ -1,0 +1,123 @@
+:root {
+  --bg:#090011; --panel:#1a0730; --panel2:#2a0a4d; --pink:#ff2bd6; --purple:#7b2cff;
+  --blue:#34d7ff; --gold:#ffd84d; --text:#fff; --muted:#c8b8e3; --danger:#ff477e;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 0%,#48107b 0,#14001f 42%,#050009 100%);color:var(--text);padding-bottom:92px}
+header{padding:22px 16px 8px}
+.hero{border-radius:28px;padding:26px 20px;background:linear-gradient(135deg,rgba(255,43,214,.52),rgba(52,215,255,.22));box-shadow:0 18px 50px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.14)}
+.kicker{letter-spacing:7px;font-weight:900;color:#f6d7ff;font-size:14px}
+.title{font-size:48px;line-height:.95;font-weight:1000;margin:10px 0}
+.version{display:inline-block;background:rgba(0,0,0,.35);border-radius:999px;padding:8px 14px;color:white}
+main{padding:0 14px}
+.screen{display:block} .hidden{display:none!important}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:16px;margin:14px 0;box-shadow:0 14px 42px rgba(0,0,0,.28)}
+h1,h2,h3{margin:0 0 10px} h2{font-size:30px} h3{font-size:21px}
+.small{font-size:14px;color:var(--muted);line-height:1.35}
+.btn,button{font:inherit;border:0;border-radius:18px;padding:13px 14px;font-weight:900;background:linear-gradient(135deg,var(--pink),var(--purple));color:white;min-height:48px}
+.btn.secondary,button.secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.btn.danger,button.danger{background:linear-gradient(135deg,#ff477e,#9b003b)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input,select,textarea{width:100%;font:inherit;background:#10021f;color:white;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:13px;margin:6px 0 10px}
+label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
+.nav{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(7,0,12,.96);border-top:1px solid rgba(255,255,255,.14);z-index:10}
+.nav button{background:transparent;border-radius:18px;color:#b9a7d1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 2px;min-height:74px}
+.nav button.active{color:white;background:rgba(255,255,255,.08)} .ico{font-size:28px}
+.progress{height:10px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin:8px 0}
+.bar{height:100%;background:linear-gradient(90deg,var(--pink),var(--blue));border-radius:999px}
+.row{display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);padding:10px 0}
+.row:last-child{border-bottom:0} .grow{flex:1} .rank{font-weight:1000;color:var(--gold);min-width:28px}
+.eventCard,.makeGroup,.resultBox{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);border-radius:18px;padding:12px;margin:10px 0}
+.eventTop,.makeHead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.badge{background:rgba(0,0,0,.34);border-radius:999px;padding:5px 10px;color:var(--gold);font-weight:900}
+.raceDirector{background:linear-gradient(135deg,#0b78ff,#7b2cff 55%,#ff2bd6);border-radius:24px;padding:18px;margin:14px 0;border:1px solid rgba(255,255,255,.22)}
+.raceDirector h2{font-size:34px}
+.bigStart{font-size:22px;width:100%;margin-top:8px}
+.recordBox{background:linear-gradient(135deg,#ffd84d,#ff8a00);color:#180019;border-radius:20px;padding:14px;margin:12px 0;font-weight:1000}
+.empty{padding:18px;color:var(--muted);text-align:center}
+.chips{display:flex;gap:8px;overflow:auto;padding:6px 0 8px} .chip{white-space:nowrap;padding:8px 10px;min-height:38px;border-radius:999px;background:rgba(255,255,255,.08)} .chip.on{background:linear-gradient(135deg,var(--pink),var(--purple));color:white}
+.toast{position:fixed;left:18px;right:18px;bottom:96px;background:#111;color:white;padding:12px 14px;border-radius:16px;opacity:0;pointer-events:none;transition:.2s;z-index:99;text-align:center}
+.toast.show{opacity:1}
+.podium{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:8px;align-items:end} .pod{background:rgba(255,255,255,.07);border-radius:18px;padding:10px;text-align:center;min-height:82px} .pod.first{min-height:110px;border:1px solid rgba(255,216,77,.45)}
+
+.celebrationOverlay{
+  position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at center,rgba(255,43,214,.28),rgba(5,0,10,.92));
+  padding:18px;animation:fadeIn .25s ease both;overflow:hidden
+}
+.celebrationCard{position:relative;z-index:202;
+  width:min(520px,96vw);text-align:center;border-radius:30px;padding:22px;
+  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.25);box-shadow:0 24px 80px rgba(0,0,0,.55);
+  animation:popIn .45s cubic-bezier(.2,1.3,.3,1) both
+}
+.recordTitle{font-size:34px;font-weight:1000;color:#ffd84d;text-shadow:0 0 18px rgba(255,216,77,.75);margin:8px 0}
+.recordCar{font-size:22px;font-weight:900;margin:12px 0}
+.recordTime{font-size:46px;font-weight:1000;line-height:1;color:white;text-shadow:0 0 22px rgba(52,215,255,.9);margin:12px 0}
+.previousRecord{background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:12px;margin:14px 0}
+.confettiPiece{z-index:201;
+  position:absolute;top:-20px;width:10px;height:18px;border-radius:3px;opacity:.95;
+  animation:confettiFall 2.8s linear forwards
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{0%{transform:scale(.7) rotate(-2deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes confettiFall{
+  0%{transform:translateY(-30px) rotate(0deg)}
+  100%{transform:translateY(110vh) rotate(720deg)}
+}
+
+
+.legacyCard{background:linear-gradient(135deg,rgba(255,216,77,.18),rgba(255,43,214,.10));border:1px solid rgba(255,216,77,.34);border-radius:20px;padding:14px;margin:12px 0}
+.timelineItem{background:rgba(255,255,255,.07);border-left:4px solid var(--gold);border-radius:14px;padding:12px;margin:10px 0}
+.timelineItem.old{border-left-color:rgba(255,255,255,.25)}
+.legacyStat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.legacyStat div{background:rgba(255,255,255,.07);border-radius:16px;padding:10px;text-align:center}
+.legacyBig{font-size:22px;font-weight:1000;color:var(--gold)}
+
+
+.splash{
+  position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at center,#4b1380,#090011 65%);
+  animation:splashFade 2.2s ease forwards;
+}
+.splashInner{text-align:center;animation:popIn .6s ease both}
+.splashLogo{font-size:64px}
+.splashTitle{font-size:48px;font-weight:1000;letter-spacing:2px}
+.splashSub{color:#c8b8e3;font-weight:800}
+@keyframes splashFade{0%,72%{opacity:1}100%{opacity:0;visibility:hidden;pointer-events:none}}
+.raceNightPanel{background:linear-gradient(135deg,rgba(52,215,255,.18),rgba(255,43,214,.14));border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:16px;margin:14px 0}
+.completedCar{background:linear-gradient(135deg,rgba(255,216,77,.22),rgba(255,43,214,.12));border:1px solid rgba(255,216,77,.4);border-radius:22px;padding:16px;margin:12px 0;text-align:center}
+
+
+.directorOverlay{
+  position:fixed;inset:0;z-index:260;background:radial-gradient(circle at center,#36105e,#08000f 68%);
+  color:white;display:flex;align-items:center;justify-content:center;padding:18px;overflow:hidden;
+}
+.directorCard{
+  width:min(560px,96vw);text-align:center;border-radius:30px;padding:24px;
+  background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.22);box-shadow:0 24px 80px rgba(0,0,0,.6);
+  animation:popIn .35s ease both;
+}
+.directorTitle{font-size:42px;font-weight:1000;line-height:1;color:#ffd84d;text-shadow:0 0 20px rgba(255,216,77,.65);margin:10px 0}
+.directorLine{font-size:18px;color:#c8b8e3;margin:10px 0;min-height:26px}
+.directorBig{font-size:34px;font-weight:1000;margin:14px 0;text-shadow:0 0 18px rgba(52,215,255,.7)}
+.slotBox{height:54px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:18px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);margin:14px 0}
+.slotText{font-size:24px;font-weight:1000;color:white;animation:slotPulse .12s linear infinite}
+.checkList{text-align:left;display:inline-block;margin:12px auto;color:#d8cbef;line-height:1.8}
+.directorActions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+.skipBtn{position:absolute;right:14px;top:14px;background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.15)!important}
+@keyframes slotPulse{0%{transform:translateY(-2px)}100%{transform:translateY(2px)}}
+
+
+.celebrationOverlay.fadeOut{animation:celebrationFadeOut .55s ease forwards}
+.recordBannerMini{position:fixed;top:12px;left:12px;right:12px;z-index:210;background:linear-gradient(135deg,#ffd84d,#ff8a00);color:#180019;border-radius:18px;padding:12px;text-align:center;font-weight:1000;box-shadow:0 12px 40px rgba(0,0,0,.45);animation:miniBannerIn .25s ease both}
+.recordBannerMini.fadeOut{animation:miniBannerOut .45s ease forwards}
+@keyframes celebrationFadeOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+@keyframes miniBannerIn{from{transform:translateY(-18px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes miniBannerOut{to{transform:translateY(-18px);opacity:0;visibility:hidden}}
+
+
+/* v4.3a car editor */
+.carEditorOverlay{position:fixed;inset:0;z-index:280;background:rgba(5,0,10,.88);display:flex;align-items:center;justify-content:center;padding:18px}
+.carEditorCard{width:min(520px,96vw);background:linear-gradient(180deg,#2a0a4d,#14001f);border:1px solid rgba(255,255,255,.18);border-radius:26px;padding:18px;box-shadow:0 24px 80px rgba(0,0,0,.6)}
