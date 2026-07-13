@@ -1,0 +1,146 @@
+// RaceHub v4.3b — Core
+const STORE='RaceHub_v4_1_director_edition';
+let state=null;
+let currentScreen='festival';
+let currentEventId='drag';
+let eventTab='waiting';
+let garageMake='All';
+let garageSearch='';
+let selectedRun=null;
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const carName=c=>`${c.make} ${c.model}${c.year?' '+c.year:''}`.replace(/\s+/g,' ').trim();
+const eventById=id=>state.events.find(e=>e.id===id)||state.events[0];
+const carById=id=>state.cars.find(c=>c.id===id);
+const isLong=id=>eventById(id).type==='distance';
+
+function normaliseCar(car){
+ const c=Object.assign({},car||{});
+ c.id=String(c.id||'').trim();
+ c.make=String(c.make||'').trim();
+ c.model=String(c.model||'').trim();
+ c.year=String(c.year||'').trim();
+ if((!c.make||!c.model) && c.name){
+   const text=String(c.name).trim();
+   const yearMatch=text.match(/\s(\d{4})$/);
+   if(!c.year&&yearMatch)c.year=yearMatch[1];
+   const withoutYear=yearMatch?text.slice(0,-5).trim():text;
+   if(!c.make){
+     const first=withoutYear.split(/\s+/)[0]||'Unknown';
+     c.make=first;
+   }
+   if(!c.model)c.model=withoutYear.slice(c.make.length).trim()||withoutYear;
+ }
+ c.name=carName(c);
+ return c;
+}
+function migrateState(raw){
+ const next=Object.assign({},raw||{});
+ next.version='4.3b';
+ next.cars=Array.isArray(next.cars)?next.cars.map(normaliseCar):[...SEED.cars].map(normaliseCar);
+ next.events=Array.isArray(next.events)?next.events:[...SEED.events];
+ next.results=Array.isArray(next.results)?next.results:[];
+ next.history=Array.isArray(next.history)?next.history:[];
+ next.recordHistory=Array.isArray(next.recordHistory)?next.recordHistory:[];
+ next.settings=Object.assign({sound:true,confetti:true,vibrate:true},next.settings||{});
+ return next;
+}
+function freshState(){return migrateState({version:'4.3b',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
+function save(){localStorage.setItem(STORE,JSON.stringify(state));}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+function show(screen){currentScreen=screen;document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(screen).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===screen));render(screen);window.scrollTo(0,0)}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.screen)));
+
+function parseResult(eventId,raw){
+ raw=String(raw||'').trim(); if(!raw)return NaN;
+ if(isLong(eventId)) return Number(raw.replace(/[^0-9.]/g,''));
+ const ev=eventById(eventId);
+ if(ev.name==='Drag'){ if(raw.includes('.'))return Number(raw.replace(/[^0-9.]/g,'')); let d=raw.replace(/\D/g,''); if(d.length>3)return Number(d.slice(0,-3)+'.'+d.slice(-3)); return Number(d); }
+ if(raw.includes(':')){let p=raw.split(':'); if(p.length!==2)return NaN; return Number(p[0])*60+Number(p[1]);}
+ let d=raw.replace(/\D/g,''); if(d.length<4)return Number(d);
+ let ms=d.slice(-3), before=d.slice(0,-3), sec=before.slice(-2), min=before.slice(0,-2)||'0';
+ return Number(min)*60+Number(sec+'.'+ms);
+}
+function fmt(eventId,v){ if(v==null||!isFinite(v))return '—'; if(isLong(eventId))return Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+' ft'; let m=Math.floor(v/60), s=(v-m*60).toFixed(3).padStart(6,'0'); return m>0?String(m).padStart(2,'0')+':'+s:s+'s'; }
+
+function bestRows(eventId){
+ const map={};
+ state.results.filter(r=>r.eventId===eventId).forEach(r=>{ if(!map[r.carId] || (isLong(eventId)?r.value>map[r.carId].value:r.value<map[r.carId].value)) map[r.carId]=r; });
+ return Object.values(map).sort((a,b)=>isLong(eventId)?b.value-a.value:a.value-b.value);
+}
+function eventStats(eventId){const rows=bestRows(eventId), total=state.cars.length;return {done:rows.length,total,waiting:total-rows.length,pct:total?Math.round(rows.length/total*100):0,leader:rows[0]||null,rows}}
+function completedSet(eventId){return new Set(bestRows(eventId).map(r=>r.carId));}
+function waitingCars(eventId){const done=completedSet(eventId);return state.cars.filter(c=>!done.has(c.id));}
+function carCompletedEvents(carId){
+ const set=new Set();
+ state.results.forEach(r=>{if(r.carId===carId)set.add(r.eventId)});
+ return set;
+}
+function carIsComplete(carId){return carCompletedEvents(carId).size>=state.events.length}
+function unfinishedCars(){return state.cars.filter(c=>!carIsComplete(c.id))}
+function nextEventForCar(carId){
+ const done=carCompletedEvents(carId);
+ return state.events.find(e=>!done.has(e.id)) || null;
+}
+function currentCar(){
+  if(!state.currentCarId)return null;
+  const c=carById(state.currentCarId);
+  if(!c || carIsComplete(c.id))return null;
+  return c;
+}
+function continueCurrentCar(){
+  const c=currentCar();
+  if(!c){startRaceDirector();return;}
+  const ev=nextEventForCar(c.id);
+  if(!ev){startRaceDirector();return;}
+  selectedRun={eventId:ev.id,carId:c.id};
+  currentEventId=ev.id;
+  state.currentEventId=ev.id;
+  save();
+  eventTab='add';
+  show('event');
+}
+
+function allPendingRuns(){
+ let total=state.events.length*state.cars.length;
+ let done=0;
+ state.cars.forEach(c=>done+=carCompletedEvents(c.id).size);
+ return {total,done,remaining:total-done};
+}
+function chooseRandomCar(){
+ let cars=unfinishedCars();
+ if(!cars.length)return null;
+ let last=state.lastCarId||null;
+ let pool=cars.filter(c=>c.id!==last);
+ if(!pool.length)pool=cars;
+ return pool[Math.floor(Math.random()*pool.length)];
+}
+function startRaceDirector(){
+ const car=chooseRandomCar();
+ if(!car){toast('All cars complete');return;}
+ const ev=nextEventForCar(car.id);
+ if(!ev){toast('Car already complete');return;}
+ selectedRun={eventId:ev.id,carId:car.id};
+ currentEventId=ev.id;
+ state.currentEventId=ev.id;
+ state.lastCarId=car.id;
+ state.currentCarId=car.id;
+ save();
+ eventTab='add';
+ show('event');
+}
+function openEvent(eventId,tab='waiting'){currentEventId=eventId;state.currentEventId=eventId;save();eventTab=tab;selectedRun=null;show('event')}
+
+function render(screen){ if(screen==='festival')renderFestival(); if(screen==='events')renderEvents(); if(screen==='event')renderEvent(); if(screen==='garage')renderGarage(); if(screen==='more')renderMore(); }
+
+
+function currentCarProgress(){
+  const c=currentCar();
+  if(!c)return null;
+  const done=carCompletedEvents(c.id).size;
+  const next=nextEventForCar(c.id);
+  return {car:c,done,next,complete:done>=state.events.length};
+}
+

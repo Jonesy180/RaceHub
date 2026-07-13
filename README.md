@@ -1,17 +1,18 @@
-# RaceHub v4.3a Developer Preview
+# RaceHub v4.3b Modular Developer Preview
 
-First milestone of the Championship Insights update.
+This build reorganises the tested v4.3a JavaScript into maintainable modules.
 
-## Added
-- Editable car manufacturer, model and year.
-- Garage status for completed, in-progress and unstarted cars.
-- Festival counters now show cars completed and cars remaining.
-- Safe state normalisation while retaining the existing local-storage key.
+## No intended feature changes
 
-## Preserved
-- Existing results and progress.
-- Race Director.
-- Record history and celebrations.
-- GitHub Pages/PWA installation.
+Your storage key remains unchanged, so existing cars, results, records and progress are preserved.
 
-This is a developer preview for testing before the statistics work begins.
+## JavaScript structure
+
+- `js/seed-data.js` — standard car and event data
+- `js/core.js` — storage, migration and shared calculations
+- `js/race-director.js` — hosted race-night flow
+- `js/views.js` — Festival and Event screens
+- `js/celebrations.js` — records, confetti and result handling
+- `js/garage.js` — garage and car editing
+- `js/control-centre.js` — records, settings and backup tools
+- `js/bootstrap.js` — application startup

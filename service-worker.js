@@ -1,5 +1,5 @@
-const CACHE_NAME='racehub-v4-3a-developer-preview';
-const ASSETS=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./favicon.png','./icons/icon-192.png','./icons/icon-512.png'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch',e=>{e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));});
+const CACHE_NAME='racehub-v4-3b-modular';
+const ASSETS=["./", "./index.html", "./style.css", "./manifest.webmanifest", "./favicon.png", "./js/seed-data.js", "./js/core.js", "./js/race-director.js", "./js/views.js", "./js/celebrations.js", "./js/garage.js", "./js/control-centre.js", "./js/bootstrap.js", "./icons/icon-192.png", "./icons/icon-512.png"];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(ASSETS)));self.skipWaiting();});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))));self.clients.claim();});
+self.addEventListener('fetch',event=>{event.respondWith(fetch(event.request).catch(()=>caches.match(event.request)));});
