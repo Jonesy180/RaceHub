@@ -88,6 +88,23 @@ function closeFestivalMilestone(){
   if(overlay)overlay.remove();
 }
 
+function ordinalPosition(n){
+  const value=Math.abs(Number(n)||0);
+  const mod100=value%100;
+  if(mod100>=11&&mod100<=13)return `${value}th`;
+  switch(value%10){
+    case 1:return `${value}st`;
+    case 2:return `${value}nd`;
+    case 3:return `${value}rd`;
+    default:return `${value}th`;
+  }
+}
+
+function eventPositionLabel(position,total){
+  const medal=position===1?'🥇 ':position===2?'🥈 ':position===3?'🥉 ':'';
+  return `${medal}${ordinalPosition(position)} of ${total}`;
+}
+
 function launchConfetti(){
   if(state.settings && state.settings.confetti===false) return;
   const overlay=document.getElementById('celebrationOverlay');
@@ -237,6 +254,10 @@ function saveResult(){
    ? festivalMilestoneForCount(completedAfter,state.cars.length)
    : null;
  const car=carById(carId);
+ const updatedEventStats=eventStats(ev.id);
+ const eventPosition=updatedEventStats.rows.findIndex(row=>row.id===r.id)+1;
+ const eventPositionTotal=updatedEventStats.rows.length;
+ const eventPositionText=eventPositionLabel(eventPosition,eventPositionTotal);
  const nextEv=nextEventForCar(carId);
  const runStats=allPendingRuns();
  let actionButtons='';
@@ -248,6 +269,7 @@ function saveResult(){
  actionButtons += `<button class="btn secondary" onclick="eventTab='leaderboard';renderEvent()">View Leaderboard</button>`;
  $('event').innerHTML=`<div class="card"><h2>Result Saved</h2>
  ${isRecord?`<div class="recordBox">🏆 ${before?'RECORD SHATTERED!':'NEW EVENT RECORD!'}<br>${esc(carName(car))}<br><span style="font-size:24px">${esc(fmt(ev.id,value))}</span>${before?`<br><span class="small">Previous: ${esc(fmt(ev.id,before.value))} — ${esc(carName(carById(before.carId)))}</span>`:''}</div>`:`<div class="resultBox">✅ Saved<br><b>${esc(carName(car))}</b><br>${esc(ev.name)} — ${esc(fmt(ev.id,value))}</div>`}
+ <div class="resultBox"><div class="small">Current event position</div><h2>${esc(eventPositionText)}</h2><span class="small">${esc(ev.name)} leaderboard</span></div>
  <div class="resultBox"><b>${nextEv?'Same car continues':'Car complete'}</b><br><span class="small">${nextEv?`Next unfinished event for this car is ${esc(nextEv.name)}.`:'All 7 events complete for this car.'}</span></div>
  <div class="grid">${actionButtons}</div>
  <button class="btn secondary" onclick="openEvent('${ev.id}','waiting')">Back to Waiting</button>
