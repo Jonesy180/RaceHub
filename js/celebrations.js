@@ -105,6 +105,37 @@ function eventPositionLabel(position,total){
   return `${medal}${ordinalPosition(position)} of ${total}`;
 }
 
+function eventAverageFeedback(eventId,value,rows){
+  const values=rows.map(r=>Number(r.value)).filter(Number.isFinite);
+  const count=values.length;
+  if(!count)return null;
+
+  const average=values.reduce((sum,n)=>sum+n,0)/count;
+  const better=isLong(eventId)?value>average:value<average;
+  const equal=Math.abs(value-average)<0.0005;
+  const diff=Math.abs(value-average);
+
+  if(equal){
+    return {
+      count,
+      average,
+      tone:'neutral',
+      headline:'Almost exactly the event average',
+      difference:isLong(eventId)?`${diff.toFixed(2)} ft`:`${diff.toFixed(3)} seconds`
+    };
+  }
+
+  return {
+    count,
+    average,
+    tone:better?'good':'bad',
+    headline:better
+      ?(isLong(eventId)?'FARTHER than average':'FASTER than average')
+      :(isLong(eventId)?'SHORTER than average':'SLOWER than average'),
+    difference:isLong(eventId)?`${diff.toFixed(2)} ft`:`${diff.toFixed(3)} seconds`
+  };
+}
+
 function launchConfetti(){
   if(state.settings && state.settings.confetti===false) return;
   const overlay=document.getElementById('celebrationOverlay');
@@ -258,6 +289,7 @@ function saveResult(){
  const eventPosition=updatedEventStats.rows.findIndex(row=>row.id===r.id)+1;
  const eventPositionTotal=updatedEventStats.rows.length;
  const eventPositionText=eventPositionLabel(eventPosition,eventPositionTotal);
+ const averageFeedback=eventAverageFeedback(ev.id,value,updatedEventStats.rows);
  const nextEv=nextEventForCar(carId);
  const runStats=allPendingRuns();
  let actionButtons='';
@@ -270,6 +302,7 @@ function saveResult(){
  $('event').innerHTML=`<div class="card"><h2>Result Saved</h2>
  ${isRecord?`<div class="recordBox">🏆 ${before?'RECORD SHATTERED!':'NEW EVENT RECORD!'}<br>${esc(carName(car))}<br><span style="font-size:24px">${esc(fmt(ev.id,value))}</span>${before?`<br><span class="small">Previous: ${esc(fmt(ev.id,before.value))} — ${esc(carName(carById(before.carId)))}</span>`:''}</div>`:`<div class="resultBox">✅ Saved<br><b>${esc(carName(car))}</b><br>${esc(ev.name)} — ${esc(fmt(ev.id,value))}</div>`}
  <div class="resultBox"><div class="small">Current event position</div><h2>${esc(eventPositionText)}</h2><span class="small">${esc(ev.name)} leaderboard</span></div>
+ ${averageFeedback?`<div class="resultBox" style="border-color:${averageFeedback.tone==='good'?'#29ff8a':averageFeedback.tone==='bad'?'#ff4d6d':'#ffd84d'};box-shadow:0 0 22px ${averageFeedback.tone==='good'?'rgba(41,255,138,.18)':averageFeedback.tone==='bad'?'rgba(255,77,109,.18)':'rgba(255,216,77,.16)'}"><div class="small">Performance vs average</div><h2 style="color:${averageFeedback.tone==='good'?'#29ff8a':averageFeedback.tone==='bad'?'#ff4d6d':'#ffd84d'}">${averageFeedback.tone==='good'?'🟢':averageFeedback.tone==='bad'?'🔴':'🟡'} ${esc(averageFeedback.difference)}</h2><b style="color:${averageFeedback.tone==='good'?'#29ff8a':averageFeedback.tone==='bad'?'#ff4d6d':'#ffd84d'}">${esc(averageFeedback.headline)}</b><br><span class="small">Average (${averageFeedback.count} car${averageFeedback.count===1?'':'s'}): ${esc(fmt(ev.id,averageFeedback.average))}</span></div>`:''}
  <div class="resultBox"><b>${nextEv?'Same car continues':'Car complete'}</b><br><span class="small">${nextEv?`Next unfinished event for this car is ${esc(nextEv.name)}.`:'All 7 events complete for this car.'}</span></div>
  <div class="grid">${actionButtons}</div>
  <button class="btn secondary" onclick="openEvent('${ev.id}','waiting')">Back to Waiting</button>
