@@ -144,3 +144,64 @@ function currentCarProgress(){
   return {car:c,done,next,complete:done>=state.events.length};
 }
 
+
+function championshipRows(){
+  const timedEvents=state.events.filter(e=>e.type!=='distance');
+  const distanceEvent=state.events.find(e=>e.type==='distance')||null;
+
+  const bestByEvent={};
+  state.events.forEach(ev=>{
+    bestByEvent[ev.id]=new Map(bestRows(ev.id).map(r=>[r.carId,r]));
+  });
+
+  const rows=state.cars
+    .filter(car=>carIsComplete(car.id))
+    .map(car=>{
+      const timedResults=timedEvents.map(ev=>bestByEvent[ev.id].get(car.id)).filter(Boolean);
+      if(timedResults.length!==timedEvents.length)return null;
+
+      const totalTime=timedResults.reduce((sum,r)=>sum+Number(r.value),0);
+      const jumpResult=distanceEvent?bestByEvent[distanceEvent.id].get(car.id):null;
+      const longJump=jumpResult?Number(jumpResult.value):0;
+
+      return {
+        carId:car.id,
+        car,
+        totalTime,
+        longJump,
+        position:0,
+        gap:0
+      };
+    })
+    .filter(Boolean)
+    .sort((a,b)=>{
+      const timeDiff=a.totalTime-b.totalTime;
+      if(Math.abs(timeDiff)>0.0000001)return timeDiff;
+      const jumpDiff=b.longJump-a.longJump;
+      if(Math.abs(jumpDiff)>0.0000001)return jumpDiff;
+      return carName(a.car).localeCompare(carName(b.car));
+    });
+
+  const leaderTime=rows.length?rows[0].totalTime:0;
+  rows.forEach((row,index)=>{
+    row.position=index+1;
+    row.gap=row.totalTime-leaderTime;
+  });
+
+  return rows;
+}
+
+function championshipLeader(){
+  return championshipRows()[0]||null;
+}
+
+function championshipPosition(carId){
+  const row=championshipRows().find(r=>r.carId===carId);
+  return row?row.position:null;
+}
+
+function championshipGap(carId){
+  const row=championshipRows().find(r=>r.carId===carId);
+  return row?row.gap:null;
+}
+

@@ -17,6 +17,17 @@ function progressBarStyle(percent,type='event'){
 function progressTrackStyle(){
   return 'height:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);border-radius:999px;overflow:hidden;margin:10px 0';
 }
+
+function formatChampionshipTime(totalSeconds){
+ const total=Math.max(0,Number(totalSeconds)||0);
+ const hours=Math.floor(total/3600);
+ const minutes=Math.floor((total%3600)/60);
+ const seconds=(total%60).toFixed(3).padStart(6,'0');
+ return hours>0
+  ?`${hours}:${String(minutes).padStart(2,'0')}:${seconds}`
+  :`${String(minutes).padStart(2,'0')}:${seconds}`;
+}
+
 function renderFestival(){
  const totalCars=state.cars.length;
  const completedCars=state.cars.filter(c=>carIsComplete(c.id)).length;
@@ -31,6 +42,26 @@ function renderFestival(){
  const cc=currentCar();
  const ccDone=cc?carCompletedEvents(cc.id).size:0;
  const ccNext=cc?nextEventForCar(cc.id):null;
+
+ const championship=championshipRows();
+ const championshipLeaderRow=championship[0]||null;
+ const championshipHtml=championshipLeaderRow?`
+  <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
+   <h3 style="color:#ffd84d">🏆 Festival Championship</h3>
+   <div class="small">👑 Current Leader</div>
+   <div class="recordCar">${esc(carName(championshipLeaderRow.car))}</div>
+   <div class="recordTime">${esc(formatChampionshipTime(championshipLeaderRow.totalTime))}</div>
+   <div class="small">${championship.length} car${championship.length===1?' has':'s have'} completed the Festival</div>
+   <button class="btn secondary" onclick="showChampionship()">View Championship</button>
+  </div>
+ `:`
+  <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
+   <h3 style="color:#ffd84d">🏆 Festival Championship</h3>
+   <p class="small">No Championship standings yet.</p>
+   <p class="small">Complete your first car to start the Festival Championship.</p>
+   <button class="btn secondary" onclick="showChampionship()">View Championship</button>
+  </div>
+ `;
 
  const legendaryHtml=(()=>{
   const leg=legendaryRecord();
@@ -99,9 +130,83 @@ function renderFestival(){
    </div>
 
    ${legendaryHtml}
+   ${championshipHtml}
    ${raceNightHtml}
   </div>
  `;
+}
+
+
+function championshipGapText(seconds){
+ const gap=Math.max(0,Number(seconds)||0);
+ if(gap<60)return `+${gap.toFixed(3)}`;
+ const mins=Math.floor(gap/60);
+ const secs=(gap-mins*60).toFixed(3).padStart(6,'0');
+ return `+${String(mins).padStart(2,'0')}:${secs}`;
+}
+
+function showChampionship(){
+ const rows=championshipRows();
+
+ const old=document.getElementById('championshipOverlay');
+ if(old)old.remove();
+
+ if(!rows.length){
+  const html=`<div id="championshipOverlay" class="directorOverlay">
+   <div class="directorCard" style="max-height:92vh;overflow:auto;text-align:center">
+    <button class="btn secondary" style="float:right;min-height:38px;padding:8px 12px" onclick="closeChampionship()">✕</button>
+    <div style="font-size:64px">🏆</div>
+    <div class="directorTitle">Festival Championship</div>
+    <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
+     <h3>No cars have completed the Festival yet.</h3>
+     <p class="small">Complete all seven events with your first car to begin the Championship.</p>
+    </div>
+    <button class="btn bigStart" onclick="closeChampionship()">Back to Festival</button>
+   </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+  return;
+ }
+
+ const podiumIcon=position=>position===1?'🥇':position===2?'🥈':position===3?'🥉':position;
+ const standings=rows.map(row=>`
+  <div class="row">
+   <div class="rank">${podiumIcon(row.position)}</div>
+   <div class="grow">
+    <b>${esc(carName(row.car))}</b><br>
+    <span class="small">Total: ${esc(formatChampionshipTime(row.totalTime))}</span><br>
+    <span class="small">Long Jump: ${esc(Number(row.longJump).toLocaleString(undefined,{maximumFractionDigits:2}))} ft</span>
+   </div>
+   <div style="text-align:right;font-weight:900;color:${row.position===1?'#ffd84d':'#ffffff'}">
+    ${row.position===1?'LEADER':esc(championshipGapText(row.gap))}
+   </div>
+  </div>
+ `).join('');
+
+ const html=`<div id="championshipOverlay" class="directorOverlay">
+  <div class="directorCard" style="max-height:92vh;overflow:auto;text-align:left">
+   <button class="btn secondary" style="float:right;min-height:38px;padding:8px 12px" onclick="closeChampionship()">✕</button>
+   <div style="text-align:center">
+    <div style="font-size:54px">🏆</div>
+    <div class="directorTitle">Festival Championship</div>
+    <div class="small">${rows.length} of ${state.cars.length} cars qualified</div>
+   </div>
+   <div class="legacyCard" style="text-align:center">
+    <div class="small">Current Leader</div>
+    <div class="recordCar">${esc(carName(rows[0].car))}</div>
+    <div class="recordTime">${esc(formatChampionshipTime(rows[0].totalTime))}</div>
+   </div>
+   <div>${standings}</div>
+   <button class="btn bigStart" onclick="closeChampionship()">Back to Festival</button>
+  </div>
+ </div>`;
+
+ document.body.insertAdjacentHTML('beforeend',html);
+}
+
+function closeChampionship(){
+ const overlay=document.getElementById('championshipOverlay');
+ if(overlay)overlay.remove();
 }
 
 function renderEvents(){
