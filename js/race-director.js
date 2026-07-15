@@ -1,4 +1,4 @@
-// RaceHub v4.3b — Race Director
+// RaceHub v4.3c — Race Director · Completion Celebration Polish
 const directorLines=[
   'Good evening, drivers...',
   'The garage has spoken...',
@@ -213,12 +213,19 @@ function showCarComplete(carId){
     :'';
 
   directorOverlay(`<div class="directorCard" style="max-height:92vh;overflow:auto">
-    <div style="font-size:60px">${isLeader?'🏆':'🏁'}</div>
-    <div class="directorTitle" style="${isLeader?'color:#ffd84d':''}">
-      ${isLeader?'NEW FESTIVAL LEADER!':'CAR COMPLETE'}
+    <div style="font-size:64px">${isLeader?'🏆':'🎉'}</div>
+    <div class="directorTitle" style="${isLeader?'color:#ffd84d':'color:#34d7ff'}">
+      ${isLeader?'NEW FESTIVAL LEADER!':'RACE NIGHT COMPLETE!'}
     </div>
     <div class="directorBig">🚗 ${esc(carName(car))}</div>
     <p class="small">All ${state.events.length} events complete</p>
+    <div class="legacyCard" style="border-color:${isLeader?'#ffd84d':'#34d7ff'};box-shadow:0 0 24px ${isLeader?'rgba(255,216,77,.22)':'rgba(52,215,255,.18)'}">
+      <b>${isLeader?'Championship leader':'This car has completed its full Festival programme'}</b>
+      <div class="progress completionProgress" style="margin:12px 0 8px">
+        <div class="bar" style="width:100%;${isLeader?'background:linear-gradient(90deg,#ff9f2f,#ffd84d);box-shadow:0 0 16px rgba(255,216,77,.8),0 0 28px rgba(255,159,47,.45)':''}"></div>
+      </div>
+      <span class="small">${state.events.length}/${state.events.length} events complete</span>
+    </div>
 
     ${championshipSummary}
     ${directorChampionshipPodium(standings,carId)}
@@ -242,10 +249,8 @@ function showCarComplete(carId){
     </div>
   </div>`);
 
-  if(isLeader){
-    try{playRecordSound();}catch(e){}
-    try{vibrateRecord();}catch(e){}
-    launchDirectorConfetti();
-  }
+  try{playRecordSound();}catch(e){}
+  try{vibrateRecord();}catch(e){}
+  launchDirectorConfetti();
 }
 
