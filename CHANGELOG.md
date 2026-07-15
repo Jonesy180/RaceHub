@@ -1,12 +1,12 @@
 # RaceHub Changelog
 
-## v4.4b — Live Championship Fields
+## v5.0.0 — Live Championship Fields
 - Era, Make and Open Championship fields now update automatically from the current garage.
 - Newly added matching cars join an active Championship immediately.
 - Removed the locked-field wording from the Championship selector.
 - Existing Championship selections and results remain intact.
 
-## v4.3e Time Display Fix
+## v5.0.0 Time Display Fix
 - Average-performance differences of 60 seconds or more now display as minutes and seconds.
 - Example: 70.000 seconds now displays as 1 minute 10.000 seconds.
 - Long Jump difference formatting and all average calculations are unchanged.

@@ -1,4 +1,4 @@
-// RaceHub v4.4c — Shared Results Championship Engine Views
+// RaceHub v5.0.0 — Shared Results Championship Engine Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));
