@@ -120,14 +120,132 @@ function carCompletionStats(carId){
   });
   return {results:rows.length,records,bestFinish};
 }
+function formatDirectorChampionshipTime(totalSeconds){
+  const total=Math.max(0,Number(totalSeconds)||0);
+  const hours=Math.floor(total/3600);
+  const minutes=Math.floor((total%3600)/60);
+  const seconds=(total%60).toFixed(3).padStart(6,'0');
+  return hours>0
+    ?`${hours}:${String(minutes).padStart(2,'0')}:${seconds}`
+    :`${String(minutes).padStart(2,'0')}:${seconds}`;
+}
+
+function formatDirectorChampionshipGap(seconds){
+  const gap=Math.max(0,Number(seconds)||0);
+  if(gap<60)return `${gap.toFixed(3)} seconds`;
+  const mins=Math.floor(gap/60);
+  const secs=(gap-mins*60).toFixed(3).padStart(6,'0');
+  return `${String(mins).padStart(2,'0')}:${secs}`;
+}
+
+function launchDirectorConfetti(){
+  if(state.settings && state.settings.confetti===false)return;
+  const overlay=document.getElementById('directorOverlay');
+  if(!overlay)return;
+  const colours=['#ff2bd6','#7b2cff','#34d7ff','#ffd84d','#ff8a00','#ffffff'];
+  for(let i=0;i<120;i++){
+    const piece=document.createElement('div');
+    piece.className='confettiPiece';
+    piece.style.left=(Math.random()*100)+'vw';
+    piece.style.top=(-20-Math.random()*80)+'px';
+    piece.style.background=colours[Math.floor(Math.random()*colours.length)];
+    piece.style.animationDelay=(Math.random()*0.45)+'s';
+    piece.style.animationDuration=(2+Math.random()*2)+'s';
+    piece.style.width=(6+Math.random()*8)+'px';
+    piece.style.height=(10+Math.random()*14)+'px';
+    piece.style.transform='rotate('+Math.floor(Math.random()*360)+'deg)';
+    overlay.appendChild(piece);
+  }
+}
+
+function directorChampionshipMedal(position){
+  return position===1?'🥇':position===2?'🥈':position===3?'🥉':'🏁';
+}
+
+function directorChampionshipAccent(position){
+  return position===1?'#ffd84d':position===2?'#dce6f2':position===3?'#d99a5e':'#34d7ff';
+}
+
+function directorChampionshipPodium(standings,currentCarId){
+  const leaders=standings.slice(0,3);
+  if(!leaders.length)return '';
+  return `<div class="legacyCard" style="text-align:left">
+    <div class="small" style="text-align:center;margin-bottom:10px">Current Championship Podium</div>
+    ${leaders.map(r=>{
+      const podiumCar=carById(r.carId);
+      const active=r.carId===currentCarId;
+      const accent=directorChampionshipAccent(r.position);
+      return `<div style="display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center;padding:9px 4px;${r.position<3?'border-bottom:1px solid rgba(255,255,255,.1);':''}${active?`color:${accent};font-weight:800;`:''}">
+        <span style="font-size:22px">${directorChampionshipMedal(r.position)}</span>
+        <span>${esc(podiumCar?carName(podiumCar):r.carId)}${active?' <span class="small">(this car)</span>':''}</span>
+        <span>${esc(formatDirectorChampionshipTime(r.totalTime))}</span>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
 function showCarComplete(carId){
   const car=carById(carId), stats=carCompletionStats(carId);
-  const best=stats.bestFinish?`${stats.bestFinish.pos+1}${['st','nd','rd'][stats.bestFinish.pos]||'th'} in ${stats.bestFinish.event}`:'—';
-  $('event').innerHTML=`<div class="card"><h2>🏁 Race Night Complete</h2>
-    <div class="completedCar"><h3>Car Completed</h3><h2>${esc(carName(car))}</h2><p class="small">All 7 events complete</p></div>
-    <div class="grid"><div class="resultBox"><div class="legacyBig">${stats.records}</div><div class="small">event records held</div></div><div class="resultBox"><div class="legacyBig">${best}</div><div class="small">best finish</div></div></div>
-    <button class="btn bigStart" onclick="beginDirectorShow(true)">🎲 Pick Next Random Car</button>
-    <button class="btn secondary" onclick="show('festival')">Back to Festival</button>
-  </div>`;
+  const best=stats.bestFinish?`${ordinalPosition(stats.bestFinish.pos+1)} in ${stats.bestFinish.event}`:'—';
+
+  const standings=championshipRows();
+  const row=standings.find(r=>r.carId===carId)||null;
+  const isLeader=!!row&&row.position===1;
+  const second=standings[1]||null;
+  const lead=isLeader&&second?second.totalTime-row.totalTime:null;
+  const positionText=row?`${ordinalPosition(row.position)} of ${standings.length}`:'—';
+  const accent=row?directorChampionshipAccent(row.position):'#34d7ff';
+  const medal=row?directorChampionshipMedal(row.position):'🏁';
+  const qualifiedCount=standings.length;
+  const championshipSummary=row
+    ?`<div class="legacyCard" style="border-color:${accent};box-shadow:0 0 26px ${row.position===1?'rgba(255,216,77,.24)':'rgba(52,215,255,.14)'}">
+        <div class="small">Festival Championship</div>
+        <h2 style="color:${accent};margin:.25em 0">${medal} ${positionText}</h2>
+        <div class="small">Combined time across all six races</div>
+        <div class="recordTime" style="color:${accent}">${esc(formatDirectorChampionshipTime(row.totalTime))}</div>
+        ${isLeader
+          ?(lead!=null
+            ?`<div class="small">Championship lead</div><b style="color:#5cff8d">${esc(formatDirectorChampionshipGap(lead))} ahead</b>`
+            :'<div class="small">First car to qualify — the Championship has begun</div>')
+          :`<div class="small">Gap to Championship leader</div><b style="color:#ff6b7a">+${esc(formatDirectorChampionshipGap(row.gap))}</b>`}
+        <div class="small" style="margin-top:10px">${qualifiedCount} ${qualifiedCount===1?'car has':'cars have'} qualified so far</div>
+      </div>`
+    :'';
+
+  directorOverlay(`<div class="directorCard" style="max-height:92vh;overflow:auto">
+    <div style="font-size:60px">${isLeader?'🏆':'🏁'}</div>
+    <div class="directorTitle" style="${isLeader?'color:#ffd84d':''}">
+      ${isLeader?'NEW FESTIVAL LEADER!':'CAR COMPLETE'}
+    </div>
+    <div class="directorBig">🚗 ${esc(carName(car))}</div>
+    <p class="small">All ${state.events.length} events complete</p>
+
+    ${championshipSummary}
+    ${directorChampionshipPodium(standings,carId)}
+
+    <div class="grid">
+      <div class="resultBox">
+        <div class="legacyBig">${stats.records}</div>
+        <div class="small">event ${stats.records===1?'record':'records'} held</div>
+      </div>
+      <div class="resultBox">
+        <div class="legacyBig">${esc(best)}</div>
+        <div class="small">best event finish</div>
+      </div>
+    </div>
+
+    <div class="small" style="margin:12px 0 4px">Championship ties are decided by the highest Long Jump distance.</div>
+
+    <div class="directorActions">
+      <button class="btn bigStart" onclick="closeDirector();beginDirectorShow(true)">🎲 Pick Next Random Car</button>
+      <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Festival</button>
+    </div>
+  </div>`);
+
+  if(isLeader){
+    try{playRecordSound();}catch(e){}
+    try{vibrateRecord();}catch(e){}
+    launchDirectorConfetti();
+  }
 }
 
