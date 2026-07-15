@@ -1,4 +1,4 @@
-// RaceHub v4.3b — Views
+// RaceHub v4.4c — Shared Results Championship Engine Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));
@@ -29,8 +29,9 @@ function formatChampionshipTime(totalSeconds){
 }
 
 function renderFestival(){
- const totalCars=state.cars.length;
- const completedCars=state.cars.filter(c=>carIsComplete(c.id)).length;
+ const activeCars=championshipCars();
+ const totalCars=activeCars.length;
+ const completedCars=activeCars.filter(c=>carIsComplete(c.id)).length;
  const remainingCars=Math.max(0,totalCars-completedCars);
  const festivalPct=totalCars?Math.round((completedCars/totalCars)*100):0;
 
@@ -47,7 +48,7 @@ function renderFestival(){
  const championshipLeaderRow=championship[0]||null;
  const championshipHtml=championshipLeaderRow?`
   <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
-   <h3 style="color:#ffd84d">🏆 Festival Championship</h3>
+   <h3 style="color:#ffd84d">🏆 ${esc(activeChampionshipName())}</h3>
    <div class="small">👑 Current Leader</div>
    <div class="recordCar">${esc(carName(championshipLeaderRow.car))}</div>
    <div class="recordTime">${esc(formatChampionshipTime(championshipLeaderRow.totalTime))}</div>
@@ -56,7 +57,7 @@ function renderFestival(){
   </div>
  `:`
   <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
-   <h3 style="color:#ffd84d">🏆 Festival Championship</h3>
+   <h3 style="color:#ffd84d">🏆 ${esc(activeChampionshipName())}</h3>
    <p class="small">No Championship standings yet.</p>
    <p class="small">Complete your first car to start the Festival Championship.</p>
    <button class="btn secondary" onclick="showChampionship()">View Championship</button>
@@ -90,14 +91,19 @@ function renderFestival(){
  `:`
   <div class="raceDirector">
    <h2>🏁 Race Night Mode</h2>
-   <p class="small">RaceHub chooses a random car, then guides it through all 7 events.</p>
+   <p class="small">RaceHub chooses a random unfinished car from the active Festival, then guides it through all 7 events.</p>
    <button class="btn bigStart" onclick="beginDirectorShow()">🏁 Start Race Night</button>
   </div>
  `;
 
  $('festival').innerHTML=`
   <div class="card">
-   <h2>Festival Control</h2>
+   <div class="legacyCard" style="border-color:#34d7ff;box-shadow:0 0 22px rgba(52,215,255,.16);text-align:center">
+    <div class="small">🏁 ACTIVE FESTIVAL</div>
+    <h2 style="margin:6px 0">${esc(activeChampionshipName())}</h2>
+    <div class="small">${totalCars} eligible cars · one shared set of race results</div>
+   </div>
+   <button class="btn secondary" onclick="showChampionshipSelector()">🏆 Change Active Festival</button>
 
    <div class="grid">
     <div class="resultBox">
@@ -110,7 +116,7 @@ function renderFestival(){
     </div>
    </div>
 
-   <h3>Festival Progress</h3>
+   <h3>Championship Progress</h3>
    <div class="progress" style="${progressTrackStyle()}">
     <div class="bar" style="${progressBarStyle(festivalPct,'festival')}"></div>
    </div>
@@ -137,6 +143,40 @@ function renderFestival(){
 }
 
 
+
+function showChampionshipSelector(){
+ const old=document.getElementById('championshipSelectorOverlay');
+ if(old)old.remove();
+ const active=activeChampionship();
+ const started=new Map((state.championships||[]).map(c=>[c.id,c]));
+ const options=generatedChampionshipOptions();
+ const sections=[
+  ['Open',options.filter(o=>o.type==='open')],
+  ['Era Championships',options.filter(o=>o.type==='era')],
+  ['Make Championships',options.filter(o=>o.type==='make')]
+ ];
+ const body=sections.map(([title,list])=>list.length?`<h3>${esc(title)}</h3>${list.map(option=>{
+  const existing=started.get(option.id);
+  const selected=active.id===option.id;
+  const count=option.cars.length;
+  return `<div class="row" style="border-color:${selected?'#ffd84d':'rgba(255,255,255,.12)'}">
+   <div class="rank">${selected?'✅':'🏁'}</div>
+   <div class="grow"><b>${esc(option.name)}</b><br><span class="small">${count} eligible car${count===1?'':'s'} · updates with garage</span></div>
+   <button class="chip" onclick="startChampionship('${esc(option.id)}')">${selected?'Active':'Select'}</button>
+  </div>`;
+ }).join('')}`:'').join('');
+ const html=`<div id="championshipSelectorOverlay" class="directorOverlay">
+  <div class="directorCard" style="max-height:92vh;overflow:auto;text-align:left">
+   <button class="btn secondary" style="float:right;min-height:38px;padding:8px 12px" onclick="closeChampionshipSelector()">✕</button>
+   <div style="text-align:center"><div style="font-size:54px">🏆</div><div class="directorTitle">Choose Active Festival</div>
+   <p class="small">Championships are generated live from your garage. Matching cars added later join automatically. Results are stored once and count in every Championship the car qualifies for.</p></div>
+   ${body}
+  </div>
+ </div>`;
+ document.body.insertAdjacentHTML('beforeend',html);
+}
+function closeChampionshipSelector(){const o=document.getElementById('championshipSelectorOverlay');if(o)o.remove();}
+
 function championshipGapText(seconds){
  const gap=Math.max(0,Number(seconds)||0);
  if(gap<60)return `+${gap.toFixed(3)}`;
@@ -156,7 +196,7 @@ function showChampionship(){
    <div class="directorCard" style="max-height:92vh;overflow:auto;text-align:center">
     <button class="btn secondary" style="float:right;min-height:38px;padding:8px 12px" onclick="closeChampionship()">✕</button>
     <div style="font-size:64px">🏆</div>
-    <div class="directorTitle">Festival Championship</div>
+    <div class="directorTitle">${esc(activeChampionshipName())}</div>
     <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
      <h3>No cars have completed the Festival yet.</h3>
      <p class="small">Complete all seven events with your first car to begin the Championship.</p>
@@ -188,8 +228,8 @@ function showChampionship(){
    <button class="btn secondary" style="float:right;min-height:38px;padding:8px 12px" onclick="closeChampionship()">✕</button>
    <div style="text-align:center">
     <div style="font-size:54px">🏆</div>
-    <div class="directorTitle">Festival Championship</div>
-    <div class="small">${rows.length} of ${state.cars.length} cars qualified</div>
+    <div class="directorTitle">${esc(activeChampionshipName())}</div>
+    <div class="small">${rows.length} of ${championshipCarCount()} cars qualified</div>
    </div>
    <div class="legacyCard" style="text-align:center">
     <div class="small">Current Leader</div>

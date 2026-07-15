@@ -279,7 +279,8 @@ function safeShowRecordCelebration(payload){
 function saveResult(){
  const ev=eventById(currentEventId), carId=$('carSelect').value, value=parseResult(ev.id,$('resultInput').value);
  if(!carId||!isFinite(value)){toast('Enter a valid result');return;}
- const completedBefore=state.cars.filter(c=>carIsComplete(c.id)).length;
+ const activeCars=championshipCars();
+ const completedBefore=activeCars.filter(c=>carIsComplete(c.id)).length;
  const before=eventStats(ev.id).leader;
  const isRecord=!before || (isLong(ev.id)?value>before.value:value<before.value);
  const r={id:'r'+Date.now(),eventId:ev.id,carId,value,date:new Date().toISOString()};
@@ -288,9 +289,9 @@ function saveResult(){
  state.currentCarId=carId;
  if(carIsComplete(carId)) state.currentCarId=null;
  save();
- const completedAfter=state.cars.filter(c=>carIsComplete(c.id)).length;
+ const completedAfter=activeCars.filter(c=>carIsComplete(c.id)).length;
  const milestoneReached=completedAfter>completedBefore
-   ? festivalMilestoneForCount(completedAfter,state.cars.length)
+   ? festivalMilestoneForCount(completedAfter,activeCars.length)
    : null;
  const car=carById(carId);
  const updatedEventStats=eventStats(ev.id);
@@ -335,7 +336,7 @@ function saveResult(){
 
  if(milestoneReached){
    setTimeout(
-     ()=>showFestivalMilestone(completedAfter,state.cars.length),
+     ()=>showFestivalMilestone(completedAfter,activeCars.length),
      isRecord?4300:450
    );
  }

@@ -1,4 +1,4 @@
-// RaceHub v4.3b — Core
+// RaceHub v4.4c — Shared Results Championship Engine
 const STORE='RaceHub_v4_1_director_edition';
 let state=null;
 let currentScreen='festival';
@@ -7,6 +7,50 @@ let eventTab='waiting';
 let garageMake='All';
 let garageSearch='';
 let selectedRun=null;
+
+function championshipId(type,value){return `${type}:${String(value||'all').toLowerCase().replace(/[^a-z0-9]+/g,'-')}`;}
+function openChampionshipDefinition(){return {id:'open:all',name:'Open Festival Championship',type:'open',value:'all',createdAt:null};}
+function activeChampionship(){
+ const list=Array.isArray(state&&state.championships)?state.championships:[];
+ return list.find(c=>c.id===state.activeChampionshipId)||list[0]||openChampionshipDefinition();
+}
+function championshipCars(champ=activeChampionship()){
+ if(!champ||champ.type==='open')return [...state.cars];
+ if(champ.type==='era'){
+  const decade=Number(champ.value);
+  return state.cars.filter(car=>{const year=Number(car.year);return Number.isFinite(year)&&Math.floor(year/10)*10===decade;});
+ }
+ if(champ.type==='make'){
+  const make=String(champ.value||'').trim().toLowerCase();
+  return state.cars.filter(car=>String(car.make||'').trim().toLowerCase()===make);
+ }
+ const ids=new Set(Array.isArray(champ.carIds)?champ.carIds:[]);
+ return state.cars.filter(c=>ids.has(c.id));
+}
+function championshipCarCount(){return championshipCars().length;}
+function generatedChampionshipOptions(){
+ const options=[{id:'open:all',name:'Open Festival Championship',type:'open',value:'all',cars:[...state.cars]}];
+ const decades=new Map();
+ const makes=new Map();
+ state.cars.forEach(car=>{
+  const y=Number(car.year);
+  if(Number.isFinite(y)&&y>=1900&&y<=2029){const d=Math.floor(y/10)*10; if(!decades.has(d))decades.set(d,[]); decades.get(d).push(car);}
+  const make=String(car.make||'').trim();
+  if(make){if(!makes.has(make))makes.set(make,[]); makes.get(make).push(car);}
+ });
+ [...decades.entries()].sort((a,b)=>a[0]-b[0]).forEach(([d,cars])=>{if(cars.length>=2)options.push({id:championshipId('era',d),name:`${d}s Championship`,type:'era',value:String(d),cars});});
+ [...makes.entries()].sort((a,b)=>a[0].localeCompare(b[0])).forEach(([make,cars])=>{if(cars.length>=2)options.push({id:championshipId('make',make),name:`${make} Championship`,type:'make',value:make,cars});});
+ return options;
+}
+function startChampionship(optionId){
+ const option=generatedChampionshipOptions().find(o=>o.id===optionId);
+ if(!option){toast('Championship unavailable');return;}
+ state.championships=Array.isArray(state.championships)?state.championships:[];
+ let champ=state.championships.find(c=>c.id===option.id);
+ if(!champ){champ={id:option.id,name:option.name,type:option.type,value:option.value,createdAt:new Date().toISOString()};state.championships.push(champ);}
+ state.activeChampionshipId=champ.id; state.currentCarId=null; selectedRun=null; save(); closeChampionshipSelector(); show('festival'); toast(`${champ.name} selected`);
+}
+function activeChampionshipName(){return activeChampionship().name||'Championship';}
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -37,16 +81,19 @@ function normaliseCar(car){
 }
 function migrateState(raw){
  const next=Object.assign({},raw||{});
- next.version='4.3b';
+ next.version='4.4c';
  next.cars=Array.isArray(next.cars)?next.cars.map(normaliseCar):[...SEED.cars].map(normaliseCar);
  next.events=Array.isArray(next.events)?next.events:[...SEED.events];
  next.results=Array.isArray(next.results)?next.results:[];
  next.history=Array.isArray(next.history)?next.history:[];
  next.recordHistory=Array.isArray(next.recordHistory)?next.recordHistory:[];
  next.settings=Object.assign({sound:true,confetti:true,vibrate:true},next.settings||{});
+ next.championships=Array.isArray(next.championships)?next.championships:[];
+ if(!next.championships.some(c=>c.id==='open:all'))next.championships.unshift({id:'open:all',name:'Open Festival Championship',type:'open',value:'all',createdAt:null});
+ next.activeChampionshipId=next.activeChampionshipId||'open:all';
  return next;
 }
-function freshState(){return migrateState({version:'4.3b',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function freshState(){return migrateState({version:'4.4c',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
@@ -70,16 +117,16 @@ function bestRows(eventId){
  state.results.filter(r=>r.eventId===eventId).forEach(r=>{ if(!map[r.carId] || (isLong(eventId)?r.value>map[r.carId].value:r.value<map[r.carId].value)) map[r.carId]=r; });
  return Object.values(map).sort((a,b)=>isLong(eventId)?b.value-a.value:a.value-b.value);
 }
-function eventStats(eventId){const rows=bestRows(eventId), total=state.cars.length;return {done:rows.length,total,waiting:total-rows.length,pct:total?Math.round(rows.length/total*100):0,leader:rows[0]||null,rows}}
+function eventStats(eventId){const eligible=new Set(championshipCars().map(c=>c.id));const rows=bestRows(eventId).filter(r=>eligible.has(r.carId)), total=eligible.size;return {done:rows.length,total,waiting:Math.max(0,total-rows.length),pct:total?Math.round(rows.length/total*100):0,leader:rows[0]||null,rows}}
 function completedSet(eventId){return new Set(bestRows(eventId).map(r=>r.carId));}
-function waitingCars(eventId){const done=completedSet(eventId);return state.cars.filter(c=>!done.has(c.id));}
+function waitingCars(eventId){const done=completedSet(eventId);return championshipCars().filter(c=>!done.has(c.id));}
 function carCompletedEvents(carId){
  const set=new Set();
  state.results.forEach(r=>{if(r.carId===carId)set.add(r.eventId)});
  return set;
 }
 function carIsComplete(carId){return carCompletedEvents(carId).size>=state.events.length}
-function unfinishedCars(){return state.cars.filter(c=>!carIsComplete(c.id))}
+function unfinishedCars(){return championshipCars().filter(c=>!carIsComplete(c.id))}
 function nextEventForCar(carId){
  const done=carCompletedEvents(carId);
  return state.events.find(e=>!done.has(e.id)) || null;
@@ -87,7 +134,8 @@ function nextEventForCar(carId){
 function currentCar(){
   if(!state.currentCarId)return null;
   const c=carById(state.currentCarId);
-  if(!c || carIsComplete(c.id))return null;
+  const eligible=new Set(championshipCars().map(car=>car.id));
+  if(!c || !eligible.has(c.id) || carIsComplete(c.id))return null;
   return c;
 }
 function continueCurrentCar(){
@@ -104,9 +152,10 @@ function continueCurrentCar(){
 }
 
 function allPendingRuns(){
- let total=state.events.length*state.cars.length;
+ let cars=championshipCars();
+ let total=state.events.length*cars.length;
  let done=0;
- state.cars.forEach(c=>done+=carCompletedEvents(c.id).size);
+ cars.forEach(c=>done+=carCompletedEvents(c.id).size);
  return {total,done,remaining:total-done};
 }
 function chooseRandomCar(){
@@ -154,7 +203,7 @@ function championshipRows(){
     bestByEvent[ev.id]=new Map(bestRows(ev.id).map(r=>[r.carId,r]));
   });
 
-  const rows=state.cars
+  const rows=championshipCars()
     .filter(car=>carIsComplete(car.id))
     .map(car=>{
       const timedResults=timedEvents.map(ev=>bestByEvent[ev.id].get(car.id)).filter(Boolean);

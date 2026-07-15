@@ -54,7 +54,7 @@ function beginDirectorShow(forceNew=false){
     <div class="directorLine" id="directorLine">Race Director Initialising...</div>
     <div class="checkList">
       ✓ Garage Connected<br>
-      ✓ ${state.cars.length} Cars Ready<br>
+      ✓ ${championshipCarCount()} Cars Ready<br>
       ✓ ${state.events.length} Events Loaded<br>
       ✓ Record Database Loaded<br>
       ✓ Race Director Online
@@ -64,7 +64,7 @@ function beginDirectorShow(forceNew=false){
   setTimeout(()=>directorCarSlot(car,ev),2300);
 }
 function directorCarSlot(car,ev){
-  const names=state.cars.slice(0,80).map(carName);
+  const names=championshipCars().slice(0,80).map(carName);
   directorOverlay(`<button class="skipBtn" onclick="skipDirectorToRun('${ev.id}','${car.id}')">Skip</button><div class="directorCard">
     <div class="directorLine">Tonight's randomly selected car is...</div>
     <div class="slotBox"><div class="slotText" id="slotText">Selecting...</div></div>
