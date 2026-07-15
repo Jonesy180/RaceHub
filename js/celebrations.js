@@ -105,6 +105,14 @@ function eventPositionLabel(position,total){
   return `${medal}${ordinalPosition(position)} of ${total}`;
 }
 
+function formatTimeDifference(seconds){
+  const total=Math.max(0,Number(seconds)||0);
+  if(total<60)return `${total.toFixed(3)} seconds`;
+  const minutes=Math.floor(total/60);
+  const remaining=total-(minutes*60);
+  return `${minutes} minute${minutes===1?'':'s'} ${remaining.toFixed(3)} seconds`;
+}
+
 function eventAverageFeedback(eventId,value,rows){
   const values=rows.map(r=>Number(r.value)).filter(Number.isFinite);
   const count=values.length;
@@ -121,7 +129,7 @@ function eventAverageFeedback(eventId,value,rows){
       average,
       tone:'neutral',
       headline:'Almost exactly the event average',
-      difference:isLong(eventId)?`${diff.toFixed(2)} ft`:`${diff.toFixed(3)} seconds`
+      difference:isLong(eventId)?`${diff.toFixed(2)} ft`:formatTimeDifference(diff)
     };
   }
 
@@ -132,7 +140,7 @@ function eventAverageFeedback(eventId,value,rows){
     headline:better
       ?(isLong(eventId)?'FARTHER than average':'FASTER than average')
       :(isLong(eventId)?'SHORTER than average':'SLOWER than average'),
-    difference:isLong(eventId)?`${diff.toFixed(2)} ft`:`${diff.toFixed(3)} seconds`
+    difference:isLong(eventId)?`${diff.toFixed(2)} ft`:formatTimeDifference(diff)
   };
 }
 

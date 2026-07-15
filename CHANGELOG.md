@@ -1,3 +1,8 @@
+## v4.3e Time Display Fix
+- Average-performance differences of 60 seconds or more now display as minutes and seconds.
+- Example: 70.000 seconds now displays as 1 minute 10.000 seconds.
+- Long Jump difference formatting and all average calculations are unchanged.
+
 # Changelog
 
 ## v4.3a Developer Preview
