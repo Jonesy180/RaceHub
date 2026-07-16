@@ -131,7 +131,7 @@ function renderFestival(){
     <div class="progress" style="${progressTrackStyle()}">
      <div class="bar" style="${progressBarStyle(st.pct,'event')}"></div>
     </div>
-    <div class="small">${leader?'Record: '+esc(fmt(ev.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div>
+    <div class="small">${leader?esc(activeRecordLabel())+': '+esc(fmt(ev.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div>
     <div class="small">Next waiting: ${next?esc(carName(next)):'—'}</div>
    </div>
 
@@ -250,7 +250,7 @@ function closeChampionship(){
 }
 
 function renderEvents(){
- $('events').innerHTML=`<div class="card"><h2>Events</h2><p class="small">Open any event to add results, view the leaderboard or see waiting cars.</p>${state.events.map(e=>{let s=eventStats(e.id), leader=s.leader;return `<div class="eventCard" onclick="openEvent('${e.id}','waiting')"><div class="eventTop"><b>🏁 ${esc(e.name)}</b><span class="badge">${s.done}/${s.total}</span></div><div class="progress" style="${progressTrackStyle()}"><div class="bar" style="${progressBarStyle(s.pct,'event')}"></div></div><div class="small">${leader?'Record: '+esc(fmt(e.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div></div>`}).join('')}</div>`;
+ $('events').innerHTML=`<div class="card"><h2>Events</h2><p class="small">Open any event to add results, view the leaderboard or see waiting cars.</p>${state.events.map(e=>{let s=eventStats(e.id), leader=s.leader;return `<div class="eventCard" onclick="openEvent('${e.id}','waiting')"><div class="eventTop"><b>🏁 ${esc(e.name)}</b><span class="badge">${s.done}/${s.total}</span></div><div class="progress" style="${progressTrackStyle()}"><div class="bar" style="${progressBarStyle(s.pct,'event')}"></div></div><div class="small">${leader?esc(activeRecordLabel())+': '+esc(fmt(e.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div></div>`}).join('')}</div>`;
 }
 
 function podium(rows){return `<div class="podium"><div class="pod">${rows[1]?`🥈<br><b>${esc(carName(carById(rows[1].carId)))}</b><br>${esc(fmt(rows[1].eventId,rows[1].value))}`:''}</div><div class="pod first">${rows[0]?`🥇<br><b>${esc(carName(carById(rows[0].carId)))}</b><br>${esc(fmt(rows[0].eventId,rows[0].value))}`:''}</div><div class="pod">${rows[2]?`🥉<br><b>${esc(carName(carById(rows[2].carId)))}</b><br>${esc(fmt(rows[2].eventId,rows[2].value))}`:''}</div></div>`}

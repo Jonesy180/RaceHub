@@ -1,10 +1,10 @@
-// RaceHub v4.3b — Control Centre
+// RaceHub v5.1.0 — Control Centre
 function renderRecordHistory(){
  const hist=state.recordHistory||[];
- let content=`<div class="card"><h2>🏛️ Record History</h2><p class="small">Current records are shown even if the history entry was missed.</p>`;
+ let content=`<div class="card"><h2>🏛️ Festival Record History</h2><p class="small">The absolute best results across the whole garage. Championship records are calculated live within each Championship.</p>`;
  state.events.forEach(ev=>{
    let rows=hist.filter(h=>h.eventId===ev.id).slice().reverse();
-   const boardRecord=eventStats(ev.id).leader;
+   const boardRecord=festivalEventStats(ev.id).leader;
    // Fallback: if a current leaderboard record exists but history is empty/missing, show it here.
    if(boardRecord && (!rows.length || rows[0].carId!==boardRecord.carId || Number(rows[0].value)!==Number(boardRecord.value))){
      rows.unshift({
@@ -69,6 +69,7 @@ function saveSettings(){
 function testCelebration(){
  saveSettings();
  showRecordCelebration({
+   scope:'festival',
    eventName:'Test Event',
    carName:'RaceHub Test Car',
    value:'09:24.766',

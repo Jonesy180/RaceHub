@@ -1,5 +1,5 @@
-// RaceHub v4.3b — Celebrations
-function playRecordSound(){
+// RaceHub v5.1.0 — Championship and Festival Record Celebrations
+function playRecordSound(scope='championship'){
   if(!state.settings || !state.settings.sound) return;
   try{
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -7,8 +7,8 @@ function playRecordSound(){
     const now = ctx.currentTime;
     const master = ctx.createGain();
     master.gain.setValueAtTime(0.0001, now);
-    master.gain.exponentialRampToValueAtTime(0.18, now+0.03);
-    master.gain.exponentialRampToValueAtTime(0.0001, now+1.15);
+    master.gain.exponentialRampToValueAtTime(scope==='festival'?0.24:0.17, now+0.03);
+    master.gain.exponentialRampToValueAtTime(0.0001, now+(scope==='festival'?1.7:1.15));
     master.connect(ctx.destination);
 
     function tone(freq, start, dur, type='sine'){
@@ -22,16 +22,27 @@ function playRecordSound(){
       o.connect(g); g.connect(master);
       o.start(now+start); o.stop(now+start+dur+0.04);
     }
-    // short achievement fanfare
-    tone(392,0.00,0.18,'triangle');
-    tone(523.25,0.16,0.18,'triangle');
-    tone(659.25,0.32,0.22,'triangle');
-    tone(783.99,0.54,0.32,'triangle');
-    tone(1046.5,0.78,0.34,'sine');
+
+    if(scope==='festival'){
+      tone(261.63,0.00,0.24,'triangle');
+      tone(392,0.18,0.24,'triangle');
+      tone(523.25,0.38,0.27,'triangle');
+      tone(659.25,0.62,0.30,'triangle');
+      tone(783.99,0.88,0.34,'sine');
+      tone(1046.5,1.16,0.42,'sine');
+    }else{
+      tone(392,0.00,0.18,'triangle');
+      tone(523.25,0.16,0.18,'triangle');
+      tone(659.25,0.32,0.22,'triangle');
+      tone(783.99,0.54,0.32,'triangle');
+      tone(1046.5,0.78,0.34,'sine');
+    }
   }catch(e){}
 }
-function vibrateRecord(){
-  if(state.settings && state.settings.vibrate && navigator.vibrate) navigator.vibrate([80,40,120,40,180]);
+function vibrateRecord(scope='championship'){
+  if(state.settings && state.settings.vibrate && navigator.vibrate){
+    navigator.vibrate(scope==='festival'?[120,45,160,45,220,60,300]:[80,40,120,40,180]);
+  }
 }
 
 function festivalMilestoneForCount(count,total){
@@ -144,11 +155,13 @@ function eventAverageFeedback(eventId,value,rows){
   };
 }
 
-function launchConfetti(){
+function launchConfetti(scope='championship'){
   if(state.settings && state.settings.confetti===false) return;
   const overlay=document.getElementById('celebrationOverlay');
   if(!overlay)return;
-  const colors=['#ff2bd6','#7b2cff','#34d7ff','#ffd84d','#ff8a00','#ffffff'];
+  const colors=scope==='festival'
+    ?['#ffd84d','#ffb000','#ffffff','#fff1a8','#ff8a00']
+    :['#29ff8a','#34d7ff','#ffffff','#8affc1','#7b2cff'];
   for(let i=0;i<140;i++){
     const p=document.createElement('div');
     p.className='confettiPiece';
@@ -215,64 +228,112 @@ function legendaryRecord(){
 }
 
 
+let recordCelebrationQueue=[];
+let recordCelebrationFinalAction=null;
+let recordCelebrationTimer=null;
+let recordCelebrationLastData=null;
+
 function showMiniRecordBanner(data){
   const old=document.getElementById('recordBannerMini');
   if(old)old.remove();
-  const parts=['🏆 Record Shattered!'];
+  const isFestival=data.scope==='festival';
+  const parts=[isFestival?'👑 Festival Record!':'🏆 Championship Record!'];
   if(data.improvement)parts.push('⚡ '+data.improvement);
-  if(data.heldText)parts.push('⏳ '+data.heldText);
-  document.body.insertAdjacentHTML('beforeend',`<div id="recordBannerMini" class="recordBannerMini">${esc(parts.join(' • '))}</div>`);
+  document.body.insertAdjacentHTML('beforeend',`<div id="recordBannerMini" class="recordBannerMini ${isFestival?'festival':'championship'}">${esc(parts.join(' • '))}</div>`);
   setTimeout(()=>{
     const b=document.getElementById('recordBannerMini');
     if(b)b.classList.add('fadeOut');
     setTimeout(()=>{const x=document.getElementById('recordBannerMini'); if(x)x.remove();},550);
   },2200);
 }
-function autoCloseCelebration(data){
-  setTimeout(()=>{
-    const o=document.getElementById('celebrationOverlay');
-    if(o){
-      o.classList.add('fadeOut');
-      setTimeout(()=>{closeCelebration(); showMiniRecordBanner(data);},600);
-    }
-  },3000);
+
+function recordCelebrationTitle(data){
+  if(data.scope==='festival')return data.previous?'FESTIVAL RECORD SHATTERED!':'NEW FESTIVAL RECORD!';
+  return data.previous?'CHAMPIONSHIP RECORD SHATTERED!':`NEW ${String(data.championshipName||'CHAMPIONSHIP').toUpperCase()} RECORD!`;
 }
 
-function showRecordCelebration(data){
-  const previous=data.previous ? `<div class="previousRecord"><div class="small">Previous Record</div><b>${esc(data.previousCar)}</b><br>${esc(data.previousValue)}</div>` : `<div class="previousRecord"><div class="small">First record for this event</div></div>`;
-  const html=`<div id="celebrationOverlay" class="celebrationOverlay">
+function renderRecordCelebration(data){
+  const isFestival=data.scope==='festival';
+  const previous=data.previous
+    ? `<div class="previousRecord"><div class="small">Previous ${isFestival?'Festival':'Championship'} Record</div><b>${esc(data.previousCar)}</b><br>${esc(data.previousValue)}</div>`
+    : `<div class="previousRecord"><div class="small">First ${isFestival?'Festival':'Championship'} record for this event</div></div>`;
+  const html=`<div id="celebrationOverlay" class="celebrationOverlay ${isFestival?'festivalRecordCelebration':'championshipRecordCelebration'}">
     <div class="celebrationCard">
-      <div style="font-size:54px">🏆</div>
-      <div class="recordTitle">${data.previous?'RECORD SHATTERED!':'NEW EVENT RECORD!'}</div>
+      <div class="recordCrown">${isFestival?'👑':'🏆'}</div>
+      <div class="recordScope">${isFestival?'FESTIVAL RECORD':esc(data.championshipName||'CHAMPIONSHIP RECORD')}</div>
+      <div class="recordTitle">${esc(recordCelebrationTitle(data))}</div>
       <div class="small">${esc(data.eventName)}</div>
       <div class="recordCar">${esc(data.carName)}</div>
-      <div class="recordTime">${esc(data.value)}</div>${data.improvement?`<div class="legacyCard">⚡ ${esc(data.improvement)}</div>`:'' }${data.heldText?`<div class="legacyCard">⏳ ${esc(data.heldText)}</div>`:'' }
+      <div class="recordTime">${esc(data.value)}</div>
+      ${isFestival?'<div class="festivalHistoryLine">Fastest result ever recorded in RaceHub</div>':''}
+      ${data.improvement?`<div class="legacyCard">⚡ ${esc(data.improvement)}</div>`:''}
+      ${data.heldText?`<div class="legacyCard">⏳ ${esc(data.heldText)}</div>`:''}
       ${previous}
       <div class="grid">
-        <button class="btn" onclick="closeCelebration();${data.continueAction}">▶️ ${data.nextEventName?`Start ${esc(data.nextEventName)}`:'Continue'}</button>
-        <button class="btn secondary" onclick="closeCelebration();eventTab='leaderboard';renderEvent()">View Leaderboard</button>
+        <button class="btn" onclick="advanceRecordCelebration(true)">▶️ ${recordCelebrationQueue.length?'Next Celebration':(data.nextEventName?`Start ${esc(data.nextEventName)}`:'Continue')}</button>
+        <button class="btn secondary" onclick="openRecordLeaderboard()">View Leaderboard</button>
       </div>
     </div>
   </div>`;
   document.body.insertAdjacentHTML('beforeend',html);
-  playRecordSound();
-  vibrateRecord();
-  launchConfetti();
-  autoCloseCelebration(data);
+  playRecordSound(data.scope);
+  vibrateRecord(data.scope);
+  launchConfetti(data.scope);
+  recordCelebrationTimer=setTimeout(()=>advanceRecordCelebration(false),isFestival?4400:3300);
+}
+
+function playRecordCelebrationSequence(items,finalAction){
+  recordCelebrationQueue=Array.isArray(items)?items.slice():[];
+  recordCelebrationFinalAction=typeof finalAction==='function'?finalAction:null;
+  recordCelebrationLastData=null;
+  showNextRecordCelebration();
+}
+
+function showNextRecordCelebration(){
+  if(!recordCelebrationQueue.length)return;
+  const data=recordCelebrationQueue.shift();
+  recordCelebrationLastData=data;
+  renderRecordCelebration(data);
+}
+
+function advanceRecordCelebration(navigate){
+  if(recordCelebrationTimer){clearTimeout(recordCelebrationTimer);recordCelebrationTimer=null;}
+  const overlay=document.getElementById('celebrationOverlay');
+  const finish=()=>{
+    closeCelebration();
+    if(recordCelebrationQueue.length){setTimeout(showNextRecordCelebration,160);return;}
+    if(recordCelebrationLastData)showMiniRecordBanner(recordCelebrationLastData);
+    const action=recordCelebrationFinalAction;
+    recordCelebrationFinalAction=null;
+    recordCelebrationLastData=null;
+    if(navigate&&action)action();
+  };
+  if(overlay){overlay.classList.add('fadeOut');setTimeout(finish,560);}else finish();
+}
+
+function openRecordLeaderboard(){
+  if(recordCelebrationTimer){clearTimeout(recordCelebrationTimer);recordCelebrationTimer=null;}
+  recordCelebrationQueue=[];
+  recordCelebrationFinalAction=null;
+  recordCelebrationLastData=null;
+  closeCelebration();
+  eventTab='leaderboard';
+  renderEvent();
+}
+
+function showRecordCelebration(data){
+  playRecordCelebrationSequence([data],()=>{
+    if(data.continueAction){try{Function(data.continueAction)();}catch(e){}}
+  });
 }
 function closeCelebration(){
   const o=document.getElementById('celebrationOverlay');
   if(o)o.remove();
 }
 
-
 function safeShowRecordCelebration(payload){
-  try{
-    showRecordCelebration(payload);
-  }catch(e){
-    // fallback if any animation setting fails
-    const title = payload.previous ? 'RECORD SHATTERED!' : 'NEW EVENT RECORD!';
-    document.body.insertAdjacentHTML('beforeend', `<div id="celebrationOverlay" class="celebrationOverlay"><div class="celebrationCard"><div style="font-size:54px">🏆</div><div class="recordTitle">${title}</div><div class="recordCar">${esc(payload.carName)}</div><div class="recordTime">${esc(payload.value)}</div><button class="btn" onclick="closeCelebration();${payload.continueAction}">Continue</button></div></div>`); playRecordSound(); vibrateRecord(); launchConfetti(); autoCloseCelebration(payload);
+  try{showRecordCelebration(payload);}catch(e){
+    document.body.insertAdjacentHTML('beforeend', `<div id="celebrationOverlay" class="celebrationOverlay"><div class="celebrationCard"><div style="font-size:54px">🏆</div><div class="recordTitle">${esc(recordCelebrationTitle(payload))}</div><div class="recordCar">${esc(payload.carName)}</div><div class="recordTime">${esc(payload.value)}</div><button class="btn" onclick="closeCelebration()">Continue</button></div></div>`);
   }
 }
 
@@ -281,8 +342,11 @@ function saveResult(){
  if(!carId||!isFinite(value)){toast('Enter a valid result');return;}
  const activeCars=championshipCars();
  const completedBefore=activeCars.filter(c=>carIsComplete(c.id)).length;
- const before=eventStats(ev.id).leader;
- const isRecord=!before || (isLong(ev.id)?value>before.value:value<before.value);
+ const championshipBefore=championshipEventStats(ev.id).leader;
+ const festivalBefore=festivalEventStats(ev.id).leader;
+ const separateChampionship=activeChampionship().type!=='open';
+ const isChampionshipRecord=separateChampionship && resultBeatsRecord(ev.id,value,championshipBefore);
+ const isFestivalRecord=resultBeatsRecord(ev.id,value,festivalBefore);
  const r={id:'r'+Date.now(),eventId:ev.id,carId,value,date:new Date().toISOString()};
  state.results.push(r);
  state.lastCarId=carId;
@@ -308,39 +372,57 @@ function saveResult(){
    actionButtons += `<button class="btn" onclick="showCarComplete('${carId}')">🏁 Finish This Car</button>`;
  }
  actionButtons += `<button class="btn secondary" onclick="eventTab='leaderboard';renderEvent()">View Leaderboard</button>`;
+
+ let savedResultBox=`<div class="resultBox">✅ Saved<br><b>${esc(carName(car))}</b><br>${esc(ev.name)} — ${esc(fmt(ev.id,value))}</div>`;
+ if(isChampionshipRecord&&isFestivalRecord){
+   savedResultBox=`<div class="recordBox festivalRecordBox">👑 NEW FESTIVAL RECORD!<br><span class="small darkText">Also a new ${esc(activeChampionshipName())} record</span><br>${esc(carName(car))}<br><span style="font-size:24px">${esc(fmt(ev.id,value))}</span></div>`;
+ }else if(isFestivalRecord){
+   savedResultBox=`<div class="recordBox festivalRecordBox">👑 ${festivalBefore?'FESTIVAL RECORD SHATTERED!':'NEW FESTIVAL RECORD!'}<br>${esc(carName(car))}<br><span style="font-size:24px">${esc(fmt(ev.id,value))}</span></div>`;
+ }else if(isChampionshipRecord){
+   savedResultBox=`<div class="recordBox championshipRecordBox">🏆 ${championshipBefore?'CHAMPIONSHIP RECORD SHATTERED!':'NEW CHAMPIONSHIP RECORD!'}<br><span class="small">${esc(activeChampionshipName())}</span><br>${esc(carName(car))}<br><span style="font-size:24px">${esc(fmt(ev.id,value))}</span></div>`;
+ }
+
  $('event').innerHTML=`<div class="card"><h2>Result Saved</h2>
- ${isRecord?`<div class="recordBox">🏆 ${before?'RECORD SHATTERED!':'NEW EVENT RECORD!'}<br>${esc(carName(car))}<br><span style="font-size:24px">${esc(fmt(ev.id,value))}</span>${before?`<br><span class="small">Previous: ${esc(fmt(ev.id,before.value))} — ${esc(carName(carById(before.carId)))}</span>`:''}</div>`:`<div class="resultBox">✅ Saved<br><b>${esc(carName(car))}</b><br>${esc(ev.name)} — ${esc(fmt(ev.id,value))}</div>`}
- <div class="resultBox"><div class="small">Current event position</div><h2>${esc(eventPositionText)}</h2><span class="small">${esc(ev.name)} leaderboard</span></div>
+ ${savedResultBox}
+ <div class="resultBox"><div class="small">Current event position</div><h2>${esc(eventPositionText)}</h2><span class="small">${esc(ev.name)} leaderboard · ${esc(activeChampionshipName())}</span></div>
  ${averageFeedback?`<div class="resultBox performanceCard ${averageFeedback.tone}"><div class="small">Performance vs event average</div><div class="performanceDifference">${averageFeedback.tone==='good'?'🟢':averageFeedback.tone==='bad'?'🔴':'🟡'} ${esc(averageFeedback.difference)}</div><div class="performanceHeadline">${esc(averageFeedback.headline)}</div><div class="performanceValues"><div class="performanceValue"><span class="small">Your result</span><b>${esc(fmt(ev.id,value))}</b></div><div class="performanceValue"><span class="small">Average (${averageFeedback.count} car${averageFeedback.count===1?'':'s'})</span><b>${esc(fmt(ev.id,averageFeedback.average))}</b></div></div></div>`:''}
- <div class="resultBox"><b>${nextEv?'Same car continues':'Car complete'}</b><br><span class="small">${nextEv?`Next unfinished event for this car is ${esc(nextEv.name)}.`:'All 7 events complete for this car.'}</span></div>
+ <div class="resultBox"><b>${nextEv?'Same car continues':'Car complete'}</b><br><span class="small">${nextEv?`Next unfinished event for this car is ${esc(nextEv.name)}.`:`All ${state.events.length} events complete for this car.`}</span></div>
  <div class="grid">${actionButtons}</div>
  <button class="btn secondary" onclick="openEvent('${ev.id}','waiting')">Back to Waiting</button>
  <p class="small">${runStats.remaining} total event runs remaining.</p></div>`;
 
- if(isRecord){
-   const recordEntry=addRecordHistory(ev.id,carId,value,before);
+ const celebrations=[];
+ if(isChampionshipRecord){
+   celebrations.push({
+     scope:'championship', championshipName:activeChampionshipName(), eventName:ev.name,
+     carName:carName(car), value:fmt(ev.id,value), previous:!!championshipBefore,
+     previousCar:championshipBefore?carName(carById(championshipBefore.carId)):'',
+     previousValue:championshipBefore?fmt(ev.id,championshipBefore.value):'',
+     improvement:championshipBefore?improvementText(ev.id,value,championshipBefore.value):'',
+     heldText:'', nextEventName:nextEv?nextEv.name:''
+   });
+ }
+ if(isFestivalRecord){
+   const recordEntry=addRecordHistory(ev.id,carId,value,festivalBefore);
    save();
-   setTimeout(()=>safeShowRecordCelebration({
-     eventName: ev.name,
-     carName: carName(car),
-     value: fmt(ev.id,value),
-     previous: !!before,
-     previousCar: before ? carName(carById(before.carId)) : '',
-     previousValue: before ? fmt(ev.id,before.value) : '',
-     improvement: recordEntry.improvement || '',
-     heldText: recordEntry.daysStood!=null ? daysText(recordEntry.daysStood) : '',
-     continueAction: nextEv ? `directorNextEvent('${carId}','${nextEv.id}')` : `showCarComplete('${carId}')`,
-     nextEventName: nextEv ? nextEv.name : ''
+   celebrations.push({
+     scope:'festival', eventName:ev.name, carName:carName(car), value:fmt(ev.id,value),
+     previous:!!festivalBefore, previousCar:festivalBefore?carName(carById(festivalBefore.carId)):'',
+     previousValue:festivalBefore?fmt(ev.id,festivalBefore.value):'',
+     improvement:recordEntry.improvement||'',
+     heldText:recordEntry.daysStood!=null?daysText(recordEntry.daysStood):'',
+     nextEventName:nextEv?nextEv.name:''
+   });
+ }
+ if(celebrations.length){
+   setTimeout(()=>playRecordCelebrationSequence(celebrations,()=>{
+     if(nextEv)directorNextEvent(carId,nextEv.id);else showCarComplete(carId);
    }),250);
  }
 
  if(milestoneReached){
-   setTimeout(
-     ()=>showFestivalMilestone(completedAfter,activeCars.length),
-     isRecord?4300:450
-   );
+   setTimeout(()=>showFestivalMilestone(completedAfter,activeCars.length),celebrations.length?(celebrations.length>1?9000:5200):450);
  }
-
 }
 
 function editResult(id){const r=state.results.find(x=>x.id===id);if(!r)return;const raw=prompt('Edit result',fmt(r.eventId,r.value));if(raw===null)return;const v=parseResult(r.eventId,raw);if(!isFinite(v)){toast('Invalid result');return;}r.value=v;r.date=new Date().toISOString();save();toast('Result updated');renderEvent();}

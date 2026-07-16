@@ -139,3 +139,23 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 .performanceValue b{display:block;color:white;margin-top:3px;font-size:17px}
 .completionProgress .bar{background:linear-gradient(90deg,#7b2cff,#34d7ff,#29ff8a);box-shadow:0 0 16px rgba(52,215,255,.78),0 0 28px rgba(41,255,138,.42)}
 @media(max-width:420px){.performanceValues{grid-template-columns:1fr}.performanceDifference{font-size:30px}}
+
+
+/* RaceHub 5.1 — Championship and Festival record hierarchy */
+.championshipRecordBox{background:linear-gradient(135deg,#0a6d48,#29ff8a);color:#03170f;border:1px solid rgba(138,255,193,.85);box-shadow:0 0 24px rgba(41,255,138,.25)}
+.festivalRecordBox{background:linear-gradient(135deg,#fff3a6,#ffd84d 48%,#ff8a00);color:#180f00;border:1px solid rgba(255,255,255,.75);box-shadow:0 0 30px rgba(255,216,77,.38)}
+.darkText{color:rgba(24,15,0,.78)!important}
+.recordCrown{font-size:62px;line-height:1}
+.recordScope{font-size:13px;font-weight:1000;letter-spacing:3px;margin-top:10px;color:#bfffe0}
+.championshipRecordCelebration{background:radial-gradient(circle at center,rgba(41,255,138,.32),rgba(4,18,13,.94))}
+.championshipRecordCelebration .celebrationCard{border-color:rgba(41,255,138,.55);box-shadow:0 0 38px rgba(41,255,138,.22),0 24px 80px rgba(0,0,0,.62)}
+.championshipRecordCelebration .recordTitle{color:#6dffb0;text-shadow:0 0 20px rgba(41,255,138,.72)}
+.championshipRecordCelebration .recordTime{text-shadow:0 0 24px rgba(41,255,138,.9)}
+.festivalRecordCelebration{background:radial-gradient(circle at center,rgba(255,216,77,.42),rgba(34,14,0,.96))}
+.festivalRecordCelebration .celebrationCard{border:2px solid rgba(255,216,77,.8);background:linear-gradient(160deg,rgba(255,216,77,.25),rgba(255,138,0,.10),rgba(255,255,255,.06));box-shadow:0 0 60px rgba(255,216,77,.42),0 28px 90px rgba(0,0,0,.68)}
+.festivalRecordCelebration .recordScope{color:#fff1a8}
+.festivalRecordCelebration .recordTitle{font-size:38px;color:#fff1a8;text-shadow:0 0 25px rgba(255,216,77,.95)}
+.festivalRecordCelebration .recordTime{font-size:52px;color:#fff9d7;text-shadow:0 0 30px rgba(255,216,77,1)}
+.festivalHistoryLine{font-weight:1000;color:#fff1a8;letter-spacing:.4px;margin:10px 0 14px}
+.recordBannerMini.championship{background:linear-gradient(135deg,#0a6d48,#29ff8a);color:#03170f}
+.recordBannerMini.festival{background:linear-gradient(135deg,#fff3a6,#ffd84d,#ff8a00);color:#180f00}
