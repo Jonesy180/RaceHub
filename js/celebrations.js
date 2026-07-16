@@ -1,4 +1,4 @@
-// RaceHub v5.1.0 — Championship and Festival Record Celebrations
+// RaceHub v5.1.1 — Championship and Festival Record Celebrations
 function playRecordSound(scope='championship'){
   if(!state.settings || !state.settings.sound) return;
   try{

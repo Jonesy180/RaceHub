@@ -1,4 +1,4 @@
-// RaceHub v5.0.0 — Shared Results Championship Engine Views
+// RaceHub v5.1.1 — Championship Hub Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));
@@ -103,7 +103,7 @@ function renderFestival(){
     <h2 style="margin:6px 0">${esc(activeChampionshipName())}</h2>
     <div class="small">${totalCars} eligible cars · one shared set of race results</div>
    </div>
-   <button class="btn secondary" onclick="showChampionshipSelector()">🏆 Change Active Festival</button>
+   <div class="grid"><button class="btn secondary" onclick="showChampionshipHub('${esc(activeChampionship().id)}')">🚗 View Eligible Cars</button><button class="btn secondary" onclick="showChampionshipSelector()">🏆 Change Active Festival</button></div>
 
    <div class="grid">
     <div class="resultBox">
@@ -162,6 +162,7 @@ function showChampionshipSelector(){
   return `<div class="row" style="border-color:${selected?'#ffd84d':'rgba(255,255,255,.12)'}">
    <div class="rank">${selected?'✅':'🏁'}</div>
    <div class="grow"><b>${esc(option.name)}</b><br><span class="small">${count} eligible car${count===1?'':'s'} · updates with garage</span></div>
+   <button class="chip" onclick="showChampionshipHub('${esc(option.id)}')">View</button>
    <button class="chip" onclick="startChampionship('${esc(option.id)}')">${selected?'Active':'Select'}</button>
   </div>`;
  }).join('')}`:'').join('');
@@ -175,6 +176,60 @@ function showChampionshipSelector(){
  </div>`;
  document.body.insertAdjacentHTML('beforeend',html);
 }
+
+function championshipOptionById(optionId){
+ return generatedChampionshipOptions().find(o=>o.id===optionId)||null;
+}
+function filterChampionshipCars(){
+ const q=String(($('championshipCarSearch')||{}).value||'').trim().toLowerCase();
+ document.querySelectorAll('#championshipEligibleList .championshipCarRow').forEach(row=>{
+  row.style.display=!q||String(row.dataset.search||'').includes(q)?'flex':'none';
+ });
+}
+function showChampionshipHub(optionId){
+ const option=championshipOptionById(optionId);
+ if(!option){toast('Championship unavailable');return;}
+ const old=document.getElementById('championshipHubOverlay');
+ if(old)old.remove();
+ const cars=[...option.cars].sort((a,b)=>{
+  const ac=carIsComplete(a.id),bc=carIsComplete(b.id);
+  if(ac!==bc)return ac?1:-1;
+  return carName(a).localeCompare(carName(b));
+ });
+ const completed=cars.filter(c=>carIsComplete(c.id)).length;
+ const remaining=cars.length-completed;
+ const pct=cars.length?Math.round(completed/cars.length*100):0;
+ const rows=cars.map(car=>{
+  const done=carCompletedEvents(car.id).size;
+  const complete=done>=state.events.length;
+  return `<div class="row championshipCarRow" data-search="${esc(carName(car).toLowerCase())}" style="border-color:${complete?'rgba(41,255,138,.35)':'rgba(255,255,255,.12)'}">
+   <div class="rank">${complete?'✅':'○'}</div>
+   <div class="grow"><b>${esc(carName(car))}</b><br><span class="small">${done}/${state.events.length} events complete${complete?' · Finished':''}</span></div>
+   ${complete?'':`<button class="chip" onclick="chooseChampionshipCar('${esc(option.id)}','${esc(car.id)}')">Choose</button>`}
+  </div>`;
+ }).join('');
+ const html=`<div id="championshipHubOverlay" class="directorOverlay">
+  <div class="directorCard" style="max-height:92vh;overflow:auto;text-align:left">
+   <button class="btn secondary" style="float:right;min-height:38px;padding:8px 12px" onclick="closeChampionshipHub()">✕</button>
+   <div style="text-align:center"><div style="font-size:54px">🏆</div><div class="directorTitle">${esc(option.name)}</div>
+    <p class="small">${cars.length} eligible car${cars.length===1?'':'s'} · ${completed} complete · ${remaining} remaining</p>
+   </div>
+   <div class="progress" style="${progressTrackStyle()}"><div class="bar" style="${progressBarStyle(pct,'festival')}"></div></div>
+   <p class="small" style="text-align:center">Championship progress: ${completed}/${cars.length} · ${pct}%</p>
+   <div class="grid">
+    <button class="btn bigStart" onclick="randomChampionshipCar('${esc(option.id)}')" ${remaining?'':'disabled'}>🎲 Random Unfinished Car</button>
+    <button class="btn secondary" onclick="startChampionship('${esc(option.id)}')">${activeChampionship().id===option.id?'Keep Active':'Make Active'}</button>
+   </div>
+   <label for="championshipCarSearch">Find an eligible car</label>
+   <input id="championshipCarSearch" type="search" placeholder="Search make, model or year" oninput="filterChampionshipCars()">
+   <h3>Eligible Cars</h3>
+   <div id="championshipEligibleList">${rows||'<div class="empty">No eligible cars.</div>'}</div>
+  </div>
+ </div>`;
+ document.body.insertAdjacentHTML('beforeend',html);
+}
+function closeChampionshipHub(){const o=document.getElementById('championshipHubOverlay');if(o)o.remove();}
+
 function closeChampionshipSelector(){const o=document.getElementById('championshipSelectorOverlay');if(o)o.remove();}
 
 function championshipGapText(seconds){
