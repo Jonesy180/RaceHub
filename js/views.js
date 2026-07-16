@@ -1,4 +1,4 @@
-// RaceHub v5.1.1 — Championship Hub Views
+// RaceHub v5.1.2 — Hall of Fame Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));
@@ -331,3 +331,33 @@ function renderEvent(){
 
 
 
+
+
+function hallDateText(date){
+ if(!date)return 'Date unavailable';
+ const d=new Date(date);
+ if(isNaN(d))return 'Date unavailable';
+ return d.toLocaleDateString(undefined,{day:'numeric',month:'long',year:'numeric'});
+}
+function hallRecordCard(ev,record,scopeLabel){
+ if(!record)return `<div class="hallRecordCard emptyRecord"><div class="hallEvent">${esc(ev.name)}</div><div class="small">No ${esc(scopeLabel.toLowerCase())} yet</div></div>`;
+ const car=carById(record.carId);
+ const held=daysBetween(record.date,new Date().toISOString());
+ return `<div class="hallRecordCard">
+  <div class="hallEvent">${esc(ev.name)}</div>
+  <div class="hallCar">${esc(car?carName(car):record.carId)}</div>
+  <div class="hallValue">${esc(fmt(ev.id,record.value))}</div>
+  <div class="small">Held since ${esc(hallDateText(record.date))} · ${esc(daysText(held))}</div>
+ </div>`;
+}
+function renderHallOfFame(){
+ const champ=activeChampionship();
+ const festivalCards=state.events.map(ev=>hallRecordCard(ev,festivalEventStats(ev.id).leader,'Festival Record')).join('');
+ const championshipCards=state.events.map(ev=>hallRecordCard(ev,championshipEventStats(ev.id,champ).leader,'Championship Record')).join('');
+ $('hall').innerHTML=`<div class="card hallHero">
+   <div class="hallTrophy">🏆</div><h2>Hall of Fame</h2>
+   <p class="small">Where RaceHub history is written.</p>
+  </div>
+  <div class="card"><h2>👑 Festival Legends</h2><p class="small">The absolute best result ever recorded in every event.</p><div class="hallGrid">${festivalCards}</div></div>
+  <div class="card"><div class="eventTop"><div><h2>🏆 Championship Legends</h2><p class="small">${esc(activeChampionshipName())}</p></div><button class="chip" onclick="showChampionshipSelector()">Change</button></div><div class="hallGrid">${championshipCards}</div></div>`;
+}

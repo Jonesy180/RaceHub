@@ -1,4 +1,4 @@
-// RaceHub v5.1.1 — Control Centre
+// RaceHub v5.1.2 — Control Centre
 function renderRecordHistory(){
  const hist=state.recordHistory||[];
  let content=`<div class="card"><h2>🏛️ Festival Record History</h2><p class="small">The absolute best results across the whole garage. Championship records are calculated live within each Championship.</p>`;
