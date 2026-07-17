@@ -1,4 +1,12 @@
-# RaceHub v5.2.3 — Hall of Fame Accents
+# RaceHub v5.2.4 — Dashboard Facelift
+
+- Redesigned the Festival home screen as a focused Dashboard.
+- Added a Current Championship hero with progress and a clear continue action.
+- Added Cars Owned, Cars Completed, and Championships Completed summary cards.
+- Added a tidy Latest Festival Record card showing the event, record, car, and relative date.
+- Added a Continue Racing panel and a responsive mobile-first layout.
+
+# RaceHub v5.2.4 — Hall of Fame Accents
 
 - Added a gold accent strip and glow to Festival Records.
 - Added blue accents to Era Championships and their expanded record cards.

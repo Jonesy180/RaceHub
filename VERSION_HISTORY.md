@@ -1,4 +1,4 @@
-## v5.2.3 — Hall of Fame Accents
+## v5.2.4 — Hall of Fame Accents
 
 Introduced a coordinated Hall of Fame colour system: gold for Festival Records, blue for Era Championships and green for Manufacturer Championships, with matching expanded record cards and a brighter green ACTIVE badge.
 

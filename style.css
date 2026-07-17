@@ -240,3 +240,44 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 .hallBrowserGroup-make .hallChampionshipRecords .hallRecordCard{border-color:rgba(57,229,140,.29);background:linear-gradient(150deg,rgba(57,229,140,.095),rgba(255,255,255,.045))}
 .hallBrowserGroup-make .hallChampionshipRecords .hallEvent{color:#79f0ae}
 .hallBrowserGroup-make .hallChampionshipRecords .hallValue{color:#c0ffda;text-shadow:0 0 18px rgba(57,229,140,.34)}
+
+
+/* v5.2.4 Dashboard Facelift */
+.dashboardPage{display:grid;gap:14px}
+.dashboardHero,.dashboardRecord,.dashboardContinue{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(17,44,58,.96),rgba(22,12,42,.96));border:1px solid rgba(52,215,255,.34);border-radius:24px;padding:18px;box-shadow:0 16px 36px rgba(0,0,0,.22)}
+.dashboardHero:before,.dashboardRecord:before,.dashboardContinue:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:#34d7ff;box-shadow:0 0 18px rgba(52,215,255,.75)}
+.dashboardHeroTop,.dashboardSectionHeading,.dashboardNextCar{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.dashboardHero h2,.dashboardSectionHeading h3{margin:5px 0 0}
+.dashboardEyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;color:#64e5ff}
+.dashboardPercent{font-size:24px;font-weight:900;color:#64e5ff}
+.dashboardProgress{margin:16px 0 8px!important}
+.dashboardHeroMeta{font-size:13px;color:rgba(255,255,255,.74)}
+.dashboardHeroNext{display:grid;gap:4px;margin:16px 0;padding:13px 14px;border:1px solid rgba(52,215,255,.2);border-radius:16px;background:rgba(52,215,255,.07)}
+.dashboardHeroNext span,.dashboardHeroNext small{font-size:12px;color:rgba(255,255,255,.66)}
+.dashboardHeroNext b{font-size:17px}
+.dashboardHeroNext.complete{border-color:rgba(41,255,138,.28);background:rgba(41,255,138,.07)}
+.dashboardPrimary{margin-top:0}
+.dashboardHeroLinks{display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.dashboardStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dashboardStat{position:relative;overflow:hidden;min-height:130px;padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.055)}
+.dashboardStat:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--dashboard-stat,#34d7ff)}
+.dashboardStatCars{--dashboard-stat:#34d7ff}.dashboardStatComplete{--dashboard-stat:#29ff8a}.dashboardStatChampionships{--dashboard-stat:#c45cff}
+.dashboardStatIcon{font-size:22px;margin-bottom:9px}
+.dashboardStatValue{font-size:30px;line-height:1.05;font-weight:900;margin:5px 0;color:var(--dashboard-stat,#fff)}
+.dashboardStatNote{font-size:12px;color:rgba(255,255,255,.67)}
+.dashboardRecord{border-color:rgba(255,216,77,.36);background:linear-gradient(145deg,rgba(54,39,10,.82),rgba(29,12,39,.94))}
+.dashboardRecord:before{background:#ffd84d;box-shadow:0 0 18px rgba(255,216,77,.7)}
+.dashboardRecord .dashboardEyebrow{color:#ffd84d}
+.dashboardRecordBody{margin-top:16px;padding:16px;border-radius:18px;background:rgba(255,216,77,.07);border:1px solid rgba(255,216,77,.18);text-align:center}
+.dashboardRecordEvent{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#ffd84d}
+.dashboardRecordValue{font-size:30px;font-weight:900;margin:7px 0}
+.dashboardRecordCar{font-size:16px;font-weight:700}
+.dashboardRecordDate{margin-top:6px}
+.dashboardEmpty{margin-top:14px}
+.dashboardContinue{border-color:rgba(196,92,255,.34);background:linear-gradient(145deg,rgba(42,17,57,.94),rgba(12,29,44,.94))}
+.dashboardContinue:before{background:#c45cff;box-shadow:0 0 18px rgba(196,92,255,.7)}
+.dashboardContinue .dashboardEyebrow{color:#d793ff}
+.dashboardNextCar{align-items:center;margin:15px 0;padding:13px 14px;border-radius:16px;background:rgba(196,92,255,.07);border:1px solid rgba(196,92,255,.2)}
+.dashboardNextCar div{display:grid;gap:4px}.dashboardNextCar span{font-size:12px;color:rgba(255,255,255,.66)}
+@media(max-width:640px){.dashboardStats{grid-template-columns:1fr 1fr}.dashboardStatChampionships{grid-column:1/-1;min-height:112px}.dashboardHero,.dashboardRecord,.dashboardContinue{padding:16px}.dashboardSectionHeading{align-items:center}.dashboardSectionHeading h3{font-size:17px}.dashboardRecordValue{font-size:27px}}
+@media(max-width:390px){.dashboardStats{grid-template-columns:1fr}.dashboardStatChampionships{grid-column:auto}.dashboardStat{min-height:108px}.dashboardHeroTop{align-items:flex-start}.dashboardPercent{font-size:21px}}

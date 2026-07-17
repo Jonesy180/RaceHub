@@ -1,4 +1,4 @@
-// RaceHub v5.1.4 — Hall of Fame Browser Views
+// RaceHub v5.2.4 — Dashboard Facelift Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));
@@ -28,120 +28,105 @@ function formatChampionshipTime(totalSeconds){
   :`${String(minutes).padStart(2,'0')}:${seconds}`;
 }
 
-function renderFestival(){
- const activeCars=championshipCars();
- const totalCars=activeCars.length;
- const completedCars=activeCars.filter(c=>carIsComplete(c.id)).length;
- const remainingCars=Math.max(0,totalCars-completedCars);
- const festivalPct=totalCars?Math.round((completedCars/totalCars)*100):0;
-
- const ev=eventById(state.currentEventId||'drag');
- const st=eventStats(ev.id);
- const leader=st.leader;
- const next=waitingCars(ev.id)[0];
-
- const cc=currentCar();
- const ccDone=cc?carCompletedEvents(cc.id).size:0;
- const ccNext=cc?nextEventForCar(cc.id):null;
-
- const championship=championshipRows();
- const championshipLeaderRow=championship[0]||null;
- const championshipHtml=championshipLeaderRow?`
-  <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
-   <h3 style="color:#ffd84d">🏆 ${esc(activeChampionshipName())}</h3>
-   <div class="small">👑 Current Leader</div>
-   <div class="recordCar">${esc(carName(championshipLeaderRow.car))}</div>
-   <div class="recordTime">${esc(formatChampionshipTime(championshipLeaderRow.totalTime))}</div>
-   <div class="small">${championship.length} car${championship.length===1?' has':'s have'} completed the Festival</div>
-   <button class="btn secondary" onclick="showChampionship()">View Championship</button>
-  </div>
- `:`
-  <div class="legacyCard" style="border-color:#ffd84d;box-shadow:0 0 22px rgba(255,216,77,.16)">
-   <h3 style="color:#ffd84d">🏆 ${esc(activeChampionshipName())}</h3>
-   <p class="small">No Championship standings yet.</p>
-   <p class="small">Complete your first car to start the Festival Championship.</p>
-   <button class="btn secondary" onclick="showChampionship()">View Championship</button>
-  </div>
- `;
-
- const legendaryHtml=(()=>{
-  const leg=legendaryRecord();
-  if(!leg)return '';
-  const legendaryEvent=eventById(leg.eventId);
-  const legendaryCar=carById(leg.carId);
-  return `<div class="legacyCard">
-    <h3>👑 Legendary Record</h3>
-    <b>${esc(legendaryEvent.name)}</b><br>
-    ${esc(legendaryCar?carName(legendaryCar):leg.carId)}<br>
-    <span class="small">${esc(daysText(leg.held))}</span>
-  </div>`;
- })();
-
- const raceNightHtml=cc?`
-  <div class="raceNightPanel">
-   <h2>▶️ Race Night In Progress</h2>
-   <p><b>${esc(carName(cc))}</b></p>
-   <div class="progress" style="${progressTrackStyle()}">
-    <div class="bar" style="${progressBarStyle(Math.round(ccDone/7*100),'event')}"></div>
-   </div>
-   <p class="small">${ccDone}/7 events complete · Next: ${ccNext?esc(ccNext.name):'—'}</p>
-   <button class="btn bigStart" onclick="continueCurrentCar()">Continue Current Car</button>
-   <button class="btn secondary" onclick="beginDirectorShow(true)">🎲 Draw Different Random Car</button>
-  </div>
- `:`
-  <div class="raceDirector">
-   <h2>🏁 Race Night Mode</h2>
-   <p class="small">RaceHub chooses a random unfinished car from the active Festival, then guides it through all 7 events.</p>
-   <button class="btn bigStart" onclick="beginDirectorShow()">🏁 Start Race Night</button>
-  </div>
- `;
-
- $('festival').innerHTML=`
-  <div class="card">
-   <div class="legacyCard" style="border-color:#34d7ff;box-shadow:0 0 22px rgba(52,215,255,.16);text-align:center">
-    <div class="small">🏁 ACTIVE FESTIVAL</div>
-    <h2 style="margin:6px 0">${esc(activeChampionshipName())}</h2>
-    <div class="small">${totalCars} eligible cars · one shared set of race results</div>
-   </div>
-   <div class="grid"><button class="btn secondary" onclick="showChampionshipHub('${esc(activeChampionship().id)}')">🚗 View Eligible Cars</button><button class="btn secondary" onclick="showChampionshipSelector()">🏆 Change Active Festival</button></div>
-
-   <div class="grid">
-    <div class="resultBox">
-     <div class="small">Cars completed</div>
-     <h2>${completedCars}</h2>
-    </div>
-    <div class="resultBox">
-     <div class="small">Cars remaining</div>
-     <h2>${remainingCars}</h2>
-    </div>
-   </div>
-
-   <h3>Championship Progress</h3>
-   <div class="progress" style="${progressTrackStyle()}">
-    <div class="bar" style="${progressBarStyle(festivalPct,'festival')}"></div>
-   </div>
-   <p class="small">${completedCars} / ${totalCars} cars completed · ${festivalPct}%</p>
-
-   <h3>Current Event</h3>
-   <div class="eventCard" onclick="openEvent('${ev.id}','waiting')">
-    <div class="eventTop">
-     <b>🏁 ${esc(ev.name)}</b>
-     <span class="badge">${st.done}/${st.total}</span>
-    </div>
-    <div class="progress" style="${progressTrackStyle()}">
-     <div class="bar" style="${progressBarStyle(st.pct,'event')}"></div>
-    </div>
-    <div class="small">${leader?esc(activeRecordLabel())+': '+esc(fmt(ev.id,leader.value))+' — '+esc(carName(carById(leader.carId))):'No record yet'}</div>
-    <div class="small">Next waiting: ${next?esc(carName(next)):'—'}</div>
-   </div>
-
-   ${legendaryHtml}
-   ${championshipHtml}
-   ${raceNightHtml}
-  </div>
- `;
+function dashboardRelativeTime(date){
+ if(!date)return '';
+ const when=new Date(date);
+ if(Number.isNaN(when.getTime()))return '';
+ const diff=Math.max(0,Date.now()-when.getTime());
+ const minutes=Math.floor(diff/60000);
+ const hours=Math.floor(diff/3600000);
+ const days=Math.floor(diff/86400000);
+ if(minutes<1)return 'Just now';
+ if(minutes<60)return `${minutes} minute${minutes===1?'':'s'} ago`;
+ if(hours<24)return `${hours} hour${hours===1?'':'s'} ago`;
+ if(days===1)return 'Yesterday';
+ if(days<30)return `${days} days ago`;
+ try{return when.toLocaleDateString(undefined,{day:'numeric',month:'short',year:when.getFullYear()===new Date().getFullYear()?undefined:'numeric'});}
+ catch(e){return when.toLocaleDateString();}
 }
 
+function dashboardChampionshipCounts(){
+ const options=generatedChampionshipOptions().filter(option=>option.type!=='open');
+ const completed=options.filter(option=>option.cars.length&&option.cars.every(car=>carIsComplete(car.id))).length;
+ const startedIds=new Set((state.championships||[]).filter(champ=>champ.type!=='open').map(champ=>champ.id));
+ const active=options.filter(option=>startedIds.has(option.id)&&!option.cars.every(car=>carIsComplete(car.id))).length;
+ return {completed,active};
+}
+
+function renderFestival(){
+ const active=activeChampionship();
+ const activeCars=championshipCars(active);
+ const totalCars=activeCars.length;
+ const completedCars=activeCars.filter(car=>carIsComplete(car.id)).length;
+ const festivalPct=totalCars?Math.round((completedCars/totalCars)*100):0;
+ const ownedCars=state.cars.length;
+ const allCompleted=state.cars.filter(car=>carIsComplete(car.id)).length;
+ const allCompletedPct=ownedCars?((allCompleted/ownedCars)*100).toFixed(1):'0.0';
+ const champCounts=dashboardChampionshipCounts();
+
+ const current=currentCar();
+ const nextCar=current||unfinishedCars()[0]||null;
+ const nextEvent=nextCar?nextEventForCar(nextCar.id):null;
+ const nextDone=nextCar?carCompletedEvents(nextCar.id).size:0;
+
+ const latestRecord=(state.recordHistory||[]).slice().sort((a,b)=>new Date(b.date||0)-new Date(a.date||0))[0]||null;
+ const latestEvent=latestRecord?eventById(latestRecord.eventId):null;
+ const latestCar=latestRecord?carById(latestRecord.carId):null;
+ const latestRecordHtml=latestRecord&&latestEvent?`
+  <div class="dashboardRecordBody">
+   <div class="dashboardRecordEvent">${esc(latestEvent.name)}</div>
+   <div class="dashboardRecordValue">${esc(fmt(latestEvent.id,latestRecord.value))}</div>
+   <div class="dashboardRecordCar">${esc(latestCar?carName(latestCar):latestRecord.carId)}</div>
+   <div class="small dashboardRecordDate">${esc(dashboardRelativeTime(latestRecord.date))}</div>
+  </div>`:`<div class="empty dashboardEmpty">Set your first Festival Record to see it here.</div>`;
+
+ const actionLabel=current?'Continue Current Car':'Start Race Night';
+ const actionIcon=current?'▶️':'🏁';
+ const actionHandler=current?'continueCurrentCar()':'beginDirectorShow()';
+
+ $('festival').innerHTML=`
+  <div class="dashboardPage">
+   <section class="dashboardHero">
+    <div class="dashboardHeroTop">
+     <div>
+      <div class="dashboardEyebrow">🏁 CURRENT CHAMPIONSHIP</div>
+      <h2>${esc(activeChampionshipName())}</h2>
+     </div>
+     <span class="dashboardPercent">${festivalPct}%</span>
+    </div>
+    <div class="progress dashboardProgress" style="${progressTrackStyle()}">
+     <div class="bar" style="${progressBarStyle(festivalPct,'festival')}"></div>
+    </div>
+    <div class="dashboardHeroMeta"><b>${completedCars} of ${totalCars}</b> cars completed</div>
+    ${nextCar&&nextEvent?`<div class="dashboardHeroNext"><span>Next up</span><b>${esc(carName(nextCar))}</b><small>${esc(nextEvent.name)} · ${nextDone}/${state.events.length} events complete</small></div>`:'<div class="dashboardHeroNext complete"><span>Championship complete</span><b>Every eligible car has finished</b></div>'}
+    <button class="btn dashboardPrimary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
+    <div class="dashboardHeroLinks"><button class="chip" onclick="showChampionshipHub('${esc(active.id)}')">View Cars</button><button class="chip" onclick="showChampionshipSelector()">Change Championship</button></div>
+   </section>
+
+   <section class="dashboardStats">
+    <div class="dashboardStat dashboardStatCars">
+     <div class="dashboardStatIcon">🚗</div><div class="small">Cars Owned</div><div class="dashboardStatValue">${ownedCars}</div><div class="dashboardStatNote">Ready to race</div>
+    </div>
+    <div class="dashboardStat dashboardStatComplete">
+     <div class="dashboardStatIcon">✅</div><div class="small">Cars Completed</div><div class="dashboardStatValue">${allCompleted}</div><div class="dashboardStatNote">${allCompletedPct}% complete</div>
+    </div>
+    <div class="dashboardStat dashboardStatChampionships">
+     <div class="dashboardStatIcon">🏁</div><div class="small">Championships Completed</div><div class="dashboardStatValue">${champCounts.completed}</div><div class="dashboardStatNote">${champCounts.active} currently active</div>
+    </div>
+   </section>
+
+   <section class="dashboardRecord">
+    <div class="dashboardSectionHeading"><div><div class="dashboardEyebrow">🏆 LATEST FESTIVAL RECORD</div><h3>Most Recent Record Change</h3></div><button class="chip" onclick="show('hall')">Hall of Fame</button></div>
+    ${latestRecordHtml}
+   </section>
+
+   <section class="dashboardContinue">
+    <div class="dashboardSectionHeading"><div><div class="dashboardEyebrow">🎯 CONTINUE RACING</div><h3>${nextCar?'Your next run':'Ready for another race night?'}</h3></div></div>
+    ${nextCar&&nextEvent?`<div class="dashboardNextCar"><div><b>${esc(carName(nextCar))}</b><span>${esc(nextEvent.name)}</span></div><span class="badge">${nextDone}/${state.events.length}</span></div>`:'<p class="small">All cars in this Championship are complete. Choose another Championship or enjoy the Hall of Fame.</p>'}
+    <button class="btn secondary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
+   </section>
+  </div>`;
+}
 
 
 function showChampionshipSelector(){
