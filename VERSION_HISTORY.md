@@ -1,3 +1,7 @@
+## v5.2.3 — Hall of Fame Accents
+
+Introduced a coordinated Hall of Fame colour system: gold for Festival Records, blue for Era Championships and green for Manufacturer Championships, with matching expanded record cards and a brighter green ACTIVE badge.
+
 ## v5.1.4 — Hall of Fame Browser
 
 Introduced a complete Hall of Fame browser. Festival Records stay visible, while Era and Manufacturer Championships can be expanded to inspect their records without changing the active Championship. The active Championship is clearly marked and manufacturer lists are sorted by garage size.

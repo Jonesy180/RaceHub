@@ -1,4 +1,4 @@
-// RaceHub v5.2.2 — Wordmarks & Manufacturer Accents
+// RaceHub v5.2.3 — Wordmarks & Manufacturer Accents
 function manufacturerLogoSlug(make){
  return String(make||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 }

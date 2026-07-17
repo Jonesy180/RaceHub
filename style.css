@@ -216,3 +216,27 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 .garageMakeGroup .row{position:relative;z-index:3}
 @media(max-width:560px){.manufacturerWatermark{width:88%;height:72%;opacity:.065}}
 @media(prefers-reduced-transparency:reduce){.manufacturerWatermark{opacity:.045}}
+
+
+/* RaceHub 5.2.3 — Hall of Fame section accents */
+.hallFestivalSection,.hallBrowserGroup{position:relative;isolation:isolate}
+.hallFestivalSection::before,.hallBrowserGroup::before{content:"";position:absolute;z-index:4;left:0;right:0;top:0;height:4px;pointer-events:none}
+.hallFestivalSection::before{background:#ffd84d;box-shadow:0 0 18px rgba(255,216,77,.48)}
+.hallFestivalSection{border-color:rgba(255,216,77,.38);background:linear-gradient(145deg,rgba(255,216,77,.065),rgba(255,255,255,.045))}
+.hallFestivalSection>h2{color:#ffe783}
+.hallBrowserGroup-era{--hall-accent:#55a8ff;--hall-rgb:85,168,255;border-color:rgba(var(--hall-rgb),.34)}
+.hallBrowserGroup-make{--hall-accent:#39e58c;--hall-rgb:57,229,140;border-color:rgba(var(--hall-rgb),.34)}
+.hallBrowserGroup-era::before,.hallBrowserGroup-make::before{background:var(--hall-accent);box-shadow:0 0 18px rgba(var(--hall-rgb),.42)}
+.hallBrowserGroup-era .hallGroupHeader,.hallBrowserGroup-make .hallGroupHeader{background:linear-gradient(90deg,rgba(var(--hall-rgb),.075),transparent 58%)}
+.hallBrowserGroup-era .hallGroupHeader b,.hallBrowserGroup-make .hallGroupHeader b{color:color-mix(in srgb,var(--hall-accent) 78%,white)}
+.hallBrowserGroup-era .hallGroupChevron,.hallBrowserGroup-era .hallChampionshipChevron,
+.hallBrowserGroup-make .hallGroupChevron,.hallBrowserGroup-make .hallChampionshipChevron{color:var(--hall-accent)}
+.hallBrowserGroup-era .hallChampionshipItem.expanded,.hallBrowserGroup-make .hallChampionshipItem.expanded{border-color:rgba(var(--hall-rgb),.46);background:rgba(var(--hall-rgb),.055);box-shadow:0 0 20px rgba(var(--hall-rgb),.07)}
+.hallBrowserGroup-era .hallChampionshipItem.activeChampionship,.hallBrowserGroup-make .hallChampionshipItem.activeChampionship{border-color:rgba(73,255,151,.58);box-shadow:0 0 22px rgba(73,255,151,.12)}
+.hallActiveBadge{color:#03170d;background:linear-gradient(135deg,#9dffc5,#35e781);box-shadow:0 0 14px rgba(53,231,129,.28)}
+.hallBrowserGroup-era .hallChampionshipRecords .hallRecordCard{border-color:rgba(85,168,255,.3);background:linear-gradient(150deg,rgba(85,168,255,.105),rgba(255,255,255,.045))}
+.hallBrowserGroup-era .hallChampionshipRecords .hallEvent{color:#8dc7ff}
+.hallBrowserGroup-era .hallChampionshipRecords .hallValue{color:#c8e5ff;text-shadow:0 0 18px rgba(85,168,255,.38)}
+.hallBrowserGroup-make .hallChampionshipRecords .hallRecordCard{border-color:rgba(57,229,140,.29);background:linear-gradient(150deg,rgba(57,229,140,.095),rgba(255,255,255,.045))}
+.hallBrowserGroup-make .hallChampionshipRecords .hallEvent{color:#79f0ae}
+.hallBrowserGroup-make .hallChampionshipRecords .hallValue{color:#c0ffda;text-shadow:0 0 18px rgba(57,229,140,.34)}

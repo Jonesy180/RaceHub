@@ -1,3 +1,13 @@
+# RaceHub v5.2.3 — Hall of Fame Accents
+
+- Added a gold accent strip and glow to Festival Records.
+- Added blue accents to Era Championships and their expanded record cards.
+- Added green accents to Manufacturer Championships and their expanded record cards.
+- Updated chevrons and section headings to match each Hall of Fame category.
+- Changed the ACTIVE Championship badge to a brighter green for instant recognition.
+- Kept the styling subtle and responsive on desktop and mobile.
+- Updated the PWA cache version.
+
 # RaceHub v5.2.2 — Wordmarks & Manufacturer Accents
 
 - Restored a consistent white wordmark watermark for every Garage manufacturer.

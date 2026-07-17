@@ -395,7 +395,7 @@ function hallChampionshipBrowserSection(title,type,icon,options,activeId){
    ${records}
   </div>`;
  }).join('');
- return `<div class="card hallBrowserGroup">
+ return `<div class="card hallBrowserGroup hallBrowserGroup-${type}">
   <button class="hallGroupHeader" type="button" onclick="toggleHallGroup('${type}')" aria-expanded="${open?'true':'false'}">
    <span><b>${icon} ${esc(title)}</b><small>${options.length} available</small></span>
    <span class="hallGroupChevron">${open?'▾':'▸'}</span>
