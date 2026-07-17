@@ -1,3 +1,14 @@
+# RaceHub v5.2.6 — Statistics Facelift
+
+- Replaces the More navigation tab with a dedicated Statistics screen.
+- Adds a compact mobile headline grid for garage, completion, Championship and record totals.
+- Adds a bright garage-completion progress panel.
+- Adds Festival Record performance cards using live RaceHub result data.
+- Adds ranked manufacturer completion rows with Garage wordmarks and accent colours.
+- Adds racing activity summaries and a recent milestone feed.
+- Keeps Settings, Backup and Record History accessible from the Statistics screen.
+- Updates the stored app version and PWA cache to v5.2.6.
+
 # RaceHub v5.2.5 — Dashboard Mobile Compact Pass
 
 - Adds a final mobile-only CSS override so the two-column layout cannot be cancelled by earlier responsive rules.

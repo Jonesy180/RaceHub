@@ -1,3 +1,8 @@
+## v5.2.6 — Statistics Facelift
+- New mobile-first Statistics screen with progress, records, manufacturer rankings, activity and milestones.
+- Settings and Record History remain accessible from Statistics.
+- Updated PWA cache.
+
 ## v5.2.5 — Dashboard Mobile Compact Pass
 - Compact two-column phone summary layout.
 - Reduced dashboard vertical spacing and panel padding.
