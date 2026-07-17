@@ -1,4 +1,4 @@
-// RaceHub v5.2.4 — Dashboard Facelift Views
+// RaceHub v5.2.5 — Dashboard Facelift Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));

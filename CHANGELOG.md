@@ -1,3 +1,14 @@
+# RaceHub v5.2.5 — Dashboard Mobile Compact Pass
+
+- Adds a final mobile-only CSS override so the two-column layout cannot be cancelled by earlier responsive rules.
+- Displays Championships Completed as a compact horizontal strip beneath the two quick-stat cards.
+- Updates the stored application data version to v5.2.5.
+- Keeps the dashboard summary cards in a two-column mobile layout, including on narrow phones.
+- Reduces summary-card height, padding and spacing for a fuller, more balanced phone view.
+- Keeps Championships Completed full width beneath the first two quick-stat cards.
+- Tightens the hero, record and Continue Racing panels without removing information.
+- Refreshes the PWA cache for v5.2.5.
+
 # RaceHub v5.2.4 — Dashboard Facelift
 
 - Redesigned the Festival home screen as a focused Dashboard.

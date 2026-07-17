@@ -242,7 +242,7 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 .hallBrowserGroup-make .hallChampionshipRecords .hallValue{color:#c0ffda;text-shadow:0 0 18px rgba(57,229,140,.34)}
 
 
-/* v5.2.4 Dashboard Facelift */
+/* v5.2.5 Dashboard Mobile Compact Pass */
 .dashboardPage{display:grid;gap:14px}
 .dashboardHero,.dashboardRecord,.dashboardContinue{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(17,44,58,.96),rgba(22,12,42,.96));border:1px solid rgba(52,215,255,.34);border-radius:24px;padding:18px;box-shadow:0 16px 36px rgba(0,0,0,.22)}
 .dashboardHero:before,.dashboardRecord:before,.dashboardContinue:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:#34d7ff;box-shadow:0 0 18px rgba(52,215,255,.75)}
@@ -279,5 +279,46 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 .dashboardContinue .dashboardEyebrow{color:#d793ff}
 .dashboardNextCar{align-items:center;margin:15px 0;padding:13px 14px;border-radius:16px;background:rgba(196,92,255,.07);border:1px solid rgba(196,92,255,.2)}
 .dashboardNextCar div{display:grid;gap:4px}.dashboardNextCar span{font-size:12px;color:rgba(255,255,255,.66)}
-@media(max-width:640px){.dashboardStats{grid-template-columns:1fr 1fr}.dashboardStatChampionships{grid-column:1/-1;min-height:112px}.dashboardHero,.dashboardRecord,.dashboardContinue{padding:16px}.dashboardSectionHeading{align-items:center}.dashboardSectionHeading h3{font-size:17px}.dashboardRecordValue{font-size:27px}}
-@media(max-width:390px){.dashboardStats{grid-template-columns:1fr}.dashboardStatChampionships{grid-column:auto}.dashboardStat{min-height:108px}.dashboardHeroTop{align-items:flex-start}.dashboardPercent{font-size:21px}}
+@media(max-width:640px){.dashboardPage{gap:11px}.dashboardStats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.dashboardStat{min-height:108px;padding:12px;border-radius:18px}.dashboardStatChampionships{grid-column:1/-1;min-height:96px}.dashboardStatIcon{font-size:19px;margin-bottom:5px}.dashboardStatValue{font-size:27px;margin:3px 0}.dashboardStatNote{font-size:11px}.dashboardStat .small{font-size:11px}.dashboardHero,.dashboardRecord,.dashboardContinue{padding:14px 15px}.dashboardProgress{margin:12px 0 7px!important}.dashboardHeroNext{margin:12px 0;padding:11px 12px}.dashboardHeroLinks{margin-top:8px}.dashboardSectionHeading{align-items:center}.dashboardSectionHeading h3{font-size:17px}.dashboardRecordBody{margin-top:12px;padding:13px}.dashboardRecordValue{font-size:27px}.dashboardNextCar{margin:12px 0;padding:11px 12px}}
+@media(max-width:390px){.dashboardStats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.dashboardStat{min-height:104px;padding:11px}.dashboardStatChampionships{grid-column:1/-1;min-height:92px}.dashboardHeroTop{align-items:flex-start}.dashboardPercent{font-size:21px}.dashboardStatValue{font-size:25px}.dashboardStatIcon{font-size:18px}}
+
+/* v5.2.5 mobile dashboard compact layout — final override */
+@media (max-width:640px){
+  .dashboardStats{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:8px!important;
+  }
+  .dashboardStat{
+    min-width:0!important;
+    min-height:0!important;
+    padding:11px 12px 12px!important;
+    border-radius:17px!important;
+  }
+  .dashboardStatIcon{font-size:18px!important;margin-bottom:4px!important}
+  .dashboardStat .small{font-size:11px!important;line-height:1.2!important}
+  .dashboardStatValue{font-size:26px!important;margin:3px 0 2px!important}
+  .dashboardStatNote{font-size:11px!important;line-height:1.25!important}
+  .dashboardStatChampionships{
+    grid-column:1 / -1!important;
+    display:grid!important;
+    grid-template-columns:auto 1fr auto!important;
+    grid-template-areas:
+      "icon label value"
+      "icon note value"!important;
+    align-items:center!important;
+    column-gap:10px!important;
+    row-gap:1px!important;
+    padding:10px 13px!important;
+  }
+  .dashboardStatChampionships .dashboardStatIcon{grid-area:icon;margin:0!important;font-size:22px!important}
+  .dashboardStatChampionships .small{grid-area:label}
+  .dashboardStatChampionships .dashboardStatValue{grid-area:value;margin:0!important;font-size:28px!important}
+  .dashboardStatChampionships .dashboardStatNote{grid-area:note}
+  .dashboardPage{gap:10px!important}
+  .dashboardHero,.dashboardRecord,.dashboardContinue{padding:13px 14px!important}
+  .dashboardHeroNext{margin:10px 0!important;padding:10px 11px!important}
+  .dashboardHeroLinks{margin-top:7px!important}
+  .dashboardRecordBody{margin-top:10px!important;padding:12px!important}
+  .dashboardNextCar{margin:10px 0!important;padding:10px 11px!important}
+}

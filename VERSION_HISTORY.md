@@ -1,3 +1,8 @@
+## v5.2.5 — Dashboard Mobile Compact Pass
+- Compact two-column phone summary layout.
+- Reduced dashboard vertical spacing and panel padding.
+- Updated PWA cache.
+
 ## v5.2.4 — Hall of Fame Accents
 
 Introduced a coordinated Hall of Fame colour system: gold for Festival Records, blue for Era Championships and green for Manufacturer Championships, with matching expanded record cards and a brighter green ACTIVE badge.
