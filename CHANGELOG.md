@@ -1,3 +1,21 @@
+# RaceHub v5.2.2 — Wordmarks & Manufacturer Accents
+
+- Restored a consistent white wordmark watermark for every Garage manufacturer.
+- Added a subtle manufacturer-coloured top accent, matching border tint and small header marker.
+- Added curated colours for major marques and a stable premium palette fallback for every other manufacturer.
+- Kept all accents restrained so car details remain clear on desktop and mobile.
+- Updated the PWA cache version.
+
+# RaceHub v5.2.0 — Manufacturer Watermarks
+
+- Added subtle white manufacturer wordmark watermarks to Garage manufacturer cards.
+- Watermarks are centred, responsive and displayed at low opacity for readability.
+- Added automatic missing-logo fallback so Garage cards never break.
+- Added `assets/logos` as the future-proof home for manufacturer SVG assets.
+- Updated PWA cache to include the manufacturer watermark library.
+
+---
+
 # RaceHub v5.1.4 — Hall of Fame Browser
 
 - Festival Records remain permanently visible.

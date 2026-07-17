@@ -198,3 +198,21 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
  .hallActiveBadge{grid-column:3;grid-row:1 / span 2}
  .hallChampionshipRecords{padding:0 8px 10px}
 }
+
+
+/* RaceHub 5.2.2 — Garage wordmarks & manufacturer accents */
+.garageMakeGroup{position:relative;overflow:hidden;isolation:isolate;min-height:104px;border-color:color-mix(in srgb,var(--manufacturer-accent) 36%,rgba(255,255,255,.11));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.garageMakeGroup::before{content:"";position:absolute;z-index:4;left:0;right:0;top:0;height:4px;background:var(--manufacturer-accent);box-shadow:0 0 16px color-mix(in srgb,var(--manufacturer-accent) 55%,transparent);pointer-events:none}
+.garageMakeGroup::after{content:"";position:absolute;z-index:0;left:0;top:0;width:42%;height:100%;background:linear-gradient(90deg,color-mix(in srgb,var(--manufacturer-accent) 9%,transparent),transparent);pointer-events:none}
+.garageMakeContent{position:relative;z-index:2}
+.manufacturerWatermark{
+ position:absolute;z-index:1;left:50%;top:50%;width:78%;height:78%;
+ object-fit:contain;transform:translate(-50%,-50%);opacity:.07;
+ filter:brightness(0) invert(1);pointer-events:none;user-select:none;
+}
+.garageMakeGroup .makeHead{position:relative;z-index:3;padding-top:2px}
+.garageMakeGroup .makeHead b{display:inline-flex;align-items:center;gap:8px}
+.garageMakeGroup .makeHead b::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--manufacturer-accent);box-shadow:0 0 10px color-mix(in srgb,var(--manufacturer-accent) 70%,transparent);flex:0 0 auto}
+.garageMakeGroup .row{position:relative;z-index:3}
+@media(max-width:560px){.manufacturerWatermark{width:88%;height:72%;opacity:.065}}
+@media(prefers-reduced-transparency:reduce){.manufacturerWatermark{opacity:.045}}
