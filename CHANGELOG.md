@@ -1,3 +1,24 @@
+# RaceHub v5.2.8 — Brand Colour Refresh
+
+- Replaces the inherited purple/pink brand tint with RaceHub cyan, deep cyan and neutral slate tones.
+- Keeps feature-specific colours for records, championships, success states and manufacturer accents.
+- Removes release/version text from the normal app header while retaining it on the loading screen.
+- Adds a polished About RaceHub signature panel to Settings.
+- Credits Andy Jones & ChatGPT as the app's designers and developers.
+- Updates the stored app version and PWA cache to v5.2.8.
+
+# RaceHub v5.2.7 — Brand Identity
+
+- Introduces the official cyan-and-white **RH shield** as the RaceHub brand mark.
+- Replaces the old flag splash treatment with the full RaceHub wordmark and the tagline **Track • Record • Improve**.
+- Adds new scalable SVG brand assets for the shield and horizontal wordmark.
+- Rebuilds every PWA/app icon size and favicon around the official RH shield.
+- Adds dedicated maskable Android icons and updates the web app manifest.
+- Restyles the app header and splash screen to match the new dark cyan identity.
+- Updates the stored app version and PWA cache to v5.2.7.
+
+---
+
 # RaceHub v5.2.6 — Statistics Facelift
 
 - Replaces the More navigation tab with a dedicated Statistics screen.

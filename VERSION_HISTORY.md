@@ -1,3 +1,12 @@
+## v5.2.8 — Brand Colour Refresh
+- Unified RaceHub around the official cyan brand identity.
+- Removed visible release labels from normal screens.
+- Added official creator credits and About panel in Settings.
+
+## v5.2.7 — Brand Identity
+
+RaceHub receives its official visual identity: a cyan RH shield, matching wordmark, rebuilt app icons, favicon, branded header and splash screen.
+
 ## v5.2.6 — Statistics Facelift
 - New mobile-first Statistics screen with progress, records, manufacturer rankings, activity and milestones.
 - Settings and Record History remain accessible from Statistics.
