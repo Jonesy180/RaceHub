@@ -1,3 +1,13 @@
+# RaceHub v5.1.4 — Hall of Fame Browser
+
+- Festival Records remain permanently visible.
+- Added collapsible Era Championship and Manufacturer Championship record browsers.
+- Championship records can now be viewed without changing the active Championship.
+- Only one Championship record panel opens at a time.
+- The active Championship is marked with an ACTIVE badge.
+- Manufacturer Championships are ordered by garage size, then alphabetically.
+- Added responsive mobile layouts for the new browser.
+
 # RaceHub Changelog
 
 ## v5.0.0 — Live Championship Fields

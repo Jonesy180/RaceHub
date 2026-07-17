@@ -1,4 +1,4 @@
-// RaceHub v5.1.3 — Hall of Fame Views
+// RaceHub v5.1.4 — Hall of Fame Browser Views
 
 function progressBarStyle(percent,type='event'){
   const pct=Math.max(0,Math.min(100,Number(percent)||0));
@@ -362,19 +362,64 @@ function hallChampionshipLeader(eventId,champ){
  if(typeof eventStats==='function')return eventStats(eventId).leader;
  return null;
 }
+let hallOpenChampionshipId=null;
+let hallOpenGroups={era:true,make:true};
+
+function toggleHallGroup(type){
+ hallOpenGroups[type]=!hallOpenGroups[type];
+ renderHallOfFame();
+}
+function toggleHallChampionship(optionId){
+ hallOpenChampionshipId=hallOpenChampionshipId===optionId?null:optionId;
+ renderHallOfFame();
+ requestAnimationFrame(()=>{
+  const row=document.getElementById(`hallChampionship-${optionId}`);
+  if(row)row.scrollIntoView({block:'nearest',behavior:'smooth'});
+ });
+}
+function hallChampionshipBrowserSection(title,type,icon,options,activeId){
+ const open=hallOpenGroups[type]!==false;
+ const rows=options.map(option=>{
+  const expanded=hallOpenChampionshipId===option.id;
+  const active=activeId===option.id;
+  const records=expanded
+   ?`<div class="hallChampionshipRecords"><div class="hallGrid">${state.events.map(ev=>hallRecordCard(ev,hallChampionshipLeader(ev.id,option),'Championship Record')).join('')}</div></div>`
+   :'';
+  return `<div id="hallChampionship-${esc(option.id)}" class="hallChampionshipItem ${expanded?'expanded':''} ${active?'activeChampionship':''}">
+   <button class="hallChampionshipButton" type="button" onclick="toggleHallChampionship('${esc(option.id)}')" aria-expanded="${expanded?'true':'false'}">
+    <span class="hallChampionshipChevron">${expanded?'▾':'▸'}</span>
+    <span class="hallChampionshipName">${esc(option.name)}</span>
+    <span class="hallChampionshipMeta">${option.cars.length} car${option.cars.length===1?'':'s'}</span>
+    ${active?'<span class="hallActiveBadge">ACTIVE</span>':''}
+   </button>
+   ${records}
+  </div>`;
+ }).join('');
+ return `<div class="card hallBrowserGroup">
+  <button class="hallGroupHeader" type="button" onclick="toggleHallGroup('${type}')" aria-expanded="${open?'true':'false'}">
+   <span><b>${icon} ${esc(title)}</b><small>${options.length} available</small></span>
+   <span class="hallGroupChevron">${open?'▾':'▸'}</span>
+  </button>
+  ${open?`<div class="hallChampionshipList">${rows||'<div class="empty">No Championships available yet.</div>'}</div>`:''}
+ </div>`;
+}
 function renderHallOfFame(){
  try{
-  const champ=typeof activeChampionship==='function'?activeChampionship():null;
-  const champName=typeof activeChampionshipName==='function'?activeChampionshipName():'Active Championship';
+  const active=typeof activeChampionship==='function'?activeChampionship():null;
+  const activeId=active&&active.id;
   const events=Array.isArray(state&&state.events)?state.events:[];
   const festivalCards=events.map(ev=>hallRecordCard(ev,hallFestivalLeader(ev.id),'Festival Record')).join('');
-  const championshipCards=events.map(ev=>hallRecordCard(ev,hallChampionshipLeader(ev.id,champ),'Championship Record')).join('');
+  const options=typeof generatedChampionshipOptions==='function'?generatedChampionshipOptions():[];
+  const eras=options.filter(option=>option.type==='era').sort((a,b)=>Number(a.value)-Number(b.value));
+  const makes=options.filter(option=>option.type==='make').sort((a,b)=>b.cars.length-a.cars.length||a.name.localeCompare(b.name));
+  if(hallOpenChampionshipId===null&&active&&active.type!=='open'&&options.some(option=>option.id===active.id))hallOpenChampionshipId=active.id;
   $('hall').innerHTML=`<div class="card hallHero">
     <div class="hallTrophy">🏆</div><h2>Hall of Fame</h2>
-    <p class="small">Where RaceHub history is written.</p>
+    <p class="small">Browse every RaceHub record without changing your active Championship.</p>
    </div>
-   <div class="card"><h2>👑 Festival Legends</h2><p class="small">The absolute best result ever recorded in every event.</p><div class="hallGrid">${festivalCards||'<div class="empty">No events available.</div>'}</div></div>
-   <div class="card"><div class="eventTop"><div><h2>🏆 Championship Legends</h2><p class="small">${esc(champName)}</p></div><button class="chip" onclick="showChampionshipSelector()">Change</button></div><div class="hallGrid">${championshipCards||'<div class="empty">No events available.</div>'}</div></div>`;
+   <div class="card hallFestivalSection"><h2>👑 Festival Records</h2><p class="small">The absolute best result ever recorded in every event.</p><div class="hallGrid">${festivalCards||'<div class="empty">No events available.</div>'}</div></div>
+   ${hallChampionshipBrowserSection('Era Championships','era','🗓️',eras,activeId)}
+   ${hallChampionshipBrowserSection('Manufacturer Championships','make','🏭',makes,activeId)}`;
  }catch(error){
   console.error('Hall of Fame render failed',error);
   $('hall').innerHTML=`<div class="card"><h2>🏆 Hall of Fame</h2><div class="empty">The Hall of Fame could not load. Close RaceHub and reopen it to finish the update.</div></div>`;

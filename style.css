@@ -171,3 +171,30 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 .hallCar{font-size:20px;font-weight:1000;line-height:1.15}
 .hallValue{font-size:30px;font-weight:1000;color:#fff1a8;margin:9px 0;text-shadow:0 0 18px rgba(255,216,77,.45)}
 @media(max-width:560px){.hallGrid{grid-template-columns:1fr}.nav button{font-size:12px}.ico{font-size:24px}}
+
+/* RaceHub 5.1.4 — Hall of Fame Browser */
+.hallFestivalSection{border-color:rgba(255,216,77,.28)}
+.hallBrowserGroup{padding:0;overflow:hidden}
+.hallGroupHeader{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer}
+.hallGroupHeader>span:first-child{display:flex;flex-direction:column;gap:4px;font-size:20px}
+.hallGroupHeader small{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.4px}
+.hallGroupChevron{font-size:25px;color:#ffd84d;line-height:1}
+.hallChampionshipList{padding:0 12px 12px}
+.hallChampionshipItem{margin:8px 0;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.035);overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
+.hallChampionshipItem.activeChampionship{border-color:rgba(255,216,77,.5);box-shadow:0 0 20px rgba(255,216,77,.09)}
+.hallChampionshipItem.expanded{border-color:rgba(255,216,77,.36);background:rgba(255,216,77,.045)}
+.hallChampionshipButton{width:100%;min-height:62px;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:10px;border:0;background:transparent;color:inherit;padding:12px 14px;text-align:left;cursor:pointer}
+.hallChampionshipChevron{font-size:20px;color:#ffd84d;width:18px;text-align:center}
+.hallChampionshipName{font-weight:1000;line-height:1.2}
+.hallChampionshipMeta{font-size:12px;color:var(--muted);white-space:nowrap}
+.hallActiveBadge{font-size:10px;font-weight:1000;letter-spacing:1px;color:#160e00;background:linear-gradient(135deg,#fff3a6,#ffd84d);padding:5px 8px;border-radius:999px;white-space:nowrap}
+.hallChampionshipRecords{padding:0 12px 14px;border-top:1px solid rgba(255,255,255,.08)}
+.hallChampionshipRecords .hallGrid{margin-top:12px}
+@media(max-width:560px){
+ .hallGroupHeader{padding:16px}
+ .hallChampionshipList{padding:0 8px 8px}
+ .hallChampionshipButton{grid-template-columns:auto minmax(0,1fr) auto;padding:12px 10px}
+ .hallChampionshipMeta{grid-column:2;font-size:11px}
+ .hallActiveBadge{grid-column:3;grid-row:1 / span 2}
+ .hallChampionshipRecords{padding:0 8px 10px}
+}

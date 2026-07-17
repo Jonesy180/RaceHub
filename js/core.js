@@ -1,4 +1,4 @@
-// RaceHub v5.1.3 — Hall of Fame
+// RaceHub v5.1.4 — Hall of Fame
 const STORE='RaceHub_v4_1_director_edition';
 let state=null;
 let currentScreen='festival';
@@ -111,7 +111,7 @@ function normaliseCar(car){
 }
 function migrateState(raw){
  const next=Object.assign({},raw||{});
- next.version='5.1.3';
+ next.version='5.1.4';
  next.cars=Array.isArray(next.cars)?next.cars.map(normaliseCar):[...SEED.cars].map(normaliseCar);
  next.events=Array.isArray(next.events)?next.events:[...SEED.events];
  next.results=Array.isArray(next.results)?next.results:[];
@@ -123,7 +123,7 @@ function migrateState(raw){
  next.activeChampionshipId=next.activeChampionshipId||'open:all';
  return next;
 }
-function freshState(){return migrateState({version:'5.1.3',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function freshState(){return migrateState({version:'5.1.4',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}

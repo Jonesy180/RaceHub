@@ -1,3 +1,7 @@
+## v5.1.4 — Hall of Fame Browser
+
+Introduced a complete Hall of Fame browser. Festival Records stay visible, while Era and Manufacturer Championships can be expanded to inspect their records without changing the active Championship. The active Championship is clearly marked and manufacturer lists are sorted by garage size.
+
 /* RaceHub v4.2 Stable Project */
 :root {
   --bg:#090011; --panel:#1a0730; --panel2:#2a0a4d; --pink:#ff2bd6; --purple:#7b2cff;
