@@ -1,3 +1,11 @@
+# RaceHub v5.3.1 — Navigation Identity
+
+- Renames the Leaders navigation tab to Leaderboard.
+- Gives Leaderboard a gold trophy identity.
+- Gives Statistics a distinct blue chart identity.
+- Keeps all leaderboard calculations, queues and race workflows unchanged.
+- Updates the app and PWA cache to v5.3.1.
+
 # RaceHub v5.3.0 — Overall Leaderboard
 
 - Adds a read-only Overall Leaderboard across the full RaceHub collection.

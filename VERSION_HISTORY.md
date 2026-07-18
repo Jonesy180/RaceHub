@@ -1,5 +1,11 @@
 # RaceHub Version History
 
+## v5.3.1 — Navigation Identity
+- Renamed Leaders to Leaderboard in the main navigation.
+- Added a gold trophy icon and active state for Leaderboard.
+- Changed Statistics to a blue rising-chart icon and active state.
+- No data or workflow changes.
+
 ## v5.3.0 — Overall Leaderboard
 - Introduced the full-collection Overall Leaderboard and podium.
 - Combined all timed event results for each completed car.
