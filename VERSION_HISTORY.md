@@ -1,4 +1,10 @@
-## v5.2.11 — Record History Restore
+## v5.2.12 — Record History Sprint 2
+- Added animated Record History dashboard counters.
+- Added real fastest, average and Long Jump performance highlights.
+- Added richer record, Championship podium and completed-car cards.
+- Added performance summary and clearer colour coding.
+
+## v5.2.12 — Record History Restore
 - Restored the full **Your Racing Story** timeline and all Record History styling.
 - Preserved Random Picker Sprint 1.
 - Updated PWA cache.
