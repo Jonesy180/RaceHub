@@ -1,3 +1,8 @@
+## v5.2.9 — Record History Facelift
+- New **Your Racing Story** timeline with Records, Championships and completed cars.
+- Colour-coded cards, relative dates, manufacturer wordmarks and mobile filter chips.
+- Updated PWA cache.
+
 ## v5.2.8 — Brand Colour Refresh
 - Unified RaceHub around the official cyan brand identity.
 - Removed visible release labels from normal screens.
