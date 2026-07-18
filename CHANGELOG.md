@@ -1,13 +1,3 @@
-# RaceHub v5.2.9 — Record History Facelift
-
-- Rebuilds Record History as a mobile-first **Your Racing Story** timeline.
-- Adds live summary totals for Festival Records, completed Championships and completed cars.
-- Adds filter chips for All, Records, Championships and Cars.
-- Adds colour-coded timeline cards, relative dates and manufacturer wordmarks.
-- Recovers current Festival Records from live results when an older history entry is missing.
-- Adds polished full-history and filtered empty states.
-- Updates the stored app version and PWA cache to v5.2.9.
-
 # RaceHub v5.2.8 — Brand Colour Refresh
 
 - Replaces the inherited purple/pink brand tint with RaceHub cyan, deep cyan and neutral slate tones.

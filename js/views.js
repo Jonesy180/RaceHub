@@ -125,6 +125,18 @@ function renderFestival(){
     ${nextCar&&nextEvent?`<div class="dashboardNextCar"><div><b>${esc(carName(nextCar))}</b><span>${esc(nextEvent.name)}</span></div><span class="badge">${nextDone}/${state.events.length}</span></div>`:'<p class="small">All cars in this Championship are complete. Choose another Championship or enjoy the Hall of Fame.</p>'}
     <button class="btn secondary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
    </section>
+
+   <section class="randomPickerPanel" aria-label="Random Picker">
+    <div class="randomPickerGlow"></div>
+    <div class="randomPickerIcon">🎲</div>
+    <div class="randomPickerCopy">
+     <div class="randomPickerEyebrow">RANDOM PICKER</div>
+     <h3>Let RaceHub choose</h3>
+     <p>Draw one unfinished car from the active Championship and reveal its next event.</p>
+     <div class="randomPickerMeta"><span><b>${unfinishedCars().length}</b> cars available</span><span><b>${state.events.length}</b> events loaded</span></div>
+    </div>
+    <button class="btn randomPickerButton" onclick="beginDirectorShow(true)" ${unfinishedCars().length?'':'disabled'}>🎲 Pick a Random Car</button>
+   </section>
   </div>`;
 }
 

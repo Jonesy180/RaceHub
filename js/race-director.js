@@ -49,7 +49,8 @@ function beginDirectorShow(forceNew=false){
   save();
   const line=directorLines[Math.floor(Math.random()*directorLines.length)];
   directorOverlay(`<button class="skipBtn" onclick="skipDirectorToRun('${ev.id}','${car.id}')">Skip</button><div class="directorCard">
-    <div style="font-size:54px">🏁</div>
+    <div class="directorDice">🎲</div>
+    <div class="directorKicker">RANDOM PICKER</div>
     <div class="directorTitle">RACEHUB</div>
     <div class="directorLine" id="directorLine">Race Director Initialising...</div>
     <div class="checkList">
@@ -66,8 +67,10 @@ function beginDirectorShow(forceNew=false){
 function directorCarSlot(car,ev){
   const names=championshipCars().slice(0,80).map(carName);
   directorOverlay(`<button class="skipBtn" onclick="skipDirectorToRun('${ev.id}','${car.id}')">Skip</button><div class="directorCard">
+    <div class="directorKicker">RANDOM PICKER</div>
     <div class="directorLine">Tonight's randomly selected car is...</div>
     <div class="slotBox"><div class="slotText" id="slotText">Selecting...</div></div>
+    <div class="directorSpinnerDots"><i></i><i></i><i></i></div>
   </div>`);
   let i=0;
   const slot=$('slotText');
@@ -83,12 +86,21 @@ function directorCarSlot(car,ev){
   },80);
 }
 function directorEventReveal(car,ev){
-  directorOverlay(`<button class="skipBtn" onclick="skipDirectorToRun('${ev.id}','${car.id}')">Skip</button><div class="directorCard">
-    <div class="directorLine">Your opening challenge is...</div>
-    <div class="directorBig">🚗 ${esc(carName(car))}</div>
-    <div class="directorTitle">🏁 ${esc(ev.name)}</div>
+  const make=car&&car.make?car.make:'';
+  const accent=typeof manufacturerAccent==='function'?manufacturerAccent(make):'#ff9f2f';
+  const logo=make&&typeof manufacturerLogoPath==='function'
+    ?`<img class="directorManufacturerLogo" src="${manufacturerLogoPath(make)}" alt="" aria-hidden="true" onerror="this.remove()">`
+    :'';
+  directorOverlay(`<button class="skipBtn" onclick="skipDirectorToRun('${ev.id}','${car.id}')">Skip</button><div class="directorCard directorWinner" style="--director-make:${accent}">
+    <div class="directorKicker">YOUR RANDOM PICK</div>
+    ${logo}
+    <div class="directorBig">${esc(carName(car))}</div>
+    <div class="directorEventLabel">OPENING EVENT</div>
+    <div class="directorEventName">🏁 ${esc(ev.name)}</div>
     <div class="directorActions">
-      <button class="btn bigStart" onclick="skipDirectorToRun('${ev.id}','${car.id}')">▶ Start Event</button>
+      <button class="btn bigStart randomPickerButton" onclick="skipDirectorToRun('${ev.id}','${car.id}')">▶ Start Event</button>
+      <button class="btn secondary" onclick="closeDirector();beginDirectorShow(true)">🎲 Pick Again</button>
+      <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
     </div>
   </div>`);
 }
