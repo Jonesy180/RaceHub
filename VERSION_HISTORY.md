@@ -1,3 +1,7 @@
+## v5.2.15 — Queue Draw Experience
+
+New Championship queues now feel like a proper race-night draw, revealing cars one at a time with a Skip Draw option. The queue is saved before the reveal starts, while existing queues continue to open instantly.
+
 ## v5.2.14 — Persistent Championship Queues
 - Separate saved queue for every Era and Manufacturer Championship.
 - Queues survive reloads and clean themselves when overlapping cars are completed elsewhere.

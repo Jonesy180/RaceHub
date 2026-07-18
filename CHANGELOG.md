@@ -1,3 +1,13 @@
+# RaceHub v5.2.15 — Queue Draw Experience
+
+- Reveals newly generated Championship queues one car at a time.
+- Adds an always-visible **Skip Draw** control during the reveal.
+- Saves the complete queue before the animation begins, protecting it from refreshes or closures.
+- Opens existing saved queues instantly without replaying the draw.
+- Adapts reveal speed for longer Championship queues.
+- Adds subtle sound and vibration feedback while respecting RaceHub settings.
+- Updates the app and PWA cache to v5.2.15.
+
 # RaceHub v5.2.14 — Persistent Championship Queues
 
 - Replaces Random Pairs with a practical Race Night Queue.

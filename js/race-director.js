@@ -1,4 +1,6 @@
-// RaceHub v5.2.14 — Persistent Championship Queues
+// RaceHub v5.2.15 — Queue Draw Experience
+let queueRevealTimer=null;
+let queueRevealToken=0;
 const directorLines=[
   'Good evening, drivers...',
   'The garage has spoken...',
@@ -22,6 +24,8 @@ function directorOverlay(html){
   document.body.insertAdjacentHTML('beforeend',`<div id="directorOverlay" class="directorOverlay">${html}</div>`);
 }
 function closeDirector(){
+  queueRevealToken++;
+  if(queueRevealTimer){clearTimeout(queueRevealTimer);queueRevealTimer=null;}
   const o=$('directorOverlay');
   if(o)o.remove();
 }
@@ -55,27 +59,67 @@ function launchRandomPicker(){
 function openChampionshipQueue(forceNew=false){
  if(!unfinishedCars().length){toast('All cars complete');return;}
  let queue=activeChampionshipQueue();
- if(forceNew||!queue)queue=generateChampionshipQueue();
+ const isNew=forceNew||!queue;
+ if(isNew)queue=generateChampionshipQueue();
  if(!queue)return;
- directorQueueReveal();
+ directorQueueReveal(isNew);
 }
-function directorQueueReveal(){
+function queueRevealDelay(count){
+ if(count>=30)return 120;
+ if(count>=20)return 155;
+ if(count>=12)return 210;
+ return 285;
+}
+function queueRowHtml(car,i,revealing=false){
+ return `<div class="pickerOrderRow ${i===0?'queueCurrent':''} ${revealing?'queueRevealing':''}"><span>${i+1}</span><b>${esc(carName(car))}</b><small>${i===0?'NEXT CAR':esc((nextEventForCar(car.id)||{}).name||'Complete')}</small></div>`;
+}
+function finishQueueReveal(cars,token){
+ if(token!==queueRevealToken)return;
+ if(queueRevealTimer){clearTimeout(queueRevealTimer);queueRevealTimer=null;}
+ const list=$('queueRevealList'),status=$('queueRevealStatus'),skip=$('queueSkipBtn'),actions=$('queueRevealActions');
+ if(list)list.innerHTML=cars.map((car,i)=>queueRowHtml(car,i)).join('');
+ if(status)status.innerHTML='🏁 <b>Queue locked in. Time to race!</b>';
+ if(skip)skip.remove();
+ if(actions)actions.hidden=false;
+ randomPickerTone(760,.12);
+ if(state.settings&&state.settings.vibrate!==false&&navigator.vibrate)navigator.vibrate([45,35,70]);
+}
+function skipQueueReveal(){
+ const cars=queueCars();
+ finishQueueReveal(cars,queueRevealToken);
+}
+function directorQueueReveal(animate=false){
  const cars=queueCars();
  if(!cars.length){closeDirector();toast('Queue is empty');show('festival');return;}
- const rows=cars.map((car,i)=>`<div class="pickerOrderRow ${i===0?'queueCurrent':''}"><span>${i+1}</span><b>${esc(carName(car))}</b><small>${i===0?'NEXT CAR':esc((nextEventForCar(car.id)||{}).name||'Complete')}</small></div>`).join('');
  const first=cars[0],ev=nextEventForCar(first.id);
- directorOverlay(`<button class="skipBtn" onclick="closeDirector();show('festival')">Close</button><div class="directorCard directorWinner">
+ directorOverlay(`${animate?'<button id="queueSkipBtn" class="skipBtn" onclick="skipQueueReveal()">Skip Draw</button>':'<button class="skipBtn" onclick="closeDirector();show(\'festival\')">Close</button>'}<div class="directorCard directorWinner queueDrawCard">
    <div class="directorKicker">${esc(activeChampionshipName())}</div>
-   <div class="directorBig">Race Night Queue</div>
-   <p class="small">Saved automatically. Completed cars disappear from every Championship queue without reshuffling the remaining order.</p>
-   <div class="pickerLineup">${rows}</div>
-   <div class="directorActions">
+   <div class="directorBig">${animate?'Drawing Race Queue...':'Race Night Queue'}</div>
+   <p id="queueRevealStatus" class="small">${animate?'🎲 The full queue is already saved safely. Revealing the running order now...':'Saved automatically. Completed cars disappear from every Championship queue without reshuffling the remaining order.'}</p>
+   <div id="queueRevealList" class="pickerLineup queueRevealList">${animate?'':cars.map((car,i)=>queueRowHtml(car,i)).join('')}</div>
+   <div id="queueRevealActions" class="directorActions" ${animate?'hidden':''}>
     ${ev?`<button class="btn bigStart randomPickerButton" onclick="startQueueCar('${first.id}')">▶ Start Next Car</button>`:''}
     <button class="btn secondary" onclick="if(confirm('Replace this queue with a new random order?'))openChampionshipQueue(true)">🎲 Generate New Queue</button>
     <button class="btn secondary" onclick="closeDirector();resetChampionshipQueue()">Clear Queue</button>
     <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
    </div>
   </div>`);
+ const token=queueRevealToken;
+ if(!animate)return;
+ const list=$('queueRevealList');
+ let index=0;
+ const delay=queueRevealDelay(cars.length);
+ const revealNext=()=>{
+   if(token!==queueRevealToken||!list)return;
+   if(index>=cars.length){queueRevealTimer=setTimeout(()=>finishQueueReveal(cars,token),260);return;}
+   list.insertAdjacentHTML('beforeend',queueRowHtml(cars[index],index,true));
+   const row=list.lastElementChild;
+   if(row){row.scrollIntoView({block:'nearest',behavior:'smooth'});setTimeout(()=>row.classList.remove('queueRevealing'),Math.max(180,delay-30));}
+   randomPickerTone(430+(index%5)*45,.045);
+   index++;
+   queueRevealTimer=setTimeout(revealNext,delay);
+ };
+ queueRevealTimer=setTimeout(revealNext,650);
 }
 function beginDirectorShow(forceNew=false){
   const c=currentCar();
