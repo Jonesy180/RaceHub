@@ -1,3 +1,12 @@
+# RaceHub Version History
+
+## v5.3.0 — Overall Leaderboard
+- Introduced the full-collection Overall Leaderboard and podium.
+- Combined all timed event results for each completed car.
+- Added Long Jump tie-breaking, leader gaps, Championship wins and record totals.
+- Kept the Overall Leaderboard read-only so it cannot be selected or raced.
+- Preserved Era and Manufacturer Championship queues and workflows.
+
 ## v5.2.15 — Queue Draw Experience
 
 New Championship queues now feel like a proper race-night draw, revealing cars one at a time with a Skip Draw option. The queue is saved before the reveal starts, while existing queues continue to open instantly.

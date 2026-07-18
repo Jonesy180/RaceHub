@@ -1,3 +1,14 @@
+# RaceHub v5.3.0 — Overall Leaderboard
+
+- Adds a read-only Overall Leaderboard across the full RaceHub collection.
+- Ranks fully completed cars by the combined total of all timed events.
+- Uses Long Jump as the tie-breaker when total times are identical.
+- Adds current leader, podium, gap-to-leader, Championship wins and Festival records.
+- Shows collection qualification progress and cars closest to completing all six events.
+- Keeps Era and Manufacturer Championships as the only raceable Championships.
+- Retains the Hall of Fame below the new leaderboard.
+- Updates the app and PWA cache to v5.3.0.
+
 # RaceHub v5.2.15 — Queue Draw Experience
 
 - Reveals newly generated Championship queues one car at a time.

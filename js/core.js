@@ -1,4 +1,4 @@
-// RaceHub v5.2.15 — Queue Draw Experience
+// RaceHub v5.3.0 — Overall Leaderboard
 const STORE='RaceHub_v4_1_director_edition';
 let state=null;
 let currentScreen='festival';
@@ -111,7 +111,7 @@ function normaliseCar(car){
 }
 function migrateState(raw){
  const next=Object.assign({},raw||{});
- next.version='5.2.15';
+ next.version='5.3.0';
  next.cars=Array.isArray(next.cars)?next.cars.map(normaliseCar):[...SEED.cars].map(normaliseCar);
  next.events=Array.isArray(next.events)?next.events:[...SEED.events];
  next.results=Array.isArray(next.results)?next.results:[];
@@ -127,7 +127,7 @@ function migrateState(raw){
  next.activeChampionshipId=next.activeChampionshipId||'open:all';
  return next;
 }
-function freshState(){return migrateState({version:'5.2.15',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function freshState(){return migrateState({version:'5.3.0',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
@@ -366,6 +366,32 @@ function championshipRows(){
   });
 
   return rows;
+}
+
+
+function overallLeaderboardRows(){
+  const timedEvents=state.events.filter(e=>e.type!=='distance');
+  const distanceEvent=state.events.find(e=>e.type==='distance')||null;
+  const bestByEvent={};
+  state.events.forEach(ev=>{bestByEvent[ev.id]=new Map(bestRows(ev.id).map(r=>[r.carId,r]));});
+  const rows=state.cars.map(car=>{
+    const completed=state.events.filter(ev=>bestByEvent[ev.id].has(car.id)).length;
+    const timedResults=timedEvents.map(ev=>bestByEvent[ev.id].get(car.id)).filter(Boolean);
+    const qualified=completed===state.events.length&&timedResults.length===timedEvents.length;
+    const totalTime=qualified?timedResults.reduce((sum,r)=>sum+Number(r.value),0):null;
+    const jumpResult=distanceEvent?bestByEvent[distanceEvent.id].get(car.id):null;
+    return {carId:car.id,car,completed,qualified,totalTime,longJump:jumpResult?Number(jumpResult.value):0,position:null,gap:null};
+  });
+  const qualified=rows.filter(r=>r.qualified).sort((a,b)=>{
+    const timeDiff=a.totalTime-b.totalTime;
+    if(Math.abs(timeDiff)>0.0000001)return timeDiff;
+    const jumpDiff=b.longJump-a.longJump;
+    if(Math.abs(jumpDiff)>0.0000001)return jumpDiff;
+    return carName(a.car).localeCompare(carName(b.car));
+  });
+  const leaderTime=qualified.length?qualified[0].totalTime:0;
+  qualified.forEach((row,index)=>{row.position=index+1;row.gap=row.totalTime-leaderTime;});
+  return {qualified,progress:rows.sort((a,b)=>b.completed-a.completed||carName(a.car).localeCompare(carName(b.car)))};
 }
 
 function championshipLeader(){

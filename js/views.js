@@ -408,6 +408,60 @@ function hallChampionshipBrowserSection(title,type,icon,options,activeId){
   ${open?`<div class="hallChampionshipList">${rows||'<div class="empty">No Championships available yet.</div>'}</div>`:''}
  </div>`;
 }
+function overallMedal(position){return position===1?'🥇':position===2?'🥈':position===3?'🥉':String(position);}
+function overallGapText(seconds){return !seconds?'LEADER':`+${formatChampionshipTime(seconds)}`;}
+function overallChampionshipWins(){
+ const wins=new Map();
+ const options=generatedChampionshipOptions().filter(o=>o.type==='era'||o.type==='make');
+ options.forEach(option=>{
+  if(!option.cars.length||!option.cars.every(car=>carIsComplete(car.id)))return;
+  const previous=state.activeChampionshipId;
+  const champ={id:option.id,name:option.name,type:option.type,value:option.value};
+  const timedEvents=state.events.filter(e=>e.type!=='distance');
+  const distanceEvent=state.events.find(e=>e.type==='distance')||null;
+  const rows=option.cars.map(car=>{
+   const timed=timedEvents.map(ev=>bestRows(ev.id).find(r=>r.carId===car.id)).filter(Boolean);
+   if(timed.length!==timedEvents.length)return null;
+   const jump=distanceEvent?bestRows(distanceEvent.id).find(r=>r.carId===car.id):null;
+   return {car,total:timed.reduce((sum,r)=>sum+Number(r.value),0),jump:jump?Number(jump.value):0};
+  }).filter(Boolean).sort((a,b)=>Math.abs(a.total-b.total)>0.0000001?a.total-b.total:b.jump-a.jump);
+  if(rows[0])wins.set(rows[0].car.id,(wins.get(rows[0].car.id)||0)+1);
+ });
+ return wins;
+}
+function overallRecordsHeld(){
+ const held=new Map();
+ state.events.forEach(ev=>{const leader=hallFestivalLeader(ev.id);if(leader)held.set(leader.carId,(held.get(leader.carId)||0)+1);});
+ return held;
+}
+function renderOverallLeaderboard(){
+ const data=overallLeaderboardRows();
+ const rows=data.qualified;
+ const leader=rows[0]||null;
+ const wins=overallChampionshipWins();
+ const records=overallRecordsHeld();
+ const total=state.cars.length;
+ const complete=rows.length;
+ const pct=total?Math.round(complete/total*100):0;
+ const podium=rows.slice(0,3).map(row=>`<div class="overallPodiumCard overallPodium-${row.position}">
+   <div class="overallMedal">${overallMedal(row.position)}</div><div class="overallPodiumName">${esc(carName(row.car))}</div>
+   <div class="overallPodiumTime">${esc(formatChampionshipTime(row.totalTime))}</div>
+   <div class="small">Long Jump ${esc(fmt((state.events.find(e=>e.type==='distance')||{}).id,row.longJump))}</div>
+  </div>`).join('');
+ const table=rows.map(row=>`<div class="overallRow ${row.position<=3?'overallTopRow':''}">
+   <div class="overallPos">${overallMedal(row.position)}</div><div class="overallCar"><b>${esc(carName(row.car))}</b><small>${wins.get(row.carId)||0} Championship win${(wins.get(row.carId)||0)===1?'':'s'} • ${records.get(row.carId)||0} Festival record${(records.get(row.carId)||0)===1?'':'s'}</small></div>
+   <div class="overallTime"><b>${esc(formatChampionshipTime(row.totalTime))}</b><small>${esc(overallGapText(row.gap))}</small></div>
+  </div>`).join('');
+ const closest=data.progress.filter(r=>!r.qualified&&r.completed>0).slice(0,5).map(r=>`<div class="overallProgressRow"><span>${esc(carName(r.car))}</span><b>${r.completed}/${state.events.length}</b></div>`).join('');
+ return `<div class="card overallHero">
+   <div class="overallHeroIcon">🏆</div><div><div class="directorKicker">RaceHub collection standings</div><h2>Overall Leaderboard</h2><p class="small">Every completed car ranked by the combined total of all timed events. Long Jump breaks an exact tie.</p></div>
+  </div>
+  <div class="card overallProgress"><div><b>${complete} of ${total} cars qualified</b><span>${pct}% of the collection</span></div><div class="progress" style="${progressTrackStyle()}"><div class="bar" style="${progressBarStyle(pct,'festival')}"></div></div></div>
+  ${leader?`<div class="card overallLeaderCard"><div class="overallLeaderCrown">👑</div><div class="directorKicker">Current Overall Leader</div><h2>${esc(carName(leader.car))}</h2><div class="overallLeaderTime">${esc(formatChampionshipTime(leader.totalTime))}</div><div class="overallLeaderStats"><span>🏆 ${wins.get(leader.carId)||0} wins</span><span>⚡ ${records.get(leader.carId)||0} records</span><span>🚀 ${esc(fmt((state.events.find(e=>e.type==='distance')||{}).id,leader.longJump))}</span></div></div>`:`<div class="card"><div class="empty">Complete all six events with a car to place it on the Overall Leaderboard.</div></div>`}
+  ${podium?`<div class="overallPodium">${podium}</div>`:''}
+  <div class="card"><h2>📊 Overall Standings</h2><div class="overallTable">${table||'<div class="empty">No cars have qualified yet.</div>'}</div></div>
+  ${closest?`<div class="card"><h2>🏁 Closing In</h2><p class="small">Cars nearest to completing all six events.</p><div class="overallProgressList">${closest}</div></div>`:''}`;
+}
 function renderHallOfFame(){
  try{
   const active=typeof activeChampionship==='function'?activeChampionship():null;
@@ -418,15 +472,11 @@ function renderHallOfFame(){
   const eras=options.filter(option=>option.type==='era').sort((a,b)=>Number(a.value)-Number(b.value));
   const makes=options.filter(option=>option.type==='make').sort((a,b)=>b.cars.length-a.cars.length||a.name.localeCompare(b.name));
   if(hallOpenChampionshipId===null&&active&&active.type!=='open'&&options.some(option=>option.id===active.id))hallOpenChampionshipId=active.id;
-  $('hall').innerHTML=`<div class="card hallHero">
-    <div class="hallTrophy">🏆</div><h2>Hall of Fame</h2>
-    <p class="small">Browse every RaceHub record without changing your active Championship.</p>
-   </div>
+  $('hall').innerHTML=`${renderOverallLeaderboard()}
+   <div class="card hallHero hallOfFameDivider"><div class="hallTrophy">🏛️</div><h2>Hall of Fame</h2><p class="small">Records from the whole Festival and every raceable Era and Manufacturer Championship.</p></div>
    <div class="card hallFestivalSection"><h2>👑 Festival Records</h2><p class="small">The absolute best result ever recorded in every event.</p><div class="hallGrid">${festivalCards||'<div class="empty">No events available.</div>'}</div></div>
    ${hallChampionshipBrowserSection('Era Championships','era','🗓️',eras,activeId)}
    ${hallChampionshipBrowserSection('Manufacturer Championships','make','🏭',makes,activeId)}`;
- }catch(error){
-  console.error('Hall of Fame render failed',error);
-  $('hall').innerHTML=`<div class="card"><h2>🏆 Hall of Fame</h2><div class="empty">The Hall of Fame could not load. Close RaceHub and reopen it to finish the update.</div></div>`;
- }
+ }catch(error){console.error('Overall Leaderboard render failed',error);$('hall').innerHTML=`<div class="card"><h2>🏆 Overall Leaderboard</h2><div class="empty">The leaderboard could not load. Close RaceHub and reopen it to finish the update.</div></div>`;}
 }
+
