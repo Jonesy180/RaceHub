@@ -113,25 +113,86 @@ function renderStats(){
  </div>`;
 }
 
-function renderRecordHistory(){
- const hist=state.recordHistory||[];
- let content=`<div class="card"><h2>🏛️ Festival Record History</h2><p class="small">The absolute best results across the whole garage. Championship records are calculated live within each Championship.</p>`;
- state.events.forEach(ev=>{
-  let rows=hist.filter(h=>h.eventId===ev.id).slice().reverse();
-  const boardRecord=festivalEventStats(ev.id).leader;
-  if(boardRecord && (!rows.length || rows[0].carId!==boardRecord.carId || Number(rows[0].value)!==Number(boardRecord.value))){rows.unshift({id:'fallback-'+ev.id,eventId:ev.id,carId:boardRecord.carId,value:boardRecord.value,date:boardRecord.date||new Date().toISOString(),fallback:true});}
-  const current=rows[0];
-  content += `<div class="legacyCard"><h3>🏁 ${esc(ev.name)}</h3>`;
-  if(current){const stood=daysText(daysBetween(current.date,new Date().toISOString()));content += `<div class="legacyStat"><div><div class="legacyBig">${rows.length}</div><div class="small">record entries</div></div><div><div class="legacyBig">${stood.replace('Held for ','')||'today'}</div><div class="small">current record age</div></div></div>`;} else content += `<div class="empty">No record yet.</div>`;
-  rows.forEach((h,i)=>{const car=carById(h.carId),prev=carById(h.previousCarId);content += `<div class="timelineItem ${i?'old':''}"><b>${i===0?'👑 Current Record':'⭐ Previous Record'}</b><br>${esc(car?carName(car):h.carId)}<br><span class="recordValue">${esc(fmt(h.eventId,h.value))}</span><br><span class="small">${new Date(h.date).toLocaleDateString()}</span>${h.fallback?`<br><span class="small">Current leaderboard record</span>`:''}${h.improvement?`<br><span class="small">⚡ ${esc(h.improvement)}</span>`:''}${h.daysStood!=null?`<br><span class="small">⏳ Previous record ${esc(daysText(h.daysStood).toLowerCase())}</span>`:''}${prev?`<br><span class="small">Beat: ${esc(carName(prev))}</span>`:''}</div>`;});
-  content += `</div>`;
- });
- content += `</div>`;
- $('more').innerHTML=content+`<div class="card"><button class="btn secondary" onclick="renderStats()">Back to Statistics</button></div>`;
+function recordHistoryDateValue(value){
+ const time=new Date(value||0).getTime();
+ return Number.isFinite(time)?time:0;
 }
+function recordHistoryRelative(value){
+ if(!value)return 'Date unavailable';
+ if(typeof dashboardRelativeTime==='function')return dashboardRelativeTime(value);
+ const days=Math.floor(Math.max(0,Date.now()-recordHistoryDateValue(value))/86400000);
+ if(days===0)return 'Today'; if(days===1)return 'Yesterday'; if(days<7)return `${days} days ago`;
+ return new Date(value).toLocaleDateString();
+}
+function recordHistoryStory(){
+ const items=[];
+ const seenRecords=new Set();
+ (state.recordHistory||[]).forEach(entry=>{
+  const ev=eventById(entry.eventId),car=carById(entry.carId);
+  const key=`${entry.eventId}|${entry.carId}|${Number(entry.value)}`;
+  seenRecords.add(key);
+  items.push({
+   id:entry.id||key,type:'records',date:entry.date||'',icon:'🏆',eyebrow:'FESTIVAL RECORD',
+   title:ev?ev.name:'Festival Record',value:fmt(entry.eventId,entry.value),car,
+   detail:entry.improvement?`Improved the record by ${entry.improvement}`:(entry.previousCarId?'A new Festival benchmark':'The first recorded benchmark'),
+   meta:entry.daysStood!=null?`Previous record ${daysText(entry.daysStood).toLowerCase()}`:'Entered the Hall of Fame',
+   accent:'#ffd84d'
+  });
+ });
+ state.events.forEach(ev=>{
+  const leader=festivalEventStats(ev.id).leader;
+  if(!leader)return;
+  const key=`${ev.id}|${leader.carId}|${Number(leader.value)}`;
+  if(seenRecords.has(key))return;
+  const car=carById(leader.carId);
+  items.push({id:`current-${ev.id}`,type:'records',date:leader.date||'',icon:'👑',eyebrow:'CURRENT FESTIVAL RECORD',title:ev.name,value:fmt(ev.id,leader.value),car,detail:'Current leaderboard record',meta:'Recovered from live results',accent:'#ffd84d'});
+ });
+ state.cars.filter(car=>carIsComplete(car.id)).forEach(car=>{
+  const results=state.results.filter(result=>result.carId===car.id&&result.date).sort((a,b)=>recordHistoryDateValue(b.date)-recordHistoryDateValue(a.date));
+  if(!results.length)return;
+  items.push({id:`car-${car.id}`,type:'cars',date:results[0].date,icon:'🚗',eyebrow:'CAR COMPLETED',title:carName(car),value:`${state.events.length} of ${state.events.length} events`,car,detail:'Every Festival event completed',meta:'Full race card achieved',accent:manufacturerAccent(car.make)});
+ });
+ generatedChampionshipOptions().filter(option=>option.type!=='open'&&option.cars.length&&option.cars.every(car=>carIsComplete(car.id))).forEach(option=>{
+  const ids=new Set(option.cars.map(car=>car.id));
+  const dates=state.results.filter(result=>ids.has(result.carId)&&result.date).map(result=>result.date).sort((a,b)=>recordHistoryDateValue(b)-recordHistoryDateValue(a));
+  if(!dates.length)return;
+  items.push({id:`champ-${option.id}`,type:'championships',date:dates[0],icon:'🏁',eyebrow:'CHAMPIONSHIP COMPLETED',title:option.name,value:`${option.cars.length} cars`,car:null,detail:'Every eligible car completed',meta:option.type==='make'?'Manufacturer Championship':'Era Championship',accent:option.type==='make'?'#29ff8a':'#34a8ff'});
+ });
+ return items.sort((a,b)=>recordHistoryDateValue(b.date)-recordHistoryDateValue(a.date));
+}
+function setRecordHistoryFilter(filter){
+ document.querySelectorAll('.historyFilter').forEach(button=>button.classList.toggle('on',button.dataset.filter===filter));
+ document.querySelectorAll('.historyStoryItem').forEach(item=>item.classList.toggle('hidden',filter!=='all'&&item.dataset.type!==filter));
+ const visible=[...document.querySelectorAll('.historyStoryItem:not(.hidden)')];
+ const empty=document.getElementById('historyFilteredEmpty');
+ if(empty)empty.classList.toggle('hidden',visible.length>0);
+}
+function renderRecordHistory(){
+ const story=recordHistoryStory();
+ const counts={records:story.filter(item=>item.type==='records').length,championships:story.filter(item=>item.type==='championships').length,cars:story.filter(item=>item.type==='cars').length};
+ const cards=story.map(item=>{
+  const logo=item.car?`<div class="historyMakeLogo"><img src="${manufacturerLogoPath(item.car.make)}" alt="${esc(item.car.make)}" onerror="this.parentElement.textContent='${esc(item.car.make)}'"></div>`:'';
+  return `<article class="historyStoryItem" data-type="${item.type}" style="--history-accent:${item.accent}">
+   <div class="historyRail"><span>${item.icon}</span></div>
+   <div class="historyStoryCard">
+    <div class="historyCardTop"><div><div class="historyEyebrow">${esc(item.eyebrow)}</div><h3>${esc(item.title)}</h3></div><time>${esc(recordHistoryRelative(item.date))}</time></div>
+    <div class="historyCardBody">${logo}<div class="historyCardMain"><div class="historyValue">${esc(item.value)}</div>${item.car?`<div class="historyCarName">${esc(carName(item.car))}</div>`:''}<div class="historyDetail">${esc(item.detail)}</div><div class="historyMeta">${esc(item.meta)}</div></div></div>
+   </div>
+  </article>`;
+ }).join('');
+ $('more').innerHTML=`<div class="historyPage">
+  <section class="historyHero">
+   <div class="historyHeroTop"><div><div class="historyKicker">📖 RECORD HISTORY</div><h2>Your Racing Story</h2><p>Every achievement, Championship and Festival Record in one place.</p></div><button class="chip" onclick="renderStats()">Statistics</button></div>
+   <div class="historySummary"><div><span>Festival Records</span><b>${counts.records}</b></div><div><span>Championships</span><b>${counts.championships}</b></div><div><span>Cars Completed</span><b>${counts.cars}</b></div></div>
+  </section>
+  <nav class="historyFilters" aria-label="Filter record history"><button class="historyFilter on" data-filter="all" onclick="setRecordHistoryFilter('all')">All</button><button class="historyFilter" data-filter="records" onclick="setRecordHistoryFilter('records')">Records</button><button class="historyFilter" data-filter="championships" onclick="setRecordHistoryFilter('championships')">Championships</button><button class="historyFilter" data-filter="cars" onclick="setRecordHistoryFilter('cars')">Cars</button></nav>
+  <section class="historyTimeline">${cards||`<div class="historyEmpty"><div>📜</div><h3>Your racing story starts here.</h3><p>Complete races and Championships to build your RaceHub history.</p></div>`}<div id="historyFilteredEmpty" class="historyEmpty hidden"><div>🔎</div><h3>Nothing in this chapter yet.</h3><p>Choose another filter or keep racing to add new achievements.</p></div></section>
+ </div>`;
+}
+
 function renderMore(){
  const s=state.settings||{sound:true,confetti:true,vibrate:true};
- $('more').innerHTML=`<div class="card"><div class="grid"><button class="btn secondary" onclick="renderStats()">📊 Back to Statistics</button><button class="btn" onclick="renderRecordHistory()">🏛️ Record History</button></div><h2>Settings</h2><h3>Celebrations</h3><div class="resultBox"><label><input type="checkbox" id="setSound" ${s.sound?'checked':''}> 🔊 Celebration sounds</label><label><input type="checkbox" id="setConfetti" ${s.confetti?'checked':''}> 🎉 Confetti</label><label><input type="checkbox" id="setVibrate" ${s.vibrate?'checked':''}> 📳 Vibrate on new record</label><button class="btn" onclick="saveSettings()">Save Settings</button><button class="btn secondary" onclick="testCelebration()">Test Celebration</button></div><h3>Backup</h3><button class="btn secondary" onclick="backup()">Copy Backup</button><label>Restore backup</label><textarea id="restoreBox" rows="7"></textarea><button class="btn" onclick="restore()">Restore</button><button class="btn danger" onclick="clearResults()">Clear All Results</button><section class="racehubAbout" aria-label="About RaceHub"><img src="assets/brand/racehub-shield.svg" alt="RaceHub RH shield"><div class="racehubAboutName">RaceHub</div><div class="racehubAboutTagline">Track • Record • Improve</div><div class="racehubAboutDivider"></div><div class="racehubAboutLabel">Designed &amp; Developed by</div><div class="racehubAboutCreators">Andy Jones <span>&amp;</span> ChatGPT</div><div class="racehubAboutMeta">© 2026 • Version 5.2.8</div></section></div>`;
+ $('more').innerHTML=`<div class="card"><div class="grid"><button class="btn secondary" onclick="renderStats()">📊 Back to Statistics</button><button class="btn" onclick="renderRecordHistory()">🏛️ Record History</button></div><h2>Settings</h2><h3>Celebrations</h3><div class="resultBox"><label><input type="checkbox" id="setSound" ${s.sound?'checked':''}> 🔊 Celebration sounds</label><label><input type="checkbox" id="setConfetti" ${s.confetti?'checked':''}> 🎉 Confetti</label><label><input type="checkbox" id="setVibrate" ${s.vibrate?'checked':''}> 📳 Vibrate on new record</label><button class="btn" onclick="saveSettings()">Save Settings</button><button class="btn secondary" onclick="testCelebration()">Test Celebration</button></div><h3>Backup</h3><button class="btn secondary" onclick="backup()">Copy Backup</button><label>Restore backup</label><textarea id="restoreBox" rows="7"></textarea><button class="btn" onclick="restore()">Restore</button><button class="btn danger" onclick="clearResults()">Clear All Results</button><section class="racehubAbout" aria-label="About RaceHub"><img src="assets/brand/racehub-shield.svg" alt="RaceHub RH shield"><div class="racehubAboutName">RaceHub</div><div class="racehubAboutTagline">Track • Record • Improve</div><div class="racehubAboutDivider"></div><div class="racehubAboutLabel">Designed &amp; Developed by</div><div class="racehubAboutCreators">Andy Jones <span>&amp;</span> ChatGPT</div><div class="racehubAboutMeta">© 2026 • Version 5.2.11</div></section></div>`;
 }
 function saveSettings(){state.settings={sound:$('setSound').checked,confetti:$('setConfetti').checked,vibrate:$('setVibrate').checked};save();toast('Settings saved');}
 function testCelebration(){saveSettings();showRecordCelebration({scope:'festival',eventName:'Test Event',carName:'RaceHub Test Car',value:'09:24.766',previous:true,previousCar:'Previous Record Holder',previousValue:'09:25.114',continueAction:"closeCelebration()"});}

@@ -1,3 +1,14 @@
+## v5.2.11 — Record History Restore
+- Restored the full **Your Racing Story** timeline and all Record History styling.
+- Preserved Random Picker Sprint 1.
+- Updated PWA cache.
+
+## v5.2.10 — Random Picker Sprint 1
+- Dedicated orange Random Picker identity.
+- Improved reveal, selected-car presentation and event preview.
+- Added Pick Again and Back to Dashboard actions.
+- Updated app version and PWA cache.
+
 ## v5.2.8 — Brand Colour Refresh
 - Unified RaceHub around the official cyan brand identity.
 - Removed visible release labels from normal screens.
