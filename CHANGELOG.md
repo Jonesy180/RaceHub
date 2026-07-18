@@ -1,3 +1,15 @@
+# RaceHub v5.2.14 — Persistent Championship Queues
+
+- Replaces Random Pairs with a practical Race Night Queue.
+- Saves a separate random running order for every Era and Manufacturer Championship.
+- Restores each queue after closing, refreshing or restarting RaceHub.
+- Self-cleans every saved queue against live completion data. A car completed in one Championship disappears from every other queue it belongs to without reshuffling the remaining cars.
+- Adds Next Car and On Deck preview to the dashboard.
+- Adds Open Saved Queue, Generate New Queue and Clear Queue controls.
+- Keeps Single Pick and its no-repeat cycle.
+- Establishes Overall Leaderboard as the name for the future read-only whole-project standings.
+- Updates the app and PWA cache to v5.2.14.
+
 # RaceHub v5.2.13 — Random Picker Sprint 2
 
 - Adds Single, Full Order and Random Pairs draw modes.

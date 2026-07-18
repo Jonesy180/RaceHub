@@ -1,4 +1,4 @@
-// RaceHub v5.2.12 — Record History Restore
+// RaceHub v5.2.14 — Persistent Championship Queues
 const STORE='RaceHub_v4_1_director_edition';
 let state=null;
 let currentScreen='festival';
@@ -111,23 +111,23 @@ function normaliseCar(car){
 }
 function migrateState(raw){
  const next=Object.assign({},raw||{});
- next.version='5.2.12';
+ next.version='5.2.14';
  next.cars=Array.isArray(next.cars)?next.cars.map(normaliseCar):[...SEED.cars].map(normaliseCar);
  next.events=Array.isArray(next.events)?next.events:[...SEED.events];
  next.results=Array.isArray(next.results)?next.results:[];
  next.history=Array.isArray(next.history)?next.history:[];
  next.recordHistory=Array.isArray(next.recordHistory)?next.recordHistory:[];
  next.settings=Object.assign({sound:true,confetti:true,vibrate:true},next.settings||{});
- next.randomPicker=Object.assign({mode:'single',cycle:[],lastOrder:[]},next.randomPicker||{});
- if(!['single','order','pairs'].includes(next.randomPicker.mode))next.randomPicker.mode='single';
+ next.randomPicker=Object.assign({mode:'single',cycle:[]},next.randomPicker||{});
+ if(!['single','queue'].includes(next.randomPicker.mode))next.randomPicker.mode='single';
  next.randomPicker.cycle=Array.isArray(next.randomPicker.cycle)?next.randomPicker.cycle:[];
- next.randomPicker.lastOrder=Array.isArray(next.randomPicker.lastOrder)?next.randomPicker.lastOrder:[];
+ next.championshipQueues=(next.championshipQueues&&typeof next.championshipQueues==='object')?next.championshipQueues:{};
  next.championships=Array.isArray(next.championships)?next.championships:[];
  if(!next.championships.some(c=>c.id==='open:all'))next.championships.unshift({id:'open:all',name:'Open Festival Championship',type:'open',value:'all',createdAt:null});
  next.activeChampionshipId=next.activeChampionshipId||'open:all';
  return next;
 }
-function freshState(){return migrateState({version:'5.2.12',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function freshState(){return migrateState({version:'5.2.14',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
@@ -202,7 +202,7 @@ function allPendingRuns(){
  return {total,done,remaining:total-done};
 }
 function randomPickerState(){
- state.randomPicker=Object.assign({mode:'single',cycle:[],lastOrder:[]},state.randomPicker||{});
+ state.randomPicker=Object.assign({mode:'single',cycle:[]},state.randomPicker||{});
  return state.randomPicker;
 }
 function randomPickerAvailableCars(){return unfinishedCars();}
@@ -223,15 +223,13 @@ function randomPickerRemainingCount(){
  return count||available.length;
 }
 function setRandomPickerMode(mode){
- if(!['single','order','pairs'].includes(mode))return;
+ if(!['single','queue'].includes(mode))return;
  randomPickerState().mode=mode;
  save();
  renderFestival();
 }
 function resetRandomPickerCycle(showMessage=true){
- const picker=randomPickerState();
- picker.cycle=[];
- picker.lastOrder=[];
+ randomPickerState().cycle=[];
  save();
  if(showMessage)toast('Random Picker cycle reset');
  if(currentScreen==='festival')renderFestival();
@@ -253,14 +251,48 @@ function chooseRandomCar(){
  save();
  return car;
 }
-function buildRandomPickerOrder(){
- const picker=randomPickerState();
- const remaining=randomPickerRemainingCars();
- const order=shuffledCars(remaining);
- order.forEach(car=>{if(!picker.cycle.includes(car.id))picker.cycle.push(car.id);});
- picker.lastOrder=order.map(car=>car.id);
+function championshipQueueStore(){
+ if(!state.championshipQueues||typeof state.championshipQueues!=='object')state.championshipQueues={};
+ return state.championshipQueues;
+}
+function cleanChampionshipQueue(champId=activeChampionship().id){
+ const store=championshipQueueStore();
+ const queue=store[champId];
+ if(!queue||!Array.isArray(queue.order))return null;
+ const champ=(state.championships||[]).find(c=>c.id===champId)||generatedChampionshipOptions().find(c=>c.id===champId)||null;
+ if(!champ)return null;
+ const eligible=new Set(championshipCars(champ).filter(c=>!carIsComplete(c.id)).map(c=>c.id));
+ const seen=new Set();
+ queue.order=queue.order.filter(id=>eligible.has(id)&&!seen.has(id)&&seen.add(id));
+ if(!queue.order.length){delete store[champId];save();return null;}
+ return queue;
+}
+function activeChampionshipQueue(){return cleanChampionshipQueue(activeChampionship().id);}
+function generateChampionshipQueue(){
+ const champ=activeChampionship();
+ const cars=shuffledCars(championshipCars(champ).filter(c=>!carIsComplete(c.id)));
+ if(!cars.length){toast('All cars in this Championship are complete');return null;}
+ championshipQueueStore()[champ.id]={order:cars.map(c=>c.id),createdAt:new Date().toISOString()};
  save();
- return order;
+ return championshipQueueStore()[champ.id];
+}
+function resetChampionshipQueue(){
+ const champ=activeChampionship();
+ const existing=activeChampionshipQueue();
+ if(existing&&!confirm(`Reset the saved queue for ${champ.name}?`))return;
+ delete championshipQueueStore()[champ.id];
+ save();
+ toast('Championship queue cleared');
+ if(currentScreen==='festival')renderFestival();
+}
+function queueCars(champId=activeChampionship().id){
+ const queue=cleanChampionshipQueue(champId);
+ return queue?queue.order.map(carById).filter(Boolean):[];
+}
+function startQueueCar(carId){
+ const car=carById(carId),ev=car&&nextEventForCar(car.id);
+ if(!car||!ev){cleanChampionshipQueue();toast('That car is no longer available');if(currentScreen==='festival')renderFestival();return;}
+ skipDirectorToRun(ev.id,car.id);
 }
 function startRaceDirector(){
  const car=chooseRandomCar();

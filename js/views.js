@@ -126,23 +126,23 @@ function renderFestival(){
     <button class="btn secondary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
    </section>
 
-   <section class="randomPickerPanel randomPickerSprint2" aria-label="Random Picker">
+   <section class="randomPickerPanel randomPickerSprint2" aria-label="Race selection">
     <div class="randomPickerGlow"></div>
-    <div class="randomPickerIcon">🎲</div>
+    <div class="randomPickerIcon">${randomPickerState().mode==='queue'?'📋':'🎲'}</div>
     <div class="randomPickerCopy">
-     <div class="randomPickerEyebrow">RANDOM PICKER · SPRINT 2</div>
-     <h3>Let RaceHub choose</h3>
-     <p>Use every unfinished car once per cycle, or create a complete randomized running order.</p>
-     <div class="randomPickerMeta"><span><b>${unfinishedCars().length}</b> cars available</span><span><b>${randomPickerRemainingCount()}</b> remaining this cycle</span></div>
+     <div class="randomPickerEyebrow">RACE NIGHT CONTROL</div>
+     <h3>${randomPickerState().mode==='queue'?'Persistent Championship Queue':'Let RaceHub choose'}</h3>
+     <p>${randomPickerState().mode==='queue'?'Each Era and Manufacturer Championship keeps its own saved order. Queues clean themselves when a car is completed elsewhere.':'Pick one unfinished car at random, using every available car once per cycle.'}</p>
+     <div class="randomPickerMeta"><span><b>${unfinishedCars().length}</b> cars available</span><span><b>${queueCars().length}</b> saved in this queue</span></div>
     </div>
-    <div class="randomPickerModes" role="group" aria-label="Random Picker mode">
-     <button class="${randomPickerState().mode==='single'?'active':''}" onclick="setRandomPickerMode('single')"><span>🎯</span><b>Single</b><small>Pick the next car</small></button>
-     <button class="${randomPickerState().mode==='order'?'active':''}" onclick="setRandomPickerMode('order')"><span>📋</span><b>Full Order</b><small>Shuffle all remaining</small></button>
-     <button class="${randomPickerState().mode==='pairs'?'active':''}" onclick="setRandomPickerMode('pairs')"><span>🤝</span><b>Pairs</b><small>Create random matchups</small></button>
+    <div class="randomPickerModes" role="group" aria-label="Race selection mode">
+     <button class="${randomPickerState().mode==='single'?'active':''}" onclick="setRandomPickerMode('single')"><span>🎯</span><b>Single Pick</b><small>Choose one random car</small></button>
+     <button class="${randomPickerState().mode==='queue'?'active':''}" onclick="setRandomPickerMode('queue')"><span>📋</span><b>Race Night Queue</b><small>Save a running order</small></button>
     </div>
+    ${randomPickerState().mode==='queue'&&queueCars().length?`<div class="queuePreview"><div><span>NEXT CAR</span><b>${esc(carName(queueCars()[0]))}</b></div><div><span>ON DECK</span><b>${queueCars().slice(1,4).map(carName).map(esc).join(' · ')||'Queue nearly complete'}</b></div></div>`:''}
     <div class="randomPickerActions">
-     <button class="btn randomPickerButton" onclick="launchRandomPicker()" ${unfinishedCars().length?'':'disabled'}>${randomPickerState().mode==='single'?'🎲 Pick a Random Car':randomPickerState().mode==='pairs'?'🤝 Draw Random Pairs':'📋 Build Random Order'}</button>
-     <button class="chip randomPickerReset" onclick="resetRandomPickerCycle()" ${unfinishedCars().length?'':'disabled'}>↻ Reset Cycle</button>
+     <button class="btn randomPickerButton" onclick="launchRandomPicker()" ${unfinishedCars().length?'':'disabled'}>${randomPickerState().mode==='single'?'🎲 Pick a Random Car':queueCars().length?'📋 Open Saved Queue':'📋 Generate Championship Queue'}</button>
+     <button class="chip randomPickerReset" onclick="${randomPickerState().mode==='single'?'resetRandomPickerCycle()':'resetChampionshipQueue()'}" ${unfinishedCars().length?'':'disabled'}>${randomPickerState().mode==='single'?'↻ Reset Cycle':'✕ Clear Queue'}</button>
     </div>
    </section>
   </div>`;

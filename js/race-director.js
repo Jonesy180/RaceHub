@@ -1,4 +1,4 @@
-// RaceHub v5.2.13 — Random Picker Sprint 2
+// RaceHub v5.2.14 — Persistent Championship Queues
 const directorLines=[
   'Good evening, drivers...',
   'The garage has spoken...',
@@ -48,49 +48,34 @@ function randomPickerTone(frequency=520,duration=.08){
   }catch(e){}
 }
 function launchRandomPicker(){
-  const picker=randomPickerState();
-  if(picker.mode==='single'){beginDirectorShow(true);return;}
-  beginRandomPickerLineup(picker.mode);
+ const picker=randomPickerState();
+ if(picker.mode==='single'){beginDirectorShow(true);return;}
+ openChampionshipQueue();
 }
-function beginRandomPickerLineup(mode){
-  if(!unfinishedCars().length){toast('All cars complete');return;}
-  state.currentCarId=null;save();
-  const order=buildRandomPickerOrder();
-  if(!order.length){toast('No cars available');return;}
-  const label=mode==='pairs'?'RANDOM PAIRS':'FULL RANDOM ORDER';
-  directorOverlay(`<button class="skipBtn" onclick="closeDirector();show('festival')">Close</button><div class="directorCard">
-    <div class="directorDice">🎲</div><div class="directorKicker">${label}</div>
-    <div class="directorTitle">SHUFFLING</div><div class="directorLine">Building a no-repeat lineup...</div>
-    <div class="slotBox"><div class="slotText" id="slotText">Mixing the garage</div></div>
-    <div class="directorSpinnerDots"><i></i><i></i><i></i></div>
-  </div>`);
-  let ticks=0;const slot=$('slotText');
-  const spin=setInterval(()=>{
-    if(slot)slot.textContent=carName(order[Math.floor(Math.random()*order.length)]);
-    randomPickerTone(390+ticks*8,.035);ticks++;
-    if(ticks>18){clearInterval(spin);setTimeout(()=>directorLineupReveal(order,mode),250);}
-  },75);
+function openChampionshipQueue(forceNew=false){
+ if(!unfinishedCars().length){toast('All cars complete');return;}
+ let queue=activeChampionshipQueue();
+ if(forceNew||!queue)queue=generateChampionshipQueue();
+ if(!queue)return;
+ directorQueueReveal();
 }
-function directorLineupReveal(order,mode){
-  const isPairs=mode==='pairs';
-  const rows=isPairs
-    ?Array.from({length:Math.ceil(order.length/2)},(_,i)=>{
-      const a=order[i*2],b=order[i*2+1];
-      return `<div class="pickerPair"><span>${i+1}</span><b>${esc(carName(a))}</b><em>${b?esc(carName(b)):'BYE'}</em></div>`;
-    }).join('')
-    :order.map((car,i)=>`<div class="pickerOrderRow"><span>${i+1}</span><b>${esc(carName(car))}</b><small>${esc((nextEventForCar(car.id)||{}).name||'Complete')}</small></div>`).join('');
-  const first=order[0],ev=nextEventForCar(first.id);
-  directorOverlay(`<button class="skipBtn" onclick="closeDirector();show('festival')">Close</button><div class="directorCard directorWinner">
-    <div class="directorKicker">${isPairs?'RANDOM PAIRS':'FULL RANDOM ORDER'}</div>
-    <div class="directorBig">Draw Complete</div>
-    <div class="pickerLineup">${rows}</div>
-    <div class="directorActions">
-      ${ev?`<button class="btn bigStart randomPickerButton" onclick="skipDirectorToRun('${ev.id}','${first.id}')">▶ Start First Car</button>`:''}
-      <button class="btn secondary" onclick="beginRandomPickerLineup('${mode}')">🎲 Draw Again</button>
-      <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
-    </div>
+function directorQueueReveal(){
+ const cars=queueCars();
+ if(!cars.length){closeDirector();toast('Queue is empty');show('festival');return;}
+ const rows=cars.map((car,i)=>`<div class="pickerOrderRow ${i===0?'queueCurrent':''}"><span>${i+1}</span><b>${esc(carName(car))}</b><small>${i===0?'NEXT CAR':esc((nextEventForCar(car.id)||{}).name||'Complete')}</small></div>`).join('');
+ const first=cars[0],ev=nextEventForCar(first.id);
+ directorOverlay(`<button class="skipBtn" onclick="closeDirector();show('festival')">Close</button><div class="directorCard directorWinner">
+   <div class="directorKicker">${esc(activeChampionshipName())}</div>
+   <div class="directorBig">Race Night Queue</div>
+   <p class="small">Saved automatically. Completed cars disappear from every Championship queue without reshuffling the remaining order.</p>
+   <div class="pickerLineup">${rows}</div>
+   <div class="directorActions">
+    ${ev?`<button class="btn bigStart randomPickerButton" onclick="startQueueCar('${first.id}')">▶ Start Next Car</button>`:''}
+    <button class="btn secondary" onclick="if(confirm('Replace this queue with a new random order?'))openChampionshipQueue(true)">🎲 Generate New Queue</button>
+    <button class="btn secondary" onclick="closeDirector();resetChampionshipQueue()">Clear Queue</button>
+    <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
+   </div>
   </div>`);
-  randomPickerTone(760,.15);setTimeout(()=>launchDirectorConfetti(),80);
 }
 function beginDirectorShow(forceNew=false){
   const c=currentCar();

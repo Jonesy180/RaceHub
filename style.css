@@ -418,7 +418,7 @@ button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible
 
 /* RaceHub v5.2.13 — Random Picker Sprint 2 */
 .randomPickerSprint2{grid-template-columns:auto 1fr}.randomPickerSprint2 .randomPickerModes,.randomPickerSprint2 .randomPickerActions{grid-column:1/-1}
-.randomPickerModes{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:2px}
+.randomPickerModes{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:2px}
 .randomPickerModes button{display:grid;gap:3px;place-items:center;min-width:0;padding:12px 8px;border-radius:15px;border:1px solid rgba(255,255,255,.11);background:rgba(0,0,0,.22);color:white;cursor:pointer;transition:.18s ease}
 .randomPickerModes button:hover{transform:translateY(-1px);border-color:rgba(255,159,47,.5)}.randomPickerModes button.active{background:linear-gradient(145deg,rgba(255,177,59,.28),rgba(255,106,42,.16));border-color:#ff9f2f;box-shadow:0 0 0 1px rgba(255,159,47,.15),0 8px 24px rgba(255,106,42,.16)}
 .randomPickerModes span{font-size:23px}.randomPickerModes b{font-size:13px}.randomPickerModes small{font-size:10px;line-height:1.2;color:var(--muted);text-align:center}
@@ -428,3 +428,8 @@ button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible
 .pickerOrderRow{grid-template-columns:34px 1fr auto}.pickerOrderRow span,.pickerPair span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#ffb13b,#ff6a2a);color:#211006;font-weight:1000}.pickerOrderRow small{color:var(--muted)}
 .pickerPair{grid-template-columns:34px 1fr 1fr}.pickerPair b,.pickerPair em{min-width:0}.pickerPair em{font-style:normal;color:#ffb13b;font-weight:800}.pickerPair em:before{content:'vs ';color:var(--muted);font-weight:600}
 @media(max-width:520px){.randomPickerModes{grid-template-columns:1fr}.randomPickerModes button{grid-template-columns:30px 1fr;justify-items:start;text-align:left}.randomPickerModes button small{grid-column:2;text-align:left}.randomPickerActions{grid-template-columns:1fr}.randomPickerReset{min-height:42px}.pickerOrderRow{grid-template-columns:30px 1fr}.pickerOrderRow small{grid-column:2}.pickerPair{grid-template-columns:30px 1fr}.pickerPair em{grid-column:2}.pickerLineup{width:90vw}}
+
+/* RaceHub v5.2.14 — Persistent Championship Queues */
+.queuePreview{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;padding:12px;border:1px solid rgba(255,159,47,.3);border-radius:14px;background:rgba(0,0,0,.24)}
+.queuePreview div{display:grid;gap:3px}.queuePreview span{font-size:10px;font-weight:900;letter-spacing:.12em;color:#ffb75b}.queuePreview b{font-size:13px;line-height:1.35}.pickerOrderRow.queueCurrent{border-color:#ff9f2f;background:linear-gradient(90deg,rgba(255,159,47,.24),rgba(255,159,47,.06));box-shadow:0 0 0 1px rgba(255,159,47,.12)}
+@media(max-width:520px){.queuePreview{grid-template-columns:1fr}}

@@ -1,3 +1,10 @@
+## v5.2.14 — Persistent Championship Queues
+- Separate saved queue for every Era and Manufacturer Championship.
+- Queues survive reloads and clean themselves when overlapping cars are completed elsewhere.
+- Random Pairs replaced by Race Night Queue.
+- Dashboard Next Car and On Deck preview.
+- Future whole-project standings named Overall Leaderboard.
+
 ## v5.2.13 — Random Picker Sprint 2
 - Three draw modes: Single, Full Order and Pairs.
 - No-repeat draw cycles with remaining-car count and manual reset.
