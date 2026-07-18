@@ -127,7 +127,7 @@ function migrateState(raw){
  next.activeChampionshipId=next.activeChampionshipId||'open:all';
  return next;
 }
-function freshState(){return migrateState({version:'5.3.1',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function freshState(){return migrateState({version:'5.3.3',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
@@ -310,7 +310,21 @@ function startRaceDirector(){
 }
 function openEvent(eventId,tab='waiting'){currentEventId=eventId;state.currentEventId=eventId;save();eventTab=tab;selectedRun=null;show('event')}
 
-function render(screen){ if(screen==='festival')renderFestival(); if(screen==='events')renderEvents(); if(screen==='event')renderEvent(); if(screen==='garage')renderGarage(); if(screen==='hall')renderHallOfFame(); if(screen==='more')renderStats(); }
+const PAGE_HEADERS={
+ festival:{icon:'🏁',eyebrow:'RACE CONTROL',title:'Festival',subtitle:'Run your active championship and continue race night.',accent:'festival'},
+ events:{icon:'🗓️',eyebrow:'EVENT CENTRE',title:'Events',subtitle:'Open an event, enter results and review its standings.',accent:'events'},
+ garage:{icon:'🚗',eyebrow:'CAR MANAGEMENT',title:'Garage',subtitle:'Browse the collection, manage queues and track progress.',accent:'garage'},
+ hall:{icon:'🏆',eyebrow:'WHOLE COLLECTION',title:'Leaderboard',subtitle:'Overall standings, championship honours and the Hall of Fame.',accent:'hall'},
+ more:{icon:'📈',eyebrow:'PERFORMANCE CENTRE',title:'Statistics',subtitle:'Explore records, averages and performance across RaceHub.',accent:'more'}
+};
+function ensurePageHeader(screen){
+ const host=$(screen),meta=PAGE_HEADERS[screen];
+ if(!host||!meta)return;
+ const existing=host.querySelector(':scope > .pageIdentityHeader');
+ if(existing)existing.remove();
+ host.insertAdjacentHTML('afterbegin',`<section class="pageIdentityHeader pageIdentity-${meta.accent}"><div class="pageIdentityIcon">${meta.icon}</div><div class="pageIdentityCopy"><div class="pageIdentityEyebrow">${meta.eyebrow}</div><h1>${meta.title}</h1><p>${meta.subtitle}</p></div></section>`);
+}
+function render(screen){ if(screen==='festival')renderFestival(); if(screen==='events')renderEvents(); if(screen==='event')renderEvent(); if(screen==='garage')renderGarage(); if(screen==='hall')renderHallOfFame(); if(screen==='more')renderStats(); ensurePageHeader(screen); }
 
 
 function currentCarProgress(){

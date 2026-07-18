@@ -200,3 +200,9 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 @keyframes celebrationFadeOut{to{opacity:0;visibility:hidden;pointer-events:none}}
 @keyframes miniBannerIn{from{transform:translateY(-18px);opacity:0}to{transform:translateY(0);opacity:1}}
 @keyframes miniBannerOut{to{transform:translateY(-18px);opacity:0;visibility:hidden}}
+
+
+## v5.3.3 — UI Consistency Sprint 2: Page Headers
+- Standardised page identity headers across all five main navigation screens.
+- Added section-specific subtitles and matching accent colours.
+- No functional or stored-data changes.
