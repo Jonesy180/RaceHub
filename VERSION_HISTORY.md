@@ -1,5 +1,13 @@
 # RaceHub Version History
 
+## v5.3.2 — UI Consistency Sprint 1
+
+- Added unique navigation identities for Festival, Events, Garage, Leaderboard and Stats.
+- Added section-specific accent colours and active-state underlines.
+- Changed the Events icon from a trophy to a calendar to remove duplication with Leaderboard.
+- Presentation-only release with no data or workflow changes.
+
+
 ## v5.3.1 — Navigation Identity
 - Renamed Leaders to Leaderboard in the main navigation.
 - Added a gold trophy icon and active state for Leaderboard.

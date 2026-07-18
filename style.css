@@ -456,3 +456,21 @@ button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible
 .nav button[data-screen="hall"].active .ico{filter:drop-shadow(0 0 9px rgba(255,216,77,.8))}
 .nav button[data-screen="more"].active{background:linear-gradient(180deg,rgba(25,216,245,.2),rgba(25,216,245,.07));box-shadow:inset 0 2px 0 rgba(99,232,255,.82);color:#e7fbff}
 .nav button[data-screen="more"].active .ico{filter:drop-shadow(0 0 8px rgba(25,216,245,.72))}
+
+
+/* RaceHub v5.3.2 — UI Consistency Sprint 1: Navigation & Identity */
+.nav button{position:relative;isolation:isolate;transition:background .2s ease,color .2s ease,transform .2s ease}
+.nav button::after{content:"";position:absolute;left:22%;right:22%;bottom:5px;height:3px;border-radius:999px;background:var(--nav-accent,#8ea5b4);opacity:.28;transform:scaleX(.55);transition:opacity .2s ease,transform .2s ease,box-shadow .2s ease}
+.nav button .ico{transition:filter .2s ease,transform .2s ease}
+.nav button.active{background:linear-gradient(180deg,color-mix(in srgb,var(--nav-accent) 20%,transparent),color-mix(in srgb,var(--nav-accent) 6%,transparent));box-shadow:inset 0 2px 0 color-mix(in srgb,var(--nav-accent) 88%,white 8%);color:var(--nav-text,#fff)}
+.nav button.active::after{opacity:1;transform:scaleX(1);box-shadow:0 0 12px color-mix(in srgb,var(--nav-accent) 70%,transparent)}
+.nav button.active .ico{transform:translateY(-1px);filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nav-accent) 75%,transparent))}
+.nav button[data-screen="festival"]{--nav-accent:#29ff8a;--nav-text:#dffff0}
+.nav button[data-screen="events"]{--nav-accent:#ff9f2f;--nav-text:#fff0da}
+.nav button[data-screen="garage"]{--nav-accent:#b58cff;--nav-text:#f0e8ff}
+.nav button[data-screen="hall"]{--nav-accent:#ffd84d;--nav-text:#fff7c2}
+.nav button[data-screen="more"]{--nav-accent:#19d8f5;--nav-text:#e7fbff}
+.nav button[data-screen="hall"].active,.nav button[data-screen="more"].active{background:linear-gradient(180deg,color-mix(in srgb,var(--nav-accent) 20%,transparent),color-mix(in srgb,var(--nav-accent) 6%,transparent));box-shadow:inset 0 2px 0 color-mix(in srgb,var(--nav-accent) 88%,white 8%);color:var(--nav-text)}
+.nav button[data-screen="hall"].active .ico,.nav button[data-screen="more"].active .ico{filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nav-accent) 75%,transparent))}
+@media(hover:hover){.nav button:not(.active):hover{color:#d9e7ef;background:color-mix(in srgb,var(--nav-accent) 8%,transparent)}.nav button:not(.active):hover::after{opacity:.65;transform:scaleX(.8)}}
+@media(prefers-reduced-motion:reduce){.nav button,.nav button::after,.nav button .ico{transition:none}}
