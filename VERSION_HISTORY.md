@@ -206,3 +206,10 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 - Standardised page identity headers across all five main navigation screens.
 - Added section-specific subtitles and matching accent colours.
 - No functional or stored-data changes.
+
+## v5.3.4 — UI Consistency Sprint 3: Card System
+- Added shared card design tokens and standardised card spacing, radius, borders and shadows.
+- Unified primary and compact card structures across the app while retaining feature-specific colours.
+- Added responsive card sizing for narrow screens.
+- No functional or stored-data changes.
+

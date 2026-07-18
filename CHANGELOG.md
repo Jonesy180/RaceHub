@@ -1,3 +1,14 @@
+# RaceHub v5.3.4 — UI Consistency Sprint 3
+
+- Introduces shared design tokens for card radius, padding, spacing, borders and shadows.
+- Standardises primary cards across Festival, Events, Garage, Leaderboard and Statistics.
+- Aligns compact cards, rows, results panels, podium cards and history entries to the same visual system.
+- Preserves specialised colours and section identities while making their structure consistent.
+- Tightens mobile card padding and radius for smaller screens.
+- Leaves all race data, calculations, queues and workflows unchanged.
+- Updates the app and PWA cache to v5.3.4.
+
+
 # RaceHub v5.3.2 — UI Consistency Sprint 1
 
 - Gives every main navigation area its own accent colour and active-state identity.

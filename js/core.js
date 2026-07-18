@@ -127,7 +127,7 @@ function migrateState(raw){
  next.activeChampionshipId=next.activeChampionshipId||'open:all';
  return next;
 }
-function freshState(){return migrateState({version:'5.3.3',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
+function freshState(){return migrateState({version:'5.3.4',cars:[...SEED.cars],events:[...SEED.events],results:[],history:[],recordHistory:[],lastRun:null,currentEventId:'drag',settings:{sound:true,confetti:true,vibrate:true}})}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}

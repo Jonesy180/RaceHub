@@ -481,3 +481,69 @@ button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible
 .pageIdentityCopy{position:relative;min-width:0}.pageIdentityEyebrow{color:var(--page-accent);font-size:10px;font-weight:1000;letter-spacing:.17em;text-transform:uppercase}.pageIdentityHeader h1{margin:3px 0 3px;color:#fff;font-size:clamp(24px,5vw,31px);line-height:1.05;letter-spacing:-.02em}.pageIdentityHeader p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}
 .pageIdentity-festival{--page-accent:#29ff8a}.pageIdentity-events{--page-accent:#ff9f2f}.pageIdentity-garage{--page-accent:#b58cff}.pageIdentity-hall{--page-accent:#ffd84d}.pageIdentity-more{--page-accent:#19d8f5}
 @media(max-width:520px){.pageIdentityHeader{gap:12px;padding:15px 14px;border-radius:19px}.pageIdentityIcon{flex-basis:46px;width:46px;height:46px;border-radius:14px;font-size:24px}.pageIdentityHeader h1{font-size:24px}.pageIdentityHeader p{font-size:12px}}
+
+
+/* RaceHub v5.3.4 — UI Consistency Sprint 3: Card System */
+:root{
+  --rh-card-radius:22px;
+  --rh-card-radius-compact:17px;
+  --rh-card-padding:16px;
+  --rh-card-padding-compact:12px;
+  --rh-card-gap:14px;
+  --rh-section-gap:16px;
+  --rh-card-border:rgba(255,255,255,.115);
+  --rh-card-bg:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.032));
+  --rh-card-shadow:0 14px 38px rgba(0,0,0,.27),inset 0 1px rgba(255,255,255,.035);
+  --rh-card-shadow-soft:0 9px 25px rgba(0,0,0,.19),inset 0 1px rgba(255,255,255,.025);
+  --rh-title-gap:9px;
+}
+.card,
+.raceDirector,
+.raceNightPanel,
+.completedCar,
+.legacyCard,
+.hallRecordCard,
+.overallHero,
+.overallLeaderCard,
+.randomPickerPanel,
+.historyHero,
+.pageIdentityHeader,
+.racehubAbout{
+  border-radius:var(--rh-card-radius);
+  box-shadow:var(--rh-card-shadow);
+}
+.card{
+  padding:var(--rh-card-padding);
+  margin:var(--rh-card-gap) 0;
+  border-color:var(--rh-card-border);
+  background:var(--rh-card-bg);
+}
+.card>h1:first-child,.card>h2:first-child,.card>h3:first-child,
+.raceDirector>h2:first-child,.raceNightPanel>h3:first-child,
+.legacyCard>h3:first-child,.resultBox>h3:first-child{
+  margin-bottom:var(--rh-title-gap);
+}
+.eventCard,.makeGroup,.resultBox,.overallPodiumCard,.overallRow,.overallProgressRow,
+.historySummary>div,.historyStoryCard,.pickerOrderRow,.queuePreview,.performanceValue,
+.hallChampionshipItem,.previousRecord,.slotBox{
+  border-radius:var(--rh-card-radius-compact);
+  box-shadow:var(--rh-card-shadow-soft);
+}
+.eventCard,.makeGroup,.resultBox{
+  padding:var(--rh-card-padding-compact);
+  margin:10px 0;
+  border-color:var(--rh-card-border);
+}
+.screen>.card:first-of-type{margin-top:0}
+.screen>.card:last-child{margin-bottom:0}
+.grid{gap:12px}
+.hallGrid,.overallPodium,.overallTable,.overallProgressList,.historyPage{gap:var(--rh-card-gap)}
+.row{padding:11px 0}
+.row:first-child{padding-top:4px}
+.row:last-child{padding-bottom:4px}
+.badge,.chip,.overallLeaderStats span,.randomPickerMeta span{box-shadow:inset 0 1px rgba(255,255,255,.035)}
+@media(max-width:520px){
+  :root{--rh-card-radius:19px;--rh-card-radius-compact:15px;--rh-card-padding:14px;--rh-card-gap:12px;--rh-section-gap:14px}
+  .card,.raceDirector,.raceNightPanel,.completedCar,.legacyCard,.hallRecordCard,.overallHero,.overallLeaderCard,.randomPickerPanel,.historyHero,.pageIdentityHeader,.racehubAbout{border-radius:var(--rh-card-radius)}
+  .eventCard,.makeGroup,.resultBox,.overallPodiumCard,.overallRow,.overallProgressRow,.historySummary>div,.historyStoryCard,.pickerOrderRow,.queuePreview,.performanceValue,.hallChampionshipItem,.previousRecord,.slotBox{border-radius:var(--rh-card-radius-compact)}
+}
