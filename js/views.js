@@ -126,16 +126,24 @@ function renderFestival(){
     <button class="btn secondary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
    </section>
 
-   <section class="randomPickerPanel" aria-label="Random Picker">
+   <section class="randomPickerPanel randomPickerSprint2" aria-label="Random Picker">
     <div class="randomPickerGlow"></div>
     <div class="randomPickerIcon">🎲</div>
     <div class="randomPickerCopy">
-     <div class="randomPickerEyebrow">RANDOM PICKER</div>
+     <div class="randomPickerEyebrow">RANDOM PICKER · SPRINT 2</div>
      <h3>Let RaceHub choose</h3>
-     <p>Draw one unfinished car from the active Championship and reveal its next event.</p>
-     <div class="randomPickerMeta"><span><b>${unfinishedCars().length}</b> cars available</span><span><b>${state.events.length}</b> events loaded</span></div>
+     <p>Use every unfinished car once per cycle, or create a complete randomized running order.</p>
+     <div class="randomPickerMeta"><span><b>${unfinishedCars().length}</b> cars available</span><span><b>${randomPickerRemainingCount()}</b> remaining this cycle</span></div>
     </div>
-    <button class="btn randomPickerButton" onclick="beginDirectorShow(true)" ${unfinishedCars().length?'':'disabled'}>🎲 Pick a Random Car</button>
+    <div class="randomPickerModes" role="group" aria-label="Random Picker mode">
+     <button class="${randomPickerState().mode==='single'?'active':''}" onclick="setRandomPickerMode('single')"><span>🎯</span><b>Single</b><small>Pick the next car</small></button>
+     <button class="${randomPickerState().mode==='order'?'active':''}" onclick="setRandomPickerMode('order')"><span>📋</span><b>Full Order</b><small>Shuffle all remaining</small></button>
+     <button class="${randomPickerState().mode==='pairs'?'active':''}" onclick="setRandomPickerMode('pairs')"><span>🤝</span><b>Pairs</b><small>Create random matchups</small></button>
+    </div>
+    <div class="randomPickerActions">
+     <button class="btn randomPickerButton" onclick="launchRandomPicker()" ${unfinishedCars().length?'':'disabled'}>${randomPickerState().mode==='single'?'🎲 Pick a Random Car':randomPickerState().mode==='pairs'?'🤝 Draw Random Pairs':'📋 Build Random Order'}</button>
+     <button class="chip randomPickerReset" onclick="resetRandomPickerCycle()" ${unfinishedCars().length?'':'disabled'}>↻ Reset Cycle</button>
+    </div>
    </section>
   </div>`;
 }

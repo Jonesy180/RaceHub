@@ -1,3 +1,12 @@
+# RaceHub v5.2.13 — Random Picker Sprint 2
+
+- Adds Single, Full Order and Random Pairs draw modes.
+- Adds a no-repeat draw cycle for unfinished cars.
+- Shows how many cars remain before the cycle automatically refreshes.
+- Adds a manual Reset Cycle control.
+- Adds animated full-order and pair reveals with optional sound, vibration and confetti.
+- Keeps Record History Sprint 2 unchanged.
+
 ## v5.2.12 — Record History Sprint 2
 - Added animated Record History dashboard counters.
 - Added real fastest, average and Long Jump performance highlights.

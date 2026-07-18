@@ -1,3 +1,8 @@
+## v5.2.13 — Random Picker Sprint 2
+- Three draw modes: Single, Full Order and Pairs.
+- No-repeat draw cycles with remaining-car count and manual reset.
+- Animated lineup reveals and race-ready first-car action.
+
 ## v5.2.12 — Record History Sprint 2
 - Added animated Record History dashboard counters.
 - Added real fastest, average and Long Jump performance highlights.

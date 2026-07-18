@@ -1,4 +1,4 @@
-// RaceHub v4.3c — Race Director · Completion Celebration Polish
+// RaceHub v5.2.13 — Random Picker Sprint 2
 const directorLines=[
   'Good evening, drivers...',
   'The garage has spoken...',
@@ -35,6 +35,63 @@ function skipDirectorToRun(eventId,carId){
   eventTab='add';
   show('event');
 }
+function randomPickerTone(frequency=520,duration=.08){
+  if(state.settings&&state.settings.sound===false)return;
+  try{
+    const AudioContext=window.AudioContext||window.webkitAudioContext;
+    if(!AudioContext)return;
+    const ctx=new AudioContext(),osc=ctx.createOscillator(),gain=ctx.createGain();
+    osc.type='sine';osc.frequency.value=frequency;gain.gain.value=.035;
+    osc.connect(gain);gain.connect(ctx.destination);osc.start();
+    gain.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+duration);
+    osc.stop(ctx.currentTime+duration);setTimeout(()=>ctx.close(),Math.ceil(duration*1000)+80);
+  }catch(e){}
+}
+function launchRandomPicker(){
+  const picker=randomPickerState();
+  if(picker.mode==='single'){beginDirectorShow(true);return;}
+  beginRandomPickerLineup(picker.mode);
+}
+function beginRandomPickerLineup(mode){
+  if(!unfinishedCars().length){toast('All cars complete');return;}
+  state.currentCarId=null;save();
+  const order=buildRandomPickerOrder();
+  if(!order.length){toast('No cars available');return;}
+  const label=mode==='pairs'?'RANDOM PAIRS':'FULL RANDOM ORDER';
+  directorOverlay(`<button class="skipBtn" onclick="closeDirector();show('festival')">Close</button><div class="directorCard">
+    <div class="directorDice">🎲</div><div class="directorKicker">${label}</div>
+    <div class="directorTitle">SHUFFLING</div><div class="directorLine">Building a no-repeat lineup...</div>
+    <div class="slotBox"><div class="slotText" id="slotText">Mixing the garage</div></div>
+    <div class="directorSpinnerDots"><i></i><i></i><i></i></div>
+  </div>`);
+  let ticks=0;const slot=$('slotText');
+  const spin=setInterval(()=>{
+    if(slot)slot.textContent=carName(order[Math.floor(Math.random()*order.length)]);
+    randomPickerTone(390+ticks*8,.035);ticks++;
+    if(ticks>18){clearInterval(spin);setTimeout(()=>directorLineupReveal(order,mode),250);}
+  },75);
+}
+function directorLineupReveal(order,mode){
+  const isPairs=mode==='pairs';
+  const rows=isPairs
+    ?Array.from({length:Math.ceil(order.length/2)},(_,i)=>{
+      const a=order[i*2],b=order[i*2+1];
+      return `<div class="pickerPair"><span>${i+1}</span><b>${esc(carName(a))}</b><em>${b?esc(carName(b)):'BYE'}</em></div>`;
+    }).join('')
+    :order.map((car,i)=>`<div class="pickerOrderRow"><span>${i+1}</span><b>${esc(carName(car))}</b><small>${esc((nextEventForCar(car.id)||{}).name||'Complete')}</small></div>`).join('');
+  const first=order[0],ev=nextEventForCar(first.id);
+  directorOverlay(`<button class="skipBtn" onclick="closeDirector();show('festival')">Close</button><div class="directorCard directorWinner">
+    <div class="directorKicker">${isPairs?'RANDOM PAIRS':'FULL RANDOM ORDER'}</div>
+    <div class="directorBig">Draw Complete</div>
+    <div class="pickerLineup">${rows}</div>
+    <div class="directorActions">
+      ${ev?`<button class="btn bigStart randomPickerButton" onclick="skipDirectorToRun('${ev.id}','${first.id}')">▶ Start First Car</button>`:''}
+      <button class="btn secondary" onclick="beginRandomPickerLineup('${mode}')">🎲 Draw Again</button>
+      <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
+    </div>
+  </div>`);
+  randomPickerTone(760,.15);setTimeout(()=>launchDirectorConfetti(),80);
+}
 function beginDirectorShow(forceNew=false){
   const c=currentCar();
   if(c && !forceNew){continueCurrentCar();return;}
@@ -48,6 +105,7 @@ function beginDirectorShow(forceNew=false){
   state.currentEventId=ev.id;
   save();
   const line=directorLines[Math.floor(Math.random()*directorLines.length)];
+  randomPickerTone(820,.12);
   directorOverlay(`<button class="skipBtn" onclick="skipDirectorToRun('${ev.id}','${car.id}')">Skip</button><div class="directorCard">
     <div class="directorDice">🎲</div>
     <div class="directorKicker">RANDOM PICKER</div>
@@ -80,7 +138,8 @@ function directorCarSlot(car,ev){
     if(i>22){
       clearInterval(spin);
       if(slot)slot.textContent=carName(car);
-      if(navigator.vibrate)navigator.vibrate(60);
+      randomPickerTone(620,.08);
+      if(state.settings&&state.settings.vibrate!==false&&navigator.vibrate)navigator.vibrate(60);
       setTimeout(()=>directorEventReveal(car,ev),900);
     }
   },80);
@@ -99,7 +158,7 @@ function directorEventReveal(car,ev){
     <div class="directorEventName">🏁 ${esc(ev.name)}</div>
     <div class="directorActions">
       <button class="btn bigStart randomPickerButton" onclick="skipDirectorToRun('${ev.id}','${car.id}')">▶ Start Event</button>
-      <button class="btn secondary" onclick="closeDirector();beginDirectorShow(true)">🎲 Pick Again</button>
+      <button class="btn secondary" onclick="closeDirector();launchRandomPicker()">🎲 Pick Again</button>
       <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
     </div>
   </div>`);

@@ -118,6 +118,10 @@ function migrateState(raw){
  next.history=Array.isArray(next.history)?next.history:[];
  next.recordHistory=Array.isArray(next.recordHistory)?next.recordHistory:[];
  next.settings=Object.assign({sound:true,confetti:true,vibrate:true},next.settings||{});
+ next.randomPicker=Object.assign({mode:'single',cycle:[],lastOrder:[]},next.randomPicker||{});
+ if(!['single','order','pairs'].includes(next.randomPicker.mode))next.randomPicker.mode='single';
+ next.randomPicker.cycle=Array.isArray(next.randomPicker.cycle)?next.randomPicker.cycle:[];
+ next.randomPicker.lastOrder=Array.isArray(next.randomPicker.lastOrder)?next.randomPicker.lastOrder:[];
  next.championships=Array.isArray(next.championships)?next.championships:[];
  if(!next.championships.some(c=>c.id==='open:all'))next.championships.unshift({id:'open:all',name:'Open Festival Championship',type:'open',value:'all',createdAt:null});
  next.activeChampionshipId=next.activeChampionshipId||'open:all';
@@ -197,13 +201,66 @@ function allPendingRuns(){
  cars.forEach(c=>done+=carCompletedEvents(c.id).size);
  return {total,done,remaining:total-done};
 }
+function randomPickerState(){
+ state.randomPicker=Object.assign({mode:'single',cycle:[],lastOrder:[]},state.randomPicker||{});
+ return state.randomPicker;
+}
+function randomPickerAvailableCars(){return unfinishedCars();}
+function randomPickerRemainingCars(){
+ const picker=randomPickerState();
+ const available=randomPickerAvailableCars();
+ const availableIds=new Set(available.map(c=>c.id));
+ picker.cycle=picker.cycle.filter(id=>availableIds.has(id));
+ let remaining=available.filter(c=>!picker.cycle.includes(c.id));
+ if(!remaining.length&&available.length){picker.cycle=[];remaining=[...available];}
+ return remaining;
+}
+function randomPickerRemainingCount(){
+ const picker=randomPickerState();
+ const available=randomPickerAvailableCars();
+ const used=new Set(picker.cycle);
+ const count=available.filter(c=>!used.has(c.id)).length;
+ return count||available.length;
+}
+function setRandomPickerMode(mode){
+ if(!['single','order','pairs'].includes(mode))return;
+ randomPickerState().mode=mode;
+ save();
+ renderFestival();
+}
+function resetRandomPickerCycle(showMessage=true){
+ const picker=randomPickerState();
+ picker.cycle=[];
+ picker.lastOrder=[];
+ save();
+ if(showMessage)toast('Random Picker cycle reset');
+ if(currentScreen==='festival')renderFestival();
+}
+function shuffledCars(cars){
+ const list=[...cars];
+ for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}
+ return list;
+}
 function chooseRandomCar(){
- let cars=unfinishedCars();
- if(!cars.length)return null;
- let last=state.lastCarId||null;
- let pool=cars.filter(c=>c.id!==last);
- if(!pool.length)pool=cars;
- return pool[Math.floor(Math.random()*pool.length)];
+ let pool=randomPickerRemainingCars();
+ if(!pool.length)return null;
+ const last=state.lastCarId||null;
+ const withoutLast=pool.filter(c=>c.id!==last);
+ if(withoutLast.length)pool=withoutLast;
+ const car=pool[Math.floor(Math.random()*pool.length)];
+ const picker=randomPickerState();
+ if(!picker.cycle.includes(car.id))picker.cycle.push(car.id);
+ save();
+ return car;
+}
+function buildRandomPickerOrder(){
+ const picker=randomPickerState();
+ const remaining=randomPickerRemainingCars();
+ const order=shuffledCars(remaining);
+ order.forEach(car=>{if(!picker.cycle.includes(car.id))picker.cycle.push(car.id);});
+ picker.lastOrder=order.map(car=>car.id);
+ save();
+ return order;
 }
 function startRaceDirector(){
  const car=chooseRandomCar();
