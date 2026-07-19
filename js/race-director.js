@@ -99,8 +99,8 @@ function directorQueueReveal(animate=false){
    <div id="queueRevealList" class="pickerLineup queueRevealList">${animate?'':cars.map((car,i)=>queueRowHtml(car,i)).join('')}</div>
    <div id="queueRevealActions" class="directorActions" ${animate?'hidden':''}>
     ${ev?`<button class="btn bigStart randomPickerButton" onclick="startQueueCar('${first.id}')">▶ Start Next Car</button>`:''}
-    <button class="btn warning" onclick="if(confirm('Replace this queue with a new random order?'))openChampionshipQueue(true)">🎲 Generate New Queue</button>
-    <button class="btn warning" onclick="closeDirector();resetChampionshipQueue()">Clear Queue</button>
+    <button class="btn secondary directorUtilityButton" onclick="if(confirm('Replace this queue with a new random order?'))openChampionshipQueue(true)">🎲 Generate New Queue</button>
+    <button class="btn secondary directorUtilityButton" onclick="closeDirector();resetChampionshipQueue()">Clear Queue</button>
     <button class="btn secondary" onclick="closeDirector();show('festival')">Back to Dashboard</button>
    </div>
   </div>`);
