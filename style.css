@@ -721,3 +721,87 @@ label{line-height:1.35}
   .directorCard{width:calc(100vw - 24px);padding:20px 16px}
   .directorCard .checkList{padding:13px 14px}
 }
+
+
+/* RaceHub v5.3.8 — Dashboard Card Polish
+   Additive only: presentation changes are isolated to the Festival dashboard. */
+.dashboardPage{
+  --dashboard-card-border:rgba(99,232,255,.23);
+  --dashboard-card-shadow:0 18px 44px rgba(0,0,0,.27);
+  align-items:stretch;
+}
+.dashboardHero,.dashboardRecord,.dashboardContinue{
+  border-radius:var(--rh-card-radius,22px);
+  box-shadow:var(--dashboard-card-shadow);
+}
+.dashboardHero{
+  padding:clamp(18px,3vw,26px);
+  border-color:rgba(99,232,255,.42);
+  background:
+    radial-gradient(circle at 88% 12%,rgba(52,215,255,.13),transparent 34%),
+    linear-gradient(145deg,rgba(13,48,63,.98),rgba(23,12,43,.98));
+}
+.dashboardHeroTop{align-items:center}
+.dashboardHero h2{max-width:24ch;font-size:clamp(24px,4vw,34px);line-height:1.08}
+.dashboardPercent{
+  min-width:72px;padding:9px 11px;border:1px solid rgba(99,232,255,.25);
+  border-radius:15px;background:rgba(0,0,0,.2);text-align:center;
+  box-shadow:inset 0 0 18px rgba(52,215,255,.06);
+}
+.dashboardHeroMeta{margin-top:3px}
+.dashboardHeroNext,.dashboardRecordBody,.dashboardNextCar{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.dashboardPrimary{min-height:50px;font-size:15px}
+.dashboardHeroLinks .chip{min-height:38px}
+
+.dashboardStats{gap:12px}
+.dashboardStat{
+  min-height:138px;padding:16px;border-radius:var(--rh-card-radius-compact,18px);
+  background:linear-gradient(155deg,rgba(255,255,255,.072),rgba(255,255,255,.03));
+  box-shadow:0 12px 30px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.035);
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+.dashboardStatIcon{
+  width:38px;height:38px;display:grid;place-items:center;margin-bottom:11px;
+  border-radius:12px;background:color-mix(in srgb,var(--dashboard-stat) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--dashboard-stat) 23%,transparent);
+}
+.dashboardStat .small{font-weight:800;letter-spacing:.02em;color:rgba(255,255,255,.78)}
+.dashboardStatNote{margin-top:3px}
+
+.dashboardRecord,.dashboardContinue{padding:20px}
+.dashboardSectionHeading{align-items:center}
+.dashboardSectionHeading h3{line-height:1.15}
+.dashboardRecordBody{min-height:132px;display:grid;align-content:center}
+.dashboardContinue{display:flex;flex-direction:column}
+.dashboardContinue>.btn{margin-top:auto}
+.dashboardNextCar{align-items:center}
+
+.dashboardPage>.randomPickerPanel{
+  margin-top:0;border-radius:var(--rh-card-radius,22px);
+  box-shadow:var(--dashboard-card-shadow);
+}
+
+@media(hover:hover){
+  .dashboardStat:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--dashboard-stat) 38%,transparent);background:linear-gradient(155deg,rgba(255,255,255,.09),rgba(255,255,255,.035))}
+}
+@media(min-width:820px){
+  .dashboardPage{grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:16px}
+  .dashboardHero{grid-column:1/-1}
+  .dashboardStats{grid-column:1/-1}
+  .dashboardRecord{grid-column:1}
+  .dashboardContinue{grid-column:2}
+  .dashboardPage>.randomPickerPanel{grid-column:1/-1}
+  .dashboardRecord,.dashboardContinue{min-height:250px}
+}
+@media(max-width:640px){
+  .dashboardHero{padding:15px 16px!important}
+  .dashboardHero h2{font-size:23px}
+  .dashboardPercent{min-width:62px;padding:7px 9px;font-size:21px}
+  .dashboardStats{gap:9px}
+  .dashboardStat{box-shadow:0 10px 24px rgba(0,0,0,.16)}
+  .dashboardStatIcon{width:32px;height:32px;margin-bottom:6px}
+  .dashboardRecord,.dashboardContinue{padding:15px 16px!important}
+}
+@media(prefers-reduced-motion:reduce){.dashboardStat{transition:none}.dashboardStat:hover{transform:none}}
