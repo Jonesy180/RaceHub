@@ -870,6 +870,7 @@ label{line-height:1.35}
 .garageTools{min-width:0;width:100%}
 .garageToolCard,.garageCollection,.garageGroups,.garageMakeGroup,.garageMakeContent{min-width:0;max-width:100%}
 .garageFilters{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
+.garageFilters .chip{flex:0 0 auto;max-width:none;overflow:visible;text-overflow:clip}
 .garageCarRow{min-width:0;max-width:100%}
 
 /* RaceHub v5.4.0 — Leaderboards Card Polish */
@@ -1226,4 +1227,12 @@ input,select,textarea,button,.btn{max-width:100%}
   .btn,button{padding:10px 9px;min-height:42px}
   .nav button{font-size:10px}
   .ico{font-size:21px}
+}
+
+
+/* RaceHub v5.4.11 — Garage Manufacturer Filter Fix */
+@media(max-width:560px){
+  .garageFilters{display:flex;flex-wrap:nowrap;gap:8px;scrollbar-width:none;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+  .garageFilters::-webkit-scrollbar{display:none}
+  .garageFilters .chip{flex:0 0 auto;width:auto;min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip}
 }

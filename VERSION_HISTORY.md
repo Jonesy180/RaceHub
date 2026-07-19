@@ -1,3 +1,7 @@
+## v5.4.11 — Garage Manufacturer Filter Fix
+
+A focused mobile layout fix that restores readable, horizontally scrollable manufacturer filter chips in the Garage. It prevents chip shrinking and clipping without changing Garage behaviour or stored data.
+
 ## v5.4.10 — Final Responsive Consistency Pass
 
 A presentation-only whole-app responsive safety pass. It standardises narrow-screen spacing, prevents horizontal overflow, improves long-text wrapping, keeps overlays usable on short screens, and updates visible version references. No RaceHub logic or stored data changed.

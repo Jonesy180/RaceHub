@@ -1,3 +1,10 @@
+# RaceHub v5.4.11 — Garage Manufacturer Filter Fix
+
+- Restores full manufacturer filter labels on phone-sized Garage screens.
+- Keeps the filter bar horizontally scrollable with touch-friendly chip spacing.
+- Prevents global responsive rules from shrinking or clipping manufacturer chips.
+- No Garage logic, car data, or save data changed.
+
 # RaceHub v5.4.10 — Final Responsive Consistency Pass
 
 - Adds shared overflow protection across every RaceHub screen.
