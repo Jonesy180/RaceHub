@@ -1,3 +1,12 @@
+# RaceHub v5.4.10 — Final Responsive Consistency Pass
+
+- Adds shared overflow protection across every RaceHub screen.
+- Tightens card, heading and row spacing on narrow phones.
+- Keeps dialogs and celebration panels usable on short mobile screens.
+- Improves wrapping for long labels, car names, badges and controls.
+- Updates the visible About version and refreshes the PWA cache.
+- No application logic, calculations or save data changed.
+
 # RaceHub v5.4.8 — Mobile Garage Watermark Fix
 
 - Restores visible manufacturer watermarks on phone-sized Garage cards.

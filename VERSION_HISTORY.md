@@ -1,3 +1,7 @@
+## v5.4.10 — Final Responsive Consistency Pass
+
+A presentation-only whole-app responsive safety pass. It standardises narrow-screen spacing, prevents horizontal overflow, improves long-text wrapping, keeps overlays usable on short screens, and updates visible version references. No RaceHub logic or stored data changed.
+
 ## v5.4.8 — Mobile Garage Watermark Fix
 
 - Increased mobile manufacturer watermark visibility in the Garage.

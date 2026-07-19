@@ -1186,3 +1186,44 @@ label{line-height:1.35}
     max-height:100%;
   }
 }
+
+
+/* RaceHub v5.4.10 — Final Responsive Consistency Pass
+   Shared overflow protection and compact-screen alignment only. */
+html,body{max-width:100%;overflow-x:hidden}
+main,.screen,.screen>*,.card,.resultBox,.raceDirector,.raceNightPanel,
+.completedCar,.legacyCard,.pageIdentityHeader,.randomPickerPanel,
+.historyPage,.historyStoryCard,.statsPage,.garagePage,.eventsCentre,
+.overallHero,.overallLeaderCard,.overallStandingsCard,.hallFestivalSection,
+.hallBrowserGroup{min-width:0;max-width:100%}
+img,svg,video,canvas{max-width:100%}
+.row,.row>*,.eventTop>*,.makeHead>*,.garageCollectionHeading>*,
+.overallSectionHeading>*,.statsSectionTitle>*,.historyCardTop>*,
+.pageIdentityCopy,.randomPickerCopy{min-width:0}
+.grow{min-width:0}
+input,select,textarea,button,.btn{max-width:100%}
+
+@media(max-width:560px){
+  main{padding-left:10px;padding-right:10px}
+  .card{padding:14px;margin:10px 0}
+  h2{font-size:clamp(23px,7vw,28px)}
+  h3{font-size:clamp(17px,5vw,20px)}
+  .small{font-size:12px}
+  .eventTop,.makeHead,.garageCollectionHeading,.overallSectionHeading,
+  .statsSectionTitle{gap:8px}
+  .row{gap:8px}
+  .row>.grow{overflow-wrap:anywhere}
+  .badge,.chip{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+  .resultBox{padding:12px}
+  .raceDirector{padding:14px}
+  .directorCard,.celebrationCard,.carEditorCard{max-height:calc(100dvh - 24px);overflow-y:auto}
+}
+
+@media(max-width:360px){
+  main{padding-left:8px;padding-right:8px}
+  .card{padding:12px;border-radius:18px}
+  .grid{gap:7px}
+  .btn,button{padding:10px 9px;min-height:42px}
+  .nav button{font-size:10px}
+  .ico{font-size:21px}
+}
