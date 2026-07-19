@@ -1,3 +1,9 @@
+## v5.4.8 — Mobile Garage Watermark Fix
+
+- Increased mobile manufacturer watermark visibility in the Garage.
+- Preserved card containment and text readability.
+- Presentation-only update with no functional or data changes.
+
 ## v5.4.7 — Garage & Hall of Fame Grid Consistency
 
 - Applied the compact grid rule to Garage manufacturer groups and Hall of Fame record cards.

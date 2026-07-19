@@ -1,3 +1,10 @@
+# RaceHub v5.4.8 — Mobile Garage Watermark Fix
+
+- Restores visible manufacturer watermarks on phone-sized Garage cards.
+- Keeps watermarks behind all car text and controls.
+- Contains watermark artwork within each manufacturer card without horizontal scrolling.
+- No Garage logic, car data, or save data changed.
+
 # RaceHub v5.4.7 — Garage & Hall of Fame Grid Consistency
 
 - Garage manufacturer groups use two columns on wider screens where practical.
