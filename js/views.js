@@ -444,13 +444,14 @@ function renderOverallLeaderboard(){
  const complete=rows.length;
  const pct=total?Math.round(complete/total*100):0;
  const podium=rows.slice(0,3).map(row=>`<div class="overallPodiumCard overallPodium-${row.position}">
+   <div class="overallPodiumPlace">${row.position===1?'Overall leader':row.position===2?'Second place':'Third place'}</div>
    <div class="overallMedal">${overallMedal(row.position)}</div><div class="overallPodiumName">${esc(carName(row.car))}</div>
    <div class="overallPodiumTime">${esc(formatChampionshipTime(row.totalTime))}</div>
-   <div class="small">Long Jump ${esc(fmt((state.events.find(e=>e.type==='distance')||{}).id,row.longJump))}</div>
+   <div class="overallPodiumMeta"><span>🚀 ${esc(fmt((state.events.find(e=>e.type==='distance')||{}).id,row.longJump))}</span><span>${wins.get(row.carId)||0} 🏆</span><span>${records.get(row.carId)||0} ⚡</span></div>
   </div>`).join('');
- const table=rows.map(row=>`<div class="overallRow ${row.position<=3?'overallTopRow':''}">
-   <div class="overallPos">${overallMedal(row.position)}</div><div class="overallCar"><b>${esc(carName(row.car))}</b><small>${wins.get(row.carId)||0} Championship win${(wins.get(row.carId)||0)===1?'':'s'} • ${records.get(row.carId)||0} Festival record${(records.get(row.carId)||0)===1?'':'s'}</small></div>
-   <div class="overallTime"><b>${esc(formatChampionshipTime(row.totalTime))}</b><small>${esc(overallGapText(row.gap))}</small></div>
+ const table=rows.map(row=>`<div class="overallRow overallRank-${Math.min(row.position,4)} ${row.position<=3?'overallTopRow':''}">
+   <div class="overallPos"><span>${overallMedal(row.position)}</span><small>${row.position===1?'LEADER':`P${row.position}`}</small></div><div class="overallCar"><b>${esc(carName(row.car))}</b><small>${wins.get(row.carId)||0} Championship win${(wins.get(row.carId)||0)===1?'':'s'} • ${records.get(row.carId)||0} Festival record${(records.get(row.carId)||0)===1?'':'s'}</small></div>
+   <div class="overallTime"><b>${esc(formatChampionshipTime(row.totalTime))}</b><small class="overallGap">${esc(overallGapText(row.gap))}</small></div>
   </div>`).join('');
  const closest=data.progress.filter(r=>!r.qualified&&r.completed>0).slice(0,5).map(r=>`<div class="overallProgressRow"><span>${esc(carName(r.car))}</span><b>${r.completed}/${state.events.length}</b></div>`).join('');
  return `<div class="card overallHero">
@@ -459,7 +460,7 @@ function renderOverallLeaderboard(){
   <div class="card overallProgress"><div><b>${complete} of ${total} cars qualified</b><span>${pct}% of the collection</span></div><div class="progress" style="${progressTrackStyle()}"><div class="bar" style="${progressBarStyle(pct,'festival')}"></div></div></div>
   ${leader?`<div class="card overallLeaderCard"><div class="overallLeaderCrown">👑</div><div class="directorKicker">Current Overall Leader</div><h2>${esc(carName(leader.car))}</h2><div class="overallLeaderTime">${esc(formatChampionshipTime(leader.totalTime))}</div><div class="overallLeaderStats"><span>🏆 ${wins.get(leader.carId)||0} wins</span><span>⚡ ${records.get(leader.carId)||0} records</span><span>🚀 ${esc(fmt((state.events.find(e=>e.type==='distance')||{}).id,leader.longJump))}</span></div></div>`:`<div class="card"><div class="empty">Complete all six events with a car to place it on the Overall Leaderboard.</div></div>`}
   ${podium?`<div class="overallPodium">${podium}</div>`:''}
-  <div class="card"><h2>📊 Overall Standings</h2><div class="overallTable">${table||'<div class="empty">No cars have qualified yet.</div>'}</div></div>
+  <div class="card overallStandingsCard"><div class="overallSectionHeading"><div><div class="directorKicker">Complete collection ranking</div><h2>📊 Overall Standings</h2></div><span class="overallQualifiedBadge">${complete} qualified</span></div><div class="overallTable">${table||'<div class="empty">No cars have qualified yet.</div>'}</div></div>
   ${closest?`<div class="card"><h2>🏁 Closing In</h2><p class="small">Cars nearest to completing all six events.</p><div class="overallProgressList">${closest}</div></div>`:''}`;
 }
 function renderHallOfFame(){

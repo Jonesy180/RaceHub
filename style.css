@@ -865,3 +865,58 @@ label{line-height:1.35}
 .garageToolCard,.garageCollection,.garageGroups,.garageMakeGroup,.garageMakeContent{min-width:0;max-width:100%}
 .garageFilters{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
 .garageCarRow{min-width:0;max-width:100%}
+
+/* RaceHub v5.4.0 — Leaderboards Card Polish */
+.overallHero{position:relative;overflow:hidden}
+.overallHero::after{content:"";position:absolute;right:-55px;bottom:-70px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(255,216,77,.15),transparent 68%);pointer-events:none}
+.overallLeaderCard{position:relative;overflow:hidden;padding-top:24px}
+.overallLeaderCard::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.045) 48%,transparent 67%);pointer-events:none}
+.overallLeaderCrown{line-height:1;filter:drop-shadow(0 7px 12px rgba(255,203,69,.25))}
+.overallPodium{align-items:stretch}
+.overallPodiumCard{position:relative;display:flex;min-width:0;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 12px 14px;overflow:hidden}
+.overallPodiumCard::after{content:"";position:absolute;inset:auto -20% -46px;height:92px;border-radius:50%;background:radial-gradient(ellipse,rgba(52,215,255,.10),transparent 68%);pointer-events:none}
+.overallPodium-1{order:2;transform:translateY(-8px);background:linear-gradient(180deg,rgba(255,216,77,.14),rgba(255,255,255,.035))}
+.overallPodium-2{order:1;background:linear-gradient(180deg,rgba(215,225,238,.09),rgba(255,255,255,.03))}
+.overallPodium-3{order:3;background:linear-gradient(180deg,rgba(205,127,50,.11),rgba(255,255,255,.03))}
+.overallPodiumPlace{font-size:9px;font-weight:900;letter-spacing:1.15px;text-transform:uppercase;color:var(--muted)}
+.overallMedal{margin:8px 0 2px;font-size:38px;line-height:1}
+.overallPodium-1 .overallMedal{font-size:46px;filter:drop-shadow(0 5px 10px rgba(255,216,77,.22))}
+.overallPodiumName{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;margin:7px 0 4px;font-size:15px;line-height:1.25}
+.overallPodiumTime{font-size:21px;letter-spacing:-.3px}
+.overallPodiumMeta{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:11px}
+.overallPodiumMeta span{padding:5px 7px;border:1px solid rgba(255,255,255,.09);border-radius:999px;background:rgba(0,0,0,.18);font-size:10px;font-weight:800;color:#c9d6de}
+.overallStandingsCard{overflow:hidden}
+.overallSectionHeading{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:14px}
+.overallSectionHeading h2{margin:2px 0 0}
+.overallQualifiedBadge{flex:0 0 auto;padding:7px 10px;border:1px solid rgba(52,215,255,.24);border-radius:999px;background:rgba(52,215,255,.08);color:#8be8ff;font-size:10px;font-weight:900;letter-spacing:.55px;text-transform:uppercase}
+.overallRow{position:relative;grid-template-columns:52px minmax(0,1fr) minmax(120px,auto);padding:13px 14px;overflow:hidden;transition:border-color .18s ease,transform .18s ease,background .18s ease}
+.overallRow::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:999px;background:rgba(255,255,255,.12)}
+.overallRank-1::before{background:#ffd84d}.overallRank-2::before{background:#d7e1ed}.overallRank-3::before{background:#cd7f32}
+.overallPos{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.overallPos>span{font-size:23px;font-weight:900}
+.overallPos small{margin-top:5px;color:var(--muted);font-size:8px;font-weight:1000;letter-spacing:.75px}
+.overallCar{min-width:0}
+.overallCar b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+.overallTime b{font-size:15px;color:#dff8ff}
+.overallGap{display:inline-flex;align-self:flex-end;width:max-content;padding:3px 7px;border-radius:999px;background:rgba(255,255,255,.055)}
+.overallRank-1 .overallGap{background:rgba(255,216,77,.12);color:#ffe582}
+@media(hover:hover){.overallRow:hover{transform:translateY(-1px);border-color:rgba(52,215,255,.26);background:rgba(52,215,255,.045)}}
+@media(max-width:620px){
+ .overallPodium{grid-template-columns:1fr;gap:8px}
+ .overallPodiumCard,.overallPodium-1,.overallPodium-2,.overallPodium-3{order:initial;transform:none;display:grid;grid-template-columns:42px minmax(0,1fr) auto;grid-template-rows:auto auto;column-gap:10px;text-align:left;align-items:center;padding:13px}
+ .overallPodiumPlace{grid-column:2;align-self:end}
+ .overallMedal,.overallPodium-1 .overallMedal{grid-row:1/3;margin:0;font-size:31px;text-align:center}
+ .overallPodiumName{grid-column:2;grid-row:2;justify-content:flex-start;min-height:0;margin:2px 0 0;font-size:13px}
+ .overallPodiumTime{grid-column:3;grid-row:1;font-size:16px;text-align:right}
+ .overallPodiumMeta{grid-column:3;grid-row:2;justify-content:flex-end;margin:3px 0 0}
+ .overallPodiumMeta span{padding:3px 5px;font-size:8px}
+ .overallRow{grid-template-columns:42px minmax(0,1fr);padding:12px 10px}
+ .overallTime{grid-column:2;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px;margin-top:3px;text-align:left}
+ .overallGap{align-self:auto}
+}
+@media(max-width:390px){
+ .overallSectionHeading{align-items:flex-start;flex-direction:column;gap:7px}
+ .overallPodiumCard,.overallPodium-1,.overallPodium-2,.overallPodium-3{grid-template-columns:38px minmax(0,1fr);grid-template-rows:auto auto auto}
+ .overallPodiumTime{grid-column:2;grid-row:3;text-align:left;margin-top:5px}
+ .overallPodiumMeta{grid-column:2;grid-row:4;justify-content:flex-start}
+}
