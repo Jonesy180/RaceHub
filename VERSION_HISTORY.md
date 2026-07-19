@@ -1,3 +1,10 @@
+## v5.4.6 — Events Screen Layout & Grid
+
+- Events now use a responsive two-column grid on desktop and phone.
+- Event cards have denser progress and record presentation.
+- Long car names are safely truncated without widening the page.
+- No functional or data changes.
+
 ## v5.4.5 — Dashboard & Statistics Grid Consistency
 
 - Dashboard support cards now share a compact two-column mobile layout.

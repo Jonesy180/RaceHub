@@ -1,3 +1,12 @@
+# RaceHub v5.4.6 — Events Screen Layout & Grid
+
+- Reworked the Events screen into a compact two-column card grid.
+- Kept the two-column layout on phones where the short event cards remain readable.
+- Improved event progress, record and completion hierarchy.
+- Removed unnecessary empty space and reduced vertical scrolling.
+- Added overflow protection so the Events page never forces sideways scrolling.
+- No event logic, results, calculations or save data changed.
+
 # RaceHub v5.4.5 — Dashboard & Statistics Grid Consistency
 
 - Uses compact two-column cards on the Dashboard where practical.

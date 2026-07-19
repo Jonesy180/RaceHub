@@ -1072,3 +1072,48 @@ label{line-height:1.35}
   .statsMilestone b{font-size:11px;line-height:1.2}
   .statsMilestone span,.statsMilestone small{font-size:8px;line-height:1.25}
 }
+
+
+/* RaceHub v5.4.6 — Events Screen Layout & Grid */
+.eventsCentre{overflow:hidden}
+.eventsCentreHeading{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
+.eventsCentreHeading h2{margin-bottom:4px}
+.eventsCentreHeading p{margin:0}
+.eventsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.eventCentreCard{
+  width:100%;min-width:0;margin:0;padding:14px;text-align:left;color:inherit;
+  background:linear-gradient(145deg,rgba(255,159,47,.105),rgba(255,255,255,.045));
+  border:1px solid rgba(255,159,47,.22);border-radius:var(--rh-card-radius-compact);
+  box-shadow:var(--rh-card-shadow-soft);cursor:pointer;overflow:hidden;
+}
+.eventCentreCard:hover{transform:translateY(-1px);border-color:rgba(255,159,47,.42)}
+.eventCentreTitle{display:flex;align-items:center;min-width:0;gap:8px}
+.eventCentreTitle b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eventCentreIcon{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:11px;background:rgba(255,159,47,.14);font-size:18px}
+.eventCentreCard .badge{flex:0 0 auto}
+.eventCentreCard .progress{margin:12px 0 10px}
+.eventCentreRecord{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:3px 8px;min-width:0}
+.eventCentreRecord span{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eventCentreRecord b{font-size:15px;color:#fff;white-space:nowrap}
+.eventCentreRecord small{grid-column:1/-1;min-width:0;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:520px){
+  .eventsCentreHeading{align-items:flex-start;gap:8px;margin-bottom:10px}
+  .eventsCentreHeading .badge{font-size:10px;padding:5px 8px}
+  .eventsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .eventCentreCard{padding:10px 9px;border-radius:15px}
+  .eventCentreTitle{gap:6px}
+  .eventCentreIcon{flex-basis:28px;width:28px;height:28px;border-radius:9px;font-size:15px}
+  .eventCentreTitle b{font-size:13px}
+  .eventCentreCard .badge{font-size:9px;padding:4px 7px}
+  .eventCentreCard .progress{height:11px;margin:9px 0 8px}
+  .eventCentreRecord{grid-template-columns:1fr;gap:2px}
+  .eventCentreRecord span{font-size:9px}
+  .eventCentreRecord b{font-size:13px;overflow:hidden;text-overflow:ellipsis}
+  .eventCentreRecord small{grid-column:auto;font-size:9px}
+}
+@media(max-width:360px){
+  .eventsCentreHeading .badge{display:none}
+  .eventsGrid{gap:7px}
+  .eventCentreCard{padding:9px 8px}
+  .eventCentreTitle b{font-size:12px}
+}
