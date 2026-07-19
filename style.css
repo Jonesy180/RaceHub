@@ -805,3 +805,63 @@ label{line-height:1.35}
   .dashboardRecord,.dashboardContinue{padding:15px 16px!important}
 }
 @media(prefers-reduced-motion:reduce){.dashboardStat{transition:none}.dashboardStat:hover{transform:none}}
+
+
+/* RaceHub v5.3.9 — Garage Card Polish
+   Additive only: presentation changes are isolated to the Garage screen. */
+.garagePage{display:grid;gap:var(--rh-section-gap,16px)}
+.garagePage>*{margin:0}
+.garageHero{
+  padding:clamp(18px,3vw,26px);border-color:rgba(181,140,255,.42);
+  background:radial-gradient(circle at 88% 12%,rgba(181,140,255,.16),transparent 34%),linear-gradient(145deg,rgba(24,25,57,.98),rgba(10,30,42,.98));
+  box-shadow:0 18px 44px rgba(0,0,0,.27)
+}
+.garageHeroTop{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.garageEyebrow{margin-bottom:5px;color:#cbb6ff;font-size:12px;font-weight:1000;letter-spacing:.12em;text-transform:uppercase}
+.garageHero h2{font-size:clamp(28px,5vw,40px);margin-bottom:6px}
+.garageCompletion{min-width:92px;padding:12px 13px;border:1px solid rgba(181,140,255,.3);border-radius:17px;background:rgba(0,0,0,.22);text-align:center;box-shadow:inset 0 0 20px rgba(181,140,255,.07)}
+.garageCompletion strong{display:block;color:#decfff;font-size:27px;line-height:1}
+.garageCompletion span{display:block;margin-top:5px;color:var(--rh-text-muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.garageSummary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:18px}
+.garageSummary>div{padding:12px;border:1px solid rgba(255,255,255,.095);border-radius:15px;background:rgba(255,255,255,.045);text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+.garageSummary strong{display:block;font-size:21px;line-height:1.05}
+.garageSummary span{display:block;margin-top:5px;color:var(--rh-text-muted);font-size:11px;font-weight:800}
+.garageTools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.garageToolCard{display:flex;flex-direction:column;padding:20px;box-shadow:0 16px 38px rgba(0,0,0,.22)}
+.garageToolCard>.btn,.garageToolCard>.grid{margin-top:auto}
+.garageToolHeading{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.garageToolHeading>span{width:40px;height:40px;display:grid;place-items:center;flex:0 0 auto;border-radius:13px;background:rgba(181,140,255,.11);border:1px solid rgba(181,140,255,.22);color:#d8c8ff;font-size:22px;font-weight:1000}
+.garageToolHeading h3{margin-bottom:2px}
+.garageToolHeading p{margin:0}
+.garageCollection{padding:20px;box-shadow:0 18px 44px rgba(0,0,0,.25)}
+.garageCollectionHeading{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.garageCollectionHeading p{margin:2px 0 0}
+.garageFilters{margin:10px -2px 2px;padding-inline:2px}
+.garageGroups{display:grid;gap:11px}
+.garageGroups>.garageMakeGroup{margin:0}
+.garageMakeGroup{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.garageMakeGroup .makeHead{padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.075)}
+.garageMakeGroup .makeHead>span{min-width:30px;padding:4px 8px;border-radius:999px;background:rgba(0,0,0,.24);text-align:center;color:color-mix(in srgb,var(--manufacturer-accent) 58%,white);font-size:12px;font-weight:1000}
+.garageCarRow{min-height:58px;padding:10px 0}
+.garageCarIcon{width:34px;height:34px;display:grid;place-items:center;flex:0 0 auto;border-radius:11px;background:rgba(255,255,255,.055);font-size:18px}
+.garageCarInfo{display:flex;flex-direction:column;gap:3px;min-width:0}
+.garageCarInfo strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.garageCarComplete .garageCarIcon{background:rgba(41,255,138,.09);border:1px solid rgba(41,255,138,.17)}
+.garageCarStarted .garageCarIcon{background:rgba(255,216,77,.08);border:1px solid rgba(255,216,77,.15)}
+.garageEditButton{min-width:62px}
+.garageEmpty{margin-top:8px;border:1px dashed rgba(255,255,255,.13);border-radius:16px;background:rgba(255,255,255,.025)}
+@media(hover:hover){.garageMakeGroup:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--manufacturer-accent) 48%,rgba(255,255,255,.13));box-shadow:0 14px 30px rgba(0,0,0,.2)}}
+@media(max-width:720px){.garageTools{grid-template-columns:1fr}.garageSummary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){
+  .garageHero{padding:15px 16px}.garageHeroTop{align-items:flex-start}.garageCompletion{min-width:78px;padding:10px}.garageCompletion strong{font-size:23px}
+  .garageSummary{gap:7px;margin-top:14px}.garageSummary>div{padding:10px 7px}.garageSummary strong{font-size:19px}
+  .garageToolCard,.garageCollection{padding:15px 16px}.garageToolHeading>span{width:36px;height:36px}.garageEditButton{min-width:56px;padding-inline:10px}
+}
+@media(prefers-reduced-motion:reduce){.garageMakeGroup{transition:none}.garageMakeGroup:hover{transform:none}}
+
+/* v5.3.9 hotfix — keep Garage content inside the RaceHub viewport. */
+.garagePage,.garagePage>*{min-width:0;max-width:100%}
+.garageTools{min-width:0;width:100%}
+.garageToolCard,.garageCollection,.garageGroups,.garageMakeGroup,.garageMakeContent{min-width:0;max-width:100%}
+.garageFilters{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
+.garageCarRow{min-width:0;max-width:100%}
