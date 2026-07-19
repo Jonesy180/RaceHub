@@ -346,15 +346,17 @@ function hallDateText(date){
  catch(e){return d.toLocaleDateString();}
 }
 function hallRecordCard(ev,record,scopeLabel){
- if(!record)return `<div class="hallRecordCard emptyRecord"><div class="hallEvent">${esc(ev.name)}</div><div class="small">No ${esc(scopeLabel.toLowerCase())} yet</div></div>`;
+ const eventIcon=ev.type==='distance'?'🚀':'⏱️';
+ if(!record)return `<div class="hallRecordCard emptyRecord"><div class="hallRecordTop"><span class="hallEventIcon">${eventIcon}</span><span class="hallScope">${esc(scopeLabel)}</span></div><div class="hallEvent">${esc(ev.name)}</div><div class="hallEmptyText">Awaiting a worthy record</div></div>`;
  const car=carById(record.carId);
  const held=typeof daysBetween==='function'?daysBetween(record.date,new Date().toISOString()):null;
  const heldText=held==null?'':` · ${typeof daysText==='function'?daysText(held):`${held} day${held===1?'':'s'}`}`;
  return `<div class="hallRecordCard">
+  <div class="hallRecordTop"><span class="hallEventIcon">${eventIcon}</span><span class="hallScope">${esc(scopeLabel)}</span></div>
   <div class="hallEvent">${esc(ev.name)}</div>
-  <div class="hallCar">${esc(car?carName(car):record.carId)}</div>
+  <div class="hallChampion"><span class="hallChampionCrown">♛</span><div><small>Record holder</small><div class="hallCar">${esc(car?carName(car):record.carId)}</div></div></div>
   <div class="hallValue">${esc(fmt(ev.id,record.value))}</div>
-  <div class="small">Held since ${esc(hallDateText(record.date))}${esc(heldText)}</div>
+  <div class="hallRecordSince">Held since ${esc(hallDateText(record.date))}${esc(heldText)}</div>
  </div>`;
 }
 function hallFestivalLeader(eventId){

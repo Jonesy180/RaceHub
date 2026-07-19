@@ -1,3 +1,7 @@
+## v5.4.1 — Hall of Fame Card Polish
+
+Refined the Hall of Fame into a premium trophy-room experience with improved record cards, stronger champion presentation, better spacing and consistent styling. No logic changes.
+
 # RaceHub Version History
 
 ## v5.3.2 — UI Consistency Sprint 1

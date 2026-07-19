@@ -920,3 +920,44 @@ label{line-height:1.35}
  .overallPodiumTime{grid-column:2;grid-row:3;text-align:left;margin-top:5px}
  .overallPodiumMeta{grid-column:2;grid-row:4;justify-content:flex-start}
 }
+
+
+/* RaceHub v5.4.1 — Hall of Fame Card Polish */
+.hallOfFameDivider{position:relative;overflow:hidden;padding:28px 22px;background:radial-gradient(circle at 50% 0,rgba(255,216,77,.16),transparent 58%),linear-gradient(150deg,rgba(51,36,10,.88),rgba(20,13,34,.96))}
+.hallOfFameDivider::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,transparent,#ffd84d,transparent);box-shadow:0 0 22px rgba(255,216,77,.58)}
+.hallOfFameDivider h2{font-size:30px;margin:8px 0 6px;color:#fff2ad;letter-spacing:.01em}
+.hallOfFameDivider .small{max-width:620px;margin:0 auto;line-height:1.55}
+.hallFestivalSection,.hallBrowserGroup{border-radius:24px}
+.hallFestivalSection{padding:22px}
+.hallFestivalSection>h2{margin:2px 0 4px;font-size:23px}
+.hallGrid{gap:14px;margin-top:18px}
+.hallRecordCard{position:relative;overflow:hidden;justify-content:flex-start;min-height:214px;padding:17px;border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 14px 30px rgba(0,0,0,.16);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.hallRecordCard::after{content:"";position:absolute;right:-34px;bottom:-48px;width:130px;height:130px;border:1px solid currentColor;border-radius:50%;opacity:.05;pointer-events:none}
+.hallRecordCard:hover{transform:translateY(-2px);border-color:rgba(255,216,77,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 18px 36px rgba(0,0,0,.22)}
+.hallRecordTop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+.hallEventIcon{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(255,216,77,.28);border-radius:12px;background:rgba(255,216,77,.09);font-size:17px}
+.hallScope{padding:5px 8px;border:1px solid rgba(255,216,77,.2);border-radius:999px;background:rgba(255,216,77,.08);font-size:9px;font-weight:1000;letter-spacing:1.2px;text-transform:uppercase;color:#ffe98d}
+.hallEvent{margin:0 0 13px;font-size:12px;letter-spacing:1.7px;line-height:1.3}
+.hallChampion{display:flex;align-items:center;gap:10px;min-height:47px;padding:10px 11px;border:1px solid rgba(255,255,255,.09);border-radius:15px;background:rgba(0,0,0,.14)}
+.hallChampionCrown{font-size:21px;color:#ffd84d;text-shadow:0 0 14px rgba(255,216,77,.5)}
+.hallChampion small{display:block;margin-bottom:2px;font-size:9px;font-weight:900;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted)}
+.hallCar{font-size:17px;line-height:1.15}
+.hallValue{margin:13px 0 8px;font-size:34px;line-height:1}
+.hallRecordSince{margin-top:auto;padding-top:4px;font-size:11px;line-height:1.4;color:var(--muted)}
+.hallRecordCard.emptyRecord{justify-content:flex-start;min-height:214px}
+.hallRecordCard.emptyRecord .hallEvent{margin-top:11px}
+.hallEmptyText{display:grid;place-items:center;flex:1;min-height:86px;padding:14px;border:1px dashed rgba(255,255,255,.13);border-radius:15px;text-align:center;font-size:12px;font-weight:800;color:var(--muted)}
+.hallChampionshipList{padding:2px 14px 14px}
+.hallChampionshipItem{margin:10px 0;border-radius:18px}
+.hallChampionshipButton{min-height:68px;padding:14px 16px}
+.hallChampionshipName{font-size:15px}
+.hallChampionshipRecords{padding:0 14px 16px}
+.hallChampionshipRecords .hallGrid{margin-top:14px}
+.hallBrowserGroup-era .hallChampionshipRecords .hallEventIcon{border-color:rgba(85,168,255,.26);background:rgba(85,168,255,.09)}
+.hallBrowserGroup-era .hallChampionshipRecords .hallScope{border-color:rgba(85,168,255,.22);background:rgba(85,168,255,.08);color:#a9d4ff}
+.hallBrowserGroup-era .hallChampionshipRecords .hallChampionCrown{color:#7bbcff;text-shadow:0 0 14px rgba(85,168,255,.45)}
+.hallBrowserGroup-make .hallChampionshipRecords .hallEventIcon{border-color:rgba(57,229,140,.25);background:rgba(57,229,140,.08)}
+.hallBrowserGroup-make .hallChampionshipRecords .hallScope{border-color:rgba(57,229,140,.22);background:rgba(57,229,140,.07);color:#97f6bd}
+.hallBrowserGroup-make .hallChampionshipRecords .hallChampionCrown{color:#58e99a;text-shadow:0 0 14px rgba(57,229,140,.42)}
+@media(max-width:560px){.hallOfFameDivider{padding:24px 17px}.hallFestivalSection{padding:18px 14px}.hallGrid{gap:12px}.hallRecordCard{min-height:202px;padding:15px}.hallValue{font-size:31px}.hallChampionshipList{padding:2px 9px 9px}.hallChampionshipRecords{padding:0 9px 11px}}
+@media(hover:none){.hallRecordCard:hover{transform:none}}
