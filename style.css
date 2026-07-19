@@ -595,3 +595,101 @@ button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible
   .grid{gap:9px;}
 }
 @media(prefers-reduced-motion:reduce){.btn{transition:none}}
+
+/* RaceHub v5.3.6 — UI Consistency Sprint 5: Micro Polish */
+:root{
+  --rh-text-primary:#f4fbff;
+  --rh-text-secondary:#c6d5de;
+  --rh-text-muted:#8fa5b3;
+  --rh-divider:rgba(255,255,255,.085);
+  --rh-focus:0 0 0 3px rgba(99,232,255,.22);
+}
+html{scroll-behavior:smooth}
+body{color:var(--rh-text-primary);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+main{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+.screen{animation:rhScreenIn .18s ease-out}
+.screen>*+*{margin-top:var(--rh-section-gap,16px)}
+h1,h2,h3{line-height:1.12;letter-spacing:-.018em}
+p,.small{color:var(--rh-text-muted)}
+.small{line-height:1.45}
+.card p:last-child,.resultBox p:last-child{margin-bottom:0}
+hr,.divider{border:0;border-top:1px solid var(--rh-divider);margin:16px 0}
+
+/* Progress tracks: clearer at a glance without changing their meaning. */
+.progress,.statsProgressTrack,.statsMiniTrack{
+  position:relative;
+  isolation:isolate;
+  background:rgba(255,255,255,.105);
+  border-color:rgba(255,255,255,.15);
+  box-shadow:inset 0 2px 7px rgba(0,0,0,.4),0 1px rgba(255,255,255,.025);
+}
+.progress{height:15px;margin:12px 0}
+.progress .bar,.statsProgressTrack i,.statsMiniTrack i{position:relative;overflow:hidden;min-width:0}
+.progress .bar::after,.statsProgressTrack i::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(110deg,transparent 18%,rgba(255,255,255,.22) 43%,transparent 68%);
+  transform:translateX(-120%);animation:rhProgressSheen 3.6s ease-in-out infinite;
+}
+
+/* Small controls and labels align consistently. */
+.badge,.chip,.randomPickerMeta span,.overallLeaderStats span{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;line-height:1.15
+}
+.chips{scrollbar-width:none;overscroll-behavior-inline:contain}
+.chips::-webkit-scrollbar{display:none}
+.ico{line-height:1}
+.row{border-bottom:1px solid rgba(255,255,255,.055)}
+.row:last-child{border-bottom:0}
+
+/* Toasts feel like intentional status messages rather than browser alerts. */
+.toast{
+  left:50%;right:auto;bottom:calc(94px + env(safe-area-inset-bottom,0px));
+  width:min(calc(100% - 28px),460px);transform:translate(-50%,12px);
+  padding:13px 16px;border:1px solid rgba(99,232,255,.2);
+  background:linear-gradient(145deg,rgba(18,34,44,.98),rgba(7,17,24,.98));
+  color:#effcff;box-shadow:0 16px 44px rgba(0,0,0,.5),0 0 22px rgba(25,216,245,.08);
+  font-weight:800;line-height:1.35;opacity:0;
+  transition:opacity .2s ease,transform .2s ease;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Empty states receive a consistent quiet visual treatment. */
+.empty,.historyEmpty{
+  min-height:118px;display:grid;place-content:center;gap:5px;
+  padding:24px 18px;border:1px dashed rgba(99,232,255,.22);
+  border-radius:var(--rh-card-radius-compact,16px);
+  background:linear-gradient(145deg,rgba(25,216,245,.045),rgba(255,255,255,.018));
+  color:var(--rh-text-muted);text-align:center;
+}
+.empty::before{content:"🏁";display:block;margin-bottom:3px;font-size:25px;opacity:.75}
+.historyEmpty::before{content:none}
+
+/* Keyboard and accessibility polish. */
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:none;box-shadow:var(--rh-focus)
+}
+input,select,textarea{line-height:1.35}
+label{line-height:1.35}
+
+/* Bottom navigation gets safer spacing and steadier labels. */
+.nav{padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav button{justify-content:center;line-height:1.05}
+.nav button b{font-size:11px;letter-spacing:.01em}
+.nav button::after{bottom:7px}
+
+@keyframes rhScreenIn{from{opacity:.72;transform:translateY(3px)}to{opacity:1;transform:none}}
+@keyframes rhProgressSheen{0%,62%{transform:translateX(-120%)}88%,100%{transform:translateX(120%)}}
+@media(max-width:560px){
+  main{padding-left:12px;padding-right:12px}
+  .screen>*+*{margin-top:12px}
+  .card p,.resultBox p{line-height:1.42}
+  .progress{height:14px}
+  .toast{bottom:calc(90px + env(safe-area-inset-bottom,0px));font-size:13px}
+  .nav button{min-height:70px;padding:9px 2px}
+  .nav button b{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.screen{animation:none}
+  .progress .bar::after,.statsProgressTrack i::after{animation:none;display:none}
+  .toast{transition:none}
+}

@@ -221,3 +221,7 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 - Standardised button dimensions, spacing, feedback and mobile behaviour.
 - Preserved compact chips and navigation controls for dense layouts.
 - No competition data or workflow logic changed.
+
+## v5.3.6 — UI Consistency Sprint 5: Micro Polish
+
+A presentation-only refinement pass covering spacing, typography, progress indicators, toast feedback, empty states, focus visibility and mobile safe-area behaviour. No RaceHub logic or stored data was changed.
