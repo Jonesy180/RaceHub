@@ -1,3 +1,9 @@
+## v5.4.5 — Dashboard & Statistics Grid Consistency
+
+- Dashboard support cards now share a compact two-column mobile layout.
+- Statistics collection and milestone cards remain two columns where readable.
+- No logic or save-data changes.
+
 ## v5.4.4 — Statistics Mobile Grid Fix
 
 - Festival Records remain two columns on phone-sized screens.

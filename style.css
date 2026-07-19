@@ -1020,3 +1020,55 @@ label{line-height:1.35}
   }
   .statsRecordsPanel .statsHighlight small{font-size:9px}
 }
+
+/* RaceHub v5.4.5 — Dashboard & Statistics Grid Consistency */
+@media (max-width:640px){
+  .dashboardPage{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .dashboardHero,.dashboardStats,.dashboardPage>.randomPickerPanel{grid-column:1/-1}
+  .dashboardRecord,.dashboardContinue{grid-column:auto;min-width:0;min-height:0;padding:13px!important}
+  .dashboardSectionHeading{align-items:flex-start;gap:7px}
+  .dashboardSectionHeading h3{font-size:15px;line-height:1.15}
+  .dashboardSectionHeading .chip{padding:7px 8px;font-size:10px}
+  .dashboardRecordBody{min-height:110px;padding:10px;margin-top:9px}
+  .dashboardRecordEvent{font-size:11px}
+  .dashboardRecordValue{font-size:23px}
+  .dashboardRecordCar,.dashboardRecordDate{font-size:10px}
+  .dashboardContinue .dashboardNextCar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:9px;margin:9px 0}
+  .dashboardContinue .dashboardNextCar b{font-size:12px}
+  .dashboardContinue .dashboardNextCar span{font-size:9px}
+  .dashboardContinue>.btn{min-height:40px;padding:9px 8px;font-size:11px}
+}
+@media (max-width:390px){
+  .dashboardRecord,.dashboardContinue{padding:11px!important}
+  .dashboardSectionHeading h3{font-size:14px}
+  .dashboardSectionHeading .chip{display:none}
+  .dashboardRecordValue{font-size:20px}
+}
+
+.statsManufacturerList,.statsMilestoneList{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media (max-width:520px){
+  .statsManufacturerList,.statsMilestoneList{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .statsManufacturer{
+    grid-template-columns:20px 32px minmax(0,1fr);
+    gap:6px;
+    padding:9px 8px;
+    border-radius:15px;
+  }
+  .statsManufacturerRank{font-size:12px}
+  .statsManufacturerLogo{width:32px;height:32px}
+  .statsManufacturerHead{gap:4px}
+  .statsManufacturerHead b,.statsManufacturerHead span{font-size:10px}
+  .statsManufacturer small{font-size:8px}
+  .statsMilestone{min-width:0;gap:8px;padding:10px 9px;border-radius:15px}
+  .statsMilestoneIcon{font-size:18px}
+  .statsMilestone b{font-size:11px;line-height:1.2}
+  .statsMilestone span,.statsMilestone small{font-size:8px;line-height:1.25}
+}

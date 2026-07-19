@@ -1,3 +1,10 @@
+# RaceHub v5.4.5 — Dashboard & Statistics Grid Consistency
+
+- Uses compact two-column cards on the Dashboard where practical.
+- Keeps Collection Leaders and Latest Achievements in two columns on phones.
+- Prevents card content from widening the page.
+- No logic or save-data changes.
+
 # RaceHub v5.4.4 — Statistics Mobile Grid Fix
 
 - Keeps Festival Record cards in a compact two-column grid on phones.
