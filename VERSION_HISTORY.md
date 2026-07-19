@@ -1,3 +1,9 @@
+## v5.4.7 — Garage & Hall of Fame Grid Consistency
+
+- Applied the compact grid rule to Garage manufacturer groups and Hall of Fame record cards.
+- Preserved single-column layouts for forms, rankings, and championship browser rows.
+- Added mobile containment to prevent horizontal scrolling.
+
 ## v5.4.6 — Events Screen Layout & Grid
 
 - Events now use a responsive two-column grid on desktop and phone.

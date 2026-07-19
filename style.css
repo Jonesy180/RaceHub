@@ -1117,3 +1117,56 @@ label{line-height:1.35}
   .eventCentreCard{padding:9px 8px}
   .eventCentreTitle b{font-size:12px}
 }
+
+/* RaceHub v5.4.7 — Garage & Hall of Fame Grid Consistency */
+@media (min-width:760px){
+  .garageGroups{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:start;
+  }
+}
+
+/* Hall of Fame record cards stay compact and two-column wherever they fit. */
+.hallGrid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.hallRecordCard,
+.hallRecordCard>*{
+  min-width:0;
+}
+.hallCar,
+.hallRecordSince{
+  overflow-wrap:anywhere;
+}
+
+@media (max-width:560px){
+  .hallGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .hallFestivalSection{padding:15px 11px}
+  .hallRecordCard,
+  .hallRecordCard.emptyRecord{
+    min-height:174px;
+    padding:11px 10px;
+    border-radius:16px;
+  }
+  .hallRecordTop{gap:5px;margin-bottom:8px}
+  .hallEventIcon{width:28px;height:28px;border-radius:9px;font-size:14px}
+  .hallScope{padding:4px 5px;font-size:7px;letter-spacing:.55px}
+  .hallEvent{margin-bottom:8px;font-size:9px;letter-spacing:.9px}
+  .hallChampion{gap:6px;min-height:42px;padding:7px;border-radius:12px}
+  .hallChampionCrown{font-size:16px}
+  .hallChampion small{font-size:7px;letter-spacing:.65px}
+  .hallCar{font-size:12px;line-height:1.18;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .hallValue{margin:9px 0 6px;font-size:23px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hallRecordSince{font-size:8px;line-height:1.25}
+  .hallEmptyText{min-height:68px;padding:9px;font-size:9px}
+}
+
+@media (max-width:350px){
+  .hallGrid{gap:7px}
+  .hallRecordCard,.hallRecordCard.emptyRecord{padding:9px 8px}
+  .hallScope{display:none}
+  .hallValue{font-size:21px}
+}

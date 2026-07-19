@@ -1,3 +1,10 @@
+# RaceHub v5.4.7 — Garage & Hall of Fame Grid Consistency
+
+- Garage manufacturer groups use two columns on wider screens where practical.
+- Hall of Fame record cards remain two columns on phones and larger screens.
+- Mobile Hall of Fame cards are denser and protect against text overflow.
+- No logic, record calculations, or save data changed.
+
 # RaceHub v5.4.6 — Events Screen Layout & Grid
 
 - Reworked the Events screen into a compact two-column card grid.
