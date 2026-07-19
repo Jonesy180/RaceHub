@@ -1,3 +1,11 @@
+# RaceHub v5.4.3 — Statistics Grid Revision
+
+- Reworks Statistics card groups into two-column layouts where screen space allows.
+- Keeps Festival Records in two columns on larger screens and one column on phones.
+- Adds two-column Collection Leaders and Latest Achievements layouts on desktop.
+- Reduces unnecessary vertical scrolling without changing any statistics or application logic.
+- Updates the displayed app version and PWA cache to v5.4.3.
+
 # RaceHub v5.4.2 — Statistics Polish
 
 - Refines the Statistics page with clearer grouping and stronger visual hierarchy.

@@ -1,4 +1,4 @@
-// RaceHub v5.4.2 — Statistics layout restored to live presentation
+// RaceHub v5.4.3 — Statistics responsive grid revision
 function statsBestResults(){
  const rows=[];
  state.events.forEach(ev=>bestRows(ev.id).forEach(result=>rows.push({...result,event:ev})));
@@ -86,17 +86,17 @@ function renderStats(){
    <p>${Math.max(0,owned-completed)} cars still waiting for a complete race card.</p>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsRecordsPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">PERFORMANCE HIGHLIGHTS</div><h3>Festival Records</h3></div><button class="chip" onclick="show('hall')">Hall of Fame</button></div>
    <div class="statsHighlightsGrid">${recordCards||'<div class="empty">Set your first Festival Record to see performance highlights.</div>'}</div>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsManufacturersPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">TOP MANUFACTURERS</div><h3>Collection Leaders</h3></div></div>
    <div class="statsManufacturerList">${manufacturerHtml}</div>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsActivityPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">RACING ACTIVITY</div><h3>At a Glance</h3></div></div>
    <div class="statsActivityGrid">
     <div><span>Completed event cards</span><b>${completedRuns}</b></div>
@@ -106,7 +106,7 @@ function renderStats(){
    </div>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsMilestonesPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">RECENT MILESTONES</div><h3>Latest Achievements</h3></div></div>
    <div class="statsMilestoneList">${milestoneHtml}</div>
   </section>

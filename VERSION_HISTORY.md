@@ -1,3 +1,10 @@
+## v5.4.3 — Statistics Grid Revision
+
+- Improved Statistics information density with responsive two-column card groups.
+- Festival Records remain single-column on phones and two-column where space allows.
+- Presentation-only revision with no logic changes.
+- Updated app version and PWA cache.
+
 ## v5.4.2 — Statistics Polish
 
 - Improved Statistics grouping, card clarity and scanability.

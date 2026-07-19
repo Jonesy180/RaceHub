@@ -961,3 +961,38 @@ label{line-height:1.35}
 .hallBrowserGroup-make .hallChampionshipRecords .hallChampionCrown{color:#58e99a;text-shadow:0 0 14px rgba(57,229,140,.42)}
 @media(max-width:560px){.hallOfFameDivider{padding:24px 17px}.hallFestivalSection{padding:18px 14px}.hallGrid{gap:12px}.hallRecordCard{min-height:202px;padding:15px}.hallValue{font-size:31px}.hallChampionshipList{padding:2px 9px 9px}.hallChampionshipRecords{padding:0 9px 11px}}
 @media(hover:none){.hallRecordCard:hover{transform:none}}
+
+
+/* v5.4.3 — Statistics responsive grid revision */
+.statsRecordsPanel .statsHighlightsGrid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.statsRecordsPanel .statsHighlight{
+  min-height:92px;
+  padding:13px 14px;
+}
+.statsRecordsPanel .statsHighlightIcon{
+  display:grid;
+  place-items:center;
+  flex:0 0 48px;
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  background:rgba(25,216,245,.06);
+  border:1px solid rgba(25,216,245,.13);
+}
+.statsManufacturerList,.statsMilestoneList{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+}
+.statsManufacturer,.statsMilestone{min-width:0;height:100%}
+.statsActivityGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+@media (max-width:760px){
+  .statsManufacturerList,.statsMilestoneList{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .statsRecordsPanel .statsHighlightsGrid{grid-template-columns:1fr}
+  .statsRecordsPanel .statsHighlight{min-height:0}
+}
