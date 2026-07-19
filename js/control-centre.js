@@ -1,4 +1,4 @@
-// RaceHub v5.2.12 — Record History Sprint 2
+// RaceHub v5.4.2 — Statistics Polish
 function statsBestResults(){
  const rows=[];
  state.events.forEach(ev=>bestRows(ev.id).forEach(result=>rows.push({...result,event:ev})));
@@ -73,40 +73,40 @@ function renderStats(){
   <section class="statsHero">
    <div class="statsHeading"><div><div class="statsEyebrow">📊 FESTIVAL STATISTICS</div><h2>Your RaceHub Story</h2><p>Progress, performance and recent achievements in one place.</p></div><button class="chip" onclick="renderMore()">Settings</button></div>
    <div class="statsHeadlineGrid">
-    <div class="statsHeadline cyan"><span>Cars Owned</span><b>${owned}</b><small>Ready to race</small></div>
-    <div class="statsHeadline green"><span>Cars Completed</span><b>${completed}</b><small>${completionPct.toFixed(1)}% complete</small></div>
-    <div class="statsHeadline brand"><span>Championships</span><b>${champs.completed}</b><small>${champs.active} currently active</small></div>
-    <div class="statsHeadline gold"><span>Festival Records</span><b>${records.length}</b><small>Current records held</small></div>
+    <div class="statsHeadline cyan"><div class="statsHeadlineTop"><span>Cars Owned</span><i>🚘</i></div><b>${owned}</b><small>Ready to race</small></div>
+    <div class="statsHeadline green"><div class="statsHeadlineTop"><span>Cars Completed</span><i>✅</i></div><b>${completed}</b><small>${completionPct.toFixed(1)}% complete</small></div>
+    <div class="statsHeadline brand"><div class="statsHeadlineTop"><span>Championships</span><i>🏁</i></div><b>${champs.completed}</b><small>${champs.active} currently active</small></div>
+    <div class="statsHeadline gold"><div class="statsHeadlineTop"><span>Festival Records</span><i>🏆</i></div><b>${records.length}</b><small>Current records held</small></div>
    </div>
   </section>
 
-  <section class="statsPanel statsProgressPanel">
+  <section class="statsPanel statsProgressPanel statsFeaturePanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">GARAGE PROGRESS</div><h3>${completed} of ${owned} cars completed</h3></div><strong>${completionPct.toFixed(1)}%</strong></div>
    <div class="statsProgressTrack"><i style="width:${Math.min(100,completionPct)}%"></i></div>
    <p>${Math.max(0,owned-completed)} cars still waiting for a complete race card.</p>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsRecordsPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">PERFORMANCE HIGHLIGHTS</div><h3>Festival Records</h3></div><button class="chip" onclick="show('hall')">Hall of Fame</button></div>
    <div class="statsHighlightsGrid">${recordCards||'<div class="empty">Set your first Festival Record to see performance highlights.</div>'}</div>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsManufacturersPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">TOP MANUFACTURERS</div><h3>Collection Leaders</h3></div></div>
    <div class="statsManufacturerList">${manufacturerHtml}</div>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsActivityPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">RACING ACTIVITY</div><h3>At a Glance</h3></div></div>
    <div class="statsActivityGrid">
-    <div><span>Completed event cards</span><b>${completedRuns}</b></div>
-    <div><span>Total best-result time</span><b>${statsDuration(totalRaceTime)}</b></div>
-    <div><span>Average timed result</span><b>${timedRows.length?formatChampionshipTime(avgRaceTime):'—'}</b></div>
-    <div><span>Record history entries</span><b>${(state.recordHistory||[]).length}</b></div>
+    <div class="statsActivityItem"><i>🏎️</i><div><span>Completed event cards</span><b>${completedRuns}</b></div></div>
+    <div class="statsActivityItem"><i>⏱️</i><div><span>Total best-result time</span><b>${statsDuration(totalRaceTime)}</b></div></div>
+    <div class="statsActivityItem"><i>📈</i><div><span>Average timed result</span><b>${timedRows.length?formatChampionshipTime(avgRaceTime):'—'}</b></div></div>
+    <div class="statsActivityItem"><i>📚</i><div><span>Record history entries</span><b>${(state.recordHistory||[]).length}</b></div></div>
    </div>
   </section>
 
-  <section class="statsPanel">
+  <section class="statsPanel statsMilestonesPanel">
    <div class="statsSectionTitle"><div><div class="statsEyebrow">RECENT MILESTONES</div><h3>Latest Achievements</h3></div></div>
    <div class="statsMilestoneList">${milestoneHtml}</div>
   </section>

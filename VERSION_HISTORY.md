@@ -1,3 +1,10 @@
+## v5.4.2 — Statistics Polish
+
+- Improved Statistics grouping, card clarity and scanability.
+- Added stronger hierarchy for headline, performance, manufacturer, activity and milestone sections.
+- Presentation-only sprint with no logic changes.
+- Updated app version and PWA cache.
+
 ## v5.4.1 — Hall of Fame Card Polish
 
 Refined the Hall of Fame into a premium trophy-room experience with improved record cards, stronger champion presentation, better spacing and consistent styling. No logic changes.
