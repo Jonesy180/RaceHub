@@ -213,3 +213,11 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 - Added responsive card sizing for narrow screens.
 - No functional or stored-data changes.
 
+## v5.3.5 — UI Consistency Sprint 4: Button System
+
+- Introduced the shared RaceHub button system.
+- Centred full-size primary actions throughout the app.
+- Standardised primary, secondary, warning and danger hierarchy.
+- Standardised button dimensions, spacing, feedback and mobile behaviour.
+- Preserved compact chips and navigation controls for dense layouts.
+- No competition data or workflow logic changed.

@@ -1,30 +1,15 @@
-# RaceHub v5.3.4 — UI Consistency Sprint 3
+# RaceHub v5.3.5 — UI Consistency Sprint 4: Button System
 
-- Introduces shared design tokens for card radius, padding, spacing, borders and shadows.
-- Standardises primary cards across Festival, Events, Garage, Leaderboard and Statistics.
-- Aligns compact cards, rows, results panels, podium cards and history entries to the same visual system.
-- Preserves specialised colours and section identities while making their structure consistent.
-- Tightens mobile card padding and radius for smaller screens.
-- Leaves all race data, calculations, queues and workflows unchanged.
-- Updates the app and PWA cache to v5.3.4.
+## Changes
 
+- Standardises primary, secondary, warning and danger button styles.
+- Centres full-size card actions and gives them a consistent maximum width.
+- Standardises button height, spacing, radius, alignment and press feedback.
+- Keeps compact chips, navigation controls and row actions compact.
+- Gives queue replacement and queue clearing actions a clear warning identity.
+- Improves disabled, hover, focus and mobile button states.
+- Updates the displayed app version and PWA cache to v5.3.5.
 
-# RaceHub v5.3.2 — UI Consistency Sprint 1
+## Scope
 
-- Gives every main navigation area its own accent colour and active-state identity.
-- Festival uses green, Events orange, Garage purple, Leaderboard gold, and Stats blue.
-- Replaces the duplicated Events trophy icon with a calendar icon.
-- Adds a subtle identity underline to every navigation button.
-- Strengthens the active icon glow and section-specific highlight.
-- Leaves all race data, calculations, queues and workflows unchanged.
-- Updates the app and PWA cache to v5.3.2.
-
-
-# RaceHub v5.3.3 — UI Consistency Sprint 2
-
-- Adds one standard page-header layout to Festival, Events, Garage, Leaderboard and Statistics.
-- Gives every header a consistent icon block, eyebrow label, title, subtitle, spacing and top accent.
-- Carries the existing section identities into the page content: green, orange, purple, gold and blue.
-- Centralises header rendering so future pages stay consistent automatically.
-- Leaves race data, calculations, queues and workflows unchanged.
-- Updates the app and PWA cache to v5.3.3.
+Presentation only. Race results, championship calculations, queues and stored data are unchanged.
