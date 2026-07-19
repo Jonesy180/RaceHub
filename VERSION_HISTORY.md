@@ -1,3 +1,9 @@
+## v5.4.4 — Statistics Mobile Grid Fix
+
+- Festival Records remain two columns on phone-sized screens.
+- Compact mobile sizing keeps both columns readable without sideways scrolling.
+- Presentation-only update; all existing statistics logic is unchanged.
+
 ## v5.4.3 — Statistics Grid Revision
 
 - Improved Statistics information density with responsive two-column card groups.

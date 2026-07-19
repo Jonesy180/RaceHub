@@ -1,4 +1,4 @@
-// RaceHub v5.4.3 — Statistics responsive grid revision
+// RaceHub v5.4.4 — Statistics mobile two-column grid fix
 function statsBestResults(){
  const rows=[];
  state.events.forEach(ev=>bestRows(ev.id).forEach(result=>rows.push({...result,event:ev})));

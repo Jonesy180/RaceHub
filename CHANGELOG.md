@@ -1,3 +1,11 @@
+# RaceHub v5.4.4 — Statistics Mobile Grid Fix
+
+- Keeps Festival Record cards in a compact two-column grid on phones.
+- Reduces mobile card spacing, icon size and typography to preserve readability.
+- Prevents card content from widening the page or causing horizontal scrolling.
+- Refreshes the PWA cache so mobile installations receive the corrected layout.
+- No statistics, record, save-data or calculation changes.
+
 # RaceHub v5.4.3 — Statistics Grid Revision
 
 - Reworks Statistics card groups into two-column layouts where screen space allows.

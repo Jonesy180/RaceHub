@@ -963,7 +963,7 @@ label{line-height:1.35}
 @media(hover:none){.hallRecordCard:hover{transform:none}}
 
 
-/* v5.4.3 — Statistics responsive grid revision */
+/* v5.4.4 — Statistics mobile two-column grid fix */
 .statsRecordsPanel .statsHighlightsGrid{
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:10px;
@@ -993,6 +993,30 @@ label{line-height:1.35}
   .statsManufacturerList,.statsMilestoneList{grid-template-columns:1fr}
 }
 @media (max-width:520px){
-  .statsRecordsPanel .statsHighlightsGrid{grid-template-columns:1fr}
-  .statsRecordsPanel .statsHighlight{min-height:0}
+  .statsRecordsPanel .statsHighlightsGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .statsRecordsPanel .statsHighlight{
+    min-width:0;
+    min-height:84px;
+    gap:8px;
+    padding:10px 9px;
+  }
+  .statsRecordsPanel .statsHighlightIcon{
+    flex:0 0 34px;
+    width:34px;
+    height:34px;
+    border-radius:11px;
+    font-size:18px;
+  }
+  .statsRecordsPanel .statsHighlight span{font-size:8px;letter-spacing:.45px}
+  .statsRecordsPanel .statsHighlight b{
+    margin:2px 0;
+    font-size:16px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .statsRecordsPanel .statsHighlight small{font-size:9px}
 }
