@@ -1,6 +1,20 @@
 // RaceHub v5.4.14 — Bootstrap / Guide Pages 2-3
 
 const GUIDE_PROGRESS_KEY='RaceHub_Guide_Progress';
+const GUIDE_DEV_RESET_TOKEN='racehub-guide-dev-reset';
+
+function devResetGuideOnly(){
+  try{
+    localStorage.removeItem(GUIDE_PROGRESS_KEY);
+    sessionStorage.setItem(GUIDE_DEV_RESET_TOKEN,'1');
+  }catch(_){}
+  window.location.reload();
+}
+
+window.RaceHubDev={
+  resetGuide:devResetGuideOnly
+};
+
 
 function setGuideScrollLock(locked){
   document.documentElement.style.overflow=locked?'hidden':'';
@@ -54,24 +68,8 @@ function backToGuideWelcome(){
 }
 
 function completeGuideHubsIntro(){
-  // Page 2 complete: continue directly to Page 3.
+  // Page 2 complete. Until Page 3 is implemented, return to the proven RaceHub app.
   localStorage.setItem(GUIDE_PROGRESS_KEY,'2');
-  openGuideDriverProfile();
-}
-
-
-function saveGuideProfile(){
-  const driver=(document.getElementById('guideDriverNameInput')?.value||'').trim();
-  const hub=(document.getElementById('guideRaceHubNameInput')?.value||'').trim();
-
-  // Both fields are required before continuing.
-  if(!driver || !hub) return;
-
-  // Keep Guide/profile values separate from legacy RaceHub data during Development.
-  localStorage.setItem('RaceHub_Guide_Driver_Name',driver);
-  localStorage.setItem('RaceHub_Guide_RaceHub_Name',hub);
-  localStorage.setItem(GUIDE_PROGRESS_KEY,'3');
-
   closeRaceHubGuide();
   show('festival');
 }
@@ -94,8 +92,6 @@ if(guideProfileBack)guideProfileBack.addEventListener('click',openGuideHubsIntro
 const guideProfileNext=document.getElementById('guideProfileNext');
 if(guideProfileNext)guideProfileNext.addEventListener('click',saveGuideProfile);
 
-const guideDevRestart=document.getElementById('guideDevRestart');
-if(guideDevRestart)guideDevRestart.addEventListener('click',developmentRestartGuide);
 
 const guideProgress=Number(localStorage.getItem(GUIDE_PROGRESS_KEY)||'0');
 if(guideProgress<1){
