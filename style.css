@@ -1311,31 +1311,49 @@ input,select,textarea,button,.btn{max-width:100%}
   position:absolute;
   z-index:5;
   box-sizing:border-box;
-  border:0;
+  display:block;
+  width:auto;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
   outline:0;
-  background:transparent;
+  background:transparent !important;
   color:#fff;
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  font-size:clamp(16px,4.6vw,24px);
-  padding:0 3%;
+  font-size:22px;
+  font-weight:400;
+  line-height:1;
+  padding:0 12px !important;
+  min-height:0;
+  height:auto;
+  box-shadow:none !important;
+  appearance:none;
+  -webkit-appearance:none;
 }
-.rhGuideDriverName{left:22%;top:63.0%;width:70%;height:4.5%}
-.rhGuideRaceHubName{left:22%;top:78.1%;width:70%;height:4.5%}
+.rhGuideDriverName{left:23.0%;top:64.2%;width:68.0%;height:4.0%}
+.rhGuideRaceHubName{left:23.0%;top:79.15%;width:68.0%;height:4.0%}
 
 /* DEVELOPMENT ONLY. Always visible, including while Guide pages are open.
    Inline reset action means this still works if Guide JS itself ever fails. */
 .rhDevGuideReset{
   position:fixed;
-  left:max(8px,env(safe-area-inset-left));
-  top:max(8px,env(safe-area-inset-top));
+  left:max(18px,env(safe-area-inset-left));
+  top:max(58px,calc(env(safe-area-inset-top) + 18px));
   z-index:200000;
-  min-height:34px;
-  padding:8px 10px;
+  min-height:42px;
+  padding:0 16px;
   border:1px solid rgba(0,217,255,.85);
   border-radius:999px;
-  background:rgba(0,0,0,.84);
-  color:#9ff4ff;
-  font:800 10px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background:rgba(0,0,0,.82);
+  color:#b9f8ff;
+  font:800 12px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   letter-spacing:.04em;
-  box-shadow:0 4px 18px rgba(0,0,0,.5);
+  box-shadow:0 4px 18px rgba(0,0,0,.45);
+}
+
+@media(max-width:480px){
+  .rhGuideInput{font-size:21px}
+}
+@media(max-width:380px){
+  .rhGuideInput{font-size:20px}
 }
