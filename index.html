@@ -7,40 +7,35 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>RaceHub</title>
-<link rel="stylesheet" href="style.css?v=5.4.16">
+<link rel="stylesheet" href="style.css?v=5.4.17">
 </head>
 <body>
-<div id="guideWelcome" class="guideWelcome hidden" aria-hidden="true">
-  <div class="guideWelcomeFrame">
-    <img src="assets/guide/rh-ui-001-first-time-welcome.png" alt="RaceHub — Drive, Record, Improve. Start your journey.">
-    <button id="guideWelcomeStart" class="guideWelcomeStart" type="button" aria-label="Start your journey"></button>
+<div id="guideWelcome" class="rhGuidePage hidden" aria-hidden="true">
+  <div class="rhGuideFrame">
+    <img src="assets/guide/rh-ui-001-first-time-welcome.png" alt="RaceHub — Start your journey.">
+    <button id="rhGuideP1Next" class="rhGuideHotspot rhGuideP1Next" type="button" aria-label="Start your journey"></button>
   </div>
 </div>
-<div id="guideHubsIntro" class="guidePage guideHubsIntro hidden" aria-hidden="true">
-  <div class="guidePageFrame">
-    <img src="assets/guide/rh-ui-002-hubs-introduction.png" alt="Meet Hubs — your RaceHub guide.">
-    <button id="guideHubsBack" class="guideHotspot guideHubsBack" type="button" aria-label="Back to RaceHub Guide page 1"></button>
-    <button id="guideHubsNext" class="guideHotspot guideHubsNext" type="button" aria-label="Let's go"></button>
+
+<div id="guideHubsIntro" class="rhGuidePage hidden" aria-hidden="true">
+  <div class="rhGuideFrame">
+    <img src="assets/guide/rh-ui-002-hubs-introduction.png" alt="Meet Hubs.">
+    <button id="rhGuideP2Back" class="rhGuideHotspot rhGuideP2Back" type="button" aria-label="Back"></button>
+    <button id="rhGuideP2Next" class="rhGuideHotspot rhGuideP2Next" type="button" aria-label="Let's go"></button>
+  </div>
+</div>
+
+<div id="guideDriverProfile" class="rhGuidePage hidden" aria-hidden="true">
+  <div class="rhGuideFrame">
+    <img src="assets/guide/rh-ui-003-driver-profile.png" alt="RaceHub driver profile.">
+    <input id="rhGuideDriverName" class="rhGuideInput rhGuideDriverName" type="text" autocomplete="name" aria-label="Driver Name">
+    <input id="rhGuideRaceHubName" class="rhGuideInput rhGuideRaceHubName" type="text" aria-label="RaceHub Name">
+    <button id="rhGuideP3Back" class="rhGuideHotspot rhGuideP3Back" type="button" aria-label="Back"></button>
+    <button id="rhGuideP3Next" class="rhGuideHotspot rhGuideP3Next" type="button" aria-label="Next"></button>
   </div>
 </div>
 
 <div class="splash"><div class="splashInner"><img class="splashBrand" src="assets/brand/racehub-wordmark.svg" alt="RaceHub"><div class="small">Version 5.4.11 • Garage Manufacturer Filter Fix</div></div></div>
-
-<div id="guideDriverProfile" class="guidePage guideDriverProfile hidden" aria-hidden="true">
-  <div class="guidePageFrame guidePageFramePortrait">
-    <img src="assets/guide/rh-ui-003-driver-profile.png" alt="RaceHub Guide — Driver Profile setup.">
-    <label class="guideField guideDriverName">
-      <span class="srOnly">Driver Name</span>
-      <input id="guideDriverNameInput" type="text" autocomplete="name" aria-label="Driver Name">
-    </label>
-    <label class="guideField guideRaceHubName">
-      <span class="srOnly">RaceHub Name</span>
-      <input id="guideRaceHubNameInput" type="text" aria-label="RaceHub Name">
-    </label>
-    <button id="guideProfileBack" class="guideHotspot guideProfileBack" type="button" aria-label="Back to Hubs introduction"></button>
-    <button id="guideProfileNext" class="guideHotspot guideProfileNext" type="button" aria-label="Next"></button>
-  </div>
-</div>
 <header><div class="hero"><img class="headerBrand" src="assets/brand/racehub-wordmark.svg" alt="RaceHub — Track, Record, Improve"></div></header>
 <main>
 <section id="festival" class="screen"></section>
@@ -59,13 +54,9 @@
 </nav>
 <div id="toast" class="toast"></div>
 
-<button id="raceHubDevGuideReset"
-        class="raceHubDevGuideReset"
-        type="button"
-        onclick="window.RaceHubDev && window.RaceHubDev.resetGuide()"
-        aria-label="Development: restart RaceHub Guide from Page 1">
-  DEV · RESTART GUIDE
-</button>
+<button id="rhDevGuideReset" class="rhDevGuideReset" type="button"
+  onclick="localStorage.removeItem('RaceHub_Guide_Progress'); location.reload();"
+  aria-label="Development only: restart Guide from Page 1">DEV · RESET GUIDE</button>
 
 <script src="js/seed-data.js?v=5.3.6"></script>
 <script src="js/core.js?v=5.3.6"></script>
@@ -74,6 +65,7 @@
 <script src="js/celebrations.js?v=5.3.6"></script>
 <script src="js/garage.js?v=5.3.9"></script>
 <script src="js/control-centre.js?v=5.3.6"></script>
-<script src="js/bootstrap.js?v=5.4.16"></script>
+<script src="js/guide.js?v=5.4.17"></script>
+<script src="js/bootstrap.js?v=5.4.17"></script>
 </body>
 </html>

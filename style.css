@@ -1238,76 +1238,104 @@ input,select,textarea,button,.btn{max-width:100%}
 }
 
 
-/* RaceHub v5.4.12 — Guide Page 1: First-Time Welcome */
-.guideWelcome{
- position:fixed;inset:0;z-index:100000;background:#000;
- display:flex;align-items:center;justify-content:center;overflow:hidden;
- padding:0;margin:0;
-}
-.guideWelcome.hidden{display:none}
-.guideWelcomeFrame{
- position:relative;height:100dvh;max-height:100dvh;aspect-ratio:1/2;max-width:100vw;
-}
-.guideWelcomeFrame>img{display:block;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
-.guideWelcomeStart{
- position:absolute;left:3.8%;width:92.4%;top:86.9%;height:8.4%;
- padding:0;margin:0;border:0;border-radius:0;background:transparent;cursor:pointer;
- -webkit-tap-highlight-color:transparent;touch-action:manipulation;
-}
-.guideWelcomeStart:focus-visible{outline:3px solid #00d9ff;outline-offset:-5px}
-@media (max-aspect-ratio:1/2){
- .guideWelcomeFrame{width:100vw;height:auto;max-height:none;aspect-ratio:1/2}
-}
 
 
-/* DEVELOPMENT ONLY — RaceHub Guide restart control.
-   Resets Guide progress only; never RaceHub user data. */
-.guideWelcome:not(.hidden)~@media(max-width:360px){}
-
-/* RaceHub v5.4.14 — Guide Pages 2-3: locked phone-format production artwork */
-.guidePage{
- position:fixed;inset:0;z-index:9998;background:#000;overflow:auto;
- display:flex;align-items:flex-start;justify-content:center;
-}
-.guidePage.hidden{display:none}
-.guidePageFrame{
- position:relative;width:min(100vw,480px);height:auto;margin:0 auto;
-}
-.guidePageFrame>img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
-.guideHotspot{position:absolute;border:0;background:transparent;cursor:pointer}
-.guideHotspot:focus-visible{outline:3px solid #00d9ff;outline-offset:-4px}
-
-/* Page 2 — final approved phone artwork */
-.guideHubsBack{left:4.0%;top:78.2%;width:27.5%;height:6.2%}
-.guideHubsNext{left:65.0%;top:78.2%;width:31.5%;height:6.2%}
-
-/* Page 3 — final approved phone artwork */
-.guideField{position:absolute;display:block}
-.guideField input{
- width:100%;height:100%;box-sizing:border-box;border:0;background:transparent;
- color:#fff;font:inherit;font-size:clamp(16px,4.6vw,24px);padding:0 4%;
- outline:none;
-}
-.guideDriverName{left:21.5%;top:62.0%;width:72.5%;height:4.4%}
-.guideRaceHubName{left:21.5%;top:77.2%;width:72.5%;height:4.4%}
-.guideProfileBack{left:4.0%;top:92.1%;width:27.0%;height:5.6%}
-.guideProfileNext{left:68.0%;top:92.1%;width:28.0%;height:5.6%}
-.srOnly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.guidePage:not(.hidden)~
-/* DEVELOPMENT ONLY — clean Guide reset control rebuilt from scratch */
-.raceHubDevGuideReset{
+/* RaceHub v5.4.17 — CLEAN Guide system.
+   All three approved pages use the same 853 x 1844 phone canvas. */
+.rhGuidePage{
   position:fixed;
-  left:8px;
-  top:8px;
-  z-index:20000;
-  appearance:none;
-  border:1px solid rgba(0,217,255,.9);
-  border-radius:999px;
+  inset:0;
+  z-index:100000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  margin:0;
+  padding:0;
+  background:#000;
+}
+.rhGuidePage.hidden{display:none}
+
+.rhGuideFrame{
+  position:relative;
+  height:100dvh;
+  max-height:100dvh;
+  aspect-ratio:853/1844;
+  max-width:100vw;
+}
+.rhGuideFrame>img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+@media (max-aspect-ratio:853/1844){
+  .rhGuideFrame{
+    width:100vw;
+    height:auto;
+    max-height:none;
+    aspect-ratio:853/1844;
+  }
+}
+
+.rhGuideHotspot{
+  position:absolute;
+  z-index:4;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.rhGuideHotspot:focus-visible{
+  outline:3px solid #00d9ff;
+  outline-offset:-4px;
+}
+
+/* Broad, isolated tap zones aligned to the approved artwork. */
+.rhGuideP1Next{left:4%;top:86%;width:92%;height:10%}
+
+.rhGuideP2Back{left:2%;top:76%;width:34%;height:11%}
+.rhGuideP2Next{left:62%;top:76%;width:36%;height:11%}
+
+.rhGuideP3Back{left:2%;top:91%;width:34%;height:8%}
+.rhGuideP3Next{left:62%;top:91%;width:36%;height:8%}
+
+/* Real fields laid over the two approved Page 3 input boxes. */
+.rhGuideInput{
+  position:absolute;
+  z-index:5;
+  box-sizing:border-box;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:clamp(16px,4.6vw,24px);
+  padding:0 3%;
+}
+.rhGuideDriverName{left:22%;top:63.0%;width:70%;height:4.5%}
+.rhGuideRaceHubName{left:22%;top:78.1%;width:70%;height:4.5%}
+
+/* DEVELOPMENT ONLY. Always visible, including while Guide pages are open.
+   Inline reset action means this still works if Guide JS itself ever fails. */
+.rhDevGuideReset{
+  position:fixed;
+  left:max(8px,env(safe-area-inset-left));
+  top:max(8px,env(safe-area-inset-top));
+  z-index:200000;
+  min-height:34px;
   padding:8px 10px;
-  background:rgba(0,0,0,.88);
+  border:1px solid rgba(0,217,255,.85);
+  border-radius:999px;
+  background:rgba(0,0,0,.84);
   color:#9ff4ff;
-  font:800 10px/1 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  letter-spacing:.05em;
+  font:800 10px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:.04em;
   box-shadow:0 4px 18px rgba(0,0,0,.5);
 }
-.raceHubDevGuideReset:active{transform:translateY(1px)}
