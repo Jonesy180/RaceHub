@@ -7,9 +7,15 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>RaceHub</title>
-<link rel="stylesheet" href="style.css?v=5.4.11">
+<link rel="stylesheet" href="style.css?v=5.4.12-dev1">
 </head>
 <body>
+<div id="guideWelcome" class="guideWelcome hidden" aria-hidden="true">
+  <div class="guideWelcomeFrame">
+    <img src="assets/guide/rh-ui-001-first-time-welcome.png" alt="RaceHub — Drive, Record, Improve. Start your journey.">
+    <button id="guideWelcomeStart" class="guideWelcomeStart" type="button" aria-label="Start your journey"></button>
+  </div>
+</div>
 <div class="splash"><div class="splashInner"><img class="splashBrand" src="assets/brand/racehub-wordmark.svg" alt="RaceHub"><div class="small">Version 5.4.11 • Garage Manufacturer Filter Fix</div></div></div>
 <header><div class="hero"><img class="headerBrand" src="assets/brand/racehub-wordmark.svg" alt="RaceHub — Track, Record, Improve"></div></header>
 <main>
@@ -28,6 +34,7 @@
 <button data-screen="more"><span class="ico">📈</span><b>Stats</b></button>
 </nav>
 <div id="toast" class="toast"></div>
+<button id="guideDevRestart" class="guideDevRestart" type="button" aria-label="Development: restart RaceHub Guide from page 1">DEV ↻ GUIDE</button>
 <script src="js/seed-data.js?v=5.3.6"></script>
 <script src="js/core.js?v=5.3.6"></script>
 <script src="js/race-director.js?v=5.3.7"></script>
@@ -35,6 +42,6 @@
 <script src="js/celebrations.js?v=5.3.6"></script>
 <script src="js/garage.js?v=5.3.9"></script>
 <script src="js/control-centre.js?v=5.3.6"></script>
-<script src="js/bootstrap.js?v=5.3.6"></script>
+<script src="js/bootstrap.js?v=5.4.12-dev1"></script>
 </body>
 </html>

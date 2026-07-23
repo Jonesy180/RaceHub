@@ -1236,3 +1236,41 @@ input,select,textarea,button,.btn{max-width:100%}
   .garageFilters::-webkit-scrollbar{display:none}
   .garageFilters .chip{flex:0 0 auto;width:auto;min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip}
 }
+
+
+/* RaceHub v5.4.12 — Guide Page 1: First-Time Welcome */
+.guideWelcome{
+ position:fixed;inset:0;z-index:100000;background:#000;
+ display:flex;align-items:center;justify-content:center;overflow:hidden;
+ padding:0;margin:0;
+}
+.guideWelcome.hidden{display:none}
+.guideWelcomeFrame{
+ position:relative;height:100dvh;max-height:100dvh;aspect-ratio:1/2;max-width:100vw;
+}
+.guideWelcomeFrame>img{display:block;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+.guideWelcomeStart{
+ position:absolute;left:3.8%;width:92.4%;top:86.9%;height:8.4%;
+ padding:0;margin:0;border:0;border-radius:0;background:transparent;cursor:pointer;
+ -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+.guideWelcomeStart:focus-visible{outline:3px solid #00d9ff;outline-offset:-5px}
+@media (max-aspect-ratio:1/2){
+ .guideWelcomeFrame{width:100vw;height:auto;max-height:none;aspect-ratio:1/2}
+}
+
+
+/* DEVELOPMENT ONLY — RaceHub Guide restart control.
+   Resets Guide progress only; never RaceHub user data. */
+.guideDevRestart{
+ position:fixed;right:10px;bottom:86px;z-index:99999;
+ min-height:36px;padding:8px 11px;border-radius:999px;
+ border:1px solid rgba(0,217,255,.55);
+ background:rgba(2,12,18,.92);color:#64e5ff;
+ font-size:11px;font-weight:900;letter-spacing:.04em;
+ box-shadow:0 5px 18px rgba(0,0,0,.45),0 0 12px rgba(0,217,255,.16);
+ opacity:.82;
+}
+.guideDevRestart:active{transform:translateY(1px);opacity:1}
+.guideWelcome:not(.hidden)~.guideDevRestart{display:none}
+@media(max-width:360px){.guideDevRestart{right:7px;bottom:82px;font-size:10px;padding:7px 9px}}
