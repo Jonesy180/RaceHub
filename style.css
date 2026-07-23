@@ -1357,3 +1357,88 @@ input,select,textarea,button,.btn{max-width:100%}
 @media(max-width:380px){
   .rhGuideInput{font-size:20px}
 }
+
+
+/* RaceHub v5.4.22 — Guide Page 4: Favourite Manufacturer */
+.rhGuideP4Back{left:1.5%;top:1.2%;width:9%;height:5.5%}
+
+.rhGuideManufacturerSearch{
+  position:absolute;
+  z-index:5;
+  left:5.5%;
+  top:31.1%;
+  width:89%;
+  height:4.1%;
+  margin:0 !important;
+  padding:0 7% !important;
+  border:0 !important;
+  outline:0;
+  background:rgba(2,10,15,.96) !important;
+  color:#fff;
+  border-radius:12px !important;
+  box-shadow:none !important;
+  font:400 18px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.rhGuideManufacturerSearch::placeholder{color:transparent}
+
+.rhGuideManufacturerRow{
+  position:absolute;
+  z-index:6;
+  left:5.3%;
+  width:89.4%;
+  height:2.9%;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.rhGuideMakeAlfaRomeo{top:37.3%}
+.rhGuideMakeAlpine{top:40.0%}
+.rhGuideMakeAstonMartin{top:42.7%}
+.rhGuideMakeAudi{top:45.4%}
+.rhGuideMakeBentley{top:50.8%}
+.rhGuideMakeBMW{top:53.5%}
+.rhGuideMakeCadillac{top:58.8%}
+.rhGuideMakeChevrolet{top:61.5%}
+.rhGuideMakeCitroen{top:64.2%}
+.rhGuideMakeDodge{top:69.6%}
+.rhGuideMakeFerrari{top:75.0%}
+.rhGuideMakeFord{top:80.4%}
+
+.rhGuideManufacturerSelection{
+  position:absolute;
+  z-index:7;
+  box-sizing:border-box;
+  pointer-events:none;
+  display:flex;
+  align-items:center;
+  padding:0 5.5%;
+  border:2px solid rgba(0,217,255,.95);
+  border-radius:12px;
+  background:linear-gradient(90deg,rgba(1,9,14,.97),rgba(3,20,27,.95));
+  color:#fff;
+  font:700 18px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  box-shadow:0 0 22px rgba(0,217,255,.28);
+}
+.rhGuideManufacturerSelection::after{
+  content:"✓";
+  position:absolute;
+  right:4%;
+  top:50%;
+  transform:translateY(-50%);
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border:2px solid #fff;
+  border-radius:50%;
+  font-size:16px;
+}
+.rhGuideManufacturerSelection.hidden{display:none}
+
+.rhGuideP4Continue{left:5.2%;top:84.4%;width:89.5%;height:6.2%}
+.rhGuideP4Skip{left:31%;top:91.1%;width:38%;height:3.4%}

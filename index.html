@@ -7,7 +7,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>RaceHub</title>
-<link rel="stylesheet" href="style.css?v=5.4.21">
+<link rel="stylesheet" href="style.css?v=5.4.22">
 </head>
 <body>
 <div id="guideWelcome" class="rhGuidePage hidden" aria-hidden="true">
@@ -32,6 +32,40 @@
     <input id="rhGuideRaceHubName" class="rhGuideInput rhGuideRaceHubName" style="left:23.0% !important;top:78.50% !important;width:68.0% !important;height:4.0% !important;margin:0 !important;padding:0 12px !important;font-size:19px !important;line-height:normal !important;transform:none !important;background:rgba(1,8,12,.97) !important;border-radius:10px !important;color:#fff !important;" type="text" aria-label="RaceHub Name">
     <button id="rhGuideP3Back" class="rhGuideHotspot rhGuideP3Back" type="button" aria-label="Back"></button>
     <button id="rhGuideP3Next" class="rhGuideHotspot rhGuideP3Next" type="button" aria-label="Next"></button>
+  </div>
+</div>
+
+
+<div id="guideFavouriteManufacturer" class="rhGuidePage hidden" aria-hidden="true">
+  <div class="rhGuideFrame">
+    <img src="assets/guide/rh-ui-004-favourite-manufacturer.png" alt="Choose your favourite manufacturer.">
+
+    <button id="rhGuideP4Back" class="rhGuideHotspot rhGuideP4Back" type="button" aria-label="Back"></button>
+
+    <input id="rhGuideManufacturerSearch"
+           class="rhGuideManufacturerSearch"
+           type="search"
+           autocomplete="off"
+           spellcheck="false"
+           aria-label="Search manufacturers">
+
+    <button class="rhGuideManufacturerRow rhGuideMakeAlfaRomeo" data-make="Alfa Romeo" type="button" aria-label="Choose Alfa Romeo"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeAlpine" data-make="Alpine" type="button" aria-label="Choose Alpine"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeAstonMartin" data-make="Aston Martin" type="button" aria-label="Choose Aston Martin"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeAudi" data-make="Audi" type="button" aria-label="Choose Audi"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeBentley" data-make="Bentley" type="button" aria-label="Choose Bentley"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeBMW" data-make="BMW" type="button" aria-label="Choose BMW"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeCadillac" data-make="Cadillac" type="button" aria-label="Choose Cadillac"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeChevrolet" data-make="Chevrolet" type="button" aria-label="Choose Chevrolet"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeCitroen" data-make="Citroën" type="button" aria-label="Choose Citroën"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeDodge" data-make="Dodge" type="button" aria-label="Choose Dodge"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeFerrari" data-make="Ferrari" type="button" aria-label="Choose Ferrari"></button>
+    <button class="rhGuideManufacturerRow rhGuideMakeFord" data-make="Ford" type="button" aria-label="Choose Ford"></button>
+
+    <div id="rhGuideManufacturerSelection" class="rhGuideManufacturerSelection hidden" aria-hidden="true"></div>
+
+    <button id="rhGuideP4Continue" class="rhGuideHotspot rhGuideP4Continue" type="button" aria-label="Continue"></button>
+    <button id="rhGuideP4Skip" class="rhGuideHotspot rhGuideP4Skip" type="button" aria-label="Skip for now"></button>
   </div>
 </div>
 
@@ -65,7 +99,7 @@
 <script src="js/celebrations.js?v=5.3.6"></script>
 <script src="js/garage.js?v=5.3.9"></script>
 <script src="js/control-centre.js?v=5.3.6"></script>
-<script src="js/guide.js?v=5.4.21"></script>
+<script src="js/guide.js?v=5.4.22"></script>
 <script src="js/bootstrap.js?v=5.4.18"></script>
 </body>
 </html>
