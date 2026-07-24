@@ -53,98 +53,82 @@ function dashboardChampionshipCounts(){
  return {completed,active};
 }
 
+function festivalChampionshipStatus(option){
+ const started=(state.championships||[]).some(champ=>champ.id===option.id);
+ const total=option.cars.length;
+ const completed=option.cars.filter(car=>carIsComplete(car.id)).length;
+ const pct=total?Math.round((completed/total)*100):0;
+ if(total&&completed>=total)return {label:'COMPLETED',className:'complete',completed,total,pct};
+ if(started||completed>0)return {label:'IN PROGRESS',className:'active',completed,total,pct};
+ return {label:'NOT STARTED',className:'idle',completed,total,pct};
+}
+
+let festivalEraOpen=true;
+let festivalMakeOpen=false;
+let festivalMakeQuery='';
+function toggleFestivalSection(section){
+ if(section==='era')festivalEraOpen=!festivalEraOpen;
+ if(section==='make')festivalMakeOpen=!festivalMakeOpen;
+ renderFestival();
+}
+function updateFestivalMakeFilter(value){
+ festivalMakeQuery=String(value||'').trim().toLowerCase();
+ document.querySelectorAll('.festivalListRow[data-make-search]').forEach(row=>{row.style.display=!festivalMakeQuery||String(row.dataset.makeSearch||'').includes(festivalMakeQuery)?'grid':'none';});
+}
+
+function festivalChampRow(option,kind='era'){
+ const status=festivalChampionshipStatus(option);
+ const icon=kind==='era'?'🏆':'▱';
+ const searchAttr=kind==='make'?` data-make-search="${esc(option.name.toLowerCase())}"`:'';
+ return `<button class="festivalListRow"${searchAttr} onclick="showChampionshipHub('${esc(option.id)}')">
+  <span class="festivalRowIcon ${kind}">${icon}</span>
+  <span class="festivalRowCopy"><strong>${esc(option.name)}</strong><small class="${status.className}">${status.label}</small></span>
+  <span class="festivalRowProgress">${status.className==='active'?`${status.completed} of ${status.total}`:status.className==='complete'?'✓':''}</span>
+  <b>›</b>
+ </button>`;
+}
+
 function renderFestival(){
+ const options=generatedChampionshipOptions().filter(option=>option.type!=='open');
+ const eras=options.filter(option=>option.type==='era');
+ const makes=options.filter(option=>option.type==='make');
  const active=activeChampionship();
- const activeCars=championshipCars(active);
- const totalCars=activeCars.length;
- const completedCars=activeCars.filter(car=>carIsComplete(car.id)).length;
- const festivalPct=totalCars?Math.round((completedCars/totalCars)*100):0;
- const ownedCars=state.cars.length;
- const allCompleted=state.cars.filter(car=>carIsComplete(car.id)).length;
- const allCompletedPct=ownedCars?((allCompleted/ownedCars)*100).toFixed(1):'0.0';
- const champCounts=dashboardChampionshipCounts();
-
- const current=currentCar();
- const nextCar=current||unfinishedCars()[0]||null;
- const nextEvent=nextCar?nextEventForCar(nextCar.id):null;
- const nextDone=nextCar?carCompletedEvents(nextCar.id).size:0;
-
- const latestRecord=(state.recordHistory||[]).slice().sort((a,b)=>new Date(b.date||0)-new Date(a.date||0))[0]||null;
- const latestEvent=latestRecord?eventById(latestRecord.eventId):null;
- const latestCar=latestRecord?carById(latestRecord.carId):null;
- const latestRecordHtml=latestRecord&&latestEvent?`
-  <div class="dashboardRecordBody">
-   <div class="dashboardRecordEvent">${esc(latestEvent.name)}</div>
-   <div class="dashboardRecordValue">${esc(fmt(latestEvent.id,latestRecord.value))}</div>
-   <div class="dashboardRecordCar">${esc(latestCar?carName(latestCar):latestRecord.carId)}</div>
-   <div class="small dashboardRecordDate">${esc(dashboardRelativeTime(latestRecord.date))}</div>
-  </div>`:`<div class="empty dashboardEmpty">Set your first Festival Record to see it here.</div>`;
-
- const actionLabel=current?'Continue Current Car':'Start Race Night';
- const actionIcon=current?'▶️':'🏁';
- const actionHandler=current?'continueCurrentCar()':'beginDirectorShow()';
+ const activeOption=options.find(option=>option.id===active.id)||null;
+ const activeStatus=activeOption?festivalChampionshipStatus(activeOption):null;
+ const favourite=String(state.settings?.favouriteManufacturer||state.settings?.favoriteManufacturer||'').trim();
+ const favouriteOption=favourite?makes.find(option=>String(option.value).toLowerCase()===favourite.toLowerCase()):null;
 
  $('festival').innerHTML=`
-  <div class="dashboardPage">
-   <section class="dashboardHero">
-    <div class="dashboardHeroTop">
-     <div>
-      <div class="dashboardEyebrow">🏁 CURRENT CHAMPIONSHIP</div>
-      <h2>${esc(activeChampionshipName())}</h2>
-     </div>
-     <span class="dashboardPercent">${festivalPct}%</span>
-    </div>
-    <div class="progress dashboardProgress" style="${progressTrackStyle()}">
-     <div class="bar" style="${progressBarStyle(festivalPct,'festival')}"></div>
-    </div>
-    <div class="dashboardHeroMeta"><b>${completedCars} of ${totalCars}</b> cars completed</div>
-    ${nextCar&&nextEvent?`<div class="dashboardHeroNext"><span>Next up</span><b>${esc(carName(nextCar))}</b><small>${esc(nextEvent.name)} · ${nextDone}/${state.events.length} events complete</small></div>`:'<div class="dashboardHeroNext complete"><span>Championship complete</span><b>Every eligible car has finished</b></div>'}
-    <button class="btn dashboardPrimary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
-    <div class="dashboardHeroLinks"><button class="chip" onclick="showChampionshipHub('${esc(active.id)}')">View Cars</button><button class="chip" onclick="showChampionshipSelector()">Change Championship</button></div>
+  <div class="festivalPage">
+   <section class="festivalScene">
+    <button class="festivalHome" onclick="show('home')" aria-label="Back to RaceHub Home"><span>⌂</span><b>HOME</b></button>
+    <div class="festivalTitle"><span>RACEHUB CHAMPIONSHIPS</span><h1>FESTIVAL</h1><p>RaceHub-created racing from the cars in your Garage.</p></div>
    </section>
 
-   <section class="dashboardStats">
-    <div class="dashboardStat dashboardStatCars">
-     <div class="dashboardStatIcon">🚗</div><div class="small">Cars Owned</div><div class="dashboardStatValue">${ownedCars}</div><div class="dashboardStatNote">Ready to race</div>
-    </div>
-    <div class="dashboardStat dashboardStatComplete">
-     <div class="dashboardStatIcon">✅</div><div class="small">Cars Completed</div><div class="dashboardStatValue">${allCompleted}</div><div class="dashboardStatNote">${allCompletedPct}% complete</div>
-    </div>
-    <div class="dashboardStat dashboardStatChampionships">
-     <div class="dashboardStatIcon">🏁</div><div class="small">Championships Completed</div><div class="dashboardStatValue">${champCounts.completed}</div><div class="dashboardStatNote">${champCounts.active} currently active</div>
-    </div>
-   </section>
+   <div class="festivalContent">
+    ${activeOption&&activeStatus&&activeStatus.className!=='complete'?`<section class="festivalContinue">
+      <div class="festivalContinueIcon">🏆</div>
+      <div class="festivalContinueCopy"><span>CONTINUE RACING</span><strong>${esc(activeOption.name)}</strong><small>${activeStatus.completed} of ${activeStatus.total} cars completed</small><b>TAP TO CONTINUE ›</b></div>
+      <div class="festivalRing" style="--pct:${activeStatus.pct*3.6}deg"><em>${activeStatus.pct}%</em></div>
+     </section>`:''}
 
-   <section class="dashboardRecord">
-    <div class="dashboardSectionHeading"><div><div class="dashboardEyebrow">🏆 LATEST FESTIVAL RECORD</div><h3>Most Recent Record Change</h3></div><button class="chip" onclick="show('hall')">Hall of Fame</button></div>
-    ${latestRecordHtml}
-   </section>
+    <section class="festivalSpecial">
+     <div class="festivalSectionLabel favourite">FAVOURITE MANUFACTURER</div>
+     ${favouriteOption?(()=>{const st=festivalChampionshipStatus(favouriteOption);return `<button class="festivalFavourite" onclick="showChampionshipHub('${esc(favouriteOption.id)}')">
+       <span class="festivalFavouriteIcon">★</span><span><strong>${esc(favouriteOption.name)}</strong><small class="${st.className}">${st.label}${st.className==='active'?` · ${st.completed} of ${st.total}`:''}</small></span><b>›</b>
+      </button>`;})():`<button class="festivalFavourite empty" onclick="openSettingsFromHome()"><span class="festivalFavouriteIcon">★</span><span><strong>Favourite Manufacturer not set</strong><small>Choose one in Settings when that page is updated.</small></span><b>›</b></button>`}
+    </section>
 
-   <section class="dashboardContinue">
-    <div class="dashboardSectionHeading"><div><div class="dashboardEyebrow">🎯 CONTINUE RACING</div><h3>${nextCar?'Your next run':'Ready for another race night?'}</h3></div></div>
-    ${nextCar&&nextEvent?`<div class="dashboardNextCar"><div><b>${esc(carName(nextCar))}</b><span>${esc(nextEvent.name)}</span></div><span class="badge">${nextDone}/${state.events.length}</span></div>`:'<p class="small">All cars in this Championship are complete. Choose another Championship or enjoy the Hall of Fame.</p>'}
-    <button class="btn secondary" onclick="${actionHandler}">${actionIcon} ${actionLabel}</button>
-   </section>
+    <section class="festivalGroup eraGroup">
+     <button class="festivalGroupHead" onclick="toggleFestivalSection('era')"><span class="festivalGroupIcon">▣</span><strong>ERA CHAMPIONSHIPS</strong><small>${eras.length} ERA${eras.length===1?'':'S'}</small><b>${festivalEraOpen?'⌃':'⌄'}</b></button>
+     ${festivalEraOpen?`<div class="festivalList">${eras.length?eras.map(option=>festivalChampRow(option,'era')).join(''):'<div class="festivalEmpty">Add cars from at least one era to create Era Championships.</div>'}</div>`:''}
+    </section>
 
-   <section class="randomPickerPanel randomPickerSprint2" aria-label="Race selection">
-    <div class="randomPickerGlow"></div>
-    <div class="randomPickerIcon">${randomPickerState().mode==='queue'?'📋':'🎲'}</div>
-    <div class="randomPickerCopy">
-     <div class="randomPickerEyebrow">RACE NIGHT CONTROL</div>
-     <h3>${randomPickerState().mode==='queue'?'Persistent Championship Queue':'Let RaceHub choose'}</h3>
-     <p>${randomPickerState().mode==='queue'?'Each Era and Manufacturer Championship keeps its own saved order. Queues clean themselves when a car is completed elsewhere.':'Pick one unfinished car at random, using every available car once per cycle.'}</p>
-     <div class="randomPickerMeta"><span><b>${unfinishedCars().length}</b> cars available</span><span><b>${queueCars().length}</b> saved in this queue</span></div>
-    </div>
-    <div class="randomPickerModes" role="group" aria-label="Race selection mode">
-     <button class="${randomPickerState().mode==='single'?'active':''}" onclick="setRandomPickerMode('single')"><span>🎯</span><b>Single Pick</b><small>Choose one random car</small></button>
-     <button class="${randomPickerState().mode==='queue'?'active':''}" onclick="setRandomPickerMode('queue')"><span>📋</span><b>Race Night Queue</b><small>Save a running order</small></button>
-    </div>
-    ${randomPickerState().mode==='queue'&&queueCars().length?`<div class="queuePreview"><div><span>NEXT CAR</span><b>${esc(carName(queueCars()[0]))}</b></div><div><span>ON DECK</span><b>${queueCars().slice(1,4).map(carName).map(esc).join(' · ')||'Queue nearly complete'}</b></div></div>`:''}
-    <div class="randomPickerActions">
-     <button class="btn randomPickerButton" onclick="launchRandomPicker()" ${unfinishedCars().length?'':'disabled'}>${randomPickerState().mode==='single'?'🎲 Pick a Random Car':queueCars().length?'📋 Open Saved Queue':'📋 Generate Championship Queue'}</button>
-     <button class="chip randomPickerReset" onclick="${randomPickerState().mode==='single'?'resetRandomPickerCycle()':'resetChampionshipQueue()'}" ${unfinishedCars().length?'':'disabled'}>${randomPickerState().mode==='single'?'↻ Reset Cycle':'✕ Clear Queue'}</button>
-    </div>
-   </section>
+    <section class="festivalGroup makeGroup">
+     <button class="festivalGroupHead" onclick="toggleFestivalSection('make')"><span class="festivalGroupIcon">▱</span><strong>MANUFACTURER CHAMPIONSHIPS</strong><small>${makes.length} MANUFACTURER${makes.length===1?'':'S'}</small><b>${festivalMakeOpen?'⌃':'⌄'}</b></button>
+     ${festivalMakeOpen?`<div class="festivalMakeTools"><label class="festivalSearch"><span>⌕</span><input type="search" placeholder="Search manufacturers…" value="${esc(festivalMakeQuery)}" oninput="updateFestivalMakeFilter(this.value)"></label></div><div class="festivalList">${makes.length?makes.map(option=>festivalChampRow(option,'make')).join(''):'<div class="festivalEmpty">Add at least two cars from the same manufacturer to create Manufacturer Championships.</div>'}</div>`:''}
+    </section>
+   </div>
   </div>`;
 }
 

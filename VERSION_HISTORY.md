@@ -290,3 +290,13 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Dashboard links to Festival, Events, Garage, Records and Stats, with Settings as a secondary control.
 - Existing bottom navigation remains on legacy screens during the page-by-page revamp.
 - Updated visible loading-screen version and service-worker cache for phone deployment verification.
+
+
+## v5.5.1 — Festival
+- Rebuilt Festival as the dedicated RaceHub-generated Championship area.
+- Added locked nighttime Festival/paddock background artwork.
+- Added Home navigation back to the new Dashboard and removed the legacy bottom navigation from Festival.
+- Added Continue Racing, Favourite Manufacturer, Era Championships and Manufacturer Championships sections.
+- Era and Manufacturer sections use compact coded UI icons; Manufacturer Championships are searchable and collapsible.
+- No manufacturer logos are used in the new Festival interface.
+- Updated visible loading-screen version and service-worker cache for phone deployment verification.
