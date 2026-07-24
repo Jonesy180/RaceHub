@@ -318,7 +318,7 @@ const PAGE_HEADERS={
  more:{icon:'📈',eyebrow:'PERFORMANCE CENTRE',title:'Statistics',subtitle:'Explore records, averages and performance across RaceHub.',accent:'more'}
 };
 function ensurePageHeader(screen){
- if(screen==='festival')return;
+ if(screen==='festival'||screen==='events')return;
  const host=$(screen),meta=PAGE_HEADERS[screen];
  if(!host||!meta)return;
  const existing=host.querySelector(':scope > .pageIdentityHeader');

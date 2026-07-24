@@ -302,7 +302,7 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Updated visible loading-screen version and service-worker cache for phone deployment verification.
 
 
-## v5.5.3 — Events Header Alignment
+## v5.5.4 — Events Legacy Header Removal
 - Hid the legacy global RaceHub header and bottom navigation on the redesigned Events screen.
 - Events now uses the same Home control placement and inner-page navigation treatment as Festival.
 - No Events layout or workflow redesign; this is a consistency correction only.
