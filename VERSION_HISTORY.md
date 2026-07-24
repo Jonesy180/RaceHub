@@ -300,3 +300,9 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Era and Manufacturer sections use compact coded UI icons; Manufacturer Championships are searchable and collapsible.
 - No manufacturer logos are used in the new Festival interface.
 - Updated visible loading-screen version and service-worker cache for phone deployment verification.
+
+
+## v5.5.3 — Events Header Alignment
+- Hid the legacy global RaceHub header and bottom navigation on the redesigned Events screen.
+- Events now uses the same Home control placement and inner-page navigation treatment as Festival.
+- No Events layout or workflow redesign; this is a consistency correction only.

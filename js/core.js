@@ -131,7 +131,7 @@ function freshState(){return migrateState({version:'5.3.5',cars:[...SEED.cars],e
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
-function show(screen){currentScreen=screen;document.body.classList.toggle('home-active',screen==='home');document.body.classList.toggle('festival-active',screen==='festival');document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(screen).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===screen));render(screen);window.scrollTo(0,0)}
+function show(screen){currentScreen=screen;document.body.classList.toggle('home-active',screen==='home');document.body.classList.toggle('festival-active',screen==='festival');document.body.classList.toggle('events-active',screen==='events');document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(screen).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===screen));render(screen);window.scrollTo(0,0)}
 document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.screen)));
 
 function parseResult(eventId,raw){

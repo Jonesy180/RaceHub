@@ -1286,7 +1286,9 @@ body.festival-active main{padding:0!important;max-width:none!important}
 .festivalMakeTools{padding:0 12px 8px}.festivalSearch{display:flex;align-items:center;gap:8px;padding:0 11px;height:42px;border-radius:13px;border:1px solid rgba(255,191,68,.22);background:rgba(255,255,255,.035)}.festivalSearch span{font-size:19px;color:#ffbf44}.festivalSearch input{width:100%;min-width:0;border:0!important;background:transparent!important;padding:0!important;color:#fff!important;font-size:13px;outline:none;box-shadow:none!important}.festivalSearch input::placeholder{color:#82909a}.festivalEmpty{padding:15px 8px;color:#81909a;font-size:11px;line-height:1.4}
 @media(max-width:380px){.festivalScene{height:400px}.festivalTitle{top:78px;left:14px;max-width:82%}.festivalTitle h1{font-size:32px}.festivalContent{margin-top:-92px;padding-left:11px;padding-right:11px}.festivalContinue{padding:13px 11px}.festivalContinueCopy strong{font-size:15px}.festivalRing{width:56px;height:56px}.festivalGroupHead{padding:12px 10px}.festivalGroupHead small{display:none}.festivalList{padding-left:7px;padding-right:7px}.festivalListRow{padding:9px 3px;gap:6px}.festivalRowCopy strong{font-size:12px}}
 
-/* RaceHub v5.5.2 — Events */
+/* RaceHub v5.5.3 — Events Header Alignment */
+
+body.events-active>header,body.events-active>.nav{display:none!important}
 .eventsPage{min-height:100vh;background:#02070a;color:#fff;padding-bottom:36px}
 .eventsScene{position:relative;min-height:590px;background:linear-gradient(180deg,rgba(0,0,0,.08) 55%,#02070a 100%),url('assets/events-background.png') center top/cover no-repeat}
 .eventsTitle{position:absolute;z-index:2;top:max(24px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);text-align:center;white-space:nowrap}.eventsTitle h1{margin:0;font-size:32px;letter-spacing:.05em}.eventsTitle p{margin:2px 0 0;color:#34d7ff;font-size:15px;font-weight:800}
