@@ -293,9 +293,43 @@ function closeChampionship(){
  if(overlay)overlay.remove();
 }
 
+let eventsQuery='';
+let eventsCompletedOpen=false;
+function updateEventsFilter(value){
+ eventsQuery=String(value||'').trim().toLowerCase();
+ renderEvents();
+ const input=document.querySelector('.eventsSearch input');if(input){input.focus();try{input.setSelectionRange(input.value.length,input.value.length)}catch(e){}}
+}
+function toggleEventsCompleted(){eventsCompletedOpen=!eventsCompletedOpen;renderEvents();}
+function createRaceHubEvent(){toast('Create Event setup is the next Events workflow to be rebuilt.');}
+function eventsOverviewRow(e){
+ const s=eventStats(e.id), complete=s.total>0&&s.done>=s.total, active=s.done>0&&!complete;
+ const status=complete?'COMPLETED':active?'IN PROGRESS':'NOT STARTED';
+ const cls=complete?'complete':active?'active':'waiting';
+ return `<button class="eventsListRow" onclick="openEvent('${esc(e.id)}','waiting')"><span class="eventsRowIcon">▣</span><span class="eventsRowCopy"><strong>${esc(e.name)}</strong><small>${active?'In Progress':complete?'Completed':'Not Started'} · ${s.done} of ${s.total} cars</small></span><span class="eventsStatus ${cls}">${status}</span><b>›</b></button>`;
+}
 function renderEvents(){
- const eventCards=state.events.map(e=>{const s=eventStats(e.id),leader=s.leader;return `<button class="eventCard eventCentreCard" onclick="openEvent('${e.id}','waiting')"><div class="eventTop"><span class="eventCentreTitle"><span class="eventCentreIcon">🏁</span><b>${esc(e.name)}</b></span><span class="badge">${s.done}/${s.total}</span></div><div class="progress" style="${progressTrackStyle()}"><div class="bar" style="${progressBarStyle(s.pct,'event')}"></div></div><div class="eventCentreRecord small">${leader?`<span>${esc(activeRecordLabel())}</span><b>${esc(fmt(e.id,leader.value))}</b><small>${esc(carName(carById(leader.carId)))}</small>`:'<span>No record yet</span>'}</div></button>`}).join('');
- $('events').innerHTML=`<div class="card eventsCentre"><div class="eventsCentreHeading"><div><h2>Events</h2><p class="small">Open any event to add results, view the leaderboard or see waiting cars.</p></div><span class="badge">${state.events.length} events</span></div><div class="eventsGrid">${eventCards}</div></div>`;
+ const all=(Array.isArray(state.events)?state.events:[]).filter(e=>!eventsQuery||String(e.name||'').toLowerCase().includes(eventsQuery));
+ const active=all.filter(e=>{const s=eventStats(e.id);return s.done>0&&s.done<s.total;});
+ const current=active[0]||null;
+ const open=all.filter(e=>{const s=eventStats(e.id);return !(s.total>0&&s.done>=s.total);});
+ const completed=all.filter(e=>{const s=eventStats(e.id);return s.total>0&&s.done>=s.total;});
+ const cs=current?eventStats(current.id):null;
+ $('events').innerHTML=`<div class="eventsPage">
+  <section class="eventsScene">
+   <button class="festivalHome" onclick="show('home')" aria-label="Back to RaceHub Home"><span>⌂</span><b>HOME</b></button>
+   <div class="eventsTitle"><h1>EVENTS</h1><p>Your Racing</p></div>
+   <button class="eventsCreate" onclick="createRaceHubEvent()"><span>＋</span> CREATE EVENT</button>
+  </section>
+  <div class="eventsContent">
+   ${current&&cs?`<section class="eventsPanel eventsProgress"><div class="eventsSectionHead"><span>▣</span><strong>IN PROGRESS</strong></div><button class="eventsProgressCard" onclick="openEvent('${esc(current.id)}','waiting')"><div class="eventsProgressRing" style="--pct:${Math.round(cs.pct)*3.6}deg"><em>${Math.round(cs.pct)}%</em><small>COMPLETE</small></div><div class="eventsProgressCopy"><strong>${esc(current.name)}</strong><span>EVENT</span><small>${cs.done} of ${cs.total} cars complete</small><div class="eventsMiniTrack"><i style="width:${Math.round(cs.pct)}%"></i></div></div><b class="eventsContinue">CONTINUE ›</b></button></section>`:''}
+   <section class="eventsPanel eventsLibrary"><div class="eventsLibraryTop"><div class="eventsSectionHead"><span>▣</span><strong>YOUR EVENTS</strong></div><label class="eventsSearch"><span>⌕</span><input type="search" placeholder="Search events" value="${esc(eventsQuery)}" oninput="updateEventsFilter(this.value)"></label></div>
+    <div class="eventsSubhead">ACTIVE / NOT STARTED</div><div class="eventsList">${open.length?open.map(eventsOverviewRow).join(''):'<div class="eventsEmpty">No active events.</div>'}</div>
+    <button class="eventsCompletedHead" onclick="toggleEventsCompleted()"><span>⚑</span><strong>COMPLETED</strong><small>(${completed.length})</small><b>${eventsCompletedOpen?'⌃':'⌄'}</b></button>
+    ${eventsCompletedOpen?`<div class="eventsList completed">${completed.length?completed.map(eventsOverviewRow).join(''):'<div class="eventsEmpty">No completed events yet.</div>'}</div>`:''}
+   </section>
+  </div>
+ </div>`;
 }
 
 function podium(rows){return `<div class="podium"><div class="pod">${rows[1]?`🥈<br><b>${esc(carName(carById(rows[1].carId)))}</b><br>${esc(fmt(rows[1].eventId,rows[1].value))}`:''}</div><div class="pod first">${rows[0]?`🥇<br><b>${esc(carName(carById(rows[0].carId)))}</b><br>${esc(fmt(rows[0].eventId,rows[0].value))}`:''}</div><div class="pod">${rows[2]?`🥉<br><b>${esc(carName(carById(rows[2].carId)))}</b><br>${esc(fmt(rows[2].eventId,rows[2].value))}`:''}</div></div>`}

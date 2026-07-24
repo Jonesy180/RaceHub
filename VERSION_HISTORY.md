@@ -292,7 +292,7 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Updated visible loading-screen version and service-worker cache for phone deployment verification.
 
 
-## v5.5.1 — Festival
+## v5.5.2 — Festival
 - Rebuilt Festival as the dedicated RaceHub-generated Championship area.
 - Added locked nighttime Festival/paddock background artwork.
 - Added Home navigation back to the new Dashboard and removed the legacy bottom navigation from Festival.
