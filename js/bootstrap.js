@@ -1,8 +1,4 @@
-// RaceHub v5.4.17 — Application bootstrap (Guide isolated in js/guide.js)
+// RaceHub v5.1.2 — Bootstrap
 
-state=load();
-show('festival');
-
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
-}
+state=load();show('festival');
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}
