@@ -282,3 +282,11 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 ## v5.3.6 — UI Consistency Sprint 5: Micro Polish
 
 A presentation-only refinement pass covering spacing, typography, progress indicators, toast feedback, empty states, focus visibility and mobile safe-area behaviour. No RaceHub logic or stored data was changed.
+
+## v5.4.12 — Dashboard HQ
+- Added genuine RaceHub Dashboard/Home as the app landing screen.
+- Added locked RaceHub HQ background artwork.
+- Added approved RaceHub logo treatment to Dashboard and loading screen.
+- Dashboard links to Festival, Events, Garage, Records and Stats, with Settings as a secondary control.
+- Existing bottom navigation remains on legacy screens during the page-by-page revamp.
+- Updated visible loading-screen version and service-worker cache for phone deployment verification.

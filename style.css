@@ -1236,3 +1236,27 @@ input,select,textarea,button,.btn{max-width:100%}
   .garageFilters::-webkit-scrollbar{display:none}
   .garageFilters .chip{flex:0 0 auto;width:auto;min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip}
 }
+
+/* RaceHub v5.4.12 — RaceHub HQ Dashboard */
+body.home-active{padding-bottom:0;background:#020508}
+body.home-active>header,body.home-active>.nav{display:none!important}
+body.home-active main{padding:0!important;max-width:none!important}
+#home{margin:0;min-height:100svh;background:#020508}
+.homePage{min-height:100svh;background:#020508;color:#fff;overflow:hidden}
+.homeScene{position:relative;min-height:58svh;background-image:linear-gradient(180deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.02) 55%,rgba(2,5,8,.15) 78%,#020508 100%),url('assets/artwork/dashboard-background.png');background-size:cover;background-position:center top}
+.homeTopbar{position:absolute;z-index:3;top:max(18px,env(safe-area-inset-top));left:20px;right:20px;display:flex;justify-content:space-between;align-items:flex-start}
+.homeWelcome{display:grid;gap:2px;text-shadow:0 2px 14px rgba(0,0,0,.9)}
+.homeWelcome small{font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.72);font-weight:800}
+.homeWelcome strong{font-size:18px;letter-spacing:.06em}
+.homeSettings{width:48px;height:48px;padding:0;border-radius:15px;border:1px solid rgba(255,255,255,.36);background:rgba(3,10,14,.72);backdrop-filter:blur(10px);font-size:25px;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.28),inset 0 0 20px rgba(52,215,255,.05)}
+.homeLogo{position:absolute;z-index:2;top:80px;left:7%;width:86%;height:auto;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 6px 20px rgba(0,0,0,.8))}
+.homeInterface{position:relative;z-index:4;margin-top:-8svh;padding:0 16px calc(24px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(2,5,8,0),#020508 5%,#020508 100%)}
+.homeChampCard{width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;text-align:left;padding:16px;border-radius:20px;border:1px solid rgba(52,215,255,.48);background:linear-gradient(135deg,rgba(8,23,29,.96),rgba(5,10,13,.96));box-shadow:0 14px 30px rgba(0,0,0,.35),inset 0 0 28px rgba(52,215,255,.035);color:#fff;margin-bottom:12px}
+.homeChampIcon{font-size:30px}.homeChampCopy{display:grid;gap:3px;min-width:0}.homeChampCopy span{font-size:10px;letter-spacing:.08em;font-weight:900;color:#34d7ff}.homeChampCopy strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.homeChampCopy small{font-size:12px;color:rgba(255,255,255,.72)}.homeChampCopy b{font-size:11px;letter-spacing:.08em;color:#34d7ff;margin-top:3px}
+.homeChampPct{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#34d7ff 0 var(--pct),rgba(255,255,255,.12) var(--pct) 360deg);position:relative}.homeChampPct:after{content:"";position:absolute;inset:7px;border-radius:50%;background:#081014}.homeChampPct em{position:relative;z-index:2;font-style:normal;font-weight:900;font-size:17px}
+.homeGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.homeTile,.homeStat{min-height:112px;border-radius:18px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(145deg,rgba(13,22,26,.97),rgba(4,9,12,.97));box-shadow:inset 0 -2px 0 rgba(52,215,255,.18),0 10px 24px rgba(0,0,0,.28);color:#fff}
+.homeTile{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;text-align:left;padding:14px}
+.homeTileIcon{font-size:29px;min-width:34px;text-align:center;color:#34d7ff;filter:drop-shadow(0 0 7px rgba(52,215,255,.28))}.homeTile>span:nth-child(2){display:grid;gap:4px;min-width:0}.homeTile strong{font-size:16px}.homeTile small{font-size:11px;line-height:1.35;color:rgba(255,255,255,.7)}.homeTile>b{font-size:30px;line-height:1;color:#34d7ff;font-weight:300}
+.homeStat{position:relative;padding:15px;display:grid;align-content:center;gap:4px;overflow:hidden}.homeStat span{font-size:10px;letter-spacing:.1em;color:#34d7ff;font-weight:900}.homeStat strong{font-size:29px}.homeStat small{font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.06em}.homeStat i{position:absolute;right:14px;bottom:20px;font-style:normal;font-size:24px;letter-spacing:-2px;color:rgba(52,215,255,.72)}
+@media(max-width:380px){.homeScene{min-height:55svh}.homeLogo{top:76px;left:5%;width:90%}.homeInterface{padding-left:12px;padding-right:12px}.homeTile,.homeStat{min-height:104px}.homeTile{padding:11px;gap:7px}.homeTileIcon{font-size:25px;min-width:30px}.homeTile strong{font-size:14px}.homeTile small{font-size:10px}.homeChampPct{width:58px;height:58px}}

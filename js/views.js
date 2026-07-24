@@ -484,3 +484,59 @@ function renderHallOfFame(){
  }catch(error){console.error('Overall Leaderboard render failed',error);$('hall').innerHTML=`<div class="card"><h2>🏆 Overall Leaderboard</h2><div class="empty">The leaderboard could not load. Close RaceHub and reopen it to finish the update.</div></div>`;}
 }
 
+
+// RaceHub v5.4.12 — RaceHub HQ Dashboard
+function dashboardHasProgress(champ){
+ const cars=championshipCars(champ);
+ if(!cars.length)return false;
+ if(champ && champ.type && champ.type!=='open')return true;
+ if(state.currentCarId)return true;
+ const eligible=new Set(cars.map(c=>c.id));
+ return (state.results||[]).some(r=>eligible.has(r.carId));
+}
+
+function openSettingsFromHome(){
+ show('more');
+ if(typeof renderMore==='function')renderMore();
+}
+
+function renderHome(){
+ const champ=activeChampionship();
+ const cars=championshipCars(champ);
+ const complete=cars.filter(c=>carIsComplete(c.id)).length;
+ const pct=cars.length?Math.round((complete/cars.length)*100):0;
+ const showChamp=dashboardHasProgress(champ) && complete<cars.length;
+ const resultCount=(state.results||[]).length;
+ const championshipCard=showChamp?`
+  <button class="homeChampCard" onclick="show('festival')" aria-label="Continue ${esc(activeChampionshipName())}">
+   <div class="homeChampIcon">🏆</div>
+   <div class="homeChampCopy">
+    <span>CHAMPIONSHIP IN PROGRESS</span>
+    <strong>${esc(activeChampionshipName())}</strong>
+    <small>${complete} of ${cars.length} cars completed</small>
+    <b>TAP TO CONTINUE ›</b>
+   </div>
+   <div class="homeChampPct" style="--pct:${pct*3.6}deg"><em>${pct}%</em></div>
+  </button>`:'';
+ $('home').innerHTML=`
+  <div class="homePage">
+   <section class="homeScene">
+    <div class="homeTopbar">
+     <div class="homeWelcome"><small>WELCOME TO</small><strong>RACEHUB HQ</strong></div>
+     <button class="homeSettings" onclick="openSettingsFromHome()" aria-label="Settings">⚙</button>
+    </div>
+    <img class="homeLogo" src="assets/brand-new/racehub-logo.png" alt="RaceHub — Drive, Record, Improve">
+   </section>
+   <section class="homeInterface">
+    ${championshipCard}
+    <div class="homeGrid">
+     <button class="homeTile" onclick="show('festival')"><span class="homeTileIcon">🏁</span><span><strong>FESTIVAL</strong><small>RaceHub-created Championships</small></span><b>›</b></button>
+     <button class="homeTile" onclick="show('events')"><span class="homeTileIcon">▣</span><span><strong>EVENTS</strong><small>Your created racing</small></span><b>›</b></button>
+     <button class="homeTile" onclick="show('garage')"><span class="homeTileIcon">⌂</span><span><strong>GARAGE</strong><small>Your cars and collection</small></span><b>›</b></button>
+     <button class="homeTile" onclick="show('hall')"><span class="homeTileIcon">🏆</span><span><strong>RECORDS</strong><small>Results, Records & Hall of Fame</small></span><b>›</b></button>
+     <button class="homeTile" onclick="show('more')"><span class="homeTileIcon">◴</span><span><strong>STATS</strong><small>Your RaceHub at a glance</small></span><b>›</b></button>
+     <div class="homeStat"><span>RACEHUB DRIVEN</span><strong>${resultCount}</strong><small>RESULTS RECORDED</small><i>▂▄▆█</i></div>
+    </div>
+   </section>
+  </div>`;
+}

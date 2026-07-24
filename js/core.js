@@ -1,7 +1,7 @@
 // RaceHub v5.3.1 — Navigation Identity
 const STORE='RaceHub_v4_1_director_edition';
 let state=null;
-let currentScreen='festival';
+let currentScreen='home';
 let currentEventId='drag';
 let eventTab='waiting';
 let garageMake='All';
@@ -131,7 +131,7 @@ function freshState(){return migrateState({version:'5.3.5',cars:[...SEED.cars],e
 function load(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&raw.cars&&raw.events)return migrateState(raw);}catch(e){} return freshState();}
 function save(){localStorage.setItem(STORE,JSON.stringify(state));}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
-function show(screen){currentScreen=screen;document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(screen).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===screen));render(screen);window.scrollTo(0,0)}
+function show(screen){currentScreen=screen;document.body.classList.toggle('home-active',screen==='home');document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(screen).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===screen));render(screen);window.scrollTo(0,0)}
 document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.screen)));
 
 function parseResult(eventId,raw){
@@ -324,7 +324,7 @@ function ensurePageHeader(screen){
  if(existing)existing.remove();
  host.insertAdjacentHTML('afterbegin',`<section class="pageIdentityHeader pageIdentity-${meta.accent}"><div class="pageIdentityIcon">${meta.icon}</div><div class="pageIdentityCopy"><div class="pageIdentityEyebrow">${meta.eyebrow}</div><h1>${meta.title}</h1><p>${meta.subtitle}</p></div></section>`);
 }
-function render(screen){ if(screen==='festival')renderFestival(); if(screen==='events')renderEvents(); if(screen==='event')renderEvent(); if(screen==='garage')renderGarage(); if(screen==='hall')renderHallOfFame(); if(screen==='more')renderStats(); ensurePageHeader(screen); }
+function render(screen){ if(screen==='home')renderHome(); if(screen==='festival')renderFestival(); if(screen==='events')renderEvents(); if(screen==='event')renderEvent(); if(screen==='garage')renderGarage(); if(screen==='hall')renderHallOfFame(); if(screen==='more')renderStats(); ensurePageHeader(screen); }
 
 
 function currentCarProgress(){
