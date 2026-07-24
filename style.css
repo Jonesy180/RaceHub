@@ -1237,7 +1237,7 @@ input,select,textarea,button,.btn{max-width:100%}
   .garageFilters .chip{flex:0 0 auto;width:auto;min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip}
 }
 
-/* RaceHub v5.4.12 — RaceHub HQ Dashboard */
+/* RaceHub v5.5.0 — RaceHub HQ Dashboard */
 body.home-active{padding-bottom:0;background:#020508}
 body.home-active>header,body.home-active>.nav{display:none!important}
 body.home-active main{padding:0!important;max-width:none!important}

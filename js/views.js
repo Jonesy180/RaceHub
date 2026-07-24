@@ -485,7 +485,7 @@ function renderHallOfFame(){
 }
 
 
-// RaceHub v5.4.12 — RaceHub HQ Dashboard
+// RaceHub v5.5.0 — RaceHub HQ Dashboard
 function dashboardHasProgress(champ){
  const cars=championshipCars(champ);
  if(!cars.length)return false;

@@ -283,7 +283,7 @@ label{display:block;color:var(--muted);font-weight:800;margin-top:8px}
 
 A presentation-only refinement pass covering spacing, typography, progress indicators, toast feedback, empty states, focus visibility and mobile safe-area behaviour. No RaceHub logic or stored data was changed.
 
-## v5.4.12 — Dashboard HQ
+## v5.5.0 — Dashboard HQ
 - Added genuine RaceHub Dashboard/Home as the app landing screen.
 - Added locked RaceHub HQ background artwork.
 - Added approved RaceHub logo treatment to Dashboard and loading screen.
