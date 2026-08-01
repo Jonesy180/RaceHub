@@ -240,21 +240,7 @@ function rhShuffleQueue(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)ret
 function rhFestivalNewCars(r){if(!r||(r.type!=='festival'&&r.championshipType!=='festival'))return [];const existing=new Set(Array.isArray(r.entries)?r.entries:[]);return (rhSpace().cars||[]).filter(c=>!existing.has(c.id))}
 function rhAddNewCarsToFestival(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;const add=rhFestivalNewCars(r);if(!add.length){toast('No new Garage cars to add');return}r.entries=[...(r.entries||[]),...add.map(c=>c.id)];rhSave();toast(`${add.length} new car${add.length===1?'':'s'} added to Championship`);rhOpenRun(id)}
 function rhRunHeader(title,sub,runId){return `<div class="rhPageHead"><button class="rhBack" onclick="rhOpenRun('${runId}')">‹</button><div><h1>${esc(title)}</h1>${sub?`<p>${esc(sub)}</p>`:''}</div></div>`}
-function rhOpenRun(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;show('festival');const p=rhRunProgress(r),cp=rhRunCarProgress(r),next=rhNextSlot(r);if(r.status==='complete'){const rows=r.entries.map(id=>{const rr=r.results.filter(x=>x.carId===id);return rr.length===r.rounds.length?{id,total:rr.reduce((a,b)=>a+b.time,0)}:null}).filter(Boolean).sort((a,b)=>a.total-b.total),winner=rows[0],typeLabel=rhSetupTypeLabel(r.type||r.championshipType||'festival');$('festival').innerHTML=`<div class="rhFinalBoardV1">
- <header class="rhFinalBoardHeroV1 rhFinalChampHeroV1">
-  <button onclick="rhRenderFestival()" aria-label="Back">‹</button>
-  <div><small>CHAMPIONSHIP COMPLETE</small><h1>${esc(r.name)}</h1><span>${esc(typeLabel)}</span></div>
- </header>
- <main class="rhFinalBoardBodyV1">
-  ${winner?`<section class="rhFinalWinnerV1"><img src="${rhTrophy(r.trophy)}" alt=""><div><small>CHAMPION</small><h2>${esc(carName(carById(winner.id)))}</h2><strong>${rhFmtTime(winner.total)}</strong></div></section>`:''}
-  <section class="rhFinalClassificationV1">
-   <div class="rhFinalTitleV1"><div><small>OFFICIAL CLASSIFICATION</small><h2>FINAL LEADERBOARD</h2></div><span>${rows.length} CARS</span></div>
-   <div class="rhFinalRowsV1">${rows.map((x,i)=>`<div class="rhFinalRowV1 ${i===0?'winner':''}"><b>${i+1}</b><span>${esc(carName(carById(x.id)))}</span><strong>${rhFmtTime(x.total)}</strong></div>`).join('')}</div>
-  </section>
-  <section class="rhFinalCompleteNoteV1"><b>RUN COMPLETE</b><span>${rows.length} of ${(r.entries||[]).length} cars complete • Final classification saved to RaceHub.</span></section>
-  <button class="btn rhPrimaryWide rhFinalReturnV1" onclick="rhRenderFestival()">RETURN TO FESTIVAL</button>
- </main>
-</div>`;return}const entries=Array.isArray(r.entries)?r.entries:[],rounds=Array.isArray(r.rounds)?r.rounds:[],results=Array.isArray(r.results)?r.results:[];const currentCar=next?carById(next.carId):null,currentIndex=next?entries.indexOf(next.carId):-1,currentDone=next?results.filter(x=>x.carId===next.carId).length:0;const typeLabel=rhSetupTypeLabel(r.type||r.championshipType||'festival');$('festival').innerHTML=`<div class="rhOverviewV1">
+function rhOpenRun(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;show('festival');const p=rhRunProgress(r),cp=rhRunCarProgress(r),next=rhNextSlot(r);if(r.status==='complete'){return window.rhShowLockedFinalLeaderboardV5788(id)}const entries=Array.isArray(r.entries)?r.entries:[],rounds=Array.isArray(r.rounds)?r.rounds:[],results=Array.isArray(r.results)?r.results:[];const currentCar=next?carById(next.carId):null,currentIndex=next?entries.indexOf(next.carId):-1,currentDone=next?results.filter(x=>x.carId===next.carId).length:0;const typeLabel=rhSetupTypeLabel(r.type||r.championshipType||'festival');$('festival').innerHTML=`<div class="rhOverviewV1">
  <header class="rhOverviewHeroV1">
   <button class="rhOverviewBackV1" onclick="rhRenderFestival()" aria-label="Back">‹</button>
   <div class="rhOverviewBrandV1"><small>CHAMPIONSHIP</small><h1>${esc(r.name)}</h1><span>${esc(typeLabel)}</span></div>

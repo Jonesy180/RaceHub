@@ -1,6 +1,6 @@
 /* RaceHub v5.7.83 — final leaderboard route + in-app update check */
 (()=>{
- const CURRENT_VERSION='5.7.83';
+ const CURRENT_VERSION='5.7.88';
  const safeText=v=>String(v??'');
 
  // The completed-result action now opens the locked Final Leaderboard directly.
