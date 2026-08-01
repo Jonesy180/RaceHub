@@ -1,0 +1,5 @@
+RaceHub v5.7.98
+- Rebuilt Final Standings for completed Championships and Events using the approved grandstand timing-board design.
+- Fixed Continue routing without app restart.
+- Compact Enter Result stopwatch spacing and finishing-position tiles for phone viewport.
+- Enter Result and Result Summary logic preserved.
