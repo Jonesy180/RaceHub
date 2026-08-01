@@ -1,0 +1,13 @@
+RaceHub v5.7.97 — FINAL STANDINGS REBUILD
+
+Baseline: v5.7.96 FINAL STANDINGS REMOVED.
+
+Implemented one page only:
+- Rebuilt Final Standings from the approved grandstand display-board artwork.
+- Added to the end of every completed Festival Championship and custom Event.
+- Uses existing frozen entries, rounds and saved result totals without changing championship logic.
+- Internal classification scrolling for large fields.
+- Digital positions, times and gaps; RaceHub type for car names.
+- Winner panel, Hall of Fame/Records access, Continue action and one-time board power-on.
+- Enter Result and Result Summary untouched.
+- Version/cache advanced to 5.7.97 / 5797.
