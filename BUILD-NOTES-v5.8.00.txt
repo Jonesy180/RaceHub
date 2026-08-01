@@ -1,0 +1,6 @@
+RaceHub v5.8.00 — Emergency Functional Recovery
+- Based only on v5.7.96 FINAL-STANDINGS-REMOVED.
+- Removes the v5.7.96 hard-isolation override that disabled completed-run routes.
+- Restores the proven Championship and Event completion/final leaderboard flow from studio-locked-ui-v5780.
+- Keeps the Settings in-app update checker.
+- No artwork redesign in this emergency build.
