@@ -160,7 +160,7 @@ window.rhEnterResult=function(runId,carId,roundId){
    <section class="rhEnterMetaV5781"><div><small>${safe(rhSetupTypeLabel(r.type||r.championshipType||'festival'))}</small><b>${safe(carName(c))}</b></div><span><i></i> READY <em>◷</em></span></section>
    <section class="rhTimePanelV5781">
     <div class="rhTimeLabelsV5781"><span>MINUTES</span><span>SECONDS</span><span>MILLISECONDS</span></div>
-    <div class="rhTimeInputsV5781"><input id="rhMin" inputmode="numeric" maxlength="2" placeholder="00" aria-label="Minutes" oninput="rhTimeAutoAdvance(this,'rhSec',2)"><b>:</b><input id="rhSec" inputmode="numeric" maxlength="2" placeholder="00" aria-label="Seconds" oninput="rhTimeAutoAdvance(this,'rhMs',2)"><b>.</b><input id="rhMs" inputmode="numeric" maxlength="3" placeholder="000" aria-label="Milliseconds"></div>
+    <div class="rhTimeInputsV5781"><input id="rhMin" name="rh-result-min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="2" placeholder="00" aria-label="Minutes" oninput="rhTimeAutoAdvance(this,'rhSec',2)"><b>:</b><input id="rhSec" name="rh-result-sec" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="2" placeholder="00" aria-label="Seconds" oninput="rhTimeAutoAdvance(this,'rhMs',2)"><b>.</b><input id="rhMs" name="rh-result-ms" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="3" placeholder="000" aria-label="Milliseconds"></div>
     <p>Tap a section and type the race time</p>
    </section>
    <section class="rhPositionPanelV5781">
