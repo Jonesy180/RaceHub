@@ -3890,7 +3890,7 @@ body{min-height:100dvh}
 .rhPodiumContinueV5804{width:100%;min-height:94px;margin-top:14px;border-radius:22px;border:1px solid #30d9ef;background:linear-gradient(135deg,#08314d,#06213f);color:#fff;box-shadow:inset 0 0 30px rgba(23,181,222,.14);display:flex;flex-direction:column;align-items:center;justify-content:center}.rhPodiumContinueV5804 b{font-size:25px}.rhPodiumContinueV5804 small{margin-top:3px;font-size:11px;letter-spacing:.08em}
 @media(max-width:430px){.rhPodiumHeroV5804{height:31svh;min-height:250px}.rhPodiumHeaderV5804{gap:12px;left:10px;right:10px}.rhPodiumHeaderV5804 button{width:62px;height:62px;font-size:47px}.rhPodiumBodyV5804{padding:0 10px}.rhPodiumColsV5804,.rhPodiumRowV5804{grid-template-columns:44px minmax(0,1fr) 112px 70px;gap:5px}.rhPodiumRowV5804{min-height:55px;padding-left:10px;padding-right:10px}.rhPodiumRowV5804>span{font-size:14px}.rhPodiumRowV5804>strong{font-size:14px}.rhPodiumRowV5804>em{font-size:11px}.rhPodiumMetaV5804{padding:16px 18px}.rhPodiumAcceptedV5804{min-height:72px}.rhPodiumContinueV5804{min-height:78px}.rhPodiumContinueV5804 b{font-size:22px}}
 
-/* RaceHub v5.8.14 — authoritative clean stadium Final Standings presentation. */
+/* RaceHub v5.8.15 — authoritative clean stadium Final Standings presentation. */
 body.rhFinalActive5813{background:#020609;overflow:hidden}
 body.rhFinalActive5813>header,body.rhFinalActive5813>nav{display:none!important}
 body.rhFinalActive5813 main{padding:0!important;margin:0!important;max-width:none!important}
@@ -3919,7 +3919,7 @@ body.rhFinalActive5813 .screen{padding:0!important;margin:0!important;max-width:
 @media(max-width:430px){.rhFinal5813{padding-left:10px;padding-right:10px;gap:9px}.rhFinal5813Head{grid-template-columns:49px 1fr 49px}.rhFinal5813Head button{width:46px;height:46px;font-size:2rem}.rhFinal5813Cols,.rhFinal5813Row{grid-template-columns:39px minmax(0,1fr) 92px 61px;gap:4px}.rhFinal5813Cols{padding-left:8px;padding-right:8px;font-size:.56rem}.rhFinal5813Row{min-height:50px;padding:5px 8px}.rhFinal5813Row i{font-size:1.23rem}.rhFinal5813Row span{font-size:.72rem}.rhFinal5813Row strong{font-size:.68rem}.rhFinal5813Row em{font-size:.57rem}.rhFinal5813Winner{grid-template-columns:62px 1fr;padding:8px 10px}.rhFinal5813Winner img,.rhFinal5813EventTrophy{width:56px;height:56px}.rhFinal5813Winner small{font-size:.61rem}.rhFinal5813Winner b{font-size:.84rem}.rhFinal5813Winner strong{font-size:.96rem}.rhFinal5813Actions{gap:8px}.rhFinal5813Actions button{min-height:58px;font-size:.72rem}}
 @media(max-height:740px){.rhFinal5813{gap:7px}.rhFinal5813Head button{width:42px;height:42px}.rhFinal5813Head h1{font-size:1.35rem}.rhFinal5813Head p{font-size:.7rem}.rhFinal5813Title{padding:9px 8px 7px}.rhFinal5813Row{min-height:43px}.rhFinal5813Winner img,.rhFinal5813EventTrophy{width:48px;height:48px}.rhFinal5813Winner{grid-template-columns:54px 1fr}.rhFinal5813Actions button{min-height:50px}}
 
-/* v5.8.14 clean Final Standings page isolation */
+/* v5.8.15 clean Final Standings page isolation */
 html.rhFinalActive5813,body.rhFinalActive5813{overflow:hidden!important;background:#020609!important}
 body.rhFinalActive5813>header,body.rhFinalActive5813>nav,body.rhFinalActive5813 .bottomNav{display:none!important}
 body.rhFinalActive5813 main{position:fixed!important;inset:0!important;padding:0!important;margin:0!important;max-width:none!important;overflow:hidden!important;background:#020609!important}

@@ -1,10 +1,10 @@
-const CACHE_NAME='racehub-v5.8.14-clean-final-standings-page';
+const CACHE_NAME='racehub-v5.8.15-clean-final-standings-page';
 const ASSETS=[
-  './','./index.html','./style-v5814.css?v=5814','./manifest.webmanifest?v=5814','./favicon.png',
+  './','./index.html','./style-v5815.css?v=5815','./manifest.webmanifest?v=5815','./favicon.png',
   './js/seed-data.js?v=5799','./js/core.js?v=5799','./js/race-director.js?v=5799','./js/views.js?v=5799',
   './js/celebrations.js?v=5799','./js/garage.js?v=5799','./js/control-centre.js?v=5799',
   './js/studio-final-v5808.js?v=5808','./js/studio-locked-ui-v5780.js?v=5799','./js/studio-polish-v5782.js?v=5799',
-  './js/studio-release-v5814.js?v=5814','./js/studio-enter-result-v5803.js?v=5803','./js/studio-result-summary-v5809.js?v=5814','./js/studio-race-flow-v5809.js?v=5814','./js/bootstrap-v5814.js?v=5814','./js/studio-race-end-v5814.js?v=5814',
+  './js/studio-release-v5815.js?v=5815','./js/studio-enter-result-v5803.js?v=5803','./js/studio-result-summary-v5809.js?v=5815','./js/studio-race-flow-v5809.js?v=5815','./js/bootstrap-v5815.js?v=5815','./js/studio-race-end-v5815.js?v=5815',
   './assets/final/racehub-logo.png','./assets/final/enter-result-side-finish-v5803.png','./assets/final/result-summary-podium-v5804.png','./assets/final/final-standings-grandstand-v5799.png',
   './assets/final/trophy-festival.png','./assets/final/trophy-manufacturer.png','./assets/final/trophy-era.png','./assets/final/trophy-favourite.png',
   './icons/icon-v5765-192.png','./icons/icon-v5765-512.png'
