@@ -1,7 +1,7 @@
 /* RaceHub v5.8.10 — authoritative race-end flow (Result Summary + Final Standings). */
 (()=>{
   'use strict';
-  const VERSION='5.8.23';
+  const VERSION='5.8.24';
   const byId=id=>document.getElementById(id);
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=t=>typeof rhFmtTime==='function'?rhFmtTime(Number(t||0)):String(t??'—');
@@ -52,13 +52,13 @@
     const rows=partialRunRows(run);
     const done=run.status==='complete';
     let label='CONTINUE',sub='RETURN TO CHAMPIONSHIP',next=()=>rhOpenRun(run.id);
-    if(done){label='FINAL STANDINGS';sub='VIEW OFFICIAL CLASSIFICATION';next=()=>window.rhShowFinalStandingsV5823?.(run.id,res.carId)}
+    if(done){label='FINAL STANDINGS';sub='VIEW OFFICIAL CLASSIFICATION';next=()=>window.rhShowFinalStandingsV5824?.(run.id,res.carId)}
     else {try{const n=rhNextSlot(run),carDone=rhRunCarIsComplete(run,res.carId);if(carDone&&n&&String(n.carId)!==String(res.carId)){label='CAR COMPLETE';sub='VIEW TOTAL & NEXT CAR';next=()=>rhRunCarCompleteTransition(run.id,res.carId)}}catch(_){}}
     mountSummary('festival',{roundName:res.roundName,title:typeLabel(run.type||run.championshipType),carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows,carId:res.carId,label,sub,back:()=>rhOpenRun(run.id),next});
   }
   function eventSummary(event,res){
     const done=event.status==='complete';
-    mountSummary('event',{roundName:res.roundName,title:event.name,carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows:partialEventRows(event),carId:res.carId,label:done?'FINAL STANDINGS':'CONTINUE EVENT',sub:done?'VIEW OFFICIAL CLASSIFICATION':'RETURN TO EVENT',back:()=>rhOpenEvent(event.id),next:done?()=>window.rhShowEventFinalStandingsV5823?.(event.id,res.carId):()=>rhOpenEvent(event.id)});
+    mountSummary('event',{roundName:res.roundName,title:event.name,carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows:partialEventRows(event),carId:res.carId,label:done?'FINAL STANDINGS':'CONTINUE EVENT',sub:done?'VIEW OFFICIAL CLASSIFICATION':'RETURN TO EVENT',back:()=>rhOpenEvent(event.id),next:done?()=>window.rhShowEventFinalStandingsV5824?.(event.id,res.carId):()=>rhOpenEvent(event.id)});
   }
   function accepted(owner,res,kind='festival'){
     const hostId=kind==='events'?'event':'festival';

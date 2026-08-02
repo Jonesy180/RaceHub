@@ -1,0 +1,12 @@
+RaceHub v5.8.24 — Final Standings Live UI
+
+Base: v5.8.23 demolition/artwork checkpoint.
+
+Changes:
+- Kept the approved stadium artwork as the sole page composition.
+- Added live championship/event title.
+- Added live final classification rows with internal scrolling.
+- Added correct dynamic trophy, champion label, winner car and total time.
+- Added live Hall of Fame and Back controls as invisible hotspots over the approved artwork buttons.
+- Preserved the v5.8.23 single-authority Final Standings route.
+- Synced visible version, update metadata and service-worker cache to v5.8.24.
