@@ -1,5 +1,6 @@
 /* RaceHub v5.8.04 — locked podium Result Summary */
 (()=>{
+  const q=id=>document.getElementById(id);
   const esc=v=>typeof safe==='function'?safe(v):String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const totalOf=x=>Number(x?.total||0);
   function contextRows(rows,highlightId){
