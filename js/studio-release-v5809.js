@@ -1,6 +1,6 @@
 /* RaceHub v5.8.09 — version authority and update checker sync only. */
 (()=>{
- const VERSION='5.8.16';
+ const VERSION='5.8.17';
  const esc=v=>typeof window.escapeHtml==='function'?window.escapeHtml(String(v??'')):String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const fmt=t=>typeof window.rhFmtTime==='function'?window.rhFmtTime(t):String(t??'—');
  const carLabel=c=>typeof window.carName==='function'?window.carName(c):(c?.name||'Unknown car');
