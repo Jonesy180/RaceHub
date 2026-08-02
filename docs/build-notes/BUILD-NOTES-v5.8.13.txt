@@ -1,0 +1,5 @@
+RaceHub v5.8.13 — clean standalone Final Standings page
+- Replaced overlay renderer with a single isolated page.
+- Removed baked old Final Standings artwork from the background.
+- Preserved v5.8.10 data and navigation logic.
+- Internal results-board scrolling, dynamic trophy/winner and two actions only.
