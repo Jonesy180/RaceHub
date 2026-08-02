@@ -1,7 +1,7 @@
 /* RaceHub v5.8.10 — authoritative race-end flow (Result Summary + Final Standings). */
 (()=>{
   'use strict';
-  const VERSION='5.8.22';
+  const VERSION='5.8.23';
   const byId=id=>document.getElementById(id);
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=t=>typeof rhFmtTime==='function'?rhFmtTime(Number(t||0)):String(t??'—');
@@ -52,13 +52,13 @@
     const rows=partialRunRows(run);
     const done=run.status==='complete';
     let label='CONTINUE',sub='RETURN TO CHAMPIONSHIP',next=()=>rhOpenRun(run.id);
-    if(done){label='FINAL STANDINGS';sub='VIEW OFFICIAL CLASSIFICATION';next=()=>{if(typeof window.rhShowFinalStandingsV5821==='function')window.rhShowFinalStandingsV5821(run.id,res.carId);else throw new Error('Final Standings renderer unavailable')}}
+    if(done){label='FINAL STANDINGS';sub='VIEW OFFICIAL CLASSIFICATION';next=()=>window.rhShowFinalStandingsV5823?.(run.id,res.carId)}
     else {try{const n=rhNextSlot(run),carDone=rhRunCarIsComplete(run,res.carId);if(carDone&&n&&String(n.carId)!==String(res.carId)){label='CAR COMPLETE';sub='VIEW TOTAL & NEXT CAR';next=()=>rhRunCarCompleteTransition(run.id,res.carId)}}catch(_){}}
     mountSummary('festival',{roundName:res.roundName,title:typeLabel(run.type||run.championshipType),carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows,carId:res.carId,label,sub,back:()=>rhOpenRun(run.id),next});
   }
   function eventSummary(event,res){
     const done=event.status==='complete';
-    mountSummary('event',{roundName:res.roundName,title:event.name,carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows:partialEventRows(event),carId:res.carId,label:done?'FINAL STANDINGS':'CONTINUE EVENT',sub:done?'VIEW OFFICIAL CLASSIFICATION':'RETURN TO EVENT',back:()=>rhOpenEvent(event.id),next:done?()=>{if(typeof window.rhShowEventFinalStandingsV5821==='function')window.rhShowEventFinalStandingsV5821(event.id,res.carId);else throw new Error('Event Final Standings renderer unavailable')}:()=>rhOpenEvent(event.id)});
+    mountSummary('event',{roundName:res.roundName,title:event.name,carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows:partialEventRows(event),carId:res.carId,label:done?'FINAL STANDINGS':'CONTINUE EVENT',sub:done?'VIEW OFFICIAL CLASSIFICATION':'RETURN TO EVENT',back:()=>rhOpenEvent(event.id),next:done?()=>window.rhShowEventFinalStandingsV5823?.(event.id,res.carId):()=>rhOpenEvent(event.id)});
   }
   function accepted(owner,res,kind='festival'){
     const hostId=kind==='events'?'event':'festival';
@@ -67,6 +67,7 @@
     host.innerHTML=`<div class="rhAccepted ${kind==='events'?'rhAcceptedEvents':'rhAcceptedChamp'} rhAcceptedFinal"><div class="rhAcceptedShadeFinal"></div><div class="rhAcceptedGlass rhAcceptedGlassFinal"><div class="rhAcceptedTick">✓</div><h1>RESULT SAVED</h1><p>${text}</p><small>${esc(res.roundName)} complete</small></div></div>`;
     setTimeout(()=>{try{kind==='events'?eventSummary(owner,res):runSummary(owner,res)}catch(err){console.error('RaceHub result summary failed',err);kind==='events'?rhOpenEvent(owner.id):rhOpenRun(owner.id)}},750);
   }
+
 
   window.rhResultAccepted=accepted;
   window.rhResultSummary=runSummary;
