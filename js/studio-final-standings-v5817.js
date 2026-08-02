@@ -1,4 +1,4 @@
-/* RaceHub v5.8.17 — clean standalone Final Standings presentation. */
+/* RaceHub v5.8.20 — sole clean standalone Final Standings presentation. */
 (()=>{
 'use strict';
 const byId=id=>document.getElementById(id);
@@ -45,4 +45,19 @@ window.rhShowFinalStandingsV5810=showRun;
 window.rhShowEventFinalStandingsV5810=showEvent;
 window.rhShowFinalStandingsV5817=showRun;
 window.rhShowEventFinalStandingsV5817=showEvent;
+// Sole authority for completed-run/event opening. No legacy renderer remains active.
+const previousOpenRun=window.rhOpenRun;
+if(previousOpenRun) window.rhOpenRun=function(id){
+ const r=(typeof rhCurrentRuns==='function'?rhCurrentRuns():[]).find(x=>String(x.id)===String(id));
+ if(r?.status==='complete') return showRun(id,r.results?.at(-1)?.carId);
+ return previousOpenRun(id);
+};
+const previousOpenEvent=window.rhOpenEvent;
+if(previousOpenEvent) window.rhOpenEvent=function(id){
+ const e=space()?.customEvents?.find(x=>String(x.id)===String(id));
+ if(e?.status==='complete') return showEvent(id,e.results?.at(-1)?.carId);
+ return previousOpenEvent(id);
+};
+window.rhShowCompletedEventLeaderboard=showEvent;
+
 })();

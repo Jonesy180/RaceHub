@@ -1,7 +1,7 @@
 /* RaceHub v5.8.10 — authoritative race-end flow (Result Summary + Final Standings). */
 (()=>{
   'use strict';
-  const VERSION='5.8.19';
+  const VERSION='5.8.20';
   const byId=id=>document.getElementById(id);
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=t=>typeof rhFmtTime==='function'?rhFmtTime(Number(t||0)):String(t??'—');
