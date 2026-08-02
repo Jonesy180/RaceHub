@@ -1,7 +1,7 @@
 /* RaceHub v5.8.10 — authoritative race-end flow (Result Summary + Final Standings). */
 (()=>{
   'use strict';
-  const VERSION='5.8.21';
+  const VERSION='5.8.22';
   const byId=id=>document.getElementById(id);
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=t=>typeof rhFmtTime==='function'?rhFmtTime(Number(t||0)):String(t??'—');
@@ -52,13 +52,13 @@
     const rows=partialRunRows(run);
     const done=run.status==='complete';
     let label='CONTINUE',sub='RETURN TO CHAMPIONSHIP',next=()=>rhOpenRun(run.id);
-    if(done){label='FINAL STANDINGS';sub='VIEW OFFICIAL CLASSIFICATION';next=()=>showFinalRun(run.id,res.carId)}
+    if(done){label='FINAL STANDINGS';sub='VIEW OFFICIAL CLASSIFICATION';next=()=>{if(typeof window.rhShowFinalStandingsV5821==='function')window.rhShowFinalStandingsV5821(run.id,res.carId);else throw new Error('Final Standings renderer unavailable')}}
     else {try{const n=rhNextSlot(run),carDone=rhRunCarIsComplete(run,res.carId);if(carDone&&n&&String(n.carId)!==String(res.carId)){label='CAR COMPLETE';sub='VIEW TOTAL & NEXT CAR';next=()=>rhRunCarCompleteTransition(run.id,res.carId)}}catch(_){}}
     mountSummary('festival',{roundName:res.roundName,title:typeLabel(run.type||run.championshipType),carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows,carId:res.carId,label,sub,back:()=>rhOpenRun(run.id),next});
   }
   function eventSummary(event,res){
     const done=event.status==='complete';
-    mountSummary('event',{roundName:res.roundName,title:event.name,carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows:partialEventRows(event),carId:res.carId,label:done?'FINAL STANDINGS':'CONTINUE EVENT',sub:done?'VIEW OFFICIAL CLASSIFICATION':'RETURN TO EVENT',back:()=>rhOpenEvent(event.id),next:done?()=>showFinalEvent(event.id,res.carId):()=>rhOpenEvent(event.id)});
+    mountSummary('event',{roundName:res.roundName,title:event.name,carLine:`${getName(res.carId)} • ${fmt(res.time)}`,rows:partialEventRows(event),carId:res.carId,label:done?'FINAL STANDINGS':'CONTINUE EVENT',sub:done?'VIEW OFFICIAL CLASSIFICATION':'RETURN TO EVENT',back:()=>rhOpenEvent(event.id),next:done?()=>{if(typeof window.rhShowEventFinalStandingsV5821==='function')window.rhShowEventFinalStandingsV5821(event.id,res.carId);else throw new Error('Event Final Standings renderer unavailable')}:()=>rhOpenEvent(event.id)});
   }
   function accepted(owner,res,kind='festival'){
     const hostId=kind==='events'?'event':'festival';
@@ -67,22 +67,6 @@
     host.innerHTML=`<div class="rhAccepted ${kind==='events'?'rhAcceptedEvents':'rhAcceptedChamp'} rhAcceptedFinal"><div class="rhAcceptedShadeFinal"></div><div class="rhAcceptedGlass rhAcceptedGlassFinal"><div class="rhAcceptedTick">✓</div><h1>RESULT SAVED</h1><p>${text}</p><small>${esc(res.roundName)} complete</small></div></div>`;
     setTimeout(()=>{try{kind==='events'?eventSummary(owner,res):runSummary(owner,res)}catch(err){console.error('RaceHub result summary failed',err);kind==='events'?rhOpenEvent(owner.id):rhOpenRun(owner.id)}},750);
   }
-
-  function trophy(run){const t=String(run?.trophy||run?.type||'festival').toLowerCase();return t==='make'||t==='manufacturer'?'assets/final/trophy-manufacturer.png':t==='era'?'assets/final/trophy-era.png':t==='favourite'?'assets/final/trophy-favourite.png':'assets/final/trophy-festival.png'}
-  function finalHtml(kind,item,rows,currentId){
-    const leader=rows[0]?.total||0,winner=rows[0],rounds=kind==='event'?eventRounds(item).length:(item.rounds||[]).length;
-    return `<div class="rhFinal5799"><header class="rhFinal5799Head"><div><small>FINAL STANDINGS</small><h1>${esc(item.name)}</h1><p>${kind==='event'?'EVENT':'CHAMPIONSHIP'} • ${rounds} ROUND${rounds===1?'':'S'} COMPLETE</p></div></header><section class="rhFinal5799Board"><div class="rhFinal5799Title"><small>RACEHUB ${kind==='event'?'EVENT':'FESTIVAL'}</small><h2>OFFICIAL RESULTS</h2></div><div class="rhFinal5799Cols"><span>POS</span><span>CAR</span><span>TOTAL TIME</span><span>GAP</span></div><div class="rhFinal5799Scroll" id="rhFinalScroll">${rows.map((x,i)=>`<div class="rhFinal5799Row ${i<3?'podium ':''}${String(x.id)===String(currentId)?'current':''}"><i>${String(i+1).padStart(2,'0')}</i><span>${esc(getName(x.id))}</span><strong>${fmt(x.total)}</strong><em>${i===0?'LEADER':'+'+fmt(x.total-leader)}</em></div>`).join('')}</div></section><section class="rhFinal5799Winner">${kind==='event'?'<div class="rhFinal5799EventTrophy">🏁</div>':`<img src="${trophy(item)}" alt="">`}<div><small>${kind==='event'?'EVENT WINNER':'CHAMPIONSHIP WINNER'}</small><b>${esc(getName(winner?.id))}</b><strong>${winner?fmt(winner.total):'—'}</strong></div></section><div class="rhFinal5799Actions"><button class="secondary" id="rhFinalSecondary">${kind==='event'?'VIEW EVENTS':'VIEW HALL OF FAME'}</button><button class="primary" id="rhFinalBack">${kind==='event'?'BACK TO EVENTS':'BACK TO CHAMPIONSHIPS'}</button></div></div>`;
-  }
-  function mountFinal(kind,item,rows,currentId){
-    const hostId=kind==='event'?'event':'festival'; if(typeof show==='function')show(hostId); const host=byId(hostId);if(!host)return;
-    host.innerHTML=finalHtml(kind,item,rows,currentId);
-    const back=()=>{if(kind==='event'){rhRenderEvents();show('events')}else{rhRenderFestival();show('festival')}window.scrollTo(0,0)};
-    byId('rhFinalBack')?.addEventListener('click',back);
-    byId('rhFinalSecondary')?.addEventListener('click',()=>{if(kind==='event')back();else{window.rhRecordsMode='hall';rhRenderRecords();show('hall')}});
-    requestAnimationFrame(()=>{const s=byId('rhFinalScroll'),r=s?.querySelector('.current');if(s&&r)s.scrollTop=Math.max(0,r.offsetTop-(s.clientHeight-r.clientHeight)/2)});
-  }
-  function showFinalRun(id,currentId){const run=(typeof rhCurrentRuns==='function'?rhCurrentRuns():[]).find(x=>String(x.id)===String(id));if(run)mountFinal('championship',run,finalRunRows(run),currentId)}
-  function showFinalEvent(id,currentId){const e=currentSpace()?.customEvents?.find(x=>String(x.id)===String(id));if(e)mountFinal('event',e,finalEventRows(e),currentId)}
 
   window.rhResultAccepted=accepted;
   window.rhResultSummary=runSummary;
