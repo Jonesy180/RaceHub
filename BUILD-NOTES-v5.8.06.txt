@@ -1,0 +1,6 @@
+RaceHub v5.8.06 — Result Saved transition repair
+
+- Fixed Result Summary transition crash caused by podium summary referencing a non-global runBoard helper.
+- Podium summary now builds championship classification with its own live helper.
+- No artwork, layout, save logic, or other page changes.
+- Version/cache authority advanced to v5.8.06.

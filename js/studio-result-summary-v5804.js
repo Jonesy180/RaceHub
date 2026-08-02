@@ -1,7 +1,16 @@
-/* RaceHub v5.8.04 — locked podium Result Summary */
+/* RaceHub v5.8.06 — locked podium Result Summary */
 (()=>{
   const esc=v=>typeof safe==='function'?safe(v):String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const totalOf=x=>Number(x?.total||0);
+  function championshipRows(r){
+    const rounds=r?.rounds||[];
+    return (r?.entries||[]).map(id=>{
+      const rr=(r?.results||[]).filter(x=>String(x.carId)===String(id));
+      return rr.length===rounds.length&&rounds.length
+        ? {id,total:rr.reduce((sum,x)=>sum+Number(x.time||0),0)}
+        : null;
+    }).filter(Boolean).sort((a,b)=>a.total-b.total);
+  }
   function contextRows(rows,highlightId){
     const at=Math.max(0,rows.findIndex(x=>(x.id||x.car?.id)===highlightId));
     const start=Math.max(0,Math.min(at-2,Math.max(0,rows.length-5)));
@@ -34,7 +43,7 @@
     </div>`;
   }
   window.rhResultSummary=function(r,res){
-    const c=carById(res.carId),rows=runBoard(r),next=rhNextSlot(r),carDone=rhRunCarIsComplete(r,res.carId),nextDifferent=!!(next&&next.carId!==res.carId);
+    const c=carById(res.carId),rows=championshipRows(r),next=rhNextSlot(r),carDone=rhRunCarIsComplete(r,res.carId),nextDifferent=!!(next&&next.carId!==res.carId);
     let label='CONTINUE',sub='RETURN TO CHAMPIONSHIP',action=`rhOpenRun('${r.id}')`;
     if(r.status==='complete'){label='FINAL STANDINGS';sub='VIEW CHAMPIONSHIP RESULT';action=`rhChampionshipCompleteTransition('${r.id}')`;}
     else if(carDone&&nextDifferent){label='CAR COMPLETE';sub='VIEW TOTAL & NEXT CAR';action=`rhRunCarCompleteTransition('${r.id}','${res.carId}')`;}
