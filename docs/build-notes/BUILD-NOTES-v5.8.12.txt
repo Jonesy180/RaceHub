@@ -1,0 +1,6 @@
+RaceHub v5.8.12 — Final Standings stylesheet repair
+
+- Replaced the stale v5.8.08 stylesheet reference in index.html with the authoritative v5.8.12 stylesheet.
+- Restored the locked stadium Final Standings layout without changing working race-end data or navigation.
+- Synced visible version, update checker, bootstrap and service-worker cache to v5.8.12.
+- No redraws, overlays, or data-flow changes.
