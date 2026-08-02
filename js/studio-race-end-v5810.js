@@ -1,7 +1,7 @@
 /* RaceHub v5.8.10 — authoritative race-end flow (Result Summary + Final Standings). */
 (()=>{
   'use strict';
-  const VERSION='5.8.20';
+  const VERSION='5.8.21';
   const byId=id=>document.getElementById(id);
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=t=>typeof rhFmtTime==='function'?rhFmtTime(Number(t||0)):String(t??'—');
@@ -87,9 +87,5 @@
   window.rhResultAccepted=accepted;
   window.rhResultSummary=runSummary;
   window.rhEventResultSummary=eventSummary;
-  window.rhChampionshipCompleteTransition=showFinalRun;
-  window.rhEventCompleteTransition=showFinalEvent;
-  window.rhShowFinalStandingsV5810=showFinalRun;
-  window.rhShowEventFinalStandingsV5810=showFinalEvent;
   window.RACEHUB_VERSION=VERSION;
 })();
