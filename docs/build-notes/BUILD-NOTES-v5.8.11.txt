@@ -1,0 +1,8 @@
+RaceHub v5.8.11 — Final Standings Stadium Artwork
+
+- Preserved the proven v5.8.10 race-end data and navigation flow.
+- Rebuilt only the Final Standings presentation to match the locked stadium display-board design.
+- Added fixed full-screen stadium surface, internally scrolling official results board, contextual winner panel, correct trophy, and two final actions.
+- Removed underlying app navigation while Final Standings is active.
+- Kept dynamic car names, times, gaps, current-car highlight, Hall of Fame and return routing.
+- Version/update/cache authority advanced to v5.8.11.
