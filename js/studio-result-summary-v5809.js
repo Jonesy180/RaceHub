@@ -43,7 +43,6 @@
       </section>
       <main class="rhPodiumBodyV5804">
         <section class="rhPodiumMetaV5804"><small>${esc(title)}</small><b>${esc(carLine)}</b></section>
-        <section class="rhPodiumAcceptedV5804"><span>✓</span><div><small>RESULT ACCEPTED</small><b>CURRENT CLASSIFICATION</b></div></section>
         ${summaryBoard(rows,highlightId)}
         <button class="rhPodiumContinueV5804" onclick="${buttonAction}"><b>${esc(buttonLabel)}</b><small>${esc(buttonSub)}</small></button>
       </main>
