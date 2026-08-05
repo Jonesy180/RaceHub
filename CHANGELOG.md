@@ -1,3 +1,12 @@
+# RaceHub v5.9.3
+
+- Fixed Hall of Fame tile and back navigation.
+- Restored adding newly acquired Garage cars to active Festival Championships.
+- Fixed Favourite Manufacturer onboarding list scrolling.
+- Corrected About RaceHub version display.
+- Applied final back-arrow centring polish.
+- Added automatic update notification support.
+
 ## v5.8.31 — Result Summary simplification
 - Removed the redundant green Result Accepted tile from Result Summary.
 - Current Classification now follows the championship/event summary directly.
