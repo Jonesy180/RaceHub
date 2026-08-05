@@ -1,3 +1,8 @@
+## v5.9.5 — Universal BACK header layout correction
+- Corrected shared header spacing so BACK never covers page titles.
+- Removed remaining arrow pseudo-elements.
+- Preserved universal form-memory suppression.
+
 # v5.9.4 — Universal BACK + No Memory Lists
 - Replaced every top-left navigation arrow with the shared RH-UI-026 frosted-glass BACK pill.
 - Disabled browser/input remembered-value suggestion lists across forms while preserving RaceHub-controlled selection interfaces.
