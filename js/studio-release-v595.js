@@ -1,7 +1,7 @@
-/* RaceHub v5.9.15 — Festival delete synchronisation. */
+/* RaceHub v5.9.16 — Festival delete sync release/version authority. */
 (()=>{
  'use strict';
- const CURRENT_VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.15';
+ const CURRENT_VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.16';
  function updateStatus(text,state=''){const el=document.getElementById('rhUpdateStatus');if(el){el.textContent=text;el.dataset.state=state}}
  window.rhCheckForUpdate=async function(){
    const button=document.getElementById('rhCheckUpdateButton');

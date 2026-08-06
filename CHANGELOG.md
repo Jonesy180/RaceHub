@@ -1,9 +1,8 @@
-# RaceHub v5.9.15
+# RaceHub v5.9.16
 
-- Fixed active and prepared Festival Championships retaining a Garage car after that car was deleted.
-- Festival entry counts now decrease immediately after a Garage deletion.
-- Any Festival result belonging to the deleted car is removed with that entry.
-- No changes to other Championship freeze rules, service worker, cache, bootstrap, styling, manifest, or storage identity.
+- Fixed active/prepared Festival Championships retaining a Garage car after that car was deleted.
+- Deleted car results are removed from the Festival run at the same time.
+- No BACK-button, layout, manifest, storage-identity or repository-identity changes.
 
 ## v5.9.5 — Universal BACK header layout correction
 - Corrected shared header spacing so BACK never covers page titles.

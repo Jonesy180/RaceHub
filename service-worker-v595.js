@@ -1,13 +1,13 @@
-const CACHE_NAME='racehub-v5.9.5-universal-back-no-memory-lists';
+const CACHE_NAME='racehub-v5.9.16-festival-delete-sync';
 const ASSETS=[
   './','./index.html','./style-v595.css?v=595','./manifest.webmanifest?v=5829','./favicon.png',
   './js/seed-data.js?v=5799','./js/core.js?v=5799','./js/race-director.js?v=5799','./js/views.js?v=5799',
   './js/celebrations.js?v=5799','./js/garage.js?v=5799','./js/control-centre.js?v=5799',
-  './js/studio-final-v5808.js?v=5808','./js/studio-locked-ui-v5780.js?v=5799','./js/studio-polish-v5782.js?v=5799',
-  './js/studio-release-v593.js?v=593','./js/studio-enter-result-v5803.js?v=5803','./js/studio-result-summary-v5837.js?v=5837',
+  './js/studio-final-v5808.js?v=5916','./js/studio-locked-ui-v5780.js?v=5799','./js/studio-polish-v5782.js?v=5799',
+  './js/studio-release-v595.js?v=5916','./js/studio-enter-result-v5803.js?v=5803','./js/studio-result-summary-v5837.js?v=5837',
   './js/studio-race-flow-v5809.js?v=5829','./js/bootstrap-v595.js?v=595','./js/studio-race-end-v5837.js?v=5837',
   './js/studio-final-standings-v5828.js?v=5829','./js/studio-records-v5830.js?v=5831','./js/studio-car-complete-v5832.js?v=5832',
-  './js/studio-champ-overview-v5835.js?v=5835','./js/studio-beta-feedback-v595.js?v=595','./assets/final/championship-in-progress-aerial-v5834.png?v=5834',
+  './js/studio-champ-overview-v5835.js?v=5835','./js/studio-beta-feedback-v595.js?v=5916','./assets/final/championship-in-progress-aerial-v5834.png?v=5834',
   './assets/final/final-standings-face-on-ui-ready-v5828.png?v=5828','./assets/final/racehub-logo.png',
   './assets/final/hubs-pit-chief-v5829.png?v=5829','./assets/final/enter-result-side-finish-v5803.png','./assets/final/result-summary-podium-v5804.png',
   './assets/final/trophy-festival.png','./assets/final/trophy-manufacturer.png','./assets/final/trophy-era.png','./assets/final/trophy-favourite.png',
