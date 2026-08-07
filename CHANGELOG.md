@@ -1,4 +1,10 @@
-# RaceHub v5.9.16
+# RaceHub v5.9.17
+
+- Standardise every universal top-left BACK pill to the same compact 80px width.
+- Preserve the v5.9.16 Festival/Garage delete synchronisation and all existing functionality.
+- No workflow/footer BACK buttons are changed.
+
+## RaceHub v5.9.16
 
 - Fixed active/prepared Festival Championships retaining a Garage car after that car was deleted.
 - Deleted car results are removed from the Festival run at the same time.
