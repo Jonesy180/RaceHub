@@ -1,7 +1,7 @@
-/* RaceHub v5.9.17 — universal BACK size release/version authority. */
+/* RaceHub v5.9.18 — universal BACK size release/version authority. */
 (()=>{
  'use strict';
- const CURRENT_VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.17';
+ const CURRENT_VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.18';
  function updateStatus(text,state=''){const el=document.getElementById('rhUpdateStatus');if(el){el.textContent=text;el.dataset.state=state}}
  window.rhCheckForUpdate=async function(){
    const button=document.getElementById('rhCheckUpdateButton');

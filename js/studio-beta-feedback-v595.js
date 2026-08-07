@@ -1,7 +1,7 @@
 /* RaceHub v5.9.4 — synchronized beta feedback fixes. */
 (()=>{
   'use strict';
-  const CURRENT_VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.17';
+  const CURRENT_VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.18';
   const safe=v=>typeof esc==='function'?esc(String(v??'')):String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
   /* Hall of Fame back arrow: always return to the Records view and keep the Hall screen visible. */
@@ -108,10 +108,10 @@
   setTimeout(()=>{repairHallBack();repairHallTile();},0);
 })();
 
-/* v5.9.17 — authoritative version; universal BACK and form-memory controls retained. */
+/* v5.9.18 — authoritative version; universal BACK and form-memory controls retained. */
 (()=>{
   'use strict';
-  const VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.17';
+  const VERSION=document.querySelector('meta[name="racehub-version"]')?.content||'5.9.18';
   let fieldSerial=0;
 
   function repairAboutVersion(){
