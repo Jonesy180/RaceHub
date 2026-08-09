@@ -4307,3 +4307,14 @@ button.rhBack.rhUniversalBackV594,
 .rhGarageV6Guide b{font-size:10px;letter-spacing:.08em;color:#27ddfa}.rhGarageV6Guide span{font-size:9px;line-height:1.35;color:#aeb8bc}
 .rhGarageNeedsBtn{width:100%;height:38px;margin:0 0 10px;border:1px solid rgba(163,181,188,.32);border-radius:10px;background:rgba(5,13,18,.88);color:#aeb8bc;font-size:10px;font-weight:800;letter-spacing:.07em}.rhGarageNeedsBtn span{margin-left:5px;color:#fff}.rhGarageNeedsBtn.on{border-color:#27ddfa;color:#27ddfa}
 .rhGarageCarV1.rhGarageCarV6{grid-template-columns:18px minmax(0,1fr) auto}.rhGarageCarV6>span{display:grid;gap:3px}.rhGarageCarV6>span>small{display:flex;gap:10px}.rhGarageCarV6>span>small>span{min-width:56px}.rhGarageUnknown{color:#747e84;font-style:italic;font-weight:700}.rhGarageCarV6>button.rhAddDetails{width:auto!important;min-width:82px!important;padding:0 7px!important;font-size:8px!important;letter-spacing:.04em;color:#aeb8bc!important;border:1px solid rgba(163,181,188,.24)!important;border-radius:8px!important}
+
+/* RaceHub v6.0.3 — Stage 2 smart remembered Class/Type suggestions */
+.rhSmartSuggestWrap{position:relative}
+.rhSmartSuggestWrap>.rhSearch{width:100%}
+.rhSmartSuggestions{position:absolute;z-index:25;left:0;right:0;top:calc(100% + 5px);max-height:230px;overflow-y:auto;padding:7px;border:1px solid rgba(39,221,250,.28);border-radius:12px;background:rgba(2,12,18,.98);box-shadow:0 14px 32px rgba(0,0,0,.55)}
+.rhSmartSuggestions[hidden]{display:none!important}
+.rhSmartSuggestHead{padding:5px 8px 7px;font-size:9px;font-weight:800;letter-spacing:.08em;color:#6d7b82}
+.rhSmartSuggestions button{width:100%;min-height:38px;padding:8px 10px;border:0;border-radius:8px;background:transparent;color:#f4f7f8;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;font:inherit}
+.rhSmartSuggestions button+button{border-top:1px solid rgba(255,255,255,.055)}
+.rhSmartSuggestions button:active,.rhSmartSuggestions button:focus-visible{background:rgba(39,221,250,.10);outline:1px solid rgba(39,221,250,.28)}
+.rhSmartSuggestions button span{font-size:13px;font-weight:700}.rhSmartSuggestions button small{font-size:9px;color:#78868c;white-space:nowrap}

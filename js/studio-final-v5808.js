@@ -434,10 +434,78 @@ function rhToggleGarageMake(make){
  if(em) em.textContent=open?'⌃':'⌄';
 }
 
+
+function rhGarageClassTypeMemory(){
+ const s=rhSpace();
+ if(!s.garageEntryMemory||typeof s.garageEntryMemory!=='object')s.garageEntryMemory={};
+ if(!Array.isArray(s.garageEntryMemory.classTypes))s.garageEntryMemory.classTypes=[];
+ const seen=new Map();
+ const add=(value)=>{
+  const clean=String(value||'').trim();
+  if(!clean)return;
+  const key=clean.toLocaleLowerCase();
+  if(!seen.has(key))seen.set(key,clean);
+ };
+ s.garageEntryMemory.classTypes.forEach(add);
+ s.cars.forEach(c=>add(c.classType));
+ s.garageEntryMemory.classTypes=Array.from(seen.values()).sort((a,b)=>a.localeCompare(b));
+ return s.garageEntryMemory.classTypes;
+}
+function rhRememberClassType(value){
+ const clean=String(value||'').trim();
+ if(!clean)return;
+ const values=rhGarageClassTypeMemory();
+ if(!values.some(v=>v.toLocaleLowerCase()===clean.toLocaleLowerCase())){
+  values.push(clean);
+  values.sort((a,b)=>a.localeCompare(b));
+ }
+}
+function rhGarageClassTypeUsage(value){
+ const key=String(value||'').trim().toLocaleLowerCase();
+ return rhSpace().cars.filter(c=>String(c.classType||'').trim().toLocaleLowerCase()===key).length;
+}
+function rhGarageClassTypeSuggestions(query=''){
+ const q=String(query||'').trim().toLocaleLowerCase();
+ return rhGarageClassTypeMemory().map(value=>({
+  value,
+  count:rhGarageClassTypeUsage(value),
+  prefix:q&&value.toLocaleLowerCase().startsWith(q),
+  contains:!q||value.toLocaleLowerCase().includes(q)
+ })).filter(x=>x.contains).sort((a,b)=>{
+  if(Boolean(a.prefix)!==Boolean(b.prefix))return a.prefix?-1:1;
+  if(a.count!==b.count)return b.count-a.count;
+  return a.value.localeCompare(b.value);
+ }).slice(0,8);
+}
+function rhGarageRenderClassTypeSuggestions(){
+ const input=$('rhCarClassType'),box=$('rhClassTypeSuggestions');
+ if(!input||!box)return;
+ const items=rhGarageClassTypeSuggestions(input.value);
+ if(!items.length){box.hidden=true;box.innerHTML='';return}
+ box.innerHTML=`<div class="rhSmartSuggestHead">REMEMBERED CLASS / TYPE</div>${items.map(x=>`<button type="button" onpointerdown="event.preventDefault();rhGarageChooseClassType(decodeURIComponent('${encodeURIComponent(x.value)}'))"><span>${esc(x.value)}</span>${x.count?`<small>${x.count} car${x.count===1?'':'s'}</small>`:''}</button>`).join('')}`;
+ box.hidden=false;
+}
+function rhGarageChooseClassType(value){
+ const input=$('rhCarClassType'),box=$('rhClassTypeSuggestions');
+ if(!input)return;
+ input.value=value;
+ if(box)box.hidden=true;
+ input.focus();
+}
+function rhGarageBindClassTypeSuggestions(){
+ const input=$('rhCarClassType'),box=$('rhClassTypeSuggestions');
+ if(!input||!box)return;
+ input.addEventListener('focus',rhGarageRenderClassTypeSuggestions);
+ input.addEventListener('input',rhGarageRenderClassTypeSuggestions);
+ input.addEventListener('keydown',event=>{if(event.key==='Escape')box.hidden=true});
+ input.addEventListener('blur',()=>setTimeout(()=>{if(box)box.hidden=true},120));
+}
+
 function rhOpenCarEditor(id=''){
  const c=id?rhSpace().cars.find(x=>x.id===id):null;
  document.getElementById('rhCarEditor')?.remove();
- document.body.insertAdjacentHTML('beforeend',`<div id="rhCarEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhCarEditor').remove()">×</button><h2>${c?(rhGarageNeedsDetails(c)?'Add Details':'Edit Car'):'Add Car'}</h2><p>${c?'Correct this Garage entry.':'Add a car to the current RaceHub Space.'}</p><label>Manufacturer</label><input id="rhCarMake" class="rhSearch" autocomplete="off" value="${esc(c?.make||'')}" placeholder="Manufacturer"><label>Vehicle Name</label><input id="rhCarModel" class="rhSearch" autocomplete="off" value="${esc(c?.model||'')}" placeholder="Vehicle name"><label>Year</label><input id="rhCarYear" class="rhSearch" autocomplete="off" inputmode="numeric" maxlength="4" value="${esc(c?.year||'')}" placeholder="UNKNOWN"><label>Class / Type</label><input id="rhCarClassType" class="rhSearch" autocomplete="off" value="${esc(c?.classType||'')}" placeholder="UNKNOWN"><p class="small">Era is derived automatically from Year. Leave Year or Class/Type blank if unknown.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarEditor').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarFinal('${id}')">${c?'SAVE CHANGES':'ADD TO GARAGE'}</button></div>${c?`<button class="btn dangerBtn rhDeleteCar" onclick="rhConfirmDeleteCar('${id}')">DELETE CAR</button>`:''}</div></div>`)
+ document.body.insertAdjacentHTML('beforeend',`<div id="rhCarEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhCarEditor').remove()">×</button><h2>${c?(rhGarageNeedsDetails(c)?'Add Details':'Edit Car'):'Add Car'}</h2><p>${c?'Correct this Garage entry.':'Add a car to the current RaceHub Space.'}</p><label>Manufacturer</label><input id="rhCarMake" class="rhSearch" autocomplete="off" value="${esc(c?.make||'')}" placeholder="Manufacturer"><label>Vehicle Name</label><input id="rhCarModel" class="rhSearch" autocomplete="off" value="${esc(c?.model||'')}" placeholder="Vehicle name"><label>Year</label><input id="rhCarYear" class="rhSearch" autocomplete="off" inputmode="numeric" maxlength="4" value="${esc(c?.year||'')}" placeholder="UNKNOWN"><label>Class / Type</label><div class="rhSmartSuggestWrap"><input id="rhCarClassType" class="rhSearch" autocomplete="off" autocapitalize="words" spellcheck="false" value="${esc(c?.classType||'')}" placeholder="UNKNOWN"><div id="rhClassTypeSuggestions" class="rhSmartSuggestions" hidden></div></div><p class="small">Era is derived automatically from Year. Class/Type suggestions are learned only from values used in this RaceHub Space.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarEditor').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarFinal('${id}')">${c?'SAVE CHANGES':'ADD TO GARAGE'}</button></div>${c?`<button class="btn dangerBtn rhDeleteCar" onclick="rhConfirmDeleteCar('${id}')">DELETE CAR</button>`:''}</div></div>`)
+ rhGarageBindClassTypeSuggestions();
 }
 function rhChampDiscoveryKey(type,value){return `${type}:${String(value||'').trim().toLowerCase()}`}
 function rhEligibleChampionshipsForCars(cars){
@@ -479,6 +547,7 @@ function rhSaveCarFinal(id=''){
  if(!make||!model){toast('Manufacturer and Vehicle Name are required');return}
  if(year&&!/^\d{4}$/.test(year)){toast('Enter a four-digit year');return}
  const s=rhSpace(),before=rhCaptureChampEligibility();
+ rhRememberClassType(classType);
  if(id){const c=s.cars.find(x=>x.id===id);if(!c)return;Object.assign(c,normaliseCar({...c,make,model,year,classType}))}
  else s.cars.push(normaliseCar({id:rhId('car'),make,model,year,classType}));
  rhGarageOpenMake=make;rhSync();rhSave();$('rhCarEditor')?.remove();rhRenderGarage();toast(id?'Car updated':'Car added');rhCheckChampionshipDiscoveries(before)

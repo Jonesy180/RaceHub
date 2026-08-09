@@ -1,3 +1,10 @@
+## v6.0.3 — Stage 2 smart remembered Class/Type suggestions
+- Adds an app-controlled Class/Type suggestion chooser to Add/Edit Car.
+- Suggestions are learned from actual Class/Type values used in the current RaceHub Space; there are no hard-coded categories.
+- Suggestions are space-specific, case-insensitive, ranked by match/use and persist in RaceHub data.
+- Browser autocomplete/datalist is not used.
+- No Festival expansion or new Championship type logic is included.
+
 ## v6.0.2 — Stage 1 Garage details (live production path)
 - Rebuilt from protected v6.0.0 after rejecting v6.0.1.
 - Changes the actual studio-final-v5808 Garage/Edit Car implementation loaded in production.
