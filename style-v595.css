@@ -4347,3 +4347,8 @@ button.rhBack.rhUniversalBackV594,
 .rhHofTrophyV6{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .rhHofTrophyV6>img{display:block}
 .rhHofDynamicPlaque{margin-top:-3px}
+
+/* RaceHub v6.0.10 — Stage 6 permanent classification history */
+.rhRaceRecordHistoryLinkV6010{cursor:pointer}
+.rhRaceRecordHistoryLinkV6010:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+.rhRaceRecordOpenFinalV6010{margin-left:10px;font-size:11px;font-weight:900;letter-spacing:.08em;white-space:nowrap;opacity:.82}

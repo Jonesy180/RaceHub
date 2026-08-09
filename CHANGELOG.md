@@ -1,3 +1,10 @@
+## v6.0.10 — Stage 6 Event History + permanent Final Leaderboards
+- Records now preserves each Championship/Event run as its own historical competition instance instead of collapsing repeated names together.
+- Completed Championship and Event history rows can reopen their original permanent Final Leaderboard directly from Records.
+- Uses the existing proven Final Leaderboard renderer and the original saved run/event data; no duplicate classification store was introduced.
+- Active/incomplete history remains visible for record purposes but cannot open a Final classification until complete.
+- No racing workflow, Garage, Festival eligibility, Hall of Fame, Stats or artwork was redesigned.
+
 ## v6.0.9 — Stage 5 Records / Hall of Fame / Stats integration
 - Makes saved Championship TYPE the single trophy identity authority for all seven Championship types.
 - Fixes Class/Type, Vintage and Classic runs so Save/Start persist the correct trophy identity instead of Festival fallback.
