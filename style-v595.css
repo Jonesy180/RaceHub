@@ -4395,7 +4395,7 @@ button.rhBack.rhUniversalBackV594,
 .rhATLapRowV6015{display:grid;grid-template-columns:54px minmax(0,1fr) 45px;align-items:center;gap:8px;min-height:50px;padding:8px 9px;border:1px solid rgba(255,255,255,.07);border-radius:9px;background:rgba(0,0,0,.22);transition:border-color .15s,background .15s,box-shadow .15s}
 .rhATLapLabelV6015{color:#aebcc1;font-size:9px;font-weight:900;letter-spacing:.08em;white-space:nowrap}
 .rhATLapConsoleV6015{display:flex;min-width:0;height:34px;align-items:center;justify-content:center;gap:3px;padding:0 8px;border:1px solid rgba(43,224,250,.34);border-radius:8px;background:linear-gradient(180deg,rgba(3,16,21,.95),rgba(1,8,12,.98));box-shadow:inset 0 0 0 3px rgba(255,255,255,.025),inset 0 0 16px rgba(43,224,250,.035)}
-.rhATLapConsoleV6015>i{color:#57cbd8;font-size:13px;font-style:normal;font-weight:900;line-height:1}
+.rhATLapConsoleV6015>i{position:relative;top:2px;color:#57cbd8;font-size:13px;font-style:normal;font-weight:900;line-height:1}
 .rhATLapPartV6015{position:relative;display:block;min-width:0;height:25px;font-size:20px;line-height:1}
 .rhATLapPartV6015:not(.ms){width:31px}.rhATLapPartV6015.ms{width:47px}
 .rhATSegDisplayV6015{display:inline-flex;height:25px;align-items:center;gap:1px;color:#18e4f7;font-size:20px;line-height:1}

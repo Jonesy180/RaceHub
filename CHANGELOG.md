@@ -1,3 +1,8 @@
+## v6.0.16 — Stage 8B lap separator alignment
+- Alignment-only correction: vertically centres the colon separators in the compact Advanced Timing lap-time displays.
+- No redraw, no layout change, no timing/calculation/validation/persistence changes.
+- Built from the v6.0.15 candidate solely to preserve its tested working Advanced Timing implementation while correcting the approved optical alignment.
+
 ## v6.0.15 — Stage 8B Advanced Timing corrected implementation
 - Built only from protected v6.0.13; rejected v6.0.14 was not used as a baseline.
 - Implements the locked compact digital lap-time rows and corrected alignment.

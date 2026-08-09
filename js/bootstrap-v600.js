@@ -1,5 +1,5 @@
-// RaceHub v6.0.15 — Stage 1 Garage foundation startup
+// RaceHub v6.0.16 — Stage 8B lap separator alignment release
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6015.js',{updateViaCache:'none'}).catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6016.js',{updateViaCache:'none'}).catch(()=>{}));}

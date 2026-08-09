@@ -1,3 +1,6 @@
+## v6.0.16 — Stage 8B lap separator alignment
+Alignment-only release. Compact lap-timer colon separators are vertically centred to match the locked approved Advanced Timing artwork. No functional Advanced Timing changes.
+
 ## v6.0.15 — Stage 8B Advanced Timing corrected implementation
 Built from protected v6.0.13. Adds locked compact digital lap entry, mandatory complete-lap validation, live green fastest-lap marking, automatic lap-total race time, and additive lap-detail persistence while preserving the existing result flow.
 
