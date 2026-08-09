@@ -4352,3 +4352,14 @@ button.rhBack.rhUniversalBackV594,
 .rhRaceRecordHistoryLinkV6010{cursor:pointer}
 .rhRaceRecordHistoryLinkV6010:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
 .rhRaceRecordOpenFinalV6010{margin-left:10px;font-size:11px;font-weight:900;letter-spacing:.08em;white-space:nowrap;opacity:.82}
+
+/* RaceHub v6.0.11 — Stage 7 Car Notes */
+.rhCarNotesButtonV6011{width:100%;margin-top:10px}
+.rhCarNotesBookV6011{max-height:min(88vh,760px);overflow:auto}
+.rhCarNotesHeadV6011{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rhCarNotesHeadV6011 small{font-size:10px;letter-spacing:.15em;opacity:.65}.rhCarNotesHeadV6011 h2{margin:2px 0 0}
+.rhCarNotesBackV6011{width:38px;height:38px;border-radius:50%;font-size:28px;line-height:1}
+.rhCarNotesIdentityV6011{display:grid;grid-template-columns:1fr auto;align-items:end;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.10)}
+.rhCarNotesIdentityV6011 small{grid-column:1/3;font-size:10px;letter-spacing:.13em;opacity:.68}.rhCarNotesIdentityV6011 b{font-size:18px}.rhCarNotesIdentityV6011 span{font-size:12px;opacity:.72}
+.rhCarNotesTextV6011{box-sizing:border-box;width:100%;min-height:300px;resize:vertical;padding:13px 14px;border:1px solid rgba(39,221,250,.18);border-radius:12px;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 29px),rgba(2,10,15,.78);color:inherit;font:inherit;line-height:29px;outline:none}
+.rhCarNotesTextV6011:focus{border-color:rgba(39,221,250,.55);box-shadow:0 0 0 2px rgba(39,221,250,.08)}
