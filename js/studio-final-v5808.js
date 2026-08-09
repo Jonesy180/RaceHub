@@ -492,14 +492,20 @@ function rhGarageClassTypeSuggestions(query=''){
   if(Boolean(a.prefix)!==Boolean(b.prefix))return a.prefix?-1:1;
   if(a.count!==b.count)return b.count-a.count;
   return a.value.localeCompare(b.value);
- }).slice(0,8);
+ });
+}
+function rhGarageBestClassTypeSuggestion(query=''){
+ const q=String(query||'').trim();
+ const inputKey=q.toLocaleLowerCase();
+ const items=rhGarageClassTypeSuggestions(q).filter(x=>x.value.toLocaleLowerCase()!==inputKey);
+ return items[0]||null;
 }
 function rhGarageRenderClassTypeSuggestions(){
  const input=$('rhCarClassType'),box=$('rhClassTypeSuggestions');
  if(!input||!box)return;
- const items=rhGarageClassTypeSuggestions(input.value);
- if(!items.length){box.hidden=true;box.innerHTML='';return}
- box.innerHTML=`<div class="rhSmartSuggestHead">REMEMBERED CLASS / TYPE</div>${items.map(x=>`<button type="button" onpointerdown="event.preventDefault();rhGarageChooseClassType(decodeURIComponent('${encodeURIComponent(x.value)}'))"><span>${esc(x.value)}</span>${x.count?`<small>${x.count} car${x.count===1?'':'s'}</small>`:''}</button>`).join('')}`;
+ const item=rhGarageBestClassTypeSuggestion(input.value);
+ if(!item){box.hidden=true;box.innerHTML='';return}
+ box.innerHTML=`<button type="button" class="rhSmartSuggestionSingle" onpointerdown="event.preventDefault();rhGarageChooseClassType(decodeURIComponent('${encodeURIComponent(item.value)}'))"><span>${esc(item.value)}</span>${item.count?`<small>${item.count} car${item.count===1?'':'s'}</small>`:''}</button>`;
  box.hidden=false;
 }
 function rhGarageChooseClassType(value){

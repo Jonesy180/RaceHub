@@ -4321,3 +4321,10 @@ button.rhBack.rhUniversalBackV594,
 
 /* RaceHub v6.0.4 — Stage 3A Class/Type Festival expansion */
 .rhFestivalClassTypeV6 summary span{color:#27ddfa}
+
+/* RaceHub v6.0.5 — compact single-line remembered Class/Type suggestion */
+.rhSmartSuggestions{max-height:none!important;padding:4px!important}
+.rhSmartSuggestionSingle{min-height:34px!important;height:34px!important;padding:6px 10px!important;border:0!important;background:rgba(2,12,18,.98)!important;border-radius:8px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important}
+.rhSmartSuggestionSingle span{font-size:12px!important;font-weight:700!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rhSmartSuggestionSingle small{font-size:9px!important;color:#78868c!important;white-space:nowrap}
+.rhSmartSuggestHead{display:none!important}

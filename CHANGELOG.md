@@ -1,3 +1,9 @@
+## v6.0.5 — Compact remembered Class/Type suggestion
+- Keeps the full RaceHub remembered Class/Type memory but displays only one best suggestion at a time.
+- The single suggestion changes as the user types.
+- Removes the multi-row suggestion dropdown that could cover Cancel / Save Changes.
+- No Festival eligibility or Championship logic changed.
+
 ## v6.0.4 — Stage 3A Class/Type Festival expansion
 - Adds data-driven Class/Type Championships to the live Festival screen.
 - Class/Type values come only from genuine Garage data; blank/UNKNOWN values create no Championship.
