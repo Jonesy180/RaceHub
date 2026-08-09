@@ -1,3 +1,8 @@
+## v6.0.6 — Class/Type suggestion positioned above input
+- Moves the single remembered Class/Type suggestion above the field for phone keyboard safety.
+- Keeps the one-line dynamic suggestion behaviour from v6.0.5.
+- No Garage data, Class/Type memory, Festival eligibility or Championship logic changed.
+
 ## v6.0.5 — Compact remembered Class/Type suggestion
 - Keeps the full RaceHub remembered Class/Type memory but displays only one best suggestion at a time.
 - The single suggestion changes as the user types.

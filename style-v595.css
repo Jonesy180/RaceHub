@@ -4328,3 +4328,9 @@ button.rhBack.rhUniversalBackV594,
 .rhSmartSuggestionSingle span{font-size:12px!important;font-weight:700!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rhSmartSuggestionSingle small{font-size:9px!important;color:#78868c!important;white-space:nowrap}
 .rhSmartSuggestHead{display:none!important}
+
+/* RaceHub v6.0.6 — phone-safe remembered Class/Type suggestion position */
+.rhSmartSuggestions.rhSmartSuggestionsAbove{
+ top:auto!important;
+ bottom:calc(100% + 5px)!important;
+}
