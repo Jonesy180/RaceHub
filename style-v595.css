@@ -4413,3 +4413,18 @@ button.rhBack.rhUniversalBackV594,
 .rhATTotalV6015{display:flex;flex-direction:column;align-items:flex-end;gap:2px}.rhATTotalV6015 small{color:#6f858d!important;font-size:6px!important;letter-spacing:.09em!important}.rhATTotalV6015 strong{color:#61e7f8;font:900 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-shadow:0 0 9px rgba(43,224,250,.3);white-space:nowrap}
 .rh5801Stopwatch.rhATAutoTotalV6015>p{color:#7f969e}.rh5801Stopwatch.rhATAutoTotalV6015 .rhStopwatchField{cursor:default}
 @media(max-width:430px){.rhATLapRowV6015{grid-template-columns:45px minmax(0,1fr) 39px;gap:5px;padding:7px 6px}.rhATLapLabelV6015{font-size:8px}.rhATLapConsoleV6015{height:32px;padding:0 5px;gap:2px}.rhATLapPartV6015{height:23px;font-size:18px}.rhATSegDisplayV6015{height:23px;font-size:18px}.rhATLapPartV6015:not(.ms){width:29px}.rhATLapPartV6015.ms{width:43px}.rhATFastestMarkV6015{font-size:7px}.rhATSummaryV6015{gap:7px}.rhATTotalV6015 strong{font-size:12px}}
+
+/* RaceHub v6.0.17 — Stage 8C Race Notes + Enter Result hero spacing polish */
+.rh5801Head{left:112px!important}
+.rhRaceNotesV6017{margin-top:14px;padding-top:13px;border-top:1px solid rgba(43,224,250,.13)}
+.rhRaceNotesV6017 label{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.rhRaceNotesV6017 label small{color:#2be0fa!important;font-size:8px!important;font-weight:900!important;letter-spacing:.14em!important}
+.rhRaceNotesV6017 label b{margin:0;color:#fff;font-size:13px}
+.rhRaceNotesV6017 textarea{box-sizing:border-box;width:100%;min-height:92px;resize:vertical;padding:11px 12px;border:1px solid rgba(43,224,250,.3);border-radius:9px;outline:none;background:rgba(0,0,0,.28);color:#eefcff;font:600 12px/1.5 system-ui,sans-serif;box-shadow:inset 0 0 18px rgba(43,224,250,.025)}
+.rhRaceNotesV6017 textarea::placeholder{color:#687c84}
+.rhRaceNotesV6017 textarea:focus{border-color:rgba(43,224,250,.62);box-shadow:0 0 0 2px rgba(43,224,250,.07),inset 0 0 18px rgba(43,224,250,.035)}
+.rhRaceNotesV6017>span{display:block;margin-top:6px;color:#71868e;font-size:8px;font-weight:700}
+.rhResultRaceNotesV6017{padding:12px 14px;border:1px solid rgba(43,224,250,.23);border-radius:12px;background:rgba(2,13,18,.76)}
+.rhResultRaceNotesV6017 small{color:#2be0fa;font-size:8px;font-weight:900;letter-spacing:.13em}
+.rhResultRaceNotesV6017 p{margin:7px 0 0;color:#d9e8ec;font-size:11px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:430px){.rh5801Head{left:108px!important}.rhRaceNotesV6017 textarea{min-height:84px}}

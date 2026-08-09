@@ -1,3 +1,9 @@
+## v6.0.17 — Stage 8C Race Notes + Enter Result hero spacing
+- Added optional result-specific Race Notes inside Advanced Timing.
+- Notes persist on the individual saved result and appear on Result Summary when present.
+- Shifted Enter Result title/subtitle slightly right for clearer BACK-button separation.
+- Advanced Timing v6.0.16 implementation remains unchanged.
+
 ## v6.0.16 — Stage 8B lap separator alignment
 Alignment-only release. Compact lap-timer colon separators are vertically centred to match the locked approved Advanced Timing artwork. No functional Advanced Timing changes.
 
