@@ -1,3 +1,11 @@
+## v6.0.7 — Stage 3B Vintage + Classic Festival expansion
+- Adds Vintage Championship eligibility for cars with Year <= 1949.
+- Adds Classic Championship eligibility for cars with Year 1950–1990 inclusive.
+- Both use the existing proven Festival Championship setup/run/results workflow and 2-car threshold.
+- Missing/UNKNOWN Year values are ignored.
+- Class/Type Championship behaviour from v6.0.4 remains unchanged.
+- Stage 4 trophy artwork is not implemented; Vintage and Classic temporarily use the existing Festival trophy identity.
+
 ## v6.0.6 — Class/Type suggestion positioned above input
 - Moves the single remembered Class/Type suggestion above the field for phone keyboard safety.
 - Keeps the one-line dynamic suggestion behaviour from v6.0.5.

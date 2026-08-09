@@ -62,12 +62,16 @@ function rhMakeList(){return [...new Set(rhSpace().cars.map(c=>c.make).filter(Bo
 function rhAllManufacturerList(){return [...new Set((Array.isArray(SEED?.cars)?SEED.cars:[]).map(c=>String(c.make||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b))}
 function rhEraList(){return [...new Set(rhSpace().cars.map(c=>Math.floor(Number(c.year)/10)*10).filter(y=>y>=1900&&y<=2030))].filter(e=>rhEligible('era',e).length>=RH_CHAMP_MIN_ELIGIBLE).sort((a,b)=>a-b)}
 function rhClassTypeList(){return [...new Map(rhSpace().cars.map(c=>String(c.classType||'').trim()).filter(Boolean).map(v=>[v.toLocaleLowerCase(),v])).values()].filter(v=>rhEligible('classType',v).length>=RH_CHAMP_MIN_ELIGIBLE).sort((a,b)=>a.localeCompare(b))}
+function rhVintageCount(){return rhEligible('vintage','vintage').length}
+function rhClassicCount(){return rhEligible('classic','classic').length}
 function rhEligible(type,value){
  const cars=rhSpace().cars;
  if(type==='festival')return cars;
  if(type==='make'||type==='favourite')return cars.filter(c=>c.make===value);
  if(type==='era')return cars.filter(c=>Math.floor(Number(c.year)/10)*10===Number(value));
  if(type==='classType'){const key=String(value||'').trim().toLocaleLowerCase();if(!key)return [];return cars.filter(c=>String(c.classType||'').trim().toLocaleLowerCase()===key)}
+ if(type==='vintage')return cars.filter(c=>{const y=Number(c.year);return Number.isFinite(y)&&y>0&&y<=1949});
+ if(type==='classic')return cars.filter(c=>{const y=Number(c.year);return Number.isFinite(y)&&y>=1950&&y<=1990});
  return cars
 }
 function rhTrophy(type){const t=String(type||'festival').toLowerCase();const key=(t==='make'||t==='manufacturer')?'manufacturer':t==='classtype'?'festival':t;return `assets/final/trophy-${key}.png`}
@@ -100,7 +104,7 @@ function rhMatchingRun(type,value,status){return rhCurrentRuns().find(r=>r.statu
 function rhChampCard(type,value,name,count){const trophy=type==='make'?rhTrophy('manufacturer'):type==='era'?rhTrophy('era'):type==='favourite'?rhTrophy('favourite'):rhTrophy('festival'),active=rhMatchingRun(type,value,'active'),prepared=rhMatchingRun(type,value,'prepared');let action=`rhBeginSetup('${type}','${esc(String(value)).replace(/'/g,'&#39;')}','${esc(name).replace(/'/g,'&#39;')}')`,meta=`${count} eligible car${count===1?'':'s'}`;if(active){const cp=rhRunCarProgress(active);action=`rhOpenRun('${active.id}')`;meta=`IN PROGRESS • ${cp.complete} / ${cp.total} cars complete`}else if(prepared){action=`rhOpenPreparedRun('${prepared.id}')`;meta=`SAVED • ${(prepared.entries||[]).length} cars • ${(prepared.rounds||[]).length} rounds`}return `<button class="rhChampCard ${active?'rhChampActiveV1':prepared?'rhChampPreparedV1':''}" onclick="${action}"><img src="${trophy}"><span><b>${esc(name)}</b><small>${meta}</small></span><em>›</em></button>`}
 function rhContinueActiveRun(){const active=rhActiveRun();if(!active){toast('No active Championship');rhRenderFestival();return}try{rhOpenRun(active.id)}catch(err){console.error('RaceHub continue racing failed',err);toast('Could not open Championship')}}
 function rhRenderFestival(){
- const s=rhSpace(),active=rhActiveRun(),makes=rhMakeList(),eras=rhEraList(),classTypes=rhClassTypeList(),fav=s.favouriteManufacturer;
+ const s=rhSpace(),active=rhActiveRun(),makes=rhMakeList(),eras=rhEraList(),classTypes=rhClassTypeList(),vintageCount=rhVintageCount(),classicCount=rhClassicCount(),fav=s.favouriteManufacturer;
  const progress=active?rhRunProgress(active):null;
  const activeCars=active?rhRunCarProgress(active):null;
  $('festival').innerHTML=`<div class="rhFestivalV1">
@@ -131,6 +135,16 @@ function rhRenderFestival(){
          </div>`}
      </section>
 
+     <details class="rhFestivalSectionV1 rhFestivalDetailsV1 rhFestivalHeritageV6">
+       <summary>VINTAGE & CLASSIC CHAMPIONSHIPS <span>${(vintageCount>=RH_CHAMP_MIN_ELIGIBLE?1:0)+(classicCount>=RH_CHAMP_MIN_ELIGIBLE?1:0)}</span></summary>
+       <div class="rhFestivalExpandedV1">
+         <div class="rhFestivalDetailIntroV1"><i aria-hidden="true">◆</i><span>Year-based Championships generated automatically from the Year details in your Garage.</span><b>VINTAGE ≤1949 • CLASSIC 1950–1990</b></div>
+         ${vintageCount>=RH_CHAMP_MIN_ELIGIBLE?rhChampCard('vintage','vintage','Vintage Championship',vintageCount):''}
+         ${classicCount>=RH_CHAMP_MIN_ELIGIBLE?rhChampCard('classic','classic','Classic Championship',classicCount):''}
+         ${vintageCount<RH_CHAMP_MIN_ELIGIBLE&&classicCount<RH_CHAMP_MIN_ELIGIBLE?'<p class="small">At least 2 eligible cars are required to unlock Vintage or Classic Championships.</p>':''}
+       </div>
+     </details>
+
      <details class="rhFestivalSectionV1 rhFestivalDetailsV1">
        <summary>ERA CHAMPIONSHIPS <span>${eras.length}</span></summary>
        <div class="rhFestivalDetailIntroV1"><i aria-hidden="true">◴</i><span>View and start Championships by Era.</span><b>${eras.length} ERA${eras.length===1?'':'S'} AVAILABLE</b></div>
@@ -159,14 +173,14 @@ function rhRenderFestival(){
 
      <div class="rhFestivalInfoV1">
        <i aria-hidden="true">i</i>
-       <p>Championships are generated from the cars in your Garage.<br>Only Eras, Class/Types and Manufacturers with at least 2 eligible cars are shown. UNKNOWN is ignored.<br>Use Expand to view and start available Championships.</p>
+       <p>Championships are generated from the cars in your Garage.<br>Vintage, Classic, Eras, Class/Types and Manufacturers require at least 2 eligible cars. UNKNOWN/missing details are ignored.<br>Use Expand to view and start available Championships.</p>
      </div>
    </main>
  </div>`;
 }
 function rhSetupTrophyType(type){return type==='make'?'manufacturer':type==='era'?'era':type==='favourite'?'favourite':'festival'}
-function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':'FESTIVAL CHAMPIONSHIP'}
-function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null};rhRenderSetup()}
+function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':'FESTIVAL CHAMPIONSHIP'}
+function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','vintage','classic','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null};rhRenderSetup()}
 function rhOpenPreparedRun(id){const r=rhCurrentRuns().find(x=>x.id===id&&x.status==='prepared');if(!r){toast('Saved Championship not found');rhRenderFestival();return}rhSetup={type:r.type||r.championshipType||'festival',value:r.value,name:r.name,entries:[...(r.entries||[])],rounds:rhClone(r.rounds||[]),savedRunId:r.id};show('festival');rhRenderSetup()}
 function rhSavedRoundNames(){const s=rhSpace(),names=[];const add=n=>{n=String(n||'').trim();if(n&&!/^Round \d+$/i.test(n)&&!names.some(x=>x.toLowerCase()===n.toLowerCase()))names.push(n)};(s.runs||[]).forEach(r=>(r.rounds||[]).forEach(x=>add(x.name)));(s.customEvents||[]).forEach(e=>(e.rounds||[]).forEach(x=>add(x.name)));return names.sort((a,b)=>a.localeCompare(b))}
 function rhRoundNameList(){return ''}
@@ -534,10 +548,14 @@ function rhChampDiscoveryKey(type,value){return `${type}:${String(value||'').tri
 function rhEligibleChampionshipsForCars(cars){
  const counts=(arr,keyFn)=>arr.reduce((m,c)=>{const k=keyFn(c);if(k)m[k]=(m[k]||0)+1;return m},{});
  const makes=counts(cars,c=>c.make),eras=counts(cars,c=>{const y=Number(c.year);return Number.isFinite(y)&&y>=1900&&y<=2039?String(Math.floor(y/10)*10):''}),classTypes=counts(cars,c=>String(c.classType||'').trim());
+ const vintageCount=cars.filter(c=>{const y=Number(c.year);return Number.isFinite(y)&&y>0&&y<=1949}).length;
+ const classicCount=cars.filter(c=>{const y=Number(c.year);return Number.isFinite(y)&&y>=1950&&y<=1990}).length;
  const out=[];
  Object.entries(makes).forEach(([name,count])=>{if(count>=2)out.push({type:'make',value:name,name:`${name} Championship`,copy:`You now have ${count} eligible ${name} cars.`})});
  Object.entries(eras).forEach(([name,count])=>{if(count>=2)out.push({type:'era',value:name,name:`${name} Championship`,copy:`You now have ${count} eligible cars from the ${name}.`})});
  Object.entries(classTypes).forEach(([name,count])=>{if(name&&count>=2)out.push({type:'classType',value:name,name:`${name} Championship`,copy:`You now have ${count} eligible cars with Class/Type ${name}.`})});
+ if(vintageCount>=2)out.push({type:'vintage',value:'vintage',name:'Vintage Championship',copy:`You now have ${vintageCount} eligible cars from 1949 or earlier.`});
+ if(classicCount>=2)out.push({type:'classic',value:'classic',name:'Classic Championship',copy:`You now have ${classicCount} eligible cars from 1950–1990.`});
  const fav=rhSpace().favouriteManufacturer;
  if(fav&&makes[fav]>=2)out.push({type:'favourite',value:fav,name:`${fav} Championship`,copy:`You now have ${makes[fav]} eligible ${fav} cars.`});
  return out

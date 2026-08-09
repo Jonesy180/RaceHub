@@ -4334,3 +4334,6 @@ button.rhBack.rhUniversalBackV594,
  top:auto!important;
  bottom:calc(100% + 5px)!important;
 }
+
+/* RaceHub v6.0.7 — Stage 3B Vintage / Classic Festival expansion */
+.rhFestivalHeritageV6 summary span{color:#27ddfa}
