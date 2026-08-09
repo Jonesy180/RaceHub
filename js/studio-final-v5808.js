@@ -74,11 +74,17 @@ function rhEligible(type,value){
  if(type==='classic')return cars.filter(c=>{const y=Number(c.year);return Number.isFinite(y)&&y>=1950&&y<=1990});
  return cars
 }
-function rhTrophy(type){
+function rhTrophyTypeKey(type){
  const t=String(type||'festival').toLowerCase();
- const key=(t==='make'||t==='manufacturer')?'manufacturer':t==='classtype'?'class-type':t;
- return `assets/final/trophy-${key}.png`
+ if(t==='make'||t==='manufacturer')return 'manufacturer';
+ if(t==='era')return 'era';
+ if(t==='classtype'||t==='class-type')return 'class-type';
+ if(t==='vintage')return 'vintage';
+ if(t==='classic')return 'classic';
+ if(t==='favourite')return 'favourite';
+ return 'festival';
 }
+function rhTrophy(type){return `assets/final/trophy-${rhTrophyTypeKey(type)}.png`}
 function rhRenderHome(){
  const s=rhSpace();
  const row=(cls,onclick,icon,title,sub)=>`
@@ -189,7 +195,7 @@ function rhRenderFestival(){
    </main>
  </div>`;
 }
-function rhSetupTrophyType(type){return type==='make'?'manufacturer':type==='era'?'era':type==='classType'?'class-type':type==='vintage'?'vintage':type==='classic'?'classic':type==='favourite'?'favourite':'festival'}
+function rhSetupTrophyType(type){return rhTrophyTypeKey(type)}
 function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':'FESTIVAL CHAMPIONSHIP'}
 function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','vintage','classic','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null};rhRenderSetup()}
 function rhOpenPreparedRun(id){const r=rhCurrentRuns().find(x=>x.id===id&&x.status==='prepared');if(!r){toast('Saved Championship not found');rhRenderFestival();return}rhSetup={type:r.type||r.championshipType||'festival',value:r.value,name:r.name,entries:[...(r.entries||[])],rounds:rhClone(r.rounds||[]),savedRunId:r.id};show('festival');rhRenderSetup()}
@@ -269,8 +275,8 @@ function rhRenameRound(id,v){const r=rhSetup.rounds.find(r=>r.id===id);if(r)r.na
 function rhRemoveRound(id){rhSetup.rounds=rhSetup.rounds.filter(r=>r.id!==id);rhRenderSetup()}
 function rhMoveRound(i,d){const j=i+d;if(j<0||j>=rhSetup.rounds.length)return;[rhSetup.rounds[i],rhSetup.rounds[j]]=[rhSetup.rounds[j],rhSetup.rounds[i]];rhRenderSetup()}
 function rhCancelSetup(){rhSetup=null;rhRenderFestival()}
-function rhSavePrepared(){const x=rhSetup;if(!x)return;const s=rhSpace();let run=x.savedRunId?s.runs.find(r=>r.id===x.savedRunId&&r.status==='prepared'):null;if(run){run.name=x.name;run.type=x.type;run.value=x.value;run.trophy=x.type==='make'?'manufacturer':x.type==='era'?'era':x.type==='favourite'?'favourite':'festival';run.entries=[...x.entries];run.rounds=rhClone(x.rounds);run.updatedAt=new Date().toISOString()}else{run={id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:x.type==='make'?'manufacturer':x.type==='era'?'era':x.type==='favourite'?'favourite':'festival',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),status:'prepared',entries:[...x.entries],rounds:rhClone(x.rounds),results:[]};s.runs.push(run)}rhSave();rhSetup=null;toast('Championship saved');rhRenderFestival()}
-function rhConfirmStart(){const x=rhSetup;if(!x||!x.entries.length||!x.rounds.length)return;const s=rhSpace();let run=x.savedRunId?s.runs.find(r=>r.id===x.savedRunId&&r.status==='prepared'):null;if(run){run.name=x.name;run.type=x.type;run.value=x.value;run.trophy=x.type==='make'?'manufacturer':x.type==='era'?'era':x.type==='favourite'?'favourite':'festival';run.entries=[...x.entries];run.rounds=rhClone(x.rounds);run.results=[];run.status='active';run.startedAt=new Date().toISOString();run.updatedAt=new Date().toISOString()}else{run={id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:x.type==='make'?'manufacturer':x.type==='era'?'era':x.type==='favourite'?'favourite':'festival',createdAt:new Date().toISOString(),startedAt:new Date().toISOString(),status:'active',entries:[...x.entries],rounds:rhClone(x.rounds),results:[]};s.runs.push(run)}rhSave();rhSetup=null;rhOpenRun(run.id)}
+function rhSavePrepared(){const x=rhSetup;if(!x)return;const s=rhSpace();let run=x.savedRunId?s.runs.find(r=>r.id===x.savedRunId&&r.status==='prepared'):null;if(run){run.name=x.name;run.type=x.type;run.value=x.value;run.trophy=rhTrophyTypeKey(x.type);run.entries=[...x.entries];run.rounds=rhClone(x.rounds);run.updatedAt=new Date().toISOString()}else{run={id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:rhTrophyTypeKey(x.type),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),status:'prepared',entries:[...x.entries],rounds:rhClone(x.rounds),results:[]};s.runs.push(run)}rhSave();rhSetup=null;toast('Championship saved');rhRenderFestival()}
+function rhConfirmStart(){const x=rhSetup;if(!x||!x.entries.length||!x.rounds.length)return;const s=rhSpace();let run=x.savedRunId?s.runs.find(r=>r.id===x.savedRunId&&r.status==='prepared'):null;if(run){run.name=x.name;run.type=x.type;run.value=x.value;run.trophy=rhTrophyTypeKey(x.type);run.entries=[...x.entries];run.rounds=rhClone(x.rounds);run.results=[];run.status='active';run.startedAt=new Date().toISOString();run.updatedAt=new Date().toISOString()}else{run={id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:rhTrophyTypeKey(x.type),createdAt:new Date().toISOString(),startedAt:new Date().toISOString(),status:'active',entries:[...x.entries],rounds:rhClone(x.rounds),results:[]};s.runs.push(run)}rhSave();rhSetup=null;rhOpenRun(run.id)}
 function rhNextSlot(r){const entries=Array.isArray(r?.entries)?r.entries:[],rounds=Array.isArray(r?.rounds)?r.rounds:[],results=Array.isArray(r?.results)?r.results:[];for(const carId of entries){for(const round of rounds){if(!results.some(x=>x.carId===carId&&x.roundId===round.id))return {carId,round}}}return null}
 function rhQueueRemaining(r){const entries=Array.isArray(r?.entries)?r.entries:[],rounds=Array.isArray(r?.rounds)?r.rounds:[],results=Array.isArray(r?.results)?r.results:[];return entries.filter(cid=>rounds.some(rd=>!results.some(x=>x.carId===cid&&x.roundId===rd.id)))}
 function rhQueueCompleted(r){const remaining=new Set(rhQueueRemaining(r));return (Array.isArray(r?.entries)?r.entries:[]).filter(cid=>!remaining.has(cid))}
@@ -616,11 +622,14 @@ function rhRecordRoundRow(r,rd){
  return `<div class="rhRecordRowV1"><span><b>${esc(rd.name)}</b><small>${best&&car?esc(carName(car)):'No result recorded'}</small></span><strong>${best?rhFmtTime(best.time):'—'}</strong></div>`;
 }
 function rhRunTrophy(r){
- const t=String(r.trophy||r.type||'festival').toLowerCase();
- if(t==='make'||t==='manufacturer')return rhTrophy('manufacturer');
- if(t==='era')return rhTrophy('era');
- if(t==='favourite')return rhTrophy('favourite');
- return rhTrophy('festival');
+ const type=r?.type||r?.championshipType||r?.trophy||'festival';
+ return rhTrophy(type);
+}
+function rhRunTrophyPlaque(r){
+ const type=String(r?.type||r?.championshipType||'').toLowerCase();
+ if(type!=='classtype')return '';
+ const value=String(r?.value||'').trim();
+ return value?`<div class="rhDynamicTrophyPlaque rhHofDynamicPlaque">${esc(value.toUpperCase())}</div>`:'';
 }
 function rhRenderRecords(){
  const runs=rhCurrentRuns().filter(r=>r.status!=='prepared'),completed=runs.filter(r=>r.status==='complete'),hall=rhRecordsMode==='hall';
@@ -631,7 +640,7 @@ function rhRenderRecords(){
 }
 function rhHallOfFame(completed){
  return `<section class="rhHofSectionV1"><div class="rhHofIntroV1"><i>☆</i><p><b>YOUR HALL OF FAME</b>Completed Championships are honoured here with their trophy, winning car and final time.</p></div>
- ${completed.length?`<div class="rhHallGridV1">${completed.map(r=>{const rows=(r.entries||[]).map(id=>{const rr=(r.results||[]).filter(x=>x.carId===id);return rr.length===(r.rounds||[]).length?{id,total:rr.reduce((a,b)=>a+Number(b.time||0),0)}:null}).filter(Boolean).sort((a,b)=>a.total-b.total),w=rows[0],car=w?carById(w.id):null;return `<article class="rhHallCardV1"><img src="${rhRunTrophy(r)}" alt=""><b>${esc(r.name)}</b><span>${car?esc(carName(car)):'—'}</span><small>WINNING TIME</small><strong>${w?rhFmtTime(w.total):'—'}</strong></article>`}).join('')}</div>`:rhEmpty('HALL OF FAME IS EMPTY','Completed Championships will appear here with their trophy, winning car and final time.','View Championships',"rhRecordsMode='records';rhRenderRecords()")}
+ ${completed.length?`<div class="rhHallGridV1">${completed.map(r=>{const rows=(r.entries||[]).map(id=>{const rr=(r.results||[]).filter(x=>x.carId===id);return rr.length===(r.rounds||[]).length?{id,total:rr.reduce((a,b)=>a+Number(b.time||0),0)}:null}).filter(Boolean).sort((a,b)=>a.total-b.total),w=rows[0],car=w?carById(w.id):null;return `<article class="rhHallCardV1"><div class="rhHofTrophyV6"><img src="${rhRunTrophy(r)}" alt="">${rhRunTrophyPlaque(r)}</div><b>${esc(r.name)}</b><span>${car?esc(carName(car)):'—'}</span><small>WINNING TIME</small><strong>${w?rhFmtTime(w.total):'—'}</strong></article>`}).join('')}</div>`:rhEmpty('HALL OF FAME IS EMPTY','Completed Championships will appear here with their trophy, winning car and final time.','View Championships',"rhRecordsMode='records';rhRenderRecords()")}
  <div class="rhRecordsInfoV1"><i>i</i><p><b>ABOUT HALL OF FAME</b>Only fully completed Championships appear here. Each entry shows the trophy for that Championship, the winning car and the final time.</p></div></section>`;
 }
 function rhRenderStats(){const s=rhSpace(),runs=s.runs||[],completed=runs.filter(r=>r.status==='complete'),champResults=runs.flatMap(r=>r.results||[]),eventResults=(s.customEvents||[]).flatMap(e=>e.results||[]),results=[...champResults,...eventResults],time=results.reduce((a,b)=>a+Number(b.time||0),0);$('more').innerHTML=`<div class="rhStatsScene"><div class="rhPageHead"><button class="rhBack" onclick="show('home')">‹</button><div><h1>STATS</h1><p>Your RaceHub at a glance</p></div></div><div class="rhStatsCockpit"><div class="rhStatsGauge rhStatsGaugeLeft"><span>CHAMPIONSHIPS</span><small>CREATED</small><b>${runs.length}</b></div><div class="rhStatsGauge rhStatsGaugeMain"><span>TOTAL</span><small>RACES</small><b>${results.length}</b></div><div class="rhStatsGauge rhStatsGaugeRight"><span>CHAMPIONSHIPS</span><small>COMPLETED</small><b>${completed.length}</b></div><div class="rhStatsOdometer"><span>TIME DRIVEN</span><b>${rhDurationClock(time)}</b><small>HOURS&nbsp;&nbsp;&nbsp;MINUTES&nbsp;&nbsp;&nbsp;SECONDS</small></div></div></div><div class="rhContent rhStatsInfoWrap"><div class="rhStatsInfo">All statistics are for the current RaceHub Space only.</div></div>`}

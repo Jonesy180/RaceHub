@@ -1,3 +1,12 @@
+## v6.0.9 — Stage 5 Records / Hall of Fame / Stats integration
+- Makes saved Championship TYPE the single trophy identity authority for all seven Championship types.
+- Fixes Class/Type, Vintage and Classic runs so Save/Start persist the correct trophy identity instead of Festival fallback.
+- Hall of Fame now uses the correct trophy for all new types; Class/Type Hall of Fame entries keep the dynamic Class/Type plaque.
+- Records already consumes every Championship run generically; verified no parallel Records system is required.
+- Locked Stats already counts every run/result generically; verified new types are included automatically in Created, Completed, Total Races and Time Driven.
+- Extends the existing final-standings trophy/Champion label mapping for the three new types so completed runs remain type-correct.
+- No eligibility, racing workflow or page redesign changed.
+
 ## v6.0.8 — Stage 4 new Championship trophies
 - Adds the locked Class/Type wheel trophy, Vintage trophy and Classic trophy assets.
 - Trophy selection is driven by saved Championship TYPE, never custom Championship name.
