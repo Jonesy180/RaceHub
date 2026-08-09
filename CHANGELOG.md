@@ -1,8 +1,8 @@
-## v6.0.11 — Stage 7 Car Notes
-- Adds a simple notebook-style Car Notes page from each existing Garage car editor.
-- Notes are stored directly on the car inside its existing RaceHub Space data.
-- Save Notes returns to the same car editor; Cancel/back leaves the stored note unchanged.
-- Existing Garage fields, Festival, racing, Records, Hall of Fame, Stats and Stage 6 history are untouched.
+## v6.0.12 — Stage 7 Car Notes live overlay
+- Rebuilt Stage 7 from protected v6.0.10 after rejecting v6.0.11.
+- Uses the same proven rhOverlay / rhModal production structure as Edit Car.
+- Car Notes opens from Edit Car, stores notes directly on that car, and Save/Cancel returns to the same car editor.
+- Existing v6.0.10 Stage 6 history and all prior systems remain unchanged.
 
 ## v6.0.10 — Stage 6 Event History + permanent Final Leaderboards
 - Records now preserves each Championship/Event run as its own historical competition instance instead of collapsing repeated names together.

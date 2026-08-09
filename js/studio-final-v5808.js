@@ -558,19 +558,27 @@ function rhGarageBindClassTypeSuggestions(){
 function rhOpenCarEditor(id=''){
  const c=id?rhSpace().cars.find(x=>x.id===id):null;
  document.getElementById('rhCarEditor')?.remove();
- document.body.insertAdjacentHTML('beforeend',`<div id="rhCarEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhCarEditor').remove()">×</button><h2>${c?(rhGarageNeedsDetails(c)?'Add Details':'Edit Car'):'Add Car'}</h2><p>${c?'Correct this Garage entry.':'Add a car to the current RaceHub Space.'}</p><label>Manufacturer</label><input id="rhCarMake" class="rhSearch" autocomplete="off" value="${esc(c?.make||'')}" placeholder="Manufacturer"><label>Vehicle Name</label><input id="rhCarModel" class="rhSearch" autocomplete="off" value="${esc(c?.model||'')}" placeholder="Vehicle name"><label>Year</label><input id="rhCarYear" class="rhSearch" autocomplete="off" inputmode="numeric" maxlength="4" value="${esc(c?.year||'')}" placeholder="UNKNOWN"><label>Class / Type</label><div class="rhSmartSuggestWrap"><div id="rhClassTypeSuggestions" class="rhSmartSuggestions rhSmartSuggestionsAbove" hidden></div><input id="rhCarClassType" class="rhSearch" autocomplete="off" autocapitalize="words" spellcheck="false" value="${esc(c?.classType||'')}" placeholder="UNKNOWN"></div><p class="small">Era is derived automatically from Year. Class/Type suggestions are learned only from values used in this RaceHub Space.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarEditor').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarFinal('${id}')">${c?'SAVE CHANGES':'ADD TO GARAGE'}</button></div>${c?`<button class="btn secondary rhCarNotesButtonV6011" onclick="rhOpenCarNotesV6011('${id}')">CAR NOTES${String(c?.notes||'').trim()?' •':''}</button><button class="btn dangerBtn rhDeleteCar" onclick="rhConfirmDeleteCar('${id}')">DELETE CAR</button>`:''}</div></div>`)
+ document.body.insertAdjacentHTML('beforeend',`<div id="rhCarEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhCarEditor').remove()">×</button><h2>${c?(rhGarageNeedsDetails(c)?'Add Details':'Edit Car'):'Add Car'}</h2><p>${c?'Correct this Garage entry.':'Add a car to the current RaceHub Space.'}</p><label>Manufacturer</label><input id="rhCarMake" class="rhSearch" autocomplete="off" value="${esc(c?.make||'')}" placeholder="Manufacturer"><label>Vehicle Name</label><input id="rhCarModel" class="rhSearch" autocomplete="off" value="${esc(c?.model||'')}" placeholder="Vehicle name"><label>Year</label><input id="rhCarYear" class="rhSearch" autocomplete="off" inputmode="numeric" maxlength="4" value="${esc(c?.year||'')}" placeholder="UNKNOWN"><label>Class / Type</label><div class="rhSmartSuggestWrap"><div id="rhClassTypeSuggestions" class="rhSmartSuggestions rhSmartSuggestionsAbove" hidden></div><input id="rhCarClassType" class="rhSearch" autocomplete="off" autocapitalize="words" spellcheck="false" value="${esc(c?.classType||'')}" placeholder="UNKNOWN"></div><p class="small">Era is derived automatically from Year. Class/Type suggestions are learned only from values used in this RaceHub Space.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarEditor').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarFinal('${id}')">${c?'SAVE CHANGES':'ADD TO GARAGE'}</button></div>${c?`<button class="btn secondary rhCarNotesButtonV6012" onclick="rhOpenCarNotesV6012('${id}')">CAR NOTES${String(c?.notes||'').trim()?' •':''}</button><button class="btn dangerBtn rhDeleteCar" onclick="rhConfirmDeleteCar('${id}')">DELETE CAR</button>`:''}</div></div>`)
  rhGarageBindClassTypeSuggestions();
 }
 
-function rhOpenCarNotesV6011(carId){
+function rhOpenCarNotesV6012(carId){
  const c=rhSpace().cars.find(x=>String(x.id)===String(carId));if(!c)return;
- const modal=document.createElement('div');modal.id='rhCarNotesV6011';modal.className='rhModal rhCarNotesModalV6011';
- modal.innerHTML=`<div class="rhModalCard rhCarNotesBookV6011"><div class="rhCarNotesHeadV6011"><button class="rhCarNotesBackV6011" onclick="$('rhCarNotesV6011').remove()">‹</button><div><small>GARAGE</small><h2>CAR NOTES</h2></div></div><div class="rhCarNotesIdentityV6011"><small>${esc(c.make||'')}</small><b>${esc(c.model||'Car')}</b>${c.year?`<span>${esc(String(c.year))}</span>`:''}</div><label>NOTES</label><textarea id="rhCarNotesTextV6011" class="rhCarNotesTextV6011" maxlength="12000" placeholder="Add notes about this car...">${esc(String(c.notes||''))}</textarea><p class="small">Private notes for this car in this RaceHub Space.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarNotesV6011').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarNotesV6011('${c.id}')">SAVE NOTES</button></div></div>`;
- document.body.appendChild(modal);setTimeout(()=>{const ta=$('rhCarNotesTextV6011');if(ta)ta.focus()},0);
+ $('rhCarEditor')?.remove();$('rhCarNotesOverlayV6012')?.remove();
+ document.body.insertAdjacentHTML('beforeend',`<div id="rhCarNotesOverlayV6012" class="rhOverlay"><div class="rhModal rhFormModal rhCarNotesModalV6012"><button class="rhModalX" onclick="rhCloseCarNotesV6012('${c.id}')">×</button><h2>Car Notes</h2><p>${esc(c.make||'')} ${esc(c.model||'')}${c.year?` • ${esc(String(c.year))}`:''}</p><label for="rhCarNotesTextV6012">Notes</label><textarea id="rhCarNotesTextV6012" class="rhCarNotesTextV6012" maxlength="12000" placeholder="Add notes about this car...">${esc(String(c.notes||''))}</textarea><p class="small">Private notes for this car in this RaceHub Space.</p><div class="rhModalActions"><button class="btn secondary" onclick="rhCloseCarNotesV6012('${c.id}')">CANCEL</button><button class="btn" onclick="rhSaveCarNotesV6012('${c.id}')">SAVE NOTES</button></div></div></div>`);
+ setTimeout(()=>$('rhCarNotesTextV6012')?.focus(),50);
 }
-function rhSaveCarNotesV6011(carId){
+function rhCloseCarNotesV6012(carId){
+ $('rhCarNotesOverlayV6012')?.remove();
+ rhOpenCarEditor(carId);
+}
+function rhSaveCarNotesV6012(carId){
  const c=rhSpace().cars.find(x=>String(x.id)===String(carId));if(!c)return;
- c.notes=String($('rhCarNotesTextV6011')?.value||'');rhSave();$('rhCarNotesV6011')?.remove();$('rhCarEditor')?.remove();rhOpenCarEditor(carId);
+ c.notes=String($('rhCarNotesTextV6012')?.value||'');
+ rhSave();
+ $('rhCarNotesOverlayV6012')?.remove();
+ rhOpenCarEditor(carId);
+ toast('Notes saved');
 }
 function rhChampDiscoveryKey(type,value){return `${type}:${String(value||'').trim().toLowerCase()}`}
 function rhEligibleChampionshipsForCars(cars){
