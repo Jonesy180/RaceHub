@@ -1,5 +1,5 @@
-// RaceHub v6.0.13 — Stage 1 Garage foundation startup
+// RaceHub v6.0.14 — Stage 1 Garage foundation startup
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6013.js',{updateViaCache:'none'}).catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6014.js',{updateViaCache:'none'}).catch(()=>{}));}

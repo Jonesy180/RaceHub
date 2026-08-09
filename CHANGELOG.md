@@ -1,3 +1,12 @@
+## v6.0.14 — Stage 8B Advanced Timing lap-entry interaction foundation
+- Built only from the passed/protected v6.0.13 Stage 8A checkpoint.
+- Preserves the approved Settings toggle, OFF discoverability tile and ON collapsed/expanded Advanced Timing placement.
+- Expanded Advanced Timing can now set a lap count from 1–99 and creates editable lap-time rows.
+- Each lap accepts minutes, seconds and milliseconds with numeric-only clamping.
+- Lap rows scroll internally for longer races so the existing Enter Result page is not stretched excessively.
+- This checkpoint deliberately does not persist lap data, calculate derived timing, or alter the existing total race time, finish position, Save Result, Result Accepted or downstream race flow.
+- RaceHub only; rh-guide unchanged.
+
 ## v6.0.13 — Stage 8A Advanced Timing presentation foundation
 - Built only from protected v6.0.12 Stage 7 Car Notes baseline.
 - Adds Advanced Timing Settings toggle, default OFF.

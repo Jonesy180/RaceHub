@@ -4381,3 +4381,28 @@ button.rhBack.rhUniversalBackV594,
 .rhAdvancedTimingDiscoverV6013 b{color:#dffaff;font-size:10px;font-weight:900;letter-spacing:.085em}
 .rhAdvancedTimingDiscoverV6013 small{color:#879ba3;font-size:9px;font-weight:650;line-height:1.32}
 @media(max-width:430px){.rhAdvancedTimingV6013,.rhAdvancedTimingDiscoverV6013{margin-bottom:10px}.rhAdvancedTimingHeadV6013{min-height:54px;padding:9px 10px}.rhAdvancedTimingSettingsV6013 .rhAdvancedTimingToggleV6013>span>small{max-width:205px}}
+
+/* v6.0.14 — Stage 8B Advanced Timing lap-entry interaction foundation */
+.rhAdvancedTimingEntryV6014{margin-top:12px;padding-top:12px;border-top:1px solid rgba(43,224,250,.12)}
+.rhAdvancedTimingCountRowV6014{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.rhAdvancedTimingCountRowV6014>label{color:#86ddea;font-size:8px;font-weight:900;letter-spacing:.14em}
+.rhAdvancedTimingCountControlV6014{display:flex;align-items:center;overflow:hidden;border:1px solid rgba(43,224,250,.34);border-radius:9px;background:rgba(0,0,0,.28)}
+.rhAdvancedTimingCountControlV6014 button{width:34px;height:32px;border:0;background:rgba(43,224,250,.045);color:#dffaff;font-size:18px;font-weight:800;line-height:1;cursor:pointer}
+.rhAdvancedTimingCountControlV6014 button:first-child{border-right:1px solid rgba(255,255,255,.07)}
+.rhAdvancedTimingCountControlV6014 button:last-child{border-left:1px solid rgba(255,255,255,.07)}
+.rhAdvancedTimingLapCountV6014{box-sizing:border-box;width:38px;height:32px;border:0;outline:0;background:transparent;color:#fff;font:900 13px/1 system-ui,sans-serif;text-align:center;-moz-appearance:textfield}
+.rhAdvancedTimingLapCountV6014::-webkit-outer-spin-button,.rhAdvancedTimingLapCountV6014::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.rhAdvancedTimingLapsV6014{display:flex;max-height:224px;flex-direction:column;gap:7px;overflow-y:auto;padding-right:2px;scrollbar-width:thin;scrollbar-color:rgba(43,224,250,.45) rgba(255,255,255,.035)}
+.rhAdvancedTimingLapRowV6014{display:flex;min-height:56px;align-items:center;justify-content:space-between;gap:9px;padding:8px 9px;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:rgba(0,0,0,.22)}
+.rhAdvancedTimingLapLabelV6014{flex:0 0 auto;color:#b7c8ce;font-size:9px;font-weight:900;letter-spacing:.09em}
+.rhAdvancedTimingLapTimeV6014{display:flex;min-width:0;align-items:center;justify-content:flex-end;gap:4px}
+.rhAdvancedTimingLapTimeV6014 label{display:flex;width:42px;flex-direction:column;align-items:center;gap:2px}
+.rhAdvancedTimingLapTimeV6014 label.ms{width:50px}
+.rhAdvancedTimingLapTimeV6014 input{box-sizing:border-box;width:100%;height:29px;border:1px solid rgba(43,224,250,.29);border-radius:6px;outline:none;background:rgba(3,15,20,.72);color:#67e8fa;font:800 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-align:center;text-shadow:0 0 10px rgba(43,224,250,.32)}
+.rhAdvancedTimingLapTimeV6014 input:focus{border-color:rgba(43,224,250,.72);box-shadow:0 0 0 2px rgba(43,224,250,.08)}
+.rhAdvancedTimingLapTimeV6014 small{color:#6f858d;font-size:6px;font-weight:900;letter-spacing:.08em}
+.rhAdvancedTimingLapTimeV6014>b{align-self:flex-start;margin-top:7px;color:#5b7d87;font-size:13px}
+.rhAdvancedTimingProgressV6014{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;color:#7d9299;font-size:7px;font-weight:800;letter-spacing:.06em}
+.rhAdvancedTimingProgressV6014 span{color:#2be0fa}
+.rhAdvancedTimingProgressV6014 em{font-style:normal;text-align:right}
+@media(max-width:430px){.rhAdvancedTimingLapRowV6014{padding:7px}.rhAdvancedTimingLapLabelV6014{font-size:8px}.rhAdvancedTimingLapTimeV6014{gap:3px}.rhAdvancedTimingLapTimeV6014 label{width:38px}.rhAdvancedTimingLapTimeV6014 label.ms{width:46px}.rhAdvancedTimingLapTimeV6014 input{font-size:15px}}
