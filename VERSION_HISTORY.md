@@ -1,3 +1,9 @@
+## v6.0.20 — Stage 9B League Events + Drivers (setup-state correction)
+- Rebuilt from passed v6.0.18.
+- Fixes League setup draft state: Points selector works and League name persists across rerenders.
+- Adds League Event editing and active/inactive driver management.
+- No League result entry/standings yet.
+
 ## v6.0.17 — Stage 8C Race Notes + Enter Result hero spacing
 - Added optional result-specific Race Notes inside Advanced Timing.
 - Notes persist on the individual saved result and appear on Result Summary when present.
