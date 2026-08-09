@@ -1,3 +1,10 @@
+
+## v6.0.25 — Stage 9D final League result-entry alignment
+- Alignment-only correction to the passed League result entry screen.
+- Restores each Race Time display box level with its Position box.
+- Centres the segmented digital numerals inside the Race Time box.
+- No League result logic, standings, history, delete behaviour or existing RaceHub systems changed.
+
 ## v6.0.23 — Stage 9D League standings + permanent Event history
 - Adds live League standings calculated only from confirmed Event results.
 - Points mode totals the frozen user-defined points table; DNF/DNS remain 0 points. Equal points remain tied.

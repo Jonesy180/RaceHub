@@ -1,0 +1,8 @@
+/* RaceHub v6.0.25 — Stage 9D final result-entry alignment only.
+   Restore the Race Time box level with Position, and centre only the segmented digits inside it. */
+.rhLeagueResultInputsV6021{align-items:end}
+.rhLeagueRaceTimeLabelV6022 .rhLeagueDigitalTimeV6022{top:0}
+.rhLeagueDigitalTimeV6022{display:flex;align-items:center;justify-content:center}
+.rhLeagueTimePartV6022,.rhLeagueSegDisplayV6022{top:0!important;transform:none!important}
+.rhLeagueSegDisplayV6022{display:flex;align-items:center;justify-content:center}
+@media(max-width:420px){.rhLeagueRaceTimeLabelV6022 .rhLeagueDigitalTimeV6022{top:0}}
