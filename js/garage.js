@@ -24,63 +24,43 @@ function manufacturerAccent(make){
  const text=String(make||'');let hash=0;for(let i=0;i<text.length;i++)hash=((hash<<5)-hash+text.charCodeAt(i))|0;
  return MANUFACTURER_ACCENT_PALETTE[Math.abs(hash)%MANUFACTURER_ACCENT_PALETTE.length];
 }
-function renderGarage(){
- const makes=['All',...Array.from(new Set(state.cars.map(c=>c.make))).sort()];
- const completedCount=state.cars.filter(c=>carIsComplete(c.id)).length;
- const startedCount=state.cars.filter(c=>carCompletedEvents(c.id).size&&!carIsComplete(c.id)).length;
- const completionPercent=state.cars.length?Math.round((completedCount/state.cars.length)*100):0;
- let list=state.cars.filter(c=>(garageMake==='All'||c.make===garageMake)&&(!garageSearch||carName(c).toLowerCase().includes(garageSearch.toLowerCase())));
- const groups={};list.forEach(c=>(groups[c.make]??=[]).push(c));
- $('garage').innerHTML=`<div class="garagePage">
-  <section class="card garageHero">
-   <div class="garageHeroTop"><div><div class="garageEyebrow">Your collection</div><h2>Garage</h2><p class="small">Browse, add or correct the cars in your RaceHub collection.</p></div><div class="garageCompletion"><strong>${completionPercent}%</strong><span>complete</span></div></div>
-   <div class="garageSummary"><div><strong>${state.cars.length}</strong><span>Total cars</span></div><div><strong>${completedCount}</strong><span>Completed</span></div><div><strong>${startedCount}</strong><span>In progress</span></div><div><strong>${makes.length-1}</strong><span>Manufacturers</span></div></div>
-  </section>
-  <div class="garageTools">
-   <section class="card garageToolCard garageAddCard"><div class="garageToolHeading"><span>＋</span><div><h3>Add a car</h3><p class="small">Add a new car to the collection.</p></div></div><label>Make</label><input id="newMake" placeholder="Lotus"><label>Model</label><input id="newModel" placeholder="Evija"><label>Year optional</label><input id="newYear" inputmode="numeric" placeholder="2020"><button class="btn" onclick="addCar()">Add Car</button></section>
-   <section class="card garageToolCard garageSearchCard"><div class="garageToolHeading"><span>⌕</span><div><h3>Find a car</h3><p class="small">Search by make, model or year.</p></div></div><label>Search</label><input id="garageSearch" value="${esc(garageSearch)}" placeholder="Type search"><div class="grid"><button class="btn" onclick="garageSearch=$('garageSearch').value;renderGarage()">Search</button><button class="btn secondary" onclick="garageSearch='';garageMake='All';renderGarage()">Clear</button></div></section>
-  </div>
-  <section class="card garageCollection"><div class="garageCollectionHeading"><div><h3>Collection</h3><p class="small">${list.length} ${list.length===1?'car':'cars'} shown${garageMake!=='All'?` • ${esc(garageMake)}`:''}${garageSearch?` • “${esc(garageSearch)}”`:''}</p></div></div><div class="chips garageFilters">${makes.map(m=>`<button class="chip ${m===garageMake?'on':''}" onclick="garageMake='${esc(m)}';renderGarage()">${esc(m)} ${m==='All'?'':state.cars.filter(c=>c.make===m).length}</button>`).join('')}</div><div class="garageGroups">${Object.keys(groups).sort().map(m=>`<div class="makeGroup garageMakeGroup" style="--manufacturer-accent:${manufacturerAccent(m)}"><img class="manufacturerWatermark" src="${manufacturerLogoPath(m)}" alt="" aria-hidden="true" onerror="this.remove()"><div class="garageMakeContent"><div class="makeHead"><b>${esc(m)}</b><span>${groups[m].length}</span></div>${groups[m].map(c=>{const done=carCompletedEvents(c.id).size;return `<div class="row garageCarRow ${carIsComplete(c.id)?'garageCarComplete':done?'garageCarStarted':''}"><div class="garageCarIcon">🚗</div><div class="grow garageCarInfo"><strong>${esc(carName(c))}</strong><span class="small">${carIsComplete(c.id)?'✅ Completed':(done?`🏁 ${done}/${state.events.length} events`:'Not started')}</span></div><button class="chip garageEditButton" onclick="editCar('${c.id}')">Edit</button></div>`}).join('')}</div></div>`).join('')||'<div class="empty garageEmpty">No cars found. Try clearing the search or choosing another manufacturer.</div>'}</div></section>
- </div>`;
+function rhGarageDetailValue(value){
+ const text=String(value??'').trim();
+ return text?esc(text):'<span class="rhUnknown">UNKNOWN</span>';
 }
-function addCar()
+function rhGarageNeedsDetails(car){return !String(car?.year??'').trim()||!String(car?.classType??'').trim();}
+function rhGarageDetailSearchText(car){return [carName(car),car?.make,car?.model,car?.year,car?.classType].map(v=>String(v||'').toLowerCase()).join(' ');}
+function rhGarageSetNeedsDetailsFilter(on){window.rhGarageNeedsDetailsOnly=Boolean(on);garageMake='All';garageSearch='';renderGarage();}
 
-{
- const make=$('newMake').value.trim(), model=$('newModel').value.trim(), year=$('newYear').value.trim();
- if(!make||!model){toast('Enter make and model');return;}
- const name=`${make} ${model}${year?' '+year:''}`.replace(/\s+/g,' ').trim();
- const id=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
- if(state.cars.some(c=>c.id===id||carName(c).toLowerCase()===name.toLowerCase())){toast('Car already exists');return;}
- state.cars.push({id,make,model,year,name});garageMake=make;garageSearch=model;save();toast('Car added');renderGarage();
+function renderGarage(){
+ const makes=['All',...Array.from(new Set(state.cars.map(c=>c.make))).sort((a,b)=>String(a).localeCompare(String(b)))];
+ const needsDetailsCount=state.cars.filter(rhGarageNeedsDetails).length, needsOnly=Boolean(window.rhGarageNeedsDetailsOnly);
+ let list=state.cars.filter(c=>(garageMake==='All'||c.make===garageMake)&&(!garageSearch||rhGarageDetailSearchText(c).includes(garageSearch.toLowerCase()))&&(!needsOnly||rhGarageNeedsDetails(c)));
+ const groups={};list.forEach(c=>(groups[c.make]??=[]).push(c));
+ $('garage').innerHTML=`<div class="garagePage rhGarageV6">
+ <section class="card garageHero"><div class="garageHeroTop"><div><div class="garageEyebrow">Your collection</div><h2>Garage</h2><p class="small">Browse, add or update the cars in your RaceHub collection.</p></div><div class="garageCompletion"><strong>${state.cars.length}</strong><span>cars</span></div></div>
+ <div class="rhGarageGuidance"><strong>MORE DETAILS = MORE CHAMPIONSHIPS</strong><span>Add Year and Class/Type when you know them. Missing details stay UNKNOWN and are never treated as real data.</span></div></section>
+ <div class="garageTools"><section class="card garageToolCard garageAddCard"><div class="garageToolHeading"><span>＋</span><div><h3>Add a car</h3><p class="small">Manufacturer and model are required. Details can be added later.</p></div></div>
+ <label>Manufacturer</label><input id="newMake" autocomplete="off" placeholder="Lotus"><label>Model</label><input id="newModel" autocomplete="off" placeholder="Evija"><label>Year</label><input id="newYear" autocomplete="off" inputmode="numeric" maxlength="4" placeholder="UNKNOWN"><label>Class / Type</label><input id="newClassType" autocomplete="off" placeholder="UNKNOWN"><button class="btn" onclick="addCar()">Add Car</button></section>
+ <section class="card garageToolCard garageSearchCard"><div class="garageToolHeading"><span>⌕</span><div><h3>Find a car</h3><p class="small">Search your Garage details.</p></div></div><label>Search</label><input id="garageSearch" autocomplete="off" value="${esc(garageSearch)}" placeholder="Make, model, year or Class/Type"><div class="grid"><button class="btn" onclick="garageSearch=$('garageSearch').value;window.rhGarageNeedsDetailsOnly=false;renderGarage()">Search</button><button class="btn secondary" onclick="garageSearch='';garageMake='All';window.rhGarageNeedsDetailsOnly=false;renderGarage()">Clear</button></div><button class="btn secondary rhNeedsDetailsBtn ${needsOnly?'on':''}" onclick="rhGarageSetNeedsDetailsFilter(!window.rhGarageNeedsDetailsOnly)">Cars Need Details <span>${needsDetailsCount}</span></button></section></div>
+ <section class="card garageCollection"><div class="garageCollectionHeading"><div><h3>${needsOnly?'Cars Need Details':'Collection'}</h3><p class="small">${list.length} ${list.length===1?'car':'cars'} shown</p></div></div>${needsOnly?'':`<div class="chips garageFilters">${makes.map(m=>`<button class="chip ${m===garageMake?'on':''}" onclick="garageMake='${esc(m)}';renderGarage()">${esc(m)}</button>`).join('')}</div>`}<div class="garageGroups">${Object.keys(groups).sort((a,b)=>a.localeCompare(b)).map(m=>`<div class="makeGroup garageMakeGroup" style="--manufacturer-accent:${manufacturerAccent(m)}"><div class="garageMakeContent"><div class="makeHead"><b>${esc(m)}</b><span>${groups[m].length}</span></div>${groups[m].map(c=>`<div class="row garageCarRow ${rhGarageNeedsDetails(c)?'rhCarNeedsDetails':''}"><div class="garageCarIcon">🚗</div><div class="grow garageCarInfo"><strong>${esc(c.model||carName(c))}</strong><div class="rhCarMeta"><span><small>YEAR</small>${rhGarageDetailValue(c.year)}</span><span><small>CLASS / TYPE</small>${rhGarageDetailValue(c.classType)}</span></div></div><button class="chip garageEditButton ${rhGarageNeedsDetails(c)?'rhAddDetails':''}" onclick="editCar('${c.id}')">${rhGarageNeedsDetails(c)?'ADD DETAILS':'Edit'}</button></div>`).join('')}</div></div>`).join('')||'<div class="empty garageEmpty">No cars found.</div>'}</div></section></div>`;
+}
+function addCar(){
+ const make=$('newMake').value.trim(),model=$('newModel').value.trim(),year=$('newYear').value.trim(),classType=$('newClassType').value.trim();
+ if(!make||!model){toast('Enter manufacturer and model');return;} if(year&&!/^\d{4}$/.test(year)){toast('Year must be four digits');return;}
+ const name=`${make} ${model}${year?' '+year:''}`.replace(/\s+/g,' ').trim(), base=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ let id=base||rhId('car'),n=2;while(state.cars.some(c=>c.id===id))id=`${base}-${n++}`;
+ if(state.cars.some(c=>carName(c).toLowerCase()===name.toLowerCase())){toast('Car already exists');return;}
+ state.cars.push({id,make,model,year:year||'',classType:classType||'',name});garageMake=make;garageSearch='';window.rhGarageNeedsDetailsOnly=false;save();toast('Car added');renderGarage();
 }
 function editCar(id){
- const car=carById(id);
- if(!car)return;
- closeCarEditor();
- document.body.insertAdjacentHTML('beforeend',`<div id="carEditorOverlay" class="carEditorOverlay">
-  <div class="carEditorCard">
-   <h2>✏️ Edit Car</h2>
-   <p class="small">Changing these details will not remove results, records or progress.</p>
-   <label>Manufacturer</label><input id="editCarMake" value="${esc(car.make)}">
-   <label>Model</label><input id="editCarModel" value="${esc(car.model)}">
-   <label>Year</label><input id="editCarYear" inputmode="numeric" maxlength="4" value="${esc(car.year||'')}">
-   <div class="grid"><button class="btn" onclick="saveCarEdit('${car.id}')">Save Changes</button><button class="btn secondary" onclick="closeCarEditor()">Cancel</button></div>
-  </div>
- </div>`);
+ const car=carById(id);if(!car)return;closeCarEditor();document.body.insertAdjacentHTML('beforeend',`<div id="carEditorOverlay" class="carEditorOverlay"><div class="carEditorCard"><h2>${rhGarageNeedsDetails(car)?'ADD DETAILS':'Edit Car'}</h2><p class="small">Changing details keeps this car's existing RaceHub ID, results, records and progress.</p><label>Manufacturer</label><input id="editCarMake" autocomplete="off" value="${esc(car.make||'')}"><label>Model</label><input id="editCarModel" autocomplete="off" value="${esc(car.model||'')}"><label>Year</label><input id="editCarYear" autocomplete="off" inputmode="numeric" maxlength="4" value="${esc(car.year||'')}" placeholder="UNKNOWN"><label>Class / Type</label><input id="editCarClassType" autocomplete="off" value="${esc(car.classType||'')}" placeholder="UNKNOWN"><p class="small rhUnknownHelp">Leave Year or Class/Type blank to show <span class="rhUnknown">UNKNOWN</span>. UNKNOWN is display-only.</p><div class="grid"><button class="btn" onclick="saveCarEdit('${car.id}')">Save Changes</button><button class="btn secondary" onclick="closeCarEditor()">Cancel</button></div></div></div>`);
 }
 function closeCarEditor(){const o=$('carEditorOverlay');if(o)o.remove();}
 function saveCarEdit(id){
- const car=carById(id); if(!car)return;
- const cleanMake=$('editCarMake').value.trim();
- const cleanModel=$('editCarModel').value.trim();
- const cleanYear=$('editCarYear').value.trim();
- if(!cleanMake||!cleanModel){toast('Manufacturer and model are required');return;}
- if(cleanYear&&!/^\d{4}$/.test(cleanYear)){toast('Year must be four digits');return;}
- const newName=`${cleanMake} ${cleanModel}${cleanYear?' '+cleanYear:''}`.replace(/\s+/g,' ').trim();
- const duplicate=state.cars.some(c=>c.id!==id&&carName(c).toLowerCase()===newName.toLowerCase());
- if(duplicate){toast('That car already exists');return;}
- car.make=cleanMake; car.model=cleanModel; car.year=cleanYear; car.name=newName;
- garageMake=cleanMake;
- save(); closeCarEditor(); toast('Car updated'); renderGarage();
+ const car=carById(id);if(!car)return;const cleanMake=$('editCarMake').value.trim(),cleanModel=$('editCarModel').value.trim(),cleanYear=$('editCarYear').value.trim(),cleanClassType=$('editCarClassType').value.trim();
+ if(!cleanMake||!cleanModel){toast('Manufacturer and model are required');return;}if(cleanYear&&!/^\d{4}$/.test(cleanYear)){toast('Year must be four digits');return;}
+ const newName=`${cleanMake} ${cleanModel}${cleanYear?' '+cleanYear:''}`.replace(/\s+/g,' ').trim();if(state.cars.some(c=>c.id!==id&&carName(c).toLowerCase()===newName.toLowerCase())){toast('That car already exists');return;}
+ car.make=cleanMake;car.model=cleanModel;car.year=cleanYear||'';car.classType=cleanClassType||'';car.name=newName;garageMake=cleanMake;save();closeCarEditor();toast('Car updated');renderGarage();
 }
 

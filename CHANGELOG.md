@@ -1,3 +1,10 @@
+## v6.0.1 — Stage 1 Garage details
+- Editable Class/Type and Year detail handling.
+- Grey display-only UNKNOWN for blank detail fields.
+- Legacy ADD DETAILS treatment and Cars Need Details filter.
+- Garage list exposes Year and Class/Type.
+- More Details = More Championships guidance; Festival expansion remains out of scope.
+
 # RaceHub v5.9.17
 
 - Standardise every universal top-left BACK pill to the same compact 80px width.
