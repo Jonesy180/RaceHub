@@ -1,3 +1,10 @@
+## v6.0.8 — Stage 4 new Championship trophies
+- Adds the locked Class/Type wheel trophy, Vintage trophy and Classic trophy assets.
+- Trophy selection is driven by saved Championship TYPE, never custom Championship name.
+- Class/Type uses a native dynamic plaque showing the actual user-defined Class/Type value.
+- Vintage and Classic now use their dedicated trophy identities.
+- No Championship eligibility, racing workflow, Records, Hall of Fame or Stats logic changed.
+
 ## v6.0.7 — Stage 3B Vintage + Classic Festival expansion
 - Adds Vintage Championship eligibility for cars with Year <= 1949.
 - Adds Classic Championship eligibility for cars with Year 1950–1990 inclusive.

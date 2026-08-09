@@ -4337,3 +4337,8 @@ button.rhBack.rhUniversalBackV594,
 
 /* RaceHub v6.0.7 — Stage 3B Vintage / Classic Festival expansion */
 .rhFestivalHeritageV6 summary span{color:#27ddfa}
+
+/* RaceHub v6.0.8 — Stage 4 trophy identities */
+.rhTrophyStageV6{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:72px}
+.rhTrophyStageV6>img{display:block}
+.rhDynamicTrophyPlaque{margin-top:-3px;max-width:96px;padding:3px 8px;border:1px solid rgba(39,221,250,.32);border-radius:6px;background:linear-gradient(180deg,rgba(28,34,38,.96),rgba(7,11,14,.98));box-shadow:inset 0 1px rgba(255,255,255,.06),0 0 8px rgba(39,221,250,.08);color:#dce6e9;font-size:7px;font-weight:900;letter-spacing:.065em;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
