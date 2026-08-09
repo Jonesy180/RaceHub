@@ -1,3 +1,12 @@
+## v6.0.23 — Stage 9D League standings + permanent Event history
+- Adds live League standings calculated only from confirmed Event results.
+- Points mode totals the frozen user-defined points table; DNF/DNS remain 0 points. Equal points remain tied.
+- Total Time mode ranks classified finishes first, then lowest cumulative time; DNF/DNS add no time.
+- Confirmed Events reopen as permanent locked history with direct Standings access.
+- Completed Leagues show Final Standings once every official Event is confirmed.
+- Applies the approved small upward alignment correction to the Stage 9C mini digital race-time display only.
+- Preserves existing RaceHub result/championship systems and protected Stage 8 functionality.
+
 ## v6.0.22 — Stage 9C League mini digital timing correction
 - Replaces the generic League race-time text field with the compact segmented RaceHub digital timing entry used by Advanced Timing.
 - FINISH rows use segmented MM:SS.mmm entry with numeric auto-advance and corrected separator alignment.
