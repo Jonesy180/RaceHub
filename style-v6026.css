@@ -45,3 +45,10 @@
   .rhLeagueRaceTimeLabelV6022 .rhLeagueDigitalTimeV6022{top:0;height:50px;min-height:50px}
   .rhLeagueDigitalTimeV6022 .rhLeagueSegDisplayV6022{height:27px}
 }
+
+/* RaceHub v6.0.27 — LOCKED one-fix correction.
+   No redraw. Lower ONLY the existing Race Time box 4px.
+   Position box stays fixed; segmented digits retain v6.0.26 vertical centring. */
+.rhLeagueRaceTimeLabelV6022 .rhLeagueDigitalTimeV6022 {
+  top:4px!important;
+}

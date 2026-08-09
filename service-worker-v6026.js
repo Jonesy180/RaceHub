@@ -1,4 +1,4 @@
-const CACHE_NAME='racehub-v6.0.26-stage9d-final-result-alignment';
+const CACHE_NAME='racehub-v6.0.27-stage9d-final-result-alignment';
 const ASSETS=[
   './','./index.html','./style-v595.css?v=6020','./manifest.webmanifest?v=6000','./favicon.png',
   './js/seed-data.js?v=5799','./js/core.js?v=6020','./js/race-director.js?v=5799','./js/views.js?v=5799',

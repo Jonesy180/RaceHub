@@ -1,4 +1,4 @@
-// RaceHub v6.0.26 — Stage 9D final League result-entry alignment
+// RaceHub v6.0.27 — Stage 9D final League result-entry alignment
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
