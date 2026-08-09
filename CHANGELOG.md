@@ -259,3 +259,10 @@
 - Added user-defined Points or Total Time setup, event count and drivers.
 - Uses locked League control-room/helicopter environment.
 - No League result/standings logic yet.
+
+
+## v6.0.24 — Stage 9D League delete + phone polish
+- Adds a destructive-confirmation Delete League action that removes the selected League and its stored Event history from the current RaceHub Space only.
+- Nudges the compact League digital race-time display upward for balanced vertical spacing.
+- Reduces the League Position entry box while preserving a comfortable phone touch target.
+- No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
