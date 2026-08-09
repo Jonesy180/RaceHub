@@ -1,9 +1,9 @@
-## v6.0.1 — Stage 1 Garage details
-- Editable Class/Type and Year detail handling.
-- Grey display-only UNKNOWN for blank detail fields.
-- Legacy ADD DETAILS treatment and Cars Need Details filter.
-- Garage list exposes Year and Class/Type.
-- More Details = More Championships guidance; Festival expansion remains out of scope.
+## v6.0.2 — Stage 1 Garage details (live production path)
+- Rebuilt from protected v6.0.0 after rejecting v6.0.1.
+- Changes the actual studio-final-v5808 Garage/Edit Car implementation loaded in production.
+- Adds editable Class/Type, grey display-only UNKNOWN, ADD DETAILS, Cars Need Details and Garage detail rows.
+- Preserves existing car IDs and proven Championship eligibility workflow.
+- No Stage 2 suggestions or Festival expansion.
 
 # RaceHub v5.9.17
 

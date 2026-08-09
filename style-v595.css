@@ -4302,6 +4302,8 @@ button.rhBack.rhUniversalBackV594,
   .rhRecordsHeadV1 h1{font-size:clamp(23px,7vw,28px)!important}
 }
 
-/* v6.0.1 Stage 1 Garage details */
-.rhGarageGuidance{margin-top:12px;padding:12px 14px;border:1px solid rgba(0,212,255,.22);border-radius:14px;background:rgba(0,212,255,.055);display:grid;gap:4px}.rhGarageGuidance strong{font-size:.78rem;letter-spacing:.08em;color:#8eeaff}.rhGarageGuidance span{font-size:.82rem;color:rgba(255,255,255,.72)}
-.rhCarMeta{display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}.rhCarMeta>span{display:grid;gap:1px;font-size:.78rem;color:rgba(255,255,255,.78)}.rhCarMeta small{font-size:.58rem;letter-spacing:.08em;color:rgba(255,255,255,.42)}.rhUnknown{color:#8b9199!important;font-style:italic;font-weight:700;letter-spacing:.04em}.rhCarNeedsDetails{background:linear-gradient(90deg,rgba(255,255,255,.025),transparent)}.rhAddDetails{font-size:.68rem;letter-spacing:.05em;color:#b8bec6;border-color:rgba(184,190,198,.24)}.rhNeedsDetailsBtn{width:100%;margin-top:10px}.rhNeedsDetailsBtn span{margin-left:6px;opacity:.75}.rhNeedsDetailsBtn.on{box-shadow:inset 0 0 0 1px rgba(0,212,255,.35)}.rhUnknownHelp{margin:4px 0 12px}
+/* RaceHub v6.0.2 — Stage 1 live Garage details */
+.rhGarageV6Guide{margin:9px 0;padding:10px 12px;border:1px solid rgba(39,221,250,.34);border-radius:11px;background:rgba(3,23,31,.78);display:grid;gap:3px}
+.rhGarageV6Guide b{font-size:10px;letter-spacing:.08em;color:#27ddfa}.rhGarageV6Guide span{font-size:9px;line-height:1.35;color:#aeb8bc}
+.rhGarageNeedsBtn{width:100%;height:38px;margin:0 0 10px;border:1px solid rgba(163,181,188,.32);border-radius:10px;background:rgba(5,13,18,.88);color:#aeb8bc;font-size:10px;font-weight:800;letter-spacing:.07em}.rhGarageNeedsBtn span{margin-left:5px;color:#fff}.rhGarageNeedsBtn.on{border-color:#27ddfa;color:#27ddfa}
+.rhGarageCarV1.rhGarageCarV6{grid-template-columns:18px minmax(0,1fr) auto}.rhGarageCarV6>span{display:grid;gap:3px}.rhGarageCarV6>span>small{display:flex;gap:10px}.rhGarageCarV6>span>small>span{min-width:56px}.rhGarageUnknown{color:#747e84;font-style:italic;font-weight:700}.rhGarageCarV6>button.rhAddDetails{width:auto!important;min-width:82px!important;padding:0 7px!important;font-size:8px!important;letter-spacing:.04em;color:#aeb8bc!important;border:1px solid rgba(163,181,188,.24)!important;border-radius:8px!important}

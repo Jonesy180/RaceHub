@@ -1,6 +1,6 @@
 /* RaceHub v6.0.0 — Stage 1: Garage foundation.
    Non-destructive schema migration only. Existing v5 Garage/Space data remains authoritative. */
-const RH_V6_BUILD_VERSION='6.0.1';
+const RH_V6_BUILD_VERSION='6.0.2';
 const RH_V6_SCHEMA=3;
 
 function rhV6NormaliseSpace(space,index=0){
@@ -12,7 +12,7 @@ function rhV6NormaliseSpace(space,index=0){
    const normal=normaliseCar(original);
    // Preserve the existing stable car id: Championships/results refer to it.
    if(original.id)normal.id=original.id;
-   if(typeof normal.classType!=='string')normal.classType=typeof original.classType==='string'?original.classType:'';
+   normal.classType=String(original.classType||normal.classType||'').trim();
    return Object.assign({},original,normal);
  }):[];
  if(!Array.isArray(s.runs))s.runs=[];

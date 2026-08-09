@@ -369,6 +369,14 @@ function rhTimeAutoAdvance(el,nextId,maxLen){el.value=String(el.value||'').repla
 function rhEventResult(id){const e=rhSpace().customEvents.find(x=>x.id===id);if(!e||e.status!=='active')return;const next=rhEventNextPair(e);if(!next){e.status='complete';e.completedAt=new Date().toISOString();rhSave();return rhOpenEvent(id)}document.getElementById('rhEventResultEditor')?.remove();document.body.insertAdjacentHTML('beforeend',`<div id="rhEventResultEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhEventResultEditor').remove()">×</button><h2>Enter Result</h2><div class="rhResultContext"><small>${esc(e.name)}</small><b>${esc(carName(next.car))}</b><span>${esc(next.round.name)}</span></div><label>Race Time</label><div class="rhTimeEntry"><input id="rhEventMin" inputmode="numeric" maxlength="2" placeholder="00" oninput="rhTimeAutoAdvance(this,'rhEventSec',2)"><span>:</span><input id="rhEventSec" inputmode="numeric" maxlength="2" placeholder="00" oninput="rhTimeAutoAdvance(this,'rhEventMs',2)"><span>.</span><input id="rhEventMs" inputmode="numeric" maxlength="3" placeholder="000" oninput="rhTimeAutoAdvance(this,'rhEventSave',3)"></div><div class="rhModalActions"><button class="btn secondary" onclick="$('rhEventResultEditor').remove()">CANCEL</button><button id="rhEventSave" class="btn" onclick="rhSaveEventResult('${id}','${next.car.id}','${next.round.id}')">SAVE RESULT</button></div></div></div>`);setTimeout(()=>$('rhEventMin')?.focus(),50)}
 function rhEventCarTransition(id,next){const e=rhSpace().customEvents.find(x=>x.id===id);if(!e)return;document.getElementById('rhEventCarTransition')?.remove();document.body.insertAdjacentHTML('beforeend',`<div id="rhEventCarTransition" class="rhOverlay"><div class="rhModal rhEventTransitionModal"><div class="rhEventStatus">NEXT RACER</div><h2>${esc(carName(next.car))}</h2><p>${esc(next.round.name)} is next.</p><button class="btn" onclick="$('rhEventCarTransition').remove();rhEventResult('${id}')">START NEXT RACER</button></div></div>`)}
 function rhSaveEventResult(id,carId,roundId){const e=rhSpace().customEvents.find(x=>x.id===id);if(!e||e.status!=='active')return;const car=rhEventCars(e).find(c=>c.id===carId),round=rhEventRounds(e).find(r=>r.id===roundId);const m=Number($('rhEventMin')?.value||0),s=Number($('rhEventSec')?.value||0),ms=Number(($('rhEventMs')?.value||'0').padEnd(3,'0'));if(!car||!round||rhEventResultExists(e,carId,roundId)||!Number.isFinite(m)||!Number.isFinite(s)||!Number.isFinite(ms)||m<0||s<0||s>59||ms<0||ms>999)return toast('Enter a valid race time');const v=m*60+s+(ms/1000);if(v<=0)return toast('Enter a valid race time');e.results.push({id:rhId('result'),carId,roundId:round.id,roundName:round.name,time:v,date:new Date().toISOString()});$('rhEventResultEditor')?.remove();const next=rhEventNextPair(e);if(!next){e.status='complete';e.completedAt=new Date().toISOString();rhSave();toast('Event complete');return rhOpenEvent(id)}rhSave();if(next.car.id===carId){toast('Result saved');return rhEventResult(id)}rhOpenEvent(id);rhEventCarTransition(id,next)}
+function rhGarageNeedsDetails(c){return !String(c?.year||'').trim()||!String(c?.classType||'').trim()}
+function rhGarageUnknown(v){const x=String(v||'').trim();return x?esc(x):'<em class="rhGarageUnknown">UNKNOWN</em>'}
+function rhGarageToggleNeedsDetails(){
+ window.rhGarageNeedsDetailsOnly=!window.rhGarageNeedsDetailsOnly;
+ garageSearch='';
+ rhRenderGarage();
+}
+
 function rhGarageFilterLive(value){
  garageSearch=value||'';
  const q=garageSearch.trim().toLowerCase();
@@ -396,21 +404,23 @@ function rhGarageFilterLive(value){
 }
 function rhRenderGarage(){
  const s=rhSpace(); garageSearch=garageSearch||'';
- const grouped={};
- s.cars.forEach(c=>(grouped[c.make]||(grouped[c.make]=[])).push(c));
+ const needsOnly=Boolean(window.rhGarageNeedsDetailsOnly);
+ const source=needsOnly?s.cars.filter(rhGarageNeedsDetails):s.cars;
+ const grouped={};source.forEach(c=>(grouped[c.make]||(grouped[c.make]=[])).push(c));
  const makes=Object.keys(grouped).sort((a,b)=>a.localeCompare(b));
+ const needsCount=s.cars.filter(rhGarageNeedsDetails).length;
  $('garage').innerHTML=`<div class="rhGarageV1">
-  <section class="rhGarageHeroV1">
-   <div class="rhGarageHeadV1"><button onclick="show('home')" aria-label="Back">‹</button><div><h1>GARAGE</h1><p>Your Collection</p></div></div>
-  </section>
+  <section class="rhGarageHeroV1"><div class="rhGarageHeadV1"><button onclick="show('home')" aria-label="Back">‹</button><div><h1>GARAGE</h1><p>Your Collection</p></div></div></section>
   <main class="rhGarageBodyV1">
    <section class="rhGarageSummaryV1"><i>⌂</i><span><b>YOUR GARAGE</b><small>All the cars in your collection.<br>Add new cars, edit details and manage your collection.</small></span><strong>${s.cars.length}<small>CARS</small></strong></section>
-   <div class="rhGarageToolsV1"><label><i>⌕</i><input id="garageSearch" placeholder="Search your cars..." value="${esc(garageSearch)}" oninput="rhGarageFilterLive(this.value)"></label><button onclick="rhOpenCarEditor()">⊕ <span>ADD NEW CAR</span></button></div>
-   ${makes.length?`<div class="rhGarageMakesV1">${makes.map(make=>{const cars=grouped[make].slice().sort((a,b)=>carName(a).localeCompare(carName(b)));const open=rhGarageOpenMake===make;return `<section class="rhGarageMakeV1 ${open?'open':''}" data-make="${esc(make)}"><div class="rhGarageMakeHeadWrapV1"><button class="rhGarageMakeHeadV1" onclick="rhToggleGarageMake('${esc(make).replace(/'/g,'&#39;')}')"><b>${esc(make)}</b><span>${cars.length} Car${cars.length===1?'':'s'}</span><em>${open?'⌃':'⌄'}</em></button><button class="rhGarageMakeEditV1" aria-label="Rename ${esc(make)} manufacturer" title="Rename manufacturer" onclick="event.stopPropagation();rhRenameManufacturerFromGarage(decodeURIComponent('${encodeURIComponent(make)}'))">✎</button></div><div class="rhGarageCarsV1" ${open?'':'hidden'}>${cars.map(c=>`<div class="rhGarageCarV1" data-search="${esc(`${c.make} ${c.model} ${c.year||''}`)}"><i>•</i><span><b>${esc(c.model)}</b><small>${esc(c.year||'')}</small></span><button aria-label="Edit ${esc(carName(c))}" onclick="event.stopPropagation();rhOpenCarEditor('${c.id}')">✎</button></div>`).join('')}</div></section>`}).join('')}</div>`:rhEmpty('YOUR GARAGE IS EMPTY','Add cars to start building Championships and recording your racing.','Add Your First Car','rhOpenCarEditor()')}
-   <div class="rhGarageInfoV1"><i>i</i><p><b>GARAGE</b>This is your collection of all cars.<br>Add new cars, edit details and manage your collection.<br>Use the options above to add cars to your collection.</p></div>
+   <div class="rhGarageV6Guide"><b>MORE DETAILS = MORE CHAMPIONSHIPS</b><span>Adding Year and Class/Type gives RaceHub more ways to group your cars. Missing details remain UNKNOWN.</span></div>
+   <div class="rhGarageToolsV1"><label><i>⌕</i><input id="garageSearch" autocomplete="off" placeholder="Search your cars..." value="${esc(garageSearch)}" oninput="rhGarageFilterLive(this.value)"></label><button onclick="rhOpenCarEditor()">⊕ <span>ADD NEW CAR</span></button></div>
+   <button class="rhGarageNeedsBtn ${needsOnly?'on':''}" onclick="rhGarageToggleNeedsDetails()">CARS NEED DETAILS <span>${needsCount}</span></button>
+   ${makes.length?`<div class="rhGarageMakesV1">${makes.map(make=>{const cars=grouped[make].slice().sort((a,b)=>carName(a).localeCompare(carName(b)));const open=needsOnly||rhGarageOpenMake===make;return `<section class="rhGarageMakeV1 ${open?'open':''}" data-make="${esc(make)}"><div class="rhGarageMakeHeadWrapV1"><button class="rhGarageMakeHeadV1" onclick="rhToggleGarageMake('${esc(make).replace(/'/g,'&#39;')}')"><b>${esc(make)}</b><span>${cars.length} Car${cars.length===1?'':'s'}</span><em>${open?'⌃':'⌄'}</em></button><button class="rhGarageMakeEditV1" aria-label="Rename ${esc(make)} manufacturer" title="Rename manufacturer" onclick="event.stopPropagation();rhRenameManufacturerFromGarage(decodeURIComponent('${encodeURIComponent(make)}'))">✎</button></div><div class="rhGarageCarsV1" ${open?'':'hidden'}>${cars.map(c=>`<div class="rhGarageCarV1 rhGarageCarV6 ${rhGarageNeedsDetails(c)?'needs-details':''}" data-search="${esc(`${c.make} ${c.model} ${c.year||''} ${c.classType||''}`)}"><i>•</i><span><b>${esc(c.model)}</b><small><span>${rhGarageUnknown(c.year)}</span><span>${rhGarageUnknown(c.classType)}</span></small></span><button class="${rhGarageNeedsDetails(c)?'rhAddDetails':''}" aria-label="${rhGarageNeedsDetails(c)?'Add details to':'Edit'} ${esc(carName(c))}" onclick="event.stopPropagation();rhOpenCarEditor('${c.id}')">${rhGarageNeedsDetails(c)?'ADD DETAILS':'✎'}</button></div>`).join('')}</div></section>`}).join('')}</div>`:rhEmpty(needsOnly?'NO CARS NEED DETAILS':'YOUR GARAGE IS EMPTY',needsOnly?'Every car has Year and Class/Type details.':'Add cars to start building Championships and recording your racing.',needsOnly?'Show All Cars':'Add Your First Car',needsOnly?'rhGarageToggleNeedsDetails()':'rhOpenCarEditor()')}
+   <div class="rhGarageInfoV1"><i>i</i><p><b>GARAGE</b>UNKNOWN means that detail has not been entered yet.<br>It is display-only and is never used as a real category.</p></div>
   </main>
  </div>`;
- if(garageSearch) rhGarageFilterLive(garageSearch);
+ if(garageSearch)rhGarageFilterLive(garageSearch);
 }
 function rhToggleGarageMake(make){
  rhGarageOpenMake=rhGarageOpenMake===make?null:make;
@@ -426,9 +436,9 @@ function rhToggleGarageMake(make){
 
 function rhOpenCarEditor(id=''){
  const c=id?rhSpace().cars.find(x=>x.id===id):null;
- document.body.insertAdjacentHTML('beforeend',`<div id="rhCarEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhCarEditor').remove()">×</button><h2>${c?'Edit Car':'Add Car'}</h2><p>${c?'Correct this Garage entry.':'Add a car to the current RaceHub Space.'}</p><label>Manufacturer</label><input id="rhCarMake" class="rhSearch" value="${esc(c?.make||'')}" placeholder="Manufacturer"><label>Vehicle Name</label><input id="rhCarModel" class="rhSearch" value="${esc(c?.model||'')}" placeholder="Vehicle name"><label>Year</label><input id="rhCarYear" class="rhSearch" inputmode="numeric" value="${esc(c?.year||'')}" placeholder="Year"><p class="small">Era is derived automatically from Year.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarEditor').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarFinal('${id}')">${c?'SAVE CHANGES':'ADD TO GARAGE'}</button></div>${c?`<button class="btn dangerBtn rhDeleteCar" onclick="rhConfirmDeleteCar('${id}')">DELETE CAR</button>`:''}</div></div>`)
+ document.getElementById('rhCarEditor')?.remove();
+ document.body.insertAdjacentHTML('beforeend',`<div id="rhCarEditor" class="rhOverlay"><div class="rhModal rhFormModal"><button class="rhModalX" onclick="$('rhCarEditor').remove()">×</button><h2>${c?(rhGarageNeedsDetails(c)?'Add Details':'Edit Car'):'Add Car'}</h2><p>${c?'Correct this Garage entry.':'Add a car to the current RaceHub Space.'}</p><label>Manufacturer</label><input id="rhCarMake" class="rhSearch" autocomplete="off" value="${esc(c?.make||'')}" placeholder="Manufacturer"><label>Vehicle Name</label><input id="rhCarModel" class="rhSearch" autocomplete="off" value="${esc(c?.model||'')}" placeholder="Vehicle name"><label>Year</label><input id="rhCarYear" class="rhSearch" autocomplete="off" inputmode="numeric" maxlength="4" value="${esc(c?.year||'')}" placeholder="UNKNOWN"><label>Class / Type</label><input id="rhCarClassType" class="rhSearch" autocomplete="off" value="${esc(c?.classType||'')}" placeholder="UNKNOWN"><p class="small">Era is derived automatically from Year. Leave Year or Class/Type blank if unknown.</p><div class="rhModalActions"><button class="btn secondary" onclick="$('rhCarEditor').remove()">CANCEL</button><button class="btn" onclick="rhSaveCarFinal('${id}')">${c?'SAVE CHANGES':'ADD TO GARAGE'}</button></div>${c?`<button class="btn dangerBtn rhDeleteCar" onclick="rhConfirmDeleteCar('${id}')">DELETE CAR</button>`:''}</div></div>`)
 }
-
 function rhChampDiscoveryKey(type,value){return `${type}:${String(value||'').trim().toLowerCase()}`}
 function rhEligibleChampionshipsForCars(cars){
  const counts=(arr,keyFn)=>arr.reduce((m,c)=>{const k=keyFn(c);if(k)m[k]=(m[k]||0)+1;return m},{});
@@ -465,16 +475,14 @@ function rhViewDiscoveredChampionship(){
  document.getElementById('rhChampDiscoveryOverlay')?.remove();window.rhPendingChampDiscovery=null;show('festival')
 }
 function rhSaveCarFinal(id=''){
- const make=$('rhCarMake')?.value.trim(),model=$('rhCarModel')?.value.trim(),year=$('rhCarYear')?.value.trim()||'';
+ const make=$('rhCarMake')?.value.trim(),model=$('rhCarModel')?.value.trim(),year=$('rhCarYear')?.value.trim()||'',classType=$('rhCarClassType')?.value.trim()||'';
  if(!make||!model){toast('Manufacturer and Vehicle Name are required');return}
  if(year&&!/^\d{4}$/.test(year)){toast('Enter a four-digit year');return}
  const s=rhSpace(),before=rhCaptureChampEligibility();
- if(id){const c=s.cars.find(x=>x.id===id);if(!c)return;Object.assign(c,normaliseCar({...c,make,model,year}))}
- else s.cars.push(normaliseCar({id:rhId('car'),make,model,year}));
+ if(id){const c=s.cars.find(x=>x.id===id);if(!c)return;Object.assign(c,normaliseCar({...c,make,model,year,classType}))}
+ else s.cars.push(normaliseCar({id:rhId('car'),make,model,year,classType}));
  rhGarageOpenMake=make;rhSync();rhSave();$('rhCarEditor')?.remove();rhRenderGarage();toast(id?'Car updated':'Car added');rhCheckChampionshipDiscoveries(before)
 }
-function rhConfirmDeleteCar(id){const c=rhSpace().cars.find(x=>x.id===id);if(!c)return;rhConfirm({title:'Delete Car?',copy:`${carName(c)} will be removed from this Garage. This cannot be undone.`,confirmLabel:'DELETE CAR',danger:true,onConfirm:`rhDeleteCarFinal('${id}')`})}
-function rhDeleteCarFinal(id){const s=rhSpace();s.cars=s.cars.filter(x=>x.id!==id);(s.runs||[]).forEach(r=>{if((r.type==='festival'||r.championshipType==='festival')&&(r.status==='active'||r.status==='prepared')){r.entries=(r.entries||[]).filter(carId=>carId!==id);r.results=(r.results||[]).filter(result=>result.carId!==id);r.updatedAt=new Date().toISOString()}});rhSync();rhSave();$('rhCarEditor')?.remove();rhRenderGarage();toast('Car deleted')}
 function rhAddCarFinal(){rhOpenCarEditor()}
 function rhRecordsHeader(hall){
  if(!hall)return `<section class="rhRecordsHeroV1"><div class="rhRecordsHeadV1"><button onclick="show('home')" aria-label="Back">‹</button><div><h1>RECORDS</h1><p>Your Racing History</p></div></div></section>`;
