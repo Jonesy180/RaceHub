@@ -1,3 +1,9 @@
+## v6.0.22 — Stage 9C League mini digital timing correction
+- Replaces the generic League race-time text field with the compact segmented RaceHub digital timing entry used by Advanced Timing.
+- FINISH rows use segmented MM:SS.mmm entry with numeric auto-advance and corrected separator alignment.
+- Total Time still requires a valid time; Points mode keeps race time optional. DNF/DNS behaviour and Review/Confirm locking are unchanged.
+- Built from v6.0.21 Stage 9C; protected baseline remains v6.0.20 until phone pass.
+
 ## v6.0.21 — Stage 9C League Results + Review/Confirmation
 - League Event result entry for every active driver.
 - FINISH / DNF / DNS statuses. DNF/DNS contribute zero points/time.
