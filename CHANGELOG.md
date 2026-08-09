@@ -1,3 +1,11 @@
+## v6.0.4 — Stage 3A Class/Type Festival expansion
+- Adds data-driven Class/Type Championships to the live Festival screen.
+- Class/Type values come only from genuine Garage data; blank/UNKNOWN values create no Championship.
+- Uses the existing proven Championship setup/run/results workflow and 2-car eligibility threshold.
+- Adds Class/Type discovery when a saved Garage change crosses the eligibility threshold.
+- Stage 4 trophy artwork is not implemented; Class/Type uses the existing Festival trophy identity temporarily during this staged test.
+- Vintage and Classic remain unimplemented because their locked year boundaries were not recoverable; no ranges were invented.
+
 ## v6.0.3 — Stage 2 smart remembered Class/Type suggestions
 - Adds an app-controlled Class/Type suggestion chooser to Add/Edit Car.
 - Suggestions are learned from actual Class/Type values used in the current RaceHub Space; there are no hard-coded categories.

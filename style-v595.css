@@ -4318,3 +4318,6 @@ button.rhBack.rhUniversalBackV594,
 .rhSmartSuggestions button+button{border-top:1px solid rgba(255,255,255,.055)}
 .rhSmartSuggestions button:active,.rhSmartSuggestions button:focus-visible{background:rgba(39,221,250,.10);outline:1px solid rgba(39,221,250,.28)}
 .rhSmartSuggestions button span{font-size:13px;font-weight:700}.rhSmartSuggestions button small{font-size:9px;color:#78868c;white-space:nowrap}
+
+/* RaceHub v6.0.4 — Stage 3A Class/Type Festival expansion */
+.rhFestivalClassTypeV6 summary span{color:#27ddfa}
