@@ -1,5 +1,5 @@
-## v6.0.14 — Stage 8B Advanced Timing lap-entry interaction foundation
-Stage 8B interaction checkpoint from protected v6.0.13. Adds optional lap-count and lap-time entry inside the already approved Advanced Timing shell while keeping persistence/calculation/result integration for later Stage 8 checkpoints.
+## v6.0.15 — Stage 8B Advanced Timing corrected implementation
+Built from protected v6.0.13. Adds locked compact digital lap entry, mandatory complete-lap validation, live green fastest-lap marking, automatic lap-total race time, and additive lap-detail persistence while preserving the existing result flow.
 
 ## v6.0.13 — Stage 8A Advanced Timing presentation foundation
 Stage 8A presentation-only checkpoint from protected v6.0.12. Adds the default-OFF Advanced Timing preference and Enter Result discoverability/collapsed shell without lap persistence or calculations.

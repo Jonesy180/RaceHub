@@ -4382,27 +4382,34 @@ button.rhBack.rhUniversalBackV594,
 .rhAdvancedTimingDiscoverV6013 small{color:#879ba3;font-size:9px;font-weight:650;line-height:1.32}
 @media(max-width:430px){.rhAdvancedTimingV6013,.rhAdvancedTimingDiscoverV6013{margin-bottom:10px}.rhAdvancedTimingHeadV6013{min-height:54px;padding:9px 10px}.rhAdvancedTimingSettingsV6013 .rhAdvancedTimingToggleV6013>span>small{max-width:205px}}
 
-/* v6.0.14 — Stage 8B Advanced Timing lap-entry interaction foundation */
-.rhAdvancedTimingEntryV6014{margin-top:12px;padding-top:12px;border-top:1px solid rgba(43,224,250,.12)}
-.rhAdvancedTimingCountRowV6014{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
-.rhAdvancedTimingCountRowV6014>label{color:#86ddea;font-size:8px;font-weight:900;letter-spacing:.14em}
-.rhAdvancedTimingCountControlV6014{display:flex;align-items:center;overflow:hidden;border:1px solid rgba(43,224,250,.34);border-radius:9px;background:rgba(0,0,0,.28)}
-.rhAdvancedTimingCountControlV6014 button{width:34px;height:32px;border:0;background:rgba(43,224,250,.045);color:#dffaff;font-size:18px;font-weight:800;line-height:1;cursor:pointer}
-.rhAdvancedTimingCountControlV6014 button:first-child{border-right:1px solid rgba(255,255,255,.07)}
-.rhAdvancedTimingCountControlV6014 button:last-child{border-left:1px solid rgba(255,255,255,.07)}
-.rhAdvancedTimingLapCountV6014{box-sizing:border-box;width:38px;height:32px;border:0;outline:0;background:transparent;color:#fff;font:900 13px/1 system-ui,sans-serif;text-align:center;-moz-appearance:textfield}
-.rhAdvancedTimingLapCountV6014::-webkit-outer-spin-button,.rhAdvancedTimingLapCountV6014::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.rhAdvancedTimingLapsV6014{display:flex;max-height:224px;flex-direction:column;gap:7px;overflow-y:auto;padding-right:2px;scrollbar-width:thin;scrollbar-color:rgba(43,224,250,.45) rgba(255,255,255,.035)}
-.rhAdvancedTimingLapRowV6014{display:flex;min-height:56px;align-items:center;justify-content:space-between;gap:9px;padding:8px 9px;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:rgba(0,0,0,.22)}
-.rhAdvancedTimingLapLabelV6014{flex:0 0 auto;color:#b7c8ce;font-size:9px;font-weight:900;letter-spacing:.09em}
-.rhAdvancedTimingLapTimeV6014{display:flex;min-width:0;align-items:center;justify-content:flex-end;gap:4px}
-.rhAdvancedTimingLapTimeV6014 label{display:flex;width:42px;flex-direction:column;align-items:center;gap:2px}
-.rhAdvancedTimingLapTimeV6014 label.ms{width:50px}
-.rhAdvancedTimingLapTimeV6014 input{box-sizing:border-box;width:100%;height:29px;border:1px solid rgba(43,224,250,.29);border-radius:6px;outline:none;background:rgba(3,15,20,.72);color:#67e8fa;font:800 16px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-align:center;text-shadow:0 0 10px rgba(43,224,250,.32)}
-.rhAdvancedTimingLapTimeV6014 input:focus{border-color:rgba(43,224,250,.72);box-shadow:0 0 0 2px rgba(43,224,250,.08)}
-.rhAdvancedTimingLapTimeV6014 small{color:#6f858d;font-size:6px;font-weight:900;letter-spacing:.08em}
-.rhAdvancedTimingLapTimeV6014>b{align-self:flex-start;margin-top:7px;color:#5b7d87;font-size:13px}
-.rhAdvancedTimingProgressV6014{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;color:#7d9299;font-size:7px;font-weight:800;letter-spacing:.06em}
-.rhAdvancedTimingProgressV6014 span{color:#2be0fa}
-.rhAdvancedTimingProgressV6014 em{font-style:normal;text-align:right}
-@media(max-width:430px){.rhAdvancedTimingLapRowV6014{padding:7px}.rhAdvancedTimingLapLabelV6014{font-size:8px}.rhAdvancedTimingLapTimeV6014{gap:3px}.rhAdvancedTimingLapTimeV6014 label{width:38px}.rhAdvancedTimingLapTimeV6014 label.ms{width:46px}.rhAdvancedTimingLapTimeV6014 input{font-size:15px}}
+/* RaceHub v6.0.15 — locked Advanced Timing lap entry correction */
+.rhATEntryV6015{margin-top:14px;padding-top:13px;border-top:1px solid rgba(43,224,250,.13)}
+.rhATCountRowV6015{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}
+.rhATCountRowV6015>label{color:#86ddea;font-size:8px;font-weight:900;letter-spacing:.14em}
+.rhATCountControlV6015{display:flex;align-items:center;overflow:hidden;border:1px solid rgba(43,224,250,.34);border-radius:9px;background:rgba(0,0,0,.28)}
+.rhATCountControlV6015 button{width:38px;height:34px;border:0;background:rgba(43,224,250,.045);color:#dffaff;font-size:19px;font-weight:900;cursor:pointer}
+.rhATCountControlV6015 button+input,.rhATCountControlV6015 input+button{border-left:1px solid rgba(255,255,255,.07)}
+.rhATLapCountV6015{box-sizing:border-box;width:44px;height:34px;border:0;outline:0;background:transparent;color:#fff;font:900 14px/1 system-ui,sans-serif;text-align:center;-moz-appearance:textfield}
+.rhATLapCountV6015::-webkit-outer-spin-button,.rhATLapCountV6015::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.rhATLapsV6015{display:flex;max-height:242px;flex-direction:column;gap:7px;overflow-y:auto;padding-right:3px;scrollbar-width:thin;scrollbar-color:rgba(43,224,250,.46) rgba(255,255,255,.035)}
+.rhATLapRowV6015{display:grid;grid-template-columns:54px minmax(0,1fr) 45px;align-items:center;gap:8px;min-height:50px;padding:8px 9px;border:1px solid rgba(255,255,255,.07);border-radius:9px;background:rgba(0,0,0,.22);transition:border-color .15s,background .15s,box-shadow .15s}
+.rhATLapLabelV6015{color:#aebcc1;font-size:9px;font-weight:900;letter-spacing:.08em;white-space:nowrap}
+.rhATLapConsoleV6015{display:flex;min-width:0;height:34px;align-items:center;justify-content:center;gap:3px;padding:0 8px;border:1px solid rgba(43,224,250,.34);border-radius:8px;background:linear-gradient(180deg,rgba(3,16,21,.95),rgba(1,8,12,.98));box-shadow:inset 0 0 0 3px rgba(255,255,255,.025),inset 0 0 16px rgba(43,224,250,.035)}
+.rhATLapConsoleV6015>i{color:#57cbd8;font-size:13px;font-style:normal;font-weight:900;line-height:1}
+.rhATLapPartV6015{position:relative;display:block;min-width:0;height:25px;font-size:20px;line-height:1}
+.rhATLapPartV6015:not(.ms){width:31px}.rhATLapPartV6015.ms{width:47px}
+.rhATSegDisplayV6015{display:inline-flex;height:25px;align-items:center;gap:1px;color:#18e4f7;font-size:20px;line-height:1}
+.rhATSegDisplayV6015 .rhSegDigit{width:.45em;height:.82em;flex-basis:.45em}
+.rhATLapPartV6015 input{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;outline:0;background:transparent;color:transparent;caret-color:transparent;opacity:.02;font-size:16px;text-align:center}
+.rhATLapPartV6015:focus-within .rhSegDigit span.on{background:#7cf3ff;box-shadow:0 0 .16em #22eaff,0 0 .36em rgba(34,234,255,.7)}
+.rhATFastestMarkV6015{visibility:hidden;justify-self:end;color:#7cff35;font-size:8px;font-weight:950;letter-spacing:.05em;white-space:nowrap;text-shadow:0 0 9px rgba(124,255,53,.65)}
+.rhATLapRowV6015.fastest{border-color:rgba(124,255,53,.46);background:rgba(47,94,20,.11);box-shadow:inset 0 0 18px rgba(124,255,53,.035)}
+.rhATLapRowV6015.fastest .rhATLapLabelV6015,.rhATLapRowV6015.fastest .rhATFastestMarkV6015{color:#7cff35}.rhATLapRowV6015.fastest .rhATFastestMarkV6015{visibility:visible}
+.rhATLapRowV6015.fastest .rhATLapConsoleV6015{border-color:rgba(124,255,53,.7);box-shadow:inset 0 0 0 3px rgba(124,255,53,.025),0 0 12px rgba(124,255,53,.12)}
+.rhATLapRowV6015.fastest .rhSegDigit span.on{background:#7cff35;box-shadow:0 0 .14em rgba(124,255,53,.95),0 0 .32em rgba(124,255,53,.48)}
+.rhATLapRowV6015.invalid{border-color:rgba(255,183,68,.65);box-shadow:0 0 0 2px rgba(255,183,68,.08)}
+.rhATSummaryV6015{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(43,224,250,.12)}
+.rhATStatusV6015{display:flex;min-width:0;flex-direction:column;gap:2px}.rhATStatusV6015 b{margin:0;color:#2be0fa;font-size:8px;letter-spacing:.08em}.rhATStatusV6015 span{color:#7d9299;font-size:7px;font-weight:700;line-height:1.3}
+.rhATTotalV6015{display:flex;flex-direction:column;align-items:flex-end;gap:2px}.rhATTotalV6015 small{color:#6f858d!important;font-size:6px!important;letter-spacing:.09em!important}.rhATTotalV6015 strong{color:#61e7f8;font:900 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-shadow:0 0 9px rgba(43,224,250,.3);white-space:nowrap}
+.rh5801Stopwatch.rhATAutoTotalV6015>p{color:#7f969e}.rh5801Stopwatch.rhATAutoTotalV6015 .rhStopwatchField{cursor:default}
+@media(max-width:430px){.rhATLapRowV6015{grid-template-columns:45px minmax(0,1fr) 39px;gap:5px;padding:7px 6px}.rhATLapLabelV6015{font-size:8px}.rhATLapConsoleV6015{height:32px;padding:0 5px;gap:2px}.rhATLapPartV6015{height:23px;font-size:18px}.rhATSegDisplayV6015{height:23px;font-size:18px}.rhATLapPartV6015:not(.ms){width:29px}.rhATLapPartV6015.ms{width:43px}.rhATFastestMarkV6015{font-size:7px}.rhATSummaryV6015{gap:7px}.rhATTotalV6015 strong{font-size:12px}}
