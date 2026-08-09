@@ -223,3 +223,10 @@
 - Preserves existing car IDs and Garage records so Championship/result relationships remain intact.
 - Keeps the existing RaceHub storage identity and proven v5 functionality; no later v6 stages are implemented.
 - Adds a unique v6.0.0 service-worker/cache authority and visible build version.
+
+## 6.0.18 — Stage 9A League Organiser foundation
+- Added League Organiser route inside Events.
+- Added Space-specific League setup/persistence.
+- Added user-defined Points or Total Time setup, event count and drivers.
+- Uses locked League control-room/helicopter environment.
+- No League result/standings logic yet.
