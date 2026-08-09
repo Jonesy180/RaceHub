@@ -230,3 +230,12 @@
 - Added user-defined Points or Total Time setup, event count and drivers.
 - Uses locked League control-room/helicopter environment.
 - No League result/standings logic yet.
+
+
+## 6.0.19 — Stage 9B League Events + driver management
+- Builds only from passed v6.0.18 Stage 9A.
+- League events can now be opened and edited with event name, race/event, free-text car/class/rules and notes/instructions.
+- Planned and In Progress states are available; Complete remains reserved for confirmed results.
+- League drivers can be added, made inactive and reactivated without deleting historical identity/results.
+- No calendar/dates and no multiple official races inside one League Event.
+- Results, review/confirmation, standings and permanent League history remain deliberately deferred.
