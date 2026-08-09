@@ -1,3 +1,11 @@
+## v6.0.21 — Stage 9C League Results + Review/Confirmation
+- League Event result entry for every active driver.
+- FINISH / DNF / DNS statuses. DNF/DNS contribute zero points/time.
+- Total Time requires valid race time; Points mode allows optional time.
+- Separate Review Classification step; results editable before confirmation.
+- Confirmed Event results become locked permanent League history.
+- Built from passed v6.0.20.
+
 ## v6.0.20 — Stage 9B League Events + Drivers (setup-state correction)
 - Rebuilt from passed v6.0.18.
 - Fixes League setup draft state: Points selector works and League name persists across rerenders.
