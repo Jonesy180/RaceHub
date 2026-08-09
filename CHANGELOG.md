@@ -117,3 +117,10 @@
 - Repair Android/browser Back by wiring the intended RaceHub navigation handler into the live build.
 - Move Manufacturer Rename to the Manufacturer header pencil icon; remove the under-list rename row.
 - Preserve passed v5.7.65 PWA install and icon artwork unchanged.
+
+## v6.0.0 — Stage 1 Garage foundation
+- Starts RaceHub v6 development from the protected v5.9.18 production baseline.
+- Adds a non-destructive v6 persistence/schema migration for existing RaceHub Spaces and Garage data.
+- Preserves existing car IDs and Garage records so Championship/result relationships remain intact.
+- Keeps the existing RaceHub storage identity and proven v5 functionality; no later v6 stages are implemented.
+- Adds a unique v6.0.0 service-worker/cache authority and visible build version.
