@@ -1,3 +1,11 @@
+## v6.0.13 — Stage 8A Advanced Timing presentation foundation
+- Built only from protected v6.0.12 Stage 7 Car Notes baseline.
+- Adds Advanced Timing Settings toggle, default OFF.
+- OFF preserves existing Enter Result and adds only the slim discoverability tile below Finish Position.
+- ON removes discoverability and adds the collapsed/expand-in-place Advanced Timing presentation tile between car identity and the existing timer.
+- Presentation shell only: no lap persistence, lap calculations, or changes to timer, position, save-result, Result Accepted, or downstream race flow.
+- RaceHub only; rh-guide unchanged.
+
 ## v6.0.12 — Stage 7 Car Notes live overlay
 - Rebuilt Stage 7 from protected v6.0.10 after rejecting v6.0.11.
 - Uses the same proven rhOverlay / rhModal production structure as Edit Car.

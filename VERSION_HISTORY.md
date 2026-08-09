@@ -1,3 +1,6 @@
+## v6.0.13 — Stage 8A Advanced Timing presentation foundation
+Stage 8A presentation-only checkpoint from protected v6.0.12. Adds the default-OFF Advanced Timing preference and Enter Result discoverability/collapsed shell without lap persistence or calculations.
+
 ## v5.4.11 — Garage Manufacturer Filter Fix
 
 A focused mobile layout fix that restores readable, horizontally scrollable manufacturer filter chips in the Garage. It prevents chip shrinking and clipping without changing Garage behaviour or stored data.
