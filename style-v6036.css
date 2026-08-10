@@ -1,0 +1,11 @@
+/* RaceHub v6.0.36 — Grand Tour: Garage Hubs placement only.
+   Reuses the existing approved transparent Hubs asset. Garage artwork is untouched. */
+.rhGarageHeroV1{overflow:hidden}
+.rhGarageHeroV1::after{
+  content:"";position:absolute;z-index:1;right:4%;bottom:-8px;
+  width:clamp(92px,27vw,150px);height:92%;
+  background:url('assets/final/hubs.png') center bottom/contain no-repeat;
+  pointer-events:none;filter:drop-shadow(0 10px 12px rgba(0,0,0,.42));
+}
+.rhGarageHeadV1{z-index:2}
+@media(max-width:390px){.rhGarageHeroV1::after{right:1%;bottom:-6px;width:clamp(86px,29vw,118px);height:88%}}

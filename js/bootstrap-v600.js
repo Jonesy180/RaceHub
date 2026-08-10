@@ -1,5 +1,5 @@
-// RaceHub v6.0.35 — Grand Tour Fix #5: Celebration Settings label/description spacing
+// RaceHub v6.0.36 — Grand Tour: Garage Hubs placement
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6035.js',{updateViaCache:'none'}).catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6036.js',{updateViaCache:'none'}).catch(()=>{}));}
