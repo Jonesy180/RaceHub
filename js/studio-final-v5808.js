@@ -219,7 +219,7 @@ function rhChooseSavedRoundName(kind,ownerId,roundId,name){
   r.name=name;rhSave();rhCloseRoundNamePicker();rhOpenEvent(ownerId)
  }
 }
-function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.type,x.value),included=x.entries.length,rounds=x.rounds.length,trophy=rhSetupTrophyType(x.type);$('festival').innerHTML=`<div class="rhSetupV1">
+function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.type,x.value),included=x.entries.length,rounds=x.rounds.length,trophy=rhSetupTrophyType(x.type);$('festival').innerHTML=`<div class="rhSetupV1 ${x.type==='favourite'?'rhFavouriteSetupV6031':''}">
  <header class="rhSetupHeroV1">
   <button class="rhSetupBackV1" onclick="rhCancelSetup()" aria-label="Back">‹</button>
   <div class="rhSetupTitleV1"><small>FESTIVAL</small><h1>CHAMPIONSHIP SETUP</h1><p>Build your Championship run, then freeze it when you start.</p></div>
