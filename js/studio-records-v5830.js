@@ -40,10 +40,10 @@ function canOpenClassification(entry){return !!entry?.sourceId&&entry?.sourceSta
 function openClassification(entry){
   if(!canOpenClassification(entry))return;
   if(entry.kind==='event'){
-    if(typeof window.rhShowEventFinalStandingsV5828==='function')window.rhShowEventFinalStandingsV5828(entry.sourceId);
+    if(typeof window.rhShowRecordEventFinalStandingsV6034==='function')window.rhShowRecordEventFinalStandingsV6034(entry.sourceId);
     return;
   }
-  if(typeof window.rhShowFinalStandingsV5828==='function')window.rhShowFinalStandingsV5828(entry.sourceId);
+  if(typeof window.rhShowRecordFinalStandingsV6034==='function')window.rhShowRecordFinalStandingsV6034(entry.sourceId);
 }
 function sourceRow(entry,isAllTime){
   const open=canOpenClassification(entry);
