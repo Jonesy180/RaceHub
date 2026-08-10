@@ -2,4 +2,4 @@
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6039.js',{updateViaCache:'none'}).catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6040.js',{updateViaCache:'none'}).catch(()=>{}));}
