@@ -1,5 +1,5 @@
-// RaceHub v6.0.34 — Grand Tour Fix #4: Records historical Final Standings overlay
+// RaceHub v6.0.35 — Grand Tour Fix #5: Celebration Settings label/description spacing
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6034.js',{updateViaCache:'none'}).catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker-v6035.js',{updateViaCache:'none'}).catch(()=>{}));}
