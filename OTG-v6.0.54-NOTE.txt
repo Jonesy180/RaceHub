@@ -1,0 +1,9 @@
+OTG! v6.0.54
+PRODUCTION EDIT ONLY — no image generation/redraw.
+- Splash unchanged from passed v6.0.52 implementation.
+- Existing approved main OTG! artwork preserved; moved lower and brightened.
+- Main logo size preserved from v6.0.53.
+- Building fascia sign centred.
+- Building sign: OTG! OUT THE GARAGE!
+- Both exclamation marks on building sign are cyan.
+- No other UI/layout/data changes.
