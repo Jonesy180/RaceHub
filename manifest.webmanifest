@@ -1,7 +1,7 @@
 {
-  "name": "RaceHub",
-  "short_name": "RaceHub",
-  "description": "Track, record and improve every RaceHub championship.",
+  "name": "Out The Garage!",
+  "short_name": "OTG!",
+  "description": "Drive, record and improve with OTG!.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",
