@@ -22,7 +22,7 @@ const ASSETS=[
   './js/studio-release-v5791.js?v=5796',
   './js/studio-release-v5796.js?v=5796',
   './js/bootstrap-v5796.js?v=5796',
-  './assets/brand/otg-mark-painted-transparent.svg',
+  './assets/brand/otg-mark-painted-wall.svg',
   './assets/final/post-race-finish-background-v5780.png',
   './assets/final/enter-result-finish-line-hero-v5781.png',
   './assets/final/trophy-festival.png',
