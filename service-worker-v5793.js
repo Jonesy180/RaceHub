@@ -18,7 +18,7 @@ const ASSETS=[
   './js/studio-release-v5793.js?v=5793',
   './js/studio-release-v5788.js?v=5793',
   './js/bootstrap-v5793.js?v=5793',
-  './assets/brand/otg-mark-painted-wall.svg',
+  './assets/brand/otg-mark-painted-transparent.svg',
   './assets/final/locked-final-standings-artwork-v5788.png',
   './assets/final/dashboard-background.png',
   './assets/final/festival-background.png',

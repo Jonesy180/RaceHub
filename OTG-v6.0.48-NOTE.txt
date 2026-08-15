@@ -1,0 +1,1 @@
+v6.0.48: narrow fix only — dashboard/environmental OTG! logo now transparent (white OTG, cyan !, restrained splatter/drips, full name + tagline). Removed artificial wall/rectangle. Existing UI/data/internals preserved.

@@ -56,7 +56,7 @@ function rhRenderHome(){
  $('home').innerHTML=`<div class="rhHome rhHomeLocked rhHomeV5">
    <section class="rhHomeHero rhHomeHeroV5">
      <div class="rhHomeWelcome rhHomeWelcomeV5"><small>WELCOME TO</small><b>${esc(s.name)}</b></div>
-     <img class="rhHomeLogo rhHomeLogoV5" src="assets/brand/otg-mark-painted-wall.svg" alt="OTG! — Drive, Record, Improve">
+     <img class="rhHomeLogo rhHomeLogoV5" src="assets/brand/otg-mark-painted-transparent.svg" alt="OTG! — Drive, Record, Improve">
    </section>
    <main class="rhHomeBody rhHomeBodyV5">
      <div class="rhDashV5List">

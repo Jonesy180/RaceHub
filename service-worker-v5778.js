@@ -16,7 +16,7 @@ const ASSETS=[
   './js/studio-locked-ui-v5778.js?v=5778',
   './js/studio-polish-v5778.js?v=5778',
   './js/bootstrap-v5778.js?v=5778',
-  './assets/brand/otg-mark-painted-wall.svg',
+  './assets/brand/otg-mark-painted-transparent.svg',
   './assets/final/dashboard-background.png',
   './assets/final/festival-background.png',
   './assets/final/events-background.png',
