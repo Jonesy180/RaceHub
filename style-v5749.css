@@ -3390,5 +3390,5 @@ html,body{overscroll-behavior-y:none!important;}
 /* tiny TV camera helicopter easter egg: outdoor Records sky only */
 .rhRecordsHeroV1:after{content:'';position:absolute;right:13%;top:19%;width:18px;height:5px;background:rgba(15,22,27,.9);border-radius:60% 45%;box-shadow:-8px -1px 0 -1px rgba(15,22,27,.9),7px 3px 0 -2px rgba(15,22,27,.9);transform:rotate(-5deg);opacity:.82;pointer-events:none}.rhRecordsHeroV1:before{content:'';position:absolute;right:11.7%;top:18.45%;width:27px;height:1px;background:rgba(15,22,27,.9);transform:rotate(3deg);opacity:.82;pointer-events:none}
 
-/* OTG v6.0.48: dashboard full-identity sizing only */
+/* OTG v6.0.49: dashboard full-identity sizing only */
 .rh-dashboard-logo img,.dashboard-logo img,.home-logo img{width:min(78vw,520px);height:auto;max-width:100%;}
