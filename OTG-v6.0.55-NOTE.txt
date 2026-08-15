@@ -1,0 +1,8 @@
+OTG! v6.0.55
+NO IMAGE GENERATION.
+- Passed splash unchanged.
+- Dashboard background no longer contains OTG branding.
+- Legacy building fascia branding removed.
+- Existing approved OTG PNG used as a separate live Dashboard layer.
+- Main logo position/size/brightness now controlled in CSS.
+- Existing RaceHub/RH storage/data/internal identifiers preserved.
