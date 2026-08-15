@@ -1,0 +1,9 @@
+OTG! v6.0.50 — Dashboard rebrand root rebuild
+- Rebuilt from the Dashboard page structure rather than patching the logo overlay.
+- New dedicated Dashboard artwork: dashboard-otg-painted-v6050.png.
+- OTG! paint is baked into the scene; the live Dashboard logo IMG has been removed.
+- Old RACEHUB building sign in the Dashboard artwork has been replaced by OTG!.
+- Actual live version meta is 6.0.50.
+- Live RH_BUILD_VERSION is 6.0.50 for About.
+- New service worker v6050 uses the existing proven racehub- cache namespace/update mechanism.
+- Data/storage/internal identifiers remain untouched.
