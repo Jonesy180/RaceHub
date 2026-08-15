@@ -1,0 +1,10 @@
+OTG! v6.0.53 — Dashboard final tune
+- No redraw/regeneration.
+- Existing approved Dashboard source retained.
+- Main approved OTG! mark slightly smaller, brighter and lower.
+- Building sign centred on fascia.
+- Building sign reads: OTG! OUT THE GARAGE!
+- OTG and OUT THE GARAGE are white.
+- Both exclamation marks on the building sign are cyan.
+- Splash remains the approved v6.0.52 implementation.
+- Existing RaceHub/RH technical and data internals preserved.
