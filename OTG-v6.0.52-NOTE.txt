@@ -1,0 +1,6 @@
+OTG! v6.0.52
+- Dashboard approved OTG artwork: slightly smaller and brighter.
+- Splash root cause fixed: index.html now loads the actual approved OTG PNG, not the failed SVG.
+- Splash sizing/brightness set in the active v6052 CSS layer.
+- Live version source is 6.0.52.
+- Existing RaceHub/RH technical/storage identifiers preserved.

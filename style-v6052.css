@@ -1,0 +1,24 @@
+/* OTG! v6.0.51 — Dashboard rebrand root rebuild.
+   The brand is baked into the dedicated Dashboard scene; no overlay logo is used. */
+.rhHomeHeroV4{
+  background:
+    linear-gradient(180deg,rgba(0,4,8,.00) 0%,rgba(0,4,8,.00) 58%,rgba(2,5,8,.16) 82%,#020508 100%),
+    url('assets/final/dashboard-otg-approved-v6052.png?v=6052') center center/cover no-repeat!important;
+}
+
+/* OTG v6.0.52 — approved splash identity */
+.splash .splashInner{
+  width:min(660px,94vw)!important;
+}
+.splash .splashBrandNew{
+  display:block!important;
+  width:min(560px,88vw)!important;
+  max-width:none!important;
+  height:auto!important;
+  margin:0 auto!important;
+  filter:brightness(1.12) drop-shadow(0 0 24px rgba(32,223,255,.28))!important;
+}
+@media(max-width:520px){
+  .splash .splashInner{width:96vw!important}
+  .splash .splashBrandNew{width:min(430px,90vw)!important}
+}

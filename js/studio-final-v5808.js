@@ -1,6 +1,6 @@
 // OTG! v5.6.6 — Events guided run checkpoint
 const RH_FINAL_STORE='RaceHub_Studio_Final_v5_6';
-const RH_BUILD_VERSION='6.0.51';
+const RH_BUILD_VERSION='6.0.52';
 let rhMoreMode='stats', rhRecordsMode='records', rhFestivalMode='browse', rhSetup=null, rhHelpKey=null, rhGarageOpenMake=null;
 const RH_HELP={
  home:['OTG! HQ','This is your OTG! home. Festival creates Championships from cars in this OTG!; Events holds racing you create; Garage, Records and Stats all belong to the selected OTG! Space.'],
