@@ -1,0 +1,7 @@
+OTG! v6.0.51 — Dashboard approved artwork rebuild
+- Main Dashboard logo uses pixels extracted from the approved OTG! graffiti concept board; no redrawn substitute.
+- Approved mark is brighter, larger and positioned higher.
+- Same approved OTG! mark is used on the building sign in clean/small form.
+- Dashboard rebuilt from the protected clean scene, not from the failed v6.0.50 approximation.
+- Live racehub-version meta and active build references updated to 6.0.51.
+- Legacy RaceHub/RH storage/cache/internal identifiers preserved.

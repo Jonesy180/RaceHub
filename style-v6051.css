@@ -1,0 +1,7 @@
+/* OTG! v6.0.51 — Dashboard rebrand root rebuild.
+   The brand is baked into the dedicated Dashboard scene; no overlay logo is used. */
+.rhHomeHeroV4{
+  background:
+    linear-gradient(180deg,rgba(0,4,8,.00) 0%,rgba(0,4,8,.00) 58%,rgba(2,5,8,.16) 82%,#020508 100%),
+    url('assets/final/dashboard-otg-approved-v6051.png?v=6051') center center/cover no-repeat!important;
+}
