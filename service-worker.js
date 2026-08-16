@@ -1,5 +1,7 @@
-const CACHE_NAME='otg-v6.0.71-full-reset-preserve-backups';
+const CACHE_NAME='otg-v6.0.72-reset-screen-visual-polish';
 const ASSETS=[
+  './style-reset-polish-v6072.css?v=6072',
+  './js/studio-grand-tour-v6043.js?v=6072',
   './style-fh5-v6069-main.css?v=6069',
   './js/fh5-catalogue-v6069-main.js?v=6069',
   './',
