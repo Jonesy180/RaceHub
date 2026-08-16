@@ -1,5 +1,7 @@
-const CACHE_NAME='otg-v6.0.71-full-reset-preserve-backups';
+const CACHE_NAME='otg-v6.0.74-reset-structural-rebuild';
 const ASSETS=[
+  './style-reset-rebuild-v6074.css?v=6074',
+  './js/reset-screen-rebuild-v6074.js?v=6074',
   './style-fh5-v6069-main.css?v=6069',
   './js/fh5-catalogue-v6069-main.js?v=6069',
   './',
