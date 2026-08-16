@@ -1,9 +1,11 @@
-const CACHE_NAME='racehub-v5.7.82-exit-resume-restored';
+const CACHE_NAME='otg-v6.0.69-fh5-perf-pwa-icon';
 const ASSETS=[
+  './style-fh5-v6069-main.css?v=6069',
+  './js/fh5-catalogue-v6069-main.js?v=6069',
   './',
   './index.html',
   './style-v5782.css?v=5782',
-  './manifest.webmanifest?v=5780',
+  './manifest.webmanifest?v=6069',
   './favicon.png',
   './js/seed-data.js?v=5780',
   './js/core.js?v=5780',
@@ -33,10 +35,10 @@ const ASSETS=[
   './assets/final/trophy-manufacturer.png',
   './assets/final/trophy-era.png',
   './assets/final/trophy-favourite.png',
-  './icons/icon-v5765-192.png',
-  './icons/icon-v5765-512.png',
-  './icons/icon-maskable-v5765-192.png',
-  './icons/icon-maskable-v5765-512.png'
+  './icons/icon-v6069-192.png',
+  './icons/icon-v6069-512.png',
+  './icons/icon-maskable-v6069-192.png',
+  './icons/icon-maskable-v6069-512.png'
 ];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(ASSETS)));
