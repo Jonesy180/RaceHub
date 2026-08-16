@@ -1,7 +1,9 @@
-const CACHE_NAME='otg-v6.0.74-reset-structural-rebuild';
+const CACHE_NAME='otg-v6.0.75-reset-screens-locked-rebuild';
 const ASSETS=[
-  './style-reset-rebuild-v6074.css?v=6074',
-  './js/reset-screen-rebuild-v6074.js?v=6074',
+  './style-reset-v6075.css?v=6075',
+  './js/reset-screens-v6075.js?v=6075',
+  './assets/final/reset-racing-data-v6075.png',
+  './assets/final/full-reset-otg-v6075.png',
   './style-fh5-v6069-main.css?v=6069',
   './js/fh5-catalogue-v6069-main.js?v=6069',
   './',
