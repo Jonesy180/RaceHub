@@ -1,4 +1,4 @@
-const CACHE_NAME='racehub-v6.0.65-final-rebrand';
+const CACHE_NAME='racehub-v6.0.66-final-rebrand';
 const ASSETS=[
   './assets/final/hubs.png?v=6060',
   './assets/final/hubs-reset-approved-v6040.png?v=6060',
