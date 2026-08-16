@@ -1,4 +1,4 @@
-const CACHE_NAME='otg-v6.0.69-fh5-perf-pwa-icon';
+const CACHE_NAME='otg-v6.0.71-full-reset-preserve-backups';
 const ASSETS=[
   './style-fh5-v6069-main.css?v=6069',
   './js/fh5-catalogue-v6069-main.js?v=6069',
