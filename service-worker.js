@@ -1,9 +1,9 @@
-const CACHE_NAME='otg-v6.0.76-reset-screens-phone-fit';
+const CACHE_NAME='otg-v6.0.77-reset-screens-phone-fit';
 const ASSETS=[
-  './style-reset-v6076.css?v=6076',
-  './js/reset-screens-v6076.js?v=6076',
-  './assets/final/reset-racing-data-v6075.png',
-  './assets/final/full-reset-otg-v6075.png',
+  './style-reset-v6077.css?v=6077',
+  './js/reset-screens-v6077.js?v=6077',
+  './assets/final/reset-racing-data-v6077.png',
+  './assets/final/full-reset-otg-v6077.png',
   './style-fh5-v6069-main.css?v=6069',
   './js/fh5-catalogue-v6069-main.js?v=6069',
   './',
@@ -49,7 +49,7 @@ self.addEventListener('install',event=>{
   self.skipWaiting();
 });
 self.addEventListener('activate',event=>{
-  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('racehub-')&&key!==CACHE_NAME).map(key=>caches.delete(key)))));
+  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>(key.startsWith('racehub-')||key.startsWith('otg-'))&&key!==CACHE_NAME).map(key=>caches.delete(key)))));
   self.clients.claim();
 });
 self.addEventListener('fetch',event=>{
