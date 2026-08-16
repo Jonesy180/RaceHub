@@ -1,9 +1,9 @@
-const CACHE_NAME='otg-v6.0.77-reset-screens-phone-fit';
+const CACHE_NAME='otg-v6.0.78-locked-reset-art';
 const ASSETS=[
-  './style-reset-v6077.css?v=6077',
-  './js/reset-screens-v6077.js?v=6077',
-  './assets/final/reset-racing-data-v6077.png',
-  './assets/final/full-reset-otg-v6077.png',
+  './style-reset-v6078.css?v=6078',
+  './js/reset-screens-v6078.js?v=6078',
+  './assets/final/reset-racing-data-v6078.png',
+  './assets/final/full-reset-otg-v6078.png',
   './style-fh5-v6069-main.css?v=6069',
   './js/fh5-catalogue-v6069-main.js?v=6069',
   './',
