@@ -273,3 +273,9 @@
 - Nudges the compact League digital race-time display upward for balanced vertical spacing.
 - Reduces the League Position entry box while preserving a comfortable phone touch target.
 - No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
+
+## v6.0.98
+- Catalogue manufacturer rename moved to manufacturer heading; preserves linked catalogue IDs and Favourite Championship progress.
+- Catalogue car edit no longer changes manufacturer.
+- Pen/note controls compact inline beside car name.
+- Catalogue search placeholder fits: Search manufacturer and car.
