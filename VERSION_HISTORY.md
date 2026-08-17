@@ -430,3 +430,9 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Tick/untick performs no Festival scan and no full catalogue redraw.
 - Repaired Reset Racing Data action wiring while leaving locked v6.0.78 reset artwork untouched.
 - Robust versioned bootstrap/update wire retained.
+
+## v6.0.89
+- Repaired Reset Racing Data confirmation action without changing locked reset artwork.
+- Replaced the reset screen's text-execution dependency with direct callback dispatch.
+- Reset Racing Data clears current-Space Championships/runs/results/Records/Hall of Fame/Stats and Favourite Manufacturer while retaining Garage/catalogue ownership, Space name, backups, global Driver Profile and other Spaces.
+- v6.0.88 exact catalogue/Festival count stability retained.
