@@ -415,3 +415,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Tick/untick now changes only the exact catalogue ID selected, so normal and Forza Edition variants cannot cross-toggle.
 - Protected catalogue-master + editable Garage-copy architecture and manufacturer owned/total counts retained.
 - Locked v6.0.78 reset artwork unchanged.
+
+## v6.0.84
+- Restored FH5 and GT7 catalogue screens to Garage-style collapsible manufacturer sections.
+- Manufacturer headings show owned/total x/x counts; cars expand inline beneath each manufacturer.
+- Unowned catalogue cars remain grey and can be ticked directly; owned cars use v6.0.83 immutable deterministic IDs.
+- Removed the separate manufacturer-select interaction from catalogue browsing.
+- Locked reset artwork unchanged.
