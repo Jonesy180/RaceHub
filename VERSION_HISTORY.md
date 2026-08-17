@@ -430,3 +430,11 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Tick/untick updates only the changed row, manufacturer x/x and overall owned count instead of rebuilding the full catalogue UI.
 - v6.0.83 deterministic immutable IDs and v6.0.84 Garage-style collapsible catalogue retained.
 - Locked reset artwork unchanged.
+
+## v6.0.86
+- Fixed lazy Festival counts not refreshing after catalogue ownership changes.
+- FH5/GT7 still do no Festival work during tick/untick.
+- On entering Festival only, exact immutable owned catalogue IDs are reconciled into the editable Garage copies, then all manufacturer/era/class eligibility is calculated from that current Garage.
+- No Championship or run is created by this refresh; creation remains user-triggered and active entrants remain frozen once started.
+- Fast partial catalogue row/count updates retained.
+- Locked reset artwork unchanged.
