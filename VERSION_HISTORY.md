@@ -422,3 +422,11 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Unowned catalogue cars remain grey and can be ticked directly; owned cars use v6.0.83 immutable deterministic IDs.
 - Removed the separate manufacturer-select interaction from catalogue browsing.
 - Locked reset artwork unchanged.
+
+## v6.0.85
+- FH5 and GT7 catalogue tick/untick no longer runs Festival unlock/discovery scans.
+- Festival availability is derived from the current Garage only when Festival is opened.
+- No Championship/run is populated until the user explicitly creates/starts it; active runs retain frozen entries.
+- Tick/untick updates only the changed row, manufacturer x/x and overall owned count instead of rebuilding the full catalogue UI.
+- v6.0.83 deterministic immutable IDs and v6.0.84 Garage-style collapsible catalogue retained.
+- Locked reset artwork unchanged.

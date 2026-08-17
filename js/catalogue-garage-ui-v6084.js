@@ -23,7 +23,7 @@
   const carRow=(kind,c,on,id)=>{
     const title=kind==='fh5'?(c.full||[c.make,c.model].filter(Boolean).join(' ')):(c.model||c.full||'');
     const meta=[c.year||'Year unknown',c.classType||'Class unknown'].join(' • ');
-    return `<label class="rhGarageCarV1 rhCatalogueGarageCar ${on?'owned':'unowned'}" data-search="${esc([c.make,c.model,c.full,c.year,c.classType].join(' '))}">
+    return `<label class="rhGarageCarV1 rhCatalogueGarageCar ${on?'owned':'unowned'}" data-catalogue-id="${esc(id)}" data-search="${esc([c.make,c.model,c.full,c.year,c.classType].join(' '))}">
       <input class="rhCatalogueCheck" type="checkbox" ${on?'checked':''} onchange="${kind}Toggle('${id}')">
       <span class="rhCatalogueTick">✓</span>
       <span><b>${esc(title)}</b><small>${esc(meta)}</small></span>
@@ -48,14 +48,14 @@
     $('garage').innerHTML=`<div class="rhGarageV1 rhCatalogueGarageV84">
       <section class="rhGarageHeroV1"><div class="rhGarageHeadV1"><button onclick="show('home')" aria-label="Back">‹</button><div><h1>${title}</h1><p>Dedicated Catalogue Space</p></div></div></section>
       <main class="rhGarageBodyV1">
-        <section class="rhGarageSummaryV1"><i>⌂</i><span><b>${fh?'FH5':'GT7'} CATALOGUE</b><small>Grey cars are unowned. Tick a car to add it to this Space Garage.</small></span><strong>${owned}<small>/ ${total} OWNED</small></strong></section>
+        <section class="rhGarageSummaryV1"><i>⌂</i><span><b>${fh?'FH5':'GT7'} CATALOGUE</b><small>Grey cars are unowned. Tick a car to add it to this Space Garage.</small></span><strong id="rhCatalogueOwnedTotal">${owned}<small>/ ${total} OWNED</small></strong></section>
         <div class="rhGarageToolsV1"><label><i>⌕</i><input autocomplete="off" placeholder="Search manufacturer, car, year or class" value="${esc(fh?fh5CatalogueSearch:gt7CatalogueSearch)}" oninput="${key}CatalogueSearch=this.value;${key}RenderCatalogue()"></label></div>
         ${makes.length?`<div class="rhGarageMakesV1">${makes.map(make=>{
           const cars=g[make].slice().sort((a,b)=>String(a.full||a.model||'').localeCompare(String(b.full||b.model||'')));
           const open=Boolean(q)||current===make;
           const c=cs[make]||{owned:0,total:cars.length};
           return `<section class="rhGarageMakeV1 ${open?'open':''}" data-make="${esc(make)}">
-            <div class="rhGarageMakeHeadWrapV1"><button class="rhGarageMakeHeadV1" onclick="otgToggleCatalogueMake('${key}',decodeURIComponent('${encodeURIComponent(make).replace(/'/g,'%27')}'))"><b>${esc(make)}</b><span>${c.owned}/${c.total}</span><em>${open?'⌃':'⌄'}</em></button></div>
+            <div class="rhGarageMakeHeadWrapV1"><button class="rhGarageMakeHeadV1" onclick="otgToggleCatalogueMake('${key}',decodeURIComponent('${encodeURIComponent(make).replace(/'/g,'%27')}'))"><b>${esc(make)}</b><span class="rhCatalogueMakeCount" data-make="${esc(make)}">${c.owned}/${c.total}</span><em>${open?'⌃':'⌄'}</em></button></div>
             <div class="rhGarageCarsV1" ${open?'':'hidden'}>${cars.map(c=>carRow(key,c,ownedFn(c),idFn(c))).join('')}</div>
           </section>`;
         }).join('')}</div>`:`<div class="rhEmpty"><h2>NO CARS FOUND</h2><p>Try a different manufacturer, car, year or class.</p></div>`}
