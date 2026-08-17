@@ -443,3 +443,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Full Reset now uses its distinct approved Full Reset artwork instead of the duplicated Reset Racing Data image.
 - Full Reset retains dedicated catalogue, backups, Space identity, global Driver Profile and other Spaces while returning catalogue ownership to zero.
 - v6.0.88 catalogue/Festival count stability retained.
+
+## v6.0.91
+- Fixed Check for Updates restarting the app when already up to date.
+- Update checker now reads the installed version dynamically from the app version meta instead of a stale hard-coded v6.0.88 value.
+- Version comparison is ordered rather than simple inequality.
+- Checking for updates is informational and does not reload the app by itself.
+- v6.0.90 reset-screen functional repair retained unchanged.
