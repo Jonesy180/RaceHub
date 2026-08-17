@@ -450,3 +450,11 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Version comparison is ordered rather than simple inequality.
 - Checking for updates is informational and does not reload the app by itself.
 - v6.0.90 reset-screen functional repair retained unchanged.
+
+
+## v6.0.92
+- Grand Tour GT-01 through GT-08 repair release from protected v6.0.91.
+- GT-08: final user-created Event/result is durably checkpointed before Result Summary, Hubs celebration, or Final Standings navigation.
+- Added recovery checkpoint so an interrupted final celebration/navigation cannot lose a completed Event.
+- Saved Race Notes are now surfaced in Records history instead of becoming write-only after Result Summary.
+- Passed catalogue architecture, reset screens/actions, backup retention and v6.0.91 update checker preserved.
