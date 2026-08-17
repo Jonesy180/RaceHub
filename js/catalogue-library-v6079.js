@@ -1,7 +1,7 @@
 /* OTG! v6.0.79 — protected catalogue master + editable Garage copies (FH5 + GT7). */
 (()=>{
 'use strict';
-const CAT_VERSION='1';
+const CAT_VERSION='2';
 function defForSpace(s){
  if(!s)return null;
  if(s.catalogueKey==='fh5-catalogue-v1'&&typeof FH5_CATALOGUE!=='undefined')return {key:s.catalogueKey,title:'Forza Horizon 5',cars:FH5_CATALOGUE,id:fh5CarId};
@@ -15,7 +15,7 @@ function migrateSpace(s){
  s.catalogueLibrary={key:d.key,title:d.title,version:CAT_VERSION,total:d.cars.length,protected:true};
  s.catalogueOwned=s.catalogueOwned&&typeof s.catalogueOwned==='object'?s.catalogueOwned:{};
  let linked=0,repaired=0;
- // First link existing Garage cars using the old reconciler, without changing their visible data.
+ // Link only by exact immutable catalogue identity; v6.0.83 matchers contain no fuzzy fallback.
  (s.cars||[]).forEach(car=>{
    if(car.catalogueId)return;
    let src=null;
@@ -65,6 +65,6 @@ function addEditButtons(kind){
 function wrapRender(name,kind){const old=window[name];if(!old)return;window[name]=function(){migrateSpace(rhSpace());const r=old.apply(this,arguments);setTimeout(()=>addEditButtons(kind),0);return r}}
 wrapRender('fh5RenderCatalogue','fh5');wrapRender('gt7RenderCatalogue','gt7');
 const oldSettings=window.rhRenderSettings;
-if(oldSettings)window.rhRenderSettings=function(){const r=oldSettings.apply(this,arguments),s=rhSpace(),d=defForSpace(s),host=document.querySelector('#more .rhContent');if(d&&host&&!document.getElementById('rhCatalogueLibrary6079')){migrateSpace(s);const owned=Object.keys(s.catalogueOwned||{}).length;const garage=(s.cars||[]).filter(c=>c.catalogueKey===d.key||c.catalogueId).length;const danger=host.querySelector('.rhDangerFinal');const html=`<section id="rhCatalogueLibrary6079" class="rhSection rhSettingPanel"><h2>DOWNLOADED CATALOGUE</h2><p><b>${esc(d.title)}</b><br>${d.cars.length} master cars • ${owned} owned • ${garage} linked Garage cars</p><p class="small">The downloaded master is protected. Garage names, manufacturers, years and classes are editable without changing catalogue identity.</p><button class="rhSettingRow" disabled><b>CHECK & REPAIR GARAGE LINKS</b><span>Temporarily disabled while catalogue mismatch is diagnosed</span></button><button class="rhSettingRow" onclick="rhCatalogueRestoreOriginal()"><b>RESTORE ORIGINAL CATALOGUE DATA</b><span>Keep ownership, notes, racing data and backups ›</span></button></section>`;(danger||host.lastElementChild)?.insertAdjacentHTML(danger?'beforebegin':'afterend',html)}return r};
+if(oldSettings)window.rhRenderSettings=function(){const r=oldSettings.apply(this,arguments),s=rhSpace(),d=defForSpace(s),host=document.querySelector('#more .rhContent');if(d&&host&&!document.getElementById('rhCatalogueLibrary6079')){migrateSpace(s);const owned=Object.keys(s.catalogueOwned||{}).length;const garage=(s.cars||[]).filter(c=>c.catalogueKey===d.key||c.catalogueId).length;const danger=host.querySelector('.rhDangerFinal');const html=`<section id="rhCatalogueLibrary6079" class="rhSection rhSettingPanel"><h2>DOWNLOADED CATALOGUE</h2><p><b>${esc(d.title)}</b><br>${d.cars.length} master cars • ${owned} owned • ${garage} linked Garage cars</p><p class="small">The downloaded master is protected. Garage names, manufacturers, years and classes are editable without changing catalogue identity.</p><button class="rhSettingRow" onclick="rhCatalogueDeterministicRepair();rhRenderSettings()"><b>CHECK & REPAIR GARAGE LINKS</b><span>Run deterministic exact-ID repair ›</span></button><button class="rhSettingRow" onclick="rhCatalogueRestoreOriginal()"><b>RESTORE ORIGINAL CATALOGUE DATA</b><span>Keep ownership, notes, racing data and backups ›</span></button></section>`;(danger||host.lastElementChild)?.insertAdjacentHTML(danger?'beforebegin':'afterend',html)}return r};
 /* v6.0.81: automatic repair disabled while live catalogue mismatch is under diagnosis. */
 })();

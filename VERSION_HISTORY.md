@@ -407,3 +407,11 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Fixed update/service-worker publication wiring.
 - Added visual owned/total count beside every manufacturer in FH5 and GT7 catalogue Garage filters.
 - Catalogue diagnostics remain read-only.
+
+## v6.0.83
+- Replaced fuzzy catalogue ownership matching with immutable per-row catalogue IDs for FH5 and GT7.
+- Deterministic one-to-one repair removes duplicate catalogue links while preserving one editable Garage copy per owned master row.
+- FH5 repair enforces the verified 676-car ownership target and removes the rogue v6.0.80 addition; current FH5 Festival data is restarted.
+- Tick/untick now changes only the exact catalogue ID selected, so normal and Forza Edition variants cannot cross-toggle.
+- Protected catalogue-master + editable Garage-copy architecture and manufacturer owned/total counts retained.
+- Locked v6.0.78 reset artwork unchanged.
