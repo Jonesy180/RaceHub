@@ -438,3 +438,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - No Championship or run is created by this refresh; creation remains user-triggered and active entrants remain frozen once started.
 - Fast partial catalogue row/count updates retained.
 - Locked reset artwork unchanged.
+
+## v6.0.87
+- Update-wire repair: versioned bootstrap URL now changes with the release so the app cannot reuse an older bootstrap that registers the previous service worker.
+- Added a late robust manual update checker with hard cache-busting/no-cache headers and service-worker refresh.
+- Retains v6.0.86 lazy Festival-on-entry refresh and v6.0.85 fast tick/untick behaviour.
+- Deterministic immutable catalogue IDs and Garage-style collapsible catalogue retained.
+- Locked reset artwork unchanged.
