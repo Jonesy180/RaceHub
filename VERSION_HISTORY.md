@@ -402,3 +402,8 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Nudges the compact League digital race-time display upward for balanced vertical spacing.
 - Reduces the League Position entry box while preserving a comfortable phone touch target.
 - No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
+
+## v6.0.82
+- Fixed update/service-worker publication wiring.
+- Added visual owned/total count beside every manufacturer in FH5 and GT7 catalogue Garage filters.
+- Catalogue diagnostics remain read-only.
