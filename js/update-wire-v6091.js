@@ -3,7 +3,7 @@
 'use strict';
 
 function currentVersion(){
-  return document.querySelector('meta[name="racehub-version"]')?.content || '6.0.92';
+  return document.querySelector('meta[name="racehub-version"]')?.content || '6.0.93';
 }
 function cmp(a,b){
   const aa=String(a||'').split('.').map(n=>parseInt(n,10)||0);

@@ -458,3 +458,14 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Added recovery checkpoint so an interrupted final celebration/navigation cannot lose a completed Event.
 - Saved Race Notes are now surfaced in Records history instead of becoming write-only after Result Summary.
 - Passed catalogue architecture, reset screens/actions, backup retention and v6.0.91 update checker preserved.
+
+
+## v6.0.93
+- Grand Tour GT-09 through GT-14 polish release from passed v6.0.92.
+- GT-09 restores the existing approved Event scene asset; no redraw.
+- GT-10 moves the Garage search icon right and restores active cyan treatment.
+- GT-11 removes misleading baked control affordances from the Records historical FINAL overlay while preserving the real X close action.
+- GT-12 tidies Settings update/About action-tile alignment without changing update-checker behaviour.
+- GT-13 restores clear About label/value separation.
+- GT-14 lowers only the League Enter Results colon separator; decimal point remains unchanged.
+- v6.0.92 GT-01..GT-08 durability repair, catalogue architecture, reset actions/screens, backups and update checker preserved.
