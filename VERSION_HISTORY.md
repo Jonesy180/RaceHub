@@ -436,3 +436,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Replaced the reset screen's text-execution dependency with direct callback dispatch.
 - Reset Racing Data clears current-Space Championships/runs/results/Records/Hall of Fame/Stats and Favourite Manufacturer while retaining Garage/catalogue ownership, Space name, backups, global Driver Profile and other Spaces.
 - v6.0.88 exact catalogue/Festival count stability retained.
+
+## v6.0.90
+- Reset screens rebuilt at the interaction layer using real DOM event listeners; no inline/eval callback path is required.
+- Reset Racing Data now performs the locked current-Space racing reset while retaining Garage/catalogue ownership.
+- Full Reset now uses its distinct approved Full Reset artwork instead of the duplicated Reset Racing Data image.
+- Full Reset retains dedicated catalogue, backups, Space identity, global Driver Profile and other Spaces while returning catalogue ownership to zero.
+- v6.0.88 catalogue/Festival count stability retained.
