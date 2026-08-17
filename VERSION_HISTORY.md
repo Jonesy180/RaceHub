@@ -423,25 +423,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Removed the separate manufacturer-select interaction from catalogue browsing.
 - Locked reset artwork unchanged.
 
-## v6.0.85
-- FH5 and GT7 catalogue tick/untick no longer runs Festival unlock/discovery scans.
-- Festival availability is derived from the current Garage only when Festival is opened.
-- No Championship/run is populated until the user explicitly creates/starts it; active runs retain frozen entries.
-- Tick/untick updates only the changed row, manufacturer x/x and overall owned count instead of rebuilding the full catalogue UI.
-- v6.0.83 deterministic immutable IDs and v6.0.84 Garage-style collapsible catalogue retained.
-- Locked reset artwork unchanged.
-
-## v6.0.86
-- Fixed lazy Festival counts not refreshing after catalogue ownership changes.
-- FH5/GT7 still do no Festival work during tick/untick.
-- On entering Festival only, exact immutable owned catalogue IDs are reconciled into the editable Garage copies, then all manufacturer/era/class eligibility is calculated from that current Garage.
-- No Championship or run is created by this refresh; creation remains user-triggered and active entrants remain frozen once started.
-- Fast partial catalogue row/count updates retained.
-- Locked reset artwork unchanged.
-
-## v6.0.87
-- Update-wire repair: versioned bootstrap URL now changes with the release so the app cannot reuse an older bootstrap that registers the previous service worker.
-- Added a late robust manual update checker with hard cache-busting/no-cache headers and service-worker refresh.
-- Retains v6.0.86 lazy Festival-on-entry refresh and v6.0.85 fast tick/untick behaviour.
-- Deterministic immutable catalogue IDs and Garage-style collapsible catalogue retained.
-- Locked reset artwork unchanged.
+## v6.0.88
+- Rebased catalogue performance work on the passed v6.0.84 collapsible-catalogue build.
+- Dedicated catalogue spaces now enforce exactly one editable Garage copy for every exact immutable owned catalogue ID; stale/duplicate legacy copies are removed.
+- Festival remains lazy and derives its counts from that exact repaired Garage only on Festival entry.
+- Tick/untick performs no Festival scan and no full catalogue redraw.
+- Repaired Reset Racing Data action wiring while leaving locked v6.0.78 reset artwork untouched.
+- Robust versioned bootstrap/update wire retained.
