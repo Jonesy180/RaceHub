@@ -1,5 +1,6 @@
-const CACHE_NAME='otg-v6.0.78-locked-reset-art';
+const CACHE_NAME='otg-v6.0.79-catalogue-library';
 const ASSETS=[
+  './js/catalogue-library-v6079.js?v=6079',
   './style-reset-v6078.css?v=6078',
   './js/reset-screens-v6078.js?v=6078',
   './assets/final/reset-racing-data-v6078.png',
