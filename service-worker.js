@@ -1,6 +1,6 @@
-const CACHE_NAME='racehub-v6.0.103-captured-manufacturer-rename';
+const CACHE_NAME='racehub-v6.0.106-catalogue-ownership-persistence';
 const ASSETS=[
-  './style-reset-v6078.css?v=6078','./js/reset-screens-v6078.js?v=6078','./js/catalogue-library-v6079.js?v=6082','./js/catalogue-diagnostics-v6081.js?v=6082','./style-v6081.css?v=6082','./js/catalogue-deterministic-v6083.js?v=6083','./js/catalogue-manufacturer-counts-v6082.js?v=6083','./js/fh5-catalogue-v6069-main.js?v=6069','./js/gt7-catalogue-v6066-main.js?v=6066',
+  './style-reset-v6078.css?v=6078','./js/reset-screens-v6078.js?v=6078','./js/catalogue-library-v6079.js?v=6082','./js/catalogue-diagnostics-v6081.js?v=6082','./style-v6081.css?v=6082','./js/catalogue-deterministic-v6083.js?v=6106','./js/catalogue-manufacturer-counts-v6082.js?v=6083','./js/fh5-catalogue-v6069-main.js?v=6069','./js/gt7-catalogue-v6066-main.js?v=6066',
   './assets/final/hubs.png?v=6060',
   './assets/final/hubs-reset-approved-v6040.png?v=6060',
   './assets/final/hubs-pit-chief-v5829.png?v=6060',

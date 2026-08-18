@@ -11,7 +11,7 @@ installIds(typeof GT7_CATALOGUE!=='undefined'?GT7_CATALOGUE:[], 'gt7');
 function exactNorm(v){return String(v||'').normalize('NFKD').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
 function def(s){
  if(!s)return null;
- if(s.catalogueKey===FH5_KEY&&typeof FH5_CATALOGUE!=='undefined')return {key:FH5_KEY,title:'Forza Horizon 5',list:FH5_CATALOGUE,newId:c=>c.catalogueId,oldId:legacyFh5,target:676};
+ if(s.catalogueKey===FH5_KEY&&typeof FH5_CATALOGUE!=='undefined')return {key:FH5_KEY,title:'Forza Horizon 5',list:FH5_CATALOGUE,newId:c=>c.catalogueId,oldId:legacyFh5,target:null};
  if(s.catalogueKey===GT7_KEY&&typeof GT7_CATALOGUE!=='undefined')return {key:GT7_KEY,title:'Gran Turismo 7',list:GT7_CATALOGUE,newId:c=>c.catalogueId,oldId:legacyGt7,target:null};
  return null
 }
@@ -39,11 +39,8 @@ function repairSpace(s){
  (s.cars||[]).forEach(car=>{const row=rowFromAnyId(d,car.catalogueId);if(row&&Object.prototype.hasOwnProperty.call(oldOwned,car.catalogueId))ownedRows.set(d.newId(row),row)});
  const byCid=new Map();
  (s.cars||[]).forEach(car=>{const row=exactRow(d,car);if(!row)return;const cid=d.newId(row);if(!byCid.has(cid))byCid.set(cid,[]);byCid.get(cid).push(car)});
- // v6.0.80 rogue addition: FH5 must return to the user-verified 676 exact owned IDs.
- if(d.target&&ownedRows.size>d.target){
-   const rank=[...ownedRows.keys()].map(cid=>{const row=ownedRows.get(cid),old=d.oldId(row),list=byCid.get(cid)||[];let score=0;list.forEach(c=>{if(refs.has(String(c.id)))score=Math.max(score,100);if(String(c.id)!==cid&&String(c.id)!==old)score=Math.max(score,50)});return {cid,score,index:d.list.indexOf(row)}}).sort((a,b)=>b.score-a.score||a.index-b.index);
-   const keep=new Set(rank.slice(0,d.target).map(x=>x.cid));[...ownedRows.keys()].forEach(cid=>{if(!keep.has(cid))ownedRows.delete(cid)});
- }
+ // v6.0.106: ownership is user-authored state. Never trim FH5 to a historical count.
+ // A fixed target caused a newly ticked valid car to be discarded on the next reconciliation.
  const keepCars=[],newOwned={};let removedDuplicates=0,created=0;
  // Keep non-catalogue records untouched only if they cannot be exactly identified as a catalogue row.
  (s.cars||[]).forEach(car=>{if(!exactRow(d,car))keepCars.push(car)});
