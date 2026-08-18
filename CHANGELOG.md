@@ -1,3 +1,8 @@
+## v6.0.103
+- Manufacturer rename now captures the exact Space, catalogue key and linked catalogue/car IDs when the manufacturer pencil is tapped.
+- SAVE no longer rediscoveres catalogue identity from globals; it applies only to the captured Space and linked cars.
+- Preserves Favourite Manufacturer and Manufacturer/Favourite Championship progress while preventing cross-space switching.
+
 # OTG! v6.0.102 — Manufacturer rename modal completion repair
 
 - Closes the blocking rename modal before applying a successful rename.
