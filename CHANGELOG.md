@@ -1,7 +1,3 @@
-## v6.0.104
-- Preserves keyboard focus and caret position in FH5/GT7 catalogue search while live filtering re-renders results.
-- No catalogue data, manufacturer rename, ownership, Settings, reset, or update behaviour changed.
-
 ## v6.0.103
 - Manufacturer rename now captures the exact Space, catalogue key and linked catalogue/car IDs when the manufacturer pencil is tapped.
 - SAVE no longer rediscoveres catalogue identity from globals; it applies only to the captured Space and linked cars.

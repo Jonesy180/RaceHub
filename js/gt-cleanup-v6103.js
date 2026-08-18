@@ -1,4 +1,4 @@
-/* OTG! v6.0.103 — captured-context manufacturer rename repair. */
+/* OTG! v6.0.105 — catalogue live-filter root fix; captured-context manufacturer rename repair. */
 (()=>{'use strict';
 const q=id=>document.getElementById(id), safe=s=>typeof esc==='function'?esc(String(s??'')):String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function sp(){try{return typeof rhSpace==='function'?rhSpace():null}catch(_){return null}}
@@ -66,5 +66,5 @@ function cleanCarMake(){const i=q('rhCarMake'),box=q('rhMakeSuggestions');if(!i|
 function catalogueCopy(){document.querySelectorAll('.rhCatalogueGarageV84 .rhGarageToolsV1 input').forEach(i=>i.placeholder='Search manufacturer and car')}
 let queued=false;function polish(){queued=false;compactCatalogue();manufacturerHeaders();favourite();cleanCarMake();catalogueCopy()}
 const mo=new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(polish)}});mo.observe(document.body,{subtree:true,childList:true});polish();
-window.RACEHUB_VERSION='6.0.103';
+window.RACEHUB_VERSION='6.0.105';
 })();

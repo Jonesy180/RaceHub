@@ -49,7 +49,7 @@
       <section class="rhGarageHeroV1"><div class="rhGarageHeadV1"><button onclick="show('home')" aria-label="Back">‹</button><div><h1>${title}</h1><p>Dedicated Catalogue Space</p></div></div></section>
       <main class="rhGarageBodyV1">
         <section class="rhGarageSummaryV1"><i>⌂</i><span><b>${fh?'FH5':'GT7'} CATALOGUE</b><small>Grey cars are unowned. Tick a car to add it to this Space Garage.</small></span><strong id="rhCatalogueOwnedTotal">${owned}<small>/ ${total} OWNED</small></strong></section>
-        <div class="rhGarageToolsV1"><label><i>⌕</i><input autocomplete="off" placeholder="Search manufacturer, car, year or class" value="${esc(fh?fh5CatalogueSearch:gt7CatalogueSearch)}" oninput="${key}CatalogueSearch=this.value;${key}RenderCatalogue()"></label></div>
+        <div class="rhGarageToolsV1"><label><i>⌕</i><input autocomplete="off" placeholder="Search manufacturer, car, year or class" value="${esc(fh?fh5CatalogueSearch:gt7CatalogueSearch)}" oninput="otgCatalogueFilterLive('${key}',this)"></label></div>
         ${makes.length?`<div class="rhGarageMakesV1">${makes.map(make=>{
           const cars=g[make].slice().sort((a,b)=>String(a.full||a.model||'').localeCompare(String(b.full||b.model||'')));
           const open=Boolean(q)||current===make;
@@ -60,6 +60,36 @@
           </section>`;
         }).join('')}</div>`:`<div class="rhEmpty"><h2>NO CARS FOUND</h2><p>Try a different manufacturer, car, year or class.</p></div>`}
       </main></div>`;
+  };
+  window.otgCatalogueFilterLive=function(kind,input){
+    const raw=String(input?.value||'');
+    const q=raw.trim().toLowerCase();
+    try{
+      if(kind==='fh5') fh5CatalogueSearch=raw;
+      else gt7CatalogueSearch=raw;
+    }catch(e){}
+    window[kind==='fh5'?'fh5CatalogueSearch':'gt7CatalogueSearch']=raw;
+    const root=input?.closest('.rhCatalogueGarageV84');
+    if(!root)return;
+    root.querySelectorAll('.rhGarageMakeV1').forEach(sec=>{
+      const make=String(sec.dataset.make||'').toLowerCase();
+      const makeHit=!q||make.includes(q);
+      let any=false;
+      sec.querySelectorAll('.rhCatalogueGarageCar').forEach(row=>{
+        const hit=makeHit||String(row.dataset.search||'').toLowerCase().includes(q);
+        row.hidden=!hit;
+        if(hit)any=true;
+      });
+      sec.hidden=!any;
+      const cars=sec.querySelector('.rhGarageCarsV1');
+      const em=sec.querySelector('.rhGarageMakeHeadV1 em');
+      if(q&&any){sec.classList.add('open');if(cars)cars.hidden=false;if(em)em.textContent='⌃'}
+      else if(!q){
+        const prop=kind==='fh5'?'fh5CatalogueMake':'gt7CatalogueMake';
+        const open=window[prop]===sec.dataset.make;
+        sec.classList.toggle('open',open);if(cars)cars.hidden=!open;if(em)em.textContent=open?'⌃':'⌄';
+      }
+    });
   };
   window.otgToggleCatalogueMake=function(kind,make){
     const prop=kind==='fh5'?'fh5CatalogueMake':'gt7CatalogueMake';
