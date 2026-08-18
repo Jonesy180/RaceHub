@@ -1,3 +1,13 @@
+# OTG! v6.0.100 — Settings-stable catalogue polish
+
+- Rebuilt from the proven v6.0.97 Settings-stable baseline after v6.0.98/v6.0.99 regressions.
+- Keeps compact inline car edit/note controls.
+- Moves catalogue manufacturer rename to the manufacturer heading using an OTG!-native modal.
+- Locks Manufacturer inside individual catalogue-car Edit so catalogue grouping is changed only at manufacturer level.
+- Preserves linked Garage cars, catalogue IDs, ownership and Favourite Manufacturer progress when renaming a catalogue manufacturer.
+- Fits the full catalogue search placeholder: “Search manufacturer and car”.
+- No changes to passed racing, records, reset, backup or catalogue ownership systems.
+
 ## v6.0.26 — Stage 9D final League result alignment
 - Built from protected v6.0.24, not failed v6.0.25.
 - Restores the Race Time box to exactly the same vertical line as the Position box.
@@ -273,9 +283,3 @@
 - Nudges the compact League digital race-time display upward for balanced vertical spacing.
 - Reduces the League Position entry box while preserving a comfortable phone touch target.
 - No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
-
-## v6.0.98
-- Catalogue manufacturer rename moved to manufacturer heading; preserves linked catalogue IDs and Favourite Championship progress.
-- Catalogue car edit no longer changes manufacturer.
-- Pen/note controls compact inline beside car name.
-- Catalogue search placeholder fits: Search manufacturer and car.
