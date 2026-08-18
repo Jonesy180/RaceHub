@@ -469,8 +469,3 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - GT-13 restores clear About label/value separation.
 - GT-14 lowers only the League Enter Results colon separator; decimal point remains unchanged.
 - v6.0.92 GT-01..GT-08 durability repair, catalogue architecture, reset actions/screens, backups and update checker preserved.
-
-## v6.0.107 — Result Summary visual polish
-- Result Summary presentation cleaned using existing approved OTG! assets only; no redraw.
-- Removed baked pseudo-UI from the hero crop and replaced rough stage lettering with the approved clean OTG! mark.
-- Functionality/data flow unchanged from protected v6.0.106.

@@ -305,6 +305,3 @@
 - Nudges the compact League digital race-time display upward for balanced vertical spacing.
 - Reduces the League Position entry box while preserving a comfortable phone touch target.
 - No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
-
-### v6.0.107
-- Result Summary visual polish only; protected v6.0.106 behaviour retained.
