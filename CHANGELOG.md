@@ -1,3 +1,10 @@
+# OTG! v6.0.101 — Space-isolated manufacturer rename
+
+- Manufacturer rename is pinned to the current Space ID and cannot switch or mutate another catalogue Space.
+- Manufacturer and Favourite Championship runs follow the rename without losing progress.
+- Renaming back to the master manufacturer removes the alias cleanly.
+- Settings-stable v6.0.100 baseline preserved.
+
 # OTG! v6.0.100 — Settings-stable catalogue polish
 
 - Rebuilt from the proven v6.0.97 Settings-stable baseline after v6.0.98/v6.0.99 regressions.
