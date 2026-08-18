@@ -1,6 +1,6 @@
-const CACHE_NAME='racehub-v6.0.107-ownership-persistence-update-wire';
+const CACHE_NAME='racehub-v6.0.107-result-summary-polish';
 const ASSETS=[
-  './style-reset-v6078.css?v=6078','./js/reset-screens-v6078.js?v=6078','./js/catalogue-library-v6079.js?v=6082','./js/catalogue-diagnostics-v6081.js?v=6082','./style-v6081.css?v=6082','./js/catalogue-deterministic-v6083.js?v=6107','./js/catalogue-manufacturer-counts-v6082.js?v=6083','./js/fh5-catalogue-v6069-main.js?v=6069','./js/gt7-catalogue-v6066-main.js?v=6066',
+  './style-reset-v6078.css?v=6078','./js/reset-screens-v6078.js?v=6078','./js/catalogue-library-v6079.js?v=6082','./js/catalogue-diagnostics-v6081.js?v=6082','./style-v6081.css?v=6082','./js/catalogue-deterministic-v6083.js?v=6106','./js/catalogue-manufacturer-counts-v6082.js?v=6083','./js/fh5-catalogue-v6069-main.js?v=6069','./js/gt7-catalogue-v6066-main.js?v=6066',
   './assets/final/hubs.png?v=6060',
   './assets/final/hubs-reset-approved-v6040.png?v=6060',
   './assets/final/hubs-pit-chief-v5829.png?v=6060',
@@ -9,12 +9,12 @@ const ASSETS=[
   './assets/final/dashboard-otg-neutral-v6056.png',
   './assets/brand/otg-approved-painted-mark-v6052.png',
   './style-v6059.css?v=6059',
-  './','./index.html','./style-v6093.css','./js/grand-tour-polish-v6093.js','./js/grand-tour-final-fixes-v6094.js','./style-v6095.css?v=6095','./js/grand-tour-complete-v6095.js?v=6095','./style-v6100.css?v=6100','./js/gt-cleanup-v6103.js?v=6107','./style-v595.css?v=6020','./manifest.webmanifest?v=6000','./favicon.png',
+  './','./index.html','./style-v6107.css?v=6107','./assets/final/result-summary-podium-otg-clean-v6107.png','./style-v6093.css','./js/grand-tour-polish-v6093.js','./js/grand-tour-final-fixes-v6094.js','./style-v6095.css?v=6095','./js/grand-tour-complete-v6095.js?v=6095','./style-v6100.css?v=6100','./js/gt-cleanup-v6101.js?v=6101','./style-v595.css?v=6020','./manifest.webmanifest?v=6000','./favicon.png',
   './js/seed-data.js?v=5799','./js/core.js?v=6020','./js/race-director.js?v=5799','./js/views.js?v=5799',
   './js/celebrations.js?v=5799','./js/garage.js?v=5799','./js/control-centre.js?v=5799',
   './js/studio-final-v5808.js?v=6060','./js/studio-locked-ui-v5780.js?v=5799','./js/studio-grand-tour-v6043.js?v=6044','./js/studio-polish-v5782.js?v=5799',
   './js/studio-v6-garage-foundation-v600.js?v=6020','./js/studio-release-v595.js?v=6020','./js/studio-enter-result-v5803.js?v=5803','./js/studio-result-summary-v5837.js?v=5837',
-  './js/studio-race-flow-v5809.js?v=5829','./js/bootstrap-v600.js?v=6107','./js/studio-race-end-v5837.js?v=5837',
+  './js/studio-race-flow-v5809.js?v=5829','./js/bootstrap-v600.js?v=6060','./js/studio-race-end-v5837.js?v=5837',
   './js/studio-final-standings-v5828.js?v=6035','./js/studio-records-v5830.js?v=6035','./js/studio-car-complete-v5832.js?v=5832',
   './js/studio-champ-overview-v5835.js?v=5835','./js/studio-beta-feedback-v595.js?v=5918','./js/studio-v6-advanced-timing-v6015.js?v=6020','./js/studio-v6-race-notes-v6017.js?v=6020','./assets/final/championship-in-progress-aerial-v5834.png?v=5834',
   './assets/final/final-standings-face-on-ui-ready-v5828.png?v=5828','./assets/brand/otg-mark-painted-wall.svg',

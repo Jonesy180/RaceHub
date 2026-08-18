@@ -66,5 +66,5 @@ function cleanCarMake(){const i=q('rhCarMake'),box=q('rhMakeSuggestions');if(!i|
 function catalogueCopy(){document.querySelectorAll('.rhCatalogueGarageV84 .rhGarageToolsV1 input').forEach(i=>i.placeholder='Search manufacturer and car')}
 let queued=false;function polish(){queued=false;compactCatalogue();manufacturerHeaders();favourite();cleanCarMake();catalogueCopy()}
 const mo=new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(polish)}});mo.observe(document.body,{subtree:true,childList:true});polish();
-window.RACEHUB_VERSION='6.0.106';
+window.RACEHUB_VERSION='6.0.107';
 })();

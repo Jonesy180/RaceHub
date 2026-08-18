@@ -1,3 +1,7 @@
+## v6.0.106 — Catalogue ownership persistence
+- Removed obsolete FH5 fixed-676 reconciliation cap. User catalogue ticks are now authoritative and survive Garage/Festival navigation.
+- No hard-coded Toyota ownership; exact immutable catalogue IDs remain the source of truth.
+
 ## v6.0.103
 - Manufacturer rename now captures the exact Space, catalogue key and linked catalogue/car IDs when the manufacturer pencil is tapped.
 - SAVE no longer rediscoveres catalogue identity from globals; it applies only to the captured Space and linked cars.
@@ -301,3 +305,6 @@
 - Nudges the compact League digital race-time display upward for balanced vertical spacing.
 - Reduces the League Position entry box while preserving a comfortable phone touch target.
 - No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
+
+### v6.0.107
+- Result Summary visual polish only; protected v6.0.106 behaviour retained.
