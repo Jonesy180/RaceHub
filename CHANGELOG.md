@@ -1,4 +1,10 @@
-# OTG! v6.0.101 — Space-isolated manufacturer rename
+# OTG! v6.0.102 — Manufacturer rename modal completion repair
+
+- Closes the blocking rename modal before applying a successful rename.
+- Success feedback and catalogue refresh now occur after the page is unblocked.
+- Preserves v6.0.101 current-Space isolation and Championship/Favourite rename propagation.
+
+# OTG! v6.0.102 — Space-isolated manufacturer rename
 
 - Manufacturer rename is pinned to the current Space ID and cannot switch or mutate another catalogue Space.
 - Manufacturer and Favourite Championship runs follow the rename without losing progress.
