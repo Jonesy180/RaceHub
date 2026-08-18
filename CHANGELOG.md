@@ -1,3 +1,8 @@
+## v6.0.109 — Update discovery wiring repair
+- Result Summary spray-logo polish unchanged from v6.0.108.
+- Registers a real v6.0.109 service worker instead of the missing v6.0.101 path.
+- Update checker now fetches the published index with a true cache-busting network request.
+
 ## v6.0.106 — Catalogue ownership persistence
 - Removed obsolete FH5 fixed-676 reconciliation cap. User catalogue ticks are now authoritative and survive Garage/Festival navigation.
 - No hard-coded Toyota ownership; exact immutable catalogue IDs remain the source of truth.
