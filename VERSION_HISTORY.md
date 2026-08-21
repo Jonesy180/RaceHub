@@ -1,3 +1,8 @@
+## v6.0.122 — Race Off Stage 7 round advancement
+- Completed preliminary rounds now form the exact next-round field from straight-through cars plus winners.
+- Next round opens fresh Track/Race + optional Layout setup before a new irreversible random draw.
+- Advancement is persisted immediately and remains Space-specific.
+
 ## v6.0.121 — Race Off Stage 6 digital entry + racer transition fix
 - Race Off now uses the established OTG! seven-segment digital result-entry UI.
 - Fixed START NEXT RACER so Car 2 opens immediately without an app restart.
