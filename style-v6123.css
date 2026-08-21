@@ -1,0 +1,16 @@
+/* OTG! v6.0.123 — Race Off Stage 8: final/champion + draw usability polish */
+@import url('style-v6118.css?v=6118');
+/* Pull the draw working area upward so the page itself does not need a pointless scroll. */
+.rhRaceOffDrawSceneV6118 .rhRaceOffHeroV1{min-height:260px!important;background-position:center 19%!important}
+.rhRaceOffDrawSceneV6118 .rhFestivalBodyV1{margin-top:-14px}
+@media(max-width:520px){.rhRaceOffDrawSceneV6118 .rhRaceOffHeroV1{min-height:235px!important}.rhRaceOffDrawSceneV6118 .rhFestivalBodyV1{margin-top:-18px}.rhRaceOffDrawScrollV6118{height:285px;min-height:230px}}
+
+.rhRaceOffChampionV6123{min-height:100vh;background:#02070a;color:#fff}
+.rhRaceOffChampionHeroV6123{min-height:690px;background-image:linear-gradient(180deg,rgba(0,5,8,.03),rgba(0,5,8,.28) 64%,rgba(0,5,8,.92)),url('assets/final/raceoff-champion-v6123.png');background-size:cover;background-position:center top;position:relative}
+.rhRaceOffChampionHeroV6123 .rhFestivalHeadV1{position:relative;z-index:2}
+.rhRaceOffChampionBodyV6123{margin-top:-120px;position:relative;z-index:3;padding:0 14px 34px}
+.rhRaceOffChampionTitleV6123{text-align:center;padding:20px 18px;margin-bottom:12px;background:rgba(0,8,13,.84);border:1px solid rgba(84,203,233,.35);border-radius:22px;backdrop-filter:blur(8px)}
+.rhRaceOffChampionTitleV6123 small{display:block;color:#58cbea;font-weight:900;letter-spacing:.12em}.rhRaceOffChampionTitleV6123 h1{margin:7px 0 3px;font-size:1.8rem}.rhRaceOffChampionTitleV6123 b{font-size:.95rem;color:#98a6af}
+.rhRaceOffChampionStatsV6123{display:grid;gap:12px}.rhRaceOffChampionCardV6123{padding:18px;background:rgba(0,8,13,.9);border:1px solid rgba(84,203,233,.28);border-radius:20px}.rhRaceOffChampionCardV6123 h2{margin:0 0 12px;color:#57cae9;font-size:1rem;letter-spacing:.08em}.rhRaceOffChampionRowV6123{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid rgba(255,255,255,.07)}.rhRaceOffChampionRowV6123:first-of-type{border-top:0}.rhRaceOffChampionRowV6123 span{color:#8e9aa3}.rhRaceOffChampionRowV6123 b{text-align:right}.rhRaceOffChampionActionsV6123{display:grid;gap:10px;margin-top:14px}
+.rhRaceOffHistoryV6123 .rhChampCard small{display:block;margin-top:5px}
+@media(max-width:520px){.rhRaceOffChampionHeroV6123{min-height:580px}.rhRaceOffChampionBodyV6123{margin-top:-100px}.rhRaceOffChampionTitleV6123 h1{font-size:1.55rem}}

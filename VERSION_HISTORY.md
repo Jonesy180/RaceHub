@@ -503,3 +503,5 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - v6.0.92 GT-01..GT-08 durability repair, catalogue architecture, reset actions/screens, backups and update checker preserved.
 
 - v6.0.117 — Race Off Continue card layout corrected.
+
+- v6.0.123 — Race Off Stage 8: Final/Champion completion and draw usability polish.

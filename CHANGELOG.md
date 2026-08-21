@@ -356,3 +356,10 @@
 - Optional Layout added to existing Festival Championship and Custom Racing round setup.
 
 - v6.0.117 — Race Off Continue card layout corrected; Stage 4 functionality unchanged.
+
+## v6.0.123 — Race Off Stage 8: Final / Champion + draw usability
+- Final completion now terminates the tournament instead of creating a bogus Round of 1.
+- Added Champion confirmation, completed Race Off state, Champion screen and Race Off history access.
+- Approved Race Off Champion environment is used for the Champion screen.
+- In-progress draw list now automatically positions the current/next match at the top.
+- Tightened Draw screen vertical spacing so the page itself needs less scrolling.
