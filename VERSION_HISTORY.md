@@ -1,3 +1,10 @@
+
+## v6.0.118 — Race Off Stage 5 Preliminary Draw Engine
+- Replaced bye-padding presentation with a Preliminary Round when the entrant field is not a power of two.
+- One persisted random shuffle selects Preliminary racers, Straight Through cars, and pairing order.
+- Draw is irreversibly saved before presentation; no redraw control exists.
+- Added locked Draw Room background and compact internally scrolling MATCHES / STRAIGHT THROUGH lists.
+- Strict match racing remains intentionally disabled until Stage 6.
 ## v6.0.115 — Race Off Stage 3 launch wiring
 - Fixed Race Off catalogue cards so every category reliably opens entrant selection.
 - No trophy/artwork changes in this checkpoint.
