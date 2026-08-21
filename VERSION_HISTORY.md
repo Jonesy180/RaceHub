@@ -1,3 +1,7 @@
+## v6.0.115 — Race Off Stage 3 launch wiring
+- Fixed Race Off catalogue cards so every category reliably opens entrant selection.
+- No trophy/artwork changes in this checkpoint.
+
 ## v6.0.26 — Stage 9D final League result alignment
 - Alignment-only correction from protected v6.0.24.
 - Position and Race Time boxes are level; segmented time digits are vertically centred.

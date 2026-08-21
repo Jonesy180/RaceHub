@@ -7,7 +7,7 @@ function roTrophy(type){
 }
 function roCard(type,value,name,count){
   const safeType=roEsc(type),safeValue=roEsc(value).replace(/'/g,'&#39;'),safeName=roEsc(name).replace(/'/g,'&#39;');
-  return `<button class="rhChampCard" onclick="rhRaceOffCataloguePick('${safeType}','${safeValue}','${safeName}',${Number(count)||0})"><img src="${roTrophy(type)}" alt=""><span><b>${roEsc(name)}</b><small>${count} eligible car${count===1?'':'s'}</small></span><em>›</em></button>`;
+  return `<button class="rhChampCard rhRaceOffLaunchCard" data-ro-type="${safeType}" data-ro-value="${safeValue}" data-ro-name="${safeName}" data-ro-count="${Number(count)||0}"><img src="${roTrophy(type)}" alt=""><span><b>${roEsc(name)}</b><small>${count} eligible car${count===1?'':'s'}</small></span><em>›</em></button>`;
 }
 window.rhRaceOffCataloguePick=function(type,value,name,count){
   window.rhRaceOffPendingCatalogue={type,value,name,count};

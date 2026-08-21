@@ -1,3 +1,7 @@
+## v6.0.115 — Race Off Stage 3 launch wiring
+- Fixed Race Off catalogue cards so every category reliably opens entrant selection.
+- No trophy/artwork changes in this checkpoint.
+
 ## v6.0.109 — Update discovery wiring repair
 - Result Summary spray-logo polish unchanged from v6.0.108.
 - Registers a real v6.0.109 service worker instead of the missing v6.0.101 path.
