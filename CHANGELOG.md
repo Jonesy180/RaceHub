@@ -320,3 +320,9 @@
 - Category field preselected; manufacturer group selection and individual untick supported.
 - Locking creates a Space-specific frozen Race Off record with immutable entrant snapshots.
 - Persistent Continue Race Off card proves save/reload behavior before draw engine work.
+
+## v6.0.116 — Race Off Stage 4
+- Race Off Round Setup using existing Event-style UI.
+- Required Track / Race, optional Layout and Round Notes.
+- Review Draw saves setup but does not lock/start the draw.
+- Optional Layout added to existing Festival Championship and Custom Racing round setup.
