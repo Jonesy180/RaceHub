@@ -1,7 +1,7 @@
-## v6.0.126 — Record celebration root rebuild
+## v6.0.127 — Record celebration locked visual rebuild
 - Rebuilt from protected v6.0.124.
-- Corrected Record celebration hero sizing/composition; no Hubs.
-- Replaced failed timer rendering with isolated gold seven-segment display.
+- Uses the approved no-Hubs record hero composition at native aspect ratio.
+- Live gold segmented best time, previous best and improvement remain app-rendered.
 - No unrelated logic/layout changes.
 
 ## v6.0.122 — Race Off Stage 7 round advancement
