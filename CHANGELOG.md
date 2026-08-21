@@ -1,3 +1,7 @@
+## v6.0.120 — Race Off Stage 6 start button wiring fix
+- Fixed START PRELIMINARY ROUND so the saved draw opens strict match racing.
+- No draw, entrant, catalogue or racing-data changes.
+
 ## v6.0.119 — Race Off Stage 6 Preliminary Match Racing
 - Strict locked draw order: first drawn car races first, then second car.
 - Saves each car result immediately and persists match progress.
