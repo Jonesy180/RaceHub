@@ -1,0 +1,13 @@
+/* OTG! v6.0.112 — Race Off Stage 1 dashboard/navigation checkpoint */
+.rhDashV4Row.raceoff{--a:#ff3fb4}
+.rhDashV4Row.raceoff>span>small{color:#ff75c9!important}
+/* Seven dashboard rows: preserve approved artwork and move the existing OTG! mark up slightly. */
+.rhHomeLogoV4{bottom:34px!important}
+@media(max-width:390px){.rhHomeLogoV4{bottom:26px!important}.rhDashV4Row{height:56px!important}.rhDashV4List{gap:5px!important}}
+@media(max-height:780px){.rhHomeLogoV4{bottom:22px!important}.rhDashV4Row{height:53px!important}.rhDashV4List{gap:4px!important}}
+/* OTG! v6.0.113 — Race Off Stage 2 catalogue/menu */
+.rhRaceOffHeroV1{background-image:linear-gradient(180deg,rgba(0,8,12,.08),rgba(0,8,12,.54)),url('assets/final/raceoff-general-background-v6113.png')!important;background-size:cover!important;background-position:center 21%!important}
+.rhRaceOffV1 .rhFestivalHeadV1 h1,.rhRaceOffV1 .rhFestivalHeadV1 p,.rhRaceOffV1 .rhFestivalSectionV1>h2,.rhRaceOffV1 .rhFestivalDetailsV1>summary,.rhRaceOffV1 .rhFestivalDetailsV1>summary span{color:#59cbe8!important}
+.rhRaceOffV1 .rhFestivalFavouriteV1{border-color:rgba(89,203,232,.36)!important;background:rgba(0,19,27,.8)!important}
+.rhRaceOffV1 .rhChampCard{border-color:rgba(89,203,232,.27)!important}
+.rhRaceOffV1 .rhChampCard:hover,.rhRaceOffV1 .rhChampCard:focus-visible{border-color:rgba(89,203,232,.7)!important}
