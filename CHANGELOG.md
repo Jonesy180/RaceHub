@@ -1,3 +1,10 @@
+## v6.0.119 — Race Off Stage 6 Preliminary Match Racing
+- Strict locked draw order: first drawn car races first, then second car.
+- Saves each car result immediately and persists match progress.
+- Completes head-to-head matches by fastest time and marks winner green / eliminated car red in the draw view.
+- Resume survives app close/reopen mid-match or mid-round.
+- Round advancement intentionally remains Stage 7.
+
 
 ## v6.0.118 — Race Off Stage 5 Preliminary Draw Engine
 - Replaced bye-padding presentation with a Preliminary Round when the entrant field is not a power of two.
