@@ -510,3 +510,5 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Race Off: catalogue cards now reuse the existing tall trophy with the Race Off dashboard pink accent.
 - Race Off Tournament: accordion headings now show round title only; match-count text removed.
 - No layout, race logic, draw logic, result logic, or navigation changes.
+
+- v6.0.125 — Locked record celebration refresh: Hubs and quote removed; approved neutral car/podium hero; silver/gold record medals; gold segmented new-best display; existing record/navigation logic preserved.
