@@ -505,3 +505,8 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - v6.0.117 — Race Off Continue card layout corrected.
 
 - v6.0.123 — Race Off Stage 8: Final/Champion completion and draw usability polish.
+
+## v6.0.124
+- Race Off: catalogue cards now reuse the existing tall trophy with the Race Off dashboard pink accent.
+- Race Off Tournament: accordion headings now show round title only; match-count text removed.
+- No layout, race logic, draw logic, result logic, or navigation changes.
