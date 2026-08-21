@@ -1,3 +1,8 @@
+## v6.0.121 — Race Off Stage 6 digital entry + racer transition fix
+- Race Off now uses the established OTG! seven-segment digital result-entry UI.
+- Fixed START NEXT RACER so Car 2 opens immediately without an app restart.
+- No draw, pairing, persistence, or winner/elimination logic changed.
+
 ## v6.0.120 — Race Off Stage 6 start button wiring fix
 - Fixed START PRELIMINARY ROUND so the saved draw opens strict match racing.
 - No draw, entrant, catalogue or racing-data changes.
