@@ -1,3 +1,9 @@
+## v6.0.128 — Record celebration lower-panel fit
+- Built directly from v6.0.127.
+- Locked record hero/top half left completely unchanged.
+- Reduced only the three live timing panels and the two bottom action tiles to fit the phone viewport.
+- No artwork, navigation, record logic, or other layout changes.
+
 ## v6.0.127 — Record celebration locked visual rebuild
 - Rebuilt from protected v6.0.124.
 - Uses the approved no-Hubs record hero composition at native aspect ratio.
