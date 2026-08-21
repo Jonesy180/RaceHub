@@ -310,3 +310,9 @@
 - Nudges the compact League digital race-time display upward for balanced vertical spacing.
 - Reduces the League Position entry box while preserving a comfortable phone touch target.
 - No standings, result-calculation, Advanced Timing or existing RaceHub flow changes.
+
+## v6.0.114 — Race Off Stage 3
+- Entrant selection for every Race Off category.
+- Category field preselected; manufacturer group selection and individual untick supported.
+- Locking creates a Space-specific frozen Race Off record with immutable entrant snapshots.
+- Persistent Continue Race Off card proves save/reload behavior before draw engine work.
