@@ -1,3 +1,9 @@
+## v6.0.126 — Record celebration root rebuild
+- Rebuilt from protected v6.0.124.
+- Corrected Record celebration hero sizing/composition; no Hubs.
+- Replaced failed timer rendering with isolated gold seven-segment display.
+- No unrelated logic/layout changes.
+
 ## v6.0.122 — Race Off Stage 7 round advancement
 - Completed preliminary rounds now form the exact next-round field from straight-through cars plus winners.
 - Next round opens fresh Track/Race + optional Layout setup before a new irreversible random draw.
@@ -510,5 +516,3 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Race Off: catalogue cards now reuse the existing tall trophy with the Race Off dashboard pink accent.
 - Race Off Tournament: accordion headings now show round title only; match-count text removed.
 - No layout, race logic, draw logic, result logic, or navigation changes.
-
-- v6.0.125 — Locked record celebration refresh: Hubs and quote removed; approved neutral car/podium hero; silver/gold record medals; gold segmented new-best display; existing record/navigation logic preserved.
