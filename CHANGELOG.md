@@ -326,3 +326,5 @@
 - Required Track / Race, optional Layout and Round Notes.
 - Review Draw saves setup but does not lock/start the draw.
 - Optional Layout added to existing Festival Championship and Custom Racing round setup.
+
+- v6.0.117 — Race Off Continue card layout corrected; Stage 4 functionality unchanged.

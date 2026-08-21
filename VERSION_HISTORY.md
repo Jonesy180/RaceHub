@@ -473,3 +473,5 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - GT-13 restores clear About label/value separation.
 - GT-14 lowers only the League Enter Results colon separator; decimal point remains unchanged.
 - v6.0.92 GT-01..GT-08 durability repair, catalogue architecture, reset actions/screens, backups and update checker preserved.
+
+- v6.0.117 — Race Off Continue card layout corrected.
