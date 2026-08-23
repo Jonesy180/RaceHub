@@ -1,3 +1,9 @@
+## v6.0.132 — GT7 manual/special Garage integration
+- Existing GT7 manual/special cars are preserved across update and integrated into normal Garage manufacturer groups.
+- The already-added Dior Mangusta is normalised to De Tomaso and does not need adding again.
+- Manual GT7 cars participate in Festival Manufacturer Championships, Race Off and Custom Racing through the normal owned Garage list.
+- Manual/special cars remain excluded from the protected 574-car catalogue and its owned counter.
+
 ## v6.0.131 — GT7 Catalogue v2
 - Official GT7 Collection reconciled to 574 cars (August 2026).
 - Special/bonus/Power Pack cars removed from protected catalogue count.
