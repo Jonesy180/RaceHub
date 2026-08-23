@@ -1,3 +1,8 @@
+
+## v6.0.139
+- GT7 SPECIALS persistence hardening: any GT7 Garage car not backed by catalogueOwned is preserved as SPECIALS and cannot be absorbed/wiped by deterministic catalogue repair.
+- Global Android/PWA scroll boundary lock across all scrollable OTG! screens; normal scrolling retained, rubber-band page drag blocked at boundaries.
+- No other functional changes.
 ## v6.0.137 — update detection correction
 - Fixes release metadata left at 6.0.135 in v6.0.136.
 - Registers fresh service worker v6.0.137.

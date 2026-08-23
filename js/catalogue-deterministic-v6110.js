@@ -36,6 +36,20 @@ function freshCar(d,row){const cid=d.newId(row),f=normaliseCar({id:cid,...master
 function repairSpace(s){
  const d=def(s);if(!d)return null;
  const refs=referencedIds(s), oldOwned=s.catalogueOwned&&typeof s.catalogueOwned==='object'?s.catalogueOwned:{}, ownedRows=new Map();
+ // v6.0.139: in GT7, any Garage row that is not backed by catalogueOwned is a SPECIAL.
+ // This protects manual cars even if an earlier build accidentally left a catalogueId on them.
+ if(d.key===GT7_KEY){
+   (s.cars||[]).forEach(car=>{
+     if(!car)return;
+     const cid=String(car.catalogueId||'');
+     const backed=cid&&Object.prototype.hasOwnProperty.call(oldOwned,cid);
+     if(car.manualSpecial===true||!backed){
+       car.manualSpecial=true;
+       if(car.catalogueId)delete car.catalogueId;
+       if(car.catalogueKey)delete car.catalogueKey;
+     }
+   });
+ }
  Object.keys(oldOwned).forEach(k=>{const row=rowFromAnyId(d,k);if(row)ownedRows.set(d.newId(row),row)});
  // Exact identity on an already-linked Garage record is authoritative; never infer ownership from fuzzy text.
  (s.cars||[]).forEach(car=>{const row=rowFromAnyId(d,car.catalogueId);if(row&&Object.prototype.hasOwnProperty.call(oldOwned,car.catalogueId))ownedRows.set(d.newId(row),row)});
