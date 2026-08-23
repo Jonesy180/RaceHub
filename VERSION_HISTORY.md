@@ -1,3 +1,10 @@
+## v6.0.131 — GT7 Catalogue v2
+- Official GT7 Collection reconciled to 574 cars (August 2026).
+- Special/bonus/Power Pack cars removed from protected catalogue count.
+- June 1.70 and August 1.71 official cars added.
+- Existing GT7 catalogue ownership IDs preserved in-place; new official cars start unowned.
+- GT7 catalogue spaces can manually Add Car for special/non-catalogue cars without changing catalogue totals.
+
 ## v6.0.128 — Record celebration lower-panel fit
 - Built directly from v6.0.127.
 - Locked record hero/top half left completely unchanged.

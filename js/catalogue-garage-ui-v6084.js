@@ -49,7 +49,7 @@
       <section class="rhGarageHeroV1"><div class="rhGarageHeadV1"><button onclick="show('home')" aria-label="Back">‹</button><div><h1>${title}</h1><p>Dedicated Catalogue Space</p></div></div></section>
       <main class="rhGarageBodyV1">
         <section class="rhGarageSummaryV1"><i>⌂</i><span><b>${fh?'FH5':'GT7'} CATALOGUE</b><small>Grey cars are unowned. Tick a car to add it to this Space Garage.</small></span><strong id="rhCatalogueOwnedTotal">${owned}<small>/ ${total} OWNED</small></strong></section>
-        <div class="rhGarageToolsV1"><label><i>⌕</i><input autocomplete="off" placeholder="Search manufacturer, car, year or class" value="${esc(fh?fh5CatalogueSearch:gt7CatalogueSearch)}" oninput="otgCatalogueFilterLive('${key}',this)"></label></div>
+        <div class="rhGarageToolsV1"><label><i>⌕</i><input autocomplete="off" placeholder="Search manufacturer, car, year or class" value="${esc(fh?fh5CatalogueSearch:gt7CatalogueSearch)}" oninput="otgCatalogueFilterLive('${key}',this)"></label>${!fh?`<button class="chip" onclick="rhOpenCarEditor()">＋ Add Car</button>`:''}</div>${!fh?`<p class="small">Add Car is for GT7 special/non-catalogue cars. Manual cars do not change the ${total}-car catalogue count.</p>`:''}
         ${makes.length?`<div class="rhGarageMakesV1">${makes.map(make=>{
           const cars=g[make].slice().sort((a,b)=>String(a.full||a.model||'').localeCompare(String(b.full||b.model||'')));
           const open=Boolean(q)||current===make;
