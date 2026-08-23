@@ -1,3 +1,7 @@
+## v6.0.134 — GT7 manual car racing eligibility
+- Includes GT7 manual/special Garage cars in Festival, Manufacturer/Favourite/Era/Class championships, Race Off and shared eligible-car flows.
+- GT7 official catalogue and 574-car count unchanged.
+
 ## v6.0.133 — GT7 manual car recovery
 - Prevent manual/special GT7 cars being absorbed into official catalogue identities.
 - Recover a previously merged Dior Mangusta when its saved Garage record still carries the Dior identity.
