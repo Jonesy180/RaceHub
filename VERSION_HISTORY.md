@@ -1,3 +1,9 @@
+## v6.0.136 — GT7 SPECIALS Garage visibility fix
+- SPECIALS is now a permanent first-class section in the GT7 Garage, even when empty.
+- Existing manual/non-catalogue GT7 cars render inside SPECIALS.
+- SPECIALS remains outside the official 574 catalogue/count and Manufacturer Championships.
+- No other behaviour changed.
+
 ## v6.0.135 — GT7 SPECIALS architecture
 - Based strictly on v6.0.133; v6.0.134 discarded.
 - Manual/non-catalogue GT7 cars live under a separate SPECIALS Garage group.
