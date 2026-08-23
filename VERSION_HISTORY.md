@@ -1,6 +1,9 @@
-## v6.0.134 — GT7 manual car racing eligibility
-- Includes GT7 manual/special Garage cars in Festival, Manufacturer/Favourite/Era/Class championships, Race Off and shared eligible-car flows.
-- GT7 official catalogue and 574-car count unchanged.
+## v6.0.135 — GT7 SPECIALS architecture
+- Based strictly on v6.0.133; v6.0.134 discarded.
+- Manual/non-catalogue GT7 cars live under a separate SPECIALS Garage group.
+- SPECIALS remain outside the official 574-car catalogue/count and Manufacturer Championships.
+- SPECIALS remain eligible for Festival, Era, Class/Type, Race Off and Custom Racing.
+- No other changes.
 
 ## v6.0.133 — GT7 manual car recovery
 - Prevent manual/special GT7 cars being absorbed into official catalogue identities.

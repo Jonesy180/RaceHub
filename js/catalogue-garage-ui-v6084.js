@@ -61,7 +61,6 @@
     const g=group(catalogue,q), cs=counts(catalogue,ownedFn);
     const manual=fh?[]:gt7ManualCars(s,catalogue,idFn);
     const manualFiltered=manual.filter(c=>!q||[c.make,c.model,c.name,c.year,c.classType,'special non-catalogue'].join(' ').toLowerCase().includes(q));
-    manualFiltered.forEach(c=>{const k=c.make||'Unknown';if(!g[k])g[k]=[]});
     const makes=Object.keys(g).sort((a,b)=>a.localeCompare(b));
     const owned=catalogue.filter(ownedFn).length;
     const total=catalogue.length;
@@ -76,15 +75,15 @@
         <div class="rhGarageToolsV1"><label><i>⌕</i><input autocomplete="off" placeholder="Search manufacturer, car, year or class" value="${esc(fh?fh5CatalogueSearch:gt7CatalogueSearch)}" oninput="otgCatalogueFilterLive('${key}',this)"></label>${!fh?`<button class="chip" onclick="rhOpenCarEditor()">＋ Add Car</button>`:''}</div>${!fh?`<p class="small">Add Car is for GT7 special/non-catalogue cars. Manual cars do not change the ${total}-car catalogue count.</p>`:''}
         ${makes.length?`<div class="rhGarageMakesV1">${makes.map(make=>{
           const cars=g[make].slice().sort((a,b)=>String(a.full||a.model||'').localeCompare(String(b.full||b.model||'')));
-          const specials=manualFiltered.filter(c=>(c.make||'Unknown')===make).sort((a,b)=>String(a.model||a.name||'').localeCompare(String(b.model||b.name||'')));
           const open=Boolean(q)||current===make;
           const c=cs[make]||{owned:0,total:cars.length};
-          const specialMark=specials.length?` <small>+${specials.length} special</small>`:'';
+          const specialMark='';
           return `<section class="rhGarageMakeV1 ${open?'open':''}" data-make="${esc(make)}">
             <div class="rhGarageMakeHeadWrapV1"><button class="rhGarageMakeHeadV1" onclick="otgToggleCatalogueMake('${key}',decodeURIComponent('${encodeURIComponent(make).replace(/'/g,'%27')}'))"><b>${esc(make)}</b><span class="rhCatalogueMakeCount" data-make="${esc(make)}">${c.owned}/${c.total}${specialMark}</span><em>${open?'⌃':'⌄'}</em></button></div>
-            <div class="rhGarageCarsV1" ${open?'':'hidden'}>${cars.map(c=>carRow(key,c,ownedFn(c),idFn(c))).join('')}${specials.map(manualRow).join('')}</div>
+            <div class="rhGarageCarsV1" ${open?'':'hidden'}>${cars.map(c=>carRow(key,c,ownedFn(c),idFn(c))).join('')}</div>
           </section>`;
         }).join('')}</div>`:`<div class="rhEmpty"><h2>NO CARS FOUND</h2><p>Try a different manufacturer, car, year or class.</p></div>`}
+        ${!fh&&manualFiltered.length?`<div class="rhGarageMakesV1 rhGt7SpecialsV6135"><section class="rhGarageMakeV1 open" data-make="SPECIALS"><div class="rhGarageMakeHeadWrapV1"><button class="rhGarageMakeHeadV1"><b>SPECIALS</b><span>${manualFiltered.length}</span><em>⌃</em></button></div><div class="rhGarageCarsV1">${manualFiltered.slice().sort((a,b)=>String(a.make||'').localeCompare(String(b.make||''))||String(a.model||a.name||'').localeCompare(String(b.model||b.name||''))).map(manualRow).join('')}</div></section></div>`:''}
       </main></div>`;
   };
   window.otgCatalogueFilterLive=function(kind,input){
