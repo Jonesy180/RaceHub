@@ -1,3 +1,9 @@
+## v6.0.143 — Enter Result targets
+- Adds compact read-only TRACK RECORD and YOUR PB targets to Enter Result.
+- Targets use exact track/layout across Festival, Custom Racing and Race Off.
+- Advanced Timing/lap results are excluded.
+- No history screen or other functional changes.
+
 ## v6.0.142 — Viewport shell scroll fix
 - Built from v6.0.139; v6.0.140 and v6.0.141 discarded.
 - SPECIALS persistence/eligibility unchanged.
