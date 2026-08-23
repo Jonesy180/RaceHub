@@ -1,3 +1,9 @@
+## v6.0.141 — Active-screen scroll boundary fix
+- Built from v6.0.139; v6.0.140 discarded.
+- SPECIALS persistence/eligibility unchanged.
+- Native document scrolling retained.
+- Root scroll range is clamped to the currently visible OTG! screen so blank-space dragging cannot extend beyond it.
+
 
 ## v6.0.139
 - GT7 SPECIALS persistence hardening: any GT7 Garage car not backed by catalogueOwned is preserved as SPECIALS and cannot be absorbed/wiped by deterministic catalogue repair.
