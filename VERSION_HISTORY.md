@@ -558,3 +558,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - Race Off: catalogue cards now reuse the existing tall trophy with the Race Off dashboard pink accent.
 - Race Off Tournament: accordion headings now show round title only; match-count text removed.
 - No layout, race logic, draw logic, result logic, or navigation changes.
+
+## v6.0.138 — GT7 SPECIALS racing eligibility + overscroll fix
+- Preserve GT7 manual SPECIALS through exact catalogue stability repair.
+- SPECIALS remain outside official catalogue/count and Manufacturer Championships.
+- SPECIALS retain Year/Class-Type and participate in Festival, Era, Class, Race Off and Custom Racing eligibility.
+- Restore normal new-Garage-car Festival discovery path for SPECIALS.
+- Prevent whole-page rubber-band overscroll while retaining normal scrolling.

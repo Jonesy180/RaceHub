@@ -70,14 +70,18 @@
     // Flag them before any render/reconcile can run, so deterministic catalogue repair
     // can never absorb them into an official catalogue row.
     if(s && !id){
-      const make=$('rhCarMake')?.value.trim(), model=$('rhCarModel')?.value.trim(), year=$('rhCarYear')?.value.trim()||'';
+      const make=$('rhCarMake')?.value.trim(), model=$('rhCarModel')?.value.trim(), year=$('rhCarYear')?.value.trim()||'', classType=$('rhCarClassType')?.value.trim()||'';
       if(!make||!model){toast('Manufacturer and Vehicle Name are required');return}
       if(year&&!/^\d{4}$/.test(year)){toast('Enter a four-digit year');return}
-      const c=normaliseCar({id:rhId('car'),make,model,year,manualSpecial:true});
+      const before=typeof rhCaptureChampEligibility==='function'?rhCaptureChampEligibility():null;
+      try{if(typeof rhRememberClassType==='function')rhRememberClassType(classType)}catch(_){}
+      const c=normaliseCar({id:rhId('car'),make,model,year,classType,manualSpecial:true});
       c.manualSpecial=true; delete c.catalogueId; delete c.catalogueKey;
-      s.cars.push(c); rhGarageOpenMake=make; rhSync(); rhSave(); $('rhCarEditor')?.remove();
+      s.cars.push(c); rhGarageOpenMake='SPECIALS'; rhSync(); rhSave(); $('rhCarEditor')?.remove();
       try{rhRenderGarage()}catch(_){try{gt7RenderCatalogue()}catch(__){}}
-      toast('Car added'); return;
+      toast('Car added');
+      try{if(before&&typeof rhCheckChampionshipDiscoveries==='function')rhCheckChampionshipDiscoveries(before)}catch(_){}
+      return;
     }
     const r=oldSave?.apply(this,arguments); integrate(); return r;
   };
