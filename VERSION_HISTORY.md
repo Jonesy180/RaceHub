@@ -1,8 +1,8 @@
-## v6.0.141 — Active-screen scroll boundary fix
-- Built from v6.0.139; v6.0.140 discarded.
+## v6.0.142 — Viewport shell scroll fix
+- Built from v6.0.139; v6.0.140 and v6.0.141 discarded.
 - SPECIALS persistence/eligibility unchanged.
-- Native document scrolling retained.
-- Root scroll range is clamped to the currently visible OTG! screen so blank-space dragging cannot extend beyond it.
+- Removed runtime touch interception.
+- Fixed html as the viewport shell while retaining body as OTG! normal vertical scroller.
 
 
 ## v6.0.139
