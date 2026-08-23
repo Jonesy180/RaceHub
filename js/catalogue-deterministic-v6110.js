@@ -18,6 +18,8 @@ function def(s){
 function rowFromAnyId(d,id){id=String(id||'');return d.list.find(c=>d.newId(c)===id||d.oldId(c)===id)||null}
 function exactRow(d,car){
  if(!car)return null;
+ // v6.0.133: manually-added catalogue-space specials must never be absorbed into an official catalogue identity.
+ if(car.manualSpecial===true)return null;
  let hit=rowFromAnyId(d,car.catalogueId)||rowFromAnyId(d,car.id);if(hit)return hit;
  const make=exactNorm(car.make||car.manufacturer), model=exactNorm(car.model), name=exactNorm(car.name), year=String(car.year||'').trim();
  const matches=d.list.filter(c=>exactNorm(c.make)===make&&String(c.year||'').trim()===year&&(exactNorm(c.model)===model||exactNorm(c.full)===name));

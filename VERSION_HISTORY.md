@@ -1,3 +1,8 @@
+## v6.0.133 — GT7 manual car recovery
+- Prevent manual/special GT7 cars being absorbed into official catalogue identities.
+- Recover a previously merged Dior Mangusta when its saved Garage record still carries the Dior identity.
+- New GT7 Add Car entries are marked manual before any catalogue reconciliation.
+
 ## v6.0.132 — GT7 manual/special Garage integration
 - Existing GT7 manual/special cars are preserved across update and integrated into normal Garage manufacturer groups.
 - The already-added Dior Mangusta is normalised to De Tomaso and does not need adding again.
