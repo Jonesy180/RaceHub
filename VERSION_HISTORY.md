@@ -1,3 +1,8 @@
+## v6.0.137 — update detection correction
+- Fixes release metadata left at 6.0.135 in v6.0.136.
+- Registers fresh service worker v6.0.137.
+- No functional changes beyond the v6.0.136 SPECIALS Garage visibility fix.
+
 ## v6.0.136 — GT7 SPECIALS Garage visibility fix
 - SPECIALS is now a permanent first-class section in the GT7 Garage, even when empty.
 - Existing manual/non-catalogue GT7 cars render inside SPECIALS.
