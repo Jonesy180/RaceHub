@@ -1,6 +1,9 @@
-## v6.0.144 — Space stability / Festival fix
-- GT7 background catalogue initialisation can no longer activate GT7 when another valid Space is selected.
-- Festival rendering preserves the active Space; opening Festival never switches Space.
+## v6.0.146 — Default Space + GT7 stability
+- Adds a user-selectable Default Space in Settings > OTG! Spaces.
+- On first upgrade, the currently selected valid Space becomes the Default.
+- OTG! launches into the Default Space; session Space switching does not change the Default.
+- Fixes the GT7 zero-delay background catalogue initializer so it can never silently activate GT7.
+- Explicit user Space switching and explicit GT7 OPEN/CREATE actions remain unchanged.
 - No other functional changes from v6.0.143.
 
 ## v6.0.143 — Enter Result targets
