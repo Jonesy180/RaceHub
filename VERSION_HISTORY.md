@@ -1,3 +1,9 @@
+## v6.0.148 — GT7 SPECIALS startup navigation fix
+- Removes the GT7 SPECIALS startup call that rendered the GT7 catalogue after launch.
+- SPECIALS integration still runs at startup, but rendering now happens only when GT7 is actually the active Space/Garage.
+- Preserves v6.0.147 Default Space cold-start fix.
+- No other functional changes.
+
 ## v6.0.147 — Default Space cold-start loader fix
 - Fixes the v6 Garage migration layer overriding the Default-aware rhLoad() before bootstrap.
 - Cold launch now resolves and applies defaultSpaceId in the loader that actually runs.
