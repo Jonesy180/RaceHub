@@ -1,3 +1,8 @@
+## v6.0.144 — Space stability / Festival fix
+- GT7 background catalogue initialisation can no longer activate GT7 when another valid Space is selected.
+- Festival rendering preserves the active Space; opening Festival never switches Space.
+- No other functional changes from v6.0.143.
+
 ## v6.0.143 — Enter Result targets
 - Adds compact read-only TRACK RECORD and YOUR PB targets to Enter Result.
 - Targets use exact track/layout across Festival, Custom Racing and Race Off.

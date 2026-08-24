@@ -237,11 +237,12 @@ if(otgMainManageSpaces6066)window.rhManageSpaces=function(){
 
 window.addEventListener('load',()=>{
   setTimeout(()=>{
-    const existing=gt7FindExistingSpace();
-    if(existing){
-      gt7EnsureSpace(false); // upgrade/reconcile in place, do not force-switch the user's current Space
-    }else{
-      gt7EnsureSpace(true);  // first GT7 install: create and activate the dedicated Space
+    // v6.0.144: catalogue startup work is background-only. If OTG! already has a valid
+    // active Space, GT7 creation/reconciliation must never steal focus from it.
+    const activeBefore=state&&Array.isArray(state.spaces)&&state.spaces.some(s=>s&&s.id===state.activeSpaceId)?state.activeSpaceId:null;
+    gt7EnsureSpace(false);
+    if(activeBefore&&state.activeSpaceId!==activeBefore){
+      state.activeSpaceId=activeBefore;rhSync();rhSave();
     }
   },0)
 });
