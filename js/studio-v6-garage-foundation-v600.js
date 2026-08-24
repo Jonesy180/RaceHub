@@ -41,6 +41,9 @@ rhLoad=function(){
    const stored=JSON.parse(localStorage.getItem(RH_FINAL_STORE)||'null');
    if(stored&&Array.isArray(stored.spaces)&&stored.spaces.length){
      const migrated=rhV6MigrateState(stored);
+     const valid=id=>migrated.spaces.some(s=>s.id===id);
+     if(!valid(migrated.defaultSpaceId))migrated.defaultSpaceId=valid(migrated.activeSpaceId)?migrated.activeSpaceId:migrated.spaces[0].id;
+     migrated.activeSpaceId=migrated.defaultSpaceId;
      localStorage.setItem(RH_FINAL_STORE,JSON.stringify(migrated));
      return migrated;
    }
@@ -49,12 +52,13 @@ rhLoad=function(){
    const old=JSON.parse(localStorage.getItem(STORE)||'null');
    if(old?.cars){
      const migrated=rhV6MigrateState(rhMigrateLegacy(old));
+     migrated.defaultSpaceId=migrated.activeSpaceId;
      localStorage.setItem(RH_FINAL_STORE,JSON.stringify(migrated));
      return migrated;
    }
  }catch(e){}
  const space=rhSpaceTemplate('My OTG!',[]);
- const fresh=rhV6MigrateState({driverName:'',spaces:[space],activeSpaceId:space.id,settings:{sound:true,confetti:true,vibrate:true},onboarded:false});
+ const fresh=rhV6MigrateState({driverName:'',spaces:[space],activeSpaceId:space.id,defaultSpaceId:space.id,settings:{sound:true,confetti:true,vibrate:true},onboarded:false});
  localStorage.setItem(RH_FINAL_STORE,JSON.stringify(fresh));
  return fresh;
 };

@@ -1,3 +1,9 @@
+## v6.0.147 — Default Space cold-start loader fix
+- Fixes the v6 Garage migration layer overriding the Default-aware rhLoad() before bootstrap.
+- Cold launch now resolves and applies defaultSpaceId in the loader that actually runs.
+- Keeps v6.0.146 Default Space UI and GT7 background activation fix unchanged.
+- No other functional changes.
+
 ## v6.0.146 — Default Space + GT7 stability
 - Adds a user-selectable Default Space in Settings > OTG! Spaces.
 - On first upgrade, the currently selected valid Space becomes the Default.
