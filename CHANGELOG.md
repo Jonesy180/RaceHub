@@ -1,3 +1,6 @@
+# v6.0.154
+- Fixed Main-only DELETE RECORD so repeated/duplicate results from the same competition cannot make a deleted Record Book row reappear.
+
 ## v6.0.153
 - Main-only DELETE RECORD maintenance control added to Records > Competition History.
 - Record cleanup uses non-destructive exclusions; source racing data remains intact.

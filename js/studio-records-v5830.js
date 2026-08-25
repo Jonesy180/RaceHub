@@ -6,11 +6,14 @@ const fmt=v=>typeof rhFmtTime==='function'?rhFmtTime(Number(v)||0):String(v??'�
 const raceKey=name=>String(name||'').trim().toLocaleLowerCase();
 const sourceKey=(kind,source)=>`${kind}:${String(source?.id||source?.name||source?.title||'').trim().toLocaleLowerCase()}`;
 const recordIdentity=(kind,source,result,raceName)=>[kind,String(source?.id||source?.name||source?.title||'').trim(),String(raceName||'').trim(),String(result?.carId||''),String(Number(result?.time)||0)].join('¦');
+const recordBookIdentity=(kind,source,raceName)=>['book',kind,String(source?.id||source?.name||source?.title||'').trim(),String(raceName||'').trim()].join('¦');
 function recordExclusions(){const space=typeof rhSpace==='function'?rhSpace():null;return new Set(Array.isArray(space?.recordExclusions)?space.recordExclusions:[]);}
+function recordBookExclusions(){const space=typeof rhSpace==='function'?rhSpace():null;return new Set(Array.isArray(space?.recordBookExclusions)?space.recordBookExclusions:[]);}
 
 function collectRecords(){
   const map=new Map();
   const excluded=recordExclusions();
+  const bookExcluded=recordBookExclusions();
   const addSource=(source,kind)=>{
     const sourceName=String(source?.name||source?.title|| (kind==='event'?'Event':'Championship')).trim();
     (source?.results||[]).forEach(result=>{
@@ -18,11 +21,12 @@ function collectRecords(){
       const time=Number(result?.time);
       if(!raceName||!Number.isFinite(time)||time<=0)return;
       const recordId=recordIdentity(kind,source,result,raceName);
-      if(excluded.has(recordId))return;
+      const bookId=recordBookIdentity(kind,source,raceName);
+      if(excluded.has(recordId)||bookExcluded.has(bookId))return;
       const key=raceKey(raceName);
       if(!map.has(key))map.set(key,{name:raceName,all:[],sources:new Map()});
       const race=map.get(key);
-      const entry={time,carId:result.carId,date:result.date||'',sourceName,kind,sourceId:String(source?.id||''),sourceStatus:String(source?.status||''),sourceCompletedAt:String(source?.completedAt||''),recordId};
+      const entry={time,carId:result.carId,date:result.date||'',sourceName,kind,sourceId:String(source?.id||''),sourceStatus:String(source?.status||''),sourceCompletedAt:String(source?.completedAt||''),recordId,bookId};
       race.all.push(entry);
       const sk=sourceKey(kind,source);
       const previous=race.sources.get(sk);
@@ -60,16 +64,20 @@ function openClassification(entry){
   }
   if(typeof window.rhShowRecordFinalStandingsV6034==='function')window.rhShowRecordFinalStandingsV6034(entry.sourceId);
 }
-window.rhDeleteRecordV6153=function(recordId,sourceName,raceName,time){
-  recordId=decodeURIComponent(String(recordId||''));sourceName=decodeURIComponent(String(sourceName||''));raceName=decodeURIComponent(String(raceName||''));
-  if(!recordId)return;
+window.rhDeleteRecordV6154=function(bookId,sourceName,raceName,time){
+  bookId=decodeURIComponent(String(bookId||''));sourceName=decodeURIComponent(String(sourceName||''));raceName=decodeURIComponent(String(raceName||''));
+  if(!bookId)return;
   const label=`${sourceName||'this competition'} — ${raceName||'record'} — ${fmt(Number(time)||0)}`;
-  if(!confirm(`DELETE RECORD?\n\n${label}\n\nThis removes this time from your OTG! Record Book only. The original race result, event history, stats and progress are kept.`))return;
+  if(!confirm(`DELETE RECORD?
+
+${label}
+
+This removes this competition's Record Book entry for this track. Original race results, event history, stats and progress are kept.`))return;
   const space=typeof rhSpace==='function'?rhSpace():null;if(!space)return;
-  if(!Array.isArray(space.recordExclusions))space.recordExclusions=[];
-  if(!space.recordExclusions.includes(recordId))space.recordExclusions.push(recordId);
+  if(!Array.isArray(space.recordBookExclusions))space.recordBookExclusions=[];
+  if(!space.recordBookExclusions.includes(bookId))space.recordBookExclusions.push(bookId);
   if(typeof rhSave==='function')rhSave();
-  if(typeof toast==='function')toast('Record deleted from Record Book');
+  if(typeof toast==='function')toast('Competition record deleted from Record Book');
   rhRenderRecords();
 };
 function sourceRow(entry,isAllTime,raceName){
@@ -84,7 +92,7 @@ function sourceRow(entry,isAllTime,raceName){
     </div>
     <strong>${fmt(entry.time)}</strong>
     ${open?'<span class="rhRaceRecordOpenFinalV6010">FINAL ›</span>':''}
-    ${!isAllTime?`<button class="rhDeleteRecordV6153" type="button" onclick="event.stopPropagation();rhDeleteRecordV6153('${encodeURIComponent(entry.recordId)}','${encodeURIComponent(entry.sourceName)}','${encodeURIComponent(raceName)}',${Number(entry.time)||0})">DELETE RECORD</button>`:''}
+    ${!isAllTime?`<button class="rhDeleteRecordV6153" type="button" onclick="event.stopPropagation();rhDeleteRecordV6154('${encodeURIComponent(entry.bookId)}','${encodeURIComponent(entry.sourceName)}','${encodeURIComponent(raceName)}',${Number(entry.time)||0})">DELETE RECORD</button>`:''}
   </article>`;
 }
 window.rhOpenRecordClassificationV6010=function(kind,id){

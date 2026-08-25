@@ -1,3 +1,9 @@
+# v6.0.154 — Main-only Delete Record scope fix
+- DELETE RECORD now removes the selected competition's Record Book entry for that track as a whole.
+- Prevents another result from the same competition immediately replacing the deleted record.
+- Underlying race results, event history, stats, progress, PB source data and Hall of Fame remain untouched.
+- Main-only maintenance tool; Guide remains unchanged.
+
 # v6.0.153 — Main-only Record Book delete tool
 
 - Adds DELETE RECORD to Competition History entries on the Records page.
