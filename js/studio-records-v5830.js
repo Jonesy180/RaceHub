@@ -5,19 +5,24 @@ const safe=v=>typeof esc==='function'?esc(String(v??'')):String(v??'').replace(/
 const fmt=v=>typeof rhFmtTime==='function'?rhFmtTime(Number(v)||0):String(v??'—');
 const raceKey=name=>String(name||'').trim().toLocaleLowerCase();
 const sourceKey=(kind,source)=>`${kind}:${String(source?.id||source?.name||source?.title||'').trim().toLocaleLowerCase()}`;
+const recordIdentity=(kind,source,result,raceName)=>[kind,String(source?.id||source?.name||source?.title||'').trim(),String(raceName||'').trim(),String(result?.carId||''),String(Number(result?.time)||0)].join('¦');
+function recordExclusions(){const space=typeof rhSpace==='function'?rhSpace():null;return new Set(Array.isArray(space?.recordExclusions)?space.recordExclusions:[]);}
 
 function collectRecords(){
   const map=new Map();
+  const excluded=recordExclusions();
   const addSource=(source,kind)=>{
     const sourceName=String(source?.name||source?.title|| (kind==='event'?'Event':'Championship')).trim();
     (source?.results||[]).forEach(result=>{
       const raceName=String(result?.roundName||'').trim();
       const time=Number(result?.time);
       if(!raceName||!Number.isFinite(time)||time<=0)return;
+      const recordId=recordIdentity(kind,source,result,raceName);
+      if(excluded.has(recordId))return;
       const key=raceKey(raceName);
       if(!map.has(key))map.set(key,{name:raceName,all:[],sources:new Map()});
       const race=map.get(key);
-      const entry={time,carId:result.carId,date:result.date||'',sourceName,kind,sourceId:String(source?.id||''),sourceStatus:String(source?.status||''),sourceCompletedAt:String(source?.completedAt||'')};
+      const entry={time,carId:result.carId,date:result.date||'',sourceName,kind,sourceId:String(source?.id||''),sourceStatus:String(source?.status||''),sourceCompletedAt:String(source?.completedAt||''),recordId};
       race.all.push(entry);
       const sk=sourceKey(kind,source);
       const previous=race.sources.get(sk);
@@ -55,7 +60,19 @@ function openClassification(entry){
   }
   if(typeof window.rhShowRecordFinalStandingsV6034==='function')window.rhShowRecordFinalStandingsV6034(entry.sourceId);
 }
-function sourceRow(entry,isAllTime){
+window.rhDeleteRecordV6153=function(recordId,sourceName,raceName,time){
+  recordId=decodeURIComponent(String(recordId||''));sourceName=decodeURIComponent(String(sourceName||''));raceName=decodeURIComponent(String(raceName||''));
+  if(!recordId)return;
+  const label=`${sourceName||'this competition'} — ${raceName||'record'} — ${fmt(Number(time)||0)}`;
+  if(!confirm(`DELETE RECORD?\n\n${label}\n\nThis removes this time from your OTG! Record Book only. The original race result, event history, stats and progress are kept.`))return;
+  const space=typeof rhSpace==='function'?rhSpace():null;if(!space)return;
+  if(!Array.isArray(space.recordExclusions))space.recordExclusions=[];
+  if(!space.recordExclusions.includes(recordId))space.recordExclusions.push(recordId);
+  if(typeof rhSave==='function')rhSave();
+  if(typeof toast==='function')toast('Record deleted from Record Book');
+  rhRenderRecords();
+};
+function sourceRow(entry,isAllTime,raceName){
   const open=canOpenClassification(entry);
   const action=open?` onclick="rhOpenRecordClassificationV6010('${safe(entry.kind)}','${safe(entry.sourceId)}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"`:'';
   return `<article class="rhRaceRecordRowV5830 ${isAllTime?'allTime':''} ${open?'rhRaceRecordHistoryLinkV6010':''}"${action}>
@@ -67,6 +84,7 @@ function sourceRow(entry,isAllTime){
     </div>
     <strong>${fmt(entry.time)}</strong>
     ${open?'<span class="rhRaceRecordOpenFinalV6010">FINAL ›</span>':''}
+    ${!isAllTime?`<button class="rhDeleteRecordV6153" type="button" onclick="event.stopPropagation();rhDeleteRecordV6153('${encodeURIComponent(entry.recordId)}','${encodeURIComponent(entry.sourceName)}','${encodeURIComponent(raceName)}',${Number(entry.time)||0})">DELETE RECORD</button>`:''}
   </article>`;
 }
 window.rhOpenRecordClassificationV6010=function(kind,id){
@@ -83,9 +101,9 @@ function raceCard(race){
       <strong>${fmt(allTime.time)}</strong><em>⌄</em>
     </summary>
     <div class="rhRaceRecordOpenV5830">
-      ${sourceRow(allTime,true)}
+      ${sourceRow(allTime,true,race.name)}
       <div class="rhRaceRecordHistoryHeadV5830"><span>COMPETITION HISTORY</span><small>Every Championship, Event and Race Off on ${safe(race.name)}. Completed classifications can be reopened where available.</small></div>
-      <div class="rhRaceRecordHistoryV5830">${sourceRows.map(e=>sourceRow(e,false)).join('')}</div>
+      <div class="rhRaceRecordHistoryV5830">${sourceRows.map(e=>sourceRow(e,false,race.name)).join('')}</div>
     </div>
   </details>`;
 }

@@ -1,3 +1,7 @@
+## v6.0.153
+- Main-only DELETE RECORD maintenance control added to Records > Competition History.
+- Record cleanup uses non-destructive exclusions; source racing data remains intact.
+
 # v6.0.150 — Abandon Active Racing
 
 - Added bottom Danger Zone abandon action to active Festival Championships, Custom Racing Events and Race Off tournaments.

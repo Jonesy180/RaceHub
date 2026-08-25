@@ -6,3 +6,7 @@
 .rhRORecordTimeV6151{display:grid;gap:2px;margin:12px 0;padding:12px;border-radius:14px;background:rgba(0,0,0,.28)}.rhRORecordTimeV6151 small{font-size:.66rem;letter-spacing:.08em;opacity:.75}.rhRORecordTimeV6151 strong{font-size:1.75rem;color:#ffd565}.rhRORecordTimeV6151 b{font-size:1rem}.rhRORecordTimeV6151 em{font-style:normal;color:#48dcff;font-weight:800}
 .rhRORecordModalV6151 blockquote{margin:10px 0 14px;padding:0;font-size:.9rem;line-height:1.4}.rhRORecordModalV6151 blockquote cite{display:block;margin-top:5px;color:#48dcff;font-size:.68rem;font-style:normal;font-weight:800;letter-spacing:.06em}
 .rhRORecordModalV6151 .btn{width:100%}
+
+/* v6.0.153 Main-only Record Book cleanup tool */
+.rhDeleteRecordV6153{grid-column:2 / -1;justify-self:start;margin-top:10px;padding:9px 14px;border:1px solid rgba(255,82,82,.7);border-radius:12px;background:rgba(88,8,14,.28);color:#ff7474;font:800 12px/1.1 inherit;letter-spacing:.08em;text-transform:uppercase}
+.rhDeleteRecordV6153:active{transform:translateY(1px);background:rgba(120,10,18,.4)}

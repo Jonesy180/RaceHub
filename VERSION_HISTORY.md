@@ -1,3 +1,10 @@
+# v6.0.153 — Main-only Record Book delete tool
+
+- Adds DELETE RECORD to Competition History entries on the Records page.
+- Deletes only the selected displayed record from the Record Book; original race results, event history, stats, progress and Hall of Fame remain untouched.
+- Record Book recalculates immediately so the next-fastest surviving record is promoted automatically.
+- Main build only; not intended for rh-guide.
+
 # v6.0.152 — Race Off record celebration visual fix
 - Removed Hubs portrait and Hubs attribution from the Race Off record celebration.
 - Record creation/bridge logic from v6.0.151 is unchanged.
