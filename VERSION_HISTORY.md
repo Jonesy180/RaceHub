@@ -1,3 +1,8 @@
+## v6.0.149 — Race Off maintenance
+- Entrants remain editable/live until first START DRAW.
+- First-round START DRAW hard-wired to persistent Stage 5 draw engine.
+- No v7 changes.
+
 ## v6.0.148 — GT7 SPECIALS startup navigation fix
 - Removes the GT7 SPECIALS startup call that rendered the GT7 catalogue after launch.
 - SPECIALS integration still runs at startup, but rendering now happens only when GT7 is actually the active Space/Garage.
