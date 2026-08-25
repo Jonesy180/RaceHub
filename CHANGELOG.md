@@ -370,3 +370,5 @@
 - Approved Race Off Champion environment is used for the Champion screen.
 - In-progress draw list now automatically positions the current/next match at the top.
 - Tightened Draw screen vertical spacing so the page itself needs less scrolling.
+
+- v6.0.151: Race Off single-run record creation/celebration bridge added; existing advanced-timing exclusion preserved.

@@ -613,3 +613,10 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - SPECIALS retain Year/Class-Type and participate in Festival, Era, Class, Race Off and Custom Racing eligibility.
 - Restore normal new-Garage-car Festival discovery path for SPECIALS.
 - Prevent whole-page rubber-band overscroll while retaining normal scrolling.
+
+
+## v6.0.151
+- Race Off single-run results now participate in the Records book.
+- New eligible Race Off times can trigger Race Off Record, Track Record and Your PB notices.
+- Advanced Timing/lap results remain excluded from Race Off records.
+- No changes to draw, racing progression or abandon behaviour.
