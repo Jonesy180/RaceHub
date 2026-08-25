@@ -1,3 +1,8 @@
+# v6.0.152 — Race Off record celebration visual fix
+- Removed Hubs portrait and Hubs attribution from the Race Off record celebration.
+- Record creation/bridge logic from v6.0.151 is unchanged.
+- Abandon, Race Off draw and progression are unchanged.
+
 ## v6.0.150 — Abandon active racing
 - Added bottom-only Danger Zone abandon action to active Festival Championships, Custom Racing Events and Race Off tournaments.
 - Abandon closes the active competition without rolling back completed race achievements.
