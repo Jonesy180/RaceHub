@@ -1,3 +1,10 @@
+# v6.0.150 — Abandon Active Racing
+
+- Added bottom Danger Zone abandon action to active Festival Championships, Custom Racing Events and Race Off tournaments.
+- Abandon closes only the active competition; completed race results and achievements remain valid.
+- Records/PBs sourced from an abandoned competition are labelled ABANDONED where provenance is shown.
+- No record rollback or recalculation.
+
 ## v6.0.122 — Race Off Stage 7 round advancement
 - Completed preliminary rounds now form the exact next-round field from straight-through cars plus winners.
 - Next round opens fresh Track/Race + optional Layout setup before a new irreversible random draw.

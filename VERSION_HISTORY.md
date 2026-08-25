@@ -1,3 +1,9 @@
+## v6.0.150 — Abandon active racing
+- Added bottom-only Danger Zone abandon action to active Festival Championships, Custom Racing Events and Race Off tournaments.
+- Abandon closes the active competition without rolling back completed race achievements.
+- Existing PBs/records remain valid and show ABANDONED provenance where their source is displayed.
+- Abandoned competitions no longer appear as active/in progress.
+
 ## v6.0.149 — Race Off maintenance
 - Entrants remain editable/live until first START DRAW.
 - First-round START DRAW hard-wired to persistent Stage 5 draw engine.

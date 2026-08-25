@@ -13,9 +13,9 @@ function fmt(v){
   const t=Number(v),m=Math.floor(t/60),s=Math.floor(t%60),ms=Math.round((t-Math.floor(t))*1000);
   return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${String(ms).padStart(3,'0')}`;
 }
-function add(out,res,track,layout,carId){
+function add(out,res,track,layout,carId,sourceStatus=''){
   if(!eligible(res)||!norm(track))return;
-  out.push({track,layout:layout||'',trackKey:key(track,layout),carId:String(carId??res.carId??''),time:Number(res.time)});
+  out.push({track,layout:layout||'',trackKey:key(track,layout),carId:String(carId??res.carId??''),time:Number(res.time),sourceStatus:String(sourceStatus||'')});
 }
 function allResults(){
   const out=[],s=typeof rhSpace==='function'?rhSpace():null;
@@ -24,21 +24,21 @@ function allResults(){
     const rounds=Array.isArray(run.rounds)?run.rounds:[];
     for(const res of (run.results||[])){
       const rd=rounds.find(r=>String(r.id)===String(res.roundId));
-      add(out,res,rd?.name||res.roundName||'',rd?.layout||res.layout||'',res.carId);
+      add(out,res,rd?.name||res.roundName||'',rd?.layout||res.layout||'',res.carId,run.status);
     }
   }
   for(const e of (s.customEvents||[])){
     const rounds=typeof rhEventRounds==='function'?rhEventRounds(e):(e.frozenRounds?.length?e.frozenRounds:(e.rounds||[]));
     for(const res of (e.results||[])){
       const rd=(rounds||[]).find(r=>String(r.id)===String(res.roundId));
-      add(out,res,rd?.name||res.roundName||'',rd?.layout||res.layout||'',res.carId);
+      add(out,res,rd?.name||res.roundName||'',rd?.layout||res.layout||'',res.carId,e.status);
     }
   }
   for(const ro of (s.raceOffs||[])){
     for(const rd of (ro.rounds||[])){
       for(const m of (rd.matches||[])){
-        if(m.resultA)add(out,m.resultA,m.resultA.track||rd.name||'',m.resultA.layout||rd.layout||'',m.resultA.carId||cid(m.carA));
-        if(m.resultB)add(out,m.resultB,m.resultB.track||rd.name||'',m.resultB.layout||rd.layout||'',m.resultB.carId||cid(m.carB));
+        if(m.resultA)add(out,m.resultA,m.resultA.track||rd.name||'',m.resultA.layout||rd.layout||'',m.resultA.carId||cid(m.carA),ro.status);
+        if(m.resultB)add(out,m.resultB,m.resultB.track||rd.name||'',m.resultB.layout||rd.layout||'',m.resultB.carId||cid(m.carB),ro.status);
       }
     }
   }
@@ -46,14 +46,14 @@ function allResults(){
 }
 function targets(track,layout,carId){
   const k=key(track,layout),rows=allResults().filter(x=>x.trackKey===k),car=String(carId??'');
-  const trackRecord=rows.length?Math.min(...rows.map(x=>x.time)):null;
+  const trackBest=rows.length?rows.slice().sort((a,b)=>a.time-b.time)[0]:null,trackRecord=trackBest?.time??null;
   const mine=rows.filter(x=>x.carId===car);
-  const pb=mine.length?Math.min(...mine.map(x=>x.time)):null;
-  return {trackRecord,pb};
+  const pbBest=mine.length?mine.slice().sort((a,b)=>a.time-b.time)[0]:null,pb=pbBest?.time??null;
+  return {trackRecord,pb,trackAbandoned:trackBest?.sourceStatus==='abandoned',pbAbandoned:pbBest?.sourceStatus==='abandoned'};
 }
 function card(track,layout,carId){
   const t=targets(track,layout,carId);
-  return `<section class="rhTrackTargetsV6143" aria-label="Race targets"><div><small>TRACK RECORD</small><b>${fmt(t.trackRecord)}</b></div><i></i><div><small>YOUR PB</small><b>${fmt(t.pb)}</b></div></section>`;
+  return `<section class="rhTrackTargetsV6143" aria-label="Race targets"><div><small>TRACK RECORD</small><b>${fmt(t.trackRecord)}</b>${t.trackAbandoned?'<em class="rhTrackAbandonedV6150">ABANDONED</em>':''}</div><i></i><div><small>YOUR PB</small><b>${fmt(t.pb)}</b>${t.pbAbandoned?'<em class="rhTrackAbandonedV6150">ABANDONED</em>':''}</div></section>`;
 }
 function inject(hostId,track,layout,carId){
   const host=Q(hostId),context=host?.querySelector('.rh5801Context');

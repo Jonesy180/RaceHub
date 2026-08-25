@@ -52,7 +52,7 @@ function sourceRow(entry,isAllTime){
     <span class="rhRaceRecordMedalV5830">${isAllTime?'★':'◆'}</span>
     <div class="rhRaceRecordTextV5830">
       <small>${isAllTime?'ALL-TIME OTG! RECORD':sourceTypeLabel(entry.kind)}</small>
-      <b>${safe(entry.sourceName)}</b>
+      <b>${safe(entry.sourceName)}${entry.sourceStatus==='abandoned'?'<span class="rhAbandonedTagV6150">ABANDONED</span>':''}</b>
       <em>${safe(carLabel(entry.carId))}</em>
     </div>
     <strong>${fmt(entry.time)}</strong>
