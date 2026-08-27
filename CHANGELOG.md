@@ -1,3 +1,11 @@
+# v7.0.29 — QA source fixes
+
+- Race Off History cards rebuilt for readable full-width champion/entrant information.
+- Completed Race Off detail now has a red Delete Race Off action with in-app destructive confirmation.
+- Race Setup delete now uses OTG!'s in-app destructive confirmation instead of the browser confirm dialog.
+- Abandoning Pick My Drive now returns to Pick My Drive instead of Festival.
+- No artwork changes. No post-render/CSS hiding patches; behaviour changes are in the owning source handlers.
+
 ## v7.0.28 — Global Smart Text Input
 - Enabled phone predictive text/autocorrect/spellcheck on free-text inputs and textareas.
 - Numeric, time, result, year, lap and position fields remain excluded.

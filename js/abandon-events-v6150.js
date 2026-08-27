@@ -23,7 +23,7 @@ window.rhConfirmAbandonV6150=function(){
  // Keep every completed result exactly as recorded. The source status is the provenance marker.
  if(typeof rhSave==='function')rhSave();pending=null;document.getElementById('rhAbandonConfirmV6150')?.remove();
  if(typeof toast==='function')toast(`${label(p.kind)[0]+label(p.kind).slice(1).toLowerCase()} abandoned`);
- if(p.kind==='championship')return rhRenderFestival();if(p.kind==='event')return rhRenderEvents();return rhRenderRaceOff();
+ if(p.kind==='championship'&&item.pickMyDrive&&typeof rhPickMyDriveComingSoon==='function')return rhPickMyDriveComingSoon();if(p.kind==='championship')return rhRenderFestival();if(p.kind==='event')return rhRenderEvents();return rhRenderRaceOff();
 };
 // Festival active overview.
 const openRun=window.rhOpenRun;if(typeof openRun==='function')window.rhOpenRun=function(id){const out=openRun.apply(this,arguments),r=find('championship',id);if(r?.status==='active')inject(document.getElementById('festival'),'championship',id);return out;};
