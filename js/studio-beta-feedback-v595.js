@@ -38,7 +38,7 @@
   };
   function addFestivalCarAction(id){
     const run=(typeof rhCurrentRuns==='function'?rhCurrentRuns():[]).find(x=>x.id===id);
-    if(!run||run.pickMyDrive)return;
+    if(!run||run.pickMyDrive||run.value==='pick-my-drive')return;
     const additions=festivalNewCars(run);
     if(!additions.length)return;
     const screen=document.getElementById('festival');

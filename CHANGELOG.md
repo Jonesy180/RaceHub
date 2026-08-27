@@ -1,3 +1,8 @@
+## v7.0.22 — Pick My Drive source routing fix
+- Pick My Drive is excluded at the source from the legacy Festival add-new-cars action.
+- Live-run footer returns to Pick My Drive instead of Festival.
+- Uses persistent pick-my-drive identity as well as the runtime flag.
+
 ## v7.0.20 — Canonical version + Pick My Drive live-run repair
 - Resets the active Main build version to one canonical 7.0.20 identity across index/bootstrap/service worker.
 - Cache-busts the live Championship renderer so Pick My Drive wording and locked entrant controls cannot fall back to an older cached renderer.
