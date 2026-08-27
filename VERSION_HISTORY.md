@@ -648,3 +648,6 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 - New eligible Race Off times can trigger Race Off Record, Track Record and Your PB notices.
 - Advanced Timing/lap results remain excluded from Race Off records.
 - No changes to draw, racing progression or abandon behaviour.
+
+### v7.0.3 — Journey & Stats
+Stage 2 of v7. Records landing, My OTG! Journey and PB improvement Stats tile. Main development build only.

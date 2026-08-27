@@ -388,3 +388,10 @@
 - Tightened Draw screen vertical spacing so the page itself needs less scrolling.
 
 - v6.0.151: Race Off single-run record creation/celebration bridge added; existing advanced-timing exclusion preserved.
+
+## v7.0.3 — Journey & Stats (Stage 2)
+- Adds the v7 Records landing layout with Hall of Fame, My OTG! Journey and Race & Event Records.
+- Adds My OTG! Journey major-first/milestone timeline derived from current Space racing history.
+- Adds Biggest PB Improvement to Stats beside Time Driven.
+- Keeps the v7.0.2 Main-only Delete Record tool in Race & Event Records.
+- Guide intentionally not built during v7 development; final Guide follows Main sign-off.
