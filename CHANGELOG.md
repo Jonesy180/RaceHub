@@ -1,3 +1,8 @@
+## v7.0.23 — Pick My Drive final navigation source fix
+- Fixed Pick My Drive completion “VIEW FINAL LEADERBOARD” to open the live Final Standings authority directly.
+- Fixed Final Standings Back controls for Pick My Drive to return to Pick My Drive instead of Festival.
+- Final Standings now uses the approved Pick My Drive trophy and champion label.
+
 ## v7.0.22 — Pick My Drive source routing fix
 - Pick My Drive is excluded at the source from the legacy Festival add-new-cars action.
 - Live-run footer returns to Pick My Drive instead of Festival.

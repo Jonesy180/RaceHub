@@ -1,3 +1,6 @@
+## v7.0.23 — Pick My Drive final navigation source fix
+Source-level final navigation repair for Pick My Drive.
+
 ## v7.0.20 — Canonical version + Pick My Drive live-run repair
 - Resets the active Main build version to one canonical 7.0.20 identity across index/bootstrap/service worker.
 - Cache-busts the live Championship renderer so Pick My Drive wording and locked entrant controls cannot fall back to an older cached renderer.
