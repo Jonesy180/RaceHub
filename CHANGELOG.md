@@ -417,3 +417,8 @@
 - Added create/edit/delete setup screen and dashboard entry.
 - Added Save/Load Race Setup controls to Championship setup.
 - Matched Journey Back button more closely to standard size.
+
+## v7.0.8
+- Replaced the actual live dashboard renderer with the locked v7 dashboard.
+- Race Setups is now reachable from its permanent dashboard tile.
+- Pick My Drive tile is present as the Stage 4 placeholder.

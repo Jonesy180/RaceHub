@@ -667,3 +667,6 @@ A presentation-only refinement pass covering spacing, typography, progress indic
 Stage 2 of v7. Records landing, My OTG! Journey and PB improvement Stats tile. Main development build only.
 
 - v7.0.6 — Race Setups Stage 3 foundation.
+
+## v7.0.8 — Live dashboard renderer fix
+The locked v7 dashboard is now rendered by the core rhRenderHome path actually used by the app.
