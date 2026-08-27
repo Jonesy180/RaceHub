@@ -1,4 +1,4 @@
-## v7.0.23 — Pick My Drive final navigation source fix
+## v7.0.24 — Pick My Drive final navigation source fix
 Source-level final navigation repair for Pick My Drive.
 
 ## v7.0.20 — Canonical version + Pick My Drive live-run repair

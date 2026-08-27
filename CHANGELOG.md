@@ -1,4 +1,4 @@
-## v7.0.23 — Pick My Drive final navigation source fix
+## v7.0.24 — Pick My Drive final navigation source fix
 - Fixed Pick My Drive completion “VIEW FINAL LEADERBOARD” to open the live Final Standings authority directly.
 - Fixed Final Standings Back controls for Pick My Drive to return to Pick My Drive instead of Festival.
 - Final Standings now uses the approved Pick My Drive trophy and champion label.
@@ -488,3 +488,6 @@
 - Replaced native numbered Race Setup load prompt with in-app chooser.
 - Fixed Custom Racing dashboard title/chevron spacing.
 - Preserved v7.0.13 startup/bootstrap behaviour.
+
+## v7.0.24
+- Stage 5 Journey/Stats finalisation: PB badge, Biggest PB Improvement, catalogue milestones, retained high-level Journey firsts.
