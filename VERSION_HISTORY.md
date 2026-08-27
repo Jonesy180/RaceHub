@@ -1,3 +1,9 @@
+## v7.0.7 — V7 Dashboard + Race Setups Integration
+- Switched Main to the locked two-column v7 dashboard layout.
+- Added the permanent Race Setups dashboard tile and wired it to Saved Configs.
+- Added the Pick My Drive tile in its permanent position; functionality follows in Stage 4.
+- Preserved all Stage 1/2 Records, Journey, Stats and Main-only Delete Record work.
+
 ## v7.0.5 — Journey visible Back button
 - Fixed My OTG! Journey header/back control being hidden by the app-wide `header{display:none!important}` rule.
 - Journey now uses its own visible header wrapper and explicitly resets scroll position on open.
