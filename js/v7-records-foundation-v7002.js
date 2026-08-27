@@ -14,6 +14,7 @@ function recordBookExclusions(){const s=typeof rhSpace==='function'?rhSpace():nu
 function car(id){return (typeof rhSpace==='function'?rhSpace()?.cars:[])?.find(c=>String(c.id)===String(id))||null}
 function carText(id){const c=car(id);return c?(typeof carName==='function'?carName(c):[c.make,c.model,c.year].filter(Boolean).join(' ')):'Unknown car'}
 function typeTag(kind,source){
+  if(source?.pickMyDrive)return 'PICK MY DRIVE';
   if(kind==='raceoff')return 'RACE OFF';
   if(kind==='event')return 'CUSTOM';
   const t=String(source?.type||source?.championshipType||'festival').toLowerCase();

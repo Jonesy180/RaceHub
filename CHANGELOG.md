@@ -1,4 +1,12 @@
 
+## v7.0.17 — Pick My Drive foundation
+- Activated the locked Pick My Drive dashboard tile.
+- Added OTG!-generated Garage categories using owned manufacturer, era, class/type, Vintage/Classic and Garage Mix groups.
+- Added Choose Again and locked-car selection screens.
+- Added Pick My Drive setup with editable rounds/layouts and Race Setup loading.
+- Starts through the proven Championship race engine with entrants locked by OTG!.
+- Track Records now tag Pick My Drive results as PICK MY DRIVE.
+
 ## v7.0.11 — Balanced dashboard sizing
 - Increased Festival and paired dashboard tile height, icon scale, text size and spacing from v7.0.10.
 - Keeps the approved compact hero/logo and the passed standard Journey BACK button unchanged.
