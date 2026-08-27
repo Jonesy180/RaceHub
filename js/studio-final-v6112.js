@@ -91,7 +91,6 @@ function rhTrophyTypeKey(type){
  if(t==='vintage')return 'vintage';
  if(t==='classic')return 'classic';
  if(t==='favourite')return 'favourite';
- if(t==='pick-my-drive'||t==='pickmydrive')return 'pick-my-drive';
  return 'festival';
 }
 function rhTrophy(type){return `assets/final/trophy-${rhTrophyTypeKey(type)}.png`}
@@ -236,7 +235,7 @@ function rhRenderFestival(){
  </div>`;
 }
 function rhSetupTrophyType(type){return rhTrophyTypeKey(type)}
-function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':type==='pick-my-drive'?'PICK MY DRIVE':'FESTIVAL CHAMPIONSHIP'}
+function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':'FESTIVAL CHAMPIONSHIP'}
 function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','vintage','classic','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null};rhRenderSetup()}
 function rhOpenPreparedRun(id){const r=rhCurrentRuns().find(x=>x.id===id&&x.status==='prepared');if(!r){toast('Saved Championship not found');rhRenderFestival();return}rhSetup={type:r.type||r.championshipType||'festival',value:r.value,name:r.name,entries:[...(r.entries||[])],rounds:rhClone(r.rounds||[]),savedRunId:r.id};show('festival');rhRenderSetup()}
 function rhSavedRoundNames(){const s=rhSpace(),names=[];const add=n=>{n=String(n||'').trim();if(n&&!/^Round \d+$/i.test(n)&&!names.some(x=>x.toLowerCase()===n.toLowerCase()))names.push(n)};(s.runs||[]).forEach(r=>(r.rounds||[]).forEach(x=>add(x.name)));(s.customEvents||[]).forEach(e=>(e.rounds||[]).forEach(x=>add(x.name)));return names.sort((a,b)=>a.localeCompare(b))}
@@ -334,7 +333,7 @@ function rhOpenRun(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;s
  <header class="rhOverviewHeroV1">
   <button class="rhOverviewBackV1" onclick="rhRenderFestival()" aria-label="Back">‹</button>
   <div class="rhOverviewBrandV1"><small>${r.pickMyDrive?'PICK MY DRIVE':'CHAMPIONSHIP'}</small><h1>${esc(r.name)}</h1><span>${esc(typeLabel)}</span></div>
-  <div class="rhOverviewIdentityV1"><img src="${r.pickMyDrive?'assets/final/trophy-pick-my-drive.png':rhTrophy(r.trophy)}" alt=""><div><b>IN PROGRESS</b><small>Created ${new Date(r.createdAt).toLocaleDateString('en-GB')}</small></div></div>
+  <div class="rhOverviewIdentityV1"><img src="${rhTrophy(r.trophy)}" alt=""><div><b>IN PROGRESS</b><small>Created ${new Date(r.createdAt).toLocaleDateString('en-GB')}</small></div></div>
  </header>
  <main class="rhOverviewBodyV1">
   <section class="rhOverviewProgressV1">
@@ -716,7 +715,6 @@ function rhRecordRoundRow(r,rd){
  return `<div class="rhRecordRowV1"><span><b>${esc(rd.name)}</b><small>${best&&car?esc(carName(car)):'No result recorded'}</small></span><strong>${best?rhFmtTime(best.time):'—'}</strong></div>`;
 }
 function rhRunTrophy(r){
- if(r?.pickMyDrive)return 'assets/final/trophy-pick-my-drive.png';
  const type=r?.type||r?.championshipType||r?.trophy||'festival';
  return rhTrophy(type);
 }

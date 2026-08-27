@@ -1,8 +1,8 @@
-## v7.0.18 — Pick My Drive completion pass
-- Pick My Drive race screens now use Pick My Drive wording instead of Festival wording.
-- OTG!-picked entrants stay locked: no add-Garage-cars, Random Pick or Shuffle Queue controls.
-- Added approved Pick My Drive trophy for completion and Hall of Fame.
-- Pick My Drive records retain the PICK MY DRIVE source tag; Journey gains a first Pick My Drive champion milestone.
+## v7.0.19 — Pick My Drive live-run lock repair
+- Fixed the live Pick My Drive overview to identify itself as PICK MY DRIVE instead of Festival Championship.
+- Removed Random Pick and Shuffle Queue from Pick My Drive runs.
+- Removed the Festival-only Add New Garage Cars control from Pick My Drive runs.
+- Pick My Drive entrant field and running order now stay locked after START.
 
 
 ## v7.0.17 — Pick My Drive foundation
