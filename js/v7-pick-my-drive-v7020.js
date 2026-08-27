@@ -1,4 +1,4 @@
-/* OTG! v7.0.18 — Pick My Drive completion pass */
+/* OTG! v7.0.20 — Pick My Drive completion + live-run lock */
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
