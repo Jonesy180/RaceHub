@@ -1,3 +1,9 @@
+## v7.0.18 — Pick My Drive completion pass
+- Pick My Drive race screens now use Pick My Drive wording instead of Festival wording.
+- OTG!-picked entrants stay locked: no add-Garage-cars, Random Pick or Shuffle Queue controls.
+- Added approved Pick My Drive trophy for completion and Hall of Fame.
+- Pick My Drive records retain the PICK MY DRIVE source tag; Journey gains a first Pick My Drive champion milestone.
+
 
 ## v7.0.17 — Pick My Drive foundation
 - Activated the locked Pick My Drive dashboard tile.

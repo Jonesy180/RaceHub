@@ -91,6 +91,7 @@ function rhTrophyTypeKey(type){
  if(t==='vintage')return 'vintage';
  if(t==='classic')return 'classic';
  if(t==='favourite')return 'favourite';
+ if(t==='pick-my-drive'||t==='pickmydrive')return 'pick-my-drive';
  return 'festival';
 }
 function rhTrophy(type){return `assets/final/trophy-${rhTrophyTypeKey(type)}.png`}
@@ -235,7 +236,7 @@ function rhRenderFestival(){
  </div>`;
 }
 function rhSetupTrophyType(type){return rhTrophyTypeKey(type)}
-function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':'FESTIVAL CHAMPIONSHIP'}
+function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':type==='pick-my-drive'?'PICK MY DRIVE':'FESTIVAL CHAMPIONSHIP'}
 function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','vintage','classic','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null};rhRenderSetup()}
 function rhOpenPreparedRun(id){const r=rhCurrentRuns().find(x=>x.id===id&&x.status==='prepared');if(!r){toast('Saved Championship not found');rhRenderFestival();return}rhSetup={type:r.type||r.championshipType||'festival',value:r.value,name:r.name,entries:[...(r.entries||[])],rounds:rhClone(r.rounds||[]),savedRunId:r.id};show('festival');rhRenderSetup()}
 function rhSavedRoundNames(){const s=rhSpace(),names=[];const add=n=>{n=String(n||'').trim();if(n&&!/^Round \d+$/i.test(n)&&!names.some(x=>x.toLowerCase()===n.toLowerCase()))names.push(n)};(s.runs||[]).forEach(r=>(r.rounds||[]).forEach(x=>add(x.name)));(s.customEvents||[]).forEach(e=>(e.rounds||[]).forEach(x=>add(x.name)));return names.sort((a,b)=>a.localeCompare(b))}
@@ -329,11 +330,11 @@ function rhShuffleQueue(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)ret
 function rhFestivalNewCars(r){if(!r||(r.type!=='festival'&&r.championshipType!=='festival'))return [];const existing=new Set(Array.isArray(r.entries)?r.entries:[]);return (rhSpace().cars||[]).filter(c=>!existing.has(c.id))}
 function rhAddNewCarsToFestival(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;const add=rhFestivalNewCars(r);if(!add.length){toast('No new Garage cars to add');return}r.entries=[...(r.entries||[]),...add.map(c=>c.id)];rhSave();toast(`${add.length} new car${add.length===1?'':'s'} added to Championship`);rhOpenRun(id)}
 function rhRunHeader(title,sub,runId){return `<div class="rhPageHead"><button class="rhBack" onclick="rhOpenRun('${runId}')">‹</button><div><h1>${esc(title)}</h1>${sub?`<p>${esc(sub)}</p>`:''}</div></div>`}
-function rhOpenRun(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;show('festival');const p=rhRunProgress(r),cp=rhRunCarProgress(r),next=rhNextSlot(r);if(r.status==='complete'){return window.rhShowLockedFinalLeaderboardV5788(id)}const entries=Array.isArray(r.entries)?r.entries:[],rounds=Array.isArray(r.rounds)?r.rounds:[],results=Array.isArray(r.results)?r.results:[];const currentCar=next?carById(next.carId):null,currentIndex=next?entries.indexOf(next.carId):-1,currentDone=next?results.filter(x=>x.carId===next.carId).length:0;const typeLabel=rhSetupTypeLabel(r.type||r.championshipType||'festival');$('festival').innerHTML=`<div class="rhOverviewV1">
+function rhOpenRun(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;show('festival');const p=rhRunProgress(r),cp=rhRunCarProgress(r),next=rhNextSlot(r);if(r.status==='complete'){return window.rhShowLockedFinalLeaderboardV5788(id)}const entries=Array.isArray(r.entries)?r.entries:[],rounds=Array.isArray(r.rounds)?r.rounds:[],results=Array.isArray(r.results)?r.results:[];const currentCar=next?carById(next.carId):null,currentIndex=next?entries.indexOf(next.carId):-1,currentDone=next?results.filter(x=>x.carId===next.carId).length:0;const typeLabel=r.pickMyDrive?'PICK MY DRIVE':rhSetupTypeLabel(r.type||r.championshipType||'festival');$('festival').innerHTML=`<div class="rhOverviewV1">
  <header class="rhOverviewHeroV1">
   <button class="rhOverviewBackV1" onclick="rhRenderFestival()" aria-label="Back">‹</button>
-  <div class="rhOverviewBrandV1"><small>CHAMPIONSHIP</small><h1>${esc(r.name)}</h1><span>${esc(typeLabel)}</span></div>
-  <div class="rhOverviewIdentityV1"><img src="${rhTrophy(r.trophy)}" alt=""><div><b>IN PROGRESS</b><small>Created ${new Date(r.createdAt).toLocaleDateString('en-GB')}</small></div></div>
+  <div class="rhOverviewBrandV1"><small>${r.pickMyDrive?'PICK MY DRIVE':'CHAMPIONSHIP'}</small><h1>${esc(r.name)}</h1><span>${esc(typeLabel)}</span></div>
+  <div class="rhOverviewIdentityV1"><img src="${r.pickMyDrive?'assets/final/trophy-pick-my-drive.png':rhTrophy(r.trophy)}" alt=""><div><b>IN PROGRESS</b><small>Created ${new Date(r.createdAt).toLocaleDateString('en-GB')}</small></div></div>
  </header>
  <main class="rhOverviewBodyV1">
   <section class="rhOverviewProgressV1">
@@ -348,12 +349,12 @@ function rhOpenRun(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!r)return;s
   </section>`:''}
   <section class="rhLineupV1 rhQueuePanelV1">
    <div class="rhOverviewSectionHeadV1"><div><small>RACE NIGHT</small><h2>QUEUE</h2></div><span>${rhQueueRemaining(r).length} REMAINING</span></div>
-   <div class="rhQueueActionsV1">
+   ${r.pickMyDrive?'':`<div class="rhQueueActionsV1">
     <button class="rhQueueActionV1" onclick="rhRandomPickQueue('${r.id}')"><i>?</i><span><b>RANDOM PICK</b><small>Choose any remaining car next</small></span></button>
     <button class="rhQueueActionV1" onclick="rhShuffleQueue('${r.id}')"><i>⇄</i><span><b>SHUFFLE QUEUE</b><small>Randomise remaining order</small></span></button>
-   </div>
+   </div>`}
    <div class="rhQueueWindowV1">${entries.map((cid,i)=>{const c=carById(cid),done=results.filter(x=>x.carId===cid).length,isCurrent=next&&cid===next.carId,isComplete=done>=rounds.length;return `<div class="rhLineupRowV1 ${isCurrent?'current':''} ${isComplete?'complete':''}"><i>${i+1}</i><div><b>${esc(carName(c||{make:'Unknown',model:'Car'}))}</b><small>${done} / ${rounds.length} rounds complete</small></div><strong>${isComplete?'COMPLETE':isCurrent?'NEXT':'WAITING'}</strong></div>`}).join('')}</div>
-   ${(r.type==='festival'||r.championshipType==='festival')&&rhFestivalNewCars(r).length?`<button class="btn secondary rhAddFestivalCarsV1" onclick="rhAddNewCarsToFestival('${r.id}')">＋ ADD ${rhFestivalNewCars(r).length} NEW GARAGE CAR${rhFestivalNewCars(r).length===1?'':'S'} TO CHAMPIONSHIP</button>`:''}<p class="rhQueueNoteV1">${(r.type==='festival'||r.championshipType==='festival')?'Rounds are locked. New Garage cars can be added deliberately; Random Pick and Shuffle only change the remaining running order.':'The Championship entry list is frozen. Random Pick and Shuffle only change the order of cars that still have racing to complete.'}</p>
+   ${!r.pickMyDrive&&(r.type==='festival'||r.championshipType==='festival')&&rhFestivalNewCars(r).length?`<button class="btn secondary rhAddFestivalCarsV1" onclick="rhAddNewCarsToFestival('${r.id}')">＋ ADD ${rhFestivalNewCars(r).length} NEW GARAGE CAR${rhFestivalNewCars(r).length===1?'':'S'} TO CHAMPIONSHIP</button>`:''}<p class="rhQueueNoteV1">${r.pickMyDrive?'OTG! picked this field. Cars and running order are locked for this Pick My Drive.':(r.type==='festival'||r.championshipType==='festival')?'Rounds are locked. New Garage cars can be added deliberately; Random Pick and Shuffle only change the remaining running order.':'The Championship entry list is frozen. Random Pick and Shuffle only change the order of cars that still have racing to complete.'}</p>
   </section>
  </main>
 </div>`}
@@ -715,6 +716,7 @@ function rhRecordRoundRow(r,rd){
  return `<div class="rhRecordRowV1"><span><b>${esc(rd.name)}</b><small>${best&&car?esc(carName(car)):'No result recorded'}</small></span><strong>${best?rhFmtTime(best.time):'—'}</strong></div>`;
 }
 function rhRunTrophy(r){
+ if(r?.pickMyDrive)return 'assets/final/trophy-pick-my-drive.png';
  const type=r?.type||r?.championshipType||r?.trophy||'festival';
  return rhTrophy(type);
 }

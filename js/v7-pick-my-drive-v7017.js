@@ -1,4 +1,4 @@
-/* OTG! v7.0.17 — Pick My Drive foundation */
+/* OTG! v7.0.18 — Pick My Drive completion pass */
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
@@ -57,7 +57,17 @@ window.rhPmdRenameLayoutV7=(i,v)=>{if(pmd.rounds[i])pmd.rounds[i].layout=String(
 window.rhPmdRemoveRoundV7=i=>{pmd.rounds.splice(i,1);renderSetup()};
 window.rhPmdStartV7=()=>{
  if(!pmd||!pmd.entries.length||!pmd.rounds.length)return;
- const s=rhSpace(),run={id:rhId('run'),name:`Pick My Drive — ${pmd.theme}`,type:'festival',value:'pick-my-drive',trophy:'festival',pickMyDrive:true,pickMyDriveTheme:pmd.theme,createdAt:new Date().toISOString(),startedAt:new Date().toISOString(),status:'active',entries:[...pmd.entries],rounds:pmd.rounds.map(r=>({id:r.id||rhId('round'),name:r.name||'Round',layout:r.layout||''})),results:[]};
+ const s=rhSpace(),run={id:rhId('run'),name:`Pick My Drive — ${pmd.theme}`,type:'festival',championshipType:'festival',value:'pick-my-drive',trophy:'pick-my-drive',pickMyDrive:true,pickMyDriveTheme:pmd.theme,createdAt:new Date().toISOString(),startedAt:new Date().toISOString(),status:'active',entries:[...pmd.entries],rounds:pmd.rounds.map(r=>({id:r.id||rhId('round'),name:r.name||'Round',layout:r.layout||''})),results:[]};
  s.runs.push(run);rhSave();pmd=null;show('festival');rhOpenRun(run.id)
+};
+
+const priorComplete=window.rhChampionshipCompleteTransition;
+window.rhChampionshipCompleteTransition=function(runId){
+ const r=typeof rhCurrentRuns==='function'?rhCurrentRuns().find(x=>x.id===runId):null;
+ if(!r?.pickMyDrive)return priorComplete?.(runId);
+ const host=document.getElementById('festival'); if(!host)return priorComplete?.(runId);
+ if(typeof show==='function')show('festival');
+ host.innerHTML=`<div class="rhScene rhChampScene"><div class="rhPageHead"><button class="rhBack" onclick="rhOpenRun('${r.id}')">‹</button><div><h1>PICK MY DRIVE COMPLETE</h1><p>${esc7(r.name)}</p></div></div></div><div class="rhContent"><section class="rhCompletionMilestone rhCompletionMilestoneFinal v7PmdComplete"><img src="assets/final/trophy-pick-my-drive.png" alt="Pick My Drive trophy"><div class="rhCompletionCopyFinal"><small>PICK MY DRIVE CHAMPION</small><h2>${esc7(r.name)}</h2><p>Every OTG!-picked car has completed every round.</p></div><button class="btn rhPrimaryWide" onclick="rhOpenRun('${r.id}')">VIEW FINAL LEADERBOARD</button></section></div>`;
+ window.scrollTo(0,0);
 };
 })();
