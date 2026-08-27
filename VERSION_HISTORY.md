@@ -1,3 +1,8 @@
+## v7.0.2 — Restore Main Delete Record
+- Restored the Main-only DELETE RECORD maintenance control inside the new v7 Track Records competition rows.
+- v7 Track Records now honours the existing non-destructive record-book exclusions, so deleted test/bogus competition records stay deleted while original race data remains intact.
+- No changes to Track Record calculation, Car History, racing results, stats, progress, or source competition data.
+
 ## v7.0.1 — Records Foundation
 - Track Records now use track-first / layout-first grouping.
 - Car History added from Garage with races entered, honours and personal bests.
