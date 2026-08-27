@@ -1,3 +1,8 @@
+## v7.0.5 — Journey visible Back button
+- Fixed My OTG! Journey header/back control being hidden by the app-wide `header{display:none!important}` rule.
+- Journey now uses its own visible header wrapper and explicitly resets scroll position on open.
+- No other v7 Stage 2 behaviour changed.
+
 ## v7.0.4
 - Journey Back button kept visible in the phone safe area.
 - Records landing page now labels the track section TRACK RECORDS.
