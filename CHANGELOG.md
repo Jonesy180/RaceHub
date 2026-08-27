@@ -1,3 +1,8 @@
+## v7.0.4
+- Journey Back button kept visible in the phone safe area.
+- Records landing page now labels the track section TRACK RECORDS.
+- Single-record track chevron now sits beside the record time instead of on a separate row.
+
 ## v7.0.2 — Restore Main Delete Record
 - Restored the Main-only DELETE RECORD maintenance control inside the new v7 Track Records competition rows.
 - v7 Track Records now honours the existing non-destructive record-book exclusions, so deleted test/bogus competition records stay deleted while original race data remains intact.

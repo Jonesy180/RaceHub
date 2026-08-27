@@ -1,3 +1,6 @@
+## v7.0.4
+- Restored a permanently visible Back button on My OTG! Journey. No other v7 Stage 2 behaviour changed.
+
 ## v7.0.2 — Restore Main Delete Record
 - Restored the Main-only DELETE RECORD maintenance control inside the new v7 Track Records competition rows.
 - v7 Track Records now honours the existing non-destructive record-book exclusions, so deleted test/bogus competition records stay deleted while original race data remains intact.
