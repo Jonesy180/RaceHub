@@ -422,3 +422,16 @@
 - Replaced the actual live dashboard renderer with the locked v7 dashboard.
 - Race Setups is now reachable from its permanent dashboard tile.
 - Pick My Drive tile is present as the Stage 4 placeholder.
+
+
+## v7.0.9
+- Fixed v7 dashboard startup timing: the legacy Home was rendered by bootstrap before the v7 dashboard override loaded.
+- The v7 dashboard now immediately repaints Home after its renderer is installed, so the locked two-column dashboard appears on first load.
+- No Race Setups, Records, Journey, Garage, Festival, Race Off, Custom Racing, Stats or Settings logic changed.
+
+
+## v7.0.10 — Compact approved dashboard + Journey back polish
+- Reworked live v7 dashboard to the approved compact single-screen composition.
+- Removed space-name welcome overlay from dashboard hero and moved approved OTG! mark to upper-left.
+- Tightened small dashboard tiles while retaining Festival prominence.
+- Resized My OTG! Journey BACK control to match the standard compact back-button scale.

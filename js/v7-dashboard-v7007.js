@@ -1,4 +1,4 @@
-/* OTG! v7.0.7 — Locked v7 dashboard + Race Setups integration */
+/* OTG! v7.0.10 — approved compact dashboard for locked v7 dashboard */
 (()=>{
   const escV7=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const svg={
@@ -18,7 +18,6 @@
     const home=document.getElementById('home'); if(!home)return;
     home.innerHTML=`<div class="v7Dash">
       <section class="v7DashHero">
-        <div class="v7DashWelcome"><small>WELCOME TO</small><b>${escV7(s.name)}</b></div>
         <img class="v7DashLogo" src="assets/brand/otg-approved-painted-mark-v6052.png" alt="OTG! — Out The Garage!">
       </section>
       <main class="v7DashBody">
@@ -37,4 +36,9 @@
       </main>
     </div>`;
   };
+  // Bootstrap renders Home before this v7 override is loaded. If Home is already
+  // visible, repaint it now with the locked v7 dashboard instead of leaving the
+  // legacy markup on screen until the user navigates away and back.
+  const liveHome=document.getElementById('home');
+  if(liveHome && !liveHome.classList.contains('hidden')) window.rhRenderHome();
 })();

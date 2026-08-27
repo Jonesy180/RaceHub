@@ -670,3 +670,14 @@ Stage 2 of v7. Records landing, My OTG! Journey and PB improvement Stats tile. M
 
 ## v7.0.8 — Live dashboard renderer fix
 The locked v7 dashboard is now rendered by the core rhRenderHome path actually used by the app.
+
+
+## v7.0.9 — V7 dashboard startup render fix
+Corrected script-order timing that left the legacy dashboard markup visible on startup even though the v7 renderer existed.
+
+
+## v7.0.10 — Compact approved dashboard + Journey back polish
+- Reworked live v7 dashboard to the approved compact single-screen composition.
+- Removed space-name welcome overlay from dashboard hero and moved approved OTG! mark to upper-left.
+- Tightened small dashboard tiles while retaining Festival prominence.
+- Resized My OTG! Journey BACK control to match the standard compact back-button scale.
