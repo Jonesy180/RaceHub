@@ -1,3 +1,7 @@
+## v7.0.1 — Records Foundation
+- Stage 1 of OTG! v7.
+- Added Track Records and Car History foundation.
+
 # v6.0.154
 - Fixed Main-only DELETE RECORD so repeated/duplicate results from the same competition cannot make a deleted Record Book row reappear.
 

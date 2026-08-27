@@ -1,3 +1,8 @@
+## v7.0.1 — Records Foundation
+- Track Records now use track-first / layout-first grouping.
+- Car History added from Garage with races entered, honours and personal bests.
+- Advanced Timing remains excluded from records/PBs.
+
 # v6.0.154 — Main-only Delete Record scope fix
 - DELETE RECORD now removes the selected competition's Record Book entry for that track as a whole.
 - Prevents another result from the same competition immediately replacing the deleted record.
