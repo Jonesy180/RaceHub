@@ -1,3 +1,9 @@
+
+## v7.0.11 — Balanced dashboard sizing
+- Increased Festival and paired dashboard tile height, icon scale, text size and spacing from v7.0.10.
+- Keeps the approved compact hero/logo and the passed standard Journey BACK button unchanged.
+- Targets the midpoint between v7.0.9 (too large) and v7.0.10 (too small), while retaining a single-screen phone layout.
+- Updated bootstrap/service-worker registration to the current v7.0.11 cache so the update is seen reliably.
 ## v7.0.7 — V7 Dashboard + Race Setups Integration
 - Switched Main to the locked two-column v7 dashboard layout.
 - Added the permanent Race Setups dashboard tile and wired it to Saved Configs.
