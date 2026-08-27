@@ -1,4 +1,4 @@
-// OTG! v7.0.24 — safe bootstrap, preserving known-good startup flow
+// OTG! v7.0.25 — safe bootstrap, preserving known-good startup flow
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}
