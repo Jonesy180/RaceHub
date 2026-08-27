@@ -687,3 +687,6 @@ Corrected script-order timing that left the legacy dashboard markup visible on s
 - Removed space-name welcome overlay from dashboard hero and moved approved OTG! mark to upper-left.
 - Tightened small dashboard tiles while retaining Festival prominence.
 - Resized My OTG! Journey BACK control to match the standard compact back-button scale.
+
+### 7.0.12
+Race Setup loading wired into the live Festival setup screen; dashboard sizing increased slightly; v7 Race Setups Back controls compacted.

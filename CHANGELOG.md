@@ -441,3 +441,9 @@
 - Removed space-name welcome overlay from dashboard hero and moved approved OTG! mark to upper-left.
 - Tightened small dashboard tiles while retaining Festival prominence.
 - Resized My OTG! Journey BACK control to match the standard compact back-button scale.
+
+## v7.0.12 — Race Setup Load + Dashboard / Back Polish
+- Added permanent SAVE RACE SETUP and LOAD RACE SETUP controls directly to the live Festival Championship Rounds renderer.
+- Loading a saved setup replaces the current Championship round list while leaving entrants untouched.
+- Increased the compact v7 dashboard body sizing by roughly 5–7% without changing the approved hero.
+- Standardised v7 Race Setups BACK buttons to the compact Back size.
