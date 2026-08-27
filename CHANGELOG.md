@@ -405,3 +405,9 @@
 - Adds Biggest PB Improvement to Stats beside Time Driven.
 - Keeps the v7.0.2 Main-only Delete Record tool in Race & Event Records.
 - Guide intentionally not built during v7 development; final Guide follows Main sign-off.
+
+## v7.0.6 — Race Setups
+- Added per-space saved Race Setups.
+- Added create/edit/delete setup screen and dashboard entry.
+- Added Save/Load Race Setup controls to Championship setup.
+- Matched Journey Back button more closely to standard size.
