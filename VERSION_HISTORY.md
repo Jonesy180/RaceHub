@@ -690,3 +690,6 @@ Corrected script-order timing that left the legacy dashboard markup visible on s
 
 ### 7.0.12
 Race Setup loading wired into the live Festival setup screen; dashboard sizing increased slightly; v7 Race Setups Back controls compacted.
+
+### v7.0.13
+Race Setup loader scope fix: Festival can now see and load setups already saved in the current OTG! Space.

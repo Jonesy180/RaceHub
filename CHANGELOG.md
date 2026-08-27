@@ -447,3 +447,8 @@
 - Loading a saved setup replaces the current Championship round list while leaving entrants untouched.
 - Increased the compact v7 dashboard body sizing by roughly 5–7% without changing the approved hero.
 - Standardised v7 Race Setups BACK buttons to the compact Back size.
+
+## v7.0.13 — Race Setup loader scope fix
+- Fixed Festival Save/Load Race Setup controls resolving the active Championship setup through `window.rhSetup`; the live app keeps `rhSetup` in the shared global lexical scope.
+- Festival LOAD RACE SETUP now reads the same per-space `raceSetups` collection used by the Race Setups screen, so previously saved setups appear and can populate Championship rounds.
+- No dashboard, Journey, Records, or other visual changes.
