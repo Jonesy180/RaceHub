@@ -1,3 +1,8 @@
+## v7.0.28 — Global Smart Text Input
+- Enabled phone predictive text/autocorrect/spellcheck on free-text inputs and textareas.
+- Numeric, time, result, year, lap and position fields remain excluded.
+- Applies automatically to dynamically-created modals and editors.
+
 ## v7.0.24 — Pick My Drive final navigation source fix
 - Fixed Pick My Drive completion “VIEW FINAL LEADERBOARD” to open the live Final Standings authority directly.
 - Fixed Final Standings Back controls for Pick My Drive to return to Pick My Drive instead of Festival.
