@@ -452,3 +452,9 @@
 - Fixed Festival Save/Load Race Setup controls resolving the active Championship setup through `window.rhSetup`; the live app keeps `rhSetup` in the shared global lexical scope.
 - Festival LOAD RACE SETUP now reads the same per-space `raceSetups` collection used by the Race Setups screen, so previously saved setups appear and can populate Championship rounds.
 - No dashboard, Journey, Records, or other visual changes.
+
+## v7.0.15
+- Rebuilt from known-good v7.0.13 after v7.0.14 startup failure.
+- Replaced native numbered Race Setup load prompt with in-app chooser.
+- Fixed Custom Racing dashboard title/chevron spacing.
+- Preserved v7.0.13 startup/bootstrap behaviour.

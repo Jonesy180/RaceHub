@@ -693,3 +693,6 @@ Race Setup loading wired into the live Festival setup screen; dashboard sizing i
 
 ### v7.0.13
 Race Setup loader scope fix: Festival can now see and load setups already saved in the current OTG! Space.
+
+### v7.0.15
+Safe Race Setups polish rebuilt from v7.0.13 baseline: in-app loader chooser and Custom Racing tile spacing only.
