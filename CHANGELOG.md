@@ -491,3 +491,7 @@
 
 ## v7.0.24
 - Stage 5 Journey/Stats finalisation: PB badge, Biggest PB Improvement, catalogue milestones, retained high-level Journey firsts.
+
+## v7.0.27 — Stats locked one-screen composition
+- Stats layout only: shortened cockpit scene, restored artwork visibility, compacted PB/Time cards and footer to fit the locked phone composition.
+- No artwork replacement and no feature changes.
