@@ -1,3 +1,6 @@
+## v7.0.30 — Pick My Drive dashboard exit
+Visible Dashboard exit added to the Pick My Drive selection screen at source.
+
 # v7.0.29 — QA source fixes
 
 - Race Off History cards rebuilt for readable full-width champion/entrant information.
