@@ -1,3 +1,8 @@
+## v8.0.7 — Festival Groups record notifications
+- Restored Championship Record and All-Time OTG! Record notifications for Total Time Groups.
+- Reuses the approved existing record celebration screen and artwork.
+- Record flow returns to the current Group without exposing hidden cumulative group standings.
+
 # OTG! v8.0.5
 
 - Fixed Total Time Groups result handoff so a saved result advances the active car to the next track.
