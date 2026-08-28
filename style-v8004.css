@@ -1,0 +1,16 @@
+/* OTG! v8.0.4 — Festival entry selection: no hidden focusable checkbox. */
+.rhSetupCarV1>.rhSetupIncludeV804{
+  width:52px!important;height:52px!important;padding:0!important;margin:0 auto!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  border:2px solid rgba(55,196,235,.72)!important;border-radius:11px!important;
+  background:rgba(3,16,22,.92)!important;color:transparent!important;
+  box-shadow:none!important;font-size:0!important;touch-action:manipulation;
+}
+.rhSetupCarV1>.rhSetupIncludeV804 i{
+  font-style:normal;font-size:32px;line-height:1;color:transparent;
+}
+.rhSetupCarV1>.rhSetupIncludeV804.is-on{
+  background:linear-gradient(180deg,rgba(42,157,199,.75),rgba(19,84,115,.9))!important;
+  border-color:#47c8ef!important;box-shadow:0 0 18px rgba(35,184,228,.28)!important;
+}
+.rhSetupCarV1>.rhSetupIncludeV804.is-on i{color:#eafaff}

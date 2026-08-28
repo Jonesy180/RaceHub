@@ -277,7 +277,7 @@ function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.ty
   <section class="rhSetupPanelV1">
    <div class="rhSetupPanelHeadV1"><div><b>${x.type==='pick-my-drive'?'1':'2'}. ENTRY LIST <span>(ELIGIBLE CARS)</span></b><p>These cars are eligible for this Championship.<br>Remove any you don’t want to include.</p></div><strong>${cars.length} ELIGIBLE</strong></div>
    <div class="rhSetupColumnsV1"><span>INCLUDE</span><span>CAR</span><span>YEAR</span><span></span></div>
-   <div id="rhSetupCars" class="rhSetupCarsV1">${cars.map(c=>`<div class="rhSetupCarV1" data-car-id="${esc(String(c.id))}" data-name="${esc(carName(c).toLowerCase())}"><label onpointerdown="rhRememberSetupEntryScroll()"><input type="checkbox" ${x.entries.includes(c.id)?'checked':''} onchange="rhToggleEntry('${c.id}',this.checked)"><i>✓</i></label><span><b>${esc(carName(c))}</b></span><small>${esc(String(c.year||'—'))}</small><button onclick="rhExcludeEntry('${c.id}')" aria-label="Exclude ${esc(carName(c))}">×</button></div>`).join('')||'<div class="rhSetupEmptyMiniV1">No eligible cars.</div>'}</div>
+   <div id="rhSetupCars" class="rhSetupCarsV1">${cars.map(c=>{const on=x.entries.includes(c.id);return `<div class="rhSetupCarV1" data-car-id="${esc(String(c.id))}" data-name="${esc(carName(c).toLowerCase())}"><button type="button" class="rhSetupIncludeV804 ${on?'is-on':''}" aria-pressed="${on?'true':'false'}" onclick="rhToggleEntryV804('${c.id}',this)" aria-label="${on?'Exclude':'Include'} ${esc(carName(c))}"><i>✓</i></button><span><b>${esc(carName(c))}</b></span><small>${esc(String(c.year||'—'))}</small><button onclick="rhExcludeEntry('${c.id}')" aria-label="Exclude ${esc(carName(c))}">×</button></div>`}).join('')||'<div class="rhSetupEmptyMiniV1">No eligible cars.</div>'}</div>
    <div class="rhSetupEntryFootV1"><div class="rhSetupBulkV1"><button onclick="rhSetAllEntries(false)">× <span>CLEAR ALL</span></button><button onclick="rhSetAllEntries(true)">✓ <span>SELECT ALL</span></button></div><strong id="rhIncludedCount">${included} INCLUDED</strong></div>
    <div class="rhSetupInfoV1"><i>i</i><p>Removing a car here only excludes it from this Championship run.<br><b>The car remains in your Garage.</b></p></div>
   </section>
@@ -304,33 +304,30 @@ function rhRefreshSetupEntryUi(){
 }
 function rhSetAllEntries(on){
  const cars=rhEligible(rhSetup.type,rhSetup.value);rhSetup.entries=on?cars.map(c=>c.id):[];
- document.querySelectorAll('#rhSetupCars .rhSetupCarV1 input[type="checkbox"]').forEach(input=>input.checked=on);
+ document.querySelectorAll('#rhSetupCars .rhSetupIncludeV804').forEach(btn=>{btn.classList.toggle('is-on',on);btn.setAttribute('aria-pressed',on?'true':'false')});
  rhRefreshSetupEntryUi();
 }
-let rhSetupEntryScrollGuard=null;
-function rhRememberSetupEntryScroll(){
- const list=document.getElementById('rhSetupCars');
- const scroller=document.scrollingElement||document.documentElement;
- rhSetupEntryScrollGuard={pageY:scroller.scrollTop,listY:list?.scrollTop||0};
+function rhToggleEntryV804(id,btn){
+ // V8.0.4: the old transparent native checkbox could make Chromium move the
+ // nested entry-list viewport when it received focus. Use the visible OTG
+ // include control itself, so selection never hands scrolling to a hidden input.
+ const on=!rhSetup.entries.includes(id);
+ if(on)rhSetup.entries.push(id);else rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
+ if(btn){btn.classList.toggle('is-on',on);btn.setAttribute('aria-pressed',on?'true':'false');btn.setAttribute('aria-label',`${on?'Exclude':'Include'} car`);btn.blur()}
+ rhRefreshSetupEntryUi();
 }
 function rhToggleEntry(id,on){
- const list=document.getElementById('rhSetupCars');
- const scroller=document.scrollingElement||document.documentElement;
- // `change` fires after the checkbox has taken focus. On long Festival lists
- // Chromium can scroll the page before change runs, so use the pointer-down
- // position captured before the browser default action instead of window.scrollY here.
- const keep=rhSetupEntryScrollGuard||{pageY:scroller.scrollTop,listY:list?.scrollTop||0};
+ // Compatibility for any older caller still using the shared setup handler.
  if(on&&!rhSetup.entries.includes(id))rhSetup.entries.push(id);
  if(!on)rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
+ const row=[...document.querySelectorAll('#rhSetupCars .rhSetupCarV1')].find(x=>x.dataset.carId===String(id));
+ const btn=row?.querySelector('.rhSetupIncludeV804');if(btn){btn.classList.toggle('is-on',!!on);btn.setAttribute('aria-pressed',on?'true':'false')}
  rhRefreshSetupEntryUi();
- const restore=()=>{scroller.scrollTop=keep.pageY;if(list)list.scrollTop=keep.listY};
- restore();requestAnimationFrame(()=>{restore();requestAnimationFrame(restore)});
- rhSetupEntryScrollGuard=null;
 }
 function rhExcludeEntry(id){
  rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
  const row=[...document.querySelectorAll('#rhSetupCars .rhSetupCarV1')].find(x=>x.dataset.carId===String(id));
- const input=row?.querySelector('input[type="checkbox"]');if(input)input.checked=false;
+ const btn=row?.querySelector('.rhSetupIncludeV804');if(btn){btn.classList.remove('is-on');btn.setAttribute('aria-pressed','false')}
  rhRefreshSetupEntryUi();
 }
 function rhAddRound(){rhSetup.rounds.push({id:rhId('round'),name:`Round ${rhSetup.rounds.length+1}`,layout:''});rhRenderSetup()}

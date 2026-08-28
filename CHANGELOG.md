@@ -1,3 +1,7 @@
+# OTG! v8.0.4
+- Rebuilt Festival entry include control without hidden native checkboxes to stop Chromium nested-list focus jumps.
+- Selection now updates in place with no setup re-render and no scroll restoration hacks.
+
 ## v8.0.3 — Festival entry pre-focus scroll guard
 - Captures both page and entry-list scroll positions on pointer-down, before Chromium focuses the hidden checkbox.
 - Restores both scroll positions after individual include/exclude changes, preventing the long Festival setup from jumping to the Rounds section.
