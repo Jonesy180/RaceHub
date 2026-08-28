@@ -1,3 +1,8 @@
+## v8.0.3 — Festival entry pre-focus scroll guard
+- Captures both page and entry-list scroll positions on pointer-down, before Chromium focuses the hidden checkbox.
+- Restores both scroll positions after individual include/exclude changes, preventing the long Festival setup from jumping to the Rounds section.
+- Keeps the V8 Groups engine unchanged.
+
 ## v7.0.31 — Universal Smart Bars
 - All OTG! smart suggestion bars now show one best-fit suggestion only.
 - Smart suggestion bars are positioned above their text inputs for phone-keyboard safety.

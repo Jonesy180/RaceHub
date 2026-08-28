@@ -277,7 +277,7 @@ function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.ty
   <section class="rhSetupPanelV1">
    <div class="rhSetupPanelHeadV1"><div><b>${x.type==='pick-my-drive'?'1':'2'}. ENTRY LIST <span>(ELIGIBLE CARS)</span></b><p>These cars are eligible for this Championship.<br>Remove any you don’t want to include.</p></div><strong>${cars.length} ELIGIBLE</strong></div>
    <div class="rhSetupColumnsV1"><span>INCLUDE</span><span>CAR</span><span>YEAR</span><span></span></div>
-   <div id="rhSetupCars" class="rhSetupCarsV1">${cars.map(c=>`<div class="rhSetupCarV1" data-car-id="${esc(String(c.id))}" data-name="${esc(carName(c).toLowerCase())}"><label><input type="checkbox" ${x.entries.includes(c.id)?'checked':''} onchange="rhToggleEntry('${c.id}',this.checked)"><i>✓</i></label><span><b>${esc(carName(c))}</b></span><small>${esc(String(c.year||'—'))}</small><button onclick="rhExcludeEntry('${c.id}')" aria-label="Exclude ${esc(carName(c))}">×</button></div>`).join('')||'<div class="rhSetupEmptyMiniV1">No eligible cars.</div>'}</div>
+   <div id="rhSetupCars" class="rhSetupCarsV1">${cars.map(c=>`<div class="rhSetupCarV1" data-car-id="${esc(String(c.id))}" data-name="${esc(carName(c).toLowerCase())}"><label onpointerdown="rhRememberSetupEntryScroll()"><input type="checkbox" ${x.entries.includes(c.id)?'checked':''} onchange="rhToggleEntry('${c.id}',this.checked)"><i>✓</i></label><span><b>${esc(carName(c))}</b></span><small>${esc(String(c.year||'—'))}</small><button onclick="rhExcludeEntry('${c.id}')" aria-label="Exclude ${esc(carName(c))}">×</button></div>`).join('')||'<div class="rhSetupEmptyMiniV1">No eligible cars.</div>'}</div>
    <div class="rhSetupEntryFootV1"><div class="rhSetupBulkV1"><button onclick="rhSetAllEntries(false)">× <span>CLEAR ALL</span></button><button onclick="rhSetAllEntries(true)">✓ <span>SELECT ALL</span></button></div><strong id="rhIncludedCount">${included} INCLUDED</strong></div>
    <div class="rhSetupInfoV1"><i>i</i><p>Removing a car here only excludes it from this Championship run.<br><b>The car remains in your Garage.</b></p></div>
   </section>
@@ -307,14 +307,25 @@ function rhSetAllEntries(on){
  document.querySelectorAll('#rhSetupCars .rhSetupCarV1 input[type="checkbox"]').forEach(input=>input.checked=on);
  rhRefreshSetupEntryUi();
 }
+let rhSetupEntryScrollGuard=null;
+function rhRememberSetupEntryScroll(){
+ const list=document.getElementById('rhSetupCars');
+ const scroller=document.scrollingElement||document.documentElement;
+ rhSetupEntryScrollGuard={pageY:scroller.scrollTop,listY:list?.scrollTop||0};
+}
 function rhToggleEntry(id,on){
- const keepY=window.scrollY;
+ const list=document.getElementById('rhSetupCars');
+ const scroller=document.scrollingElement||document.documentElement;
+ // `change` fires after the checkbox has taken focus. On long Festival lists
+ // Chromium can scroll the page before change runs, so use the pointer-down
+ // position captured before the browser default action instead of window.scrollY here.
+ const keep=rhSetupEntryScrollGuard||{pageY:scroller.scrollTop,listY:list?.scrollTop||0};
  if(on&&!rhSetup.entries.includes(id))rhSetup.entries.push(id);
  if(!on)rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
  rhRefreshSetupEntryUi();
- // Individual entry changes must never move the long Festival setup list.
- // Restore after the browser has processed checkbox focus/layout anchoring.
- requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo(0,keepY)));
+ const restore=()=>{scroller.scrollTop=keep.pageY;if(list)list.scrollTop=keep.listY};
+ restore();requestAnimationFrame(()=>{restore();requestAnimationFrame(restore)});
+ rhSetupEntryScrollGuard=null;
 }
 function rhExcludeEntry(id){
  rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
