@@ -21,7 +21,7 @@ function rows(){
  for(const ro of(s.raceOffs||[]))for(const rd of(ro.rounds||[]))for(const m of(rd.matches||[])){if(m.resultA)add(m.resultA,ro,'raceoff',rd,m.resultA.carId||m.carA?.sourceCarId||m.carA?.id);if(m.resultB)add(m.resultB,ro,'raceoff',rd,m.resultB.carId||m.carB?.sourceCarId||m.carB?.id)}
  return out;
 }
-function championshipWinner(run){const n=(run.rounds||[]).length;if(!n)return null;return(run.entries||[]).map(id=>{const rs=(run.results||[]).filter(r=>String(r.carId)===String(id)&&!r.advancedTiming&&finite(r.time));return rs.length===n?{id:String(id),total:rs.reduce((a,r)=>a+Number(r.time),0)}:null}).filter(Boolean).sort((a,b)=>a.total-b.total)[0]||null}
+function championshipWinner(run){if(run?.format==='groups-total-time'&&run?.v8Groups?.championId)return{id:String(run.v8Groups.championId),total:Number(run.v8Groups.championTotal??run.winningTime)||0};const n=(run.rounds||[]).length;if(!n)return null;return(run.entries||[]).map(id=>{const rs=(run.results||[]).filter(r=>String(r.carId)===String(id)&&!r.advancedTiming&&finite(r.time));return rs.length===n?{id:String(id),total:rs.reduce((a,r)=>a+Number(r.time),0)}:null}).filter(Boolean).sort((a,b)=>a.total-b.total)[0]||null}
 function journeyItems(){
  const s=rhSpace(),out=[];
  const wins=(s.runs||[]).filter(r=>r.status==='complete').map(r=>({r,w:championshipWinner(r)})).filter(x=>x.w).sort((a,b)=>String(a.r.completedAt||a.r.updatedAt||'').localeCompare(String(b.r.completedAt||b.r.updatedAt||'')));

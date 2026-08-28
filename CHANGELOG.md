@@ -1,3 +1,8 @@
+## v8.0.8
+- Fixed Total Time Groups final CHAMPIONSHIP COMPLETE action.
+- Persists Groups champion and winning Final total for Hall of Fame/Journey.
+- Groups completion now exits cleanly back to Festival without re-opening the completed Final.
+
 ## v8.0.7 — Festival Groups record notifications
 - Restored Championship Record and All-Time OTG! Record notifications for Total Time Groups.
 - Reuses the approved existing record celebration screen and artwork.
