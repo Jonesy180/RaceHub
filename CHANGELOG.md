@@ -6,3 +6,10 @@
 - Group result confirmation shows only the individual track leaderboard; cumulative group standings remain hidden until the group is complete.
 - Added a visible Back control to the active Groups overview/result flow without altering the locked draw.
 - Preserves v8.0.4 Festival entry selector no-scroll-jump fix.
+
+# OTG! v8.0.6
+
+- Added visible Stage + Group identity to active Total Time Groups screens and completed group reveals.
+- Reduced the Groups Back control to the normal compact OTG! navigation size.
+- Added the existing OTG! Danger Zone / Abandon Championship flow to active Groups championships.
+- Preserves valid completed results, PBs and records when a Groups championship is abandoned.
