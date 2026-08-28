@@ -743,3 +743,5 @@ Race Setup loader scope fix: Festival can now see and load setups already saved 
 Safe Race Setups polish rebuilt from v7.0.13 baseline: in-app loader chooser and Custom Racing tile spacing only.
 
 - v7.0.27 — Stats locked one-screen composition and artwork visibility correction.
+
+- 8.0.9 — Added per-stage / Final track setup for Total Time Groups.

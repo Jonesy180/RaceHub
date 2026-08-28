@@ -23,3 +23,9 @@
 - Reduced the Groups Back control to the normal compact OTG! navigation size.
 - Added the existing OTG! Danger Zone / Abandon Championship flow to active Groups championships.
 - Preserves valid completed results, PBs and records when a Groups championship is abandoned.
+
+## v8.0.9 — Festival Groups stage track setup
+- After a Groups stage finishes, OTG! now pauses before the next stage/final and asks for a fresh track set.
+- Qualified cars remain locked; previous-stage results remain locked.
+- Final track setup is separate from Stage 1, with three fresh tracks by default and add/remove support.
+- Saved race-name picker is available on the new stage setup screen.
