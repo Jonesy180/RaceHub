@@ -308,9 +308,13 @@ function rhSetAllEntries(on){
  rhRefreshSetupEntryUi();
 }
 function rhToggleEntry(id,on){
+ const keepY=window.scrollY;
  if(on&&!rhSetup.entries.includes(id))rhSetup.entries.push(id);
  if(!on)rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
  rhRefreshSetupEntryUi();
+ // Individual entry changes must never move the long Festival setup list.
+ // Restore after the browser has processed checkbox focus/layout anchoring.
+ requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo(0,keepY)));
 }
 function rhExcludeEntry(id){
  rhSetup.entries=rhSetup.entries.filter(x=>x!==id);
