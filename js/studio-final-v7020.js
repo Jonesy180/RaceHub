@@ -238,8 +238,8 @@ function rhRenderFestival(){
 }
 function rhSetupTrophyType(type){return rhTrophyTypeKey(type)}
 function rhSetupTypeLabel(type){return type==='make'?'MANUFACTURER CHAMPIONSHIP':type==='era'?'ERA CHAMPIONSHIP':type==='classType'?'CLASS / TYPE CHAMPIONSHIP':type==='vintage'?'VINTAGE CHAMPIONSHIP':type==='classic'?'CLASSIC CHAMPIONSHIP':type==='favourite'?'FAVOURITE MANUFACTURER CHAMPIONSHIP':type==='pick-my-drive'?'PICK MY DRIVE':'FESTIVAL CHAMPIONSHIP'}
-function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','vintage','classic','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null};rhRenderSetup()}
-function rhOpenPreparedRun(id){const r=rhCurrentRuns().find(x=>x.id===id&&x.status==='prepared');if(!r){toast('Saved Championship not found');rhRenderFestival();return}rhSetup={type:r.type||r.championshipType||'festival',value:r.value,name:r.name,entries:[...(r.entries||[])],rounds:rhClone(r.rounds||[]),savedRunId:r.id};show('festival');rhRenderSetup()}
+function rhBeginSetup(type,value,name){const saved=rhMatchingRun(type,value,'prepared');if(saved){rhOpenPreparedRun(saved.id);return}const cars=rhEligible(type,value);if(['make','era','classType','vintage','classic','favourite'].includes(type)&&cars.length<RH_CHAMP_MIN_ELIGIBLE){toast(`At least ${RH_CHAMP_MIN_ELIGIBLE} eligible cars are required`);rhRenderFestival();return}rhSetup={type,value,name,entries:cars.map(c=>c.id),rounds:[],savedRunId:null,v8GroupMode:false};rhRenderSetup()}
+function rhOpenPreparedRun(id){const r=rhCurrentRuns().find(x=>x.id===id&&x.status==='prepared');if(!r){toast('Saved Championship not found');rhRenderFestival();return}rhSetup={type:r.type||r.championshipType||'festival',value:r.value,name:r.name,entries:[...(r.entries||[])],rounds:rhClone(r.rounds||[]),savedRunId:r.id,v8GroupMode:r.format==='groups-total-time'};show('festival');rhRenderSetup()}
 function rhSavedRoundNames(){const s=rhSpace(),names=[];const add=n=>{n=String(n||'').trim();if(n&&!/^Round \d+$/i.test(n)&&!names.some(x=>x.toLowerCase()===n.toLowerCase()))names.push(n)};(s.runs||[]).forEach(r=>(r.rounds||[]).forEach(x=>add(x.name)));(s.customEvents||[]).forEach(e=>(e.rounds||[]).forEach(x=>add(x.name)));return names.sort((a,b)=>a.localeCompare(b))}
 function rhRoundNameList(){return ''}
 function rhOpenRoundNamePicker(kind,ownerId,roundId){
@@ -260,23 +260,29 @@ function rhChooseSavedRoundName(kind,ownerId,roundId,name){
   r.name=name;rhSave();rhCloseRoundNamePicker();rhOpenEvent(ownerId)
  }
 }
+function rhV8SetFormat(on){if(!rhSetup||rhSetup.type==='pick-my-drive')return;rhSetup.v8GroupMode=!!on;rhRenderSetup()}
 function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.type,x.value),included=x.entries.length,rounds=x.rounds.length,trophy=rhSetupTrophyType(x.type);$('festival').innerHTML=`<div class="rhSetupV1 ${x.type==='favourite'?'rhFavouriteSetupV6031':''}">
  <header class="rhSetupHeroV1">
   <button class="rhSetupBackV1" onclick="rhCancelSetup()" aria-label="Back">‹</button>
-  <div class="rhSetupTitleV1"><small>FESTIVAL</small><h1>CHAMPIONSHIP SETUP</h1><p>Build your Championship run, then freeze it when you start.</p></div>
+  <div class="rhSetupTitleV1"><small>FESTIVAL</small><h1>CHAMPIONSHIP SETUP</h1><p>${x.v8GroupMode?'Build your Group Championship, then begin the rolling Stage 1 draw.':'Build your Championship run, then freeze it when you start.'}</p></div>
   <div class="rhSetupIdentityV1"><img src="${rhTrophy(trophy)}" alt=""><div><span>${esc(rhSetupTypeLabel(x.type))}</span><h2>${esc(x.name)}</h2><small>${x.savedRunId?'SAVED • READY TO EDIT':'NOT STARTED'} • ENTRY LIST &amp; ROUNDS NOT FROZEN</small></div></div>
   <div class="rhSetupStatsV1"><div><b>${cars.length}</b><span>ELIGIBLE CARS</span></div><div><b>${rounds}</b><span>ROUNDS CONFIGURED</span></div></div>
  </header>
  <main class="rhSetupBodyV1">
+  ${x.type==='pick-my-drive'?'':`<section class="rhSetupPanelV1 v8FormatPanel">
+   <div class="rhSetupPanelHeadV1"><div><b>CHAMPIONSHIP FORMAT</b><p>Choose how this Festival Championship will run.</p></div><strong>${x.v8GroupMode?'TOTAL TIME GROUPS':'STANDARD'}</strong></div>
+   <div class="v8FormatChoices"><button class="${!x.v8GroupMode?'selected':''}" onclick="rhV8SetFormat(false)"><b>STANDARD</b><small>Every car runs every round. Lowest cumulative time wins.</small></button><button class="${x.v8GroupMode?'selected':''}" onclick="rhV8SetFormat(true)"><b>TOTAL TIME GROUPS</b><small>Cars race in groups. Top 2 cumulative times advance through stages.</small></button></div>
+   ${x.v8GroupMode?`<div class="v8GroupRule"><b>GROUP RULES</b><span>Target 8 cars per group • Run by car • ${x.rounds.length||3} tracks • Top 2 advance</span><small>Stage 1 stays open to newly eligible Garage cars until the final first-stage group is drawn.</small></div>`:''}
+  </section>`}
   <section class="rhSetupPanelV1">
-   <div class="rhSetupPanelHeadV1"><div><b>1. ENTRY LIST <span>(ELIGIBLE CARS)</span></b><p>These cars are eligible for this Championship.<br>Remove any you don’t want to include.</p></div><strong>${cars.length} ELIGIBLE</strong></div>
+   <div class="rhSetupPanelHeadV1"><div><b>${x.type==='pick-my-drive'?'1':'2'}. ENTRY LIST <span>(ELIGIBLE CARS)</span></b><p>These cars are eligible for this Championship.<br>Remove any you don’t want to include.</p></div><strong>${cars.length} ELIGIBLE</strong></div>
    <div class="rhSetupColumnsV1"><span>INCLUDE</span><span>CAR</span><span>YEAR</span><span></span></div>
    <div id="rhSetupCars" class="rhSetupCarsV1">${cars.map(c=>`<div class="rhSetupCarV1" data-car-id="${esc(String(c.id))}" data-name="${esc(carName(c).toLowerCase())}"><label><input type="checkbox" ${x.entries.includes(c.id)?'checked':''} onchange="rhToggleEntry('${c.id}',this.checked)"><i>✓</i></label><span><b>${esc(carName(c))}</b></span><small>${esc(String(c.year||'—'))}</small><button onclick="rhExcludeEntry('${c.id}')" aria-label="Exclude ${esc(carName(c))}">×</button></div>`).join('')||'<div class="rhSetupEmptyMiniV1">No eligible cars.</div>'}</div>
    <div class="rhSetupEntryFootV1"><div class="rhSetupBulkV1"><button onclick="rhSetAllEntries(false)">× <span>CLEAR ALL</span></button><button onclick="rhSetAllEntries(true)">✓ <span>SELECT ALL</span></button></div><strong id="rhIncludedCount">${included} INCLUDED</strong></div>
    <div class="rhSetupInfoV1"><i>i</i><p>Removing a car here only excludes it from this Championship run.<br><b>The car remains in your Garage.</b></p></div>
   </section>
   <section class="rhSetupPanelV1">
-   <div class="rhSetupPanelHeadV1"><div><b>2. CHAMPIONSHIP ROUNDS</b><p>Create the rounds (races/challenges) you want<br>to use for this Championship.</p></div><strong>${rounds} ${rounds===1?'ROUND':'ROUNDS'}</strong></div>
+   <div class="rhSetupPanelHeadV1"><div><b>${x.type==='pick-my-drive'?'2':'3'}. CHAMPIONSHIP ROUNDS</b><p>Create the rounds (races/challenges) you want<br>to use for this Championship.</p></div><strong>${rounds} ${rounds===1?'ROUND':'ROUNDS'}</strong></div>
    <div class="v7SetupQuick"><button type="button" onclick="rhSaveCurrentSetupV7()">SAVE RACE SETUP</button><button type="button" onclick="rhLoadSetupIntoCurrentV7()">LOAD RACE SETUP</button></div>
    ${rounds?`<div class="rhSetupRoundLabelV1">ROUND ORDER <span>(USE ARROWS TO REORDER)</span></div><div class="rhSetupRoundsV1">${x.rounds.map((r,i)=>`<div class="rhSetupRoundWrapV1"><div class="rhSetupRoundV1"><i>≡</i><b>${i+1}</b><input value="${esc(r.name)}" onchange="rhRenameRound('${r.id}',this.value)"><button onclick="rhMoveRound(${i},-1)" ${i===0?'disabled':''} aria-label="Move up">↑</button><button onclick="rhMoveRound(${i},1)" ${i===rounds-1?'disabled':''} aria-label="Move down">↓</button><button onclick="rhRemoveRound('${r.id}')" aria-label="Remove round">×</button></div><label class="rhRoundLayoutV6116"><span>LAYOUT (OPTIONAL)</span><input value="${esc(r.layout||'')}" placeholder="e.g. Nordschleife" onchange="rhRenameRoundLayout('${r.id}',this.value)"></label><button type="button" class="rhSavedRaceButtonV1" onclick="rhOpenRoundNamePicker('champ','','${r.id}')">▾ CHOOSE SAVED RACE NAME</button></div>`).join('')}</div>`:`<div class="rhSetupNoRoundsV1"><i>⚑</i><b>NO ROUNDS CONFIGURED</b><p>Add the races/challenges you want<br>to use for this Championship.</p></div>`}
    ${rhRoundNameList()}<button class="rhSetupAddRoundV1" onclick="rhAddRound()">＋ ADD ROUND</button>
@@ -286,7 +292,7 @@ function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.ty
    <button class="rhSetupSaveBackV1" onclick="rhSavePrepared()">✓ <span><b>SAVE &amp; BACK</b><small>SAVE FOR LATER • KEEP EDITABLE</small></span></button>
    <button class="rhSetupCancelV1 rhSetupCancelRedV1" onclick="rhCancelSetup()">× <span><b>CANCEL &amp; BACK</b><small>DISCARD UNSAVED CHANGES</small></span></button>
   </div>
-  <div class="rhSetupRuleV1"><i>i</i><p><b>EVERY SELECTED CAR WILL COMPETE IN EVERY ROUND.</b><br>FINAL STANDINGS ARE BASED ON CUMULATIVE TOTAL TIME. LOWEST TIME WINS.</p></div>
+  <div class="rhSetupRuleV1"><i>i</i><p>${x.v8GroupMode?'<b>TOTAL TIME GROUPS.</b><br>EACH CAR RUNS EVERY TRACK IN ITS GROUP. TRACK LEADERBOARDS STAY LIVE; OVERALL GROUP STANDINGS ARE REVEALED ONLY WHEN THE GROUP IS COMPLETE. TOP 2 ADVANCE.':'<b>EVERY SELECTED CAR WILL COMPETE IN EVERY ROUND.</b><br>FINAL STANDINGS ARE BASED ON CUMULATIVE TOTAL TIME. LOWEST TIME WINS.'}</p></div>
  </main>
  </div>`}
 function rhFilterSetupCars(q=''){q=q.toLowerCase().trim();document.querySelectorAll('#rhSetupCars .rhSetupCarV1').forEach(x=>x.hidden=!!q&&!x.dataset.name.includes(q))}
