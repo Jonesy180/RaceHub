@@ -746,3 +746,6 @@ Safe Race Setups polish rebuilt from v7.0.13 baseline: in-app loader chooser and
 - v7.0.27 — Stats locked one-screen composition and artwork visibility correction.
 
 - 8.0.9 — Added per-stage / Final track setup for Total Time Groups.
+
+### v8.0.13 — Safety Backup Gate
+Verified Safety Backup gate added ahead of the online update checker. Main includes a temporary developer test panel to prove both allowed and blocked paths without changing racing data.

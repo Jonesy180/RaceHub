@@ -34,3 +34,9 @@
 - Qualified cars remain locked; previous-stage results remain locked.
 - Final track setup is separate from Stage 1, with three fresh tracks by default and add/remove support.
 - Saved race-name picker is available on the new stage setup screen.
+
+## v8.0.13 — Safety Backup Gate
+- Adds verified pre-operation Safety Backup plumbing.
+- A risky operation is allowed only after the Safety Backup is persisted and verified.
+- Verification failure blocks the operation before it can run.
+- Adds Main/developer test controls in Data / Backups for success and forced-failure paths.
