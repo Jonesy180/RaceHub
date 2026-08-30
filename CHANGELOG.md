@@ -73,3 +73,5 @@
 - Keeps v8.0.15 active while update waits.
 - Makes only the update shell critical during service-worker install; legacy optional cache misses can no longer abort the waiting worker.
 - Existing v8.0.15 discovery listener can now see the waiting v8.0.16 worker and show the update prompt.
+
+- v8.0.18b: retired legacy automatic updater from active v8.0.18 shell; manifest-led Safety-gated updater is now sole update authority.
