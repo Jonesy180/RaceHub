@@ -57,3 +57,9 @@
 ## v8.0.15
 - Update discovery end-to-end test release.
 - No feature changes beyond version/service-worker bump required to prove v8.0.14 automatic discovery and gated update flow.
+
+
+## v8.0.16b — Waiting Worker Doorbell Repair
+- Keeps v8.0.15 active while update waits.
+- Makes only the update shell critical during service-worker install; legacy optional cache misses can no longer abort the waiting worker.
+- Existing v8.0.15 discovery listener can now see the waiting v8.0.16 worker and show the update prompt.
