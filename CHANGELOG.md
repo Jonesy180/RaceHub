@@ -1,3 +1,9 @@
+## v8.0.18 — Safety-gated manifest update certification
+- Version-pinned v17 stays active until UPDATE NOW.
+- v18 worker is only registered after protected Safety Backup verification succeeds.
+- LATER does not install or stage the v18 worker.
+- Manual update check reads the same no-cache manifest.
+
 ## v8.0.17b
 - Corrected the v8.0.16 bridge updater so the waiting update prompt identifies v8.0.17 rather than v8.0.16.
 - No changes to Safety Backup gate or activation logic.
