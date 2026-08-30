@@ -764,3 +764,5 @@ Verified Safety Backup gate added ahead of the online update checker. Main inclu
 
 
 - v8.0.18c: update Safety gate rebuilt as a self-contained all-Space localStorage transaction with immediate persisted verification before service-worker registration.
+
+- v8.0.19 — update-system certification build; no feature changes. Tests clean single-popup manifest update, persistent Later, Safety Backup gate and activation.
