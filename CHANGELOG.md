@@ -1,3 +1,8 @@
+## v8.0.11 — Groups compact navigation/status pills
+- Reduced the Total Time Groups visible Back pill to a compact size.
+- Matched the Current Car `x OF y` status pill to the Back pill dimensions and kept it on one line.
+- No racing logic changed; v8.0.10 live Garage reconciliation retained.
+
 ## v8.0.8
 - Fixed Total Time Groups final CHAMPIONSHIP COMPLETE action.
 - Persists Groups champion and winning Final total for Hall of Fame/Journey.

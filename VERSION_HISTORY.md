@@ -1,3 +1,4 @@
+v8.0.11 — Groups compact Back/status pills; retains v8.0.10 live Garage reconciliation.
 ## v7.0.31 — Universal Smart Bars
 - All OTG! smart suggestion bars now show one best-fit suggestion only.
 - Smart suggestion bars are positioned above their text inputs for phone-keyboard safety.
