@@ -40,3 +40,10 @@
 - A risky operation is allowed only after the Safety Backup is persisted and verified.
 - Verification failure blocks the operation before it can run.
 - Adds Main/developer test controls in Data / Backups for success and forced-failure paths.
+
+## v8.0.14
+- Added automatic online OTG! version discovery on app launch.
+- Added OTG! UPDATE AVAILABLE modal with Update Now / Later.
+- Update Now is blocked unless the protected Safety Backup is created and verified first.
+- Manual Check for Latest Update now uses the same no-cache version check.
+- Removed the temporary v8.0.13 Safety Gate developer test card after both paths passed.
