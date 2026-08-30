@@ -47,3 +47,7 @@
 - Update Now is blocked unless the protected Safety Backup is created and verified first.
 - Manual Check for Latest Update now uses the same no-cache version check.
 - Removed the temporary v8.0.13 Safety Gate developer test card after both paths passed.
+
+## v8.0.15
+- Update discovery end-to-end test release.
+- No feature changes beyond version/service-worker bump required to prove v8.0.14 automatic discovery and gated update flow.
