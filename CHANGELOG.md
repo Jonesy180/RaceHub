@@ -1,3 +1,7 @@
+## v8.0.17b
+- Corrected the v8.0.16 bridge updater so the waiting update prompt identifies v8.0.17 rather than v8.0.16.
+- No changes to Safety Backup gate or activation logic.
+
 
 ## v8.0.16 — Gated waiting service-worker update
 - Stops silent service-worker activation from bypassing the Safety Backup gate.
