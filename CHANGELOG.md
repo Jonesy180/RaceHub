@@ -83,3 +83,5 @@
 - Update transaction re-reads persisted backup slots immediately before Safety Backup creation.
 - Persisted manual backups are canonical and preserved byte-for-byte.
 - Fresh Safety Backup is written only to the protected slot and verified before update registration.
+
+- v8.0.22: Final backup rotation certification build; no feature changes.
