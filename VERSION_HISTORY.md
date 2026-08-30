@@ -761,3 +761,6 @@ Safe Race Setups polish rebuilt from v7.0.13 baseline: in-app loader chooser and
 
 ### v8.0.13 — Safety Backup Gate
 Verified Safety Backup gate added ahead of the online update checker. Main includes a temporary developer test panel to prove both allowed and blocked paths without changing racing data.
+
+
+- v8.0.18c: update Safety gate rebuilt as a self-contained all-Space localStorage transaction with immediate persisted verification before service-worker registration.

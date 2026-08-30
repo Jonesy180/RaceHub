@@ -75,3 +75,6 @@
 - Existing v8.0.15 discovery listener can now see the waiting v8.0.16 worker and show the update prompt.
 
 - v8.0.18b: retired legacy automatic updater from active v8.0.18 shell; manifest-led Safety-gated updater is now sole update authority.
+
+
+- v8.0.18c: update Safety gate rebuilt as a self-contained all-Space localStorage transaction with immediate persisted verification before service-worker registration.
