@@ -1,3 +1,9 @@
+
+## v8.0.16 — Gated waiting service-worker update
+- Stops silent service-worker activation from bypassing the Safety Backup gate.
+- New app worker installs in WAITING state until UPDATE NOW succeeds.
+- UPDATE NOW creates and verifies Safety Backup before SKIP_WAITING.
+- Activated worker serves the v8.0.16 app shell and reloads once.
 ## v8.0.11 — Groups compact navigation/status pills
 - Reduced the Total Time Groups visible Back pill to a compact size.
 - Matched the Current Car `x OF y` status pill to the Back pill dimensions and kept it on one line.

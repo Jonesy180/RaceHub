@@ -1,4 +1,4 @@
-// OTG! v8.0.15 transition — gated service-worker update discovery
+// OTG! v8.0.16 — gated service-worker lifecycle
 state=rhLoad();
 rhSync();
 if(state&&!state.onboarded){window.rhStartOnboardingIfNeeded?.();}else{show('home');}

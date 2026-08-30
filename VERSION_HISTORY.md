@@ -1,3 +1,9 @@
+
+## v8.0.16 — Gated waiting service-worker update
+- Stops silent service-worker activation from bypassing the Safety Backup gate.
+- New app worker installs in WAITING state until UPDATE NOW succeeds.
+- UPDATE NOW creates and verifies Safety Backup before SKIP_WAITING.
+- Activated worker serves the v8.0.16 app shell and reloads once.
 v8.0.11 — Groups compact Back/status pills; retains v8.0.10 live Garage reconciliation.
 ## v7.0.31 — Universal Smart Bars
 - All OTG! smart suggestion bars now show one best-fit suggestion only.

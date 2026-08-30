@@ -1,7 +1,7 @@
 /* OTG! v8.0.16 — waiting service worker + verified Safety Backup gate */
 (()=>{
 'use strict';
-const CURRENT=()=>document.querySelector('meta[name="racehub-version"]')?.content||'8.0.15';
+const CURRENT=()=>document.querySelector('meta[name="racehub-version"]')?.content||'8.0.16';
 const TARGET='8.0.16';
 let bound=null;
 function status(t){const e=document.getElementById('rhUpdateStatus');if(e)e.textContent=t;}
