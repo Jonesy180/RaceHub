@@ -78,3 +78,8 @@
 
 
 - v8.0.18c: update Safety gate rebuilt as a self-contained all-Space localStorage transaction with immediate persisted verification before service-worker registration.
+
+## v8.0.21 — Backup Authority Fix
+- Update transaction re-reads persisted backup slots immediately before Safety Backup creation.
+- Persisted manual backups are canonical and preserved byte-for-byte.
+- Fresh Safety Backup is written only to the protected slot and verified before update registration.
