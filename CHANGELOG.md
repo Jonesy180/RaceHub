@@ -1,3 +1,8 @@
+## v8.0.40 — Custom Swiss Planner Foundation
+- Adds Swiss as a Custom Racing format.
+- 8–32 entrant guardrail, selectable Swiss rounds and knockout cut.
+- Locks pairing rules, standings tie-breaks and round-by-round track selection for race-flow wiring.
+
 ## v8.0.39 — App-wide Smart Bar
 - Enforces the compact one-best-match Smart Bar above every genuine text-entry field. Numeric/result fields remain excluded.
 

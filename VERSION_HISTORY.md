@@ -1,3 +1,6 @@
+## v8.0.40
+Custom Swiss planner foundation.
+
 ## v8.0.39
 App-wide one-result Smart Bar enforcement for text entry.
 
