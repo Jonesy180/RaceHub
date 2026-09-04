@@ -1,1 +1,1 @@
-{"version":"8.0.28","worker":"./otg-service-worker-v8028.js","message":"Custom Groups Start and Continue now open the live group race screen correctly."}
+{"version":"8.0.29","worker":"./otg-service-worker-v8029.js","message":"Custom Groups now uses the approved digital result entry and working Back navigation."}

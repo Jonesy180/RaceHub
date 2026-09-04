@@ -98,3 +98,8 @@
 - Multiple cars from the same manufacturer can be selected without reopening its accordion after every tick.
 
 - v8.0.28: Fixed Custom Groups Start/Continue render failure caused by the wrong DOM ID helper.
+
+## v8.0.29
+- Custom Groups result entry now uses the approved segmented digital OTG! screen.
+- Advanced Timing decoration is available on Custom Groups result entry.
+- Fixed live Custom Groups Back navigation to return to Custom Racing.
