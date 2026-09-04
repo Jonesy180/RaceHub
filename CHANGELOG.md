@@ -109,3 +109,8 @@
 - Fixed live Custom Groups Back navigation to return to Custom Racing.
 
 - v8.0.31 — Corrected Custom Groups Records build packaging/version chain; carries v8.0.30 Records/PB wiring.
+
+## v8.0.32
+- Custom Groups record celebrations now use the current OTG! record screen and current record hero.
+- Removed the legacy Custom Groups clipboard/Hubs record route.
+- Hubs character artwork is blocked from active app rendering; Hubs remains website-only.

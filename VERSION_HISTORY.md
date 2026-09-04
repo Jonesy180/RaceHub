@@ -789,3 +789,5 @@ Custom racer picker manufacturer accordion persistence fix.
 Reused the approved digital result entry for Custom Groups and repaired live-screen Back navigation.
 
 - v8.0.31 — Corrected version/update packaging; Custom Groups Records/PBs retained.
+
+v8.0.32 — Custom Groups current record screen + legacy Hubs app purge.
