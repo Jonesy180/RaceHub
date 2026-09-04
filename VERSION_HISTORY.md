@@ -773,3 +773,6 @@ Verified Safety Backup gate added ahead of the online update checker. Main inclu
 - Manual Backup 1/2 are explicitly verified unchanged before update installation is allowed.
 
 - v8.0.24 — Groups history navigation polish.
+
+### v8.0.26
+Custom racer picker manufacturer accordion persistence fix.

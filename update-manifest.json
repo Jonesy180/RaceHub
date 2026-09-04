@@ -1,1 +1,1 @@
-{"version":"8.0.25","worker":"./otg-service-worker-v8025.js","message":"Custom Competition Planner foundation adds Standard / Groups format choice and balanced Groups structure options."}
+{"version":"8.0.26","worker":"./otg-service-worker-v8026.js","message":"Custom racer picker now keeps the active manufacturer open while selecting multiple cars."}

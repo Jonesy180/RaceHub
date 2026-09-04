@@ -89,3 +89,7 @@
 ## v8.0.24
 - Removed truncated qualifier previews from Completed Groups rows.
 - Added Back navigation from completed-group standings to history.
+
+## v8.0.26
+- Custom Racing racer picker now preserves the currently expanded manufacturer while cars are selected or deselected.
+- Multiple cars from the same manufacturer can be selected without reopening its accordion after every tick.
