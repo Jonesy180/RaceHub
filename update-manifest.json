@@ -1,1 +1,1 @@
-{"version":"8.0.34","worker":"./otg-service-worker-v8034.js","message":"Custom Racing now includes the Knockout competition planner foundation with automatic preliminary-round and bye maths."}
+{"version":"8.0.35","worker":"./otg-service-worker-v8035.js","message":"Custom Knockout race flow is now wired with preliminary rounds, straight-through places and round-by-round track setup."}
