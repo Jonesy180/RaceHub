@@ -1,3 +1,6 @@
+## v8.0.39
+App-wide one-result Smart Bar enforcement for text entry.
+
 ## v8.0.38
 Custom Knockout Records/PB wiring and current record celebration flow.
 

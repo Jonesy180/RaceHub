@@ -1,1 +1,1 @@
-{"version":"8.0.38","worker":"./otg-service-worker-v8038.js","message":"Custom Knockout results now feed OTG! Track Records, car PBs and the current record celebration flow."}
+{"version":"8.0.39","worker":"./otg-service-worker-v8039.js","message":"App-wide single-result Smart Bar now applies to all genuine text-entry fields; numeric/result inputs remain excluded."}

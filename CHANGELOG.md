@@ -1,3 +1,6 @@
+## v8.0.39 — App-wide Smart Bar
+- Enforces the compact one-best-match Smart Bar above every genuine text-entry field. Numeric/result fields remain excluded.
+
 ## v8.0.38 — Custom Knockout Records/PB Wiring
 - Custom Knockout single-run results now feed Track Records and Car PB history.
 - New Championship/All-Time bests use the current approved OTG! record screen.
