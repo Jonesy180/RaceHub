@@ -1,3 +1,8 @@
+## v8.0.37 — Custom Knockout compact match rows
+- Reduced car-name, time, status and match-number sizing.
+- Tightened vertical spacing while preserving the v8.0.36 readable match-row hierarchy.
+- No knockout maths or progression changes.
+
 ## v8.0.36 — Custom Knockout match-row polish
 - Reworked live Knockout MATCHES rows into separate car/time lines with anchored status and a dedicated winner line.
 - No knockout progression or result logic changed.

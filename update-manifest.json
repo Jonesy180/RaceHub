@@ -1,1 +1,1 @@
-{"version":"8.0.36","worker":"./otg-service-worker-v8036.js","message":"Custom Knockout match rows now use a clear fixed layout for cars, times, status and winners."}
+{"version":"8.0.37","worker":"./otg-service-worker-v8037.js","message":"Custom Knockout match rows are now more compact while keeping car names, times, winner and status clear."}
