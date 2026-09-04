@@ -1,3 +1,8 @@
+## v8.0.38 — Custom Knockout Records/PB Wiring
+- Custom Knockout single-run results now feed Track Records and Car PB history.
+- New Championship/All-Time bests use the current approved OTG! record screen.
+- Existing knockout bracket, prelim/byes and match progression logic is unchanged.
+
 ## v8.0.37 — Custom Knockout compact match rows
 - Reduced car-name, time, status and match-number sizing.
 - Tightened vertical spacing while preserving the v8.0.36 readable match-row hierarchy.

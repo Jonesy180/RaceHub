@@ -1,1 +1,1 @@
-{"version":"8.0.37","worker":"./otg-service-worker-v8037.js","message":"Custom Knockout match rows are now more compact while keeping car names, times, winner and status clear."}
+{"version":"8.0.38","worker":"./otg-service-worker-v8038.js","message":"Custom Knockout results now feed OTG! Track Records, car PBs and the current record celebration flow."}

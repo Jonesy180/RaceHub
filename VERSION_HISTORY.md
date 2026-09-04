@@ -1,3 +1,6 @@
+## v8.0.38
+Custom Knockout Records/PB wiring and current record celebration flow.
+
 ## v8.0.37 — Custom Knockout compact match rows
 - Reduced car-name, time, status and match-number sizing.
 - Tightened vertical spacing while preserving the v8.0.36 readable match-row hierarchy.
