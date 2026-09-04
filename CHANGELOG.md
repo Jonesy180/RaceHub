@@ -1,3 +1,7 @@
+## v8.0.36 — Custom Knockout match-row polish
+- Reworked live Knockout MATCHES rows into separate car/time lines with anchored status and a dedicated winner line.
+- No knockout progression or result logic changed.
+
 ## v8.0.34 — Custom Knockout Planner Foundation
 - Added KNOCKOUT to Custom Racing competition formats.
 - OTG! calculates a clean elimination bracket from the selected entrant count.

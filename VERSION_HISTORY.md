@@ -1,3 +1,7 @@
+## v8.0.36 — Custom Knockout match-row polish
+- Reworked live Knockout MATCHES rows into separate car/time lines with anchored status and a dedicated winner line.
+- No knockout progression or result logic changed.
+
 ## v8.0.34
 Custom Knockout Competition Planner foundation.
 

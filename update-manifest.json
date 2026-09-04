@@ -1,1 +1,1 @@
-{"version":"8.0.35","worker":"./otg-service-worker-v8035.js","message":"Custom Knockout race flow is now wired with preliminary rounds, straight-through places and round-by-round track setup."}
+{"version":"8.0.36","worker":"./otg-service-worker-v8036.js","message":"Custom Knockout match rows now use a clear fixed layout for cars, times, status and winners."}
