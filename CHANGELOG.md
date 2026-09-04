@@ -1,3 +1,10 @@
+## v8.0.34 — Custom Knockout Planner Foundation
+- Added KNOCKOUT to Custom Racing competition formats.
+- OTG! calculates a clean elimination bracket from the selected entrant count.
+- Odd fields show preliminary matches and straight-through places automatically.
+- Custom KO is capped at 64 entrants for the planner foundation.
+- START remains deliberately disabled until the proven Race Off engine is wired into Custom.
+
 ## v8.0.33 — Custom Groups Final Exit / Archive Fix
 - Fixed RETURN TO CUSTOM RACING on the completed Custom Groups Final screen.
 - Completed Custom Groups events now return to the refreshed Custom Racing list, where they remain completed rather than In Progress.

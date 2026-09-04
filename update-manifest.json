@@ -1,1 +1,1 @@
-{"version":"8.0.33","worker":"./otg-service-worker-v8033.js","message":"Custom Groups Final now exits cleanly to Custom Racing and archives the completed event correctly."}
+{"version":"8.0.34","worker":"./otg-service-worker-v8034.js","message":"Custom Racing now includes the Knockout competition planner foundation with automatic preliminary-round and bye maths."}

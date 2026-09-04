@@ -1,3 +1,6 @@
+## v8.0.34
+Custom Knockout Competition Planner foundation.
+
 ## v8.0.33
 Custom Groups Final exit/archive handoff fix.
 
