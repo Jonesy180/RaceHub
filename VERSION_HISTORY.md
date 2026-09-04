@@ -771,3 +771,5 @@ Verified Safety Backup gate added ahead of the online update checker. Main inclu
 ## v8.0.20
 - Safety Backup slot ownership fix: updater now writes through authoritative in-memory OTG! state and rhSave().
 - Manual Backup 1/2 are explicitly verified unchanged before update installation is allowed.
+
+- v8.0.24 — Groups history navigation polish.

@@ -1,1 +1,1 @@
-{"version":"8.0.23","worker":"./otg-service-worker-v8023.js","message":"Groups now show stage progress, completed groups, qualifiers and balanced future draws."}
+{"version":"8.0.24","worker":"./otg-service-worker-v8024.js","message":"Completed Groups rows are cleaner and standings now have Back to group history."}

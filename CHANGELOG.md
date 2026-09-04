@@ -85,3 +85,7 @@
 - Fresh Safety Backup is written only to the protected slot and verified before update registration.
 
 - v8.0.22: Final backup rotation certification build; no feature changes.
+
+## v8.0.24
+- Removed truncated qualifier previews from Completed Groups rows.
+- Added Back navigation from completed-group standings to history.
