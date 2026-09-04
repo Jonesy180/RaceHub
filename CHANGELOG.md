@@ -1,4 +1,4 @@
-## v8.0.40 — Custom Swiss Planner Foundation
+## v8.0.41 — Custom Swiss Planner Foundation
 - Adds Swiss as a Custom Racing format.
 - 8–32 entrant guardrail, selectable Swiss rounds and knockout cut.
 - Locks pairing rules, standings tie-breaks and round-by-round track selection for race-flow wiring.
