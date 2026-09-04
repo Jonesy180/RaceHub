@@ -1,1 +1,1 @@
-{"version":"8.0.44","worker":"./otg-service-worker-v8044.js","message":"Custom Swiss: BYE card layout polish. AUTOMATIC WIN now sits cleanly above the car name; Swiss logic is unchanged."}
+{"version":"8.0.45","worker":"./otg-service-worker-v8045.js","message":"Custom Swiss: restore record/PB notices and clarify standings with OPP WINS, TOTAL TIME and BYE tick/cross status."}
