@@ -1,3 +1,7 @@
+## v8.0.42
+- Custom Swiss race flow carried forward from v8.0.41.
+- Fixed update discovery by bumping update-manifest, worker, bootstrap, updater and visible version together.
+
 ## v8.0.41 — Custom Swiss Planner Foundation
 - Adds Swiss as a Custom Racing format.
 - 8–32 entrant guardrail, selectable Swiss rounds and knockout cut.

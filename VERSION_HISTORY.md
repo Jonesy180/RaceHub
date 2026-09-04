@@ -1,3 +1,6 @@
+## v8.0.42
+Custom Swiss race flow + update discovery/version-chain fix.
+
 ## v8.0.41
 Custom Swiss planner foundation.
 
