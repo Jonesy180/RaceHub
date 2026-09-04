@@ -1,3 +1,6 @@
+### v8.0.27
+Custom Groups race-flow wiring: START now freezes the chosen structure and runs groups through qualification to a configurable Final.
+
 ## v8.0.18 — Safety-gated manifest update certification
 - Version-pinned v17 stays active until UPDATE NOW.
 - v18 worker is only registered after protected Safety Backup verification succeeds.

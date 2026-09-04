@@ -1,3 +1,6 @@
+## v8.0.27
+- Wired Custom Groups race flow: frozen balanced draw, sequential groups, Top 2 qualification, group standings/history, and configurable Final.
+
 ## v8.0.18 — Safety-gated manifest update certification
 - Version-pinned v17 stays active until UPDATE NOW.
 - v18 worker is only registered after protected Safety Backup verification succeeds.

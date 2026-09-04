@@ -1,1 +1,1 @@
-{"version":"8.0.26","worker":"./otg-service-worker-v8026.js","message":"Custom racer picker now keeps the active manufacturer open while selecting multiple cars."}
+{"version":"8.0.27","worker":"./otg-service-worker-v8027.js","message":"Custom Groups events can now start, run sequential balanced groups, qualify the Top 2 and progress to a configurable Final."}
