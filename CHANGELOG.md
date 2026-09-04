@@ -1,3 +1,7 @@
+## v8.0.33 — Custom Groups Final Exit / Archive Fix
+- Fixed RETURN TO CUSTOM RACING on the completed Custom Groups Final screen.
+- Completed Custom Groups events now return to the refreshed Custom Racing list, where they remain completed rather than In Progress.
+
 ## v8.0.30
 - Custom Groups single-run results now feed Track Records and Car PB history.
 - Event/All-Time record celebrations now appear when an existing best is beaten.

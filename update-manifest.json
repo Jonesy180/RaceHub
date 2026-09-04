@@ -1,1 +1,1 @@
-{"version":"8.0.32","worker":"./otg-service-worker-v8032.js","message":"Custom Groups now uses the current OTG! record screen; legacy Hubs app artwork is blocked."}
+{"version":"8.0.33","worker":"./otg-service-worker-v8033.js","message":"Custom Groups Final now exits cleanly to Custom Racing and archives the completed event correctly."}

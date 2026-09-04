@@ -1,3 +1,6 @@
+## v8.0.33
+Custom Groups Final exit/archive handoff fix.
+
 ## v8.0.30 — Custom Groups Records Wiring
 Custom Groups results now participate in the standard OTG! records/PB pipeline and record celebrations.
 
