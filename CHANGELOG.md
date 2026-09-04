@@ -154,3 +154,6 @@
 
 ## v8.0.35
 - Custom Knockout race flow: frozen bracket, preliminary round, straight-through cars, round-by-round track setup, head-to-head results and champion completion.
+
+## v8.0.43
+- Custom Swiss BYE display now reads AUTOMATIC WIN instead of +1 W. Swiss scoring and pairing logic unchanged.
