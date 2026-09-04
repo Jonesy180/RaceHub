@@ -107,3 +107,5 @@
 - Custom Groups result entry now uses the approved segmented digital OTG! screen.
 - Advanced Timing decoration is available on Custom Groups result entry.
 - Fixed live Custom Groups Back navigation to return to Custom Racing.
+
+- v8.0.31 — Corrected Custom Groups Records build packaging/version chain; carries v8.0.30 Records/PB wiring.

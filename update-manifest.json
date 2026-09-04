@@ -1,1 +1,1 @@
-{"version":"8.0.29","worker":"./otg-service-worker-v8029.js","message":"Custom Groups now uses the approved digital result entry and working Back navigation."}
+{"version":"8.0.31","worker":"./otg-service-worker-v8031.js","message":"Custom Groups Records wiring with corrected update/version packaging."}
