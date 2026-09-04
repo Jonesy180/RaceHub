@@ -1,1 +1,1 @@
-{"version":"8.0.22","worker":"./otg-service-worker-v8022.js","message":"A newer version of OTG! is ready."}
+{"version":"8.0.23","worker":"./otg-service-worker-v8023.js","message":"Groups now show stage progress, completed groups, qualifiers and balanced future draws."}
