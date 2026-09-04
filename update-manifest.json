@@ -1,1 +1,1 @@
-{"version":"8.0.27","worker":"./otg-service-worker-v8027.js","message":"Custom Groups events can now start, run sequential balanced groups, qualify the Top 2 and progress to a configurable Final."}
+{"version":"8.0.28","worker":"./otg-service-worker-v8028.js","message":"Custom Groups Start and Continue now open the live group race screen correctly."}

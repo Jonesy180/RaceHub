@@ -779,3 +779,5 @@ Verified Safety Backup gate added ahead of the online update checker. Main inclu
 
 ### v8.0.26
 Custom racer picker manufacturer accordion persistence fix.
+
+- v8.0.28 — Custom Groups Start/Continue render fix.

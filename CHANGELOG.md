@@ -96,3 +96,5 @@
 ## v8.0.26
 - Custom Racing racer picker now preserves the currently expanded manufacturer while cars are selected or deselected.
 - Multiple cars from the same manufacturer can be selected without reopening its accordion after every tick.
+
+- v8.0.28: Fixed Custom Groups Start/Continue render failure caused by the wrong DOM ID helper.
