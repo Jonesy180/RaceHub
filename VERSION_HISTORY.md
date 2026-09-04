@@ -822,3 +822,5 @@ v8.0.32 — Custom Groups current record screen + legacy Hubs app purge.
 - v8.0.35 — Custom Knockout race flow wired.
 
 - v8.0.43 — Custom Swiss BYE wording changed to AUTOMATIC WIN; logic unchanged.
+
+- v8.0.44 — Custom Swiss BYE layout polish; AUTOMATIC WIN stacked above car name. Logic unchanged.

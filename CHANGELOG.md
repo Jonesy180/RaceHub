@@ -157,3 +157,5 @@
 
 ## v8.0.43
 - Custom Swiss BYE display now reads AUTOMATIC WIN instead of +1 W. Swiss scoring and pairing logic unchanged.
+
+- v8.0.44 — Custom Swiss BYE card layout polished: AUTOMATIC WIN now displays on its own line above the car name. Swiss logic unchanged.
