@@ -1,3 +1,7 @@
+## v8.0.30
+- Custom Groups single-run results now feed Track Records and Car PB history.
+- Event/All-Time record celebrations now appear when an existing best is beaten.
+
 ## v8.0.27
 - Wired Custom Groups race flow: frozen balanced draw, sequential groups, Top 2 qualification, group standings/history, and configurable Final.
 

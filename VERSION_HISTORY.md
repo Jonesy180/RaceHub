@@ -1,3 +1,6 @@
+## v8.0.30 — Custom Groups Records Wiring
+Custom Groups results now participate in the standard OTG! records/PB pipeline and record celebrations.
+
 ### v8.0.27
 Custom Groups race-flow wiring: START now freezes the chosen structure and runs groups through qualification to a configurable Final.
 
