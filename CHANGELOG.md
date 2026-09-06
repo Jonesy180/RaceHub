@@ -1,3 +1,7 @@
+## v8.0.49 — Compact Saved Race Setups
+- Removed track-name lists from Saved Setup cards.
+- Setup name is limited to two lines; round count and Edit/Delete remain compact alongside it.
+
 ## v8.0.42
 - Custom Swiss race flow carried forward from v8.0.41.
 - Fixed update discovery by bumping update-manifest, worker, bootstrap, updater and visible version together.
