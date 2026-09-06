@@ -8,7 +8,7 @@ function groupEligible(setup){try{return rhEligible(setup.type,setup.value)}catc
 function fmt(v){return rhFmtTime(Number(v)||0)}
 function newGroupRun(x){
  const eligible=groupEligible(x), selected=new Set(x.entries), excluded=eligible.filter(c=>!selected.has(c.id)).map(c=>c.id);
- return {id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:rhTrophyTypeKey(x.type),createdAt:now(),startedAt:now(),status:'active',format:'groups-total-time',rounds:rhClone(x.rounds),results:[],entries:[...x.entries],v8Groups:{stage:1,stage1Closed:false,excludedStage1:excluded,knownStage1Eligible:eligible.map(c=>c.id),pool:[...x.entries],qualifiers:[],completedGroups:[],activeGroup:null,final:false,championId:null}};
+ return {id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:rhTrophyTypeKey(x.type),createdAt:now(),startedAt:now(),status:'active',format:'groups-total-time',rounds:rhClone(x.rounds),results:[],entries:[...x.entries],v8Groups:{stage:1,stage1Closed:false,groupPlan:x.v8GroupPlan?JSON.parse(JSON.stringify(x.v8GroupPlan)):null,excludedStage1:excluded,knownStage1Eligible:eligible.map(c=>c.id),pool:[...x.entries],qualifiers:[],completedGroups:[],activeGroup:null,final:false,championId:null}};
 }
 window.rhConfirmStart=function(){
  const x=rhSetup;if(!isGroupSetup())return oldConfirm();
@@ -32,10 +32,12 @@ function balancedPlan(n,max=8){
 }
 function currentStagePlan(r){
  const g=r.v8Groups,done=(g.completedGroups||[]).filter(x=>x.stage===g.stage).length,active=g.activeGroup?.stage===g.stage?1:0;
- const future=balancedPlan((g.pool||[]).length);
+ const remainingGroups=g.stage===1&&g.groupPlan?.groupCount?Math.max(1,g.groupPlan.groupCount-done-active):null;
+ const future=remainingGroups?balanceToGroups((g.pool||[]).length,remainingGroups):balancedPlan((g.pool||[]).length);
  return {done,active,future,total:done+active+future.length};
 }
-function drawSize(n){return balancedPlan(n)[0]||0}
+function balanceToGroups(n,g){n=Math.max(0,Math.floor(Number(n)||0));g=Math.max(1,Math.min(Math.floor(Number(g)||1),n||1));const q=Math.floor(n/g),r=n%g;return Array.from({length:g},(_,i)=>q+(i<r?1:0))}
+function drawSizeForRun(r,n){const g=r.v8Groups,done=(g.completedGroups||[]).filter(x=>x.stage===g.stage).length,active=g.activeGroup?.stage===g.stage?1:0;if(g.stage===1&&g.groupPlan?.groupCount){const left=Math.max(1,g.groupPlan.groupCount-done-active);return balanceToGroups(n,left)[0]||0}return balancedPlan(n)[0]||0}
 function completedHistory(r){
  const groups=(r.v8Groups?.completedGroups||[]).filter(x=>!x.final);
  if(!groups.length)return '';
@@ -46,7 +48,7 @@ function qualifiedHistory(r){
  const g=r.v8Groups,ids=(g.qualifiers||[]);if(!ids.length)return '';
  return `<section class="v823Qualified"><div><small>${stageLabel(g,g.stage)}</small><h2>QUALIFIED</h2></div><div class="v823QualifiedGrid">${ids.map((id,i)=>`<span><b>${i+1}</b>${esc(carName(carById(id)))}</span>`).join('')}</div></section>`;
 }
-window.rhV8DrawNextGroup=function(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!isGroupRun(r))return;const g=r.v8Groups;if(g.activeGroup)return;const pool=activePool(r);if(!pool.length)return rhV8AdvanceStage(id);const size=drawSize(pool.length);const ids=[];while(ids.length<size&&pool.length){const i=Math.floor(Math.random()*pool.length);ids.push(pool.splice(i,1)[0])}if(g.stage===1&&pool.length===0)g.stage1Closed=true;g.activeGroup={id:rhId('group'),stage:g.stage,index:(g.completedGroups||[]).filter(x=>x.stage===g.stage).length+1,carIds:ids,startedAt:now()};rhSave();rhOpenRun(id)};
+window.rhV8DrawNextGroup=function(id){const r=rhCurrentRuns().find(x=>x.id===id);if(!isGroupRun(r))return;const g=r.v8Groups;if(g.activeGroup)return;const pool=activePool(r);if(!pool.length)return rhV8AdvanceStage(id);const size=drawSizeForRun(r,pool.length);const ids=[];while(ids.length<size&&pool.length){const i=Math.floor(Math.random()*pool.length);ids.push(pool.splice(i,1)[0])}if(g.stage===1&&pool.length===0)g.stage1Closed=true;g.activeGroup={id:rhId('group'),stage:g.stage,index:(g.completedGroups||[]).filter(x=>x.stage===g.stage).length+1,carIds:ids,startedAt:now()};rhSave();rhOpenRun(id)};
 function groupResults(r,grp){
  // v8.0.5 recovery: v8.0.4's live Enter Result handler saved ordinary Festival
  // results without group metadata. Adopt only matching results in the currently
