@@ -1,1 +1,1 @@
-{"version":"8.0.47","worker":"./otg-service-worker-v8047.js","message":"Festival Groups now uses the native sensible Group Structure selector from the shared setup screen; Race Setup modal and Swiss scroll polish retained."}
+{"version":"8.0.48","worker":"./otg-service-worker-v8048.js","message":"Race Setup save now keeps the active Championship context; FH5 Valkyrie 2023, Huayra BC 2016 and Venom F5 2021 are corrected from Hypercars to Hypercar."}
