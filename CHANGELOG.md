@@ -1,3 +1,7 @@
+
+## v8.0.50
+- Repaired update manifest/service-worker pinning so installed builds actually advance from v8.0.48.
+- Compact Saved Race Setup cards: no track list; setup name limited to two lines; round count/Edit/Delete retained.
 ## v8.0.49 — Compact Saved Race Setups
 - Removed track-name lists from Saved Setup cards.
 - Setup name is limited to two lines; round count and Edit/Delete remain compact alongside it.
