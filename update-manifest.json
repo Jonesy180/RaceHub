@@ -1,1 +1,1 @@
-{"version":"8.0.46","worker":"./otg-service-worker-v8046.js","message":"Setup consistency: sensible Festival Group structures, OTG! Race Setup naming modal, and Swiss result-entry scroll polish."}
+{"version":"8.0.47","worker":"./otg-service-worker-v8047.js","message":"Festival Groups now uses the native sensible Group Structure selector from the shared setup screen; Race Setup modal and Swiss scroll polish retained."}

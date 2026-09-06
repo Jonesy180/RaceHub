@@ -260,6 +260,12 @@ function rhChooseSavedRoundName(kind,ownerId,roundId,name){
   r.name=name;rhSave();rhCloseRoundNamePicker();rhOpenEvent(ownerId)
  }
 }
+function rhV8FestivalGroupOptions(n){n=Math.max(0,Number(n)||0);const out=[];for(let g=2;g<=Math.min(8,Math.floor(n/2));g++){const q=Math.floor(n/g),r=n%g,sizes=Array.from({length:g},(_,i)=>q+(i<r?1:0)),min=Math.min(...sizes),max=Math.max(...sizes);if(min<4||max>8)continue;const qualifiers=g*2,score=Math.abs(6.5-(n/g))+(qualifiers>Math.ceil(n*.7)?2:0);out.push({g,sizes,qualifiers,score})}out.sort((a,b)=>a.score-b.score||a.g-b.g);return out.slice(0,3)}
+function rhV8FestivalFmtSizes(a){const m=new Map();a.forEach(n=>m.set(n,(m.get(n)||0)+1));return [...m.entries()].sort((a,b)=>b[0]-a[0]).map(([n,c])=>`${c} × ${n}`).join(' • ')}
+function rhV8FestivalEnsurePlan(){if(!rhSetup?.v8GroupMode)return null;const o=rhV8FestivalGroupOptions(rhSetup.entries?.length||0);if(!o.length){rhSetup.v8GroupPlan=null;return null}let x=o.find(v=>v.g===rhSetup.v8GroupPlan?.groupCount);if(!x)x=o[0];rhSetup.v8GroupPlan={groupCount:x.g,sizes:[...x.sizes],qualifiers:x.qualifiers};return x}
+function rhV8FestivalGroupPlannerHtml(){if(!rhSetup?.v8GroupMode)return '';const n=rhSetup.entries?.length||0,o=rhV8FestivalGroupOptions(n),sel=rhV8FestivalEnsurePlan()?.g;return `<section id="rhFestivalGroupPlanner8047" class="rhSetupPanelV1 rhGroupPlanner8025"><div class="rhEventSectionHead"><div><h2>Group Structure</h2><p class="small">OTG! has worked out sensible structures for ${n} racers.</p></div><span class="rhFormatBadge8025">GROUPS</span></div>${o.length?o.map((x,i)=>`<button type="button" class="rhGroupPlanCard8025 ${sel===x.g?'selected':''}" onclick="rhV8ChooseFestivalGroupPlan(${x.g})"><span>${i===0?'<em>RECOMMENDED</em>':''}<b>${x.g} GROUPS</b><small>${rhV8FestivalFmtSizes(x.sizes)} cars</small></span><strong>TOP 2<small>${x.qualifiers} qualify</small></strong></button>`).join(''):'<div class="empty">Choose between 8 and 64 racers for a Groups Championship. OTG! will then offer sensible balanced structures.</div>'}<p class="small">Group sizes are balanced as evenly as possible. The selected structure freezes when the Championship starts.</p></section>`}
+function rhV8ChooseFestivalGroupPlan(g){const x=rhV8FestivalGroupOptions(rhSetup?.entries?.length||0).find(v=>v.g===Number(g));if(!x)return;rhSetup.v8GroupPlan={groupCount:x.g,sizes:[...x.sizes],qualifiers:x.qualifiers};rhV8RefreshFestivalGroupPlanner()}
+function rhV8RefreshFestivalGroupPlanner(){if(!rhSetup?.v8GroupMode)return;const old=document.getElementById('rhFestivalGroupPlanner8047');if(old)old.outerHTML=rhV8FestivalGroupPlannerHtml();const rule=document.querySelector('.v8FormatPanel .v8GroupRule span');const x=rhV8FestivalEnsurePlan();if(rule)rule.textContent=x?`${x.g} groups • ${rhV8FestivalFmtSizes(x.sizes)} cars • Run by car • ${rhSetup.rounds.length||3} tracks • Top 2 advance`:`Choose a sensible Group Structure • Run by car • ${rhSetup.rounds.length||3} tracks • Top 2 advance`}
 function rhV8SetFormat(on){if(!rhSetup||rhSetup.type==='pick-my-drive')return;rhSetup.v8GroupMode=!!on;rhRenderSetup()}
 function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.type,x.value),included=x.entries.length,rounds=x.rounds.length,trophy=rhSetupTrophyType(x.type);$('festival').innerHTML=`<div class="rhSetupV1 ${x.type==='favourite'?'rhFavouriteSetupV6031':''}">
  <header class="rhSetupHeroV1">
@@ -272,7 +278,7 @@ function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.ty
   ${x.type==='pick-my-drive'?'':`<section class="rhSetupPanelV1 v8FormatPanel">
    <div class="rhSetupPanelHeadV1"><div><b>CHAMPIONSHIP FORMAT</b><p>Choose how this Festival Championship will run.</p></div><strong>${x.v8GroupMode?'TOTAL TIME GROUPS':'STANDARD'}</strong></div>
    <div class="v8FormatChoices"><button class="${!x.v8GroupMode?'selected':''}" onclick="rhV8SetFormat(false)"><b>STANDARD</b><small>Every car runs every round. Lowest cumulative time wins.</small></button><button class="${x.v8GroupMode?'selected':''}" onclick="rhV8SetFormat(true)"><b>TOTAL TIME GROUPS</b><small>Cars race in groups. Top 2 cumulative times advance through stages.</small></button></div>
-   ${x.v8GroupMode?`<div class="v8GroupRule"><b>GROUP RULES</b><span>Target 8 cars per group • Run by car • ${x.rounds.length||3} tracks • Top 2 advance</span><small>Stage 1 stays open to newly eligible Garage cars until the final first-stage group is drawn.</small></div>`:''}
+   ${x.v8GroupMode?`<div class="v8GroupRule"><b>GROUP RULES</b><span>${(()=>{const p=rhV8FestivalEnsurePlan();return p?`${p.g} groups • ${rhV8FestivalFmtSizes(p.sizes)} cars • Run by car • ${x.rounds.length||3} tracks • Top 2 advance`:`Choose a sensible Group Structure • Run by car • ${x.rounds.length||3} tracks • Top 2 advance`})()}</span><small>Stage 1 stays open to newly eligible Garage cars until the final first-stage group is drawn.</small></div>`:''}
   </section>`}
   <section class="rhSetupPanelV1">
    <div class="rhSetupPanelHeadV1"><div><b>${x.type==='pick-my-drive'?'1':'2'}. ENTRY LIST <span>(ELIGIBLE CARS)</span></b><p>These cars are eligible for this Championship.<br>Remove any you don’t want to include.</p></div><strong>${cars.length} ELIGIBLE</strong></div>
@@ -281,6 +287,7 @@ function rhRenderSetup(){const x=rhSetup;if(!x)return;const cars=rhEligible(x.ty
    <div class="rhSetupEntryFootV1"><div class="rhSetupBulkV1"><button onclick="rhSetAllEntries(false)">× <span>CLEAR ALL</span></button><button onclick="rhSetAllEntries(true)">✓ <span>SELECT ALL</span></button></div><strong id="rhIncludedCount">${included} INCLUDED</strong></div>
    <div class="rhSetupInfoV1"><i>i</i><p>Removing a car here only excludes it from this Championship run.<br><b>The car remains in your Garage.</b></p></div>
   </section>
+  ${x.v8GroupMode?rhV8FestivalGroupPlannerHtml():''}
   <section class="rhSetupPanelV1">
    <div class="rhSetupPanelHeadV1"><div><b>${x.type==='pick-my-drive'?'2':'3'}. CHAMPIONSHIP ROUNDS</b><p>Create the rounds (races/challenges) you want<br>to use for this Championship.</p></div><strong>${rounds} ${rounds===1?'ROUND':'ROUNDS'}</strong></div>
    <div class="v7SetupQuick"><button type="button" onclick="rhSaveCurrentSetupV7()">SAVE RACE SETUP</button><button type="button" onclick="rhLoadSetupIntoCurrentV7()">LOAD RACE SETUP</button></div>
@@ -301,6 +308,7 @@ function rhRefreshSetupEntryUi(){
  if(count)count.textContent=`${included} INCLUDED`;
  const start=document.querySelector('.rhSetupStartGreenV1');
  if(start)start.disabled=!included||!(rhSetup?.rounds?.length);
+ if(rhSetup?.v8GroupMode)rhV8RefreshFestivalGroupPlanner();
 }
 function rhSetAllEntries(on){
  const cars=rhEligible(rhSetup.type,rhSetup.value);rhSetup.entries=on?cars.map(c=>c.id):[];
