@@ -1,1 +1,1 @@
-{"version":"8.0.52","worker":"./otg-service-worker-v8052.js","message":"Swiss Championships now finish on the proper trophy screen; Standard Result Summary shows the current round’s individual times instead of cumulative totals."}
+{"version":"8.0.53","worker":"./otg-service-worker-v8053.js","message":"Swiss now supports any field of 8 or more entrants, removing the old 32-car ceiling while retaining the existing Swiss rounds, tiebreaks, byes and knockout flow."}

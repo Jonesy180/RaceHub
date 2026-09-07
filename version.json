@@ -1,1 +1,1 @@
-{"version":"8.0.52","worker":"./otg-service-worker-v8052.js","message":"Swiss trophy finish and Standard Result Summary round-time fix."}
+{"version":"8.0.53","worker":"./otg-service-worker-v8053.js","message":"Swiss now supports any field of 8 or more entrants, removing the old 32-car ceiling."}

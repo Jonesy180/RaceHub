@@ -1,4 +1,9 @@
 
+## v8.0.53 — Scalable Swiss Entrants
+- Removed the old 32-entrant Swiss ceiling. Swiss now accepts any field of 8 or more entrants in Custom Racing and Festival championships.
+- Retains the existing 4–8 Swiss round planner, Wins → Opponent Wins → Total Time standings, rotating byes, rematch avoidance and Top 4/8/16 knockout cuts.
+- No user-data migration or reset.
+
 - v8.0.50 — updater delivery repair + compact Saved Race Setup cards.
 ## v8.0.49 — Compact Saved Race Setups
 - Removed track-name lists from Saved Setup cards.

@@ -1,3 +1,8 @@
+
+## v8.0.53 — Scalable Swiss Entrants
+- Removed the old 32-entrant Swiss ceiling. Swiss now accepts any field of 8 or more entrants in Custom Racing and Festival championships.
+- Retains the existing 4–8 Swiss round planner, Wins → Opponent Wins → Total Time standings, rotating byes, rematch avoidance and Top 4/8/16 knockout cuts.
+- No user-data migration or reset.
 ## v8.0.52
 - Festival Swiss completion now uses the locked final-standings/trophy screen, with the Swiss champion and Final winning time.
 - Standard Championship Result Summary now ranks cars by the just-completed Round and shows ROUND TIME/GAP instead of cumulative Championship totals.
