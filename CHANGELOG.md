@@ -1,3 +1,8 @@
+## v8.0.54 — Custom Swiss Final Trophy
+- Custom Racing Swiss now routes its completed knockout final to the existing locked Final Standings/trophy presentation.
+- Final screen shows both finalists, the Swiss champion and the actual final winning time, then returns to Custom Racing.
+- No artwork, catalogue, backup or user-data changes.
+
 
 ## v8.0.53 — Scalable Swiss Entrants
 - Removed the old 32-entrant Swiss ceiling. Swiss now accepts any field of 8 or more entrants in Custom Racing and Festival championships.

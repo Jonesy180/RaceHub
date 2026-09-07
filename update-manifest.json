@@ -1,1 +1,1 @@
-{"version":"8.0.53","worker":"./otg-service-worker-v8053.js","message":"Swiss now supports any field of 8 or more entrants, removing the old 32-car ceiling while retaining the existing Swiss rounds, tiebreaks, byes and knockout flow."}
+{"version":"8.0.54","worker":"./otg-service-worker-v8054.js","message":"Custom Racing Swiss now finishes on the locked Final Standings trophy screen, showing the two finalists and the final winning time."}
