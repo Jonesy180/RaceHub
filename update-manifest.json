@@ -1,1 +1,1 @@
-{"version":"8.0.50","worker":"./otg-service-worker-v8050.js","message":"Update delivery repaired; compact Saved Race Setup cards now load correctly. Hypercar and Race Setup context fixes retained."}
+{"version":"8.0.51","worker":"./otg-service-worker-v8051.js","message":"Setup cleanup: A–Z saved setups, repaired saved-race picker and aligned loader rows; Festival Swiss is available; Standard final standings now show per-round split times; Hall of Fame Back is repaired."}

@@ -1,3 +1,11 @@
+## v8.0.51
+- Saved Race Setups display A–Z; Load Race Setup rows keep a fixed aligned chevron column.
+- Fixed the Round 2+ Smart Bar ghost-tap path: suggestions now commit on click instead of pointer-down, so a re-render cannot tap the Saved Race Names button underneath; the picker touch/scroll path is also hardened.
+- Added Swiss to Festival Championship format options (8–32 entrants), reusing the tested Swiss standings/pairing rules and flowing into a knockout finish.
+- Standard Championship final standings now include each car's per-round/event split times alongside Total Time and Gap.
+- Repaired Hall of Fame Back so Records mode and visible screen state change together.
+- Main only; no artwork changes and no data migration/reset.
+
 
 ## v8.0.50
 - Repaired update manifest/service-worker pinning so installed builds actually advance from v8.0.48.

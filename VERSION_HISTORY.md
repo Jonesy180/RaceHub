@@ -832,3 +832,7 @@ v8.0.32 — Custom Groups current record screen + legacy Hubs app purge.
 - v8.0.44 — Custom Swiss BYE layout polish; AUTOMATIC WIN stacked above car name. Logic unchanged.
 
 - 8.0.47 — Festival Groups now renders the shared sensible Group Structure selector directly in the Festival setup screen; retained OTG! Race Setup naming modal and Swiss scroll polish.
+
+
+## v8.0.51 — Setup consistency + Festival Swiss + final splits
+A–Z Saved Setups, fixed the Round 2+ Smart Bar ghost-tap and repaired Saved Race Names touch handling, aligned Load Setup chevrons, Festival Swiss format/race flow, Standard final per-round split times, and Hall of Fame Back repair. Main-only development build; no data migration or artwork changes.
