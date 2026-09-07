@@ -1,3 +1,8 @@
+## v8.0.52
+- Festival Swiss completion now uses the locked final-standings/trophy screen, with the Swiss champion and Final winning time.
+- Standard Championship Result Summary now ranks cars by the just-completed Round and shows ROUND TIME/GAP instead of cumulative Championship totals.
+- Retains all v8.0.51 setup, Swiss, Smart Bar, Hall of Fame and loader fixes.
+
 ## v8.0.51
 - Saved Race Setups display A–Z; Load Race Setup rows keep a fixed aligned chevron column.
 - Fixed the Round 2+ Smart Bar ghost-tap path: suggestions now commit on click instead of pointer-down, so a re-render cannot tap the Saved Race Names button underneath; the picker touch/scroll path is also hardened.

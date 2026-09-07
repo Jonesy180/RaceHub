@@ -836,3 +836,8 @@ v8.0.32 — Custom Groups current record screen + legacy Hubs app purge.
 
 ## v8.0.51 — Setup consistency + Festival Swiss + final splits
 A–Z Saved Setups, fixed the Round 2+ Smart Bar ghost-tap and repaired Saved Race Names touch handling, aligned Load Setup chevrons, Festival Swiss format/race flow, Standard final per-round split times, and Hall of Fame Back repair. Main-only development build; no data migration or artwork changes.
+
+
+## v8.0.52 — Swiss trophy + round Result Summary
+- Replaced the plain Festival Swiss CHAMPION DECIDED card with the locked final trophy/standings presentation.
+- Corrected Standard Result Summary classification to use individual current-Round times and gaps rather than final/cumulative Championship totals.

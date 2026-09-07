@@ -1,1 +1,1 @@
-{"version":"8.0.51","worker":"./otg-service-worker-v8051.js","message":"Setup cleanup: A–Z saved setups, repaired saved-race picker and aligned loader rows; Festival Swiss is available; Standard final standings now show per-round split times; Hall of Fame Back is repaired."}
+{"version":"8.0.52","worker":"./otg-service-worker-v8052.js","message":"Swiss Championships now finish on the proper trophy screen; Standard Result Summary shows the current round’s individual times instead of cumulative totals."}
