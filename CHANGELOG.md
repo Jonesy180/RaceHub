@@ -1,3 +1,12 @@
+## v8.0.56 — FH5 Festival / Race Off Rebuild
+- FH5 Championship presets now load suggested format and rounds automatically from the final multi-tab race-setups library.
+- Existing Festival families retained: All Cars, Favourite Manufacturer, Vintage & Classic, Era, Class / Type and Manufacturer.
+- Added Rally Adventure, Hot Wheels and Drag Racing specialist Championship and Race Off families.
+- Recommended format: 2–16 Standard, 17–64 Groups, 65+ Swiss; users may edit recommended setups before start.
+- All Cars Festival is fixed to Standard / 1 round / Copper Canyon Sprint and retains the late-car exception.
+- Race Off pre-fills a suggested track each knockout round and reserves matching long-form finals where applicable.
+- Main only. Locked artwork unchanged.
+
 ## v8.0.55 — Foundation Fixes
 - Result Summary average comparison is now scoped to the current round/course inside the current Championship/Event; mixed-course Championship averages are no longer shown on Result Summary.
 - Swiss remains available for every field of 8+ entrants with no entrant ceiling.
