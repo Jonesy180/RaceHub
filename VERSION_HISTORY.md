@@ -1,3 +1,10 @@
+## v8.0.55 — Foundation Fixes
+- Result Summary average comparison is now scoped to the current round/course inside the current Championship/Event; mixed-course Championship averages are no longer shown on Result Summary.
+- Swiss remains available for every field of 8+ entrants with no entrant ceiling.
+- Swiss now recommends 3 rounds for 8–64 entrants and 4 rounds for 65+ entrants. Custom Racing exposes an Advanced/Custom rounds override for longer Swiss stages with no configured-round ceiling.
+- Removed the obsolete 4–8 configured-round validator from Custom Racing Swiss and Festival Swiss, including START gating.
+- Final Standings total-time logic is unchanged. No artwork, catalogue or user-data migration changes.
+
 ## v8.0.54 — Custom Swiss Final Trophy
 - Custom Racing Swiss now routes its completed knockout final to the existing locked Final Standings/trophy presentation.
 - Final screen shows both finalists, the Swiss champion and the actual final winning time, then returns to Custom Racing.

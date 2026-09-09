@@ -1,1 +1,1 @@
-{"version":"8.0.54","worker":"./otg-service-worker-v8054.js","message":"Custom Racing Swiss now finishes on the locked Final Standings trophy screen, showing the two finalists and the final winning time."}
+{"version":"8.0.55","worker":"./otg-service-worker-v8055.js","message":"Result Summary averages are now scoped to the current round/course; Swiss recommends 3 rounds for 8\u201364 entrants and 4 for 65+, with unlimited advanced custom rounds and no obsolete 4\u20138 validator."}

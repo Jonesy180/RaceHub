@@ -1,4 +1,4 @@
-/* OTG! v8.0.51 — setup/library consistency, picker touch repair, Festival Swiss, final split-times, Hall back. */
+/* OTG! v8.0.51 + v8.0.55 Swiss foundation patch — setup/library consistency, Festival Swiss and final split-times. */
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
@@ -68,7 +68,8 @@ window.rhV8051SetSwissCut=function(cut){if(!rhSetup?.v8SwissMode)return;const p=
 function swissPlannerHtml(){
   const n=rhSetup?.entries?.length||0,p=swissBasePlan(),rounds=rhSetup?.rounds?.length||0,sel=ensureSwissPlan();
   if(!p)return `<section class="rhSetupPanelV1 rhSwissPlanner8040 v8051SwissPlanner"><div class="rhEventSectionHead"><div><h2>Swiss Structure</h2><p class="small">Swiss is available for 8+ entrants with no upper field limit.</p></div><span class="rhFormatBadge8025">SWISS</span></div><div class="empty">Choose at least 8 cars to enable Swiss.</div></section>`;
-  return `<section class="rhSetupPanelV1 rhSwissPlanner8040 v8051SwissPlanner"><div class="rhEventSectionHead"><div><h2>Swiss Structure</h2><p class="small">The configured Championship rounds below become the Swiss rounds, in order.</p></div><span class="rhFormatBadge8025">SWISS</span></div><div class="rhSwissSummary8040"><div><b>${n}</b><small>ENTRANTS</small></div><div><b>${rounds}</b><small>SWISS ROUNDS</small></div><div><b>${sel?.cut||p.recCut}</b><small>QUALIFY</small></div></div><h3>Knockout Cut</h3><div class="rhSwissChoices8040">${p.cuts.map(c=>`<button type="button" class="rhSwissChoice8040 ${(sel?.cut||p.recCut)===c?'selected':''}" onclick="rhV8051SetSwissCut(${c})">TOP ${c}<small>TO KNOCKOUT</small></button>`).join('')}</div><div class="rhSwissRules8040"><b>HOW OTG! WILL RUN IT</b><span>• ${rounds} configured track${rounds===1?'':'s'} = ${rounds} Swiss round${rounds===1?'':'s'}.</span><span>• Pair equal/near-equal records and avoid rematches.</span><span>• Standings: Wins → Opponent Wins → Total Time.</span><span>• ${n%2?'Odd field: one rotating bye each round; no repeat bye until necessary.':'Even field: every car gets an opponent each round.'}</span><span>• Top ${sel?.cut||p.recCut} then enter a normal knockout; knockout tracks are chosen round by round.</span></div>${rounds<4||rounds>8?'<p class="v8051SwissWarn">Swiss needs 4–8 configured Championship rounds.</p>':''}</section>`;
+  const rec=p.rec,recCopy=n<=64?'3 rounds for 8–64 entrants':'4 rounds for 65+ entrants';
+  return `<section class="rhSetupPanelV1 rhSwissPlanner8040 v8051SwissPlanner"><div class="rhEventSectionHead"><div><h2>Swiss Structure</h2><p class="small">The configured Championship rounds below become the Swiss rounds, in order. OTG! recommends ${recCopy}; add more rounds whenever you want a longer Swiss stage.</p></div><span class="rhFormatBadge8025">SWISS</span></div><div class="rhSwissSummary8040"><div><b>${n}</b><small>ENTRANTS</small></div><div><b>${rounds}</b><small>SWISS ROUNDS</small></div><div><b>${sel?.cut||p.recCut}</b><small>QUALIFY</small></div></div><h3>Knockout Cut</h3><div class="rhSwissChoices8040">${p.cuts.map(c=>`<button type="button" class="rhSwissChoice8040 ${(sel?.cut||p.recCut)===c?'selected':''}" onclick="rhV8051SetSwissCut(${c})">TOP ${c}<small>TO KNOCKOUT</small></button>`).join('')}</div><div class="rhSwissRules8040"><b>HOW OTG! WILL RUN IT</b><span>• ${rounds} configured track${rounds===1?'':'s'} = ${rounds} Swiss round${rounds===1?'':'s'}.</span><span>• Recommended baseline: ${rec} Swiss rounds for this field; more configured rounds are allowed.</span><span>• Pair equal/near-equal records and avoid rematches.</span><span>• Standings: Wins → Opponent Wins → Total Time.</span><span>• ${n%2?'Odd field: one rotating bye each round; no repeat bye until necessary.':'Even field: every car gets an opponent each round.'}</span><span>• Top ${sel?.cut||p.recCut} then enter a normal knockout; knockout tracks are chosen round by round.</span></div></section>`;
 }
 function decorateFestivalSetup(){
   if(!rhSetup||rhSetup.type==='pick-my-drive')return;
@@ -83,7 +84,7 @@ function decorateFestivalSetup(){
     panel.insertAdjacentHTML('afterend',swissPlannerHtml());
     const intro=document.querySelector('.rhSetupTitleV1 p');if(intro)intro.textContent='Build the Swiss Championship, then race the configured rounds before the knockout.';
     const rule=document.querySelector('.rhSetupRuleV1 p');if(rule)rule.innerHTML='<b>SWISS.</b><br>EACH ROUND USES THE CONFIGURED TRACK IN ORDER. WINS, OPPONENT WINS AND TOTAL TIME SET THE LEAGUE TABLE; THE QUALIFIERS THEN ENTER A KNOCKOUT.';
-    const start=document.querySelector('.rhSetupStartGreenV1'),p=swissBasePlan(),rounds=rhSetup.rounds?.length||0;if(start)start.disabled=!(p&&rounds>=4&&rounds<=8&&rhSetup.entries?.length);
+    const start=document.querySelector('.rhSetupStartGreenV1'),p=swissBasePlan(),rounds=rhSetup.rounds?.length||0;if(start)start.disabled=!(p&&rounds>0&&rhSetup.entries?.length);
   }
 }
 const baseRenderSetup=window.rhRenderSetup;
@@ -112,7 +113,7 @@ function swissNextEntry(rd){for(const m of rd.matches||[]){if(!m.resultA)return{
 function swissTable(r,limit=999){return swissStandings(r).slice(0,limit).map((s,i)=>`<div class="rhSwissStanding8041"><b>${i+1}</b><span>${E(carText(s.id))}</span><strong>${s.wins} W</strong><small>OPP WINS ${s.oppWins} • TOTAL TIME ${fmt(s.time)} • BYE ${s.bye?'✓':'✕'}</small></div>`).join('')}
 window.rhConfirmStart=function(){
   if(!rhSetup?.v8SwissMode)return baseConfirmStart();
-  const x=rhSetup,p=swissBasePlan(),rounds=x.rounds?.length||0,cut=ensureSwissPlan()?.cut;if(!p||rounds<4||rounds>8||!cut)return toast('Complete the Swiss setup first');
+  const x=rhSetup,p=swissBasePlan(),rounds=x.rounds?.length||0,cut=ensureSwissPlan()?.cut;if(!p||rounds<1||!cut)return toast('Complete the Swiss setup first');
   const s=rhSpace();let run={id:rhId('run'),name:x.name,type:x.type,value:x.value,trophy:rhTrophyTypeKey(x.type),createdAt:now(),startedAt:now(),status:'active',format:'swiss',rounds:rhClone(x.rounds),results:[],entries:[...x.entries],v8SwissPlan:{knockoutSize:cut}};
   run.v8Swiss={phase:'swiss',knockoutSize:cut,currentRound:0,swissRounds:run.rounds.map((rd,i)=>({id:rd.id,index:i+1,label:`SWISS ROUND ${i+1}`,trackName:rd.name,layout:rd.layout||'',status:i===0?'setup':'pending',matches:null,byeId:null})),ko:null,championId:null,championTotal:null};
   if(x.savedRunId){const i=s.runs.findIndex(r=>r.id===x.savedRunId);if(i>=0){run.id=s.runs[i].id;run.createdAt=s.runs[i].createdAt||run.createdAt;s.runs[i]=run}else s.runs.push(run)}else s.runs.push(run);

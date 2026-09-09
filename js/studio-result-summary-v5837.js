@@ -1,4 +1,4 @@
-/* OTG! v5.8.37 — podium Result Summary with locked average comparison */
+/* OTG! v8.0.55 — podium Result Summary with per-round/course Championship average comparison */
 (()=>{
   const q=id=>document.getElementById(id);
   const esc=v=>typeof safe==='function'?safe(v):String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -19,18 +19,23 @@
     }).filter(Boolean).sort((a,b)=>a.total-b.total);
   }
 
-  function runningAverage(owner,res){
-    const prior=(owner?.results||[]).filter(x=>String(x.id)!==String(res?.id)&&Number.isFinite(Number(x.time)));
+  function roundCourseAverage(owner,res){
+    const norm=v=>String(v??'').trim().replace(/\s+/g,' ').toLowerCase();
+    const prior=(owner?.results||[]).filter(x=>{
+      if(String(x.id)===String(res?.id)||!Number.isFinite(Number(x.time)))return false;
+      if(res?.roundId!=null&&x?.roundId!=null)return String(x.roundId)===String(res.roundId);
+      return norm(x?.roundName||x?.track)===norm(res?.roundName||res?.track);
+    });
     if(!prior.length)return null;
     const avg=prior.reduce((sum,x)=>sum+Number(x.time),0)/prior.length;
     return {avg,diff:Number(res.time)-avg,count:prior.length};
   }
   function averageTile(hist){
-    if(!hist)return `<section class="rhPodiumAverageV5837 neutral"><div><small>CHAMPIONSHIP AVERAGE</small><b>—</b><span>No prior results</span></div><div><small>YOUR DIFFERENCE</small><b>—</b><span>First recorded result</span></div></section>`;
+    if(!hist)return `<section class="rhPodiumAverageV5837 neutral"><div><small>ROUND / COURSE AVERAGE</small><b>—</b><span>No prior results on this round</span></div><div><small>YOUR DIFFERENCE</small><b>—</b><span>First recorded result here</span></div></section>`;
     const faster=hist.diff<0,slower=hist.diff>0,state=faster?'good':slower?'bad':'neutral';
     const sign=faster?'−':slower?'+':'±';
     const label=faster?'Faster than Avg':slower?'Slower than Avg':'Equal to Avg';
-    return `<section class="rhPodiumAverageV5837 ${state}"><div><small>CHAMPIONSHIP AVERAGE</small><b>${fmt(hist.avg)}</b><span>Before this result • ${hist.count} result${hist.count===1?'':'s'}</span></div><div><small>YOUR DIFFERENCE</small><b>${sign}${fmt(Math.abs(hist.diff))}</b><span>${label}</span></div></section>`;
+    return `<section class="rhPodiumAverageV5837 ${state}"><div><small>ROUND / COURSE AVERAGE</small><b>${fmt(hist.avg)}</b><span>Before this result • ${hist.count} result${hist.count===1?'':'s'} on this round</span></div><div><small>YOUR DIFFERENCE</small><b>${sign}${fmt(Math.abs(hist.diff))}</b><span>${label}</span></div></section>`;
   }
   function contextRows(rows,highlightId){
     const at=Math.max(0,rows.findIndex(x=>(x.id||x.car?.id)===highlightId));
@@ -71,7 +76,7 @@
     show('festival');
     q('festival').innerHTML=summaryShell({
       backAction:`rhOpenRun('${r.id}')`,roundName:res.roundName,title:rhSetupTypeLabel(r.type||r.championshipType||'festival'),
-      carLine:`${carName(c)} • ${fmt(res.time)}`,rows,highlightId:res.carId,average:runningAverage(r,res),buttonLabel:label,buttonSub:sub,buttonAction:action
+      carLine:`${carName(c)} • ${fmt(res.time)}`,rows,highlightId:res.carId,average:roundCourseAverage(r,res),buttonLabel:label,buttonSub:sub,buttonAction:action
     });
   };
   window.rhEventResultSummary=function(e,res){
@@ -79,7 +84,7 @@
     show('event');
     q('event').innerHTML=summaryShell({
       backAction:`rhOpenEvent('${e.id}')`,roundName:res.roundName,title:e.name,carLine:`${carName(car)} • ${fmt(res.time)}`,
-      rows,highlightId:res.carId,average:runningAverage(e,res),buttonLabel:complete?'FINAL STANDINGS':'CONTINUE EVENT',buttonSub:complete?'VIEW EVENT RESULT':'RETURN TO EVENT',
+      rows,highlightId:res.carId,average:roundCourseAverage(e,res),buttonLabel:complete?'FINAL STANDINGS':'CONTINUE EVENT',buttonSub:complete?'VIEW EVENT RESULT':'RETURN TO EVENT',
       buttonAction:complete?`rhEventCompleteTransition('${e.id}')`:`rhOpenEvent('${e.id}')`
     });
   };

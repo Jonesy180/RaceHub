@@ -1,5 +1,6 @@
-## Current build: v8.0.42
-Custom Swiss race flow with corrected updater discovery.
+## Current build: v8.0.55
+Foundation fixes: per-round/course Result Summary averages and scalable Swiss round recommendations/override.
+
 
 
 
