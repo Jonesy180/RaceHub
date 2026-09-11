@@ -1,39 +1,24 @@
-OTG! MAIN v8.0.58 — FH5 DIVERSIFIED FINALS + SWISS FULL PROGRAMME
-
-FH5 FULL PROGRAMME
-- Mexico showcase finales are no longer generically Goliath.
-- PERFORMANCE / flagship mixed fields: The Goliath.
-- SPORTS / GT / classic racing: The Colossus.
-- SALOON / hot hatch / muscle / road-car-heavy fields: The Marathon.
-- Dirt / Rally: The Gauntlet.
-- Cross Country / Offroad / Truck: The Titan.
-- Rally Adventure: Horizon Badlands Goliath.
-- Hot Wheels: Hot Wheels Goliath.
-- Drag: Aerodromo Drag Strip.
-- Exact Class / Type and Era choices follow the companion Full Event Programmes spreadsheet.
-
-GROUPS
-- Existing v8.0.57 Preliminary → Stage 2 → Final automation remains.
-- The final race now follows the diversified event/profile showcase map.
-- Existing active v8.0.57 Groups runs are supported. Automatic untouched final suggestions may update; manual track edits are preserved.
+OTG! MAIN v8.0.60 — FH5 STAGED PROGRAMME PREVIEWS
 
 SWISS
-- Festival Swiss keeps the recommended 3 rounds for 8–64 and 4 rounds for 65+, with Advanced/Custom allowing more.
-- After the Swiss table, each knockout round now receives an FH5 suggested track automatically.
-- Knockout suggestions avoid already-used Swiss/KO tracks where possible.
-- The 2-car Final uses the event/profile showcase finale.
-- Top 4, Top 8 and Top 16 knockout cuts are supported.
-- Every suggested knockout track remains editable before START.
+- Retains the v8.0.59 FULL SWISS PROGRAMME preview before START.
+- Shows configured Swiss-stage tracks and the selected knockout route through the Championship Final.
+- Top 4, Top 8 and Top 16 cuts show the appropriate later rounds.
 
 RACE OFF
-- Intermediate round rotation is unchanged.
-- The 2-car Final now uses the same diversified event/profile showcase map.
+- First-round setup now shows a FULL RACE OFF PROGRAMME before the first draw starts.
+- The preview is calculated from the actual locked entrant count.
+- Non-power-of-two fields show the Preliminary Round first, then the complete knockout path to the Final.
+- Suggested tracks match the existing live Race Off round rotation.
+- The Final uses the same diversified finale logic as v8.0.58: Goliath / Colossus / Marathon by event/profile, plus Gauntlet, Titan and specialist DLC/Drag finales.
+- Every live Race Off track remains editable before REVIEW DRAW.
 
 UNCHANGED
+- Standard remains cumulative total time with no separate finale stage.
+- Groups retains full Preliminary → Stage 2 (when needed) → Final preview/automation.
 - All Cars Festival remains STANDARD • 1 round • Copper Canyon Sprint.
-- The five unverified Cross Country names remain excluded from NEW fallback suggestions pending in-game confirmation.
-- Specialist helper-text phone layout fix from v8.0.57 remains.
-- Intermittent right-side record-rosette shift remains WATCH ONLY; no static record layout change.
+- Five unverified Cross Country names remain excluded from NEW fallback suggestions pending in-game confirmation.
+- Record-rosette shift remains WATCH ONLY.
 - Main only. No rh-guide build. No artwork changes.
 
 DEPLOYMENT
@@ -41,10 +26,10 @@ VS Code:
   code .
 
 PowerShell:
-  Set-Location "<PATH-TO-EXTRACTED-OTG-v8.0.58>"
+  Set-Location "<PATH-TO-EXTRACTED-OTG-v8.0.60>"
   code .
 
 GitHub:
   git add .
-  git commit -m "OTG! v8.0.58 FH5 diversified finals and Swiss full programme"
+  git commit -m "OTG! v8.0.60 Swiss and Race Off full programme previews"
   git push origin main

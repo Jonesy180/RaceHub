@@ -1,3 +1,11 @@
+## v8.0.59 — Swiss Full Programme Preview
+- Festival Swiss setup now shows the complete suggested programme before START, matching the Groups preview model.
+- The card shows the configured Swiss-stage tracks followed by the selected knockout path (Round of 16 / Quarter-Final / Semi-Final as applicable) and Final.
+- Preview suggestions use the same v8.0.58 live knockout-track logic, including diversified Goliath / Colossus / Marathon and specialist finales.
+- Changing the Swiss knockout cut or editing configured Swiss tracks refreshes the preview.
+- Live knockout suggestions remain editable when each round is reached; Standard and Groups behaviour is unchanged.
+- Main only. Locked artwork unchanged.
+
 ## v8.0.56 — FH5 Festival / Race Off Rebuild
 - FH5 Championship presets now load suggested format and rounds automatically from the final multi-tab race-setups library.
 - Existing Festival families retained: All Cars, Favourite Manufacturer, Vintage & Classic, Era, Class / Type and Manufacturer.
@@ -873,3 +881,9 @@ Completed the FH5 Groups preset system beyond Stage 1. OTG! now auto-suggests fr
 ## v8.0.58
 FH5 diversified showcase finales and full Swiss knockout track suggestions. Groups and Race Off share the same event/profile finale logic. Main only; locked artwork unchanged.
 
+
+## v8.0.59
+FH5 Festival Swiss setup gained a full pre-START programme preview showing the configured Swiss stage plus the selected knockout path through the diversified Final.
+
+## v8.0.60
+Completed staged-programme visibility by adding a full Race Off route preview on first-round setup. The preview derives Preliminary/knockout stages from the locked entrant count and mirrors the existing live track suggestions through the diversified Final. Swiss v8.0.59 preview retained. Main only; no artwork changes.

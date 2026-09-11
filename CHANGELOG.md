@@ -1,3 +1,11 @@
+## v8.0.59 — Swiss Full Programme Preview
+- Festival Swiss setup now shows the complete suggested programme before START, matching the Groups preview model.
+- The card shows the configured Swiss-stage tracks followed by the selected knockout path (Round of 16 / Quarter-Final / Semi-Final as applicable) and Final.
+- Preview suggestions use the same v8.0.58 live knockout-track logic, including diversified Goliath / Colossus / Marathon and specialist finales.
+- Changing the Swiss knockout cut or editing configured Swiss tracks refreshes the preview.
+- Live knockout suggestions remain editable when each round is reached; Standard and Groups behaviour is unchanged.
+- Main only. Locked artwork unchanged.
+
 ## v8.0.56 — FH5 Festival / Race Off Rebuild
 - FH5 Championship presets now load suggested format and rounds automatically from the final multi-tab race-setups library.
 - Existing Festival families retained: All Cars, Favourite Manufacturer, Vintage & Classic, Era, Class / Type and Manufacturer.
@@ -224,3 +232,14 @@
 - Race Off final pairing uses the same diversified showcase map.
 - No artwork changes; record-rosette issue remains watch-only.
 
+
+## v8.0.59 — FH5 Swiss Full Programme Preview
+- Festival Swiss setup now shows its complete configured Swiss stage and selected knockout route through the Final before START.
+- Preview uses the same live v8.0.58 knockout track suggestions and remains editable at each live stage.
+
+## v8.0.60 — FH5 Staged Programme Previews
+- Race Off first-round setup now shows a FULL RACE OFF PROGRAMME before the first draw starts.
+- Route is calculated from the actual locked entrant count, including Preliminary Round when required and every knockout stage through the Final.
+- Race Off preview uses the same live round track rotation and diversified Final logic already used during the tournament.
+- Swiss full-programme preview from v8.0.59 retained unchanged.
+- No bracket, draw, result, record, Standard, or Groups logic changes. Main only; locked artwork unchanged.
