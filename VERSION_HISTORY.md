@@ -867,3 +867,9 @@ A–Z Saved Setups, fixed the Round 2+ Smart Bar ghost-tap and repaired Saved Ra
 ## v8.0.52 — Swiss trophy + round Result Summary
 - Replaced the plain Festival Swiss CHAMPION DECIDED card with the locked final trophy/standings presentation.
 - Corrected Standard Result Summary classification to use individual current-Round times and gaps rather than final/cumulative Championship totals.
+
+## v8.0.57 — FH5 Groups Full Programme
+Completed the FH5 Groups preset system beyond Stage 1. OTG! now auto-suggests fresh Stage 2 tracks when required and a three-race Final ending on the appropriate discipline showcase. Suggestions remain editable and active v8.0.56 Groups runs are supported. Also polished the specialist helper text layout; no artwork changes.
+## v8.0.58
+FH5 diversified showcase finales and full Swiss knockout track suggestions. Groups and Race Off share the same event/profile finale logic. Main only; locked artwork unchanged.
+

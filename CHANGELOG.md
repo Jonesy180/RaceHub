@@ -206,3 +206,21 @@
 - Custom Swiss BYE display now reads AUTOMATIC WIN instead of +1 W. Swiss scoring and pairing logic unchanged.
 
 - v8.0.44 — Custom Swiss BYE card layout polished: AUTOMATIC WIN now displays on its own line above the car name. Swiss logic unchanged.
+
+## v8.0.57 — FH5 Groups Full Programme
+- FH5 Groups presets now continue automatically from Preliminary through any required Stage 2 to the Final.
+- Stage 2 uses three fresh discipline-appropriate suggested tracks wherever possible.
+- Finals use three suggested races and end on the appropriate showcase finale: Goliath, Gauntlet, Titan, Horizon Badlands Goliath, Hot Wheels Goliath, or Aerodromo Drag Strip.
+- Later-stage suggestions remain editable and never overwrite a manually edited pending stage setup.
+- Existing active v8.0.56 FH5 Groups runs can receive the new continuation suggestions without restarting.
+- The five unverified Cross Country names identified by Race Finder Mk II are excluded from newly generated later-stage fallback suggestions pending in-game verification.
+- Specialist Festival/Race Off helper text phone layout polished.
+- Record-celebration right-rosette issue remains watch-only; no static layout change.
+- Main only; no artwork changes.
+## v8.0.58 — FH5 diversified finals + Swiss full programme
+- Mexico showcase finals now select Goliath, Colossus or Marathon by event/profile rather than defaulting all road-ish events to Goliath.
+- Groups final suggestions use the diversified showcase map while preserving manual edits and active v8.0.57 runs.
+- Festival Swiss knockout rounds now auto-suggest editable FH5 tracks through Top 16 / Top 8 / Top 4 brackets and the Final.
+- Race Off final pairing uses the same diversified showcase map.
+- No artwork changes; record-rosette issue remains watch-only.
+

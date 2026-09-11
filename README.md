@@ -1,11 +1,11 @@
-## Current build: v8.0.56
-FH5 Festival / Race Off rebuild from the final multi-tab race-setups library.
+## Current build: v8.0.58
+FH5 diversified finales + Swiss full-programme continuation.
 
-- Existing Festival categories receive suggested programmes.
-- Adds Rally Adventure, Hot Wheels and Drag Racing specialist families.
-- Format defaults: 2–16 Standard, 17–64 Groups, 65+ Swiss.
-- All Cars Festival: Standard / 1 round / Copper Canyon Sprint.
-- Race Off receives matching suggested tracks; normal suggestions remain editable.
+- Mexico road-focused showcase finals now use Goliath, Colossus or Marathon according to the event/profile.
+- Groups keeps the full Preliminary → Stage 2 → Final automation from v8.0.57 with the diversified final race.
+- Festival Swiss knockout rounds now receive editable FH5 track suggestions through the Final.
+- Race Off finals use the same diversified finale map.
+- Standard programmes and the All Cars Festival special remain unchanged.
 - Main only; locked artwork unchanged.
 
-See `README.txt` and `OTG-v8.0.56-FH5-FESTIVAL-RACEOFF-REBUILD.txt` for deployment/GitHub lines.
+See `README.txt` for deployment/GitHub lines.
