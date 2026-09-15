@@ -1,3 +1,14 @@
+## v8.0.62 — Consolidated Reliability + Lonely Hearts
+- Repaired the update delivery chain so the v8.0.61 → v8.0.62 transition is gated by the UPDATE AVAILABLE / Safety Backup flow instead of silently advancing when new page files arrive first. `version.json`, `update-manifest.json`, the bootstrap and service worker are aligned to v8.0.62.
+- Safety Backups now protect the complete current Space payload, including active Race Offs, Race Setups and other Space data that the older snapshot omitted. A recent incomplete Safety Backup can be repaired on first v8.0.62 load.
+- Restored the Danger Zone / Abandon action to Festival Swiss and Custom Racing Swiss, including Swiss knockout continuation screens. Existing completed results, PBs and records keep their Abandoned provenance.
+- Fixed Championship cards containing apostrophes or other special characters, including `Pickups & 4x4's Championship`, by replacing the fragile inline setup handler with a safe delegated handler.
+- Repairs duplicate Hennessey manufacturer variants in live Space data to one canonical Hennessey manufacturer without changing backups or the protected catalogue.
+- Added LONELY HEARTS to Festival and Race Off. Eligibility is exactly one owned car per manufacturer, evaluated live before a new run and frozen when the run starts. Festival uses the normal Standard / Groups / Swiss entrant thresholds; Race Off uses knockout.
+- Completed Race Off champions now appear in Hall of Fame with the Race Off presentation and aggregate winning time. Existing Festival Hall of Fame entries are unchanged.
+- Race Off landing now lists every active/in-progress tournament with its own Continue action, so parked tournaments can be interleaved and resumed safely.
+- Main only; rh-guide remains v8.0.17 and is untouched.
+
 ## v8.0.61 — Result Summary + Record Celebration Reliability
 - Fixed the Result Summary regression that mixed times from different rounds/courses into the displayed average.
 - Average comparison is now scoped to the current Championship/Event and the current round/course only, with matching count/copy.
