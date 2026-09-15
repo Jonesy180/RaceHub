@@ -906,3 +906,6 @@ FH5 Festival Swiss setup gained a full pre-START programme preview showing the c
 
 ## v8.0.60
 Completed staged-programme visibility by adding a full Race Off route preview on first-round setup. The preview derives Preliminary/knockout stages from the locked entrant count and mirrors the existing live track suggestions through the diversified Final. Swiss v8.0.59 preview retained. Main only; no artwork changes.
+
+## v8.0.63 — Live QA polish
+Festival Lonely Hearts phone layout polished; Hennessy typo merged into Hennessey; Race Off Festival/Favourite ordering guarded. Main only.

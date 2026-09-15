@@ -262,3 +262,9 @@
 - Race Off preview uses the same live round track rotation and diversified Final logic already used during the tournament.
 - Swiss full-programme preview from v8.0.59 retained unchanged.
 - No bracket, draw, result, record, Standard, or Groups logic changes. Main only; locked artwork unchanged.
+
+## v8.0.63 — Live QA polish
+- Festival Lonely Hearts intro now matches the clean Race Off presentation and no longer crushes explanatory copy on phones.
+- Canonicalises the misspelled `Hennessy` manufacturer into `Hennessey`, merging the two live manufacturer cards without losing cars/progress.
+- Guards Race Off catalogue ordering so Festival remains before Favourite Manufacturer.
+- Main only; cumulative over v8.0.62. No reset required.
