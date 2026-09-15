@@ -909,3 +909,6 @@ Completed staged-programme visibility by adding a full Race Off route preview on
 
 ## v8.0.63 — Live QA polish
 Festival Lonely Hearts phone layout polished; Hennessy typo merged into Hennessey; Race Off Festival/Favourite ordering guarded. Main only.
+
+## 8.0.64
+Race Off landing presentation aligned with Festival. Active tournaments no longer move into a duplicate Continue section; their catalogue cards become resumable IN PROGRESS cards in place, while preserving the v8.0.62 multi-active capability.

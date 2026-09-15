@@ -1,8 +1,5 @@
-## Current build: v8.0.63
-Live QA polish on top of the v8.0.62 consolidated reliability release.
+# OTG! Main v8.0.64
 
-- Festival Lonely Hearts presentation now mirrors the clean Race Off layout.
-- `Hennessy` is canonicalised into the correct `Hennessey` manufacturer, preserving cars/progress and removing the duplicate card.
-- Race Off catalogue order is guarded so Festival stays before Favourite Manufacturer.
-- All v8.0.62 fixes/features remain cumulative: update/Safety Backup gate, full Space Safety Backup, Swiss Abandon, special-character cards, Lonely Hearts, Race Off HOF, and multiple active Race Offs.
-- Main only; rh-guide remains v8.0.17. No reset required.
+Focused Race Off live-QA fix. Active Race Off tournaments now remain in their natural catalogue sections and display **IN PROGRESS** on their own cards, matching Festival, while preserving multiple simultaneous active tournaments.
+
+No reset required. rh-guide is unchanged.

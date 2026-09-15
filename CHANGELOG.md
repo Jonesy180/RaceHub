@@ -268,3 +268,9 @@
 - Canonicalises the misspelled `Hennessy` manufacturer into `Hennessey`, merging the two live manufacturer cards without losing cars/progress.
 - Guards Race Off catalogue ordering so Festival remains before Favourite Manufacturer.
 - Main only; cumulative over v8.0.62. No reset required.
+
+## v8.0.64 — Race Off in-progress cards
+- Replaced the temporary top-level **CONTINUE RACE OFF** bucket with Festival-style in-place status cards.
+- Active/setup Race Offs now remain in their natural Festival / Favourite / Vintage / Era / Class-Type / Manufacturer / specialist sections.
+- Each active card shows **IN PROGRESS** plus its current bracket/setup status and resumes that exact tournament.
+- Multiple active tournaments remain independently resumable, including duplicate active runs from one catalogue category.
