@@ -1,3 +1,11 @@
+## v8.0.61 — Result Summary + Record Celebration Reliability
+- Fixed the Result Summary regression that mixed times from different rounds/courses into the displayed average.
+- Average comparison is now scoped to the current Championship/Event and the current round/course only, with matching count/copy.
+- Fixed the intermittent top-right record-celebration artifact by strengthening the shared mask that hides the baked-in All-Time rosette/text when no All-Time record was earned.
+- The record visual fix is shared by Festival, Custom Racing and Race Off record screens.
+- Record calculations, FH5 setup/programme logic, progression, Garage/catalogue data and backups are unchanged.
+- Main only; rh-guide remains untouched.
+
 ## v8.0.59 — Swiss Full Programme Preview
 - Festival Swiss setup now shows the complete suggested programme before START, matching the Groups preview model.
 - The card shows the configured Swiss-stage tracks followed by the selected knockout path (Round of 16 / Quarter-Final / Semi-Final as applicable) and Final.

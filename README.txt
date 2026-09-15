@@ -1,35 +1,31 @@
-OTG! MAIN v8.0.60 — FH5 STAGED PROGRAMME PREVIEWS
+OTG! MAIN v8.0.61 — RESULT SUMMARY + RECORD CELEBRATION RELIABILITY
 
-SWISS
-- Retains the v8.0.59 FULL SWISS PROGRAMME preview before START.
-- Shows configured Swiss-stage tracks and the selected knockout route through the Championship Final.
-- Top 4, Top 8 and Top 16 cuts show the appropriate later rounds.
+RESULT SUMMARY AVERAGE
+- Fixes the regression where the active race-end path was still averaging every previous result in the Championship/Event.
+- The comparison now uses only prior results from the same Championship/Event and the same round/course.
+- Example: on the second car at Gran Pantano Sprint, only the first Gran Pantano result contributes to the average; the other two courses do not.
+- Copy now reads ROUND / COURSE AVERAGE and reports the number of prior results on that round.
 
-RACE OFF
-- First-round setup now shows a FULL RACE OFF PROGRAMME before the first draw starts.
-- The preview is calculated from the actual locked entrant count.
-- Non-power-of-two fields show the Preliminary Round first, then the complete knockout path to the Final.
-- Suggested tracks match the existing live Race Off round rotation.
-- The Final uses the same diversified finale logic as v8.0.58: Goliath / Colossus / Marathon by event/profile, plus Gauntlet, Titan and specialist DLC/Drag finales.
-- Every live Race Off track remains editable before REVIEW DRAW.
+RECORD CELEBRATION
+- Fixes the intermittent top-right gold-record image/text artifact seen when only the local Championship/Event/Race Off record was earned.
+- The approved record hero artwork is unchanged. The shared CSS mask now fully covers the baked-in All-Time rosette/text when it should be hidden.
+- Because all record flows use the same mask class, the fix applies across Festival, Custom Racing and Race Off.
+- Record calculations are unchanged.
 
 UNCHANGED
-- Standard remains cumulative total time with no separate finale stage.
-- Groups retains full Preliminary → Stage 2 (when needed) → Final preview/automation.
-- All Cars Festival remains STANDARD • 1 round • Copper Canyon Sprint.
-- Five unverified Cross Country names remain excluded from NEW fallback suggestions pending in-game confirmation.
-- Record-rosette shift remains WATCH ONLY.
-- Main only. No rh-guide build. No artwork changes.
+- FH5 Standard / Groups / Swiss / Race Off setup and programme preview logic.
+- Existing race results, records, Garage/catalogue, Spaces, backups and settings.
+- Main only. rh-guide remains v8.0.17 and is not rebuilt during Main development.
 
 DEPLOYMENT
 VS Code:
   code .
 
 PowerShell:
-  Set-Location "<PATH-TO-EXTRACTED-OTG-v8.0.60>"
+  Set-Location "<PATH-TO-EXTRACTED-OTG-v8.0.61>"
   code .
 
 GitHub:
   git add .
-  git commit -m "OTG! v8.0.60 Swiss and Race Off full programme previews"
+  git commit -m "OTG! v8.0.61 result average and record celebration fixes"
   git push origin main
