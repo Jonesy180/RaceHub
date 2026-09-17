@@ -915,3 +915,5 @@ Race Off landing presentation aligned with Festival. Active tournaments no longe
 
 ## v8.0.65
 Dedicated Festival/Race Off History screens and top-area History tiles; canonical Pickups & 4x4 taxonomy; Race Off catalogue parity; Drag removed from Race Off and rebuilt as a Festival-only single-run fastest-time shootout with speed-appropriate strip assignment.
+
+- v8.0.65 R2: hardened the update Safety Backup gate for large Spaces using verified IndexedDB-backed snapshots; added an in-place v8.0.64 updater hotfix path and delayed v8.0.65 data migrations until update acceptance.

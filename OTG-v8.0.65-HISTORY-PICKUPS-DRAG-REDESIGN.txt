@@ -30,6 +30,13 @@ MAIN ONLY — rh-guide remains unchanged.
 - Format/round editing is locked for Drag Shootouts.
 - Existing prepared/active Drag Championships with zero results are safely migrated in place to the new one-run format. Existing Drag runs that already contain results are left untouched.
 
+5) SAFETY BACKUP GATE HARDENING — REVISION 2
+- The failed v8.0.64 -> v8.0.65 live update exposed a scaling weakness in the old updater: full Safety Backups for every Space were duplicated inside localStorage before install.
+- Update Safety Backups now store their full verified payload in IndexedDB and keep only a tiny verified pointer in normal OTG! state. This avoids doubling a large Garage / frozen-event dataset inside localStorage.
+- Safety restore understands the IndexedDB-backed protected backup.
+- The v8.0.64 service worker is included as a same-version updater hotfix so an installed v8.0.64 can receive the repaired Safety gate before attempting v8.0.65 again.
+- v8.0.65 data migrations are held until the update has actually been accepted, so the direct-new-index fallback cannot normalise live data before the Safety Backup gate.
+
 QA BEFORE PACKAGE
 - Changed JavaScript syntax checked with Node.
 - Pickups alias repair and Drag run migration exercised in a VM test.

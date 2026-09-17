@@ -284,3 +284,5 @@
 - Festival Drag is now a one-round, one-run-per-car shootout; fastest overall time wins.
 - Drag strip assignment is performance-aware: Teotihuacan (slow), Festival (middle), Aerodromo (fast).
 - Zero-result prepared/active legacy Drag Championships are migrated in place; runs with existing results are not rewritten.
+
+- v8.0.65 R2: hardened the update Safety Backup gate for large Spaces using verified IndexedDB-backed snapshots; added an in-place v8.0.64 updater hotfix path and delayed v8.0.65 data migrations until update acceptance.

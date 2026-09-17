@@ -13,11 +13,14 @@ const pickupKey=v=>String(v??'').normalize('NFKD').toLowerCase().replace(/[^a-z0
 const isPickups=v=>pickupKey(v)==='pickups4x4';
 const carId=c=>String(c?.sourceCarId||c?.id||'');
 const currentSpace=()=>{try{return typeof rhSpace==='function'?rhSpace():null}catch(_){return null}};
+const versionCmp8065=(a,b)=>{const A=String(a||'').split('.').map(Number),B=String(b||'').split('.').map(Number);for(let i=0;i<Math.max(A.length,B.length);i++){const d=(A[i]||0)-(B[i]||0);if(d)return d}return 0};
+const migrationsAllowed8065=()=>{try{const accepted=localStorage.getItem('otgUpdateAcceptedVersion');return !accepted||versionCmp8065(accepted,'8.0.65')>=0}catch(_){return true}};
 const carById=id=>(currentSpace()?.cars||[]).find(c=>String(c.id)===String(id));
 const carText=id=>{const c=carById(id);if(!c)return 'Unknown car';try{return typeof carName==='function'?carName(c):[c.make,c.model,c.year].filter(Boolean).join(' ')}catch(_){return [c.make,c.model,c.year].filter(Boolean).join(' ')}};
 
 /* ---------- Pickups & 4x4 canonicalisation ---------- */
 function repairPickups8065(){
+ if(!migrationsAllowed8065())return false;
  let changed=false;
  try{
   if(typeof state==='undefined'||!Array.isArray(state?.spaces))return false;
@@ -66,6 +69,7 @@ const dragKey=v=>String(v??'').normalize('NFKD').toLowerCase().replace(/[^a-z0-9
 function dragStrip8065(value){const k=dragKey(value);for(const [name,track] of Object.entries(DRAG_STRIPS))if(dragKey(name)===k)return track;return 'Festival Drag Strip'}
 function isDragSetup8065(){return typeof rhSetup!=='undefined'&&rhSetup?.type==='fh5-drag'}
 function repairDragRuns8065(){
+ if(!migrationsAllowed8065())return false;
  let changed=false;
  try{
   if(typeof state==='undefined'||!Array.isArray(state?.spaces))return false;
@@ -169,6 +173,23 @@ const baseFestivalRender8065=window.rhRenderFestival;
 if(typeof baseFestivalRender8065==='function')window.rhRenderFestival=function(){repairPickups8065();repairDragRuns8065();const out=baseFestivalRender8065.apply(this,arguments);addFestivalHistoryTile8065();return out};
 const baseRaceOffRender8065=window.rhRenderRaceOff;
 if(typeof baseRaceOffRender8065==='function')window.rhRenderRaceOff=function(){repairPickups8065();const out=baseRaceOffRender8065.apply(this,arguments);cleanRaceOff8065();return out};
+
+/* ---------- IndexedDB Safety Backup restore bridge ---------- */
+const baseRestoreFinal8065=window.rhRestoreFinal;
+if(!window.rhIndexedSafetyRestoreBridgeV8065&&typeof baseRestoreFinal8065==='function')window.rhRestoreFinal=async function(id){
+ if(String(id)!=='SAFETY')return baseRestoreFinal8065.apply(this,arguments);
+ const s=currentSpace(),stub=s?.safetyBackup;
+ if(!stub||stub.storage!=='indexeddb')return baseRestoreFinal8065.apply(this,arguments);
+ try{
+  const rec=await window.rhReadIndexedSafetyBackupV8065?.(String(s.id));
+  const b=rec?.backup;
+  if(!b||b.id!==stub.id||b.type!=='safety'||(stub.digest&&window.rhSafetyDigestV8013?.(b)!==stub.digest)){if(typeof toast==='function')toast('Safety Backup could not be verified');return}
+  const manual=s.backups||[],safety=s.safetyBackup||null;
+  Object.assign(s,typeof rhClone==='function'?rhClone(b.data):JSON.parse(JSON.stringify(b.data)));
+  s.backups=manual;s.safetyBackup=safety;rhSave();
+  if(typeof toast==='function')toast('Backup restored');window.rhRenderSettings?.();
+ }catch(err){console.warn('OTG! indexed Safety Backup restore failed',err);if(typeof toast==='function')toast('Safety Backup restore failed')}
+};
 
 window.rhRepairPickupsV8065=repairPickups8065;
 window.rhDragStripV8065=dragStrip8065;

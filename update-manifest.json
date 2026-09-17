@@ -1,1 +1,1 @@
-{"version":"8.0.65","worker":"./otg-service-worker-v8065.js","message":"History is now a dedicated screen for Festival and Race Off; Pickups & 4x4 is normalised; Drag is removed from Race Off and Festival Drag becomes a one-run fastest-time shootout."}
+{"version":"8.0.65","worker":"./otg-service-worker-v8065.js","message":"Safety Backup storage is hardened for large OTG! Spaces; History is now dedicated for Festival/Race Off; Pickups & 4x4 is normalised; Drag is Festival-only as a one-run fastest-time shootout."}
