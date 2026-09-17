@@ -912,3 +912,6 @@ Festival Lonely Hearts phone layout polished; Hennessy typo merged into Hennesse
 
 ## 8.0.64
 Race Off landing presentation aligned with Festival. Active tournaments no longer move into a duplicate Continue section; their catalogue cards become resumable IN PROGRESS cards in place, while preserving the v8.0.62 multi-active capability.
+
+## v8.0.65
+Dedicated Festival/Race Off History screens and top-area History tiles; canonical Pickups & 4x4 taxonomy; Race Off catalogue parity; Drag removed from Race Off and rebuilt as a Festival-only single-run fastest-time shootout with speed-appropriate strip assignment.

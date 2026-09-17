@@ -1,1 +1,1 @@
-{"version":"8.0.64","worker":"./otg-service-worker-v8064.js","message":"Race Off in-progress presentation now mirrors Festival: active tournaments stay in their normal catalogue sections and resume directly from their own IN PROGRESS cards."}
+{"version":"8.0.65","worker":"./otg-service-worker-v8065.js","message":"History is now a dedicated screen for Festival and Race Off; Pickups & 4x4 is normalised; Drag is removed from Race Off and Festival Drag becomes a one-run fastest-time shootout."}

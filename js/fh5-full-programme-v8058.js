@@ -12,10 +12,10 @@ const SUSPECT=new Set([
 ]);
 const ROAD_CLASSES=['Classic Muscle','Classic Racers','Classic Sports Cars','Cult Cars','Drift Cars','Extreme Track Toys','GT Cars','Hot Hatch','Hypercars','Modern Muscle','Modern Sports Cars','Modern Supercars','Rare Classics','Retro Hot Hatch','Retro Muscle','Retro Saloons','Retro Sports Cars','Retro Super Cars','Rods & Customs','Sports Utility Heroes','Super GT','Super Hot Hatch','Super Saloons','Track Toys','Vans & Utility','Vintage Racers'];
 const DIRT_CLASSES=['Buggies','Unlimited Buggies','UTVs'];
-const CROSS_CLASSES=['Offroad','Unlimited Offroad','Pickups & 4x4s','Trucks'];
+const CROSS_CLASSES=['Offroad','Unlimited Offroad','Pickups & 4x4','Trucks'];
 const RALLY_CLASSES=['Classic Rally','Retro Rally','Modern Rally','Rally Monsters'];
 const HW_SPEED_CLASSES=['Extreme Track Toys','Hypercars','Modern Supercars','Track Toys','Super GT','Retro Super Cars'];
-const HW_HAZARD_CLASSES=['Unlimited Offroad','Offroad','Pickups & 4x4s','Unlimited Buggies','UTVs'];
+const HW_HAZARD_CLASSES=['Unlimited Offroad','Offroad','Pickups & 4x4','Unlimited Buggies','UTVs'];
 const DRAG_TRACKS=['Teotihuacan Drag Strip','Festival Drag Strip','Aerodromo Drag Strip'];
 const ROAD_FINALES={
   'Classic Muscle':'The Marathon','Classic Racers':'The Colossus','Classic Sports Cars':'The Colossus',

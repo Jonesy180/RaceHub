@@ -274,3 +274,13 @@
 - Active/setup Race Offs now remain in their natural Festival / Favourite / Vintage / Era / Class-Type / Manufacturer / specialist sections.
 - Each active card shows **IN PROGRESS** plus its current bracket/setup status and resumes that exact tournament.
 - Multiple active tournaments remain independently resumable, including duplicate active runs from one catalogue category.
+
+## v8.0.65 — History, Pickups normalisation & Drag redesign
+- Canonicalised FH5 `Pickups & 4x4`, merging apostrophe/plural aliases in live data and source catalogue/programme tables.
+- Replaced the long Race Off History block with dedicated History screens reached from compact hero tiles on both Festival and Race Off.
+- History cards include completion date, entrants, champion/winner and timing metadata, with tap-through to the completed run/tournament.
+- Race Off top ordering now mirrors Festival: OTG! / Favourite / Lonely Hearts before the rest of the catalogue.
+- Removed Drag specialist events from Race Off.
+- Festival Drag is now a one-round, one-run-per-car shootout; fastest overall time wins.
+- Drag strip assignment is performance-aware: Teotihuacan (slow), Festival (middle), Aerodromo (fast).
+- Zero-result prepared/active legacy Drag Championships are migrated in place; runs with existing results are not rewritten.
