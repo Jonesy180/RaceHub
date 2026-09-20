@@ -1,3 +1,9 @@
+## 8.0.66 — Live QA fixes
+- Car History: guaranteed visible Back control.
+- Reset Racing Data: now clears Race Off data, fixing surviving Hall of Fame/record entries after reset.
+- Festival: guarded Championship opener prevents a malformed saved run becoming an untappable card; data-preserving recovery screen added.
+- No FH5 rules/catalogue changes; rh-guide remains frozen at v8.0.17 PASS.
+
 ## v8.0.62 — Consolidated Reliability + Lonely Hearts
 - Repaired the update delivery chain so the v8.0.61 → v8.0.62 transition is gated by the UPDATE AVAILABLE / Safety Backup flow instead of silently advancing when new page files arrive first. `version.json`, `update-manifest.json`, the bootstrap and service worker are aligned to v8.0.62.
 - Safety Backups now protect the complete current Space payload, including active Race Offs, Race Setups and other Space data that the older snapshot omitted. A recent incomplete Safety Backup can be repaired on first v8.0.62 load.

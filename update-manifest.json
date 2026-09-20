@@ -1,1 +1,1 @@
-{"version":"8.0.65","worker":"./otg-service-worker-v8065.js","message":"Safety Backup storage is hardened for large OTG! Spaces; History is now dedicated for Festival/Race Off; Pickups & 4x4 is normalised; Drag is Festival-only as a one-run fastest-time shootout."}
+{"version":"8.0.66","worker":"./otg-service-worker-v8066.js","message":"Live QA repair: Car History has a guaranteed Back control; Reset Racing Data now clears Race Off history/records too; Championship cards use a guarded opener so one malformed saved run cannot become untappable."}
