@@ -1,3 +1,12 @@
+## 8.0.68 — FH5 Festival track randomiser
+- Added a one-at-a-time RANDOM TRACK button to each editable FH5 Festival race slot.
+- Event race category automatically selects the eligible pool: Road/Street, Off-road, Rally Adventure, Hot Wheels or Mixed.
+- Random picks avoid duplicates inside the current race set and prefer tracks not used in recent Festival runs.
+- Groups later-stage setup is supported too. In the Final, the last slot uses the protected finale pool; single-finale categories stay locked.
+- Drag keeps its existing assigned-strip logic and fixed/special programmes remain untouched.
+- Existing suggested programmes remain available and editable; randomising is optional.
+- No rh-guide changes.
+
 ## 8.0.66 — Live QA fixes
 - Car History: guaranteed visible Back control.
 - Reset Racing Data: now clears Race Off data, fixing surviving Hall of Fame/record entries after reset.
