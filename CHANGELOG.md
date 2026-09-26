@@ -1,3 +1,11 @@
+## 8.0.67 — FH5 track taxonomy foundation
+- Added explicit FH5 Festival race categories without changing any existing race setup.
+- Added canonical Road/Street, Off-road (Dirt + Cross Country), Rally Adventure, Hot Wheels and Drag track pools.
+- Added finale pools: Road (Goliath / Colossus / Marathon), Off-road (Titan / Gauntlet), Rally Adventure (Horizon Badlands Goliath), Hot Wheels (Hot Wheels Goliath). The Gauntlet is tagged as an optional future Road finale wildcard.
+- Added setup-screen category/coverage badge for QA.
+- No random track picker yet; this build is the category foundation only.
+- rh-guide unchanged.
+
 ## 8.0.66 — Live QA fixes
 - Car History: guaranteed visible Back control.
 - Reset Racing Data: now clears Race Off data, fixing surviving Hall of Fame/record entries after reset.
