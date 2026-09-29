@@ -1,3 +1,6 @@
+
+## 8.0.70
+FH5 full track cleanup: complete permanent Road pool (excluding Winter Wonderland), persistent Festival shuffle bags, independent Race Off shuffle bags with unique auto-routes, protected finales, and refreshed Festival defaults.
 ## 8.0.69 — FH5 Festival RANDOMISE ALL
 - Added RANDOMISE ALL above the current FH5 Festival race programme.
 - Rolls every editable race slot in the current setup/stage in one hit using the same category-safe pools as the individual picker.

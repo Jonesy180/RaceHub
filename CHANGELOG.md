@@ -1,3 +1,10 @@
+
+## v8.0.70 — FH5 full track cleanup
+- Added 10 permanent Mexico Road routes to the OTG! taxonomy; Winter Wonderland Circuit is deliberately excluded.
+- Catalogued Rally Adventure Ambassador races as protected SPECIAL tracks.
+- Festival RANDOM TRACK / RANDOMISE ALL now use persistent per-category shuffle bags: a track is only consumed when START freezes the event/stage, and the bag refills only after every track has been used.
+- Race Off now auto-plans a unique track for every non-final bracket stage from its own independent shuffle bags; showcase finales remain protected.
+- Fresh Festival default programmes are diversified across the expanded track catalogue.
 ## 8.0.69 — FH5 Festival RANDOMISE ALL
 - Added RANDOMISE ALL above the current FH5 Festival race programme.
 - Rolls every editable race slot in the current setup/stage in one hit using the same category-safe pools as the individual picker.

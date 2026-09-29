@@ -1,17 +1,18 @@
-OTG! MAIN v8.0.65 — HISTORY / PICKUPS / DRAG REDESIGN
+OTG! MAIN v8.0.70 — FH5 FULL TRACK CLEANUP
 
-- Canonical FH5 Class / Type: Pickups & 4x4. Legacy apostrophe/plural aliases merge automatically.
-- Festival and Race Off now use dedicated HISTORY screens opened from compact hero tiles.
-- Race Off catalogue order aligns with Festival.
-- Drag specialist events are removed from Race Off.
-- Festival Drag is one round, one run per car, fastest overall wins.
-- Drag strip assignment: Teotihuacan = slower groups; Festival = middle groups; Aerodromo = fastest groups.
-- Existing zero-result active/prepared Festival Drag runs migrate safely to the new one-run format.
-- Existing completed Drag Race Off history remains available.
+- 53 Road / Street random-pool tracks, including the permanent post-launch Road routes.
+- 38 Off-road, 24 Rally Adventure and 17 Hot Wheels random-pool tracks.
+- Winter Wonderland Circuit deliberately excluded.
+- Festival RANDOM TRACK / RANDOMISE ALL upgraded to persistent category shuffle bags.
+- Tracks are consumed only when START freezes the selected event/stage.
+- Race Off auto-plans unique non-final tracks from its own independent shuffle bags.
+- Protected finales remain protected; no Race Off random button added.
+- Fresh Festival default programmes diversified across the expanded taxonomy.
+- Rally Adventure Ambassador races catalogued as SPECIAL / protected.
 
-MAIN ONLY. No reset required. rh-guide remains unchanged.
+MAIN ONLY. rh-guide remains unchanged.
 
 DEPLOYMENT
   git add .
-  git commit -m "OTG v8.0.65 history pickups drag redesign"
+  git commit -m "OTG v8.0.70 FH5 full track cleanup"
   git push origin main
