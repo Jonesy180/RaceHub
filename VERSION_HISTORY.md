@@ -951,3 +951,9 @@ Dedicated Festival/Race Off History screens and top-area History tiles; canonica
 ## v8.0.72 — Track Usage Counters
 Track Directory usage counts are calculated from committed/started FH5 racing data in the current Space. Existing current-restart progress is backfilled automatically; previews and rerolls do not count; Reset Racing Data clears usage by removing the underlying racing history.
 
+
+## v8.0.73 — Track Directory Live-Race Fix
+- Track Directory: always-visible Back control.
+- LOCATION moved from setup/preview to the live current-race screen beside Continue.
+- Track usage counters now count only result-backed track slots; future/generated Festival and Race Off routes no longer count before racing occurs.
+- Main only; rh-guide untouched.
