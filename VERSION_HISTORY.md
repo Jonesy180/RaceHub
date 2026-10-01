@@ -1,3 +1,7 @@
+## 8.0.71
+- FH5 Track Directory in Records + pre-race LOCATION helper.
+- Per-track usage counts are backfilled from already-started FH5 racing data and then update from the same persisted start state; previews/rerolls do not count.
+- No reset required.
 
 ## 8.0.70
 FH5 full track cleanup: complete permanent Road pool (excluding Winter Wonderland), persistent Festival shuffle bags, independent Race Off shuffle bags with unique auto-routes, protected finales, and refreshed Festival defaults.
@@ -944,3 +948,6 @@ Race Off landing presentation aligned with Festival. Active tournaments no longe
 Dedicated Festival/Race Off History screens and top-area History tiles; canonical Pickups & 4x4 taxonomy; Race Off catalogue parity; Drag removed from Race Off and rebuilt as a Festival-only single-run fastest-time shootout with speed-appropriate strip assignment.
 
 - v8.0.65 R2: hardened the update Safety Backup gate for large Spaces using verified IndexedDB-backed snapshots; added an in-place v8.0.64 updater hotfix path and delayed v8.0.65 data migrations until update acceptance.
+## v8.0.72 — Track Usage Counters
+Track Directory usage counts are calculated from committed/started FH5 racing data in the current Space. Existing current-restart progress is backfilled automatically; previews and rerolls do not count; Reset Racing Data clears usage by removing the underlying racing history.
+

@@ -1,3 +1,22 @@
+# OTG! CHANGELOG
+
+## v8.0.72 — Track Usage Counters
+- Track Directory now shows how many committed track slots have used each route in the current FH5 Space.
+- Breakdown shows Festival, Race Off, Pick My Drive and Custom Racing usage where present.
+- Usage is derived from existing started racing data, so the current restart is backfilled automatically on first load.
+- Previewing, RANDOM TRACK / RANDOMISE ALL rerolls and unstarted setups do not count.
+- A track is counted once when its event / stage / Race Off round becomes committed; repeated car runs or pairings on that same committed round do not inflate the counter.
+- Reset Racing Data clears the usage naturally because the counters are derived from racing history rather than stored separately.
+- v8.0.71 Track Directory / LOCATION feature retained; v8.0.70 shuffle bags and Race Off routing unchanged.
+
+## v8.0.71 — FH5 Track Directory
+- Added a searchable FH5 Track Directory to Records.
+- Catalogues 145 usable OTG! routes; Winter Wonderland remains deliberately excluded.
+- Added concise landmark-based location clues and B/P/G/O Mexico map-colour codes.
+- Added LOCATION buttons to Festival setup/stage setup and Race Off setup/review/programme screens.
+- Added per-track usage counters in the directory and LOCATION card, with Festival / Race Off / Pick My Drive / Custom breakdowns.
+- Usage is derived only from started FH5 racing data in the current Space, so existing progress is backfilled automatically; previewing and rerolling do not count.
+- No racing-data reset; v8.0.70 shuffle bags and Race Off routing remain untouched.
 
 ## v8.0.70 — FH5 full track cleanup
 - Added 10 permanent Mexico Road routes to the OTG! taxonomy; Winter Wonderland Circuit is deliberately excluded.
