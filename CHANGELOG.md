@@ -1,3 +1,8 @@
+## v8.0.75 — History + Pick My Drive phone polish
+- Festival and Race Off History are compact top-right header controls level with Back.
+- Pick My Drive round rows use the compact two-line phone layout up to 520 CSS px, eliminating horizontal clipping.
+- Main only; rh-guide untouched.
+
 ## v8.0.74 — Track Directory live-race polish
 - Track Directory phone search field now clears the fixed Back control instead of sitting underneath it.
 - Festival live Championship screen now places LOCATION beside the actual current-race CONTINUE button used by the v7/v8 overview.

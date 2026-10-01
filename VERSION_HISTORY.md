@@ -1,3 +1,8 @@
+## v8.0.75 — History + Pick My Drive phone polish
+- Festival and Race Off History are compact top-right header controls level with Back.
+- Pick My Drive round rows use the compact two-line phone layout up to 520 CSS px, eliminating horizontal clipping.
+- Main only; rh-guide untouched.
+
 ## 8.0.71
 - FH5 Track Directory in Records + pre-race LOCATION helper.
 - Per-track usage counts are backfilled from already-started FH5 racing data and then update from the same persisted start state; previews/rerolls do not count.
