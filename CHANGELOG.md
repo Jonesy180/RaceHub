@@ -1,3 +1,9 @@
+## v8.0.74 — Track Directory live-race polish
+- Track Directory phone search field now clears the fixed Back control instead of sitting underneath it.
+- Festival live Championship screen now places LOCATION beside the actual current-race CONTINUE button used by the v7/v8 overview.
+- Added a DOM fallback so LOCATION is restored even if the Championship screen is rendered through an alternate resume path.
+- Completed-result-only track usage counters from v8.0.73 retained unchanged. Main only; rh-guide untouched.
+
 # OTG! CHANGELOG
 
 ## v8.0.72 — Track Usage Counters
