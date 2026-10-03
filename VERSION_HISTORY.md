@@ -1,3 +1,8 @@
+## v8.0.78 — Evil Campaign BACK visibility fix
+
+- Moved Evil Campaign BACK outside the legacy-hidden `<header>` container.
+- No campaign reshuffle or data changes.
+
 ## v8.0.76 — Andy Evil Campaign foundation
 Embedded the reshuffled 708-slot R2 Evil campaign into Main/FH5 with a new dark-crimson Dashboard tile, clean 0/708 progress, phase list, slot instructions, manual TODO/DONE state, Festival setup/shuffle-bag hand-off and Race Off live-auto-route hand-off. Regular slots 1–639 were reshuffled while multi-visit order and Finals 640–708 were preserved. R2 track-pool metadata is authoritative over conflicting normal presets, and R2 protected Race Off finales are enforced. rh-guide untouched.
 

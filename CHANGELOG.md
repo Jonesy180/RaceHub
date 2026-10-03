@@ -1,3 +1,11 @@
+## v8.0.78 — Evil Campaign BACK control actually visible
+
+- Root cause found: legacy global CSS hides all `<header>` elements with `display:none!important`, so v8.0.77's BACK button was trapped inside an invisible parent.
+- Evil Campaign BACK now renders outside the hidden hero/header as a fixed top-left control.
+- Same standalone BACK behaviour is used on the campaign list and slot-detail screens.
+- Campaign order, progress, racing data and embedded 708-slot manifest are unchanged.
+- rh-guide untouched.
+
 ## v8.0.76 — Andy Evil Campaign foundation
 - Embedded the authoritative 708-slot / 697-car R2 Evil campaign into Main as an Andy/FH5-only campaign module.
 - Controlled reshuffle of regular slots 1–639; multi-visit order preserved; Finals / Final Boss 640–708 preserved exactly.

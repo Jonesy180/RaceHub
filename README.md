@@ -1,4 +1,4 @@
-# OTG! Main v8.0.76
+# OTG! Main v8.0.78
 
 Main-only **Evil Campaign foundation** build.
 
@@ -17,6 +17,6 @@ Reset Racing Data / Full Reset also resets Evil Campaign progress. Garage/catalo
 Deployment:
 ```powershell
 git add .
-git commit -m "OTG v8.0.76 evil campaign foundation"
+git commit -m "OTG v8.0.78 evil campaign back visibility fix"
 git push origin main
 ```
