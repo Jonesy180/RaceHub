@@ -1,6 +1,9 @@
+## v8.0.76 — Andy Evil Campaign foundation
+Embedded the reshuffled 708-slot R2 Evil campaign into Main/FH5 with a new dark-crimson Dashboard tile, clean 0/708 progress, phase list, slot instructions, manual TODO/DONE state, Festival setup/shuffle-bag hand-off and Race Off live-auto-route hand-off. Regular slots 1–639 were reshuffled while multi-visit order and Finals 640–708 were preserved. R2 track-pool metadata is authoritative over conflicting normal presets, and R2 protected Race Off finales are enforced. rh-guide untouched.
+
 ## v8.0.75 — History + Pick My Drive phone polish
 - Festival and Race Off History are compact top-right header controls level with Back.
-- Pick My Drive round rows use the compact two-line phone layout up to 520 CSS px, eliminating horizontal clipping.
+- Pick My Drive round rows received a first phone-layout adjustment, but live QA still found the lower controls malformed; fix remains deferred.
 - Main only; rh-guide untouched.
 
 ## 8.0.71

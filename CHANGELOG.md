@@ -1,6 +1,19 @@
+## v8.0.76 — Andy Evil Campaign foundation
+- Embedded the authoritative 708-slot / 697-car R2 Evil campaign into Main as an Andy/FH5-only campaign module.
+- Controlled reshuffle of regular slots 1–639; multi-visit order preserved; Finals / Final Boss 640–708 preserved exactly.
+- Source opening slots 1–4 are deliberately pushed to new slots 91, 311, 94 and 98 so the fresh start does not immediately replay them again.
+- Dashboard is a two-column x five-row grid in FH5: Festival | Evil Campaign; Race Off | Custom Racing; Garage | Race Setups; Pick My Ride | Records; Stats | Settings.
+- Evil Campaign tile uses dark crimson and shows only campaign progress plus next slot.
+- Campaign screen carries the full shuffled list, current-slot instructions and manual TODO/DONE progress.
+- Supported Festival slots hand off to the existing Festival setup engine and v8.0.70 persistent shuffle bags; supported Race Off slots hand off to the existing live auto-route engine.
+- The embedded R2 track pool is authoritative where it differs from the normal FH5 preset, including Mexico Class/Type Rally staying OFF-ROAD.
+- R2 protected Race Off finales are enforced, including Copper Canyon Sprint for All Cars and The Gauntlet for Mexico Class/Type Rally fields.
+- Reset Racing Data / Full Reset also resets Evil Campaign progress.
+- Main only; rh-guide untouched. Pick My Drive phone-row TODO remains deferred.
+
 ## v8.0.75 — History + Pick My Drive phone polish
 - Festival and Race Off History are compact top-right header controls level with Back.
-- Pick My Drive round rows use the compact two-line phone layout up to 520 CSS px, eliminating horizontal clipping.
+- Pick My Drive round rows received a first phone-layout adjustment; live QA still found the lower controls malformed, so the row remains on the TODO list.
 - Main only; rh-guide untouched.
 
 ## v8.0.74 — Track Directory live-race polish
