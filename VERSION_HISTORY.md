@@ -961,3 +961,5 @@ Track Directory usage counts are calculated from committed/started FH5 racing da
 
 ## v8.0.74 — Track Directory live-race polish
 Back/search overlap fixed on phones; Festival LOCATION now sits beside the current live CONTINUE control, with a DOM-render fallback. Result-backed counters unchanged. Main only; rh-guide untouched.
+
+- v8.0.77: Evil Campaign BACK control made hard-visible on list/detail screens.

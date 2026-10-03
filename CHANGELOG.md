@@ -368,3 +368,6 @@
 - Zero-result prepared/active legacy Drag Championships are migrated in place; runs with existing results are not rewritten.
 
 - v8.0.65 R2: hardened the update Safety Backup gate for large Spaces using verified IndexedDB-backed snapshots; added an in-place v8.0.64 updater hotfix path and delayed v8.0.65 data migrations until update acceptance.
+
+## v8.0.77
+- Evil Campaign BACK control hotfix on campaign list and slot detail screens. Campaign data/progress unchanged.
