@@ -1,1 +1,1 @@
-{"version":"8.0.78","worker":"./otg-service-worker-v8078.js","message":"Evil Campaign BACK control moved outside the globally-hidden header so it is genuinely visible. Campaign order and progress are unchanged. Main only; rh-guide untouched."}
+{"version":"8.0.79","worker":"./otg-service-worker-v8079.js","message":"Evil Campaign Festival setup copy now reflects the active campaign pool, and Reset Racing Data reliably clears FH5 persistent shuffle bags. A clean 0/708 campaign also self-heals stale pre-reset bag state. Main only; rh-guide untouched."}

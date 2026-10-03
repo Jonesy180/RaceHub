@@ -1,3 +1,6 @@
+## v8.0.79
+Evil Festival setup metadata and persistent shuffle-bag reset hotfix. No campaign reshuffle.
+
 ## v8.0.78 — Evil Campaign BACK visibility fix
 
 - Moved Evil Campaign BACK outside the legacy-hidden `<header>` container.

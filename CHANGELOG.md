@@ -1,3 +1,9 @@
+## v8.0.79 — Evil Festival setup + shuffle-bag reset repair
+- Evil-launched Festival setups now show **EVIL CAMPAIGN PROGRAMME • SLOT ### • active pool** instead of stale v8.0.70 diversified preset copy.
+- Reset Racing Data and Full Reset now reliably clear `fh5TrackBags8070` after the v8.0.66 reset-button clone.
+- A clean 0/708 Evil campaign with no racing data self-heals stale pre-reset bag state, so the first preview begins from a full category bag.
+- Campaign order/progress unchanged; rh-guide untouched.
+
 ## v8.0.78 — Evil Campaign BACK control actually visible
 
 - Root cause found: legacy global CSS hides all `<header>` elements with `display:none!important`, so v8.0.77's BACK button was trapped inside an invisible parent.

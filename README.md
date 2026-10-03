@@ -1,3 +1,5 @@
+> Current Main build: **v8.0.79** — Evil Campaign Festival setup + shuffle-bag reset repair.
+
 # OTG! Main v8.0.78
 
 Main-only **Evil Campaign foundation** build.
