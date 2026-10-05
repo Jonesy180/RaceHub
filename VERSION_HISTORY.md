@@ -1,3 +1,6 @@
+## v8.0.83
+Compact control dimensions fix; data logic unchanged.
+
 ## v8.0.82 — Updater boot-shell hotfix
 
 - Fixed v8.0.81 update loop: the v8.0.81 worker installed but its navigation handler still served `index-v8080.html`, so the app reopened the previous shell and offered v8.0.81 again.

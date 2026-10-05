@@ -1,1 +1,1 @@
-{"version":"8.0.82","worker":"./otg-service-worker-v8082.js","message":"Updater boot-shell hotfix: installs v8.0.82 and serves the matching app shell after activation. Includes all v8.0.81 Corrections polish. Main only; rh-guide untouched."}
+{"version":"8.0.83","worker":"./otg-service-worker-v8083.js","message":"Compact-control dimensions fix. Data and Evil Campaign progress unchanged. Main only; rh-guide untouched."}
