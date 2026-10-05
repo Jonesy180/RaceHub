@@ -1,3 +1,6 @@
+## Current Main: v8.0.86
+Final Standings return-to-Evil overlay teardown hotfix.
+
 # OTG! Main v8.0.85
 
 Evil Campaign two-way event bridge on top of accepted v8.0.83. DONE slots can open their exact results and completed Evil events can return directly to their campaign slot.

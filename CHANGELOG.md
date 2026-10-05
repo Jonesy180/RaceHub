@@ -1,3 +1,8 @@
+
+## v8.0.86 — Evil return Final Standings exit hotfix
+- RETURN TO EVIL CAMPAIGN now tears down Final Standings `rhFS28Active` full-screen mode before opening the linked Evil slot.
+- SHOW RESULTS and all racing data/progress remain unchanged.
+- Main only; rh-guide untouched.
 ## v8.0.85 — Evil Campaign return-button hotfix
 - Fixes the completed-event **RETURN TO CAMPAIGN** control doing nothing.
 - Return controls now use bound click handlers instead of injected inline handlers.
