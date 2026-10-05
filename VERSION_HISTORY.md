@@ -1,3 +1,10 @@
+## v8.0.82 — Updater boot-shell hotfix
+
+- Fixed v8.0.81 update loop: the v8.0.81 worker installed but its navigation handler still served `index-v8080.html`, so the app reopened the previous shell and offered v8.0.81 again.
+- The v8.0.82 worker now serves `index-v8082.html` after activation, and the canonical worker is synchronised to the same build.
+- Carries forward all v8.0.81 Results / Corrections car-name and compact-control polish unchanged.
+- No racing-data migration; Evil Campaign order/progress and Race Off logic unchanged; rh-guide untouched.
+
 ## v8.0.81 — Results Corrections car names + compact controls
 - Fixed `Unknown car` display in Results / Corrections.
 - Compact Back controls for Results / Corrections and Evil Campaign.
