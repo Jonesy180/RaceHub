@@ -1,6 +1,6 @@
-> Current Main build: **v8.0.80** — Festival Results / Corrections + save-integrity guard.
+> Current Main build: **v8.0.81** — Results / Corrections car-name + compact-control polish.
 
-# OTG! Main v8.0.80
+# OTG! Main v8.0.81
 
 Main-only reliability build on top of the accepted Evil Campaign foundation. Standard Festival / Pick My Drive Championships now expose a Results / Corrections editor during active racing and from completed final standings. A saved result can be edited in place or deleted to reopen exactly that missing car/round race.
 
@@ -29,6 +29,6 @@ The standard Festival save path also validates the exact expected car/round befo
 Deployment:
 ```powershell
 git add .
-git commit -m "OTG v8.0.80 festival results corrections"
+git commit -m "OTG v8.0.81 corrections polish"
 git push origin main
 ```

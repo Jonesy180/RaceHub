@@ -1,1 +1,1 @@
-{"version":"8.0.80","worker":"./otg-service-worker-v8080.js","message":"Festival Results / Corrections is now available during active Championships and from completed Festival History, with save-integrity guards to block stale or duplicate car/round result writes. Main only; rh-guide untouched."}
+{"version":"8.0.81","worker":"./otg-service-worker-v8081.js","message":"Results / Corrections now resolves car names correctly and uses compact OTG! controls. Evil Campaign Back and Final Standings Correct Results controls are also compacted. Main only; rh-guide untouched."}

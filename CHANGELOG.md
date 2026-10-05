@@ -1,3 +1,11 @@
+## v8.0.81 — Results Corrections car names + compact controls
+
+- Fixed the v8.0.80 Results / Corrections car-name resolver so saved cars and the Current Leader use the active Space catalogue instead of falling back to `Unknown car`.
+- Reduced the Results / Corrections Back control to the standard compact OTG! utility size.
+- Reduced the Evil Campaign Back control to the same compact language.
+- Reworked completed Final Standings `CORRECT RESULTS` into a compact top-right action and removed its redundant subtitle.
+- No changes to saved racing data, Evil Campaign order/progress, Race Off logic, or rh-guide.
+
 ## v8.0.80 — Festival Results Corrections + save-integrity guard
 - Added **RESULTS / CORRECTIONS** for standard Festival championships while they are still in progress and from completed Final Standings / Festival History.
 - Added **EDIT / UNDO LAST RESULT** directly on the Festival Result Summary.

@@ -1,3 +1,8 @@
+## v8.0.81 — Results Corrections car names + compact controls
+- Fixed `Unknown car` display in Results / Corrections.
+- Compact Back controls for Results / Corrections and Evil Campaign.
+- Compact `CORRECT RESULTS` action on completed Final Standings.
+
 ## v8.0.80 — Festival Results Corrections + integrity guard
 Active and completed standard Festival championships now support saved-result correction/reopen workflows. Result saves validate the exact expected car + round, block duplicates/stale screens and roll back inconsistent writes. Evil campaign order/progress is unchanged; rh-guide untouched.
 
