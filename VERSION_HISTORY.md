@@ -1,3 +1,6 @@
+## v8.0.80 — Festival Results Corrections + integrity guard
+Active and completed standard Festival championships now support saved-result correction/reopen workflows. Result saves validate the exact expected car + round, block duplicates/stale screens and roll back inconsistent writes. Evil campaign order/progress is unchanged; rh-guide untouched.
+
 ## v8.0.79
 Evil Festival setup metadata and persistent shuffle-bag reset hotfix. No campaign reshuffle.
 

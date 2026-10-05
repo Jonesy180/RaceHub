@@ -1,6 +1,10 @@
-> Current Main build: **v8.0.79** — Evil Campaign Festival setup + shuffle-bag reset repair.
+> Current Main build: **v8.0.80** — Festival Results / Corrections + save-integrity guard.
 
-# OTG! Main v8.0.78
+# OTG! Main v8.0.80
+
+Main-only reliability build on top of the accepted Evil Campaign foundation. Standard Festival / Pick My Drive Championships now expose a Results / Corrections editor during active racing and from completed final standings. A saved result can be edited in place or deleted to reopen exactly that missing car/round race.
+
+The standard Festival result-save path is also guarded against stale targets, duplicate/double saves and inconsistent writes. Evil Campaign order/progress is unchanged. Groups, Swiss and Race Off correction logic is intentionally left alone for dedicated later work. rh-guide is untouched.
 
 Main-only **Evil Campaign foundation** build.
 
@@ -16,9 +20,15 @@ Supported Festival slots open the normal OTG! setup flow and use the existing pe
 
 Reset Racing Data / Full Reset also resets Evil Campaign progress. Garage/catalogue behaviour is unchanged. rh-guide is untouched.
 
+## v8.0.80 correction workflow
+
+Standard Festival championships now expose **RESULTS / CORRECTIONS** during an active run and from completed Final Standings / Festival History. A saved time can be edited in place, or deleted to reopen exactly that car/round for a clean rerun. Evil Campaign progress is deliberately independent and is not moved backwards by a correction.
+
+The standard Festival save path also validates the exact expected car/round before accepting data and rolls back any inconsistent multi-write. This is the reliability guard for the phantom-result defect observed during Evil Slot 001.
+
 Deployment:
 ```powershell
 git add .
-git commit -m "OTG v8.0.78 evil campaign back visibility fix"
+git commit -m "OTG v8.0.80 festival results corrections"
 git push origin main
 ```

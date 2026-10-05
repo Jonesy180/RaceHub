@@ -1,3 +1,14 @@
+## v8.0.80 — Festival Results Corrections + save-integrity guard
+- Added **RESULTS / CORRECTIONS** for standard Festival championships while they are still in progress and from completed Final Standings / Festival History.
+- Added **EDIT / UNDO LAST RESULT** directly on the Festival Result Summary.
+- Saved times and finishing positions can be corrected in place without creating another race or inflating Track Directory usage.
+- A saved result can be deleted to **reopen exactly that missing car / round**, leaving every other result and Evil Campaign progress intact.
+- Corrections clear matching Record Book exclusions so a previously deleted bogus record can return correctly after repair / rerun.
+- Standings, Records/PBs, Stats, Track Directory usage and Hall of Fame derive from the saved results and recalculate from corrected data.
+- Standard Festival result saving now validates the exact expected car + round, blocks duplicate/stale saves and rolls back inconsistent multi-write saves.
+- Added a small per-Space result audit trail for future diagnosis if another impossible save is observed.
+- Special Festival Groups/Swiss logic and Race Off bracket editing are deliberately unchanged in this first correction build. Evil campaign order/progress unchanged; rh-guide untouched.
+
 ## v8.0.79 — Evil Festival setup + shuffle-bag reset repair
 - Evil-launched Festival setups now show **EVIL CAMPAIGN PROGRAMME • SLOT ### • active pool** instead of stale v8.0.70 diversified preset copy.
 - Reset Racing Data and Full Reset now reliably clear `fh5TrackBags8070` after the v8.0.66 reset-button clone.
