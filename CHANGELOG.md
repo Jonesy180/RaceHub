@@ -1,3 +1,10 @@
+## v8.0.85 — Evil Campaign return-button hotfix
+- Fixes the completed-event **RETURN TO CAMPAIGN** control doing nothing.
+- Return controls now use bound click handlers instead of injected inline handlers.
+- Handoff explicitly opens Evil Campaign, renders it, then opens the exact linked slot on the next frame.
+- Existing SHOW RESULTS links, campaign progress, event data, correction logic and Race Off logic are unchanged.
+- Main only; rh-guide untouched.
+
 ## v8.0.84 — Evil Campaign two-way results bridge
 - DONE Evil slots now expose SHOW RESULTS when an exact completed Festival/Race Off result is linked.
 - Links are keyed to the saved event/tournament id and are backfilled from existing Evil campaign markers.

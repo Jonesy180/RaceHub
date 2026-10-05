@@ -1,3 +1,6 @@
+## v8.0.85
+Hotfix for the Evil Campaign two-way bridge: completed Festival / Race Off RETURN TO CAMPAIGN controls now use explicit bound click handlers and deterministic screen-to-slot navigation. No data migration or campaign progress change.
+
 ## v8.0.84
 Evil Campaign direct-results and return-to-campaign bridge.
 
