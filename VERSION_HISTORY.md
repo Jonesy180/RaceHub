@@ -1,3 +1,6 @@
+## v8.0.84
+Evil Campaign direct-results and return-to-campaign bridge.
+
 ## v8.0.83
 Compact control dimensions fix; data logic unchanged.
 

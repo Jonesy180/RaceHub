@@ -1,3 +1,7 @@
+# OTG! Main v8.0.84
+
+Evil Campaign two-way event bridge on top of accepted v8.0.83. DONE slots can open their exact results and completed Evil events can return directly to their campaign slot.
+
 > Current Main build: **v8.0.83** — updater boot-shell hotfix + v8.0.81 Corrections polish.
 
 # OTG! Main v8.0.83

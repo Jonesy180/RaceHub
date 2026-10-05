@@ -1,3 +1,11 @@
+## v8.0.84 — Evil Campaign two-way results bridge
+- DONE Evil slots now expose SHOW RESULTS when an exact completed Festival/Race Off result is linked.
+- Links are keyed to the saved event/tournament id and are backfilled from existing Evil campaign markers.
+- Evil-origin active events show a small EVIL CAMPAIGN • SLOT xxx origin marker.
+- Completed Festival and Race Off screens now include RETURN TO EVIL CAMPAIGN, landing on the exact slot.
+- MARK SLOT DONE remains manual; no campaign order/progress reshuffle.
+- Main only; rh-guide untouched.
+
 ## v8.0.83 — Compact control dimensions
 - Physically shrank Evil Campaign and Results / Corrections Back controls to circular navigation buttons.
 - Final Standings Correct Results is now a slim utility pill.
