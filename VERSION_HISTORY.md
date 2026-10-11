@@ -1006,3 +1006,9 @@ Track Directory usage counts are calculated from committed/started FH5 racing da
 Back/search overlap fixed on phones; Festival LOCATION now sits beside the current live CONTINUE control, with a DOM-render fallback. Result-backed counters unchanged. Main only; rh-guide untouched.
 
 - v8.0.77: Evil Campaign BACK control made hard-visible on list/detail screens.
+## v8.0.92 — Updater pin + Pick My Drive phone layout
+- Corrected the v8.0.91 shell bug that still loaded `bootstrap-v8090.js`, which could keep the installed worker/version on v8.0.90 and repeatedly offer v8.0.91 after restart.
+- Main shell, updater and worker are now consistently pinned to v8.0.92.
+- Pick My Drive phone round rows keep round number, track name and delete on line one, with Layout full-width beneath. The v8.0.92 override is loaded after legacy PMD styles.
+- Car History career/BACK, LOCATION clues, Evil bridge and Results/Corrections unchanged. Morris variant labelling remains deferred. rh-guide untouched.
+
