@@ -1,4 +1,10 @@
 
+## v8.0.91 — Pick My Drive phone row cleanup
+- Fixed the compact Pick My Drive round row on phone widths.
+- Round number, race/track name and delete now share the first line; Layout spans the full row underneath.
+- Removes the empty lower-left grid cell and vertically floating delete button.
+- No racing-data changes. Car History career/BACK retained. Morris variant labelling deferred. rh-guide untouched.
+
 ## v8.0.86 — Evil return Final Standings exit hotfix
 - RETURN TO EVIL CAMPAIGN now tears down Final Standings `rhFS28Active` full-screen mode before opening the linked Evil slot.
 - SHOW RESULTS and all racing data/progress remain unchanged.
