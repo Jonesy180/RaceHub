@@ -1,4 +1,10 @@
 
+## v8.0.93 — Pick My Drive structural phone-row fix
+- Rebuilt the PMD round row so Layout lives in a dedicated full-width wrapper on phone/tablet widths.
+- Removes the collapsed single-letter Layout box and dead lower-row space caused by legacy grid rules.
+- Aligns version.json, updater, bootstrap and service worker on 8.0.93.
+- No changes to racing data, Car History, LOCATION clues, Evil bridge, Results/Corrections or rh-guide.
+
 ## v8.0.91 — Pick My Drive phone row cleanup
 - Fixed the compact Pick My Drive round row on phone widths.
 - Round number, race/track name and delete now share the first line; Layout spans the full row underneath.
