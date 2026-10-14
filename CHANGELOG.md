@@ -1,3 +1,9 @@
+## 8.0.99 — Evil R1 Festival Launch + Compact Back Hotfix
+- Fixed R1 START/CONTINUE FESTIVAL from Evil Campaign: the app now switches to the Festival screen before the Groups renderer opens the run.
+- Existing R1 run/state is reused; no duplicate Slot 1 run is intentionally created by this hotfix.
+- R1 Back control changed from the pill/airship to the accepted compact circular control.
+- Legacy 708 campaign, Garage, Results/Corrections, Car History, PMD, LOCATION and Portable Backup remain untouched.
+
 
 ## v8.0.97 — FH5 Evil Specialist-First R1 Preview (2026-10-14)
 - Added a read-only in-app preview of the new 1,165-slot FH5 Evil Campaign Specialist-First R1.
