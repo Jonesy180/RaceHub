@@ -1,3 +1,12 @@
+
+## v8.0.97 — FH5 Evil Specialist-First R1 Preview (2026-10-14)
+- Added a read-only in-app preview of the new 1,165-slot FH5 Evil Campaign Specialist-First R1.
+- Embedded the exact 697-car classification and 228 event definitions/eligible fields generated from the v8.0.96 portable phone backup.
+- Added in-app Setup Guide, car-classification browser and R1 audit.
+- Preserved the legacy 708-slot campaign and progress; no reset/migration is performed.
+- R1 launchers are deliberately locked pending live QA/approval.
+- No changes to Garage ownership, Results/Corrections, Car History, PMD, LOCATION clues or rh-guide.
+
 ## v8.0.96 — Portable Backup mobile export hotfix
 - EXPORT BACKUP now creates and hands off the JSON file synchronously from the user tap so mobile browsers do not revoke the Share/Download permission while waiting for an async hash.
 - Replaced pre-export SHA-256 with a synchronous integrity checksum; imports remain backward-compatible with v8.0.94/v8.0.95 portable files.
