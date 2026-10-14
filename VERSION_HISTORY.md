@@ -1,3 +1,10 @@
+## v8.0.96 — Portable Backup mobile export hotfix
+- EXPORT BACKUP now creates and hands off the JSON file synchronously from the user tap so mobile browsers do not revoke the Share/Download permission while waiting for an async hash.
+- Replaced pre-export SHA-256 with a synchronous integrity checksum; imports remain backward-compatible with v8.0.94/v8.0.95 portable files.
+- Relaxed export validation so older valid OTG! Spaces cannot block the backup simply because their internal car arrays differ.
+- Export failures now show the actual browser error while leaving OTG! data untouched.
+- No racing, Garage, Evil Campaign, Car History, PMD, LOCATION, Results/Corrections or rh-guide behaviour changed.
+
 ## v8.0.95 — Portable Backup Settings UI hotfix
 - Replaced fragile Settings renderer wrapping with a direct DOM observer.
 - EXPORT BACKUP / IMPORT BACKUP now insert whenever the actual Settings screen is rendered.

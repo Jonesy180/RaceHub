@@ -1,5 +1,5 @@
-## Current Main: v8.0.94
-Portable Backup build on top of accepted v8.0.93. Settings now exports/shares every OTG! Space, Garage and racing history to a portable JSON file and can import that file on another device. Import creates a pre-import rollback copy in IndexedDB.
+## Current Main: v8.0.96
+Mobile-safe Portable Backup hotfix on top of accepted v8.0.93. Settings can export/share all OTG! Spaces, Garage and racing history to a portable JSON file and import that file on another device; export no longer loses the phone browser user gesture before Share/Save.
 
 Evil Campaign two-way event bridge on top of accepted v8.0.83. DONE slots can open their exact results and completed Evil events can return directly to their campaign slot.
 
