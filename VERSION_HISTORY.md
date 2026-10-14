@@ -1,3 +1,10 @@
+## 8.0.102 — Evil R1 reset integration + Legacy retirement
+
+- FIX: Reset Racing Data now clears `evilCampaignR18098` after the approved reset-confirm button replacement, so R1 returns to 0 / 1165 and Slot 0001.
+- FIX: direct Reset/Full Reset final actions also clear R1 as a fallback.
+- CLEANUP: retired Legacy 708 campaign state is cleared by Reset/Full Reset and its UI tile/button has been removed from Evil Campaign.
+- PRESERVED: Garage/catalogue ownership, portable backup, PMD, Results/Corrections, Car History and LOCATION behaviour remain unchanged.
+
 ## 8.0.101 — Evil R1 main-page NEXT UP launchpad
 - Added **NEXT UP** directly to the main Evil Campaign page, immediately below the progress/next-slot summary.
 - Shows the current slot number, event name, mode/format, visit, workload and DO THIS NEXT instruction.
