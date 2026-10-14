@@ -454,3 +454,13 @@
 - Pick My Drive phone round rows keep round number, track name and delete on line one, with Layout full-width beneath. The v8.0.92 override is loaded after legacy PMD styles.
 - Car History career/BACK, LOCATION clues, Evil bridge and Results/Corrections unchanged. Morris variant labelling remains deferred. rh-guide untouched.
 
+## v8.0.93 — Pick My Drive structural phone-row fix
+- Rebuilt the Pick My Drive mobile round row structurally so Layout occupies its own full-width row. Live QA PASS; accepted Main baseline before v8.0.94.
+
+## v8.0.94 — Portable Backup
+- Added Settings > PORTABLE BACKUP with EXPORT BACKUP and IMPORT BACKUP.
+- Export/share writes all OTG! Spaces, Garage ownership, racing history and current state to a portable JSON file.
+- Browser-only IndexedDB Safety Backup snapshots are intentionally not embedded in the portable file; manual in-app backups remain part of Space data.
+- Import validates the file and integrity digest, replaces all OTG! data only after confirmation, and first keeps a pre-import rollback copy in IndexedDB.
+- Added RESTORE PRE-IMPORT when a rollback exists.
+- Evil Campaign content/progress logic, Car History, LOCATION clues, Pick My Drive v8.0.93 and rh-guide are unchanged.
