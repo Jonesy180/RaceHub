@@ -1,1 +1,1 @@
-{"version":"8.0.99","worker":"./otg-service-worker-v8099.js","message":"FH5 Evil Campaign R1 hotfix: Festival/Groups launch now switches to the live Festival screen before rendering, and R1 Back controls are compact circular buttons."}
+{"version":"8.0.100","worker":"./otg-service-worker-v8100.js","message":"Evil R1 usability: NEXT UP handoff with GO TO NEXT EVENT restored, plus RANDOMISE CAR ORDER for untouched Groups fields; order locks after the first result."}

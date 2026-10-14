@@ -1,3 +1,9 @@
+## 8.0.100 — Evil R1 NEXT UP + car-order usability
+- Restored the post-slot **NEXT UP** handoff with **GO TO NEXT EVENT**.
+- Added **RANDOMISE CAR ORDER** for untouched R1 Groups; same cars and tracks, order only.
+- Car order locks after the first result is banked.
+- Existing R1 QA progress and Legacy 708 remain preserved.
+
 ## v8.0.99 — Evil R1 Festival Launch + Compact Back Hotfix
 - Fixed R1 START/CONTINUE FESTIVAL from Evil Campaign: the app now switches to the Festival screen before the Groups renderer opens the run.
 - Existing R1 run/state is reused; no duplicate Slot 1 run is intentionally created by this hotfix.
