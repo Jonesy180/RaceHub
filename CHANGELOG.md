@@ -1,3 +1,10 @@
+## 8.0.101 — Evil R1 main-page NEXT UP launchpad
+- Added **NEXT UP** directly to the main Evil Campaign page, immediately below the progress/next-slot summary.
+- Shows the current slot number, event name, mode/format, visit, workload and DO THIS NEXT instruction.
+- Added **GO TO NEXT EVENT** and **VIEW SLOT** directly on the campaign page; partially-started slots show **CONTINUE CURRENT EVENT** and banked progress.
+- Existing completed-slot NEXT UP handoff and RANDOMISE CAR ORDER behaviour are retained.
+- R1 progress/state key, Legacy 708, Garage, Results/Corrections, Car History, PMD, LOCATION and Portable Backup are unchanged.
+
 ## 8.0.100 — Evil R1 NEXT UP + car-order usability
 - Restored the post-slot **NEXT UP** handoff with **GO TO NEXT EVENT**.
 - Added **RANDOMISE CAR ORDER** for untouched R1 Groups; same cars and tracks, order only.
