@@ -485,3 +485,10 @@
 - Import validates the file and integrity digest, replaces all OTG! data only after confirmation, and first keeps a pre-import rollback copy in IndexedDB.
 - Added RESTORE PRE-IMPORT when a rollback exists.
 - Evil Campaign content/progress logic, Car History, LOCATION clues, Pick My Drive v8.0.93 and rh-guide are unchanged.
+
+
+## 8.0.98 — Evil Specialist R1 playable QA (2026-10-14)
+- Promoted the accepted 1,165-slot Specialist-First R1 preview to playable QA.
+- Added exact-field Standard/Groups Festival, Race Off, Drag, Drift Festival and Drift Race Off flows.
+- Added workload-gated slot completion and persistent R1 progress under a separate state key.
+- Legacy 708 remains preserved; no automatic migration/reset.

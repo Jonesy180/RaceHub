@@ -1049,3 +1049,7 @@ Back/search overlap fixed on phones; Festival LOCATION now sits beside the curre
 - Import validates the file and integrity digest, replaces all OTG! data only after confirmation, and first keeps a pre-import rollback copy in IndexedDB.
 - Added RESTORE PRE-IMPORT when a rollback exists.
 - Evil Campaign content/progress logic, Car History, LOCATION clues, Pick My Drive v8.0.93 and rh-guide are unchanged.
+
+
+### v8.0.98 — 2026-10-14 — FH5 Evil Specialist R1 playable QA
+Accepted v8.0.97 R1 data promoted to a playable QA engine using exact frozen entrant IDs. Festival/Groups/Race Off/Drag/Drift flows now persist under a separate R1 state. Legacy 708 remains preserved and no automatic reset/migration occurs. Drift Zone score history remains R1-local for this QA build.
