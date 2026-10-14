@@ -1,3 +1,8 @@
+## v8.0.95 — Portable Backup Settings UI hotfix
+- Replaced fragile Settings renderer wrapping with a direct DOM observer.
+- EXPORT BACKUP / IMPORT BACKUP now insert whenever the actual Settings screen is rendered.
+- Portable backup data format and existing OTG! data are unchanged.
+
 
 ## v8.0.93 — Pick My Drive structural phone-row fix
 - Rebuilt the PMD round row so Layout lives in a dedicated full-width wrapper on phone/tablet widths.
