@@ -1,5 +1,5 @@
 {
-  "version": "8.0.104",
-  "worker": "./otg-service-worker-v8104.js",
-  "message": "FH6 dedicated 658-car catalogue Space, all initially unowned; FH5 and GT7 preserved; FH6 tracks pending verification."
+  "version": "8.0.105",
+  "worker": "./otg-service-worker-v8105.js",
+  "message": "FH6 Specialist-First prelaunch classification workshop: 658 provisional car roles, confirm/undo per car; Evil race launch remains disabled until FH6 route verification."
 }
