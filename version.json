@@ -1,1 +1,1 @@
-{"version":"8.0.100","worker":"./otg-service-worker-v8100.js","message":"Evil R1 usability: NEXT UP handoff with GO TO NEXT EVENT restored, plus RANDOMISE CAR ORDER for untouched Groups fields; order locks after the first result."}
+{"version": "8.0.103", "worker": "./otg-service-worker-v8103.js", "message": "OTG! R1 active race fixes and separated Favourite Manufacturer Finals Nights."}

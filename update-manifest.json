@@ -1,1 +1,1 @@
-{"version":"8.0.102","worker":"./otg-service-worker-v8102.js","message":"Evil R1 reset integration: Reset Racing Data now clears R1 progress; Legacy 708 UI retired."}
+{"version": "8.0.103", "worker": "./otg-service-worker-v8103.js", "message": "Active-race LOCATION follows the current track; AVERAGE TIME returns; mobile Groups Run Order is fully reachable; separate Favourite Manufacturer Festival and Race Off Finals Nights."}
