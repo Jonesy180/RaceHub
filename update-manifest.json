@@ -1,5 +1,5 @@
 {
-  "version": "8.0.106",
-  "worker": "./otg-service-worker-v8106.js",
-  "message": "FH6 Evil Blueprint: read-only Specialist-First programme and Finals Nights, workload/knockout visit previews and random order rehearsal. Racing stays locked."
+  "version": "8.0.107",
+  "worker": "./otg-service-worker-v8107.js",
+  "message": "FH6: randomised Evil Campaign visit-order preview, separated Finals and empty verified-route shuffle bags; no racing enabled."
 }
