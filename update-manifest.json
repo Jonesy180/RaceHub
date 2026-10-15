@@ -1,1 +1,5 @@
-{"version": "8.0.103", "worker": "./otg-service-worker-v8103.js", "message": "Active-race LOCATION follows the current track; AVERAGE TIME returns; mobile Groups Run Order is fully reachable; separate Favourite Manufacturer Festival and Race Off Finals Nights."}
+{
+  "version": "8.0.104",
+  "worker": "./otg-service-worker-v8104.js",
+  "message": "FH6 dedicated 658-car catalogue Space, all initially unowned; FH5 and GT7 preserved; FH6 tracks pending verification."
+}
