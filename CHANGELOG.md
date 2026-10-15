@@ -1,3 +1,6 @@
+### OTG! v8.0.108 — FH6 Garage-Adaptive Racing (QA)
+Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START locked pending FH6 tracks and result engine. Evil List 2 deferred.
+
 ## 8.0.102 — Evil R1 reset integration + Legacy retirement
 
 - FIX: Reset Racing Data now clears `evilCampaignR18098` after the approved reset-confirm button replacement, so R1 returns to 0 / 1165 and Slot 0001.

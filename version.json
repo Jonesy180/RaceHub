@@ -1,5 +1,5 @@
 {
-  "version": "8.0.107",
-  "worker": "./otg-service-worker-v8107.js",
-  "message": "FH6: randomised Evil Campaign visit-order preview, separated Finals and empty verified-route shuffle bags; no racing enabled."
+  "version": "8.0.108",
+  "worker": "./otg-service-worker-v8108.js",
+  "message": "FH6: Garage-adaptive Festival & Race Off eligible fields. Evil List 2 parked; FH6 races remain locked until game verification."
 }
