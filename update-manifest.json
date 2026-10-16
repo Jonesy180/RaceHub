@@ -1,5 +1,5 @@
 {
-  "version": "8.0.108",
-  "worker": "./otg-service-worker-v8108.js",
-  "message": "FH6: Garage-adaptive Festival & Race Off eligible fields. Evil List 2 parked; FH6 races remain locked until game verification."
+  "version": "8.0.109",
+  "worker": "./otg-service-worker-v8109.js",
+  "message": "FH5 Evil R1 Groups: actual group-size completion (7 cars \u00d7 2 tracks = 14); Group 2 results cannot complete Group 1. Existing results and all Spaces preserved."
 }

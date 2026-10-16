@@ -521,3 +521,11 @@ Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START l
 - Added exact-field Standard/Groups Festival, Race Off, Drag, Drift Festival and Drift Race Off flows.
 - Added workload-gated slot completion and persistent R1 progress under a separate state key.
 - Legacy 708 remains preserved; no automatic migration/reset.
+
+## OTG! v8.0.109 — FH5 Evil R1 Groups completion QA
+- Fixes frozen eight-car completion assumption for smaller Groups. Hypercar Slot 0002 requires 14 valid entries (7 × 2), not 16.
+- Counts unique valid car/track results tied to each actual group, not total event results. Group 2 cannot artificially finish Group 1.
+- Calculates the displayed per-visit workload from actual group size, with balanced planning for not-yet-drawn groups and qualifiers. Applies to all R1 GROUPS competitions and later stages/finals.
+- Does NOT modify prior stored race results, manually-marked DONE slots, Garage ownership, favourite manufacturer, reset logic or FH6 adaptive systems.
+- Version-pinned service worker, manifest updater and backup gate updated.
+- v8.0.103 AVERAGE TIME and mobile RUN ORDER are still awaiting user's explicit checks.
