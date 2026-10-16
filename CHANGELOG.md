@@ -529,3 +529,10 @@ Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START l
 - Does NOT modify prior stored race results, manually-marked DONE slots, Garage ownership, favourite manufacturer, reset logic or FH6 adaptive systems.
 - Version-pinned service worker, manifest updater and backup gate updated.
 - v8.0.103 AVERAGE TIME and mobile RUN ORDER are still awaiting user's explicit checks.
+
+## OTG! v8.0.110 — Evil R1 MOT: track draw + updater integrity
+- In Groups championships, two tracks drawn together are always different when at least two routes exist. In the first stage, the second draw excludes the first. In subsequent stages/finals, the second draw also excludes the first and the prior-stage tracks already considered by the selector.
+- The shared track shuffle-bag can roll over between draws without re-selecting the first track of that group. Existing in-progress race tracks are not modified.
+- Worker critical-precache now explicitly verifies the new index, script, bootstrap and update-wire before installing. Old historical files are retained.
+- Re-audited all 697 classified cars, 228 source events, 1,165 base campaign slots and 251 planned GROUPS slots; no structural inconsistencies. Favourite Finals stay adaptive and separated, giving 1,177 slots for a 26-car BMW NORMAL roster.
+- No campaign reset, result migration, or changes to FH6/GT7. AVERAGE TIME and mobile RUN ORDER still need live QA.

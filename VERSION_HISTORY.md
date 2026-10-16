@@ -1082,3 +1082,5 @@ Back/search overlap fixed on phones; Festival LOCATION now sits beside the curre
 
 ### v8.0.98 — 2026-10-14 — FH5 Evil Specialist R1 playable QA
 Accepted v8.0.97 R1 data promoted to a playable QA engine using exact frozen entrant IDs. Festival/Groups/Race Off/Drag/Drift flows now persist under a separate R1 state. Legacy 708 remains preserved and no automatic reset/migration occurs. Drift Zone score history remains R1-local for this QA build.
+
+- 8.0.110 — R1 MOT: group two-track no-repeat boundary; new worker critical-asset verification.
