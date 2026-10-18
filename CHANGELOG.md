@@ -536,3 +536,12 @@ Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START l
 - Worker critical-precache now explicitly verifies the new index, script, bootstrap and update-wire before installing. Old historical files are retained.
 - Re-audited all 697 classified cars, 228 source events, 1,165 base campaign slots and 251 planned GROUPS slots; no structural inconsistencies. Favourite Finals stay adaptive and separated, giving 1,177 slots for a 26-car BMW NORMAL roster.
 - No campaign reset, result migration, or changes to FH6/GT7. AVERAGE TIME and mobile RUN ORDER still need live QA.
+
+## 8.0.111 — Evil R1 Slot Complete, Next Up & Medals
+
+- Detect per-slot completion, show prominent STOP HERE and MARK AS DONE.
+- Make main Evil R1 NEXT UP a concise workload / stage brief with banked results.
+- Add calculated Manufacturers and Cars Olympic medal rankings, medal histories and car history counts.
+- Keep v8.0.110 racing data/state intact; worker assets pin exact v8.0.111 critical files.
+
+- **Brand tagline (approved):** YOUR HARDEST OPPONENT IS YOU. Added to the dashboard and Evil R1 medal-table header.
