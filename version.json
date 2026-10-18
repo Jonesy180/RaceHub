@@ -1,5 +1,5 @@
 {
-  "version": "8.0.111",
-  "worker": "./otg-service-worker-v8111.js",
-  "message": "R1 finish line and medal tables; preserve all saved Spaces."
+  "version": "8.0.112",
+  "worker": "./otg-service-worker-v8112.js",
+  "message": "Random paint-number dice on active event screens. Minimum fixed at 1, editable remembered maximum; no results or racing data changed. Safety Backup before update."
 }

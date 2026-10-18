@@ -1,3 +1,8 @@
+## 8.0.112 — Event paint dice
+
+- Added quick 🎲 number roll on open event screens. Fixed min 1, remembered configurable max, inclusive draws, no racing data impact.
+- v8.0.111 features unchanged; live QA of slot confirmation remains pending.
+
 ### OTG! v8.0.108 — FH6 Garage-Adaptive Racing (QA)
 Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START locked pending FH6 tracks and result engine. Evil List 2 deferred.
 

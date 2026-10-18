@@ -1,3 +1,5 @@
+8.0.112 — Event-screen quick paint dice (1..editable remembered maximum). Data-neutral utility.
+
 ### OTG! v8.0.108 — FH6 Garage-Adaptive Racing (QA)
 Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START locked pending FH6 tracks and result engine. Evil List 2 deferred.
 
