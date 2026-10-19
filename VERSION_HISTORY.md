@@ -1,3 +1,10 @@
+## v8.0.120 — Current Race Top 3 & Pairing Pace (2026-10-19)
+
+- Move the existing per-track RECORD target beside LOCATION on Enter Result, remove the PB figure only from result entry (PB history and post-race flags are unchanged).
+- Festivals and multicar Custom Racing display up to 3 fastest individual times in the exact current event, round, and current group; never cumulative championship standings or different routes. Empty rounds say SET THE PACE.
+- Race Off and head-to-head Custom Knockout/Swiss show SET THE PACE for racer one, then racer one's saved time and identity for racer two.
+- Read-only display; no changes to saving, stored results, Evil Campaign progress or other Spaces. Live-phone verification needed; v8.0.119 remains accepted until then.
+
 ## v8.0.119 — Distinct Rival Meetings & Back Navigation (2026-10-19)
 
 - Arch-Rivals now treats a Festival championship/group as one head-to-head meeting, however many routes it contains. A two-track championship does not make the cars two-time rivals. Festival head-to-head winner uses the sum of the same shared timed races. Knockout and Swiss matches still count as individual encounters.

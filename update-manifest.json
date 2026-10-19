@@ -1,5 +1,5 @@
 {
-  "version": "8.0.119",
-  "worker": "./otg-service-worker-v8119.js",
-  "message": "Racing Legends rivalry fix: multiple timed races in one Festival event/group now count as ONE rivalry meeting, with comparable race times aggregated to determine the winner. Race Off and Swiss match pairings remain individual meetings. Adds a large Back to Stats button at the bottom of Racing Legends, and retains its top Back button. No saved results, medals, campaign state or Space settings changed. Take a Portable Backup before updating."
+  "version": "8.0.120",
+  "worker": "./otg-service-worker-v8120.js",
+  "message": "Result entry now shows the current competition's fastest three single-race times for the exact round, course and group; Race Off and Swiss/knockout show the actual pairing opponent time only for racer two. The course record sits beside LOCATION. Car PB is still retained in Records and post-race notices, but hidden from result entry. No cumulative championship positions are used; no racing data or campaign state is modified by this UI update. Portable Backup recommended."
 }
