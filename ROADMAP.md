@@ -1,3 +1,9 @@
+## Current build: v8.0.114 — Closest Battles / Historic Journey
+
+Next candidates (NOT INCLUDED in 8.0.114): full Arch-Rivals/head-to-head stats, Swiss/Festival comeback analysis, Time to Beat display, expanded Journey dynasties. Preserve MAIN live data.
+
+---
+
 # RaceHub Roadmap
 
 ## v4.3a — Foundation (this build)

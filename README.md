@@ -1,3 +1,9 @@
+## Current MAIN build: v8.0.114 (2026-10-19)
+
+Closest Battles under Records and read-only historic moments inside My OTG! Journey. All features and user data from v8.0.113 are preserved. Check CHANGELOG.md for the latest scope. Make a Portable Backup before installing.
+
+---
+
 ## Current Main: v8.0.96
 Mobile-safe Portable Backup hotfix on top of accepted v8.0.93. Settings can export/share all OTG! Spaces, Garage and racing history to a portable JSON file and import that file on another device; export no longer loses the phone browser user gesture before Share/Save.
 

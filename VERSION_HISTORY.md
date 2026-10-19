@@ -1,3 +1,8 @@
+## 8.0.114 — Closest Battles and Historic Journey (2026-10-19)
+
+- New Records view and generated historic moments; all backed by completed saved time-based results.
+- No changes to the racing core, Garage, medals or portable backups.
+
 ## v8.0.113 — Racing Reports + Evil Tile Polish (2026-10-19)
 - My OTG! Journey: dedicated Racing Reports tile above the special-moments timeline.
 - Read-only reports generated from timestamped Festival, Race Off and Custom Racing results per Space; 3-hour inactivity sessions cross midnight naturally.

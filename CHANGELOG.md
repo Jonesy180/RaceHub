@@ -1,3 +1,11 @@
+## v8.0.114 — Closest Battles & Historic Moments (2026-10-19)
+
+- READ-ONLY: Closest Battles tile under Records, with three lists for finishes, podium, and adjacent standings.
+- Only completed time-based Festival and Custom Racing competitions count. Excludes knockouts, Swiss and drift scores.
+- My OTG! Journey automatically recalls first mixed-manufacturer golds, exceptional battles ≤1.500 seconds, and Evil R1 landmark slots (13, 25, 50, 100, 250, 500, 1177).
+- Space-local, reflects corrections. No racing result saves, resets, or stored duplicates.
+- Previous Reports, Evil tile fix and v8.0.113 state preserved.
+
 ## v8.0.113 — Racing Reports + Evil Tile Polish (2026-10-19)
 - My OTG! Journey: dedicated Racing Reports tile above the special-moments timeline.
 - Read-only reports generated from timestamped Festival, Race Off and Custom Racing results per Space; 3-hour inactivity sessions cross midnight naturally.

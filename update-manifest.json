@@ -1,5 +1,5 @@
 {
-  "version": "8.0.113",
-  "worker": "./otg-service-worker-v8113.js",
-  "message": "Automatic My OTG! Journey racing reports with optional Finish Session, plus mobile EVIL tile NEXT alignment. Saved results untouched. Safety Backup before update."
+  "version": "8.0.114",
+  "worker": "./otg-service-worker-v8114.js",
+  "message": "Closest Battles (Records) and historic moments in My OTG! Journey, computed read-only from completed timed competitions; no race data changed. Safety Backup before update."
 }
