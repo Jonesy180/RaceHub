@@ -1,5 +1,5 @@
 {
-  "version": "8.0.118",
-  "worker": "./otg-service-worker-v8118.js",
-  "message": "Adds read-only Racing Legends on the Stats page: Arch-Rivals based on repeated same-race encounters; individual-car and manufacturer dynasty contenders using existing Evil R1 medal rules (3 golds to qualify); and verified multi-round Festival and Swiss-stage comeback Top Fives. Expandable phone-friendly record cards show the leader or Awaiting First Record. No changes to racing results, Evil R1 progress, existing records, medal awards, or Spaces. Take a Portable Backup before updating."
+  "version": "8.0.119",
+  "worker": "./otg-service-worker-v8119.js",
+  "message": "Racing Legends rivalry fix: multiple timed races in one Festival event/group now count as ONE rivalry meeting, with comparable race times aggregated to determine the winner. Race Off and Swiss match pairings remain individual meetings. Adds a large Back to Stats button at the bottom of Racing Legends, and retains its top Back button. No saved results, medals, campaign state or Space settings changed. Take a Portable Backup before updating."
 }

@@ -1,3 +1,9 @@
+## v8.0.119 — Distinct Rival Meetings & Back Navigation (2026-10-19)
+
+- Arch-Rivals now treats a Festival championship/group as one head-to-head meeting, however many routes it contains. A two-track championship does not make the cars two-time rivals. Festival head-to-head winner uses the sum of the same shared timed races. Knockout and Swiss matches still count as individual encounters.
+- Add a prominent BACK TO STATS button at the foot of Racing Legends in addition to the existing small header button; both reset the view and return to Stats.
+- Read-only calculation/display update; no stored racing results, medals, Evil Campaign state, or saved Space settings modified. Live phone QA required.
+
 ## v8.0.118 — Racing Legends / Arch-Rivals, Dynasties & Comebacks (2026-10-19)
 
 - New RACING LEGENDS button in STATS, opening five expandable Top 5 tables: Arch-Rivals, Car Dynasties, Manufacturer Dynasties, Festival Comebacks and Swiss Comebacks. Each shows its current leader (or an honest empty state).

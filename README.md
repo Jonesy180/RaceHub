@@ -1,6 +1,6 @@
-## Current MAIN build: v8.0.118 (2026-10-19)
+## Current MAIN build: v8.0.119 (2026-10-19)
 
-New expandable RACING LEGENDS card under STATS: Arch-Rivals, Car/Manufacturer Dynasties, multi-round Festival and Swiss qualifying-stage Greatest Comebacks, all computed without modifying data. No false records when competition formats lack comparable results. **Pending live phone QA; v8.0.117 remains accepted baseline.** Portable Backup before updating.
+Racing Legends now counts one Festival rivalry meeting per shared competition/group, rather than counting each track as a separate meeting. Race Off and Swiss knockout encounters remain per pairing. Adds an easy-to-reach BACK TO STATS button at the bottom of the Legends page. **Pending live phone QA; v8.0.117 remains accepted baseline.** Take a Portable Backup before updating.
 
 ---
 
