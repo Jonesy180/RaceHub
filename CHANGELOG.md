@@ -1,3 +1,11 @@
+## v8.0.113 — Racing Reports + Evil Tile Polish (2026-10-19)
+- My OTG! Journey: dedicated Racing Reports tile above the special-moments timeline.
+- Read-only reports generated from timestamped Festival, Race Off and Custom Racing results per Space; 3-hour inactivity sessions cross midnight naturally.
+- Result counts, distinct cars, sum of recorded race times, event completions, record flags, and faster repeat car/track results; optional FINISH SESSION records a small boundary in the current Space.
+- Fixed cramped EVIL CAMPAIGN dashboard NEXT line on phone.
+- All existing Spaces, event results, Garage, medals and Evil Campaign state preserved. No reset.
+- QA pending: mobile reports/history, manual Finish, cross-day and next EVIL tile.
+
 ## 8.0.112 — Event paint dice
 
 - Added quick 🎲 number roll on open event screens. Fixed min 1, remembered configurable max, inclusive draws, no racing data impact.
