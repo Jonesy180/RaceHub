@@ -1,3 +1,8 @@
+## v8.0.115 — Closest Battles Top Five book (2026-10-19)
+
+- Expandable Top Five rankings for ten categories; read-only.
+- Race Off, Swiss and FH5 route category support.
+
 ## 8.0.114 — Closest Battles and Historic Journey (2026-10-19)
 
 - New Records view and generated historic moments; all backed by completed saved time-based results.

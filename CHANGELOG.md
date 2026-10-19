@@ -1,3 +1,11 @@
+## v8.0.115 — Expandable closest-battle record book (2026-10-19)
+
+- 10 expandable category cards, #1 always visible and five closest entries on expansion. Empty categories stay visible.
+- Festival winner/runner-up versus other final adjacent places are separated; read-only from completed championships.
+- Adds Race Off and Custom Knockout, Swiss timed pairings and Swiss tied-standings time-breaks, plus route-classified FH5 Road, Off-Road, Rally Adventure, Hot Wheels and Drag records.
+- Classification uses the existing FH5 track taxonomy; unknown routes are not guessed.
+- Saved results are never changed; v8.0.114 Journey historic moments and all older features preserved.
+
 ## v8.0.114 — Closest Battles & Historic Moments (2026-10-19)
 
 - READ-ONLY: Closest Battles tile under Records, with three lists for finishes, podium, and adjacent standings.
