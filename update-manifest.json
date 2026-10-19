@@ -1,5 +1,5 @@
 {
-  "version": "8.0.116",
-  "worker": "./otg-service-worker-v8116.js",
-  "message": "Race Off closest-pairing records now recognise the sourceCarId used by actual saved Race Off car snapshots. Timed pairings qualify as soon as both results exist, without waiting for the whole Race Off tournament to finish. No race results, Evil Campaign progression or Journey moments are modified. Safety Backup before update."
+  "version": "8.0.117",
+  "worker": "./otg-service-worker-v8117.js",
+  "message": "Fixes the Closest Battles Top Five mobile cards: the v8.0.116 page and stylesheet used mismatched class names. Each category now has a correctly styled collapsible card, with a clear #1 record and Top Five on expansion. The Evil Campaign dashboard icon is now a devil face. The v8.0.116 Race Off record fix remains intact; no racing data changes. Take a Portable Backup before updating."
 }

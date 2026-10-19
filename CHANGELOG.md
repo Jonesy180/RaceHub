@@ -1,3 +1,10 @@
+## v8.0.117 — Closest Battles mobile layout + Evil Campaign dashboard icon (2026-10-19)
+
+- Fixed the v8.0.116 regression: generated record cards carried `8115` class names, but their stylesheet used `8116`, leaving the whole page unstyled on phones. The v8.0.117 JS and CSS now use matching `8117` selectors.
+- Updated the active Evil R1 dashboard tile icon from `!` to 😈 without changing the campaign or dashboard counters.
+- Preserved the v8.0.116 `sourceCarId` fix, current results, Journey, other record categories, and all existing app data.
+- Version-pinned all new assets in the service worker, and kept the Safety Backup update gate. Live phone QA still required.
+
 ## v8.0.116 — Race Off Closest Battle snapshot fix (2026-10-19)
 
 - FIX: A Race Off entrant stores the Garage car identifier in `sourceCarId` (not `id`); the v8.0.115 Closest Battles scanner discarded otherwise valid pairings as the same car.
