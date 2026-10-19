@@ -1,3 +1,10 @@
+## v8.0.116 — Race Off Closest Battle snapshot fix (2026-10-19)
+
+- FIX: A Race Off entrant stores the Garage car identifier in `sourceCarId` (not `id`); the v8.0.115 Closest Battles scanner discarded otherwise valid pairings as the same car.
+- Race Off Top 5 now derives the correct two car IDs from each saved pairing immediately after both race times are recorded. Full tournament completion is **not** required.
+- No stored results, Evil Campaign progress, record/medal history, Journey, or session reports are modified.
+- Read-only QA verified from representative Race Off snapshots; live phone PASS is still required.
+
 ## v8.0.115 — Expandable closest-battle record book (2026-10-19)
 
 - 10 expandable category cards, #1 always visible and five closest entries on expansion. Empty categories stay visible.

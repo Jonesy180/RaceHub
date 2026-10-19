@@ -1,5 +1,5 @@
 {
-  "version": "8.0.115",
-  "worker": "./otg-service-worker-v8115.js",
-  "message": "Closest Battles now has ten expandable Top Five boards with the #1 record always visible, Race Off/Swiss and FH5 discipline categories. No result data changed. Safety Backup before update."
+  "version": "8.0.116",
+  "worker": "./otg-service-worker-v8116.js",
+  "message": "Race Off closest-pairing records now recognise the sourceCarId used by actual saved Race Off car snapshots. Timed pairings qualify as soon as both results exist, without waiting for the whole Race Off tournament to finish. No race results, Evil Campaign progression or Journey moments are modified. Safety Backup before update."
 }

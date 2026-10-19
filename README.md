@@ -1,6 +1,6 @@
-## Current MAIN build: v8.0.114 (2026-10-19)
+## Current MAIN build: v8.0.116 (2026-10-19)
 
-Closest Battles under Records and read-only historic moments inside My OTG! Journey. All features and user data from v8.0.113 are preserved. Check CHANGELOG.md for the latest scope. Make a Portable Backup before installing.
+Closest Battles v8.0.115 Race Off source-car identity fix. Timed Race Off pairings enter the Top 5 once both results exist, even for unfinished tournaments. Only read-only record derivation changed; no saved racing data is edited. **Pending phone testing**. Make a Portable Backup before installing.
 
 ---
 
