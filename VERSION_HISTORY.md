@@ -1,3 +1,11 @@
+## v8.0.118 — Racing Legends / Arch-Rivals, Dynasties & Comebacks (2026-10-19)
+
+- New RACING LEGENDS button in STATS, opening five expandable Top 5 tables: Arch-Rivals, Car Dynasties, Manufacturer Dynasties, Festival Comebacks and Swiss Comebacks. Each shows its current leader (or an honest empty state).
+- Rivals: repeated head-to-head races on matching routes only. Race Off, Custom Knockout, Swiss, and valid standard Festival races qualify; group heats are excluded unless comparable. A minimum of two encounters is required.
+- Dynasties use existing Evil R1 Olympic medal tables without adjusting their exclusions. Three golds establish a dynasty; lesser totals are clearly labelled contenders. Other Spaces do not inherit FH5 medals.
+- Comebacks: position gained from first-round ranking to completed cumulative-time final ranking in multi-round Festival, or Swiss Round 1 to final Swiss-stage rank based on wins/opponent wins/total time. No standalone knockout comebacks.
+- New read-only UI module; no saved racing data is changed. Version-pinned service worker and updater preserved. Live phone QA required.
+
 ## v8.0.117 — Closest Battles mobile layout + Evil Campaign dashboard icon (2026-10-19)
 
 - Fixed the v8.0.116 regression: generated record cards carried `8115` class names, but their stylesheet used `8116`, leaving the whole page unstyled on phones. The v8.0.117 JS and CSS now use matching `8117` selectors.
