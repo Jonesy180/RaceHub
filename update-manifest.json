@@ -1,5 +1,5 @@
 {
-  "version": "8.0.124",
-  "worker": "./otg-service-worker-v8124.js",
-  "message": "OTG! v8.0.124 QA — correct the cramped Evil Tournament dashboard tile (entire name and sponsor now wrap without clipping) and install a large, illustrated cyan/crimson race-night hero at the top of the Tournament landing page. Hubbs Memorial Trophy, 1,212 slots, Swiss Cups, Garage Intelligence and all user data retained. Presentation-only release."
+  "version": "8.0.125",
+  "worker": "./otg-service-worker-v8125.js",
+  "message": "OTG! 8.0.125 QA — TET After Dark optional velvet/magenta/rose-gold Tournament styling with one-tap Original switch. Hubbs Memorial Trophy returns to The Evil Tournament as a real 45-car, 3-division, 7-visit Finals Encore. Append-only: all original 1,212 slots, Swiss at 26, existing Spaces/Garage/results/progress preserved."
 }
