@@ -1,3 +1,12 @@
+## v8.0.127 — The Bloody BACK Buttons (2026-10-20)
+
+- Historic Moments: visible Back to Journey / Back to Racing Legends at the hero top AND at the bottom; Top shortcut for long archives.
+- Racing Reports and Closest Battles: keep their existing header return and add a clearly labelled return at the foot. A link opened from Historic Moments now returns to Historic Moments; a normal entry returns to Journey or Records.
+- Racing Legends: keep the existing top and bottom Back to Stats buttons; when visited directly from Historic Moments, both return to the archive instead.
+- Garage Intelligence: each of Forgotten Cars, Smart Car Finder and Car Comparison gets a bottom Back to Garage button without changing its existing top button.
+- No changes to results, Garage, Spaces, saves, the 1,219-slot Tournament, Hubbs Memorial, Swiss, timing, medals, or other racing algorithms. No reset or import required.
+- QA: JavaScript parsing, data-file hashes, archive integrity and simulated navigation checked. Live-phone check still required.
+
 ## v8.0.120 — Current Race Top 3 & Pairing Pace (2026-10-19)
 
 - Move the existing per-track RECORD target beside LOCATION on Enter Result, remove the PB figure only from result entry (PB history and post-race flags are unchanged).

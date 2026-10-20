@@ -1,3 +1,7 @@
+## Latest QA: v8.0.127 — Navigation return buttons
+
+Historic Moments, Racing Reports, Closest Battles and Garage Intelligence now have bottom returns; top returns remain, and historic cross-links go back to the archive. Does not touch saved data or any racing logic.
+
 ## Current MAIN build: v8.0.120 (2026-10-19)
 
 Current race Top 3 and head-to-head opponent time on Enter Result, with track record moved beside LOCATION. PB remains in history and post-race screens. Read-only result-entry feature. **Pending phone QA; v8.0.119 remains accepted.** Make a portable backup first.
