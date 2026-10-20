@@ -1,5 +1,5 @@
 {
-  "version": "8.0.122",
-  "worker": "./otg-service-worker-v8122.js",
-  "message": "OTG! v8.0.122 QA — Garage Intelligence: Forgotten Cars, Smart Car Finder and Car Comparison. Read-only active-Space racing-data analysis; no saved data, Evil R1 slots, races, Garage ownership or Swiss rules changed. v8.0.121 Swiss Cup + Festival Top 3 live tests remain pending. Portable Backup before installing recommended."
+  "version": "8.0.123",
+  "worker": "./otg-service-worker-v8123.js",
+  "message": "OTG! v8.0.123 QA — The Evil Tournament, sponsored by Dave and Steves Lubrication Fluids. Dedicated campaign landing hero, renamed dashboard tile and Hubbs Memorial Trophy exhibit. Pure presentation; original 1,212-slot schedule, Swiss Cups, progress, Garage and results remain untouched. Historic Lonely Hearts is NOT present as an active competition in the current Specialist-First R1 schedule."
 }
