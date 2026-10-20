@@ -1,5 +1,5 @@
 {
-  "version": "8.0.120",
-  "worker": "./otg-service-worker-v8120.js",
-  "message": "Result entry now shows the current competition's fastest three single-race times for the exact round, course and group; Race Off and Swiss/knockout show the actual pairing opponent time only for racer two. The course record sits beside LOCATION. Car PB is still retained in Records and post-race notices, but hidden from result entry. No cumulative championship positions are used; no racing data or campaign state is modified by this UI update. Portable Backup recommended."
+  "version": "8.0.121",
+  "worker": "./otg-service-worker-v8121.js",
+  "message": "Evil R1 Swiss Cup QA: five separate 16-car Swiss events (4 Swiss rounds then Top-8 QF/SF/Final), adding 35 spaced visits without replacing Groups or changing the existing 1\u201325 slots. Uses native Festival Swiss race engine, frozen random eligible cars and track bag; save-state and all Spaces retained. v8.0.120 Festival Top 3/Swiss phone acceptance remains outstanding. EXPORT PORTABLE BACKUP BEFORE TESTING."
 }
