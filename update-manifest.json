@@ -1,5 +1,5 @@
 {
-  "version": "8.0.125",
-  "worker": "./otg-service-worker-v8125.js",
-  "message": "OTG! 8.0.125 QA — TET After Dark optional velvet/magenta/rose-gold Tournament styling with one-tap Original switch. Hubbs Memorial Trophy returns to The Evil Tournament as a real 45-car, 3-division, 7-visit Finals Encore. Append-only: all original 1,212 slots, Swiss at 26, existing Spaces/Garage/results/progress preserved."
+  "version": "8.0.126",
+  "worker": "./otg-service-worker-v8126.js",
+  "message": "OTG! 8.0.126 QA — Racing Legends gains verified Most-Raced & Most Well-Travelled car leaderboards and connects to a browsable Historic Moments archive: verified first manufacturer golds, dated PB improvements, close battles, rivalry meetings, proven comebacks and actually completed Evil campaign milestones. Fully read-only and Space-local. 1,219 original slots, all data and TET After Dark unchanged."
 }
