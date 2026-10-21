@@ -1,3 +1,7 @@
+## v8.0.133 — Closest Battles ↑ TOP navigation hotfix (QA)
+
+- Repaired scroll-to-top for nested mobile page scrolling; preserved all racing logic and previous features. Phone QA pending.
+
 ## v8.0.132 — Same Car History button as Garage (QA)
 
 - Tournament drawn/visible cars now use the exact Garage-style **▤** history icon (same 38 × 38 square and cyan finish), not large text-labelled HISTORY chips.
