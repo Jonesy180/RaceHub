@@ -1,3 +1,7 @@
+## v8.0.131 — One-tap Tournament Car History & Career Rivals (QA)
+
+- Existing Car History from drawn entrant names, plus recorded career head-to-head and medals in Garage Car Comparison. No racing/data writes. All v8.0.130 data retained.
+
 ## v8.0.130 — Tournament Crash & Logo Tile Height Hotfix (QA, 2026-10-21)
 
 - Fixed runaway hero DOM mutation loop that caused browser unresponsiveness/crash in v8.0.129.

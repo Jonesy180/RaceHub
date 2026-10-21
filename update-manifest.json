@@ -1,5 +1,5 @@
 {
-  "version": "8.0.130",
-  "worker": "./otg-service-worker-v8130.js",
-  "message": "OTG! v8.0.130 QA \u2014 fixes the v8.0.129 Tournament hero browser hang; normal-size sponsor-logo Dashboard tile. Includes the original Carlton live-draw fix and all 1,219 slots, Hubbs and Swiss."
+  "version": "8.0.131",
+  "worker": "./otg-service-worker-v8131.js",
+  "message": "OTG! v8.0.131 QA \u2014 Career Rivals Car Comparison and one-tap Car History from Evil Tournament draws, with return to the same race. All v8.0.130 Carlton and Penguin fixes retained."
 }

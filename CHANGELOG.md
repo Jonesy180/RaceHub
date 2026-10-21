@@ -1,3 +1,11 @@
+## v8.0.131 — CAR COMPARISON: CAREER RIVALS & ONE-TAP HISTORY (QA)
+
+- One-tap read-only CAR HISTORY chip beside identifiable, owned car names in the Evil slot eligible roster and the Festival/Race Off drawn lineup/current-car views. Opens the existing Car History overlay without leaving the draw; Back restores the previous scroll position. Cannot change entrants or results.
+- Car Comparison gains two-car career cards (timed results, distinct recorded competitions, existing honours, Evil Tournament car medals) and verified head-to-head stats and recent meetings; existing same-route PB comparison is preserved.
+- Uses the existing Racing Legends same-competition meeting de-duplication; no fictional wins or fabricated data. Active Space only.
+- Carries complete v8.0.130 (live-draw Carlton correction, approved penguin hero, normal-sized friendly-logo tile), 1,219 campaign slots and Hubbs/Swiss unchanged.
+- **QA status:** static/code checks; install and mobile usability still need verification. No reset, no backup restore.
+
 ## v8.0.130 — Tournament Crash & Logo Tile Height Hotfix (QA, 2026-10-21)
 
 - Fixed runaway hero DOM mutation loop that caused browser unresponsiveness/crash in v8.0.129.
