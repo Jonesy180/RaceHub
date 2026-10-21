@@ -1,5 +1,5 @@
 {
-  "version": "8.0.129",
-  "worker": "./otg-service-worker-v8129.js",
-  "message": "OTG! v8.0.129 QA — Carlton live-draw eligibility + Evil Tournament penguin hero, family-friendly sponsor logo-only Dashboard tile and corrected 1,219-slot presentation. Results and Spaces retained."
+  "version": "8.0.130",
+  "worker": "./otg-service-worker-v8130.js",
+  "message": "OTG! v8.0.130 QA \u2014 fixes the v8.0.129 Tournament hero browser hang; normal-size sponsor-logo Dashboard tile. Includes the original Carlton live-draw fix and all 1,219 slots, Hubbs and Swiss."
 }

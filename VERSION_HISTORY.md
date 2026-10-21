@@ -1,3 +1,9 @@
+## v8.0.130 — Tournament Crash & Logo Tile Height Hotfix (QA, 2026-10-21)
+
+- Fixed runaway hero DOM mutation loop that caused browser unresponsiveness/crash in v8.0.129.
+- Logo-only sponsor Dashboard tile returned to normal row height; all v8.0.129 artwork and v8.0.128 Carlton draw logic retained.
+- No racing results, saved Spaces, Garage ownership or Tournament schedule changes. See RELEASE-NOTES-v8130.md.
+
 ## v8.0.129 — Carlton and Penguin Tournament Hero (QA, 2026-10-21)
 - Kept the entire v8.0.128 eligible late-car drawing fix.
 - Sponsor logo-only Evil Tournament dashboard button, approved penguin workshop hero, two-line plaque and 1,219 slot hero count.
