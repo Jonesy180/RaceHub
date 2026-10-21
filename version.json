@@ -1,5 +1,5 @@
 {
-  "version": "8.0.126",
-  "worker": "./otg-service-worker-v8126.js",
-  "message": "OTG! 8.0.126 QA — Racing Legends gains verified Most-Raced & Most Well-Travelled car leaderboards and connects to a browsable Historic Moments archive: verified first manufacturer golds, dated PB improvements, close battles, rivalry meetings, proven comebacks and actually completed Evil campaign milestones. Fully read-only and Space-local. 1,219 original slots, all data and TET After Dark unchanged."
+  "version": "8.0.129",
+  "worker": "./otg-service-worker-v8129.js",
+  "message": "OTG! v8.0.129 QA — Carlton live-draw eligibility + Evil Tournament penguin hero, family-friendly sponsor logo-only Dashboard tile and corrected 1,219-slot presentation. Results and Spaces retained."
 }

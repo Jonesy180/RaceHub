@@ -1,3 +1,11 @@
+## v8.0.129 — Carlton and Penguin Tournament Hero (QA, 2026-10-21)
+- Kept the entire v8.0.128 eligible late-car drawing fix.
+- Sponsor logo-only Evil Tournament dashboard button, approved penguin workshop hero, two-line plaque and 1,219 slot hero count.
+- Read-only branding; no Space or result migration. See RELEASE-NOTES-v8129.md.
+
+## v8.0.128 — Draw-time late arrivals, 21 October 2026
+See LIVE-DRAW-ELIGIBILITY-QA-v8128.md.
+
 ## v8.0.127 — The Bloody BACK Buttons (2026-10-20)
 
 - Historic Moments: visible Back to Journey / Back to Racing Legends at the hero top AND at the bottom; Top shortcut for long archives.
