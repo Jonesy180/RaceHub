@@ -1,5 +1,5 @@
 {
-  "version": "8.0.131",
-  "worker": "./otg-service-worker-v8131.js",
-  "message": "OTG! v8.0.131 QA \u2014 Career Rivals Car Comparison and one-tap Car History from Evil Tournament draws, with return to the same race. All v8.0.130 Carlton and Penguin fixes retained."
+  "version": "8.0.132",
+  "worker": "./otg-service-worker-v8132.js",
+  "message": "OTG! v8.0.132 QA \u2014 Tournament Car History uses the same small icon button as Garage; no racing-data changes."
 }

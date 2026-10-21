@@ -1,3 +1,10 @@
+## v8.0.132 — Same Car History button as Garage (QA)
+
+- Tournament drawn/visible cars now use the exact Garage-style **▤** history icon (same 38 × 38 square and cyan finish), not large text-labelled HISTORY chips.
+- Kept existing one-tap Car History and return-to-draw behaviour. Buttons retain an accessible name and tooltip.
+- New draw-screen-specific placement keeps small icons beside car names rather than leaving large gaps.
+- No gameplay, Garage, live Carlton eligibility, Career Rivals, medal, draw order, saved results, or 1,219-slot campaign changes. Mobile approval pending.
+
 ## v8.0.131 — One-tap Tournament Car History & Career Rivals (QA)
 
 - Existing Car History from drawn entrant names, plus recorded career head-to-head and medals in Garage Car Comparison. No racing/data writes. All v8.0.130 data retained.
