@@ -1,3 +1,6 @@
+## v8.0.134 — Random-number dice restore (QA)
+- Restore the original random-colour dice on the Evil Tournament slot/Open Event view and active event screens; no results or draw logic touched.
+
 ## v8.0.133 — Closest Battles ↑ TOP navigation hotfix (QA)
 
 - Repaired scroll-to-top for nested mobile page scrolling; preserved all racing logic and previous features. Phone QA pending.

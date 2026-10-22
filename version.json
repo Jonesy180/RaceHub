@@ -1,5 +1,5 @@
 {
-  "version": "8.0.133",
-  "worker": "./otg-service-worker-v8133.js",
-  "message": "OTG! v8.0.133 QA \u2014 fixed \u2191 TOP navigation in Closest Battles and other Records views; no racing-data changes."
+  "version": "8.0.134",
+  "worker": "./otg-service-worker-v8134.js",
+  "message": "OTG! v8.0.134 QA \u2014 restored the existing random paint-number dice on Evil Tournament Open Event/slot screens and active racing forms; gameplay and saved results unchanged."
 }
