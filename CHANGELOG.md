@@ -1,3 +1,7 @@
+## v8.0.136 — After-Race Highlights CSS loading hotfix (QA)
+- Correct malformed 8.0.134/8.0.135 stylesheet links swallowed by a missing closing quote in v8.0.135 HTML.
+- Restore styling to factual after-race milestone rows and the v8.0.134 dice; no data or racing logic changed.
+
 ## v8.0.134 — Random-number dice restore (QA)
 - Restore the original random-colour dice on the Evil Tournament slot/Open Event view and active event screens; no results or draw logic touched.
 

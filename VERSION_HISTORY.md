@@ -1,3 +1,6 @@
+## v8.0.136
+- Visual hotfix: repair missing stylesheet links for v8.0.134 and v8.0.135. Pinned worker and updater bumped. No save/race logic changes.
+
 ## v8.0.134 — Random-number dice restore (QA)
 - Restore the original random-colour dice on the Evil Tournament slot/Open Event view and active event screens; no results or draw logic touched.
 

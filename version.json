@@ -1,5 +1,5 @@
 {
-  "version": "8.0.135",
-  "worker": "./otg-service-worker-v8135.js",
-  "message": "OTG! v8.0.135 QA \u2014 compact factual race highlights inside existing result and record screens; no new screens, data entry, or changes to results."
+  "version": "8.0.136",
+  "worker": "./otg-service-worker-v8136.js",
+  "message": "OTG! v8.0.136 QA — repair missing stylesheet link on existing after-race highlights. No changes to race data or calculations."
 }
