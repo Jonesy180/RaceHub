@@ -654,3 +654,6 @@ Owned-car Festival/Race Off preview. Specialist-First eligibility; Event START l
 - Keep v8.0.110 racing data/state intact; worker assets pin exact v8.0.111 critical files.
 
 - **Brand tagline (approved):** YOUR HARDEST OPPONENT IS YOU. Added to the dashboard and Evil R1 medal-table header.
+
+## v8.0.135 — After-Race Highlights (QA)
+- Factual read-only highlights embedded in existing post-result screens. No new result screen, new save fields, XP, or tournament change. See RELEASE-NOTES-v8135.md.

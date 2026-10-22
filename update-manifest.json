@@ -1,5 +1,5 @@
 {
-  "version": "8.0.134",
-  "worker": "./otg-service-worker-v8134.js",
-  "message": "OTG! v8.0.134 QA \u2014 restored the existing random paint-number dice on Evil Tournament Open Event/slot screens and active racing forms; gameplay and saved results unchanged."
+  "version": "8.0.135",
+  "worker": "./otg-service-worker-v8135.js",
+  "message": "OTG! v8.0.135 QA \u2014 compact factual race highlights inside existing result and record screens; no new screens, data entry, or changes to results."
 }

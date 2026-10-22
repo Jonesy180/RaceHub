@@ -1182,3 +1182,6 @@ Accepted v8.0.97 R1 data promoted to a playable QA engine using exact frozen ent
 - 8.0.110 — R1 MOT: group two-track no-repeat boundary; new worker critical-asset verification.
 
 - **Brand tagline (approved):** YOUR HARDEST OPPONENT IS YOU. Added to the dashboard and Evil R1 medal-table header.
+
+## v8.0.135
+- After-race highlights on existing result/record pages. Phone QA pending.
