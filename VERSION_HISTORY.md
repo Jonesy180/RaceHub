@@ -1,3 +1,6 @@
+## v8.0.137
+- Evil Tournament time-only entries and event-completion medals/career honours, with position recording elsewhere unchanged.
+
 ## v8.0.136
 - Visual hotfix: repair missing stylesheet links for v8.0.134 and v8.0.135. Pinned worker and updater bumped. No save/race logic changes.
 

@@ -1,5 +1,5 @@
 {
-  "version": "8.0.136",
-  "worker": "./otg-service-worker-v8136.js",
-  "message": "OTG! v8.0.136 QA — repair missing stylesheet link on existing after-race highlights. No changes to race data or calculations."
+  "version": "8.0.137",
+  "worker": "./otg-service-worker-v8137.js",
+  "message": "v8.0.137 QA — Evil tournament time-only entry, no repetitive AI first-win highlights; competition honours at completion. Saves and older results preserved."
 }

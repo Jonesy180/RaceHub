@@ -1,3 +1,9 @@
+## v8.0.137 — Evil time-only results and competition honours (QA)
+- Evil Festival/group race entries require TIME only; existing saved positions remain untouched.
+- Suppress per-race AI honours in Evil; display factual winner/podium notes only on completed competitions.
+- Add read-only completion highlights to existing Group final, standard Festival final and Race Off champion screens.
+- Preserve other game/Space position recording.
+
 ## v8.0.136 — After-Race Highlights CSS loading hotfix (QA)
 - Correct malformed 8.0.134/8.0.135 stylesheet links swallowed by a missing closing quote in v8.0.135 HTML.
 - Restore styling to factual after-race milestone rows and the v8.0.134 dice; no data or racing logic changed.
