@@ -1,3 +1,8 @@
+## v8.0.140 — Forgotten Cars: Manufacturer Participation (phone QA pending)
+- Existing Forgotten Cars adds Space-local read-only manufacturer participation and a tap-to-filter manufacturer view; no new page.
+- No changes to race results, Garage ownership, Evil slots, medals, portable backups, or older code.
+- See RELEASE-NOTES-v8140.md for details and phone checklist.
+
 ## v8.0.138 — QA
 - Time-first racing; optional Advanced Timing position. Retains previous results.
 

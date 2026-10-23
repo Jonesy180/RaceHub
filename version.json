@@ -1,5 +1,5 @@
 {
-  "version": "8.0.139",
-  "worker": "./otg-service-worker-v8139.js",
-  "message": "OTG! v8.0.139 QA \u2014 Journey Racing Reports now include read-only monthly and yearly breakdowns of saved timed results and real completed events. No AI race wins counted."
+  "version": "8.0.140",
+  "worker": "./otg-service-worker-v8140.js",
+  "message": "OTG! v8.0.140 QA \u2014 Forgotten Cars adds read-only per-manufacturer timed participation, zero-activity makers, dormancy and a one-tap maker filter. Garage and all racing data remain unchanged."
 }
