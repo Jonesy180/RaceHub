@@ -1,3 +1,7 @@
+## v8.0.143 — Lifetime Career heading visibility hotfix (PHONE QA PENDING)
+- Fixed global CSS `header{display:none!important}` hiding Lifetime Career title; scoped override only.
+- Preserves v8.0.142 Lifetime totals/medals and all saved data. See RELEASE-NOTES-v8143.md.
+
 ## v8.0.142 — Lifetime Career Across Spaces (PHONE QA PENDING)
 - Read-only cross-Space lifetime totals and genuine competition podiums on existing Stats. Individual Space records and historical racing remain separate.
 - See RELEASE-NOTES-v8142.md.

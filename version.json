@@ -1,5 +1,5 @@
 {
-  "version": "8.0.142",
-  "worker": "./otg-service-worker-v8142.js",
-  "message": "OTG! v8.0.142 QA \u2014 read-only Lifetime Career totals across Spaces on the existing Stats page; per-game racing and records remain independent."
+  "version": "8.0.143",
+  "worker": "./otg-service-worker-v8143.js",
+  "message": "OTG! v8.0.143 — Lifetime Career heading visibility hotfix; all racing data and calculations unchanged."
 }

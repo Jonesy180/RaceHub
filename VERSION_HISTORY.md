@@ -1,3 +1,6 @@
+## v8.0.143 — Lifetime Career heading visibility hotfix (2026-10-23; PHONE QA PENDING)
+- Fix: STATS Lifetime Career title appeared in DOM but inherited globally hidden `<header>` display. v8.0.143 makes it visible without touching statistics or live data.
+
 ## v8.0.142 — Lifetime Career Across Spaces (2026-10-23; PHONE QA PENDING)
 Read-only aggregate on existing Stats. Space-by-Space timed results, recorded duration, raced-car identities, complete events and verified Festival/Race Off medals. No cross-game records, XP, AI victory counting or storage migrations. Full release/phone QA notes in RELEASE-NOTES-v8142.md.
 
