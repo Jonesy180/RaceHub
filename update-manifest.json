@@ -1,5 +1,5 @@
 {
-  "version": "8.0.141",
-  "worker": "./otg-service-worker-v8141.js",
-  "message": "OTG! v8.0.141 QA \u2014 Smart Car Finder now builds existing Pick My Drive championships from matching owned cars; original surprise draw remains. No data migrations."
+  "version": "8.0.142",
+  "worker": "./otg-service-worker-v8142.js",
+  "message": "OTG! v8.0.142 QA \u2014 read-only Lifetime Career totals across Spaces on the existing Stats page; per-game racing and records remain independent."
 }

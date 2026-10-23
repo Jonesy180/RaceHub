@@ -1,3 +1,7 @@
+## v8.0.142 — Lifetime Career Across Spaces (PHONE QA PENDING)
+- Read-only cross-Space lifetime totals and genuine competition podiums on existing Stats. Individual Space records and historical racing remain separate.
+- See RELEASE-NOTES-v8142.md.
+
 ## v8.0.141 — Pick My Drive + Smart Car Finder (phone QA pending)
 - Smart Finder filters now feed Pick My Drive's existing random draw and race setup; PMD dashboard offers a filter shortcut. No storage model modifications.
 - Full regression / phone checklist in RELEASE-NOTES-v8141.md.
