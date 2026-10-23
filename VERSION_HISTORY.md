@@ -1194,3 +1194,6 @@ Accepted v8.0.97 R1 data promoted to a playable QA engine using exact frozen ent
 
 ## v8.0.135
 - After-race highlights on existing result/record pages. Phone QA pending.
+
+## v8.0.139 — Journey Monthly & Yearly Reports (2026-10-23; QA pending)
+Existing Space-local Racing Reports extended with read-only month/year views. Period-correct de-duplicated results, unique cars, completed events only, no AI honours. No schema changes.

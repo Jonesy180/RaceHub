@@ -1,5 +1,5 @@
 {
-  "version": "8.0.138",
-  "worker": "./otg-service-worker-v8138.js",
-  "message": "OTG! v8.0.138 QA \u2014 normal result entry is time-only; Advanced Timing offers optional finishing position. No AI race-win medals."
+  "version": "8.0.139",
+  "worker": "./otg-service-worker-v8139.js",
+  "message": "OTG! v8.0.139 QA \u2014 Journey Racing Reports now include read-only monthly and yearly breakdowns of saved timed results and real completed events. No AI race wins counted."
 }
