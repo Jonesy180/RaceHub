@@ -1,3 +1,7 @@
+## v8.0.141 — Pick My Drive + Smart Car Finder (phone QA pending)
+- Smart Finder filters now feed Pick My Drive's existing random draw and race setup; PMD dashboard offers a filter shortcut. No storage model modifications.
+- Full regression / phone checklist in RELEASE-NOTES-v8141.md.
+
 ## v8.0.140 — Forgotten Cars: Manufacturer Participation (phone QA pending)
 - Existing Forgotten Cars adds Space-local read-only manufacturer participation and a tap-to-filter manufacturer view; no new page.
 - No changes to race results, Garage ownership, Evil slots, medals, portable backups, or older code.
