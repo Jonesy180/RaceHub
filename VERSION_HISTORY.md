@@ -1,3 +1,6 @@
+## v8.0.138
+- Time-first standard entry; optional finishing position in Advanced Timing; no AI race-win highlights.
+
 ## v8.0.137
 - Evil Tournament time-only entries and event-completion medals/career honours, with position recording elsewhere unchanged.
 

@@ -1,3 +1,6 @@
+## v8.0.138 — QA
+- Time-first racing; optional Advanced Timing position. Retains previous results.
+
 ## v8.0.137 — Evil time-only results and competition honours (QA)
 - Evil Festival/group race entries require TIME only; existing saved positions remain untouched.
 - Suppress per-race AI honours in Evil; display factual winner/podium notes only on completed competitions.
