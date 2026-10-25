@@ -1,5 +1,5 @@
 {
-  "version": "8.0.145",
-  "worker": "./otg-service-worker-v8145.js",
-  "message": "OTG! v8.0.145 \u2014 Evil R1 artwork moved from slot details to actual live racing headers. Personal tournament landing hero, results and Space data preserved."
+  "version": "8.0.146",
+  "worker": "./otg-service-worker-v8146.js",
+  "message": "OTG! v8.0.146 \u2014 Unobstructed racing hero artwork; titles below images; colour dice retired; After Dark TOURNAMENT contrast restored. Racing state and original hero unchanged."
 }

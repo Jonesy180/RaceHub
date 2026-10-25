@@ -1,0 +1,14 @@
+OTG! MAIN v8.0.146 — HERO PRESENTATION / NO DICE / AFTER DARK CONTRAST
+
+BASE: installed personal MAIN v8.0.145 (the 13 artworks from v8.0.144 must remain installed).
+ONLY personal C:\RaceHub MAIN. NEVER install in OTG-Laboratory/otg-lab.
+
+Visual changes only:
+- Existing Festival and Race Off banner title/status moves BELOW the banner. Back arrows stay on the image.
+- Evil group and other existing live championship art banners display the event title underneath.
+- Remove paint-colour random-number dice everywhere by no longer loading its script.
+- After Dark's TOURNAMENT heading uses solid high-contrast pink; no transparency/gradient clipping.
+
+No changes to car results, race positions, times, records, Spaces, backups, Evil slot counts, gameplay controllers or original Evil landing hero artwork.
+
+Extract this incremental ZIP into personal MAIN, preserving all older files/assets. Review version.json (8.0.146) and git status before committing/pushing. Update on phone using in-app safety-backup gate; never Reset Racing Data or Full Reset. Test first on your existing Slot 0017 screen without entering a new result. Actual phone QA not yet performed.
