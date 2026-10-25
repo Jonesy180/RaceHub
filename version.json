@@ -1,5 +1,5 @@
 {
-  "version": "8.0.143",
-  "worker": "./otg-service-worker-v8143.js",
-  "message": "OTG! v8.0.143 — Lifetime Career heading visibility hotfix; all racing data and calculations unchanged."
+  "version": "8.0.144",
+  "worker": "./otg-service-worker-v8144.js",
+  "message": "OTG! v8.0.144 \u2014 Evil Tournament category hero gallery (presentation only). MAIN data, records and original landing hero unchanged."
 }

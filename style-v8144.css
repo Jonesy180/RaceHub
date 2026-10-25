@@ -1,0 +1,13 @@
+/* OTG! 8.0.144 — Artwork-only, existing Evil R1 slot detail screens. */
+#evilcampaign .rhEvilR1Body8097 > .otgEvilScene8144 {
+ margin:12px 0 16px;
+ width:100%;
+ overflow:hidden;
+ border-radius:14px;
+ border:1px solid rgba(255,91,178,.44);
+ background:#0b1019;
+ box-shadow:0 8px 25px rgba(0,0,0,.28);
+}
+#evilcampaign .otgEvilScene8144 img {
+ display:block;width:100%;height:auto;aspect-ratio:1672 / 941;object-fit:cover;
+}
