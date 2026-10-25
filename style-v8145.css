@@ -1,0 +1,23 @@
+/* OTG! MAIN 8.0.145 — replace generic LIVE racing page header background only. */
+#raceoff .rhRaceOffHeroV1.otgEvilLiveHero8145 {
+ background-image:linear-gradient(180deg,rgba(1,4,11,.48) 0%,rgba(1,4,11,.04) 38%,rgba(1,4,11,.18) 72%,rgba(1,4,11,.48) 100%),var(--otg-evil-live-art8145)!important;
+ background-position:center center!important;
+ background-size:cover!important;
+ background-repeat:no-repeat!important;
+}
+#festival .rhOverviewHeroV1.otgEvilLiveHero8145,
+#festival .rhChamp34Hero.otgEvilLiveHero8145 {
+ background-image:linear-gradient(180deg,rgba(1,4,11,.52),rgba(1,4,11,.08) 42%,rgba(1,4,11,.55)),var(--otg-evil-live-art8145)!important;
+ background-position:center center!important;
+ background-size:cover!important;
+ background-repeat:no-repeat!important;
+}
+#festival .rhOverviewHeroV1.otgEvilLiveHero8145{min-height:clamp(200px,55vw,310px)!important;position:relative;}
+#festival .rhOverviewHeroV1.otgEvilLiveHero8145 .rhOverviewBrandV1,
+#festival .rhChamp34Hero.otgEvilLiveHero8145 .rhChamp34Title,
+#raceoff .rhRaceOffHeroV1.otgEvilLiveHero8145 .rhFestivalHeadV1 {
+ position:relative;z-index:2;text-shadow:0 2px 6px #000,0 0 12px #000;
+}
+/* Existing Race Off back button stays in its original absolute-positioned header.
+   Its position context comes from .rhFestivalHeadV1 in the original stylesheet. */
+#raceoff .rhRaceOffHeroV1.otgEvilLiveHero8145 .rhFestivalHeadV1{position:absolute;}

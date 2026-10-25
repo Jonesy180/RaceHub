@@ -1,0 +1,14 @@
+OTG! MAIN v8.0.145 — LIVE EVIL TOURNAMENT HERO CORRECTION — INCREMENTAL PATCH
+
+PATCH BASE: Installed MAIN v8.0.144. NO artwork images are repeated in this ZIP.
+TARGET: ONLY personal RaceHub MAIN. DO NOT use OTG-Laboratory/otg-lab.
+
+CHANGE: v8.0.144 artworks move OFF the numbered Evil R1 slot-information page and become the backdrop of the existing LIVE Race Off match-screen header and the live Festival championship/group headers. The original bracket-room photograph is replaced only for an actual linked Evil R1 event. No changes to regular non-Evil Festival or Race Off screens, number of results, timing, controls, data structures or tournament state.
+
+Slot ID + saved event marker must both match; otherwise, leave the original header alone. The code handles the existing manufacturer/era/class/specialist/favourite mappings and the Finals boundary. The 13 .webp images are ALREADY installed from v8.0.144 and must be retained in assets/tournaments/. The ORIGINAL Evil Tournament landing hero remains unchanged.
+
+Automated QA: script syntax + version/safety wiring + ZIP and asset-reference checks (NOT phone QA).
+
+INSTALL: First preserve your current MAIN portable backup. In VS Code verify you are in C:\RaceHub, NOT the LAB. Extract ONLY this patch OVER the existing MAIN files, retaining all folders and older assets. Do not delete anything. Verify version.json now reads 8.0.145. Review git status before any commit; then use familiar 3 Git commands. On phone, update safely and inspect the active SLOT 0017 All Normal Cars Race Off race screen without entering results.
+
+Do not run Reset Racing Data or Full Reset. No LAB files are included.
