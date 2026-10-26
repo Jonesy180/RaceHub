@@ -1,0 +1,28 @@
+/* OTG! MAIN v8.0.152 — private Hall of Shame earned rewards, UI only. */
+/* 8.0.152: earned (not roulette) Hall of Shame display. Existing 13 hero images unchanged. */
+.otgHosRewardsPage8152 .otgHosCopy8147 {margin-bottom:16px!important}
+.otgHosRewardsPage8152 .otgHosStats8147 article strong{overflow-wrap:anywhere!important}
+.otgHosRewardCard8152{padding:0!important;text-align:left!important;cursor:pointer!important;width:100%!important;color:inherit!important;font:inherit!important}
+.otgHosRewardCard8152 img{display:block!important;width:100%!important;aspect-ratio:16/9!important;object-fit:cover!important}
+.otgHosRewardCard8152:focus-visible{outline:3px solid #70dfff!important;outline-offset:3px!important}
+.otgHosRewardOverlay8152{
+  position:fixed!important;inset:0!important;z-index:2147483000!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:max(16px,env(safe-area-inset-top)) 12px max(18px,env(safe-area-inset-bottom))!important;
+  overflow:auto!important;background:rgba(0,6,13,.95)!important;backdrop-filter:blur(14px)!important;
+}
+.otgHosRewardOverlay8152 > section{
+  width:min(100%,850px)!important;max-height:94vh!important;overflow-y:auto!important;
+  padding:clamp(16px,3vw,30px)!important;box-sizing:border-box!important;
+  border-radius:25px!important;border:1px solid rgba(255,93,157,.45)!important;
+  background:linear-gradient(150deg,#1a0e23 0%,#050f18 70%,#1a0714)!important;
+  box-shadow:0 22px 90px rgba(0,0,0,.75)!important;text-align:center!important;
+}
+.otgHosRewardOverlay8152 small{color:#f4a4cb!important;letter-spacing:.17em!important;font-size:12px!important;font-weight:900!important}
+.otgHosRewardOverlay8152 h2{color:#fff!important;font-size:clamp(28px,7vw,46px)!important;margin:10px 0 16px!important}
+.otgHosRewardImage8152{border-radius:18px!important;overflow:hidden!important;border:1px solid #315366!important;background:#020b12!important}
+.otgHosRewardImage8152 img{display:block!important;width:100%!important;height:auto!important;max-height:59vh!important;object-fit:contain!important}
+.otgHosRewardOverlay8152 p{font-size:16px!important;letter-spacing:.08em!important;font-weight:900!important;color:#aae9f6!important}
+.otgHosDismiss8152{display:block!important;margin:14px auto 0!important;width:100%!important;padding:15px 16px!important;border:0!important;border-radius:14px!important;color:#fff!important;font-weight:900!important;background:linear-gradient(120deg,#ba317e,#6736b7)!important}
+
+@media (max-width:640px){.otgHosRewardsPage8152 .otgHosGrid8147{grid-template-columns:repeat(2,minmax(0,1fr))!important}.otgHosRewardsPage8152 .otgHosCard8147.locked{min-height:160px!important}}

@@ -1,0 +1,37 @@
+OTG! PERSONAL MAIN v8.0.152 — HALL OF SHAME: EARNED REWARDS FOUNDATION
+
+BASE: confirmed MAIN v8.0.151 (full previous installation/assets retained).
+ONLY install in C:\RaceHub MAIN. NEVER install in OTG-Laboratory or public GUIDE.
+
+LOCKED DESIGN:
+- Preserve all thirteen approved category/racing artworks; original Evil landing hero unchanged.
+- Secret Hall of Shame artwork is earned by completing selected EVIL TOURNAMENT SLOTS,
+  verified using the real MARK AS DONE controller and saved slot status. NOT individual AI races.
+- A deterministic nonuniform milestone plan has been seeded beginning after the user's Slot 0019.
+  Rewards cannot be revealed ahead of completing the necessary slot.
+- Reward credit belongs to the relevant FH5 Space. Saved with its existing OTG! state.
+- Each eligible slot pays once; MARK AS TODO does not confiscate a previously earned reward.
+- Earlier completed eligible slots are reconciled at app start and gallery entry, so no
+  secret reward is lost if the corresponding image pack arrives after the milestone.
+- When a valid secret asset is available, the reward becomes discoverable. First reveal
+  appears on completed slot, or on deliberate Hall of Shame entry for previously banked rewards.
+- Locked gallery cards never show titles, preview images, clues, or reward slot numbers.
+- Future private artwork packs use neutral HOS-0001 naming and local assets only.
+
+This BUILD CONTAINS NO NEW SECRET ARTWORK. No actual reward popup will appear until a private
+artwork pack has been installed; completed eligible slots bank future entitlements meanwhile.
+The first pack must define window.rhHosRewardAssets8152 as a list of neutral-ID file references,
+e.g. [{id:'HOS-0001',src:'assets/hall-of-shame/HOS-0001.webp'}]. Bundle real files
+and pin them in the service worker. Do not publish to LAB/GUIDE. There are no fake art files here.
+
+Existing racing results, recorded times, event IDs, car ownership, tournament slot progression,
+manual and Safety Backups, and app logic were not changed. Adds a small separate reward ledger
+inside the current Space and replaces the retired preview-only Hall of Shame interface.
+
+FIRST PHONE QA: open personal FH5 Evil Tournament landing, verify Hall of Shame tile visible;
+open Hall of Shame (padlocks); BACK; verify current Slot 0019 racing and existing category
+artwork unaffected. Do not Mark as Done for QA or reset racing data.
+
+Automated model tests: verified controller DONE earns, rejected DONE does not; repeat DONE and
+MARK AS TODO do not duplicate/confiscate; eventual asset delivery redeems pending reward; no
+empty popups, no spoilers, FH5 Space isolation. Actual phone QA still outstanding.

@@ -1,0 +1,7 @@
+MAIN v8.0.152 — phone smoke test, one stage at a time
+1. Verify installed v8.0.152 after normal in-app update/safety-backup gate.
+2. Enter The Evil Tournament; scroll and tap controls. Hall of Shame rewards tile must respond.
+3. Enter Hall of Shame. Expect locked entries and NO secret art yet.
+4. BACK must return to the normal Evil Tournament with original artwork.
+5. Open ongoing Slot 0019; the currently working category hero should still appear.
+DO NOT change results, Mark as Done as a test, Reset Racing Data, or Full Reset.
