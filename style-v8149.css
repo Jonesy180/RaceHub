@@ -1,0 +1,58 @@
+/* Personal MAIN v8.0.149 — illustrated Evil racing + Enter Result continuity.
+   Only applied by JS to verified Evil R1 records. Ordinary racing unaffected. */
+#festival .rhOverviewHeroV1.otgEvilContinuityHero8149,
+#festival .rhChamp34Hero.otgEvilContinuityHero8149,
+#raceoff .rhRaceOffHeroV1.otgEvilContinuityHero8149,
+#raceoff .rhScene.otgEvilContinuityHero8149 {
+ background-image:linear-gradient(180deg,rgba(2,9,18,.16),rgba(2,9,18,.05) 60%,rgba(2,9,18,.26)),var(--otg-evil-live-art8145)!important;
+ background-position:center center!important;
+ background-size:cover!important;
+ background-repeat:no-repeat!important;
+}
+/* Artwork is above the event title on Group screens, as approved in v8.0.146. */
+#festival .v8GroupPage .rhOverviewHeroV1.otgEvilContinuityHero8149{
+ min-height:clamp(190px,52vw,315px)!important;
+ box-sizing:border-box!important;
+}
+/* The Enter Result header gets the SAME verified event image, not the generic stock finish line. */
+#festival .rh5801Hero.otgEvilContinuityHero8149,
+#raceoff .rh5801Hero.otgEvilContinuityHero8149{
+ background-image:linear-gradient(180deg,rgba(2,8,15,.11),rgba(2,8,15,.02) 62%,rgba(2,8,15,.22)),var(--otg-evil-live-art8145)!important;
+ background-position:center center!important;
+ background-repeat:no-repeat!important;
+ background-size:cover!important;
+ flex:0 0 clamp(200px,33svh,320px)!important;
+}
+/* Back controls stay on the image, while text sits on a readable strip below it. */
+#festival .rh5801Entry .otgEvilEntryStrip8149,
+#raceoff .rh5801Entry .otgEvilEntryStrip8149{
+ flex:0 0 auto!important;display:block!important;position:relative!important;
+ background:linear-gradient(120deg,#071d29,#031018)!important;
+ border-bottom:1px solid rgba(91,218,247,.35)!important;
+ padding:12px 18px 15px!important;color:#f4fcff!important;
+}
+#festival .rh5801Entry .otgEvilEntryStrip8149 .rh5801Head,
+#raceoff .rh5801Entry .otgEvilEntryStrip8149 .rh5801Head{
+ position:static!important;top:auto!important;left:auto!important;right:auto!important;
+ text-shadow:none!important;line-height:1.13!important;padding:0!important;
+}
+#festival .rh5801Entry .otgEvilEntryStrip8149 h1,
+#raceoff .rh5801Entry .otgEvilEntryStrip8149 h1{color:#fff!important;margin:0 0 4px!important}
+#festival .rh5801Entry .otgEvilEntryStrip8149 p,
+#raceoff .rh5801Entry .otgEvilEntryStrip8149 p{color:#80dff4!important;margin:0!important;font-weight:800!important}
+#festival .rh5801Entry:has(>.otgEvilEntryStrip8149)>.rh5801Context,
+#raceoff .rh5801Entry:has(>.otgEvilEntryStrip8149)>.rh5801Context{
+ margin:0 18px 8px!important;
+}
+#festival .otgEvilRecapHero8149{min-height:clamp(160px,45vw,270px)!important;
+ border-radius:18px!important;margin:10px 0 16px!important;
+ background-image:var(--otg-evil-live-art8145)!important;
+ background-position:center!important;background-size:cover!important;background-repeat:no-repeat!important;
+ border:1px solid rgba(101,209,237,.3)!important;}
+
+/* Older Race Off round-setup pages use the generic .rhScene banner rather than
+   .rhRaceOffHeroV1; these also receive the current Evil event picture. */
+#raceoff .rhScene.otgEvilContinuityHero8149{
+ min-height:clamp(195px,47vw,295px)!important;
+ background-position:center center!important;
+}

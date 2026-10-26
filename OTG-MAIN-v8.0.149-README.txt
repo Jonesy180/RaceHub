@@ -1,0 +1,18 @@
+OTG! PERSONAL MAIN v8.0.149 — EVIL ARTWORK CONTINUITY
+
+BASE: Accepted personal MAIN v8.0.148, including all prior artwork and Hall of Shame patches.
+Apply ONLY to C:\RaceHub MAIN (never LAB/otg-lab). Incremental patch; DO NOT delete existing files or assets.
+
+Current FIXED category heroes now follow the verified saved Evil event ID (not its h1 heading, which the 8.0.146 title strip moves out of the image). The same image is used on:
+  - Active Festival Group / Championship header (including Slot 19 Era Championship)
+  - Festival Enter Result page
+  - Race Off live header, setup banner and Enter Result page
+  - Festival group race-result recap if the normal template has no existing hero
+
+Event image stays the same on reopens, round advances and returning to the event. Back buttons remain, text in Enter Result appears below artwork, and result-entry stopwatch/data controls are not modified. Ordinary/non-Evil race screens remain untouched. Original Evil landing hero untouched. Hall of Shame remains a classified EMPTY vault. Secret art pack and roulette remain dormant until future private pack is installed.
+
+No changes to saved results, times, positions, Spaces, Garage, awards, Evil slot order/count, backups or results entry functions. The new continuity code is UI-only; its only potential future storage touch is through the already-installed Hall of Shame engine if roulette is explicitly armed with a pack.
+
+Phone QA: check Slot 19 Group 1 header now has the Era artwork; tap CONTINUE and check Enter Result displays the SAME artwork with stopwatch still working; tap BACK and confirm progress still 2 recorded results. No need to save another result for QA.
+
+Automated syntax / mock tests cannot replace phone QA.
