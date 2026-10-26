@@ -1,0 +1,31 @@
+/* OTG! personal MAIN v8.0.150 — real image rendering, Evil R1 only.
+   Preserve existing event controls, titles and general CSS; don't touch data. */
+#festival .otgEvilImageFrame8150,
+#raceoff .otgEvilImageFrame8150{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  min-height:clamp(205px,53vw,310px)!important;
+  box-sizing:border-box!important;
+}
+#festival .otgEvilImageFrame8150 > img.otgActualHero8150,
+#raceoff .otgEvilImageFrame8150 > img.otgActualHero8150{
+  position:absolute!important;
+  top:0!important;right:0!important;bottom:0!important;left:0!important;
+  display:block!important;
+  width:100%!important;height:100%!important;
+  max-width:none!important;max-height:none!important;
+  margin:0!important;padding:0!important;
+  object-fit:cover!important;object-position:50% 50%!important;
+  pointer-events:none!important;
+  z-index:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+/* Titles/back buttons: remain legible and clickable until legacy title separation runs. */
+#festival .otgEvilImageFrame8150 > :not(img),
+#raceoff .otgEvilImageFrame8150 > :not(img){position:relative;z-index:2}
+#festival .rh5801Hero.otgEvilImageFrame8150,
+#raceoff .rh5801Hero.otgEvilImageFrame8150{flex:0 0 clamp(210px,33svh,320px)!important;}
+/* The stock results scene uses its own fixed header; do not overlay buttons. */
+#raceoff .rhResultSceneFinal.otgEvilImageFrame8150{min-height:clamp(210px,38vw,300px)!important;}
