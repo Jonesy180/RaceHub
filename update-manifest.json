@@ -1,5 +1,5 @@
 {
-  "version": "8.0.147",
-  "worker": "./otg-service-worker-v8147.js",
-  "message": "OTG! v8.0.147 — Hall of Shame foundations: classified vault shell, secret-hero roulette scaffolding, no-repeat event assignment, discovery tracking. Current visible heroes unchanged until a sealed art pack arrives."
+  "version": "8.0.148",
+  "worker": "./otg-service-worker-v8148.js",
+  "message": "OTG! v8.0.148 \u2014 Hall of Shame unresponsive Evil Tournament screen hotfix. Prevents the classified teaser from endlessly redrawing. No gameplay or racing data changes."
 }
