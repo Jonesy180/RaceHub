@@ -1,5 +1,5 @@
 {
-  "version": "8.0.150",
-  "worker": "./otg-service-worker-v8150.js",
-  "message": "OTG! v8.0.150 \u2014 Evil Tournament approved 13 category pictures display as actual image elements in racing headers and Enter Result; Hall of Shame remains a separate classified vault."
+  "version": "8.0.151",
+  "worker": "./otg-service-worker-v8151.js",
+  "message": "OTG! v8.0.151 \u2014 Restores the 13 approved Evil category images to active Festival group pages with a standalone image banner. Result-entry artwork and Hall of Shame remain unchanged."
 }
