@@ -1,5 +1,5 @@
 {
-  "version": "8.0.153",
-  "worker": "./otg-service-worker-v8153.js",
-  "message": "OTG! v8.0.153 \u2014 private Hall of Shame artwork expansion. Previous racing progress, rewards and championship correction preserved."
+  "version": "8.0.154",
+  "worker": "./otg-service-worker-v8154.js",
+  "message": "OTG! v8.0.154 — Evil Swiss Round hand-off repair. Preserves recorded times, slots and secret artwork."
 }
