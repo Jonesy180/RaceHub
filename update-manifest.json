@@ -1,5 +1,5 @@
 {
-  "version": "8.0.155",
-  "worker": "./otg-service-worker-v8155.js",
-  "message": "OTG! v8.0.155 \u2014 The Pit Wall. Read-only completed Evil Tournament slot reports, searchable by slot or event title; no racing data changes."
+  "version": "8.0.156",
+  "worker": "./otg-service-worker-v8156.js",
+  "message": "OTG! v8.0.156 \u2014 Pit Wall qualification and standings tables. Read-only round results with saved qualifiers; racing data unchanged."
 }
