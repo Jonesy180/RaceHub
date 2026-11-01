@@ -1,5 +1,5 @@
 {
-  "version": "8.0.154",
-  "worker": "./otg-service-worker-v8154.js",
-  "message": "OTG! v8.0.154 — Evil Swiss Round hand-off repair. Preserves recorded times, slots and secret artwork."
+  "version": "8.0.155",
+  "worker": "./otg-service-worker-v8155.js",
+  "message": "OTG! v8.0.155 \u2014 The Pit Wall. Read-only completed Evil Tournament slot reports, searchable by slot or event title; no racing data changes."
 }
