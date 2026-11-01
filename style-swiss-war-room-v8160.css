@@ -1,0 +1,49 @@
+/* Swiss Cup War Room — mobile-first, read-only, FH5 Evil Tournament. */
+#evilcampaign .wr160{color:#e9f8fd}
+#evilcampaign .wr160-intro,#evilcampaign .wr160-panel,#evilcampaign .wr160-warning,#evilcampaign .wr160-note{background:linear-gradient(145deg,#071a29,#0b2333);border:1px solid #2f667f;border-radius:20px;padding:17px;margin:14px 0}
+#evilcampaign .wr160-intro>b{color:#86def2;letter-spacing:.06em}
+#evilcampaign .wr160-intro>h2{margin:0 0 16px;color:#e8fcff;font-size:23px;line-height:1.25}
+#evilcampaign .wr160-intro p,#evilcampaign .wr160-legal,#evilcampaign .wr160-h p{color:#adc9d7;font-size:14px;line-height:1.6}
+#evilcampaign .wr160-intro p{margin:9px 0 0}
+#evilcampaign .wr160-cup{width:100%;border:1px solid #36738b;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 13px;border-radius:15px;margin:10px 0;background:#0b293a;text-align:left;color:white;min-height:78px;font:inherit;cursor:pointer}
+#evilcampaign .wr160-cup span{flex:1;min-width:0}
+#evilcampaign .wr160-cup b{display:block;font-size:16px;line-height:1.4;overflow-wrap:anywhere}
+#evilcampaign .wr160-cup small{display:block;font-size:12px;color:#9cc8d7;margin-top:6px;line-height:1.4}
+#evilcampaign .wr160-cup>strong{white-space:nowrap;color:#86e4f7;font-size:13px}
+#evilcampaign .wr160-legal{padding:9px 5px 24px;margin:10px 0}
+#evilcampaign .wr160-localback{min-height:45px;color:#cff5ff;background:#0a3449;border:1px solid #407c99;border-radius:13px;padding:9px 17px;font:inherit;font-weight:800;cursor:pointer;margin:9px 0 10px}
+#evilcampaign .wr160-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#evilcampaign .wr160-stats>div{border-radius:13px;background:#041420;border:1px solid #29556a;padding:11px 8px;min-width:0;text-align:center}
+#evilcampaign .wr160-stats small{display:block;color:#8eb9c9;font-size:10px;font-weight:800;letter-spacing:.03em;line-height:1.5}
+#evilcampaign .wr160-stats b{display:block;color:#87e0f4;font-size:20px;margin-top:7px;font-variant-numeric:tabular-nums}
+#evilcampaign .wr160-warning{border-color:#cf995e;color:#f7d7ac}
+#evilcampaign .wr160-note{color:#aac9d7}
+#evilcampaign .wr160-h h2{margin:0 0 4px;color:#80daf0;font-size:17px;letter-spacing:.06em}
+#evilcampaign .wr160-h p{margin:5px 0 15px}
+#evilcampaign .wr160-visit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}
+#evilcampaign .wr160-visit{background:#061827;color:#e0f5fe;border:1px solid #2b546a;border-radius:13px;padding:11px 9px;text-align:left;font:inherit;cursor:pointer;min-height:90px}
+#evilcampaign .wr160-visit b{display:block;font-size:12px;line-height:1.3}
+#evilcampaign .wr160-visit small{display:block;color:#96bccd;font-size:11px;margin:7px 0}
+#evilcampaign .wr160-visit span{font-size:10px;color:#e2bb7d;font-weight:800;line-height:1.4;display:block}
+#evilcampaign .wr160-visit span.done{color:#8de7b3}
+#evilcampaign .wr160-visit[aria-current="true"]{border-color:#92ecff;box-shadow:inset 0 0 0 1px #92ecff;background:#0a3040}
+#evilcampaign .wr160-table{border-top:1px solid #2b5d73;margin-top:15px}
+#evilcampaign .wr160-standing{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid #23495d}
+#evilcampaign .wr160-standing>b{width:24px;flex:0 0 24px;color:#6ecfe8}
+#evilcampaign .wr160-standing span{flex:1;min-width:0}
+#evilcampaign .wr160-standing span strong{display:block;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+#evilcampaign .wr160-standing small{display:block;font-size:12px;color:#a8cada;margin-top:5px;line-height:1.5}
+#evilcampaign .wr160-standing em{font-size:10px;background:#94e6bc;color:#0b2b1e;padding:5px;border-radius:7px;font-weight:900;font-style:normal;white-space:nowrap}
+#evilcampaign .wr160-advisory{color:#d9bd93;font-size:12px;line-height:1.6}
+#evilcampaign .wr160-empty{padding:16px;margin-top:14px;color:#abc6d4;background:#051725;border-radius:12px;line-height:1.6}
+#evilcampaign .wr160-count{color:#acd9e8;font-size:12px;font-weight:800;letter-spacing:.03em}
+#evilcampaign .wr160-pair{border-top:1px solid #2b5265;padding:14px 0 10px}
+#evilcampaign .wr160-pair>small{display:block;color:#7cd5ed;font-weight:900;font-size:11px;margin-bottom:8px}
+#evilcampaign .wr160-pair>div{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:8px 0}
+#evilcampaign .wr160-pair>div.winner span{font-weight:900;color:#94ecc5}
+#evilcampaign .wr160-pair>div span{min-width:0;flex:1;font-size:14px;overflow-wrap:anywhere;line-height:1.4}
+#evilcampaign .wr160-pair>div b{font-variant-numeric:tabular-nums;white-space:nowrap;color:#e6fcff;font-size:13px}
+#evilcampaign .wr160-pair>p,#evilcampaign .wr160-bye{color:#9de6c4;font-size:12px;font-weight:800;margin:7px 0 0}
+#evilcampaign .wr160-bye{padding:10px;background:#102b26;border-radius:10px}
+#evilcampaign .wr160 button:focus-visible,#evilcampaign [data-wr-open]:focus-visible{outline:2px solid #8ce4ff;outline-offset:3px}
+@media(max-width:375px){#evilcampaign .wr160-visit-grid{grid-template-columns:1fr}#evilcampaign .wr160-stats b{font-size:17px}}
