@@ -1,0 +1,38 @@
+/* OTG! MAIN v8.0.159 — Career Museum, restrained prestige with optional comedy. */
+#more .cm159{box-sizing:border-box;margin:15px 0 22px;color:#ecf7fc;font-family:inherit}
+#more .cm159 *{box-sizing:border-box}
+#more .cm159-door{padding:22px 18px;border:1px solid #3e7388;border-radius:18px;background:linear-gradient(125deg,#061926,#0c3043 69%,#132632);display:flex;flex-direction:column;gap:13px}
+#more .cm159-door small,#more .cm159-grand>span{font-size:10px;letter-spacing:.17em;font-weight:800;color:#8fc3d0}
+#more .cm159-door h2{font-size:22px;letter-spacing:.025em;margin:8px 0 6px;color:#f6f4e8}
+#more .cm159-door p{font-size:14px;color:#bfd3db;margin:0;line-height:1.5}
+#more .cm159 button{cursor:pointer;min-height:44px;font:inherit}
+#more .cm159-door button{background:#79cde1;color:#042334;font-size:13px;font-weight:900;letter-spacing:.07em;border:0;border-radius:12px;padding:12px 16px;text-align:center}
+#more .cm159 button:focus-visible{outline:3px solid #d7d5a0;outline-offset:3px}
+#more .cm159-gallery[hidden]{display:none!important}
+#more .cm159-grand{padding:24px 18px 18px;background:linear-gradient(155deg,#0b2a3d,#071823);border:1px solid #50748c;border-radius:17px;margin-top:12px}
+#more .cm159-grand h3{font-family:Georgia,'Times New Roman',serif;color:#f5e4b9;font-weight:500;font-size:29px;line-height:1.12;margin:8px 0}
+#more .cm159-grand>p{color:#b7d0dd;font-size:14px;line-height:1.5;margin:0 0 12px}
+#more .cm159-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:18px}
+#more .cm159-stat{border:1px solid #28475c;padding:10px 7px;border-radius:10px;background:#091c2b;text-align:center}
+#more .cm159-stat small{display:block;color:#adbfce;font-size:9px;letter-spacing:.04em;line-height:1.3}
+#more .cm159-stat strong{display:block;font-size:22px;color:#f2e3bd;font-variant-numeric:tabular-nums;margin-top:5px}
+#more .cm159-room{padding:16px 14px;border:1px solid #2d5066;border-radius:16px;margin:13px 0;background:#0b2231}
+#more .cm159-room>h3{font-size:15px;font-weight:900;letter-spacing:.07em;color:#e8d29d;margin:0 0 10px}
+#more .cm159-muted{color:#a8c6d0;font-size:13px;line-height:1.5;margin:5px 0 13px}
+#more .cm159-plaque{padding:14px 12px;border-left:3px solid #c0aa7c;margin:11px 0;background:#102b3d;border-radius:0 10px 10px 0}
+#more .cm159-plaque small,#more .cm159-expedition small{display:block;color:#9dd6df;letter-spacing:.08em;font-weight:900;font-size:10px;margin-bottom:6px}
+#more .cm159-plaque h4{font-size:16px;color:#fff1ce;margin:0 0 7px;overflow-wrap:anywhere}
+#more .cm159-plaque p{font-size:14px;color:#e1edf0;margin:0;line-height:1.5;overflow-wrap:anywhere}
+#more .cm159-plaque footer{font-size:12px;color:#acbecb;margin-top:9px;line-height:1.45}
+#more .cm159-empty{font-size:13px;color:#aec5cc;line-height:1.5;padding:14px;border:1px dashed #3d6176;border-radius:10px}
+#more .cm159-expedition{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid #2a5060;padding:13px 0}
+#more .cm159-expedition span{flex:1;min-width:0;overflow-wrap:anywhere}
+#more .cm159-expedition b{font-size:13px;line-height:1.45;display:block}
+#more .cm159-expedition button{flex:0 0 auto;border-radius:9px;border:1px solid #5c9fb3;background:#0a3d52;padding:8px 10px;color:#bceefa;font-size:11px;font-weight:900}
+#more .cm159-curator{border-radius:15px;background:#21272c;border:1px solid #b59e65;padding:17px 15px;margin:16px 0}
+#more .cm159-curator small{font-size:10px;letter-spacing:.12em;color:#e7d09a;font-weight:900}
+#more .cm159-curator p{font:italic 16px/1.55 Georgia,'Times New Roman',serif;color:#f5e8cd;margin:11px 0}
+#more .cm159-curator footer{font-size:12px;color:#c4c2b0}
+#more .cm159-legal{font-size:12px;line-height:1.6;color:#adc9d3;padding:8px 3px}
+#more .cm159-close{display:block;width:100%;font-size:13px;font-weight:900;color:#d2f2fb;background:#134359;border:1px solid #548da6;border-radius:12px;margin:14px 0;padding:12px}
+@media(max-width:360px){#more .cm159-stats{gap:4px}#more .cm159-stat strong{font-size:19px}#more .cm159-expedition{align-items:stretch;flex-direction:column}#more .cm159-expedition button{align-self:flex-start}}
