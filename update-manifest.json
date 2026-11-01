@@ -1,5 +1,5 @@
 {
-  "version": "8.0.160",
-  "worker": "./otg-service-worker-v8160.js",
-  "message": "OTG! v8.0.160 — Swiss Cup War Room: read-only schedule, standings, pairings, opponent wins and knockout progress across the Evil Tournament."
+  "version": "8.0.161",
+  "worker": "./otg-service-worker-v8161.js",
+  "message": "OTG! v8.0.161 — Rivalry Files: searchable verified head-to-head archive for your current game Space, with full meeting histories and read-only rematch plans."
 }
