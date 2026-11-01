@@ -1,5 +1,5 @@
 {
-  "version": "8.0.162",
-  "worker": "./otg-service-worker-v8162.js",
-  "message": "OTG! v8.0.162 — Rivalry Files: hide one-off meetings, show developing rivalries after two meetings and established rivalries after three. Read-only, no race-data changes."
+  "version": "8.0.163",
+  "worker": "./otg-service-worker-v8163.js",
+  "message": "OTG! v8.0.163 — Classified side missions: surprise archival files earned from verified Evil Tournament completions. Hall of Shame extension. Existing results, medals and hero art protected."
 }
