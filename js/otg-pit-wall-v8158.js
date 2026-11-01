@@ -1,0 +1,419 @@
+/* OTG! MAIN v8.0.158 Pit Wall group history recovery — read-only racing archive. READ ONLY.
+   Only finished Evil R1 slots; search only event title and slot number.
+   No localStorage/sessionStorage writes, rhSave, event status changes, or result corrections.
+*/
+(function (root) {
+  'use strict';
+  const FH5='fh5-catalogue-v1', CAMPAIGN='evil-specialist-r1-20261014';
+  const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const same=(a,b)=>String(a??'')===String(b??'');
+  const arr=v=>Array.isArray(v)?v:[];
+  const finite=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v));
+  const pad=n=>String(Number(n)||0).padStart(4,'0');
+  const fmtTime=v=>{
+    if(!finite(v)||Number(v)<0)return '—'; const ms=Math.round(Number(v)*1000);
+    return String(Math.floor(ms/60000)).padStart(2,'0')+':'+String(Math.floor(ms/1000)%60).padStart(2,'0')+'.'+String(ms%1000).padStart(3,'0');
+  };
+  const fmtScore=v=>finite(v)?Number(v).toLocaleString('en-GB'):'—';
+  function context(){
+    const space=root.rhSpace?.();const qa=root.rhEvilR1QA8103;
+    if(!space||!qa||typeof qa.slots!=='function')return null;
+    const state=space.evilCampaignR18098;
+    if(space.catalogueKey!==FH5||state?.campaignId!==CAMPAIGN)return null;
+    const slots=arr(qa.slots()).slice().sort((a,b)=>Number(a.slot)-Number(b.slot));
+    const cars=new Map();for(const c of arr(root.rhEvilSpecialistR18097?.cars))cars.set(String(c.id),c);
+    for(const c of arr(space.cars))cars.set(String(c.id),c);
+    return {space,state,slots,cars};
+  }
+  function carName(ctx,id,snapshot){
+    if(snapshot?.name)return String(snapshot.name);
+    const c=ctx.cars.get(String(id));
+    if(c){if(typeof root.carName==='function'){try{return root.carName(c)}catch(_){}}
+      return c.name||[c.year,c.make,c.model].filter(Boolean).join(' ')||String(id);}
+    return id===null||id===undefined?'Unknown competitor':String(id);
+  }
+  function completed(ctx){
+    const done=ctx.state.done||{};
+    return ctx.slots.filter(s=>Object.prototype.hasOwnProperty.call(done,String(s.slot))&&!!done[String(s.slot)])
+      .map(s=>({...s,doneAt:done[String(s.slot)]?.doneAt||null}))
+      .sort((a,b)=>Number(b.slot)-Number(a.slot));
+  }
+  function searchSlots(slots,query){
+    const raw=String(query||'').trim().toLocaleLowerCase();
+    if(/^\d+$/.test(raw)){const exact=slots.filter(s=>Number(s.slot)===Number(raw));if(exact.length)return exact;}
+    const terms=raw.split(/\s+/).filter(Boolean);
+    return !terms.length?slots:slots.filter(s=>{const hay=[String(s.slot),pad(s.slot),String(s.event||'')].join(' ').toLocaleLowerCase();return terms.every(t=>hay.includes(t));});
+  }
+  function visitWindow(s,slots){
+    const group=slots.filter(x=>same(x.eventId,s.eventId));
+    const prior=group.filter(x=>Number(x.slot)<Number(s.slot));
+    const before=prior.reduce((sum,x)=>sum+(Number(x.workload)||0),0);
+    const current=Number(s.workload)||0;
+    const index=prior.length;
+    return {before,current,index,total:group.length,final:index===group.length-1};
+  }
+  function matchesAsRows(ctx,matches,track,group){
+    const rows=[],pairs=[];
+    for(const [i,m] of arr(matches).entries()){
+      const a=m.carA?.sourceCarId??m.carA?.id??m.carA??m.a;
+      const b=m.carB?.sourceCarId??m.carB?.id??m.carB??m.b;
+      const left=m.resultA,right=m.resultB;
+      const first=left?{id:String(a),car:carName(ctx,a,m.carA),time:left.time,score:null,track:track||left.track||'',group:group||'',source:left}:null;
+      const second=right?{id:String(b),car:carName(ctx,b,m.carB),time:right.time,score:null,track:track||right.track||'',group:group||'',source:right}:null;
+      if(first)rows.push(first);if(second)rows.push(second);
+      pairs.push({name:m.label||`PAIR ${i+1}`,first,second,winner:m.winnerId??m.winnerCarId??null});
+    }
+    return {rows,pairs};
+  }
+  // Locate the group for one historical SLOT. Explicit stage/index is the identity;
+  // never assume that the currently displayed group's rounds belong to an old visit.
+  function groupVisit(ctx,s){
+    const instruction=String(s.doNow||'');
+    const match=instruction.match(/STAGE\s+(\d+)\s+GROUP\s+(\d+)/i);
+    const final=/RUN THE FINAL/i.test(instruction);
+    if(!match&&!final)return null;
+    const wantedStage=match?Number(match[1]):null,wantedIndex=match?Number(match[2]):null;
+    const fits=g=>g&&(final?!!g.final:!g.final&&Number(g.stage)===wantedStage&&Number(g.index)===wantedIndex);
+    const candidates=[];
+    for(const run of arr(ctx.space?.runs)){
+      if(run?.type!=='evil-r1'||!same(run.value,s.eventId)||run.abandonedAt)continue;
+      for(const g of arr(run.v8Groups?.completedGroups))if(fits(g))candidates.push({run,group:g,active:false});
+      const g=run.v8Groups?.activeGroup;
+      if(fits(g))candidates.push({run,group:g,active:true});
+    }
+    if(!candidates.length)return null;
+    // Identical group id may appear in a duplicated run; different group IDs
+    // for the same visit mean ambiguous history, so don't pick arbitrarily.
+    const unique=new Map();
+    for(const c of candidates){
+      const key=String(c.group.id??'');
+      if(!key)return null;
+      const prev=unique.get(key);
+      if(!prev||(!c.active&&prev.active))unique.set(key,c);
+    }
+    return unique.size===1?[...unique.values()][0]:null;
+  }
+  // A slot may be signed off by Evil R1 before the Festival engine runs its
+  // separate COMPLETE GROUP action. Verify the entire field against all two
+  // scheduled routes before reporting qualifiers. No mutation, no guessed times.
+  function groupBankedAtSlot(ctx,s,group,rounds,possible){
+    if(!ctx.state.done?.[String(s.slot)]||!group||group.final)return false;
+    const cars=arr(group.carIds).map(String);
+    const routes=arr(rounds).map(x=>String(x?.id??''));
+    if(cars.length<2||new Set(cars).size!==cars.length||routes.length<2||
+       routes.some(x=>!x)||new Set(routes).size!==routes.length)return false;
+    const wantCars=new Set(cars),wantRounds=new Set(routes),seen=new Map();
+    for(const r of arr(possible)){
+      const c=String(r.carId),rd=String(r.roundId);
+      if(!wantCars.has(c)||!wantRounds.has(rd))continue;
+      if(!finite(r.time)||Number(r.time)<=0)return false;
+      const key=c+'|'+rd,time=Number(r.time);
+      // Contradictory duplicates are not evidence of a completed group.
+      if(seen.has(key)&&Math.abs(seen.get(key)-time)>0.0005)return false;
+      seen.set(key,time);
+    }
+    return seen.size===cars.length*routes.length;
+  }
+  function report(ctx,s){
+    const w=visitWindow(s,ctx.slots),notes=[],rows=[],pairs=[],groups=[],raceStages=[],driftStages=[];
+    let savedGroup=null,groupBanked=false;
+    const run=[...arr(ctx.space.runs)].reverse().find(r=>r?.type==='evil-r1'&&same(r.value,s.eventId)&&!r.abandonedAt);
+    const ro=[...arr(ctx.space.raceOffs)].reverse().find(r=>r?.type==='evil-r1'&&same(r.value,s.eventId)&&r.status!=='abandoned');
+    const drift=ctx.state.driftEvents?.[s.eventId];
+    const addResult=(r,track,group)=>{
+      if(!r)return;
+      rows.push({id:String(r.carId??r.car?.sourceCarId??r.car?.id??''),car:carName(ctx,r.carId??r.car?.sourceCarId??r.car?.id,r.car),time:finite(r.time)?Number(r.time):null,score:finite(r.score)?Number(r.score):null,track:String(track||r.track||r.roundName||''),group:String(group||''),source:r});
+    };
+    if(s.liveFormat==='SWISS'){
+      const stage=Number(s.swissStage8121)||w.index+1;
+      const rd=stage<=4?run?.v8Swiss?.swissRounds?.[stage-1]:run?.v8Swiss?.ko?.rounds?.[stage-5];
+      if(rd){const p=matchesAsRows(ctx,rd.matches,rd.trackName||'',rd.label||'SWISS');rows.push(...p.rows);pairs.push(...p.pairs)}
+      else notes.push('Saved Swiss pairing detail was not found for this visit.');
+      groups.push({title:stage<=4?`SWISS ROUND ${stage} OF 4`:stage===5?'QUARTER-FINAL':stage===6?'SEMI-FINAL':'FINAL',label:rd?.trackName||'',rows:rows.slice(),pairs:pairs.slice()});
+    }else if(s.liveFormat==='DRIFT SCORE'){
+      const n=Math.max(1,arr(root.rhEvilR1QA8103?.events?.()?.[s.eventId]?.eligibleIds).length||Number(s.eligible)||1);
+      const start=Math.floor(w.before/n),end=Math.ceil((w.before+w.current)/n);
+      for(const rd of arr(drift?.rounds).filter(x=>Number(x.index)>start&&Number(x.index)<=end)){
+        const part=[];for(const [id,score] of Object.entries(rd.scores||{})){
+          if(!finite(score))continue;
+          const row={id:String(id),car:carName(ctx,id),time:null,score:Number(score),track:rd.zone||'',group:`ROUND ${rd.index}`,source:null};rows.push(row);part.push(row);
+        }
+        groups.push({title:`ROUND ${rd.index}`,label:rd.zone||'',rows:part,pairs:[]});
+      }
+    }else if(s.liveFormat==='DRIFT KNOCKOUT'){
+      const all=arr(drift?.rounds).flatMap(r=>arr(r.matches).map(m=>({m,round:r}))),from=Math.floor(w.before/2),to=from+Math.ceil(w.current/2);
+      for(const {m,round} of all.slice(from,to)){
+        driftStages.push({m,round});
+        const a=m.a,b=m.b;const first=finite(m.scoreA)?{id:String(a),car:carName(ctx,a),score:Number(m.scoreA),time:null,track:m.zone||round.zone||'',group:round.label||'',source:null}:null;
+        const second=finite(m.scoreB)?{id:String(b),car:carName(ctx,b),score:Number(m.scoreB),time:null,track:m.zone||round.zone||'',group:round.label||'',source:null}:null;
+        if(first)rows.push(first);if(second)rows.push(second);
+        pairs.push({name:round.label||'DRIFT PAIR',first,second,winner:m.winnerId});
+      }
+    }else if(s.mode==='Race Off'){
+      const all=arr(ro?.rounds).flatMap(rd=>arr(rd.matches).map(m=>({m,rd}))),from=Math.floor(w.before/2),to=from+Math.ceil(w.current/2);
+      for(const {m,rd} of all.slice(from,to)){
+        raceStages.push({m,rd});
+        const p=matchesAsRows(ctx,[m],rd.name||rd.trackName||'',rd.drawPlan?.label||rd.label||'');rows.push(...p.rows);pairs.push(...p.pairs);
+      }
+    }else if(s.liveFormat==='GROUPS'){
+      // A slot may be marked DONE as soon as all group times are banked, BEFORE
+      // the Festival screen's separate COMPLETE GROUP button has been pressed.
+      // In that case the correctly saved group lives in v8Groups.activeGroup,
+      // not completedGroups. Read it here without completing or mutating it.
+      const choice=groupVisit(ctx,s);
+      const group=choice?.group||null, sourceRun=choice?.run||null;
+      savedGroup=group;
+      if(group&&sourceRun){
+        const active=choice.active;
+        const rounds=active?arr(sourceRun.rounds):arr(group.rounds);
+        const roundIds=new Set(rounds.map(rd=>String(rd.id)));
+        const carIds=new Set(arr(group.carIds).map(String));
+        // Accept saved group-id results only, checked against group members and rounds.
+        // For older entries with no group-id, use the unique car+round combination.
+        const possible=arr(sourceRun.results).filter(r=>
+          carIds.has(String(r.carId))&&roundIds.has(String(r.roundId))&&
+          (same(r.v8GroupId??r.groupId,group.id)||(!r.v8GroupId&&!r.groupId)));
+        const keys=new Set(),chosen=[];
+        for(const r of possible){const key=String(r.carId)+'|'+String(r.roundId);
+          if(keys.has(key))continue;keys.add(key);chosen.push(r)}
+        // Only a fully banked group in an already-DONE Evil slot can promote
+        // provisional top-two places to qualified. The run itself remains unchanged.
+        groupBanked=groupBankedAtSlot(ctx,s,group,rounds,possible);
+        for(const r of chosen){const rd=rounds.find(x=>same(x.id,r.roundId));addResult(r,rd?.name,`STAGE ${group.stage||'?'} · GROUP ${group.index||'FINAL'}`)}
+        groups.push({title:group.final?'FINAL':`STAGE ${group.stage} · GROUP ${group.index}`,label:rounds.map(x=>x.name).filter(Boolean).join(' / '),roundCount:rounds.length,rows:rows.slice(),pairs:[]});
+        if(active&&groupBanked)notes.push('This Evil Tournament group is DONE with every required time recorded. Top-two qualification is shown from these results; the Festival engine’s separate group status has not been changed.');
+        else if(active)notes.push('The group is still active in the Festival engine. Qualification cannot be confirmed from the saved results for this slot. No data has been changed.');
+        if(!chosen.length)notes.push('The group was identified, but no matching saved car-and-track times were found.');
+      }else notes.push('No uniquely matching saved group was found for this visit. The report will not guess at qualifiers or overwrite the results.');
+    }else{
+      const count=arr(run?.entries).length||Math.max(1,Number(s.eligible)||1);
+      const from=Math.floor(w.before/count),to=Math.ceil((w.before+w.current)/count);
+      const rounds=arr(run?.rounds).slice(from,to),ids=new Set(rounds.map(r=>String(r.id)));
+      const chosen=arr(run?.results).filter(r=>ids.has(String(r.roundId)));
+      for(const r of chosen){const rd=rounds.find(x=>same(x.id,r.roundId));addResult(r,rd?.name||r.roundName)}
+      for(const rd of rounds)groups.push({title:rd.name||'RACE',label:'',rows:rows.filter(r=>r.source&&same(r.source.roundId,rd.id)),pairs:[]});
+      if(!rounds.length)notes.push('Saved round detail was not found for this slot.');
+    }
+    if(!rows.length&&!notes.length)notes.push('No individual results are available in the saved records for this slot.');
+    const final=w.final&&((s.mode==='Race Off'&&(s.liveFormat==='DRIFT KNOCKOUT'?!!drift?.complete:ro?.status==='complete'))||
+      (s.liveFormat==='SWISS'?run?.status==='complete':(s.liveFormat==='DRIFT SCORE'?true:run?.status==='complete')));
+    const high=highlights(rows,pairs);
+    const tables=standingsFor(ctx,s,{rows,pairs,groups,run,ro,drift,savedGroup,groupBanked,raceStages,driftStages,final:!!final,w});
+    const doneAt=ctx.state.done?.[String(s.slot)]?.doneAt||null;
+    return {slot:Number(s.slot),event:s.event||'Unnamed event',mode:s.mode||'',format:s.liveFormat||'',visit:s.visit||'',doneAt,final:!!final,multiVisit:w.total>1,results:rows,pairs,groups,tables,highlights:high,notes};
+  }
+  // Scoreboards use the same completed, saved competition data as the event screens.
+  // A single completed SLOT is not necessarily a completed CHAMPIONSHIP.
+  function standingsFor(ctx,s,d){
+    const {rows,run,savedGroup,raceStages,driftStages,final,w}=d;
+    const out=[],name=id=>carName(ctx,id);
+    const idOf=c=>c&&typeof c==='object'?c.sourceCarId??c.id??c.carId:c;
+    const raceWinner=m=>{
+      const saved=idOf(m?.winnerCarId??m?.winnerId);
+      if(saved!==null&&saved!==undefined&&saved!=='')return String(saved);
+      // Only infer a recorded winner after BOTH actual times have been saved.
+      if(finite(m?.resultA?.time)&&finite(m?.resultB?.time))return String(idOf(Number(m.resultA.time)<=Number(m.resultB.time)?m.carA:m.carB));
+      return null;
+    };
+    const row=(rank,id,metric,status='',detail='')=>({rank,id:String(id),name:name(id),metric,status,detail});
+    if(s.liveFormat==='GROUPS'){
+      if(!savedGroup)return out;
+      const group=savedGroup,formalComplete=!!group.completedAt;
+      const saved=arr(group.standings).filter(x=>finite(x.total)).map(x=>({id:String(x.id),total:Number(x.total)})).sort((a,b)=>a.total-b.total);
+      const expected=Number(d.groups[0]?.roundCount)||arr(group.rounds).length,by=new Map();
+      for(const r of rows){
+        if(!finite(r.time)||Number(r.time)<=0||!r.id)continue;
+        const e=by.get(r.id)||{id:r.id,total:0,rounds:new Set()};
+        e.total+=Number(r.time);e.rounds.add(String(r.source?.roundId||r.track));by.set(r.id,e);
+      }
+      const derived=[...by.values()].filter(x=>expected>0&&x.rounds.size===expected).sort((a,b)=>a.total-b.total);
+      // For completed-but-unclosed groups, use the actual race-time totals,
+      // not possibly stale Festival standings. Contradictory totals fail closed.
+      const mismatch=!!(d.groupBanked&&saved.length&&
+        (saved.length!==derived.length||saved.some(x=>{
+          const other=derived.find(y=>y.id===x.id);
+          return !other||Math.abs(x.total-other.total)>0.005;
+        })));
+      const confirmedBySlot=!!d.groupBanked&&!mismatch;
+      const qualified=!!group.final?false:(formalComplete||confirmedBySlot);
+      const standings=!formalComplete&&derived.length?derived:saved.length?saved:derived;
+      if(standings.length){
+        const isRealFinal=!!group.final&&final;
+        const heading=isRealFinal?'FINAL TABLE':qualified?'GROUP FINAL TABLE':'GROUP STANDINGS (UNCONFIRMED)';
+        const note=isRealFinal?'Championship completed. The lowest total wins.':
+          group.final?'This slot is complete, but the championship is not yet confirmed complete.':
+          mismatch?'Saved group standings disagree with recorded totals. Qualifiers have not been confirmed.':
+          confirmedBySlot&&!formalComplete?'All required times recorded and this Evil Tournament slot is DONE. Top two qualify; the Festival engine’s separate status remains unchanged.':
+          formalComplete?'Saved group standings · top two progress to the next stage.':
+          'The saved results do not yet confirm a full field over all required routes. Qualification remains pending.';
+        const fullField=standings.length===arr(group.carIds).length;
+        out.push({title:heading,note,rows:standings.map((x,i)=>row(i+1,x.id,fmtTime(x.total),
+          isRealFinal&&i===0?'CHAMPION':qualified&&fullField&&i<2?'QUALIFIED':!group.final&&!qualified&&i<2?'TOP 2 (PENDING)':''))});
+      }
+      return out;
+    }
+    if(s.liveFormat==='SWISS'){
+      const stage=Number(s.swissStage8121)||w.index+1,sw=run?.v8Swiss;
+      if(stage<=4){
+        if(!sw)return out;
+        const stats=new Map();const entry=id=>{
+          id=String(idOf(id));if(id==='undefined'||id==='null'||!id)return null;
+          if(!stats.has(id))stats.set(id,{id,wins:0,opponents:[],time:0,results:0,bye:false});
+          return stats.get(id);
+        };
+        for(const c of arr(run?.entries))entry(c);
+        const recordedRounds=arr(sw.swissRounds).slice(0,stage);
+        for(const round of recordedRounds){
+          for(const m of arr(round.matches)){
+            const a=entry(m.carA),b=entry(m.carB);if(!a||!b)continue;
+            const winner=raceWinner(m);if(!winner)continue;
+            const winnerStat=entry(winner);if(winnerStat)winnerStat.wins++;
+            a.opponents.push(b.id);b.opponents.push(a.id);
+            if(finite(m.resultA?.time)){a.time+=Number(m.resultA.time);a.results++}
+            if(finite(m.resultB?.time)){b.time+=Number(m.resultB.time);b.results++}
+          }
+          if(round.byeId!=null){const a=entry(round.byeId);if(a){a.wins++;a.bye=true}}
+        }
+        const table=[...stats.values()];
+        if(!table.length)return out;
+        for(const x of table)x.oppWins=x.opponents.reduce((v,opp)=>v+(stats.get(opp)?.wins||0),0);
+        table.sort((a,b)=>b.wins-a.wins||b.oppWins-a.oppWins||a.time-b.time||a.id.localeCompare(b.id));
+        const allFourComplete=arr(sw.swissRounds).slice(0,4).length===4&&arr(sw.swissRounds).slice(0,4).every(r=>r.status==='complete');
+        const qual=stage===4&&allFourComplete;
+        const count=Number(sw.knockoutSize||run?.v8SwissPlan?.knockoutSize)||8;
+        out.push({title:qual?'SWISS FINAL TABLE':'CURRENT SWISS TABLE',note:qual?`Top ${count} qualified for the knockout.`:`After Swiss Round ${stage} · qualification is decided after Round 4. Wins, opponents’ wins and total recorded time are the tiebreak order.`,
+          rows:table.map((x,i)=>row(i+1,x.id,`${x.wins} W · ${x.oppWins} OPP W`,qual&&i<count?'QUALIFIED':'',`${x.results?fmtTime(x.time):'—'} total time`))});
+        return out;
+      }
+      const round=sw?.ko?.rounds?.[stage-5];
+      if(round){
+        const isFinal=stage===7&&final;
+        const list=[];
+        for(const m of arr(round.matches)){
+          const winner=raceWinner(m);if(!winner)continue;
+          list.push(row(list.length+1,winner,'MATCH WINNER',isFinal?'CHAMPION':'ADVANCES',m.label||''));
+        }
+        for(const id of arr(round.straightThroughIds||round.straightThrough)){
+          list.push(row(list.length+1,id,'BYE',isFinal?'':'ADVANCES'));
+        }
+        if(list.length)out.push({title:isFinal?'FINAL RESULT':'KNOCKOUT QUALIFIERS',note:isFinal?'Swiss Cup completed.':'Only recorded match winners and byes are shown as advancing.',rows:list});
+      }
+      return out;
+    }
+    if(s.mode==='Race Off'||s.liveFormat==='DRIFT KNOCKOUT'){
+      const stages=s.mode==='Race Off'?raceStages:driftStages;
+      const grouped=new Map();for(const part of stages){const rd=part.rd||part.round;if(!grouped.has(rd))grouped.set(rd,[]);grouped.get(rd).push(part.m)}
+      let index=0;
+      for(const [rd,matches] of grouped){
+        const isLast=[...grouped.keys()].at(-1)===rd;
+        const tableRows=[];
+        for(const [mIdx,m] of matches.entries()){
+          const winner=raceWinner(m)||((s.liveFormat==='DRIFT KNOCKOUT'&&m.winnerId!=null)?String(m.winnerId):null);
+          if(!winner)continue;
+          const entrants=[{id:idOf(m.carA??m.a),result:m.resultA,score:m.scoreA},{id:idOf(m.carB??m.b),result:m.resultB,score:m.scoreB}];
+          entrants.sort((a,b)=>String(a.id)===winner?-1:String(b.id)===winner?1:0);
+          for(const entrant of entrants){
+            if(entrant.id===null||entrant.id===undefined)continue;
+            const won=String(entrant.id)===winner;
+            const value=finite(entrant.result?.time)?fmtTime(entrant.result.time):finite(entrant.score)?fmtScore(entrant.score):'—';
+            tableRows.push(row(mIdx+1,entrant.id,value,won?(final&&isLast?'CHAMPION':'ADVANCES'):(final&&isLast?'RUNNER-UP':'OUT'),m.label||`MATCH ${mIdx+1}`));
+          }
+        }
+        for(const by of arr(rd.straightThrough||rd.straightThroughIds)){
+          const id=idOf(by);if(id!==null&&id!==undefined)tableRows.push(row('–',id,'BYE',final&&isLast?'':'ADVANCES'));
+        }
+        if(tableRows.length)out.push({title:final&&isLast?'FINAL RESULTS':`ROUND ${++index} · QUALIFIERS`,note:`${rd.name||rd.label||rd.stageLabel||rd.drawPlan?.label||'Completed round'} · each match shown separately. Winners advance; times from different races are not ranked together.`,rows:tableRows});
+      }
+      return out;
+    }
+    if(s.liveFormat==='DRIFT SCORE'){
+      const totals=new Map();for(const x of rows){if(!finite(x.score))continue;const e=totals.get(x.id)||{id:x.id,total:0};e.total+=Number(x.score);totals.set(x.id,e)}
+      const order=[...totals.values()].sort((a,b)=>b.total-a.total);
+      if(order.length)out.push({title:final?'FINAL TABLE':'ROUND SCORE TABLE',note:final?'Highest total score wins.':'Scores recorded during this visit only; competition is still in progress.',rows:order.map((x,i)=>row(i+1,x.id,fmtScore(x.total),final&&i===0?'CHAMPION':''))});
+      return out;
+    }
+    // Standard Festival: rank only times collected for this visit. An intermediate
+    // visit does not decide a championship winner or qualification to another round.
+    const by=new Map(),rounds=new Set();
+    for(const x of rows){
+      if(!finite(x.time)||Number(x.time)<=0||!x.id)continue;
+      const key=String(x.source?.roundId??x.track);rounds.add(key);
+      const rec=by.get(x.id)||{id:x.id,total:0,tracks:new Set()};rec.total+=Number(x.time);rec.tracks.add(key);by.set(x.id,rec);
+    }
+    const totals=[...by.values()].sort((a,b)=>a.total-b.total);
+    if(totals.length){
+      const all=rounds.size;const complete=totals.filter(x=>x.tracks.size===all);
+      out.push({title:final?'FINAL TABLE':'VISIT STANDINGS',note:final?'Lowest cumulative time wins.':w.total>1?'Only this slot’s races are ranked. The championship continues in later visits; no winner has been awarded.':'Times recorded for this visit only.',
+        rows:totals.map((x,i)=>row(i+1,x.id,fmtTime(x.total),final&&x.tracks.size===all&&complete[0]?.id===x.id?'CHAMPION':'',x.tracks.size<all?`${x.tracks.size}/${all} races recorded`:''))});
+    }
+    return out;
+  }
+  function standingsHtml(tables){
+    return arr(tables).map(t=>`<section class="pw8156-panel pw8156-standings"><h2>${safe(t.title)}</h2><p class="pw8156-sub">${safe(t.note)}</p><div class="pw8156-standings-list">${t.rows.map(r=>`<div class="pw8156-standing"><b>${safe(r.rank)}</b><span><strong>${safe(r.name)}</strong>${r.detail?`<small>${safe(r.detail)}</small>`:''}</span><div class="pw8156-stat"><strong>${safe(r.metric)}</strong>${r.status?`<em class="${r.status==='CHAMPION'?'champ':''}">${safe(r.status)}</em>`:''}</div></div>`).join('')}</div></section>`).join('');
+  }
+  function highlights(rows,pairs){
+    const out=[],validTimes=rows.filter(r=>finite(r.time)&&Number(r.time)>0),validScores=rows.filter(r=>finite(r.score));
+    if(validTimes.length){
+      const routes=new Set(validTimes.map(r=>[r.group,r.track,r.source?.roundId??''].join('|')));
+      if(routes.size===1){const fastest=validTimes.reduce((a,b)=>Number(a.time)<=Number(b.time)?a:b);
+      out.push({head:'QUICKEST RECORDED ENTRY',body:`${fastest.car} — ${fmtTime(fastest.time)}${fastest.track?' · '+fastest.track:''}`});}
+      else out.push({head:'RECORDED RACING',body:`${validTimes.length} times across ${routes.size} separate race/round groups. Times from different routes are not ranked together.`});
+    }else if(validScores.length){const best=validScores.reduce((a,b)=>Number(a.score)>=Number(b.score)?a:b);
+      out.push({head:'HIGHEST DRIFT SCORE',body:`${best.car} — ${fmtScore(best.score)}${best.track?' · '+best.track:''}`});}
+    const gaps=arr(pairs).filter(p=>p.first&&p.second&&finite(p.first.time)&&finite(p.second.time)).map(p=>({p,g:Math.abs(Number(p.first.time)-Number(p.second.time))}));
+    if(!gaps.length){
+      // Only compare within exactly the same track/round; never compare different routes.
+      const sets=new Map();for(const r of validTimes){const key=[r.group,r.track,r.source?.roundId??''].join('|');if(!sets.has(key))sets.set(key,[]);sets.get(key).push(r)}
+      for(const set of sets.values()){const x=set.slice().sort((a,b)=>Number(a.time)-Number(b.time));for(let i=1;i<x.length;i++)gaps.push({p:{first:x[i-1],second:x[i]},g:Number(x[i].time)-Number(x[i-1].time)})}
+    }
+    if(gaps.length){const best=gaps.reduce((a,b)=>a.g<=b.g?a:b);out.push({head:'CLOSEST RECORDED BATTLE',body:`${best.p.first.car} / ${best.p.second.car} — ${fmtTime(best.g)} apart`})}
+    if(rows.length)out.push({head:'RESULTS RETAINED',body:`${rows.length} recorded ${validScores.length?'scores':'times'} available for this visit.`});
+    return out;
+  }
+  const api={context,completed,searchSlots,visitWindow,report,fmtTime,highlights,standingsFor};
+  root.rhPitWallMain8158=api;
+  if(typeof document==='undefined')return;
+  let active=false,lastSearch='';
+  function host(){return document.getElementById('evilcampaign')}
+  function inject(){
+    const ctx=context(),h=host();if(!ctx||!h||ctx.space.catalogueKey!==FH5)return;
+    const action=h.querySelector('.rhEvilR1Actions8097');if(!action||action.querySelector('[data-pitwall-open]'))return;
+    const b=document.createElement('button');b.type='button';b.dataset.pitwallOpen='1';b.innerHTML='<span aria-hidden="true">📺</span><b>THE PIT WALL</b><small>Completed slot reports · search by title or slot</small>';
+    b.addEventListener('click',()=>open(false));action.prepend(b);
+  }
+  function open(preserveSearch=false){const ctx=context(),h=host();if(!ctx||!h)return;active=true;if(!preserveSearch)lastSearch='';try{root.show?.('evilcampaign')}catch(_){};
+    h.innerHTML=`<div class="rhEvilR18097 pw8156"><button class="rhEvilR1Back8097" type="button" data-pw-back><span>‹</span><b>BACK</b></button><header class="rhEvilR1Hero8097"><small>EVIL TOURNAMENT · MAIN v8.0.158</small><h1>THE PIT WALL</h1><p>PERMANENT RACE REPORTS</p><strong>READ ONLY · NO RESULTS CAN BE CHANGED</strong></header><main class="rhEvilR1Body8097"><section class="pw8156-intro"><b>EVERY FINISHED SLOT, ONE REPORT.</b><p>Search by event name or slot number. Results are read directly from saved racing records; unavailable history is never invented.</p></section><label class="pw8156-label" for="pw8156-search">FIND A COMPLETED SLOT</label><input id="pw8156-search" class="pw8156-search" type="search" autocomplete="off" placeholder="e.g. Ferrari Race Off or 20"><div id="pw8156-list" aria-live="polite"></div></main></div>`;
+    const inp=document.getElementById('pw8156-search');if(inp)inp.value=lastSearch;renderList();root.scrollTo?.(0,0);
+  }
+  function renderList(){const ctx=context(),container=document.getElementById('pw8156-list');if(!ctx||!container)return;
+    const rows=searchSlots(completed(ctx),lastSearch);
+    container.innerHTML=`<p class="pw8156-count">${rows.length} COMPLETED SLOT${rows.length===1?'':'S'} ${lastSearch?'MATCH':'RECORDED'}</p>`+(rows.length?rows.map(s=>`<button type="button" class="pw8156-report-link" data-pw-view="${Number(s.slot)}"><span class="pw8156-slot">${pad(s.slot)}</span><span class="pw8156-title"><b>${safe(s.event)}</b><small>${safe(s.liveFormat||s.mode||'')} · ${safe(s.visit||'VISIT 1')}</small></span><strong>VIEW ›</strong></button>`).join(''):'<div class="pw8156-empty">No completed slots match that title or number.</div>');
+  }
+  function grouped(reportData){
+    const r=reportData;const chunks=[];
+    if(r.pairs.length){
+      chunks.push(`<section class="pw8156-panel"><h2>PAIRINGS & RESULTS</h2>${r.pairs.map(p=>`<div class="pw8156-pair"><small>${safe(p.name)}</small><div><span>${safe(p.first?.car||'—')}</span><strong>${p.first?(finite(p.first.time)?fmtTime(p.first.time):fmtScore(p.first.score)):'—'}</strong></div><div><span>${safe(p.second?.car||'—')}</span><strong>${p.second?(finite(p.second.time)?fmtTime(p.second.time):fmtScore(p.second.score)):'—'}</strong></div></div>`).join('')}</section>`);
+    }else if(r.groups.length){
+      for(const group of r.groups){chunks.push(`<section class="pw8156-panel"><h2>${safe(group.title)}</h2><p class="pw8156-sub">${safe(group.label)}</p>${resultTable(group.rows)}</section>`)}
+    }else if(r.results.length)chunks.push(`<section class="pw8156-panel"><h2>OFFICIAL RESULTS</h2>${resultTable(r.results)}</section>`);
+    return chunks.join('');
+  }
+  function resultTable(rows){
+    if(!rows.length)return '<p class="pw8156-sub">No individual times or scores saved for this round.</p>';
+    return `<div class="pw8156-result-table">${rows.map(x=>`<div class="pw8156-result"><span>${safe(x.car)}</span><strong>${finite(x.time)?fmtTime(x.time):fmtScore(x.score)}</strong></div>`).join('')}</div>`;
+  }
+  function view(n){const ctx=context(),h=host();if(!ctx||!h)return;
+    const s=completed(ctx).find(s=>Number(s.slot)===Number(n));if(!s)return open(true);const r=report(ctx,s);
+    h.innerHTML=`<div class="rhEvilR18097 pw8156"><button type="button" class="rhEvilR1Back8097" data-pw-list><span>‹</span><b>ALL REPORTS</b></button><header class="rhEvilR1Hero8097 slot"><small>PIT WALL · COMPLETED SLOT</small><h1>SLOT ${pad(r.slot)}</h1><p>${safe(r.event)}</p><strong>${r.multiVisit?(r.final?'COMPETITION COMPLETED':'THIS VISIT COMPLETE · COMPETITION CONTINUES'):'SLOT COMPLETE'}</strong></header><main class="rhEvilR1Body8097"><section class="pw8156-intro"><b>${safe(r.format||r.mode)} · ${safe(r.visit||'VISIT 1')}</b><p>${r.doneAt?'Marked done: '+safe(new Date(r.doneAt).toLocaleDateString('en-GB')):'Completed visit'} · Results are read-only.</p></section>${standingsHtml(r.tables)}${grouped(r)}${r.highlights.length?`<section class="pw8156-panel"><h2>📺 PIT WALL ANALYSIS</h2>${r.highlights.map(x=>`<div class="pw8156-highlight"><small>${safe(x.head)}</small><p>${safe(x.body)}</p></div>`).join('')}<p class="pw8156-sub">Times from different tracks are not treated as directly comparable. AI finishing positions never count as career honours.</p></section>`:''}${r.notes.map(x=>`<section class="pw8156-note">${safe(x)}</section>`).join('')}<button type="button" class="pw8156-bottom-back" data-pw-list>← BACK TO REPORTS</button></main></div>`;root.scrollTo?.(0,0);
+  }
+  function back(){active=false;root.rhRenderEvilCampaignR18098?.();}
+  function attach(){const h=host();if(!h||h.dataset.pw8156Attached)return;
+    h.dataset.pw8156Attached='1';h.addEventListener('click',e=>{const target=e.target.closest('button');if(!target||!h.contains(target))return;
+      if(target.hasAttribute('data-pw-back'))return back();if(target.hasAttribute('data-pw-list'))return open(true);
+      if(target.hasAttribute('data-pw-view'))return view(target.getAttribute('data-pw-view'));
+    });
+    h.addEventListener('input',e=>{if(e.target?.id==='pw8156-search'){lastSearch=e.target.value;renderList()}});
+    const obs=new MutationObserver(()=>{if(active&&!h.querySelector('.pw8156'))active=false;if(!active)inject();});obs.observe(h,{childList:true,subtree:false});inject();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',attach,{once:true});else attach();
+})(typeof window==='undefined'?globalThis:window);
