@@ -1,0 +1,3 @@
+OTG! MAIN v8.0.159 — Career Museum
+Extract this ZIP directly into C:\RaceHub, replacing only matching files. Keep a recent Portable Backup. Run the supplied Git add / commit / push commands from C:\RaceHub.
+Find the museum in STATS, alongside Lifetime Career. The museum is a read-only view over existing saved data: dated first races only when timestamps exist, completed verified Festival/Race Off podiums, same-race battles, a frequently raced car and completed Evil Tournament milestones. No XP or fictitious medals. Use PIT WALL for full event results. No existing images/results/data are overwritten. Phone QA still required.

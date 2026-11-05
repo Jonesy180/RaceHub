@@ -1,4 +1,4 @@
-/* OTG! v8.0.70 — FH5 full track cleanup + persistent shuffle bags + Race Off unique routes.
+/* OTG! v8.0.70 / v8.0.165 shuffle safety hotfix — FH5 full track cleanup + persistent shuffle bags + Race Off unique routes.
    - Adds every permanent Mexico Road route currently usable by OTG! (Winter Wonderland excluded by design).
    - Keeps Rally Adventure Ambassador races catalogued as SPECIAL / protected, not in the random pool.
    - Festival randomiser uses a persistent per-category shuffle bag. Preview/reroll does not consume a track;
@@ -106,11 +106,23 @@ function consumeBag(mode,cat,pool,selected){
  if(overflow.length&&remaining.length===0){b.cycle+=1;remaining=[...pool].filter(x=>!overflow.includes(x));}
  b.remaining=remaining;b.updatedAt=now();return true;
 }
+/* v8.0.165: The untouched bag is authoritative; future-stage reservations are only advisory.
+   Many long-running Evil Race Offs can reserve every ROAD track for FUTURE rounds.
+   Rejecting all those reservations hard caused the selector to fall back to already-used
+   tracks (especially Plaza Circuit) despite dozens still remaining in the live bag.
+   Priority: unused + unreserved, then unused + reserved; only when the unused pool
+   is exhausted may the bag recycle. Always unique within a single event plan. */
 function drawSequence(mode,cat,pool,count,{exclude=[]}={}){
  pool=uniq(pool);count=Math.max(0,Number(count)||0);if(!count||!pool.length)return [];
- const view=bagView(mode,cat,pool),blocked=new Set(uniq(exclude).map(canonical));let first=shuffle(view.remaining.filter(x=>!blocked.has(x))),out=[];
- while(out.length<count&&first.length){const x=first.shift();if(!out.includes(x))out.push(x)}
- if(out.length<count){const refill=shuffle(pool.filter(x=>!blocked.has(x)&&!out.includes(x)));while(out.length<count&&refill.length)out.push(refill.shift())}
+ const view=bagView(mode,cat,pool),blocked=new Set(uniq(exclude).map(canonical)),out=[];
+ const use=(arr)=>{for(const name of shuffle(arr)){if(out.length>=count)break;if(!out.includes(name))out.push(name)}};
+ const remaining=uniq(view.remaining).filter(x=>pool.includes(x));
+ use(remaining.filter(x=>!blocked.has(x)));
+ if(out.length<count)use(remaining.filter(x=>blocked.has(x))); // reservations MUST NOT override the shuffle bag
+ if(out.length<count){ // only then consider a new cycle; avoid reserved where possible
+   use(pool.filter(x=>!blocked.has(x)&&!out.includes(x)));
+   if(out.length<count)use(pool.filter(x=>!out.includes(x)));
+ }
  return out.slice(0,count);
 }
 function drawOne(mode,cat,pool,{exclude=[],current=''}={}){
@@ -207,13 +219,30 @@ function reservedRaceOffTracks(cat,exceptId=''){
   const last=Math.max(0,p.tracks.length-1),start=Math.max(0,Number(other.currentRoundIndex||0));for(let i=start;i<last;i++){const rd=other.rounds?.[i];if(!rd?.fh5BagCommitted8070&&p.tracks[i])out.push(canonical(p.tracks[i]))}
  }return uniq(out);
 }
+/* Repair ONLY untouched, not-yet-drawn Evil Race Off first stages. Never reassign
+   an already-started/drawn/raced round or alter later bracket stages. This permits
+   the currently prepared Slot 37 to escape an already-consumed Plaza assignment. */
+function repairPreparedFirstTrack8165(ro,plan,cat,pool){
+ if(!ro?.evilCampaignR1||ro.status!=='prepared'||Number(ro.currentRoundIndex||0)!==0||
+    !plan||!Array.isArray(plan.tracks)||plan.tracks.length<2||plan.repair8165)return;
+ const rd=ro.rounds?.[0];
+ if(!rd||rd.status!=='setup'||clean(rd.name)||rd.fh5BagCommitted8070||
+    (Array.isArray(rd.matches)&&rd.matches.some(m=>m?.timeA||m?.timeB||m?.winnerId)))return;
+ const b=bagState('raceoff',cat,pool),previous=canonical(plan.tracks[0]);
+ if(!pool.includes(previous)||!b.remaining.length||b.remaining.includes(previous))return;
+ const replacement=drawSequence('raceoff',cat,pool,1,{exclude:plan.tracks.slice(1)})[0];
+ if(!replacement||replacement===previous||!b.remaining.includes(replacement)||plan.tracks.slice(1).includes(replacement))return;
+ plan.tracks[0]=replacement;
+ plan.repair8165={previousTrack:previous,replacedAt:now(),reason:'unstarted-first-stage-consumed-track'};
+ try{rhSave()}catch(_){}
+}
 function ensureRaceOffPlan(ro){
  if(!fh5()||!ro)return null;const liveCount=Math.max(2,Number(ro.entryIds?.length||ro.entrants?.length||0)),cat=raceOffCategory(ro),pool=setupPool(cat),existing=ro.fh5TrackPlan8070,currentIndex=Math.max(0,Number(ro.currentRoundIndex||0));
  /* Once a Race Off has advanced beyond round 0, its original full route is immutable. The live entrant
     field shrinks every round, so rebuilding from liveCount here would shift every later track one stage early. */
  if(existing?.version===VERSION&&existing.category===cat&&Array.isArray(existing.stages)&&Array.isArray(existing.tracks)&&existing.stages.length===existing.tracks.length&&currentIndex>0)return existing;
  const stages=stagesForCount(liveCount);if(!pool.length||!stages.length)return null;
- if(existing?.version===VERSION&&existing.entryCount===liveCount&&existing.category===cat&&Array.isArray(existing.tracks)&&existing.tracks.length===stages.length)return existing;
+ if(existing?.version===VERSION&&existing.entryCount===liveCount&&existing.category===cat&&Array.isArray(existing.tracks)&&existing.tracks.length===stages.length){repairPreparedFirstTrack8165(ro,existing,cat,pool);return existing;}
  const nonFinal=Math.max(0,stages.length-1),reserved=reservedRaceOffTracks(cat,ro.id);let pre=drawSequence('raceoff',cat,pool,nonFinal,{exclude:reserved});if(pre.length<nonFinal){const extra=drawSequence('raceoff',cat,pool,nonFinal-pre.length,{exclude:pre});pre=uniq([...pre,...extra]).slice(0,nonFinal)}const fin=window.rhFH5Finale8058?.(ro.type,ro.value,'raceoff')||finalePool(cat)[0]||'';const plan={version:VERSION,entryCount:liveCount,category:cat,stages,tracks:[...pre,fin],createdAt:now()};ro.fh5TrackPlan8070=plan;try{rhSave()}catch(_){}return plan;
 }
 function decorateRaceOff8070(id){
