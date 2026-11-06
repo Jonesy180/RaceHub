@@ -1,0 +1,33 @@
+/* OTG! MAIN 8.0.172 — personal Evil Garage Noticeboard, no gameplay changes */
+.otgNoticeOverlay8172{position:fixed;inset:0;z-index:2147483500;background:rgba(0,5,10,.92);display:flex;align-items:center;justify-content:center;padding:max(10px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom));box-sizing:border-box;color:#eef6fb;font-family:system-ui,-apple-system,sans-serif}
+.otgNoticeSheet8172{width:min(100%,690px);max-height:calc(100dvh - 28px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #276178;border-radius:24px;background:linear-gradient(170deg,#06121d,#02080f);box-shadow:0 15px 60px #000b}
+.otgNoticeHead8172{padding:18px;display:flex;gap:12px;justify-content:space-between;align-items:center;border-bottom:1px solid #1b3b49}
+.otgNoticeHead8172 small{display:block;letter-spacing:.14em;font-weight:850;color:#73c4d9;font-size:11px}
+.otgNoticeHead8172 h2{font-size:clamp(19px,5.2vw,25px);margin:5px 0 0;line-height:1.12}
+.otgNoticeHead8172 button{border:1px solid #34576a;border-radius:14px;background:#1b2b36;color:#d6eff8;padding:10px 15px;font-size:20px;cursor:pointer}
+.otgNoticeSheet8172 main{overflow:auto;overscroll-behavior:contain;padding:13px 16px 26px;min-height:0}
+.otgNoticeCard8172{border:1px solid #204353;border-radius:18px;padding:16px;margin:0 0 14px;background:#061622}
+.otgNoticeCard8172 h3{margin:0 0 12px;letter-spacing:.06em;color:#7dd1e5;font-size:16px}
+.otgNoticeCard8172 p{margin:10px 0;color:#c1d7e2;line-height:1.45}
+.otgNoticeCard8172>small{display:block;color:#9bb5bf;line-height:1.5;font-size:12px;margin:8px 0}
+.otgNoticeStats8172{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.otgNoticeStats8172>div{min-width:0;text-align:center;border:1px solid #1c3a4b;padding:12px 4px;border-radius:11px;background:#081d2c}
+.otgNoticeStats8172 b{font-size:clamp(18px,5vw,25px);display:block;color:#f0f7fc}
+.otgNoticeStats8172 b small{font-size:11px;color:#6ebbd1}
+.otgNoticeStats8172 span{display:block;color:#96b6c7;font-size:10px;margin-top:5px}
+.otgNoticeLegend8172{display:flex;flex-wrap:wrap;gap:8px}
+.otgNoticeLegend8172>span{padding:8px;border-radius:9px;font-weight:900;font-size:14px;border:1px solid}
+.otgNoticeLegend8172 small{font-weight:600;font-size:11px;margin-left:5px;color:#e1edf4}
+.otgNoticeLegend8172 .road{color:#52e6f1;background:#163340;border-color:#368c95}
+.otgNoticeLegend8172 .off{color:#ffb154;background:#352410;border-color:#aa6930}
+.otgNoticeLegend8172 .drift{color:#ccaaff;background:#2b1d42;border-color:#7e60a2}
+.otgNoticeTracks8172{display:grid;gap:0;margin:8px 0 12px;border-radius:12px;overflow:hidden;border:1px solid #18394b}
+.otgNoticeTracks8172>div{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#071c2b;border-bottom:1px solid #193b4d}
+.otgNoticeTracks8172>div:last-child{border-bottom:0}.otgNoticeTracks8172 span{min-width:0;overflow-wrap:anywhere}.otgNoticeTracks8172 i{font-style:normal;font-size:11px;color:#82acc1;margin-right:10px}.otgNoticeTracks8172 b{color:#8adfeb;white-space:nowrap}
+.otgNoticeLink8172{display:block;width:100%;margin:10px 0;background:#17364a;color:#a9efff;border:1px solid #356e88;border-radius:12px;padding:12px 8px;font-weight:850;cursor:pointer}
+.otgNoticeSwiss8172{padding:10px;margin:5px 0;border:1px solid #1d3b4c;border-radius:11px;background:#0a2030}.otgNoticeSwiss8172 b,.otgNoticeSwiss8172 span{display:block}.otgNoticeSwiss8172 span{color:#9eb9c9;font-size:12px;margin-top:4px}
+.otgNoticeFoot8172{font-size:12px;color:#7295a8;text-align:center;font-style:italic}
+.cb164-overlay.otgDepartment8172 .cb164-sheet{border-color:#995cb8;box-shadow:0 0 40px rgba(134,69,167,.2),0 25px 55px #000a}
+.cb164-overlay.otgDepartment8172 .cb164-head{background:linear-gradient(90deg,#352244,#172b41)}
+.cb164-overlay.otgDepartment8172 .cb164-ep{color:#e9bdff}
+@media(max-width:400px){.otgNoticeSheet8172 main{padding:10px}.otgNoticeCard8172{padding:12px}.otgNoticeHead8172{padding:12px}.otgNoticeStats8172 b{font-size:19px}}
