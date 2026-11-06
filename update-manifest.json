@@ -1,5 +1,5 @@
 {
-  "version": "8.0.166",
-  "worker": "./otg-service-worker-v8166.js",
-  "message": "OTG! v8.0.166 — Evil Tournament E✓ car badge: marks only cars with saved Evil race results or scores; no changes to car upgrades, times, medals or tournament data. The v8.0.165 track-shuffle fix is preserved."
+  "version": "8.0.167",
+  "worker": "./otg-service-worker-v8167.js",
+  "message": "OTG! v8.0.167 REVISED — colour-coded last-Evil-event E✓ badges (cyan road/street, orange off-road/dirt/rally, purple drift), compact live Festival queue and more Next Up rows. No saved-data changes; retains v8.0.165 track shuffle."
 }
