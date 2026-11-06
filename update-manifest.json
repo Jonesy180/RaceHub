@@ -1,5 +1,5 @@
 {
-  "version": "8.0.165",
-  "worker": "./otg-service-worker-v8165.js",
-  "message": "OTG! v8.0.165 \u2014 Race Off track shuffle fix: unused tracks now take priority over future reservations; repairs only an untouched first-round track. Existing races, results and future stage plans preserved."
+  "version": "8.0.166",
+  "worker": "./otg-service-worker-v8166.js",
+  "message": "OTG! v8.0.166 — Evil Tournament E✓ car badge: marks only cars with saved Evil race results or scores; no changes to car upgrades, times, medals or tournament data. The v8.0.165 track-shuffle fix is preserved."
 }
