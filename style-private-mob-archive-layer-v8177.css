@@ -1,0 +1,6 @@
+/* OTG! PERSONAL MAIN v8.0.177 — Incident Archive visibility FIX.
+   In v176 the archive was opening BELOW the Garage Noticeboard.
+   Noticeboard = z-index 2147483500; existing private portrait = 2147483600.
+   The archive must be above both (stays within CSS 32-bit stacking range).
+   Presentation-only change. No JS logic, saved data or images are altered. */
+.mobOverlay8176 { z-index:2147483640 !important; }
