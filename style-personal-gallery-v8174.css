@@ -1,0 +1,22 @@
+/* Personal OTG! v8.0.174: local-only portrait and the previously missing BACK button */
+.otgNoticeHead8172{flex-wrap:wrap}
+.otgNoticeHead8172 .otgNoticeBack8174{order:-1;flex:0 0 auto;border:1px solid #386c82;border-radius:14px;color:#e6f9ff;background:#183746;font-weight:850;font-size:15px;padding:11px 17px;cursor:pointer}
+.otgPrivateCard8174>button{display:block;width:100%;border:1px solid #4a91aa;border-radius:13px;padding:13px 8px;background:#153c50;color:#d8f7ff;font-size:14px;font-weight:900;cursor:pointer}
+.otgPrivateOverlay8174{position:fixed;inset:0;z-index:2147483600;background:rgba(0,4,10,.96);display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:max(9px,env(safe-area-inset-top)) 9px max(9px,env(safe-area-inset-bottom));font-family:system-ui,-apple-system,sans-serif;color:#e8f6fb}
+.otgPrivateSheet8174{width:min(100%,680px);max-height:calc(100dvh - 22px);border:1px solid #28718e;border-radius:22px;background:linear-gradient(#071923,#030a12);box-shadow:0 20px 60px #000c;display:flex;flex-direction:column;overflow:hidden}
+.otgPrivateSheet8174 header{display:flex;align-items:center;gap:11px;border-bottom:1px solid #1a4a5d;padding:15px}
+.otgPrivateSheet8174 header>div{min-width:0}
+.otgPrivateSheet8174 header small{font-size:10px;letter-spacing:.12em;color:#80cce1;font-weight:800}
+.otgPrivateSheet8174 h2{font-size:clamp(16px,4.7vw,22px);margin:3px 0 0;line-height:1.15}
+.otgPrivateBack8174{flex:0 0 auto;border:1px solid #426d82;border-radius:13px;padding:12px 13px;background:#203744;color:white;font-size:15px;font-weight:900;cursor:pointer}
+.otgPrivateSheet8174 main{overflow-y:auto;overscroll-behavior:contain;padding:15px;min-height:0;text-align:center}
+.otgPrivateSub8174{color:#afcbd8;font-size:13px;margin:0 0 12px}
+.otgPrivateImage8174{min-height:180px;display:flex;align-items:center;justify-content:center;border:1px dashed #346079;border-radius:15px;overflow:hidden;background:#05111d}
+.otgPrivateImage8174 img{display:block;object-fit:contain;max-width:100%;max-height:min(67vh,720px);height:auto;width:auto}
+.otgPrivateEmpty8174{max-width:350px;padding:22px;color:#a9c6d3;line-height:1.5}
+.otgPrivateImport8174{display:block;position:relative;overflow:hidden;cursor:pointer;margin:15px 0 7px;padding:14px 12px;border-radius:13px;background:#1d5970;color:#f1fdff;font-size:14px;font-weight:850;border:1px solid #56b9db}
+.otgPrivateImport8174 input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.otgPrivateRemove8174{margin:2px 0 0;padding:10px 13px;border:1px solid #a06060;border-radius:12px;background:#3a171d;color:#ffd8db;font-weight:750;cursor:pointer}
+.otgPrivateStatus8174{min-height:19px;font-size:12px;color:#adf2bd}
+.otgPrivateNote8174{font-size:11px;text-align:left;line-height:1.55;color:#90afc0;border-top:1px solid #1d3e4d;padding-top:12px;margin-top:12px}
+@media(max-width:400px){.otgPrivateSheet8174 header{padding:10px}.otgPrivateSheet8174 main{padding:10px}.otgPrivateBack8174{padding:10px}}
