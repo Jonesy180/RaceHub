@@ -1,0 +1,10 @@
+/* OTG! v8.0.179: private, responsive four-chapter pilot. No family media bundled. */
+.mobPilotIntro8179{border-color:#427a88!important;background:linear-gradient(130deg,#102734,#241629)!important}
+.mobPilotIntro8179 b{color:#85e2f2}.mobPilotIntro8179 h3{font-size:clamp(16px,4vw,20px)}
+.mobPilotActivate8179,.mobPilotRead8179{width:100%;min-height:50px;margin:7px 0;border-radius:11px;background:#0f4256;border:2px solid #58c4dc;color:white;font-weight:900;font-size:14px;padding:10px;cursor:pointer}
+.mobPilotActivate8179:disabled{opacity:.48;cursor:not-allowed}
+.mobPilotRead8179{background:#381d53;border-color:#9c73c0}
+.mobPilotScene8179{margin:16px 0 24px!important;overflow-wrap:anywhere}.mobPilotScene8179 h3{font-size:16px}
+.mobPilotNew8179{border:2px solid #7ce5ec!important;box-shadow:0 0 18px #60f2e924}
+.mobPilotImage8179 img{max-width:100%;width:100%;display:block;height:auto;border-radius:11px;margin:12px 0;border:1px solid #567f8d}
+.mobPilotImage8179:not(:has(img)){min-height:120px;background:#112634}
