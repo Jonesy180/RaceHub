@@ -1,5 +1,5 @@
 {
-  "version": "8.0.182",
-  "worker": "./otg-service-worker-v8182.js",
-  "message": "OTG! MAIN v8.0.182 QA \u2014 isolated manual results cockpit for Relay, Gauntlet and single-attempt Long Jump. NO career writes or reset. Your racing and private family archives remain untouched."
+  "version": "8.0.183",
+  "worker": "./otg-service-worker-v8183.js",
+  "message": "OTG! MAIN v8.0.183: recover v8.0.182 update loop; correct the versioned home page and worker navigation. Preserves Evil 2.0 result-entry QA, all Garage/racing data and private incidents."
 }
