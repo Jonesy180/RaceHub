@@ -1,0 +1,15 @@
+/* v8.0.229 — a single contained read-only QA audit (no gameplay/layout redesign). */
+.sc-honours{margin:12px 0;border:1px solid #246374;border-radius:12px;background:#0b2330;padding:12px;color:#e5f7fa}
+.sc-honours>summary{cursor:pointer;font-weight:800;line-height:1.5;color:#c5f8ff}
+.sc-honours .sc-honour-event{border:1px solid #234756;background:#102c38;border-radius:10px;margin:10px 0;padding:10px}
+.sc-honours .sc-honour-event h4{margin:0 0 8px;font-size:14px}
+.sc-honours .sc-honour-event h4 small{display:block;color:#9ed4da;font-size:11px;margin-top:2px}
+.sc-honours .sc-honour-event>small{display:block;margin-top:7px;line-height:1.5;color:#bfd3d9}
+.sc-honours .sc-honour-podium{display:grid;gap:5px}
+.sc-honours .sc-honour-podium>div{display:flex;gap:10px;align-items:center;font-size:12px;min-width:0}
+.sc-honours .sc-honour-podium span{overflow-wrap:anywhere}
+.sc-honours-tables{display:grid;gap:8px;margin:12px 0}
+.sc-honours-tables>div{padding:10px;background:#102b36;border-radius:9px}
+.sc-honours-tables h4{margin:0 0 8px;font-size:12px}
+.sc-honours-tables div div{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px;padding:3px 0;border-bottom:1px solid #24434d}
+.sc-honours-tables b{white-space:nowrap}
