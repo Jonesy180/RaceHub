@@ -1,0 +1,28 @@
+/* v188 repair: restore relay full-screen panel: isolated namespaced styles, no original tournament restyles */
+#e2p-185{position:fixed;inset:0;z-index:2147483000;background:#06131d;color:#eaf9ff;overflow-y:auto;overscroll-behavior:contain;font:15px/1.5 system-ui,sans-serif}
+#e2p-185 .e2p-screen{max-width:850px;margin:auto;padding:16px 14px 50px}
+#e2p-185 button,#e2p-185 select,#e2p-185 input{font:inherit;color:#efffff;background:#122d40;border:1px solid #3794ab;border-radius:9px;padding:10px;min-height:44px}
+#e2p-185 button{cursor:pointer;font-weight:750}#e2p-185 button:focus-visible{outline:3px solid #ffdc76;outline-offset:2px}
+#e2p-185 .e2p-head h2{color:#87efff;line-height:1.2;margin:16px 0 8px;font-size:clamp(24px,6vw,34px)}
+#e2p-185 .e2p-head small{display:block;margin-top:12px;color:#afcbd5}
+#e2p-185 .e2p-alert{padding:13px;border:1px solid #c6974b;background:#2c271a;border-radius:10px;margin:14px 0}
+#e2p-185 .e2p-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}
+#e2p-185 .e2p-summary{background:#103045;padding:12px 8px;border:1px solid #245b73;border-radius:10px;text-align:center}
+#e2p-185 .e2p-summary b{display:block;font-size:23px;color:#7bf3f6}
+#e2p-185 .e2p-summary span{display:block;font-size:11px}
+#e2p-185 .e2p-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+#e2p-185 .e2p-tabs .on{background:#126d78;border-color:#7bf3f6}
+#e2p-185 .e2p-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;background:#0d2333;border-radius:10px;padding:10px}
+#e2p-185 .e2p-controls label{display:flex;flex-direction:column;gap:4px;flex:1 1 145px}
+#e2p-185 .e2p-audit{margin:12px 0;padding:12px;border-radius:10px;background:#102a33;border:1px solid #257e83}
+#e2p-185 .e2p-audit.warn{border-color:#b68a41;background:#29261c}
+#e2p-185 .e2p-teams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}
+#e2p-185 .e2p-team{background:#0b2638;border:1px solid #2c677a;padding:12px;border-radius:10px;min-width:0}
+#e2p-185 .e2p-team h3{margin:0 0 8px;color:#7ae7f8;font-size:16px}#e2p-185 .e2p-team h3 small{font-size:12px;color:#cae4ed}
+#e2p-185 .e2p-stage{display:flex;gap:10px;padding:8px 0;border-top:1px solid #21485a;align-items:baseline}
+#e2p-185 .e2p-stage b{min-width:61px;font-size:11px;color:#9bc9d7}
+#e2p-185 .e2p-stage span{min-width:0;overflow-wrap:anywhere;font-weight:700}
+#e2p-185 .e2p-stage small{display:block;color:#a9c7d3;font-weight:400}
+#e2p-185 .e2p-team p{font-size:12px;color:#e7cb89}
+#e2p-185 .e2p-foot{color:#c0d6e1}
+@media(max-width:600px){#e2p-185 .e2p-teams{grid-template-columns:1fr}#e2p-185 .e2p-summary b{font-size:20px}#e2p-185 .e2p-tabs button{font-size:13px;padding:8px 5px}}
