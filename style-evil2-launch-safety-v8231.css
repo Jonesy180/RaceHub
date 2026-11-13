@@ -1,0 +1,19 @@
+/* v8.0.231 — small, isolated launch-safety QA panel. No changes to racing layouts. */
+.e2safe-launch{margin:10px 0;padding:10px 12px;background:#092431;border:1px solid #2c6779;border-radius:10px;color:#c9f5fc}
+.e2safe-launch summary{font-size:13px;line-height:1.4;font-weight:800;cursor:pointer}
+.e2safe-launch p{font-size:12px;line-height:1.5;margin:8px 0;color:#daeef0}
+.e2safe-launch button{margin:4px 0 0;background:#14394c;color:#e7faff;padding:9px 12px;border:1px solid #367589;border-radius:8px;font-weight:700}
+.e2safe-screen{position:fixed;inset:0;z-index:100001;overflow:auto;background:#06131e;color:#e2f4f7;padding:12px 12px 32px;box-sizing:border-box}
+.e2safe-inner{max-width:680px;margin:0 auto}
+.e2safe-screen h2{font-size:21px;margin:9px 0}.e2safe-screen h3{font-size:14px;margin:14px 0 8px;color:#a0eefa}
+.e2safe-screen p{font-size:13px;line-height:1.5;margin:8px 0}.e2safe-screen .e2s-box{border:1px solid #285366;background:#102633;border-radius:10px;padding:12px;margin:10px 0}
+.e2safe-screen .e2s-numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0}
+.e2safe-screen .e2s-numbers div{padding:8px 4px;background:#143443;text-align:center;border-radius:8px}.e2safe-screen .e2s-numbers b{font-size:19px;color:#a5f6ff;display:block}
+.e2safe-screen .e2s-numbers small{display:block;font-size:10px;line-height:1.4}
+.e2safe-screen .e2s-row{border-bottom:1px solid #254854;padding:7px 0;font-size:12px;display:flex;justify-content:space-between;gap:8px}
+.e2safe-screen .e2s-row span:last-child{text-align:right;overflow-wrap:anywhere}
+.e2safe-screen .e2s-red{border-left:4px solid #ef9c8c;background:#33292e;padding:10px;border-radius:6px}
+.e2safe-screen .e2s-ok{border-left:4px solid #6ae2b4;background:#143c36;padding:10px;border-radius:6px}
+.e2safe-screen button{padding:11px 12px;margin:5px 5px 5px 0;border-radius:9px;background:#156079;color:#fff;border:1px solid #72c9dc;font-weight:bold;max-width:100%;white-space:normal}
+.e2safe-screen button.e2s-back{background:#213748;border-color:#456575}
+.e2safe-screen .e2s-small{color:#b4cbd1;font-size:11px}

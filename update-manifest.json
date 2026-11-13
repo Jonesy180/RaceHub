@@ -1,5 +1,5 @@
 {
-  "version": "8.0.230",
-  "worker": "./otg-service-worker-v8230.js",
-  "message": "OTG! MAIN v8.0.230 \u2014 Second Chance official-medal and career-record integration rehearsal, strictly read-only."
+  "version": "8.0.231",
+  "worker": "./otg-service-worker-v8231.js",
+  "message": "OTG! MAIN v8.0.231 \u2014 complete-space launch safety audit and dry-run reset mapping. NO RESET."
 }
