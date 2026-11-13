@@ -1,0 +1,24 @@
+/* OTG! 8.0.184 — strictly visual, no old tournament/racing data changes. */
+/* UP NEXT cards: full names, compact History controls, large enough for touch. */
+#raceoff .otgRoNextBox8168 .otgRoNextCars8168{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important}
+#raceoff .otgRoNextBox8168 .otgRoNextLine8168{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;min-width:0!important;min-height:60px!important}
+#raceoff .otgRoNextBox8168 .otgRoNextName8168{flex:1 1 auto!important;min-width:0!important;width:auto!important;white-space:normal!important}
+#raceoff .otgRoNextBox8168 .otgRoNextName8168 strong{white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;line-height:1.32!important}
+#raceoff .otgRoNextBox8168 button.otgRoHistory8168{
+ appearance:none!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ box-sizing:border-box!important;position:static!important;transform:none!important;writing-mode:horizontal-tb!important;
+ flex:0 0 40px!important;width:40px!important;min-width:40px!important;max-width:40px!important;
+ height:40px!important;min-height:40px!important;max-height:40px!important;
+ padding:0!important;margin:0!important;line-height:1!important;font-size:18px!important;
+ border-radius:9px!important;text-align:center!important;white-space:nowrap!important;vertical-align:middle!important;
+}
+#raceoff .otgRoNextBox8168 button.otgRoHistory8168:focus-visible{outline:3px solid #ffda6b!important;outline-offset:2px!important}
+@media(max-width:560px){
+ #raceoff .otgRoNextBox8168 .otgRoNextCars8168{grid-template-columns:minmax(0,1fr)!important;gap:7px!important}
+ #raceoff .otgRoNextBox8168 .otgRoNextLine8168{padding:8px 10px!important}
+ #raceoff .otgRoNextBox8168 .otgRoNextName8168 strong{font-size:14px!important}
+}
+/* Race time keyboard is digits only; jump distance remains a decimal keypad. */
+#e2trial182 input[data-e2-time-digits]{font-variant-numeric:tabular-nums;letter-spacing:.055em}
+#e2trial182 .e2t-digit-help{display:block;color:#b4dbe8;font-size:12px;line-height:1.5;margin:1px 0 5px}
+#e2trial182 .e2t-time-preview{display:block;color:#81ffe4;font-weight:900;font-size:13px;min-height:17px}

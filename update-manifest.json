@@ -1,5 +1,5 @@
 {
-  "version": "8.0.183",
-  "worker": "./otg-service-worker-v8183.js",
-  "message": "OTG! MAIN v8.0.183: recover v8.0.182 update loop; correct the versioned home page and worker navigation. Preserves Evil 2.0 result-entry QA, all Garage/racing data and private incidents."
+  "version": "8.0.184",
+  "worker": "./otg-service-worker-v8184.js",
+  "message": "OTG! MAIN v8.0.184: digits-only numeric time entry for isolated Evil 2.0 QA Cockpit; compact Race Off UP NEXT History buttons. No career, Garage, old Evil progress, or private-content changes."
 }
