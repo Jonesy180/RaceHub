@@ -1,0 +1,9 @@
+/* v8.0.195 lightweight route cards, mobile first */
+.ert195-routes{margin:14px 0;padding:14px;border:1px solid #376678;background:#071722;border-radius:13px;color:#dfeff3}
+.ert195-routes h3{margin:0 0 12px;font-size:1rem;letter-spacing:.03em;color:#9be1ee}
+.ert195-route{display:grid;grid-template-columns:72px minmax(0,1fr);gap:4px 10px;align-items:start;padding:10px 8px;border-top:1px solid #274652;min-width:0}
+.ert195-route span{font-size:.78rem;color:#8daab5;font-weight:700;white-space:nowrap}
+.ert195-route strong{min-width:0;overflow-wrap:anywhere;font-size:.99rem}
+.ert195-route small{grid-column:2;color:#a9c5cc;font-size:.82rem}
+.ert195-route.is-current{border-left:3px solid #6bd8ea;padding-left:9px;background:#102f3c}
+.ert195-warning{display:block;margin-top:12px;color:#bacdd1;font-size:.82rem;line-height:1.5}
