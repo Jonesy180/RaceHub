@@ -1,5 +1,5 @@
 {
-  "version": "8.0.218",
-  "worker": "./otg-service-worker-v8218.js",
-  "message": "OTG! MAIN v8.0.218 — navigation/update-loop repair; v8.0.217 Long Jump retained."
+  "version": "8.0.219",
+  "worker": "./otg-service-worker-v8219.js",
+  "message": "OTG! MAIN v8.0.219 — compact Relay Competitions tile; update navigation repair retained."
 }
