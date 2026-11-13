@@ -1,0 +1,16 @@
+/* v8.0.224 Grand Finale additions: compact mobile-first; previous layouts unchanged. */
+#otg-sc-screen-8220 .sc-grand-start,#otg-sc-screen-8220 .sc-grand-state{margin:12px 0;padding:12px;border-radius:12px;border:1px solid #347587;background:#09222b}
+#otg-sc-screen-8220 .sc-grand-start p,#otg-sc-screen-8220 .sc-grand-state p{font-size:12px;line-height:1.5;margin:6px 0 10px}
+#otg-sc-screen-8220 .sc-grand-start button{width:100%;white-space:normal;min-height:42px}
+#otg-sc-screen-8220 .sc-grand-round{margin:9px 0;border:1px solid #305366;border-radius:12px;background:#081920;padding:9px 10px}
+#otg-sc-screen-8220 .sc-grand-round>summary{color:#9ee9ee;cursor:pointer;font-weight:750;font-size:13px;line-height:1.4}
+#otg-sc-screen-8220 .sc-grand-match{border-top:1px solid #244350;padding:9px 0;margin-top:9px}
+#otg-sc-screen-8220 .sc-grand-match>b{font-size:11px;letter-spacing:.07em;color:#91bdd0}
+#otg-sc-screen-8220 .sc-grand-entry{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-top:1px solid #233842;padding:7px 0}
+#otg-sc-screen-8220 .sc-grand-entry>div:first-child{min-width:125px;flex:1 1 140px}
+#otg-sc-screen-8220 .sc-grand-entry b{font-size:12px;overflow-wrap:anywhere}
+#otg-sc-screen-8220 .sc-grand-entry small{display:block;color:#8aaeb6;font-size:11px}
+#otg-sc-screen-8220 .sc-grand-bye{font-size:12px;color:#a0e2ba;margin:8px 0}
+#otg-sc-screen-8220 .sc-grand-entry .sc-entry-controls{width:100%}
+#otg-sc-screen-8220 .sc-grand-entry .sc-saved{margin-left:auto}
+@media(max-width:450px){#otg-sc-screen-8220 .sc-grand-entry{display:block}#otg-sc-screen-8220 .sc-grand-entry .sc-saved{margin-top:6px}}
