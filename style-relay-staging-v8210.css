@@ -1,0 +1,10 @@
+/* 8.0.210 isolated staging controls; does not restyle the grey Festival accordion. */
+#otg-relay-staging-8210{margin:12px 8px;padding:10px 12px;border:1px solid #235061;border-radius:12px;background:#071018;color:#e0f4f6}
+#otg-relay-staging-8210 summary{cursor:pointer;color:#55d8ef;font-weight:800;font-size:14px;min-height:44px;display:flex;align-items:center}
+#otg-relay-staging-8210 p{font-size:13px;line-height:1.5}
+#otg-relay-staging-8210 .relay-stage-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px solid #21404a;flex-wrap:wrap}
+#otg-relay-staging-8210 .relay-stage-row div{min-width:0;flex:1}
+#otg-relay-staging-8210 small{display:block;color:#b9d2d9;overflow-wrap:anywhere}
+#otg-relay-staging-8210 button{min-height:44px;background:#0d3440;border:1px solid #50cbe7;color:#edfcff;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:bold}
+#otg-relay-staging-8210 button:disabled{opacity:.55}
+#otg-relay-staging-8210 .relay-stage-status{color:#95e5c6}
