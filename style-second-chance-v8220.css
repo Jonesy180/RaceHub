@@ -1,0 +1,58 @@
+/* OTG! MAIN v8.0.220 — isolated, phone-first Second Chance Cup QA. */
+#otg-sc-launch-8220{margin:12px 0;padding:0;border:1px solid #187f94;background:#081d28;border-radius:16px;color:#e7f9ff}
+#otg-sc-launch-8220 summary{padding:15px 14px;font-weight:800;cursor:pointer}
+#otg-sc-launch-8220 summary small{font-size:10px;letter-spacing:1px;color:#7ddcf0}
+#otg-sc-launch-8220 p{margin:4px 13px 12px;font-size:13px;line-height:1.45}
+#otg-sc-launch-8220 button{margin:0 13px 13px;background:#0db2d5;border:0;border-radius:12px;color:#041820;font-weight:900;padding:11px 12px;width:calc(100% - 26px)}
+#otg-sc-screen-8220.sc-screen{position:fixed;inset:0;z-index:22020;background:#060e18;color:#eafaff;overflow-y:auto;padding:env(safe-area-inset-top) 9px calc(50px + env(safe-area-inset-bottom));box-sizing:border-box;font-size:14px;line-height:1.43}
+#otg-sc-screen-8220[hidden]{display:none!important}
+#otg-sc-screen-8220 *{box-sizing:border-box}
+#otg-sc-screen-8220 .sc-card{max-width:720px;margin:4px auto 0;padding:12px;background:#0a1b29;border:1px solid #21657b;border-radius:18px}
+#otg-sc-screen-8220 h2{font-size:22px;margin:8px 0 10px;color:#b7f3ff}
+#otg-sc-screen-8220 h2 small{font-size:11px;color:#65dcea;letter-spacing:1px}
+#otg-sc-screen-8220 h3{font-size:18px;margin:20px 0 8px;color:#9af0ff}
+#otg-sc-screen-8220 h4{font-size:15px;margin:10px 0;color:#ddfaff}
+#otg-sc-screen-8220 p{margin:8px 0 12px}
+#otg-sc-screen-8220 button{min-height:38px;border-radius:10px;background:#08add4;border:1px solid #08add4;padding:8px 10px;color:#04202d;font-weight:800;cursor:pointer;max-width:100%}
+#otg-sc-screen-8220 .sc-back{background:#102c40;border:1px solid #408fa3;color:#eaffff;margin:2px 0 6px}
+#otg-sc-screen-8220 .sc-primary{width:100%;margin:10px 0}
+#otg-sc-screen-8220 .sc-secondary{background:#112f43;border:1px solid #4b9bb0;color:#d6f7ff}
+#otg-sc-screen-8220 .sc-note{border-left:3px solid #0ab6d9;padding-left:10px;font-size:13px;color:#e1eff4}
+#otg-sc-screen-8220 .sc-warning{padding:9px 11px;border:1px solid #8a7529;border-radius:10px;background:#392e16;color:#fff0c0;font-size:12px}
+#otg-sc-screen-8220 .sc-small,#otg-sc-screen-8220 .sc-muted{font-size:12px;color:#aac3cf}
+#otg-sc-screen-8220 .sc-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:14px 0}
+#otg-sc-screen-8220 .sc-stats div{padding:9px 4px;border-radius:12px;background:#132d3c;border:1px solid #265a6e;text-align:center}
+#otg-sc-screen-8220 .sc-stats b{display:block;font-size:20px;color:#64dcf4}
+#otg-sc-screen-8220 .sc-stats span{font-size:10px;color:#d0e6ee}
+#otg-sc-screen-8220 .sc-inbox{padding:12px;background:#102635;border:1px solid #2a7186;border-radius:12px}
+#otg-sc-screen-8220 .sc-inbox summary{font-weight:800;color:#96efff;cursor:pointer}
+#otg-sc-screen-8220 label{display:block;margin:8px 0;font-size:12px;font-weight:700;color:#d6f6ff}
+#otg-sc-screen-8220 input,#otg-sc-screen-8220 select{width:100%;display:block;margin-top:5px;min-height:41px;background:#071c29;border-radius:9px;border:1px solid #47869e;padding:8px;color:#fff;font:inherit;font-size:14px}
+#otg-sc-screen-8220 .sc-proof{font-size:12px;color:#ddf5ed;overflow-wrap:anywhere}
+#otg-sc-screen-8220 .sc-demo{padding:11px;background:#152d3e;border-radius:10px;border:1px dashed #6c899b;margin:13px 0}
+#otg-sc-screen-8220 .sc-demo p{font-size:12px}
+#otg-sc-screen-8220 .sc-queue>div{padding:7px;border-bottom:1px solid #244b5c}
+#otg-sc-screen-8220 .sc-queue b{display:block;font-size:13px}
+#otg-sc-screen-8220 .sc-queue small{display:block;font-size:11px;color:#bad4e2}
+#otg-sc-screen-8220 .sc-open-cup{margin:17px 0 5px}
+#otg-sc-screen-8220 .sc-heat{background:#0d2737;border:1px solid #2b6e81;border-radius:12px;padding:10px;margin:11px 0}
+#otg-sc-screen-8220 .sc-heat h4{margin:2px 0}
+#otg-sc-screen-8220 .sc-track{display:flex;align-items:end;gap:8px}
+#otg-sc-screen-8220 .sc-track label{flex:1;min-width:0}
+#otg-sc-screen-8220 .sc-track button{margin-bottom:8px;white-space:nowrap}
+#otg-sc-screen-8220 .sc-track-label{color:#9df1f9;font-size:12px;border:1px solid #397b8e;padding:8px;border-radius:8px}
+#otg-sc-screen-8220 .sc-track-label small{display:block;color:#b6cfda}
+#otg-sc-screen-8220 .sc-entry{padding:9px 0;border-bottom:1px solid #275064}
+#otg-sc-screen-8220 .sc-entry-name b{display:block;font-size:13px}
+#otg-sc-screen-8220 .sc-entry-name span{display:block;font-size:12px;color:#a8d6e8}
+#otg-sc-screen-8220 .sc-entry-controls{display:flex;gap:8px;align-items:end}
+#otg-sc-screen-8220 .sc-entry-controls input{min-width:0;flex:1}
+#otg-sc-screen-8220 .sc-entry-controls button{white-space:nowrap}
+#otg-sc-screen-8220 .sc-preview{display:block;margin-top:5px;color:#b2d7e2;font-size:11px}
+#otg-sc-screen-8220 .sc-winner{font-size:13px;background:#123d38;border:1px solid #42bca0;border-radius:8px;padding:8px;color:#bfffe8}
+#otg-sc-screen-8220 .sc-alert{font-size:12px;color:#ffe7b7;border:1px solid #aa8b46;padding:7px}
+#otg-sc-screen-8220 .sc-champion{text-align:center;border:2px solid #d2b158;border-radius:12px;background:#312714;padding:18px 6px;color:#ffebaa}
+#otg-sc-screen-8220 .sc-champion strong{font-size:19px;color:#fff7c0}
+#otg-sc-screen-8220 .sc-champion p{font-size:12px}
+#otg-sc-screen-8220 .sc-message{color:#f8e09a;font-weight:700;min-height:16px;overflow-wrap:anywhere}
+@media (max-width:360px){#otg-sc-screen-8220 .sc-card{padding:8px}#otg-sc-screen-8220 .sc-entry-controls button{padding:7px 6px;font-size:12px}#otg-sc-screen-8220 .sc-stats span{font-size:9px}}

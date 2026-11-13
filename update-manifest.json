@@ -1,5 +1,5 @@
 {
-  "version": "8.0.219",
-  "worker": "./otg-service-worker-v8219.js",
-  "message": "OTG! MAIN v8.0.219 — compact Relay Competitions tile; update navigation repair retained."
+  "version": "8.0.220",
+  "worker": "./otg-service-worker-v8220.js",
+  "message": "OTG! MAIN v8.0.220 — Second Chance Cups rolling qualification, groups, semifinals and final (isolated QA)."
 }
