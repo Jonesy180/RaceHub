@@ -1,0 +1,7 @@
+/* Read-only OTG FH5 track-identity lookup · v8.0.199 */
+.er199-identity{margin:12px 0 8px;padding:10px 12px;border:1px solid rgba(45,214,229,.35);border-radius:12px;background:rgba(4,26,34,.45);color:#d9edf0;max-width:100%;overflow-wrap:anywhere}
+.er199-identity summary{cursor:pointer;font-size:.84rem;font-weight:750;min-height:30px;line-height:30px;color:#86e8ec}
+.er199-identity>div{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;padding:7px 0;border-top:1px solid rgba(255,255,255,.09);font-size:.8rem}
+.er199-identity span{font-size:.74rem;opacity:.75}.er199-identity code{font-size:.77rem;color:#c1e9ff;white-space:normal}
+.er199-identity small{display:block;margin-top:8px;line-height:1.35;opacity:.82}
+.er199-identity-alert{color:#ffcf80;font-size:.8rem}
