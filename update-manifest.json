@@ -1,5 +1,5 @@
 {
-  "version": "8.0.199",
-  "worker": "./otg-service-worker-v8199.js",
-  "message": "OTG! MAIN v8.0.199 \u2014 FH5 relay catalogue track-ID bridge (read-only, saved route locks preserved)."
+  "version": "8.0.200",
+  "worker": "./otg-service-worker-v8200.js",
+  "message": "OTG! MAIN v8.0.200 \u2014 Standalone Manufacturer & Mixed Relay roster entry QA; protected test saves."
 }
