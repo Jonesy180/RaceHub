@@ -1,0 +1,10 @@
+/* Only scoped Second Chance QA source-audit layout; no career UI changes. */
+#otg-sc-screen-8220 .sc-major{border:1px solid #365566;border-radius:10px;margin:9px 0;padding:9px 10px;background:#0b202a}
+#otg-sc-screen-8220 .sc-major summary{cursor:pointer;color:#a8e4ee;font-size:12px;line-height:1.5;font-weight:700}
+#otg-sc-screen-8220 .sc-major-section{padding:8px 0;border-top:1px solid #2a4957;margin-top:9px}
+#otg-sc-screen-8220 .sc-major-section>b{font-size:12px;color:#c6e6ef}
+#otg-sc-screen-8220 .sc-major-row{margin:7px 0;padding:8px;border-radius:8px;border:1px solid #2a4957;background:#081721;overflow-wrap:anywhere}
+#otg-sc-screen-8220 .sc-major-row>b{font-size:12px;display:block;line-height:1.45}
+#otg-sc-screen-8220 .sc-major-row small{font-size:11px;display:block;margin:3px 0;color:#95b9c7;line-height:1.5}
+#otg-sc-screen-8220 .sc-major-row small strong{color:#b3efd4}
+#otg-sc-screen-8220 .sc-major .sc-secondary{max-width:100%;white-space:normal;min-height:37px;font-size:11px}
