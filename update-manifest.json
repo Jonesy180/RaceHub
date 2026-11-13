@@ -1,5 +1,5 @@
 {
-  "version": "8.0.201",
-  "worker": "./otg-service-worker-v8201.js",
-  "message": "OTG! MAIN v8.0.201 \u2014 Relay launch buttons moved under Festival; no championship data changes."
+  "version": "8.0.202",
+  "worker": "./otg-service-worker-v8202.js",
+  "message": "OTG! MAIN v8.0.202 \u2014 compact Festival relay selector and OTG route-lock confirmation."
 }
