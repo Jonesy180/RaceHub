@@ -1,5 +1,5 @@
 {
-  "version": "8.0.250",
-  "worker": "./otg-service-worker-v8250.js",
-  "message": "OTG! v8.0.250 \u2014 native Festival engine Slot 001/002, real saved results, no duplicate save bridge; no reset or full launch."
+  "version": "8.0.251",
+  "worker": "./otg-service-worker-v8251.js",
+  "message": "OTG! v8.0.251: original native Race Off Slots 003\u2013005 and Dirt Festival Slot 006, with real results and source workload stop-lines. No reset."
 }

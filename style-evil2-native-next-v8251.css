@@ -1,0 +1,5 @@
+/* OTG! v8.0.251 — Native Race Off stop line / source-visit progression */
+.e2n-error{border-left:5px solid #ff9473;background:#56231f;color:#ffdfd4!important;padding:13px;border-radius:8px;font-weight:700}
+.e2n-stop-shield{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:#020a12eF;color:#efffff;overflow:auto}
+.e2n-stop-shield section{width:min(96vw,460px);background:#10283c;border:2px solid #43dfcb;border-radius:18px;padding:24px 18px;text-align:center;box-shadow:0 18px 70px #000}
+.e2n-stop-shield small{color:#3ee1ec;letter-spacing:1px;font-weight:700}.e2n-stop-shield h2{color:#e4ffff;font-size:30px;margin:20px 0 6px}.e2n-stop-shield p{font-size:15px;line-height:1.5}.e2n-stop-shield button{display:block;width:100%;border:0;border-radius:12px;padding:17px 14px;margin:19px 0 4px;background:#07c7ce;color:#001925;font-weight:900}
