@@ -1,5 +1,5 @@
 {
-  "version": "8.0.252",
-  "worker": "./otg-service-worker-v8252.js",
-  "message": "v8.0.252: restore original cheeky Race Off stop-line and fix RETURN TO EVIL 2.0 SLOT navigation. No data wipe/reset."
+  "version": "8.0.253",
+  "worker": "./otg-service-worker-v8253.js",
+  "message": "QA-only Add Pretend Results for source Slots 003\u2013006; preserve native racing and real records."
 }
