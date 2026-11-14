@@ -1,0 +1,49 @@
+/* EVIL 2.0 first source-backed GROUPS race controls; personal prelaunch lane */
+.e2first-launch{margin:16px 0;padding:15px;border:1px solid #25728a;border-radius:18px;background:linear-gradient(130deg,#0b1c27,#07111a);color:#d8f6ff}
+.e2first-launch summary{font-weight:900;cursor:pointer;color:#80eafd;font-size:15px}
+.e2first-launch summary small{font-size:10px;opacity:.75}
+.e2first-launch p{font-size:13px;line-height:1.5;color:#b5cbd7}
+.e2first-launch button{background:#205d77;border:1px solid #3f8ead;border-radius:14px;font-size:14px;color:#fff;font-weight:900;padding:12px 14px;width:100%;cursor:pointer}
+.e2first-screen{position:fixed;inset:0;z-index:999990;overflow:auto;background:#030d16;color:#eef9ff;padding:env(safe-area-inset-top) 12px max(env(safe-area-inset-bottom),20px);box-sizing:border-box;overscroll-behavior:contain}
+.e2first-wrap{max-width:700px;margin:0 auto;padding:15px 5px 35px}
+.e2first-screen h2{font-weight:900;font-size:26px;line-height:1.1;margin:8px 0 18px;color:#fff}
+.e2first-kicker{display:block;color:#71dff7;letter-spacing:.1em;font-size:11px;font-weight:900;margin-top:12px}
+.e2first-back{width:100%;border:1px solid #34566b;background:#0d2231;color:#dcf4ff;text-align:center;border-radius:12px;padding:11px;font-size:14px;font-weight:800;margin:5px 0 12px;cursor:pointer}
+.e2first-warning{background:#29200d;border:1px solid #9b711f;color:#ffeec1;border-radius:13px;padding:12px 13px;font-size:13px;line-height:1.5}
+.e2first-count{color:#82ddea;font-weight:900;font-size:15px}
+.e2first-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:15px 0}
+.e2first-tabs button{background:#101f2c;color:#d5eff8;border:1px solid #2e5164;border-radius:14px;text-align:left;padding:13px 10px;font-size:14px;font-weight:900;cursor:pointer;min-width:0}
+.e2first-tabs button.selected{background:#18445a;border-color:#5ce0f7;color:#fff}
+.e2first-tabs small{display:block;font-weight:500;font-size:11px;opacity:.87;margin-top:6px;line-height:1.4}
+.e2first-card{background:#071724;border:1px solid #23445a;padding:15px;border-radius:19px;margin-bottom:12px}
+.e2first-card>h3{color:#fff;font-size:19px;margin:4px 0 15px}.e2first-card>h3 b{display:block}.e2first-card>h3 span{display:block;font-size:12px;font-weight:500;color:#acc5d2;line-height:1.5;margin-top:7px}
+.e2first-card p{font-size:13px;color:#b5cbd7;line-height:1.55}
+.e2first-primary,.e2first-secondary{width:100%;padding:13px 12px;border-radius:13px;font-size:15px;font-weight:900;cursor:pointer;margin:10px 0;border:1px solid #3985a1}
+.e2first-primary{background:#235871;color:#fff}.e2first-secondary{background:#0a2939;color:#c5f3ff}
+.e2first-routes{display:grid;gap:8px;margin:15px 0}.e2first-routes>div{padding:12px;border:1px solid #2b6679;border-radius:13px;background:#102d3d}.e2first-routes small{display:block;color:#80dce9;font-size:10px;font-weight:900;margin-bottom:4px}.e2first-routes b{font-size:15px;color:white}
+.e2first-next{background:#112b39;border:1px solid #346980;border-radius:14px;padding:14px;margin:16px 0}.e2first-next small{color:#81e8ff;font-weight:900;font-size:11px}.e2first-next h3{font-size:22px;margin:9px 0 3px}.e2first-next label{display:block;margin:14px 0 2px;font-size:13px;font-weight:800}.e2first-next input{display:block;width:100%;margin:7px 0;background:#071622;color:#f0fbff;border:1px solid #4d98b1;border-radius:10px;padding:14px;font-size:19px;box-sizing:border-box}
+.e2first-list{margin:10px 0 18px}.e2first-row{display:flex;gap:8px;align-items:center;justify-content:space-between;border-bottom:1px solid #304657;padding:10px 0;font-size:13px;line-height:1.3}.e2first-row span{flex:1}.e2first-row b{white-space:nowrap;color:#b8ecf9;font-size:12px}
+.e2first-done{padding:13px;border-radius:12px;background:#06271d;border:1px solid #267a56;margin:12px 0}.e2first-done h3{color:#baffd7;margin-top:0}
+.e2first-details{border:1px solid #325b71;border-radius:13px;padding:12px;margin:15px 0}.e2first-details summary{color:#c1edf9;font-size:13px;font-weight:900;cursor:pointer}
+.e2first-correction{padding:10px 0;border-bottom:1px solid #314858}.e2first-correction b{display:block;margin-bottom:6px;font-size:13px}.e2first-correction form{display:flex;align-items:center;gap:5px;margin:6px 0}.e2first-correction input[name=time]{width:35%;min-width:0;padding:7px;background:#061926;color:#fff;border:1px solid #57839a;border-radius:7px}.e2first-correction span{flex:1;font-size:12px}.e2first-correction button{font-size:12px;font-weight:800;padding:8px;border-radius:8px;background:#235971;border:0;color:white}
+.e2first-small{font-size:11px!important;color:#91abba!important;line-height:1.55!important}.e2first-small code{overflow-wrap:anywhere}
+.e2first-error{padding:14px;border-radius:12px;background:#360d12;border:1px solid #a4424b;font-size:14px;line-height:1.45}
+.e2first-flash{padding:13px;background:#10382a;border:1px solid #2a8c68;border-radius:12px;color:#d5ffdd;font-weight:800;font-size:13px;line-height:1.5}
+
+/* v8.0.247 mobile save control: visible status adjacent to entry. */
+.e2first-flash{margin:10px 0 15px;border:2px solid #249d70;word-wrap:break-word}
+.e2first-next button[data-first=record]{touch-action:manipulation;min-height:54px}
+
+/* v8.0.248: input optimized for Samsung's number keypad; no punctuation typing required. */
+.e2first-time-hint{font-size:12px!important;color:#b7ebf6!important;margin:7px 0 4px!important}
+.e2first-time-preview{font-size:13px!important;font-weight:800;color:#a4bcca!important;margin:6px 0 12px!important}
+.e2first-time-preview.valid{color:#9ff8bf!important}
+.e2first-next input[name=time]{font-variant-numeric:tabular-nums;letter-spacing:.06em}
+
+/* v8.0.249 real native OTG stopwatch adapter, prelaunch only */
+.e2first-native-bridge{border:1px solid #36a5ba;border-radius:14px;margin:17px 0;padding:15px;background:rgba(2,45,58,.68)}
+.e2first-native-bridge p{font-size:14px;line-height:1.55;color:#caeff8;margin:0 0 12px}
+#e2native-notice-v8249{position:relative;z-index:5;border:2px solid #2a9ea4;background:#032923;color:#d1fae5;padding:15px;margin:14px;border-radius:14px;display:grid;gap:7px;font-size:15px}
+#e2native-notice-v8249 small{line-height:1.45;color:#c9ecec}
+#e2native-back-v8249{border:1px solid #508a96;border-radius:8px;background:#193b50;color:#fff;padding:10px;font-weight:800}
+#e2native-error-v8249{font-weight:800;color:#ffd09c}
