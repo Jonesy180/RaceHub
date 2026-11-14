@@ -1,5 +1,5 @@
 {
-  "version": "8.0.255",
-  "worker": "./otg-service-worker-v8255.js",
-  "message": "Original-wide native source routing. Existing Race Off, Festival Groups/Standard; unsupported score formats explicit and safe."
+  "version": "8.0.256",
+  "worker": "./otg-service-worker-v8256.js",
+  "message": "New-format native race connections: three-route Gauntlets, three-leg Relay groups, one-attempt distance Long Jump and medalled-final-gated Grand Second Chance groups."
 }
