@@ -1,5 +1,5 @@
 {
-  "version": "8.0.239",
-  "worker": "./otg-service-worker-v8239.js",
-  "message": "OTG! MAIN v8.0.239 — read-only missing-event reconciliation and one Lonely Hearts Cup restoration blueprint. No reset or live event changes."
+  "version": "8.0.240",
+  "worker": "./otg-service-worker-v8240.js",
+  "message": "OTG! MAIN v8.0.240 \u2014 read-only legacy Manufacturer Festival/Race Off theme review from current Garage. No tournament launch or reset."
 }
