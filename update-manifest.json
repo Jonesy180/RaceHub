@@ -1,5 +1,5 @@
 {
-  "version": "8.0.253",
-  "worker": "./otg-service-worker-v8253.js",
-  "message": "QA-only Add Pretend Results for source Slots 003\u2013006; preserve native racing and real records."
+  "version": "8.0.255",
+  "worker": "./otg-service-worker-v8255.js",
+  "message": "Original-wide native source routing. Existing Race Off, Festival Groups/Standard; unsupported score formats explicit and safe."
 }
