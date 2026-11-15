@@ -1,5 +1,5 @@
 {
-  "version": "8.0.272",
-  "worker": "./otg-service-worker-v8272.js",
-  "message": "Copy-only IndexedDB proof with read-back and SHA-256 verification. No storage switch, no reset."
+  "version": "8.0.273",
+  "worker": "./otg-service-worker-v8273.js",
+  "message": "Service worker install hotfix: remove missing critical asset; original IndexedDB proof unchanged. No live storage switch or reset."
 }
