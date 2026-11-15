@@ -1,5 +1,5 @@
 {
-  "version": "8.0.288",
-  "worker": "./otg-service-worker-v8288.js",
-  "message": "Festival UI cleanup: hide superseded isolated QA launchers, preserve native races and T.E.T. 2.0 hero. No reset."
+  "version": "8.0.289",
+  "worker": "./otg-service-worker-v8289.js",
+  "message": "Festival source-scoped cleanup: hides all legacy Evil 2.0 development launchers, retains racing engines and approved T.E.T. HQ. No reset."
 }

@@ -1,0 +1,83 @@
+/* OTG! MAIN v8.0.260 — Evil 1 programme as immutable backbone, NEW families mixed between it.
+ * This is a real stage-coordination layer for the prelaunch native engines, not a new
+ * stopwatch or a fake completion engine. NO launch reset, old-Evil writes or medals.
+ * Holds unbound archive/Lonely Hearts, plus Grand SC until genuine source closure.
+ */
+(()=>{'use strict';
+const KEY='evil2Mixed260', SCHEMA=1, CAM='evil2-native-slot-launch-20261114';
+const ID='otg-e2-mixed-stage-8260', TILE='otg-e2-mixed-tile-8260';
+const S=v=>String(v??'').trim(), E=v=>S(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const now=()=>new Date().toISOString();
+const copy=x=>JSON.parse(JSON.stringify(x));
+const fail=t=>{throw Error(t)};
+function source(){const st=typeof state!=='undefined'&&state?.spaces?state:window.state; if(!st?.spaces?.length)fail('Live multi-Space OTG state unavailable.');return st;}
+function fh5(st){const active=st.spaces.find(x=>S(x.id)===S(st.activeSpaceId));if(!active||active.catalogueKey!=='fh5-catalogue-v1')fail('Select your real FH5 Space before opening the mixed tournament.');return active;}
+let cache=null;
+function cacheKey(st){const x=fh5(st),ids=(x.cars||[]).map(c=>S(c.id)+"/"+S(c.make)+"/"+S(c.type)).join("|");return S(x.id)+"|"+S(x.favouriteManufacturer)+"|"+S(st.activeSpaceId)+"|"+ids+"|"+Object.keys(x.catalogueOwned||{}).sort().join("|")+"|"+String(window.rhEvilR1QA8103?.slots?.()?.length||0);}
+function stagePlan(st){const key=cacheKey(st);if(cache?.key===key)return cache.plan;const before=JSON.stringify(st),p=window.rhEvil2Production8258?.programme(st);if(!p||!p.readOnly||p.productionReady||!p.stageRows?.length||!p.noReset)fail('Verified original programme / extras are unavailable.');
+ const arr=p.stageRows; if(arr.some((r,i)=>r.position!==i+1)||new Set(arr.map(r=>r.id)).size!==arr.length)fail('Duplicate or unordered mixed stage definitions.');
+ const originals=arr.filter(r=>r.kind==='EXISTING'); if(originals.length!==p.sourceVisits||originals.some((r,i)=>r.originalSlot!==i+1))fail('Original Evil 1 order has changed.');
+ const lastHubbs=arr.slice(-7),validHubbs=!p.hubbsEncoreContiguous||lastHubbs.every(r=>/hubbs/i.test(r.name)&&r.kind==='EXISTING');if(!validHubbs)fail('Hubbs Memorial encore was interrupted.');
+ const rounds=new Map();for(const r of arr.filter(r=>r.action==='NEW_RELAY')){const m=/^(.+?) — Round \d+, Group \d+/.exec(r.name);const mode=/^Mixed Relay/.test(r.name)?'mixed':'maker';const index=Number(r.round),group=Number(r.group),k=mode+'|'+index;if(index<1||group<1||!m)fail('Invalid native Relay round definition.');const last=rounds.get(k)||0;if(group!==last+1)fail('Relay groups must remain in order within each round.');rounds.set(k,group);}
+ if(JSON.stringify(st)!==before)fail('Mixed compilation changed live data.');
+ const plan={source:'EVIL1_ORIGINAL_PLUS_INSERTED_FAMILIES',readOnly:true,resetPerformed:false,original:p.sourceVisits,archived:p.archivedVisits,lonely:p.lonelyHeartVisits,gauntlets:p.gauntletOrders,longJump:p.longJumpVisits,relays:p.relayGroupVisits,grandCount:1,stageCount:p.stageCount,unknownMakerThemes:p.unresolvedNewMakeThemes,hubbsAtEnd:p.hubbsEncoreContiguous,originalsSequential:true,uniqueIds:true,rows:arr,grandGate:p.grandGate};cache={key,plan};return plan;}
+function stamp(p,sp){let str=S(sp.id)+'|'+p.original+'|'+p.stageCount+'|';for(const r of p.rows)str+=r.id+';';let n=2166136261;for(let i=0;i<str.length;i++){n^=str.charCodeAt(i);n=Math.imul(n,16777619);}return(n>>>0).toString(16).padStart(8,'0');}
+function verifySaved(p,sp){const b=sp[KEY];if(!b)return null;if(b.schema!==SCHEMA||b.campaign!==CAM||b.spaceId!==S(sp.id)||b.count!==p.stageCount||b.manifest!==stamp(p,sp)||typeof b.done!=='object'||Array.isArray(b.done))fail('The saved mixed order no longer matches the Garage or source programme. Existing progress is protected; no automatic re-shuffle.');return b;}
+// Only one explicit QA manifest freeze; user must approve actual campaign reset later.
+function freeze(st=source()){const sp=fh5(st),p=stagePlan(st),old=verifySaved(p,sp);if(old)return{p,b:old,created:false};if(typeof window.rhSave!=='function')fail('Original OTG save mechanism unavailable.');
+ const b={schema:SCHEMA,campaign:CAM,spaceId:S(sp.id),manifest:stamp(p,sp),count:p.stageCount,sourceCount:p.original,createdAt:now(),done:{},phase:'PRELAUNCH QA — NO RESET'};sp[KEY]=b;try{window.rhSave();}catch(err){delete sp[KEY];throw err;}return{p,b,created:true};}
+function kind(r){if(r.action==='ORIGINAL_SLOT'||r.action==='ORIGINAL_SPECIALIST')return'original';if(r.action==='NEW_GAUNTLET')return'gauntlet';if(r.action==='LONG_JUMP')return'jump';if(r.action==='NEW_RELAY')return'relay';return'hold';}
+function classifyGauntlet(r){return {kind:r.kind==='MANUFACTURER GAUNTLET WORK ORDER'?'make':'type',name:S(r.name)};}
+function jumpId(r){const x=S(r.id),prefix='longjump:';if(!x.startsWith(prefix))fail('Invalid Long Jump stage identity.');return decodeURIComponent(x.slice(prefix.length));}
+function jumps(p){return p.rows.filter(r=>kind(r)==='jump').map(jumpId);}
+function relayType(r){return /^Mixed Relay/.test(r.name)?'mixed':'maker';}
+function native(sp,r){const b=sp.evil2NativeRun8250;if(!b||b.campaign!==CAM)return false;return!!b.slots?.[r.originalSlot]?.doneAt;}
+function verdict(p,sp,b,r){const k=kind(r),marked=!!b?.done?.[r.id];if(k==='original')return{kind:k,ready:native(sp,r),done:native(sp,r),text:native(sp,r)?'Original visit DONE':'Finish in the existing native Evil 2.0 source engine'};
+ if(k==='hold')return{kind:k,ready:false,done:false,text:r.reason||'Source binding still needed'};
+ const api=window.rhEvil2NewRaces8256;if(!api)return{kind:k,ready:false,done:false,text:'Native new-format engine not found'};
+ try{if(k==='gauntlet'){const cfg=classifyGauntlet(r),status=api.gauntletStatus(cfg.kind,cfg.name);const ok=!!status?.finished&&!status.tie&&!status.run.results.some(v=>v.qaPretend);return{kind:k,ready:ok,done:marked&&ok,text:status?(status.done+'/'+status.total+' times saved'+(status.tie?' · TIED':ok?' · verified complete':'')):'Native Gauntlet not yet started'};}
+ if(k==='jump'){const d=api.jumpField(),id=jumpId(r),index=d?.field?.indexOf(id)??-1;if(d&&index<0)fail('Frozen Long Jump is missing the scheduled car.');const n=api.jumpNext(),order=jumps(p),expected=order.indexOf(id);if(d&&d.field.some((v,i)=>v!==order[i]))fail('Long Jump draw order differs from the numbered mixed slots. Stop rather than assigning a result to the wrong car.');const good=index>=0&&d.results[index]!==null;return{kind:k,ready:good,done:marked&&good,text:good?('Saved '+(d.results[index]/100).toFixed(2)+' metres'):(n&&n.carId===id?'Ready for this car’s single distance attempt':'Long Jump attempt not saved')};}
+ if(k==='relay'){const mode=relayType(r),x=api.relayStatus(mode);if(!x)return{kind:k,ready:false,done:false,text:'Relay teams not yet frozen'};
+ const rd=x.rec.rounds[Number(r.round)-1],g=rd?.groups[Number(r.group)-1];if(!g)return{kind:k,ready:false,done:false,text:'Waiting for the previous Relay round winners'};
+ if(x.round.number===r.round){const z=x.groups[Number(r.group)-1],real=z?.runs?.every(run=>!run.results?.some(v=>v.qaPretend))??true;const ok=!!z?.all&&!z.tie&&!!z?.winner&&real;return{kind:k,ready:ok,done:marked&&ok,text:z?z.done+'/'+z.total+' relay leg times':'Relay group not drawn'};}
+ const ok=!!g.winner;return{kind:k,ready:ok,done:marked&&ok,text:ok?'Prior Relay group winner frozen':'Relay group incomplete'};
+ }}catch(err){return{kind:k,ready:false,done:false,text:'SAFE HOLD — '+S(err.message||err)};}
+ return{kind:k,ready:false,done:false,text:'Unknown source'};}
+function snapshot(st=source()){const sp=fh5(st),p=stagePlan(st),b=verifySaved(p,sp);let first=null,complete=0,blocked=0;for(const r of p.rows){const k=kind(r);if(k==='hold')blocked++;if(k==='original'){if(native(sp,r))complete++;else if(!first)first={r,v:verdict(p,sp,b,r)};continue;}if(b?.done?.[r.id]){const v=verdict(p,sp,b,r);if(!v.done)fail('Previously marked stage is no longer backed by its original result: '+r.id);complete++;}else if(!first)first={r,v:verdict(p,sp,b,r)};}
+ return{p,sp,b,complete,blocked,next:first,grandLocked:true,readOnly:!b,realReset:false};}
+function openStage(r,p){if(r.action==='ORIGINAL_SLOT'||r.action==='ORIGINAL_SPECIALIST'){if(!window.rhEvil2OriginalGateway8259?.open)fail('Existing Evil source engine missing.');return window.rhEvil2OriginalGateway8259.open(r.originalSlot);}
+ const api=window.rhEvil2NewRaces8256;if(!api)fail('Existing native new-format engine unavailable.');if(r.action==='NEW_GAUNTLET'){const cfg=classifyGauntlet(r);if(typeof api.openScheduledGauntlet!=='function')fail('Exact Gauntlet routing unavailable.');return api.openScheduledGauntlet(cfg.kind,cfg.name);}
+ if(r.action==='LONG_JUMP'){let d=api.jumpField();if(!d){if(!window.confirm('Freeze the 704-car Long Jump field in the order of our mixed schedule? One attempt per car.'))return;d=api.startJump(jumps(p));}
+ const here=api.jumpNext();if(here?.carId!==jumpId(r)&&d.results[d.field.indexOf(jumpId(r))]===null)fail('This car is NOT next in the frozen Long Jump draw. No other car’s attempt may be used.');return api.show('jump');}
+ if(r.action==='NEW_RELAY'){if(typeof api.openScheduledRelay!=='function')fail('Exact Relay routing unavailable.');return api.openScheduledRelay(relayType(r),Number(r.round),Number(r.group));}
+ fail('Archived/Lonely Hearts is not yet bound to the native event engine — safely blocked.');}
+function mark(r,p,sp,b){if(!b)fail('Freeze the mixed QA schedule first; no untracked DONE markers.');const v=verdict(p,sp,b,r);if(v.kind==='original')fail('Original visits are marked DONE by their established race screen; never add a duplicate marker.');if(!v.ready)fail('Cannot mark incomplete or unverified stage DONE: '+v.text);
+ if(b.done[r.id])return; if(typeof window.rhSave!=='function')fail('Native OTG save unavailable.');const previous=copy(b.done);b.done[r.id]={completedAt:now(),type:v.kind};try{window.rhSave();}catch(err){b.done=previous;throw err;}
+ if(v.kind==='relay'){const api=window.rhEvil2NewRaces8256,st=api.relayStatus(relayType(r));const rows=p.rows.filter(x=>x.action==='NEW_RELAY'&&relayType(x)===relayType(r)&&x.round===r.round);if(rows.at(-1)?.id===r.id&&st?.all&&st.round.number===r.round&&!st.champion){api.advanceRelay(relayType(r));}}}
+let planCache=null,notice='';
+const btn=(k,t)=>'<button type="button" data-e2mix="'+E(k)+'" style="width:100%;min-height:46px;margin:8px 0;padding:11px;background:#19465b;color:#fff;font-size:16px;font-weight:bold;border:1px solid #3b91a5;border-radius:13px">'+t+'</button>';
+function panel(){let d=document.getElementById(ID);if(!d){d=document.createElement('section');d.id=ID;d.style.cssText='position:fixed;inset:0;background:#05131e;z-index:5900;overflow:auto;color:#fff;padding:15px 12px 80px;display:none';document.body.appendChild(d);d.addEventListener('click',click);}return d;}
+function paint(){const d=panel();if(d.style.display==='none')return;try{const o=snapshot(),p=o.p,sp=o.sp,next=o.next;planCache=p;
+ let h='<div style="max-width:680px;margin:auto">'+btn('close','← BACK TO FESTIVAL')+'<small>EVIL 2.0 · EXISTING EVIL 1 + INSERTED NEW CHAMPIONSHIPS</small><h1>😈 ONE BLOODY MIXED TOURNAMENT</h1>';
+ if(notice)h+='<p role="status" style="background:#123b2e;padding:11px;border-radius:10px">'+E(notice)+'</p>';
+ h+='<div style="border:1px solid #31627e;background:#10293a;border-radius:16px;padding:14px"><h2>'+p.stageCount+' mixed stage positions</h2><p><b>'+p.original+'</b> untouched original Evil visits in their original relative order · '+p.archived+' restored archive · '+p.lonely+' Lonely Hearts · '+p.gauntlets+' Gauntlets · '+p.longJump+' one-car jumps · '+p.relays+' Relay groups.</p><p>Hubbs Memorial: '+(p.hubbsAtEnd?'seven visits together at the end':'source encore not yet available')+' · ONE giant Second Chance only after every eligible source final.</p><p><b>'+o.complete+'</b> verifiably done in this QA build. '+o.blocked+' archived/Lonely Hearts rows still require actual competition adapters. '+p.unknownMakerThemes+' catalogue themes lack a historical source format.</p><p><b>NO LIVE LAUNCH / RESET.</b> Old Evil 1 and all Garage ownership remain intact. This panel connects the engines, it does not fabricate final results.</p></div>';
+ if(!o.b){h+=btn('freeze','🔐 FREEZE PRELAUNCH MIXED ORDER (NO RACING RESET)')+'<p>Freezing stores just the schedule identity and QA stage markers in this FH5 Space. It does NOT change the live Evil dashboard, results or Garage.</p>';}
+ else h+='<p style="color:#8edec6">✓ Prelaunch mixed order frozen — '+E(o.b.manifest)+' · source visits '+o.b.sourceCount+'</p>';
+ if(next){const r=next.r,v=next.v;h+='<section style="border:2px solid '+(v.kind==='hold'?'#ae7538':'#368a9a')+';padding:15px;border-radius:16px;margin:20px 0"><small>NEXT STAGE '+r.position+' / '+p.stageCount+'</small><h2>'+E(r.name)+'</h2><p>'+E(r.kind)+' · '+E(v.text)+'</p>'+(r.originalSlot?'<p>Original Evil Slot '+r.originalSlot+'</p>':'');
+ if(v.kind!=='hold'&&o.b)h+=btn('open','🏁 OPEN EXISTING RACING ENGINE');
+ if(v.kind!=='hold'&&v.kind!=='original'&&v.ready&&o.b)h+=btn('done','✅ MARK THIS VERIFIED STAGE DONE');
+ if(v.kind==='hold')h+='<p style="color:#ffc995">A verified event definition exists, but its native format/round binding is still being completed. The scheduler refuses to invent results or skip this competition.</p>';
+ h+='</section>';}
+ else h+='<p>All stage positions are complete. Grand Second Chance still requires an official source closure and medal reconciliation.</p>';
+ h+='<h3>Stage breakdown (first 12)</h3>'+p.rows.slice(0,12).map(r=>'<p style="border-bottom:1px solid #305569;padding:8px 0">#'+r.position+' · '+E(r.name)+' <small>('+E(r.kind)+')</small></p>').join('');
+ h+='<p style="color:#a2b4c3">This is the prelaunch mixed gateway, not the final dashboard handover. No hidden autocompletion or automatic reset.</p></div>';d.innerHTML=h;
+ }catch(err){d.innerHTML='<div style="padding:25px">'+btn('close','← BACK')+'<h2>SAFE STOP</h2><p>'+E(err.message||err)+'</p></div>';}}
+function open(){notice='';panel().style.display='block';window.show?.('festival');paint();window.scrollTo?.(0,0);}
+function close(){panel().style.display='none';window.show?.('festival');}
+function click(e){const b=e.target.closest('button[data-e2mix]');if(!b)return;const op=b.dataset.e2mix;try{if(op==='close'){close();return;}if(op==='freeze'){if(!window.confirm('Freeze only the PRELAUNCH mixed stage order? Your existing Evil 1, Garage and race results stay unchanged.'))return;const v=freeze();notice=v.created?'Mixed order frozen, with ZERO racing results changed.':'Existing mixed order recovered.';}
+ else{const o=snapshot(),r=o.next?.r;if(!r)fail('No upcoming source stage.');if(op==='done'){mark(r,o.p,o.sp,o.b);notice='Verified stage DONE ✓ · actual results checked.';}else if(op==='open'){if(!o.b)fail('Freeze the stage order first.');panel().style.display='none';openStage(r,o.p);return;}else fail('Unknown command');}paint();}catch(err){notice='SAFE STOP — '+S(err.message||err);paint();}}
+function mount(){const f=document.getElementById('festival');if(!f||f.classList.contains('hidden')||f.querySelector('#'+TILE))return;const tile=document.createElement('section');tile.id=TILE;tile.className='e2slot-launch';tile.innerHTML='<details><summary>😈 EVIL 2.0 — EVIL 1 + NEW EVENTS, ALL MIXED <small>ONE ORDER · NATIVE RACING · NO RESET</small></summary><p>Keep the original Evil programme intact, distribute the new formats among its visits, preserve qualifiers before finals and run ONE Grand Second Chance at the very end.</p><button type="button">OPEN THE MIXED TOURNAMENT</button></details>';tile.querySelector('button').addEventListener('click',open);f.appendChild(tile);}
+function init(){const f=document.getElementById('festival');if(!f)return;let pending=false;new MutationObserver(()=>{if(pending)return;pending=true;setTimeout(()=>{pending=false;mount();},140);}).observe(f,{childList:true,subtree:true});mount();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+window.rhEvil2Mixed8260={stagePlan,stamp,freeze,snapshot,verdict,openStage,mark,open,version:'8.0.260'};
+})();

@@ -1,0 +1,14 @@
+/* OTG! MAIN 8.0.289 — Festival-only Evil 2.0 launcher cleanup.
+   The source-confirmed standalone Evil 2.0 development panels all use
+   section.e2slot-launch. Keep their JavaScript and APIs loaded; hide their
+   Festival launchers only. Preserve native Festival cards and competitions.
+   Evil HQ is a different screen and remains unaffected.
+*/
+#festival .e2slot-launch { display:none !important; }
+/* Older QA launchers outside that shared class (already covered by v288). */
+#festival #otg-relay-festival-8201,
+#festival #otg-relay-festival-8202,
+#festival #otg-gnt-launch-8211,
+#festival #otg-longjump-launch-8217,
+#festival #otg-sc-launch-8220,
+#festival #e2-honours-launch-8257 { display:none !important; }

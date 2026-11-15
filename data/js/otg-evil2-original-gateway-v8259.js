@@ -1,0 +1,12 @@
+/* One native original-source handoff (all known R1 formats), no duplicate race result controls. */
+(()=>{'use strict';
+const S=v=>String(v??'');
+function source(){const api=window.rhEvil2Specialist8259;if(!api)throw Error('Specialist source router missing.');return api.source();}
+function get(n){const d=source(),s=d.slots[n-1];if(!Number.isInteger(n)||n<1||!s||s.slot!==n||!d.events[s.eventId])throw Error('Original source slot is missing. No speculative entry.');return s;}
+function next(){const sp=window.rhSpace?.(),b=sp?.evil2NativeRun8250;if(!b||b.campaign!=='evil2-native-slot-launch-20261114')return 1;const count=source().slots.length;for(let n=1;n<=count;n++)if(!b.slots[n]?.doneAt)return n;return null;}
+function open(n){const s=get(n);if(n<=2)return window.rhEvil2NativeSlot8250?.open(n);if(n<=6)return window.rhEvil2NativeNext8252?.open(n);if(['DRIFT SCORE','DRIFT KNOCKOUT','DRAG SHOOTOUT'].includes(s.liveFormat))return window.rhEvil2Specialist8259.open(n);if(['GROUPS','STANDARD','KNOCKOUT'].includes(s.liveFormat))return window.rhEvil2Universal8255.open(n);throw Error('Original format not identified: '+S(s.liveFormat));}
+function mount(){const f=document.getElementById('festival');if(!f||f.classList.contains('hidden')||f.querySelector('#e2-gateway-launch-v8259'))return;const c=window.rhEvil2Specialist8259?.coverage?.();if(!c)return;const t=document.createElement('section');t.id='e2-gateway-launch-v8259';t.className='e2slot-launch';t.innerHTML='<details><summary>🏁 EVIL 2.0 — ALL ORIGINAL FORMAT ROUTER <small>TIME · DRIFT SCORE · DRAG TIME</small></summary><p>One route for the entire source programme. Native Festival/Race Off/Groups/Drag use OTG result screens. Drift uses the source-equivalent score engine. <b>'+c.total+'</b> original Drift/Drag specialist visits now connected. No launch reset or dashboard change.</p><button type="button">OPEN NEXT ORIGINAL VISIT</button></details>';t.querySelector('button').addEventListener('click',()=>{try{const n=next();if(n===null)throw Error('All original source visits complete.');open(n);}catch(err){alert('SAFE STOP: '+S(err.message||err));}});f.appendChild(t);}
+function init(){const f=document.getElementById('festival');if(!f)return;let q=false;new MutationObserver(()=>{if(q)return;q=true;setTimeout(()=>{q=false;mount();},120);}).observe(f,{childList:true,subtree:true});mount();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+window.rhEvil2OriginalGateway8259={get,next,open,version:'8.0.259'};
+})();
