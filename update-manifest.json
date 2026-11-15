@@ -1,5 +1,5 @@
 {
-  "version": "8.0.275",
-  "worker": "./otg-service-worker-v8275.js",
-  "message": "Safe storage-engine staging adapter and read-only native entrypoint inspection; NO live save switch."
+  "version": "8.0.276",
+  "worker": "./otg-service-worker-v8276.js",
+  "message": "Optional verified native-save IndexedDB shadow, primary storage unchanged. No reset or migration."
 }
