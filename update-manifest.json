@@ -1,5 +1,5 @@
 {
-  "version": "8.0.286",
-  "worker": "./otg-service-worker-v8286.js",
-  "message": "Approved cyan T.E.T. 2.0 hero artwork, unobstructed Ma Lubrication and Lord Ratchet; no racing reset."
+  "version": "8.0.287",
+  "worker": "./otg-service-worker-v8287.js",
+  "message": "Repair update routing and activation; approved T.E.T. 2.0 hero stays. No racing reset."
 }
