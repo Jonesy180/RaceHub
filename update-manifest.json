@@ -1,5 +1,5 @@
 {
-  "version": "8.0.263",
-  "worker": "./otg-service-worker-v8263.js",
-  "message": "Evil List 2.0 prelaunch browse screen: 2,225-stage searchable list, next stage native gateway, no reset. Festival cleanup pending audit."
+  "version": "8.0.264",
+  "worker": "./otg-service-worker-v8264.js",
+  "message": "Dashboard Evil Tournament tile opens Evil List 2.0; single cached snapshot with deferred initial paint; Festival tile removed; no reset."
 }
