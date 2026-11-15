@@ -1,5 +1,5 @@
 {
-  "version": "8.0.303",
-  "worker": "./otg-service-worker-v8303.js",
-  "message": "One-time Old Evil retirement and permanent draw lock; verified backup before reset"
+  "version": "8.0.304",
+  "worker": "./otg-service-worker-v8304.js",
+  "message": "Update-loop recovery: fixed document version and redirected updater to latest page; no tournament data changes"
 }
