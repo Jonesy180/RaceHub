@@ -1,5 +1,5 @@
 {
-  "version": "8.0.271",
-  "worker": "./otg-service-worker-v8271.js",
-  "message": "Fix exact private main-state backup key; read-only storage audit, no resets."
+  "version": "8.0.272",
+  "worker": "./otg-service-worker-v8272.js",
+  "message": "Copy-only IndexedDB proof with read-back and SHA-256 verification. No storage switch, no reset."
 }
