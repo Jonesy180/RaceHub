@@ -1,0 +1,6 @@
+/* v8.0.305 — real launch control, immediately beneath current event */
+#otg-e263-list .e305-launch{box-sizing:border-box;margin:8px 0 12px;padding:12px;border:1px solid #18b9ca;border-radius:12px;background:#0c2231;color:#e9f9ff;display:flex;flex-direction:column;gap:8px}
+#otg-e263-list .e305-launch strong{font-size:12px;letter-spacing:.06em;color:#9ceff6}
+#otg-e263-list .e305-launch button{appearance:none;display:block;width:100%;min-height:44px;white-space:normal;line-height:1.35;padding:10px 12px;background:#0fd0e0;color:#041a27;border:1px solid #b2fcff;border-radius:9px;font-weight:900;font-size:13px;cursor:pointer}
+#otg-e263-list .e305-launch button:disabled{background:#365665;color:#c3d3dd;border-color:#58707b;cursor:not-allowed}
+#otg-e263-list .e305-launch small{color:#c1d4dc;font-size:11px;line-height:1.35}
