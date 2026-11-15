@@ -6,3 +6,5 @@ Page 1 is HQ with expandable stages 1–35. Page 2 onward displays the schedule 
 Medal Tables uses existing official honours connection, subject to existing publishing confirmations.
 No fabricated event track data: only displays structured fields when actually available.
 Do not delete your GitHub files or browser storage. No live reset. PHONE QA PENDING.
+
+HOTFIX: index-v8267.html now included. Fixes required update file 404 reported on phone. No storage/data reset.
