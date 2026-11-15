@@ -23,7 +23,7 @@ function found(sp,n){const ent=book(sp).slots[n];if(!ent)return null;const o=sou
  if(n===6&&(!Array.isArray(result.results)||!Array.isArray(result.rounds)||result.rounds.length!==2||!result.rounds.every(r=>r?.id&&r.name)||result.rounds[0].name===result.rounds[1].name))throw Error('Saved Festival rounds mismatch.');
  if(n<6&&(!Array.isArray(result.entrants)||result.entrants.length!==ids.length||!Array.isArray(result.rounds)))throw Error('Saved Race Off bracket mismatch.');return result;}
 function previousDone(sp,n){const b=book(sp);for(let i=1;i<n;i++)if(!b.slots[i]?.doneAt)return false;return true;}
-function routes(){return window.otgSmartTrackPicker8297.chooseNative({category:'OFFROAD',count:2,space:app(),eventKey:'ORIGINAL_OFFROAD_GROUPS',excludeGoliath:true}).tracks;}
+function routes(){return window.otgSmartTrackPicker8298.chooseNative({category:'OFFROAD',count:2,space:app(),eventKey:'ORIGINAL_OFFROAD_GROUPS',excludeGoliath:true}).tracks;}
 function create(n){const sp=app(),o=source(n),b=book(sp);if(!previousDone(sp,n))throw Error('Finish the previous numbered slot before starting this one.');if(b.slots[n])return found(sp,n);const owned=cars(sp,o.ev),ids=owned.map(c=>sid(c.id)),t=now(),id=typeof window.rhId==='function'?window.rhId(n===6?'run':'raceoff'):('evil2-'+Date.now()+'-'+Math.random().toString(36).slice(2));
  const marker={campaign:CAMPAIGN,slot:n,eventId:o.ev.id,format:o.s.liveFormat,createdAt:t,source:'ORIGINAL_R1'};
  let r;
