@@ -1,5 +1,5 @@
 {
-  "version": "8.0.268",
-  "worker": "./otg-service-worker-v8268.js",
-  "message": "Compact event briefing with verified routes and prelaunch controls moved below the pager."
+  "version": "8.0.269",
+  "worker": "./otg-service-worker-v8269.js",
+  "message": "Read-only prelaunch schedule checks and freeze guard. Existing live tournament unchanged."
 }
