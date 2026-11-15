@@ -1,5 +1,5 @@
 {
-  "version": "8.0.309",
-  "worker": "./otg-service-worker-v8309.js",
-  "message": "HQ hero paints first; seamless racing transition. Active Evil 2.0 saved unchanged."
+  "version": "8.0.310",
+  "worker": "./otg-service-worker-v8310.js",
+  "message": "Install loop recovery: correct page version and simplified critical asset manifest. No tournament changes."
 }
