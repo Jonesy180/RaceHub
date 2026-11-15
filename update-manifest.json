@@ -1,5 +1,5 @@
 {
-  "version": "8.0.277",
-  "worker": "./otg-service-worker-v8277.js",
-  "message": "Durable modified-state IndexedDB test checkpoint; no live storage switch, no reset."
+  "version": "8.0.278",
+  "worker": "./otg-service-worker-v8278.js",
+  "message": "Read-only storage readiness and ordered-write cutover preflight. No live switch or reset."
 }
