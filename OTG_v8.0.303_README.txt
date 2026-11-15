@@ -1,0 +1,7 @@
+OTG MAIN 8.0.303 — JOB 2: one-time locked draw + Old Evil retirement.
+Install overlay in C:\RaceHub; do not delete other files.
+Open Evil HQ and review Stage 001, press LOCK DRAW / BIN OLD EVIL / LAUNCH and confirm.
+Before any mutation a cold-read verified full save backup is stored in IndexedDB.
+Clears known Evil-only state fields in FH5 and explicit Evil 2 QA-native runs; other Spaces, Cars, normal shared results and private archives untouched.
+The existing native rhSave is reused; on error old state is restored.
+New draw stays in separate active vault manifest. Phone QA pending.

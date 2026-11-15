@@ -1,5 +1,5 @@
 {
-  "version": "8.0.302",
-  "worker": "./otg-service-worker-v8302.js",
-  "message": "Verified vault draw mapped to original OTG race engines; prelaunch racing stays locked"
+  "version": "8.0.303",
+  "worker": "./otg-service-worker-v8303.js",
+  "message": "One-time Old Evil retirement and permanent draw lock; verified backup before reset"
 }
