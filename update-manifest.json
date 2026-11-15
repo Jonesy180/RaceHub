@@ -1,5 +1,5 @@
 {
-  "version": "8.0.274",
-  "worker": "./otg-service-worker-v8274.js",
-  "message": "Protected IndexedDB scratch save/reopen rehearsal and cleanup. No live save switch or reset."
+  "version": "8.0.275",
+  "worker": "./otg-service-worker-v8275.js",
+  "message": "Safe storage-engine staging adapter and read-only native entrypoint inspection; NO live save switch."
 }
