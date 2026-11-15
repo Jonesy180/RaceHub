@@ -1,5 +1,5 @@
 {
-  "version": "8.0.279",
-  "worker": "./otg-service-worker-v8279.js",
-  "message": "Isolated native IndexedDB save/load pilot with protected original save; faster repeat Evil HQ entry. NO production cutover."
+  "version": "8.0.280",
+  "worker": "./otg-service-worker-v8280.js",
+  "message": "Native IndexedDB pilot schema compatibility fix: supports OTG schema 2 and 3. Isolated QA only; no live storage switch."
 }
