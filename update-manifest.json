@@ -1,5 +1,5 @@
 {
-  "version": "8.0.278",
-  "worker": "./otg-service-worker-v8278.js",
-  "message": "Read-only storage readiness and ordered-write cutover preflight. No live switch or reset."
+  "version": "8.0.279",
+  "worker": "./otg-service-worker-v8279.js",
+  "message": "Isolated native IndexedDB save/load pilot with protected original save; faster repeat Evil HQ entry. NO production cutover."
 }
