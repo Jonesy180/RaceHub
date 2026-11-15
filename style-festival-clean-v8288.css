@@ -1,0 +1,12 @@
+/* OTG! MAIN 8.0.288 — Festival interface cleanup.
+ * Hide superseded Evil 2.0 isolated QA launchers ONLY in the Festival screen.
+ * Leave modules, event screens, race result logic, native championships and
+ * all persisted records unchanged. Official Medal Tables remain in Evil HQ.
+ * Never hide the actual native Festival race controls.
+ */
+#festival #otg-relay-festival-8201,
+#festival #otg-relay-festival-8202,
+#festival #otg-gnt-launch-8211,
+#festival #otg-longjump-launch-8217,
+#festival #otg-sc-launch-8220,
+#festival #e2-honours-launch-8257 { display: none !important; }
