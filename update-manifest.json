@@ -1,5 +1,5 @@
 {
-  "version": "8.0.281",
-  "worker": "./otg-service-worker-v8281.js",
-  "message": "Old Evil-only retirement inventory, read-only. Preserve normal racing, Garage, Spaces and private archives. No reset."
+  "version": "8.0.282",
+  "worker": "./otg-service-worker-v8282.js",
+  "message": "Fix read-only Old Evil audit false preservation failure caused by JSON key ordering. No data changes."
 }
