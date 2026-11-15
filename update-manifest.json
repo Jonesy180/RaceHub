@@ -1,5 +1,5 @@
 {
-  "version": "8.0.291",
-  "worker": "./otg-service-worker-v8291.js",
-  "message": "Staged clean Evil 2.0 launch candidate in IndexedDB; original Garage and racing data untouched."
+  "version": "8.0.292",
+  "worker": "./otg-service-worker-v8292.js",
+  "message": "Protected old Evil result audit and seeded 2,225-stage shuffle rehearsal, no live reset."
 }
