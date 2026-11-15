@@ -1,5 +1,5 @@
 {
-  "version": "8.0.307",
-  "worker": "./otg-service-worker-v8307.js",
-  "message": "Fixes the update installation blocker. No racing data reset or tournament change."
+  "version": "8.0.308",
+  "worker": "./otg-service-worker-v8308.js",
+  "message": "Stabilises the Evil Headquarters event briefing. One verified read; no reset or shuffle."
 }
