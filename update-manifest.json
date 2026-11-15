@@ -1,5 +1,5 @@
 {
-  "version": "8.0.308",
-  "worker": "./otg-service-worker-v8308.js",
-  "message": "Stabilises the Evil Headquarters event briefing. One verified read; no reset or shuffle."
+  "version": "8.0.309",
+  "worker": "./otg-service-worker-v8309.js",
+  "message": "HQ hero paints first; seamless racing transition. Active Evil 2.0 saved unchanged."
 }
