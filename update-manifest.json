@@ -1,5 +1,5 @@
 {
-  "version": "8.0.296",
-  "worker": "./otg-service-worker-v8296.js",
-  "message": "Original-format classification for smart track rehearsal; native race engine must confirm route pool. No live route assignment, reset or save cutover."
+  "version": "8.0.297",
+  "worker": "./otg-service-worker-v8297.js",
+  "message": "Native original Festival engine Smart Track integration for event creation; source verified route count. No live Evil reset, freeze or production save switch."
 }
