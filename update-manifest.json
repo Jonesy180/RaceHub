@@ -1,5 +1,5 @@
 {
-  "version": "8.0.264",
-  "worker": "./otg-service-worker-v8264.js",
-  "message": "Dashboard Evil Tournament tile opens Evil List 2.0; single cached snapshot with deferred initial paint; Festival tile removed; no reset."
+  "version": "8.0.265",
+  "worker": "./otg-service-worker-v8265.js",
+  "message": "Dashboard tile legacy scoped router screen-activation observer fix. Safe prelaunch, no data reset."
 }
