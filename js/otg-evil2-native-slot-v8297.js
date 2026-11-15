@@ -22,7 +22,7 @@ function validateRun(sp,n,r){const c=candidate(n),b=getBook(sp),entry=b?.slots?.
  if(new Set(r.entries.map(S)).size!==r.entries.length)throw Error('Frozen native entrant IDs contain duplicates');
  return {c,entry};}
 function verifiedRoutes(){const a=window.rhFH5TrackTaxonomy8067?.standardPool?.('ROAD');if(!Array.isArray(a))throw Error('FH5 Road/Street route directory is missing');const routes=[...new Set(a.map(S).filter(x=>x&& !/the goliath/i.test(x)))];if(routes.length<2)throw Error('At least two real Road/Street courses required');return routes;}
-function drawRoutes(){verifiedRoutes();return window.otgSmartTrackPicker8298.chooseNative({category:'ROAD',count:2,space:getSpace(),eventKey:'ORIGINAL_GROUPS',excludeGoliath:true}).tracks;}
+function drawRoutes(){verifiedRoutes();return window.otgSmartTrackPicker8299.chooseNative({category:'ROAD',count:2,space:getSpace(),eventKey:'ORIGINAL_GROUPS',excludeGoliath:true}).tracks;}
 function eligible(sp,ev){const by=new Map((sp.cars||[]).map(x=>[S(x.id),x]));if(!by.size||by.has('')||by.size!==(sp.cars||[]).length)throw Error('Garage identities missing/duplicated; draw refused');const source=new Set(),ids=[];for(const v of ev.eligibleIds){const id=S(v);if(!id||source.has(id))throw Error('Source competition contains duplicated identities');source.add(id);if(by.has(id))ids.push(id);}return ids;}
 function formatCount(n,g){if(!Number.isInteger(g)||g<2||g>100||n<g*2)throw Error('Original group layout not compatible with current Garage');const q=Math.floor(n/g),r=n%g;return Array.from({length:g},(_,i)=>q+(i<r?1:0));}
 function ensureSlot(n){const sp=getSpace(),{s,ev,groupCount}=candidate(n);if(n===2&&!getBook(sp)?.slots?.[1]?.doneAt)throw Error('Finish and mark Slot 001 DONE before opening Slot 002');
