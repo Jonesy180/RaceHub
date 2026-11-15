@@ -1,5 +1,5 @@
 {
-  "version": "8.0.310",
-  "worker": "./otg-service-worker-v8310.js",
-  "message": "Install loop recovery: correct page version and simplified critical asset manifest. No tournament changes."
+  "version": "8.0.311",
+  "worker": "./otg-service-worker-v8311.js",
+  "message": "Headquarters fast entry: bypass costly legacy Evil dashboard routing before it runs. Active campaign and racing unchanged."
 }
