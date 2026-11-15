@@ -1,5 +1,5 @@
 {
-  "version": "8.0.269",
-  "worker": "./otg-service-worker-v8269.js",
-  "message": "Read-only prelaunch schedule checks and freeze guard. Existing live tournament unchanged."
+  "version": "8.0.270",
+  "worker": "./otg-service-worker-v8270.js",
+  "message": "Read-only storage quota investigation; prelaunch freeze temporarily disabled."
 }
