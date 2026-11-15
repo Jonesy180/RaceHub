@@ -1,5 +1,5 @@
 {
-  "version": "8.0.306",
-  "worker": "./otg-service-worker-v8306.js",
-  "message": "Headquarters opens immediately; schedule from page 2; active source-exact racing opens directly. No reset."
+  "version": "8.0.307",
+  "worker": "./otg-service-worker-v8307.js",
+  "message": "Fixes the update installation blocker. No racing data reset or tournament change."
 }
