@@ -1,0 +1,7 @@
+OTG! v8.0.302 native route integration
+Source: accepted v300 with v301 engineering journal.
+Added read-only runtime binding of the INDEPENDENT SHA-256-verified 2225-stage IndexedDB draw to existing engines.
+Route families: original slot/specialist, Swiss, restored archive, Lonely Hearts, new exact-make, Gauntlet, Long Jump, Relay.
+No result, reset, honours, storage switch or launch activation.
+Prelaunch race starts explicitly blocked; live activation belongs to Job 2.
+The existing source engines still control results.

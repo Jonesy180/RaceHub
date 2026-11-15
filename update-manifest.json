@@ -1,5 +1,5 @@
 {
-  "version": "8.0.300",
-  "worker": "./otg-service-worker-v8300.js",
-  "message": "Restored three omitted native competition engine resources; full native-route dependency audit. No live reset, freeze or save cutover."
+  "version": "8.0.302",
+  "worker": "./otg-service-worker-v8302.js",
+  "message": "Verified vault draw mapped to original OTG race engines; prelaunch racing stays locked"
 }
