@@ -1,5 +1,5 @@
 {
-  "version": "8.0.293",
-  "worker": "./otg-service-worker-v8293.js",
-  "message": "Fix shared-result audit counter in protected draw rehearsal; no live reset."
+  "version": "8.0.294",
+  "worker": "./otg-service-worker-v8294.js",
+  "message": "Restore launch candidate button binding and visible preparation status. No live reset."
 }

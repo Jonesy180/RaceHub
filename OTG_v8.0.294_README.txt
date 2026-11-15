@@ -1,0 +1,1 @@
+OTG! MAIN v8.0.294: fixes silent no-op from misnamed window export in v293. Adds immediate progress text and explicit missing-script stop. No data changes or live reset. Extract over C:\RaceHub and overwrite.
