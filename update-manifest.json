@@ -1,5 +1,5 @@
 {
-  "version": "8.0.285",
-  "worker": "./otg-service-worker-v8285.js",
-  "message": "Fix cinematic hero visibility on Evil HQ; preserve fast opening, eight extras and saved data."
+  "version": "8.0.286",
+  "worker": "./otg-service-worker-v8286.js",
+  "message": "Approved cyan T.E.T. 2.0 hero artwork, unobstructed Ma Lubrication and Lord Ratchet; no racing reset."
 }
