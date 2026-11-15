@@ -1,5 +1,5 @@
 {
-  "version": "8.0.265",
-  "worker": "./otg-service-worker-v8265.js",
-  "message": "Dashboard tile legacy scoped router screen-activation observer fix. Safe prelaunch, no data reset."
+  "version": "8.0.268",
+  "worker": "./otg-service-worker-v8268.js",
+  "message": "Compact event briefing with verified routes and prelaunch controls moved below the pager."
 }
