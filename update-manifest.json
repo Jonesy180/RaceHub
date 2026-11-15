@@ -1,5 +1,5 @@
 {
-  "version": "8.0.280",
-  "worker": "./otg-service-worker-v8280.js",
-  "message": "Native IndexedDB pilot schema compatibility fix: supports OTG schema 2 and 3. Isolated QA only; no live storage switch."
+  "version": "8.0.281",
+  "worker": "./otg-service-worker-v8281.js",
+  "message": "Old Evil-only retirement inventory, read-only. Preserve normal racing, Garage, Spaces and private archives. No reset."
 }
