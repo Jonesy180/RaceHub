@@ -1,5 +1,5 @@
 {
-  "version": "8.0.290",
-  "worker": "./otg-service-worker-v8290.js",
-  "message": "Evil 2.0 clean-start briefing at real Stage 001. No old QA results masquerade as new progress. All live saves and old Evil untouched."
+  "version": "8.0.291",
+  "worker": "./otg-service-worker-v8291.js",
+  "message": "Staged clean Evil 2.0 launch candidate in IndexedDB; original Garage and racing data untouched."
 }
