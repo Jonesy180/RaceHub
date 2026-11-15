@@ -1,5 +1,5 @@
 {
-  "version": "8.0.292",
-  "worker": "./otg-service-worker-v8292.js",
-  "message": "Protected old Evil result audit and seeded 2,225-stage shuffle rehearsal, no live reset."
+  "version": "8.0.293",
+  "worker": "./otg-service-worker-v8293.js",
+  "message": "Fix shared-result audit counter in protected draw rehearsal; no live reset."
 }
