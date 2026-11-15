@@ -62,7 +62,7 @@
    relayGroupVisits:relay.relayGroupCards,relayQualifyingCards:relayCards.length-finals.length,
    relayFinalsCards:finals.length,
    originalPackEntries:a.proposedStagePackRows,mergedProvisionalStagePositions:timeline.length,
-   unsourcedManufacturerThemes:a.needsFormatApproval.length,
+   unsourcedManufacturerThemes:(a.newFormatTemplates||[]).length,
    secondChanceAtEnd:grandGate,
    earlySamples:timeline.slice(0,12),lateSamples:timeline.slice(-12),
    grandSecondChanceBracketsSpecified:0,grandSecondChanceActualTickets:0,
