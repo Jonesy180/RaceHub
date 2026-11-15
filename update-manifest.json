@@ -1,5 +1,5 @@
 {
-  "version": "8.0.282",
-  "worker": "./otg-service-worker-v8282.js",
-  "message": "Fix read-only Old Evil audit false preservation failure caused by JSON key ordering. No data changes."
+  "version": "8.0.283",
+  "worker": "./otg-service-worker-v8283.js",
+  "message": "Instant Evil Headquarters shell and separate prelaunch maintenance. No reset or storage switch."
 }
