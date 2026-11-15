@@ -1,5 +1,5 @@
 {
-  "version": "8.0.276",
-  "worker": "./otg-service-worker-v8276.js",
-  "message": "Optional verified native-save IndexedDB shadow, primary storage unchanged. No reset or migration."
+  "version": "8.0.277",
+  "worker": "./otg-service-worker-v8277.js",
+  "message": "Durable modified-state IndexedDB test checkpoint; no live storage switch, no reset."
 }
