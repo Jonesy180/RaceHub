@@ -1,0 +1,1 @@
+OTG! 8.0.285 — hero mount visibility hotfix. Overlay: extract into C:\RaceHub and overwrite matching files. No reset or storage switch. Dashboard > Evil Tournament: confirm Lord Ratchet & Ma above eight tiles; current event and navigation unchanged. Git: git add . / git commit -m "OTG MAIN v8.0.285 Evil hero visibility hotfix" / git push.
