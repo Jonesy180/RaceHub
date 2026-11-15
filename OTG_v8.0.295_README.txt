@@ -1,0 +1,1 @@
+OTG MAIN 8.0.295: adds reusable smart track picker with real FH5 taxonomy, recent-route avoidance and no within-event duplicates. Candidate rehearsal now checks shared-result digest and shows a proposed first-stage track set. Route preview only: NOT wired into live Evil racing, NO saved track assignments, no live switch or reset. Extract over C:\RaceHub.

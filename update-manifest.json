@@ -1,5 +1,5 @@
 {
-  "version": "8.0.294",
-  "worker": "./otg-service-worker-v8294.js",
-  "message": "Restore launch candidate button binding and visible preparation status. No live reset."
+  "version": "8.0.295",
+  "worker": "./otg-service-worker-v8295.js",
+  "message": "Verified protected shared results and dry-run FH5 smart track proposals using real taxonomy. No live route locks or reset."
 }
