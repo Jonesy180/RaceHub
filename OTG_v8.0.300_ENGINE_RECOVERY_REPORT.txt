@@ -1,0 +1,30 @@
+OTG! MAIN v8.0.300 — NATIVE SOURCE ENGINE RECOVERY
+
+ROOT CAUSE CONFIRMED IN SHIPPED v8.0.299:
+  index-v8299.html requested js/otg-evil2-native-slot-v8299.js,
+  js/otg-evil2-native-next-v8299.js and
+  js/otg-evil2-universal-v8299.js.
+  ALL THREE were ABSENT from the v299 overlay AND from the user's
+  original js.zip source bundle. The functional v8297 versions existed.
+  The service worker also pre-cached the absent v8299 resources.
+
+WHY IT MATTERS:
+  The master assembly classifies original slots 007+ by calling
+  window.rhEvil2Universal8255.spec(slot). Missing its script caused
+  almost all original native visits to be classified as HOLD, including
+  BMW Normal Race Off. This was a deployment wiring failure, NOT
+  proof that 1141 race formats had never been implemented.
+
+REPAIR:
+  Ship fresh v8300 copies of all three working native source engines;
+  update HTML and worker URLs and smart-picker references consistently.
+  Preserve the existing engine globals and source formats.
+  The complete active native resource chain is now present in the ZIP.
+  All 215 page script references are resolved by this overlay PLUS the
+  uploaded original repository JS bundle; zero unresolved references.
+  No changes to state, saves, event results, honours, reset or freezing.
+
+NOT A LAUNCH:
+  Requires one phone verify that the HOLD count disappears and the vault
+  resumes. Native event lock/save and final campaign cutover remain unproven.
+  Do not run races in prelaunch, and do not delete any old files manually.
