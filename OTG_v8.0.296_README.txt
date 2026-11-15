@@ -1,0 +1,1 @@
+OTG MAIN v8.0.296: classify original Normal Championships, Race Off and Festival in dry-run Smart Track Picker. Road-default preview only; native event engine must validate actual track category and round count. No reset, no primary storage cutover, no live route hooks. Extract into C:\RaceHub, overwrite existing files.
