@@ -61,7 +61,32 @@ function sourceOriginals(x){const b=x[OLDKEY],arr=[];if(!b||b.campaign!==CAM)ret
  }catch(_){/* fail closed; incomplete/corrupt source cannot receive medals */}}
  return arr;}
 
-function candidates(x=space()){const out=[];const b=x[NEWKEY];if(b){for(const [k,v] of Object.entries(b.gauntlets||{})){try{out.push(gauntlet(x,v.kind,v.category));}catch(_){} }for(const mode of ['maker','mixed'])if(b.relays?.[mode])try{out.push(relay(x,mode));}catch(_){}if(b.longJump)try{out.push(jump(x));}catch(_){}if(b.grand)try{out.push(grand(x));}catch(_){} }out.push(...sourceOriginals(x));return out;}
+// Native Step 4 specialist completion: validate scores/times from original source IDs,
+// only real (non-pretend) finished events, with honest blocked drift 5th-place tiebreak.
+function specialistOriginals(x){const api=window.rhEvil2Specialist8259,book=x[OLDKEY],ledger=x.evil2Specialist8259;if(!api||!ledger||ledger.campaign!==CAM||!book||book.campaign!==CAM)return[];
+ const d=api.source(),map=allCars(x),out=[];
+ for(const rec of Object.values(ledger.events||{})){try{
+  const sourceRows=d.slots.filter(v=>S(v.eventId)===S(rec.id));if(!sourceRows.length||sourceRows.some(v=>!book.slots[v.slot]?.doneAt))continue;
+  verifyRank(rec.field,map);const expected=sourceRows.reduce((n,v)=>n+v.workload,0),ranking=[];let proof=null,lastBronzeRank=3;
+  if(rec.kind==='DRIFT_F'){
+   if(expected%rec.field.length!==0||rec.rounds.length!==expected/rec.field.length)continue;
+   const scores=new Map(rec.field.map(id=>[id,0]));const z=new Set();for(const round of rec.rounds){if(z.has(S(round.zone))||!S(round.zone)||Object.keys(round.scores||{}).length!==rec.field.length)throw Error('Drift Festival round incomplete or repeated Drift Zone');z.add(S(round.zone));for(const [id,value] of Object.entries(round.scores)){if(!scores.has(id)||!Number.isSafeInteger(value)||value<0||round.qaPretend)throw Error('Drift Festival score invalid');scores.set(id,scores.get(id)+value);}}
+   const sorted=[...scores].sort((a,b)=>b[1]-a[1]);noBoundaryTie(sorted,Math.min(3,sorted.length),'desc');ranking.push(...sorted.map(v=>v[0]));proof={rounds:rec.rounds,field:rec.field};
+  }else if(rec.kind==='DRAG'){
+   const run=(x.runs||[]).find(z=>S(z.id)===S(rec.runId));if(!run||run.evilCampaignR2?.source!=='ORIGINAL_SPECIALIST'||run.evilCampaignR2?.campaign!==CAM||run.rounds?.length!==1||!uniq(run.entries)||JSON.stringify(run.entries)!==JSON.stringify(rec.field)||run.results?.length!==rec.field.length||hasqa(run.results))continue;
+   const track=run.rounds[0].id,seen=new Map();for(const v of run.results){if(!rec.field.includes(S(v.carId))||S(v.roundId)!==S(track)||seen.has(S(v.carId))||!Number.isFinite(Number(v.time))||Number(v.time)<=0)throw Error('Original Drag Shootout contains incomplete/duplicate/bad time');seen.set(S(v.carId),Number(v.time));}if(seen.size!==rec.field.length)continue;
+   const sorted=[...seen].sort((a,b)=>a[1]-b[1]);noBoundaryTie(sorted,Math.min(3,sorted.length));ranking.push(...sorted.map(v=>v[0]));proof={run:run.id,rounds:run.rounds,results:run.results,field:rec.field};
+  }else if(rec.kind==='DRIFT_RO'){
+    // Quarterfinal losers ran different Drift Zones. Their scores cannot be
+    // compared fairly to decide the single Second Chance ticket at rank 5.
+    // Hold honours rather than invent a rank or wrongly mark this source eligible.
+    continue;
+  }else continue;
+  if(ranking.length<2)continue;const multiMake=new Set(rec.field.map(id=>S(map.get(id).make))).size>1;
+  out.push({sourceId:'ORIGINAL:'+rec.id,kind:'ORIGINAL_SPECIALIST',family:rec.kind==='DRAG'?'Drag Shootout':'Drift Festival',name:rec.name,ranking,medals:completeMedalPositions(ranking),lastBronzeRank:ranking.length>=3?3:null,allowManufacturer:multiMake,eligibleSC:ranking.length>=4,proof:JSON.stringify({sourceSlots:sourceRows.map(v=>v.slot),sourceProof:proof}),hoFUnits:ranking.slice(0,1)});
+ }catch(_){/* Corrupt / incomplete specialist source cannot publish medals. */}}
+ return out;}
+function candidates(x=space()){const out=[];const b=x[NEWKEY];if(b){for(const [k,v] of Object.entries(b.gauntlets||{})){try{out.push(gauntlet(x,v.kind,v.category));}catch(_){} }for(const mode of ['maker','mixed'])if(b.relays?.[mode])try{out.push(relay(x,mode));}catch(_){}if(b.longJump)try{out.push(jump(x));}catch(_){}if(b.grand)try{out.push(grand(x));}catch(_){} }out.push(...sourceOriginals(x),...specialistOriginals(x));return out;}
 function awardCheck(x,a){const z=ledger(x),p=z?.awards?.[a.sourceId];if(!p)return null;if(p.sourceId!==a.sourceId||p.proof!==a.proof||p.kind!==a.kind||!p.medals)fail('Official honours exist but underlying results differ — MEDAL LEDGER LOCK.');return p;}
 function publish(a){const x=space(),map=allCars(x),fresh=candidates(x).find(v=>v.sourceId===a.sourceId);if(!fresh||fresh.proof!==a.proof)fail('Final standings changed; reopen and verify before signing off.');verifyRank(fresh.ranking,map);const previous=ledger(x);if(previous?.awards?.[fresh.sourceId]){awardCheck(x,fresh);fail('This competition has already been awarded. Duplicate blocked.');}
  const at=today();const rec={sourceId:fresh.sourceId,kind:fresh.kind,family:fresh.family,name:fresh.name,ranking:fresh.ranking.slice(),medals:copy(fresh.medals),lastBronzeRank:fresh.lastBronzeRank,allowManufacturer:!!fresh.allowManufacturer,eligibleSC:!!fresh.eligibleSC,proof:fresh.proof,at,hoFUnits:fresh.hoFUnits.slice(),teamPodium:copy(fresh.teamPodium||[]),distanceCm:fresh.distanceCm||null};
