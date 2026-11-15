@@ -1,5 +1,5 @@
 {
-  "version": "8.0.262",
-  "worker": "./otg-service-worker-v8262.js",
-  "message": "Route all 35 original Swiss Cup visits through native OTG Swiss and add four clearly new manufacturer Festival/Race Off templates. Read-only prelaunch, no reset."
+  "version": "8.0.263",
+  "worker": "./otg-service-worker-v8263.js",
+  "message": "Evil List 2.0 prelaunch browse screen: 2,225-stage searchable list, next stage native gateway, no reset. Festival cleanup pending audit."
 }
