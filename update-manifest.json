@@ -1,5 +1,5 @@
 {
-  "version": "8.0.314",
-  "worker": "./otg-service-worker-v8314.js",
-  "message": "Explicit, backup-protected entire racing-history reset and new constraint-safe shuffled Evil 2.0 schedule. No automatic reset or Garage/Space/private archive change."
+  "version": "8.0.315",
+  "worker": "./otg-service-worker-v8315.js",
+  "message": "Official Evil 2.0 Gauntlet stage locked to signed draw and active progress. No reset or stored race result changes."
 }

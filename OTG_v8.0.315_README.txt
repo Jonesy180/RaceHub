@@ -1,0 +1,7 @@
+OTG! v8.0.315 — SIGNED OFFICIAL GAUNTLET LOCK
+
+Cumulative overlay, extract into C:\RaceHub over existing files; do not delete existing files.
+On the active Evil 2.0 Gauntlet stage the stage ID/position/draw SHA are checked against the live manifest and next stage before the type/manufacturer field can be frozen. Locked UI has no field dropdown or format switch. Back returns to Evil Headquarters. Existing native result-entry screen and result saving unchanged.
+Stand-alone Gauntlet selector outside the locked tournament unchanged.
+No reset, draw change, Garage edit, result edit, or automatic save on installation.
+Automated checks do not constitute phone QA.
