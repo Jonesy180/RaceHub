@@ -1,5 +1,5 @@
 {
-  "version": "8.0.315",
-  "worker": "./otg-service-worker-v8315.js",
-  "message": "Official Evil 2.0 Gauntlet stage locked to signed draw and active progress. No reset or stored race result changes."
+  "version": "8.0.316",
+  "worker": "./otg-service-worker-v8316.js",
+  "message": "Smart Tiles Phase 1: shared racing overview responsive car names, content-sized panels and permanent status mini-tiles. No racing logic changes."
 }

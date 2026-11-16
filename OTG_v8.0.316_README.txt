@@ -1,0 +1,11 @@
+OTG! MAIN v8.0.316 — SMART TILES PHASE 1 (SHARED RACING OVERVIEW)
+OVERLAY ONLY onto the existing working MAIN v8.0.315 in C:\RaceHub.
+Do not delete any existing files or folders, reset, restore, or touch OTG LAB.
+Scope: current racing overview and current standings, visual only.
+Long car names wrap. Panels grow to fit. Permanent grey H and E✓ mini-tiles.
+H turns cyan when the current competition contains a saved result for that car.
+E✓ remains grey on this screen until verified Evil history bridge is introduced.
+This is NOT a global-history implementation yet. No racing mechanics/data changes.
+PHONE QA: update MAIN normally, open one active Festival championship overview,
+confirm current car/Next Up wrap and H/E✓ alignment, then inspect current standings.
+Do not enter any race results just to test appearance.
