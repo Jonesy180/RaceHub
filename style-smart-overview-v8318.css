@@ -1,0 +1,91 @@
+/* OTG! MAIN v8.0.317 — Shared racing overview: compact adaptive tiles. */
+#festival .rhChamp33, #festival .rhStandings33 {min-width:0; overflow-wrap:anywhere;}
+#festival .rhChamp33 h1, #festival .rhChamp33 h2,
+#festival .rhStandings33 h1 {white-space:normal; overflow-wrap:anywhere; max-width:100%;}
+#festival .rhChamp33Body section, #festival .rhChamp33Body footer,
+#festival .rhChamp33Body button {box-sizing:border-box; min-width:0; height:auto;}
+#festival .rhChamp33Body button {white-space:normal; overflow-wrap:anywhere;}
+
+/* Each NEXT UP car occupies its own compact rounded Smart Tile. */
+#festival .rhChamp33NextRows {
+  display:flex; flex-direction:column; gap:8px; padding:8px 0 0;
+}
+#festival .rhChamp33NextRows > .otg317-car-tile {
+  display:grid; grid-template-columns:32px minmax(0,1fr) auto;
+  align-items:center; gap:9px;
+  width:100%; min-height:48px; height:auto;
+  padding:9px 10px; margin:0;
+  border:1px solid #1b4454; border-radius:14px;
+  background:#07131dcc; box-sizing:border-box;
+}
+#festival .otg317-car-tile > i {
+  grid-column:1; align-self:center; margin:0; min-width:0;
+}
+#festival .otg317-car-tile > b {
+  grid-column:2; min-width:0; width:auto; margin:0;
+  white-space:normal; overflow-wrap:anywhere; line-height:1.3;
+}
+#festival .otg317-car-tile > .otg317-badges {grid-column:3;}
+
+/* Current car: long name gets its own flexible column, badges stay centred on right. */
+#festival .rhChamp33CurrentHead > .otg317-current-car {
+  display:grid; grid-template-columns:minmax(0,1fr) auto;
+  gap:4px 8px; min-width:0; align-items:center;
+}
+#festival .otg317-current-car > small {grid-column:1/-1;}
+#festival .otg317-current-car > h2 {
+  grid-column:1; min-width:0; margin:0;
+  white-space:normal; overflow-wrap:anywhere; line-height:1.2;
+}
+#festival .otg317-current-car > .otg317-badges {grid-column:2; grid-row:2;}
+
+/* Permanent, stable two-badge area. */
+#festival .otg317-badges {
+  display:inline-flex; gap:5px; align-items:center;
+  justify-content:flex-end; flex-shrink:0; white-space:nowrap;
+}
+#festival .otg317-mini {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:27px; height:27px; padding:0 4px;
+  border-radius:7px; border:1px solid #586773;
+  background:#26313a; color:#a0aeb8; box-sizing:border-box;
+  font:800 11px/1 system-ui,sans-serif; letter-spacing:0;
+  box-shadow:none; margin:0;
+}
+#festival .otg317-mini.history-active {
+  color:#d7fbff; background:#075967; border-color:#00bfdc;
+}
+#festival button.otg317-mini {cursor:pointer;}
+#festival .otg317-mini:focus-visible {outline:2px solid #56dfff; outline-offset:2px;}
+
+/* Sensible content-sized action tiles, without changing actions. */
+#festival .rhChamp33Meta > span {height:auto; min-height:0; padding:10px 12px;}
+#festival .rhChamp33Meta b {white-space:normal; overflow-wrap:anywhere;}
+#festival .rhChamp33Continue {min-height:64px; padding:12px 15px;}
+#festival .rhChamp33Tools {gap:10px;}
+#festival .rhChamp33Tools > button {min-height:52px; padding:10px 12px;}
+#festival .rhChamp33Footer {gap:10px;}
+#festival .rhChamp33Footer > button {min-height:56px; padding:10px 12px;}
+#festival .rhChamp33Next {padding-bottom:12px;}
+#festival .rhStandings33Rows > .otg317-standings-row {
+  display:grid; grid-template-columns:minmax(22px,auto) minmax(0,1fr) auto auto auto;
+  align-items:center; gap:5px; height:auto; min-height:44px;
+}
+#festival .otg317-standings-row > span:not(.otg317-badges) {
+  min-width:0; white-space:normal; overflow-wrap:anywhere;
+}
+@media(max-width:390px){
+  #festival .rhChamp33NextRows > .otg317-car-tile {gap:7px; padding:8px;}
+  #festival .otg317-mini {min-width:24px; height:25px; font-size:10px; padding:0 3px;}
+}
+
+/* The legacy in-draw helper still injects its large blue History buttons.
+   Hide ONLY those duplicate buttons on these Smart Tile screens; keep its
+   original History handler intact for the new H mini-tiles. */
+#festival .rhChamp33CurrentHead h2 > .v7HistoryBtn,
+#festival .rhChamp33NextRows > div > b > .v7HistoryBtn {
+  display:none !important;
+}
+/* Keep H buttons the same mini-tile height as the permanent E✓ indicator. */
+#festival .rhChamp33Body button.otg317-mini {height:27px;min-height:27px;}
+@media(max-width:390px){#festival .rhChamp33Body button.otg317-mini {height:25px;min-height:25px;}}

@@ -1,5 +1,5 @@
 {
-  "version": "8.0.317",
-  "worker": "./otg-service-worker-v8317.js",
-  "message": "Great UI Facelift: compact individual NEXT UP car Smart Tiles, fixed right-aligned H/E\u2713 badges and content-sized overview controls. Racing unchanged."
+  "version": "8.0.318",
+  "worker": "./otg-service-worker-v8318.js",
+  "message": "History Smart Tiles: H opens the original Car History; oversized duplicate buttons hidden. Racing and Evil draw unchanged."
 }
