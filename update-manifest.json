@@ -1,5 +1,5 @@
 {
-  "version": "8.0.319",
-  "worker": "./otg-service-worker-v8319.js",
-  "message": "Evil 2.0 navigation: cinematic HQ, current event first, simple paged stage schedule. Locked draw and native safety unchanged."
+  "version": "8.0.320",
+  "worker": "./otg-service-worker-v8320.js",
+  "message": "Evil 1-style direct dashboard opening and single-screen navigation. Existing 2.0 draw/native protection preserved."
 }
