@@ -1,5 +1,5 @@
 {
-  "version": "8.0.311",
-  "worker": "./otg-service-worker-v8311.js",
-  "message": "Headquarters fast entry: bypass costly legacy Evil dashboard routing before it runs. Active campaign and racing unchanged."
+  "version": "8.0.312",
+  "worker": "./otg-service-worker-v8312.js",
+  "message": "Evil 2.0: verified Mark Stage DONE, permanent source-results banking and next-stage navigation. No reset or draw change."
 }
