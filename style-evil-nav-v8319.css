@@ -1,0 +1,16 @@
+/* OTG! MAIN 8.0.319 — Evil HQ / event page navigation only. */
+.e263-overlay .e319-actions{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0}
+.e263-overlay .e319-actions button{min-height:54px;background:linear-gradient(135deg,#053149,#0b5670);border:1px solid #42b9cd;border-radius:14px;font-size:15px;font-weight:900;color:#ecffff}
+.e263-overlay .e319-list-actions{grid-template-columns:repeat(2,minmax(0,1fr));margin:8px 0}
+.e263-overlay .e319-list-actions button{font-size:12px;min-height:45px;padding:8px 5px}
+.e319-extras,.e319-advanced{margin:14px 0;padding:11px;border:1px solid #27596e;border-radius:14px;background:#081928;color:#d0ecf5}
+.e319-extras summary,.e319-advanced summary{font-size:13px;letter-spacing:.6px;cursor:pointer;font-weight:850;color:#9eeaf2;padding:4px;list-style-position:inside}
+.e319-extras .e266-extras{margin:10px 0 0}
+.e319-advanced .e283-maint-link{margin:12px 0 0}
+.e319-jump{display:flex;align-items:end;gap:9px;margin:5px 0 11px}
+.e319-jump label{font-size:11px;color:#97cbd8;font-weight:850;letter-spacing:.5px;flex:1}
+.e319-jump input{display:block;margin-top:5px;width:100%;max-width:170px;box-sizing:border-box;padding:9px 12px;background:#0b2031;border:1px solid #376b7e;border-radius:9px;color:white;font:inherit}
+.e263-overlay .e319-jump button{min-width:76px;min-height:40px;background:#10536a;border-color:#3ab5c5}
+.e263-overlay .e319-pager{margin:12px 0 22px}
+.e263-overlay .e319-pager button{min-width:53px}
+@media(max-width:370px){.e263-overlay .e319-list-actions button{font-size:11px}.e319-jump input{max-width:132px}}

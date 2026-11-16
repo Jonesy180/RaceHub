@@ -1,5 +1,5 @@
 {
-  "version": "8.0.318",
-  "worker": "./otg-service-worker-v8318.js",
-  "message": "History Smart Tiles: H opens the original Car History; oversized duplicate buttons hidden. Racing and Evil draw unchanged."
+  "version": "8.0.319",
+  "worker": "./otg-service-worker-v8319.js",
+  "message": "Evil 2.0 navigation: cinematic HQ, current event first, simple paged stage schedule. Locked draw and native safety unchanged."
 }
