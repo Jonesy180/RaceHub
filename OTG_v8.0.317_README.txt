@@ -1,0 +1,12 @@
+OTG! MAIN v8.0.317 — SMART TILES / SHARED RACING OVERVIEW
+Incremental overlay onto working MAIN v8.0.316 (C:\RaceHub).
+DO NOT delete anything, reset data, alter Evil 2.0's locked draw, or touch LAB.
+NEXT UP uses one compact flexible tile per car: order number | wrapping name | H E✓ badges,
+with both badges fixed to the right and vertically centred.
+Where the existing car History button is recognized, the H mini button uses its same click action
+and the old oversized duplicate is hidden. Existing save/navigation logic untouched.
+Overview action panels get smaller sensible content-sized padding.
+H cyan reflects saved result in the current championship; global History is not wired here yet.
+E✓ stays grey until actual Evil activity integration. No made-up status colours.
+QA: install normally; screenshot CURRENT CAR and NEXT UP (short + long car names).
+No racing data entry needed for this UI test.

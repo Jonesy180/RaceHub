@@ -1,5 +1,5 @@
 {
-  "version": "8.0.316",
-  "worker": "./otg-service-worker-v8316.js",
-  "message": "Smart Tiles Phase 1: shared racing overview responsive car names, content-sized panels and permanent status mini-tiles. No racing logic changes."
+  "version": "8.0.317",
+  "worker": "./otg-service-worker-v8317.js",
+  "message": "Great UI Facelift: compact individual NEXT UP car Smart Tiles, fixed right-aligned H/E\u2713 badges and content-sized overview controls. Racing unchanged."
 }
