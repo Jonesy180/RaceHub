@@ -1,5 +1,5 @@
 {
-  "version": "8.0.313",
-  "worker": "./otg-service-worker-v8313.js",
-  "message": "Controlled legacy FH5 racing result clean slate: protects verified Stage 001, all Spaces, Garage, locked draw and private archives. Backup + explicit confirmation required."
+  "version": "8.0.314",
+  "worker": "./otg-service-worker-v8314.js",
+  "message": "Explicit, backup-protected entire racing-history reset and new constraint-safe shuffled Evil 2.0 schedule. No automatic reset or Garage/Space/private archive change."
 }
