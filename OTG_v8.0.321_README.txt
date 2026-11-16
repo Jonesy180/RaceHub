@@ -1,0 +1,35 @@
+OTG! MAIN v8.0.321 — BRAND-NEW EVIL HEADQUARTERS
+
+CLEAN UI REBUILD — NOT AN EVIL 1/2 ENGINE RESET
+
+Install as an overlay over your accepted v8.0.320 install. Copy the files into C:\RaceHub and replace matching files. Do not delete anything else. Native Evil 2.0, Garage, Spaces, saved results, private Incident Archive, previous build assets and existing data remain in place.
+
+WHAT WAS REPLACED
+- The old v8.0.320 Evil LIST user interface script is NOT loaded.
+- The old Evil 1-style page / on-screen schedule is NOT rendered.
+- The old v8.0.286 hero re-positioner is NOT loaded.
+- A NEW standalone 8.0.321 Evil Headquarters JS module and a NEW self-contained Smart Tile stylesheet replace them.
+- The former evilcampaign section remains as a hidden compatibility host, NOT the visible HQ screen, because existing racing features may require it.
+
+NEW HEADQUARTERS
+- The EXISTING cinematic artwork is at the top (before any navigation, content, or tiles).
+- Exactly one current stage Smart Card, with a native-protected race / DONE action. No duplicated progress / draw banners.
+- Exactly eight compact, auto-height Command Centre tiles in the agreed order:
+    Pit Wall / Swiss War Room; Medal Tables / Career Museum;
+    Incident Archive / Secret Side Missions; Cone Breaks / Event List.
+- Rivalry Files feature and history are retained under the hood, but the HQ tile is retired.
+- The actual Event List is a separate, on-demand screen. It renders 12 stages per page only after its tile is tapped.
+- Opening HQ paints hero + tiles before verified race progression read completes.
+
+SAFE GATES
+- Native draw verification and live progression still happen before race actions become clickable.
+- The current 'Frozen native run identity mismatch' SAFE STOP is not bypassed or fixed in this UI-only build.
+- No draw resets, racing results, badges, medal writes, or Garage changes.
+
+PHONE CHECK
+Tap the dashboard Evil Tournament tile. Photograph the FIRST screen only: hero at very top, one current event, eight compact tiles including Event List in bottom-right. Do not enter a race or reset anything. Event List navigation can be tested in the next approved step.
+
+THE THREE SACRED LINES:
+git add -A
+git commit -m "OTG MAIN v8.0.321 Brand New Evil Headquarters Smart UI"
+git push origin main

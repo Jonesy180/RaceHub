@@ -1,5 +1,5 @@
 {
-  "version": "8.0.320",
-  "worker": "./otg-service-worker-v8320.js",
-  "message": "Evil 1-style direct dashboard opening and single-screen navigation. Existing 2.0 draw/native protection preserved."
+  "version": "8.0.321",
+  "worker": "./otg-service-worker-v8321.js",
+  "message": "Brand-new compact Evil Headquarters UI. Hero first, current event only, and a separately opened Event List. Native racing and locked draw unchanged."
 }
