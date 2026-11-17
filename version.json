@@ -1,5 +1,5 @@
 {
-  "version": "8.0.327",
-  "worker": "./otg-service-worker-v8327.js",
-  "message": "Garage Smart Tile makeover: approved cyan presentation, Catalogue/manufacturer navigation, stable H and E\u2713 badges with verified saved activity. No ownership, Space or racing data changes."
+  "version": "8.0.328",
+  "worker": "./otg-service-worker-v8328.js",
+  "message": "Garage compact car rows, readable details, fixed H/E\u2713 badges and direct Dashboard return from all Garage levels. Presentation-only; saved data and racing engines unchanged."
 }

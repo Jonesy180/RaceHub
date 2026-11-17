@@ -1,0 +1,21 @@
+OTG! MAIN v8.0.328 — GARAGE COMPACT ROWS & DASHBOARD NAVIGATION
+
+Incremental update OVER installed v8.0.327. Extract the ZIP into C:\RaceHub,
+replacing matching files. Do NOT delete old app files or saved data.
+
+FIXES:
+- Car rows now reserve checkbox / flexible car details / H+E✓ as fixed
+  columns on the SAME row. Long names can wrap and grow naturally.
+- Native owner checkbox, Car History and Evil badge rules remain intact.
+- Normal manual cars & GT7 special cars retain edit controls.
+- Improved contrast for owned/unowned car names and metadata.
+- Direct DASHBOARD button on Garage landing, manufacturer directory and
+  manufacturer car list. Existing one-level back buttons preserved.
+- Catalogue manufacturer caption refreshes on returning from a car list,
+  instead of retaining that manufacturer's count.
+
+NOT MODIFIED: Garage ownership, cars, Spaces, results, Evil campaign,
+backup storage, race engines, trophies or previously approved screens.
+
+PHONE QA: Garage -> Catalogue -> Abarth (check rows and badges), then
+DASHBOARD direct return. Just one screenshot + PASS / FIX.
