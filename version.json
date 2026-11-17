@@ -1,5 +1,5 @@
 {
-  "version": "8.0.344",
-  "worker": "./otg-service-worker-v8344.js",
-  "message": "FH5 Track Directory layout: centred full-width search, all nine existing filters visible on two mobile rows, clearer header. Search, routes and racing data unchanged."
+  "version": "8.0.345",
+  "worker": "./otg-service-worker-v8345.js",
+  "message": "Stats Smart Tile visual makeover: compact cockpit and PB cards, styled Career Museum and Lifetime Career, readable Space totals, Legends and Rivalry Files. Calculations and saved data unchanged."
 }

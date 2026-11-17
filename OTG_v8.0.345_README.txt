@@ -1,0 +1,27 @@
+OTG! MAIN v8.0.345 — Stats Smart Tiles
+==========================================
+INCREMENTAL OVERLAY for installed v8.0.344. Extract into C:\RaceHub,
+overwrite matching files, DO NOT delete any original files.
+
+PRESENTATION ONLY:
+ - Compact Stats cockpit and original photo, three live metric gauges.
+ - Personal Bests, Biggest PB Improvement and Time Driven compact cards.
+ - Career Museum entry, read-only Lifetime Career and four summary totals.
+ - Genuine verified podium totals and per-Space expandable statistics.
+ - Racing Legends and Rivalry Files entry tiles.
+ - Native Stats navigation preserved; no invented results.
+
+No changes to stats calculations, racing engine, Garage, Space storage,
+existing records, honours, Evil tournament, backup/recovery or prior screens.
+No changes to any JavaScript except version-pinned bootstrap and update wire.
+
+Update version/manifest and worker all point to 8.0.345.
+All older app assets and cache references remain in place.
+
+Git:
+ git add -A
+ git commit -m "OTG MAIN v8.0.345 Stats Smart Tile Makeover"
+ git push origin main
+
+Phone check: Dashboard > Stats, screenshot of top gauges and PB cards;
+scroll for Career Museum, Lifetime Career and Space panel.
