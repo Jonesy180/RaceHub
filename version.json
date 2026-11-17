@@ -1,5 +1,5 @@
 {
-  "version": "8.0.339",
-  "worker": "./otg-service-worker-v8339.js",
-  "message": "Records, Hall of Fame, Journey, Closest Battles and FH5 Track Directory visual Smart Tile makeover. Existing records and navigation preserved."
+  "version": "8.0.340",
+  "worker": "./otg-service-worker-v8340.js",
+  "message": "Records visual fix: restored Back text, brighter Records hero, clearer descriptions. Racing data unchanged."
 }
