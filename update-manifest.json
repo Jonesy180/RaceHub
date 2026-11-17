@@ -1,5 +1,5 @@
 {
-  "version": "8.0.332",
-  "worker": "./otg-service-worker-v8332.js",
-  "message": "Garage Intelligence Back button label visibility fix; all existing features preserved."
+  "version": "8.0.333",
+  "worker": "./otg-service-worker-v8333.js",
+  "message": "Custom Racing, League Organiser and native Create Event visual makeover; existing racing data and actions preserved."
 }

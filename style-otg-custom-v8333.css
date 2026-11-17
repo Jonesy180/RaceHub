@@ -1,0 +1,221 @@
+/* OTG! MAIN v8.0.333 — Custom Racing / League / Create Event visual treatment.
+   CSS scoped to existing native screens. No races, league records, event save logic
+   or competition formats are created, changed or replaced by these styles. */
+#events .rhEventsV1{background:#030b14!important;color:#f9feff!important;overflow-x:hidden!important}
+#events .rhEventsHeroV1{
+ height:235px!important;min-height:0!important;max-height:235px!important;position:relative!important;
+ background:linear-gradient(180deg,#030b14 0%,transparent 38%,rgba(0,6,10,.1) 67%,#030b14 100%),url('assets/final/events-hero-compact-v8333.webp') center 54%/cover no-repeat!important;
+ border-bottom:2px solid #39e9ef!important;box-shadow:0 4px 16px #0af0fa36!important;
+}
+#events .rhEventsHeadV1{
+ position:absolute!important;inset:0 0 auto 0!important;top:0!important;left:0!important;right:0!important;
+ display:flex!important;align-items:center!important;gap:10px!important;height:59px!important;
+ padding:6px 12px!important;background:linear-gradient(110deg,#03121e,#04070d 94%)!important;
+ border-bottom:2px solid #3ef2f6!important;text-shadow:none!important;z-index:5!important;
+}
+#events .rhEventsBackV1{
+ flex:0 0 auto!important;width:auto!important;min-width:76px!important;height:38px!important;min-height:38px!important;
+ padding:4px 11px!important;border:2px solid #5de9f5!important;border-radius:15px!important;
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ background:linear-gradient(130deg,#092c3b,#030d17)!important;color:white!important;
+ font:italic 950 13px/1 system-ui,sans-serif!important;letter-spacing:0!important;
+ box-shadow:0 0 9px #1fd4f68c!important;
+}
+#events .rhEventsHeadV1>div{min-width:0!important;flex:1!important}
+#events .rhEventsHeadV1 h1{
+ display:block!important;margin:0!important;color:white!important;letter-spacing:.015em!important;
+ font:italic 950 clamp(19px,5.15vw,29px)/1.08 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ white-space:normal!important;overflow-wrap:normal!important;
+}
+#events .rhEventsHeadV1 h1 .otg3333{color:#62dcf1!important}
+#events .rhEventsHeadV1 p{display:none!important}
+#events .rh3333HeroWord{
+ position:absolute;z-index:2;right:10px;left:10px;top:87px;
+ display:flex;flex-direction:column;align-items:center;text-align:center;
+ filter:drop-shadow(0 3px 5px #000);
+ pointer-events:none;
+}
+#events .rh3333HeroWord strong{
+ font:italic 950 clamp(31px,8.7vw,48px)/.97 Impact,'Arial Narrow',system-ui,sans-serif;
+ letter-spacing:.08em;color:white;text-shadow:0 2px 10px #000,0 0 12px #0befff74;
+}
+#events .rh3333HeroWord small{
+ margin-top:3px;color:#4cf4fc;font:italic 900 clamp(15px,4.5vw,24px)/1.1 Impact,'Arial Narrow',system-ui,sans-serif;
+ letter-spacing:.055em;text-shadow:0 2px 8px #000;
+}
+#events .rhEventsBodyV1{
+ box-sizing:border-box!important;max-width:820px!important;margin:auto!important;
+ padding:13px 12px 30px!important;background:linear-gradient(180deg,#030d16,#02080e)!important;
+}
+/* League is already inserted by the existing app. Do not create a second tile. */
+#events .rhLeagueEntryV6018,#events .rhEventsCreateV1{
+ position:relative!important;width:100%!important;min-height:79px!important;height:auto!important;
+ margin:0 0 11px!important;padding:12px 13px!important;
+ display:grid!important;grid-template-columns:56px minmax(0,1fr) 18px!important;align-items:center!important;gap:10px!important;
+ text-align:left!important;border:2px solid #43ecf7!important;border-radius:17px!important;
+ background:linear-gradient(120deg,#073746 0%,#030f19 48%,#020c14 100%)!important;color:white!important;
+ box-shadow:inset 0 0 15px #0ef7ff20,0 0 13px #15e1f784!important;
+}
+#events .rhLeagueEntryV6018::before{
+ content:'';grid-column:1;width:50px;height:50px;display:block;
+ background:url('assets/ui/custom-league-v8333.svg') center/contain no-repeat;
+ filter:drop-shadow(0 0 4px #15e9fabb);
+ border-right:1px solid #33dff077;padding-right:4px;
+}
+#events .rhLeagueEntryV6018>span{grid-column:2;min-width:0!important;display:grid!important;gap:4px!important}
+#events .rhEventsCreateV1>i{
+ width:51px!important;height:51px!important;min-width:51px!important;border:0!important;border-right:1px solid #3ffaff8a!important;
+ border-radius:0!important;font-size:0!important;
+ background:url('assets/ui/custom-flag-v8333.svg') center/47px 47px no-repeat!important;
+}
+#events .rhEventsCreateV1>span{grid-column:2;min-width:0!important;display:grid!important;gap:4px!important}
+#events .rhLeagueEntryV6018 small{display:none!important}
+#events .rhLeagueEntryV6018 b,#events .rhEventsCreateV1>span>b{
+ color:white!important;font:italic 950 clamp(17px,5.4vw,23px)/1.08 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ text-transform:uppercase!important;overflow-wrap:anywhere!important;
+}
+#events .rhLeagueEntryV6018 em,#events .rhEventsCreateV1>span>small{
+ font:italic 650 clamp(11px,3vw,13px)/1.35 system-ui,sans-serif!important;
+ color:#4af0f8!important;opacity:1!important;overflow-wrap:anywhere!important;
+}
+#events .rhLeagueEntryV6018>strong,#events .rhEventsCreateV1>em{
+ grid-column:3;justify-self:end!important;font-size:25px!important;color:white!important;
+}
+#events .rhEventsListV1,#events .rhEventsProgressV1{
+ margin:0 0 11px!important;padding:12px 11px!important;
+ border:2px solid #3acdde!important;border-radius:17px!important;
+ background:linear-gradient(150deg,#04212c,#020c16)!important;
+ box-shadow:0 0 11px #1bdef74e!important;overflow:hidden!important;
+}
+#events .rhEventsListV1>h2,#events .rhEventsProgressV1>h2{
+ margin:0 0 11px!important;padding:0 0 9px!important;
+ font:italic 950 clamp(18px,5.4vw,25px)/1.06 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ color:white!important;border-bottom:1px solid #26b9c9c4!important;
+}
+#events .rhEventsListV1>h2::before{content:'▦';color:#48f3f8;margin-right:10px}
+#events .rhEventsListV1 .rhEmpty{margin:0!important;padding:12px 8px!important;background:transparent!important;border:0!important;box-shadow:none!important}
+#events .rhEventsListV1 .rhEmpty h2{
+ margin:5px 0!important;font:italic 950 clamp(18px,5.5vw,24px)/1.15 Impact,'Arial Narrow',system-ui,sans-serif!important;
+}
+#events .rhEventsListV1 .rhEmpty p{font-size:12px!important;line-height:1.45!important;max-width:480px!important}
+#events .rhEventsListV1 .rhEmpty .btn{
+ min-height:42px!important;margin:9px auto 0!important;padding:8px 16px!important;
+ border:1.5px solid #48edf6!important;border-radius:13px!important;
+ background:linear-gradient(100deg,#09516a,#042a3b)!important;
+ color:#fff!important;font:italic 900 14px/1.15 system-ui,sans-serif!important;
+ box-shadow:0 0 10px #09e7f570!important;
+}
+#events .rhEventCardV1{
+ min-height:57px!important;padding:8px 44px 8px 9px!important;
+ border:1px solid #46aebf!important;border-radius:12px!important;
+ background:linear-gradient(120deg,#07313e,#041420)!important;
+}
+#events .rhEventCardV1>span>b{font:italic 900 16px/1.2 system-ui,sans-serif!important}
+#events .rhEventsInfoV1{
+ padding:11px!important;margin:0!important;border:1px solid #248b9d!important;border-radius:13px!important;
+ background:#031522!important;color:#bddde6!important;box-shadow:none!important;
+}
+#events .rhEventsInfoV1 p{font-size:11px!important;line-height:1.4!important}
+#events .rhEventsInfoV1 p>b{color:#5debf6!important;font:italic 950 15px/1.1 system-ui,sans-serif!important}
+#events .rhEventsProgressInnerV1{grid-template-columns:54px minmax(0,1fr) auto!important;gap:8px!important}
+#events .rhEventsRingV1{width:50px!important;height:50px!important}
+#events .rhEventsProgressInnerV1>button{padding:9px!important;min-height:39px!important;font-size:11px!important}
+/* League pages keep native handlers and all setup fields. Only spacing/finish changes. */
+#events .rhLeaguePageV6018{background:linear-gradient(180deg,#05141c,#020811)!important;overflow-x:hidden!important}
+#events .rhLeagueHeroV6018,#events .rhLeagueHeroV6018.compact{
+ min-height:188px!important;height:auto!important;padding:14px 14px 16px!important;
+ background:linear-gradient(180deg,#04101da8,#03101855 42%,#020c14 100%),url('assets/final/league-organiser-control-room-v6018.png') center 43%/cover no-repeat!important;
+ border-bottom:2px solid #39dfea!important;
+}
+#events .rhLeagueHeroV6018.compact{min-height:157px!important}
+#events .rhLeagueBackV6018{
+ padding:7px 13px!important;min-width:80px!important;min-height:37px!important;
+ border:1.5px solid #5ee8f7!important;border-radius:13px!important;
+ background:#072331ee!important;box-shadow:0 0 10px #31ebf785!important;
+ color:white!important;font:italic 900 12px/1 system-ui,sans-serif!important;
+}
+#events .rhLeagueTitleV6018{left:15px!important;bottom:20px!important;right:12px!important;position:absolute!important}
+#events .rhLeagueTitleV6018>small{font:italic 900 11px/1.1 system-ui,sans-serif!important;color:#56f0f8!important}
+#events .rhLeagueTitleV6018 h1{
+ margin:2px 0!important;font:italic 950 clamp(22px,7.2vw,34px)/1.05 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ text-transform:uppercase!important;color:white!important;
+}
+#events .rhLeagueTitleV6018 p{font-size:12px!important;margin:3px 0!important;color:#cef5f9!important}
+#events .rhLeagueBodyV6018{max-width:780px!important;margin:0 auto!important;padding:13px 12px 35px!important}
+#events .rhLeagueSectionV6018,#events .rhLeagueFormV6018,#events .rhLeagueEmptyV6018,
+#events .rhLeagueSummaryV6018,#events .rhLeagueFoundationNoteV6018{
+ margin:0 0 11px!important;padding:13px!important;border:1.5px solid #42c1d3!important;border-radius:15px!important;
+ background:linear-gradient(140deg,#051e29,#020c16)!important;box-shadow:0 0 8px #1bcde247!important;
+}
+#events .rhLeagueEmptyV6018 h2{font:italic 950 20px/1.14 Impact,'Arial Narrow',system-ui,sans-serif!important}
+#events .rhLeaguePrimaryV6018{
+ min-height:50px!important;margin:0 0 12px!important;padding:12px 14px!important;
+ border:2px solid #3ef2f6!important;border-radius:14px!important;
+ background:linear-gradient(100deg,#06475b,#031929)!important;
+ box-shadow:0 0 11px #29e6ff69!important;color:white!important;
+ font:italic 900 15px/1.2 system-ui,sans-serif!important;
+}
+#events .rhLeaguePrimaryV6018 small{font-style:normal!important;font-size:11px!important}
+#events .rhLeagueFormBlockV6018{margin-top:12px!important;padding:11px 0!important}
+#events .rhLeagueFormV6018 input{padding:9px 11px!important;min-height:41px!important;border-color:#43cde0!important}
+#events .rhLeagueStepperV6018{margin:8px 0!important}
+#events .rhLeagueStepperV6018 button,#events .rhLeagueStepperV6018 b{padding:10px!important}
+#events .rhLeagueAddDriverV6018{grid-template-columns:minmax(0,1fr) auto!important}
+/* Existing Custom Event modal: same controls, four existing formats and native save actions. */
+#rhEventEditor.rhOverlay{padding:10px!important;box-sizing:border-box!important;align-items:center!important}
+#rhEventEditor .rhFormModal{
+ position:relative!important;box-sizing:border-box!important;
+ width:min(100%,540px)!important;max-width:540px!important;max-height:94svh!important;
+ margin:auto!important;padding:21px 16px 18px!important;overflow-y:auto!important;
+ border:2px solid #3ce7f1!important;border-radius:19px!important;
+ background:linear-gradient(150deg,#052636,#020c17)!important;
+ box-shadow:0 0 18px #12dbea77!important;color:white!important;
+}
+#rhEventEditor .rhFormModal h2{
+ margin:0 44px 5px 0!important;font:italic 950 clamp(22px,6.5vw,32px)/1.1 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ color:white!important;text-transform:uppercase!important;
+}
+#rhEventEditor .rhFormModal h2::before{content:'OTG! / ';color:#5de7f5}
+#rhEventEditor .rhFormModal>p{margin:5px 0 10px!important;color:#c4dce4!important;font-size:12px!important;line-height:1.4!important}
+#rhEventEditor .rhModalX{
+ width:37px!important;height:37px!important;right:12px!important;top:12px!important;
+ border:1.5px solid #5de9f5!important;border-radius:50%!important;background:#031b26!important;
+ color:white!important;font-size:24px!important;
+}
+#rhEventEditor .rhFormModal label,#rhEventEditor .rhFormatPick8025>label{
+ color:#66ecf7!important;font:italic 900 13px/1.1 system-ui,sans-serif!important;
+ text-transform:uppercase!important;letter-spacing:0!important;margin:12px 0 7px!important;
+}
+#rhEventEditor .rhFormModal #rhEventName,#rhEventEditor .rhNumberPicker input{
+ box-sizing:border-box!important;border:1px solid #40c5d7!important;border-radius:12px!important;
+ background:#051723!important;color:white!important;box-shadow:inset 0 0 8px #1bc9e32d!important;
+}
+#rhEventEditor .rhFormModal #rhEventName{min-height:42px!important;padding:10px 12px!important}
+#rhEventEditor .rhNumberPicker{max-width:260px!important;margin:auto!important}
+#rhEventEditor .rhNumberPicker button{border:1px solid #2ce6f2!important;border-radius:11px!important;background:#082b3b!important;color:#dfffff!important}
+#rhEventEditor .rhFormatPick8025{margin:12px 0!important}
+#rhEventEditor .rhFormatButtons8025{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+#rhEventEditor .rhFormatButtons8025 button{
+ min-width:0!important;min-height:64px!important;padding:9px 11px!important;
+ border:1px solid #31b6c8!important;border-radius:13px!important;
+ background:linear-gradient(120deg,#06303e,#031421)!important;color:white!important;
+ font:italic 900 14px/1.13 system-ui,sans-serif!important;
+}
+#rhEventEditor .rhFormatButtons8025 button small{color:#c2d5dc!important;opacity:1!important;font:500 10px/1.3 system-ui,sans-serif!important}
+#rhEventEditor .rhFormatButtons8025 button.active{border:2px solid #53f7fc!important;background:#075465!important;box-shadow:inset 0 0 11px #3ceffd36,0 0 8px #24e6ff72!important}
+#rhEventEditor .rhModalActions{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-top:14px!important}
+#rhEventEditor .rhModalActions .btn{
+ min-width:0!important;min-height:45px!important;padding:10px 8px!important;
+ border:1px solid #41d1e3!important;border-radius:12px!important;
+ font:italic 900 clamp(11px,3.6vw,14px)/1.15 system-ui,sans-serif!important;
+}
+#rhEventEditor .rhModalActions .btn:not(.secondary){background:linear-gradient(100deg,#0b7385,#074653)!important;color:white!important}
+@media(max-width:370px){
+ #events .rhEventsHeadV1{gap:7px!important;padding:5px 8px!important}
+ #events .rhEventsBackV1{min-width:65px!important;padding:4px 8px!important}
+ #events .rhEventsHeadV1 h1{font-size:18px!important}
+ #events .rhEventsHeroV1{height:213px!important}
+ #events .rhLeagueEntryV6018,#events .rhEventsCreateV1{grid-template-columns:44px minmax(0,1fr) 17px!important;gap:8px!important;padding:10px!important}
+ #events .rhLeagueEntryV6018::before,#events .rhEventsCreateV1>i{width:40px!important;height:40px!important;min-width:40px!important;background-size:39px 39px!important}
+ #events .rhLeagueAddDriverV6018{grid-template-columns:1fr!important}
+}
