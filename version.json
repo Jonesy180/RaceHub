@@ -1,5 +1,5 @@
 {
-  "version": "8.0.328",
-  "worker": "./otg-service-worker-v8328.js",
-  "message": "Garage compact car rows, readable details, fixed H/E\u2713 badges and direct Dashboard return from all Garage levels. Presentation-only; saved data and racing engines unchanged."
+  "version": "8.0.329",
+  "worker": "./otg-service-worker-v8329.js",
+  "message": "Garage car-row height correction only: compact flexible rows, text wrapping and fixed H/E\u2713 badges. No changes to ownership, navigation or racing data."
 }

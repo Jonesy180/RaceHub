@@ -1,0 +1,95 @@
+/* OTG! MAIN v8.0.329 — ONLY Garage car-row height correction.
+   The previous grid kept unwanted empty space on some phones. Flexbox
+   ensures that the checkbox / name + metadata / H + E✓ always share a
+   single compact row; longer names are allowed to wrap and grow. */
+#garage .otg327-ready[data-otg327-view="make"] .rhGarageMakeV1.otg327-selected .rhGarageCarsV1{
+  grid-auto-rows:max-content!important;
+  align-content:start!important;
+  align-items:start!important;
+}
+#garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row:not(.rhManualSpecialCar),
+#garage .otg327-ready .rhGarageCarV1.otg327-car-row:not(.rhCatalogueGarageCar),
+#garage .otg327-ready .rhCatalogueGarageCar.rhManualSpecialCar.otg327-car-row{
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-flow:row nowrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  align-content:normal!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:49px!important;
+  margin:0!important;
+  padding:6px 8px!important;
+  gap:7px!important;
+}
+/* Keep the original ownership checkbox fully interactive. */
+#garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row:not(.rhManualSpecialCar) > .rhCatalogueCheck{
+  flex:0 0 20px!important;
+  width:20px!important;
+  height:20px!important;
+  min-width:20px!important;
+  margin:0!important;
+  align-self:center!important;
+}
+#garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row > .rhCatalogueTick{
+  display:none!important;
+}
+#garage .otg327-ready .otg327-car-row > .otg328-car-copy{
+  flex:1 1 0!important;
+  min-width:0!important;
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  align-self:center!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:3px!important;
+}
+#garage .otg327-ready .otg327-car-row > .otg327-badges{
+  flex:0 0 67px!important;
+  width:67px!important;
+  max-width:67px!important;
+  min-width:67px!important;
+  height:auto!important;
+  margin:0!important;
+  align-self:center!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  flex-wrap:nowrap!important;
+  gap:5px!important;
+}
+#garage .otg327-ready .otg327-car-row > .otg327-badges .otg327-mini-h,
+#garage .otg327-ready .otg327-car-row > .otg327-badges .otg327-mini-e{
+  flex:0 0 29px!important;
+  width:29px!important;
+  height:28px!important;
+}
+/* Preserve the manual-car Edit action alongside the badges. */
+#garage .otg327-ready .rhGarageCarV1.otg327-car-row:not(.rhCatalogueGarageCar) > button:not(.v7HistoryBtn),
+#garage .otg327-ready .rhCatalogueGarageCar.rhManualSpecialCar.otg327-car-row > button:not(.v7HistoryBtn){
+  flex:0 0 28px!important;
+  min-width:28px!important;
+  width:28px!important;
+  height:30px!important;
+  min-height:30px!important;
+  margin:0!important;
+  padding:0!important;
+  align-self:center!important;
+}
+@media(max-width:360px){
+  #garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row:not(.rhManualSpecialCar),
+  #garage .otg327-ready .rhGarageCarV1.otg327-car-row:not(.rhCatalogueGarageCar),
+  #garage .otg327-ready .rhCatalogueGarageCar.rhManualSpecialCar.otg327-car-row{
+    gap:5px!important;padding:6px!important;
+  }
+  #garage .otg327-ready .otg327-car-row > .otg327-badges{
+    flex-basis:57px!important;width:57px!important;min-width:57px!important;
+  }
+  #garage .otg327-ready .otg327-car-row > .otg327-badges .otg327-mini-h,
+  #garage .otg327-ready .otg327-car-row > .otg327-badges .otg327-mini-e{
+    flex-basis:25px!important;width:25px!important;height:26px!important;
+  }
+}
