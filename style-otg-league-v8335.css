@@ -1,0 +1,231 @@
+/* OTG! MAIN v8.0.335 — League Organiser and League Setup visual finish.
+   Native League creation, scoring, drivers, event count, save handlers and
+   existing League history remain wholly owned by the original v6 engine.
+   Scoped to Custom Racing's native League views. */
+#events .rhLeaguePageV6018 {
+ box-sizing:border-box!important;max-width:100%!important;overflow-x:clip!important;
+ background:linear-gradient(180deg,#030e18 0%,#01080e 100%)!important;
+ color:#f7fcff!important;
+}
+#events .rhLeagueHeroV6018 {
+ box-sizing:border-box!important;position:relative!important;
+ height:176px!important;min-height:176px!important;max-height:176px!important;
+ padding:10px 12px!important;
+ background:linear-gradient(180deg,rgba(0,10,18,.49) 0%,rgba(0,9,18,.08) 32%,rgba(0,10,18,.7) 69%,#020b14 100%),url('assets/final/league-organiser-control-room-v6018.png') center 37%/cover no-repeat!important;
+ border-bottom:2px solid #40dff0!important;
+ box-shadow:0 5px 15px #10def44b!important;
+}
+#events .rhLeagueHeroV6018.compact {
+ height:142px!important;min-height:142px!important;max-height:142px!important;
+ background-position:center 41%!important;
+}
+#events .rhLeagueBackV6018 {
+ position:absolute!important;top:9px!important;left:12px!important;z-index:3!important;
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ box-sizing:border-box!important;width:auto!important;min-width:77px!important;
+ min-height:37px!important;height:37px!important;margin:0!important;padding:7px 13px!important;
+ border:1.5px solid #5be5f3!important;border-radius:14px!important;
+ color:#fff!important;background:#08202fe9!important;
+ box-shadow:0 0 9px #28e4f574!important;
+ font:italic 900 12px/1 system-ui,sans-serif!important;white-space:nowrap!important;
+}
+#events .rhLeagueTitleV6018 {
+ position:absolute!important;left:13px!important;right:13px!important;bottom:11px!important;
+ display:block!important;max-width:calc(100% - 26px)!important;margin:0!important;
+ text-shadow:0 3px 9px #000!important;
+}
+#events .rhLeagueTitleV6018>small {
+ display:block!important;margin:0 0 2px!important;color:#67ecf9!important;
+ font:italic 800 11px/1.1 system-ui,sans-serif!important;letter-spacing:.12em!important;
+ text-transform:uppercase!important;
+}
+#events .rhLeagueTitleV6018 h1 {
+ display:block!important;margin:0!important;max-width:100%!important;
+ color:#fff!important;
+ font:italic 950 clamp(23px,6.3vw,31px)/1.03 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ letter-spacing:.015em!important;text-transform:uppercase!important;
+ overflow-wrap:anywhere!important;
+}
+#events .rhLeagueTitleV6018 p {
+ margin:4px 0 0!important;font-size:11px!important;line-height:1.18!important;
+ color:#c0e8ee!important;
+}
+#events .rhLeagueBodyV6018 {
+ box-sizing:border-box!important;width:100%!important;max-width:760px!important;
+ margin:0 auto!important;padding:13px 12px 28px!important;
+}
+#events .rhLeagueSectionV6018,#events .rhLeagueFormV6018,
+#events .rhLeagueEmptyV6018,#events .rhLeagueSummaryV6018 {
+ box-sizing:border-box!important;margin:0 0 12px!important;
+ border:1.5px solid #36bcd3!important;border-radius:17px!important;
+ background:linear-gradient(130deg,#052433 0%,#020d18 85%)!important;
+ box-shadow:inset 0 0 12px #16ddfa13,0 0 10px #17d9f536!important;
+}
+/* Empty League hub is a small, informative tile, not a huge panel. */
+#events .rhLeagueEmptyV6018 {
+ display:grid!important;grid-template-columns:49px minmax(0,1fr)!important;
+ column-gap:12px!important;align-items:center!important;
+ padding:15px 13px!important;
+}
+#events .rhLeagueEmptyV6018::before {
+ content:'';grid-column:1;grid-row:1/4;
+ width:47px;height:47px;
+ background:url('assets/ui/custom-league-v8333.svg') center/contain no-repeat;
+ filter:drop-shadow(0 0 5px #29ecf6ab);
+}
+#events .rhLeagueEmptyV6018>small {
+ grid-column:2;color:#55dfef!important;
+ font:italic 850 10px/1.15 system-ui,sans-serif!important;
+ letter-spacing:.07em!important;
+}
+#events .rhLeagueEmptyV6018 h2 {
+ grid-column:2;margin:2px 0 3px!important;color:#fff!important;
+ font:italic 950 clamp(18px,5.7vw,25px)/1.09 Impact,'Arial Narrow',system-ui,sans-serif!important;
+}
+#events .rhLeagueEmptyV6018 p {
+ grid-column:2;margin:0!important;
+ font-size:12px!important;line-height:1.38!important;color:#c1d8df!important;
+}
+/* Existing create action remains the original button and handler. */
+#events .rhLeaguePrimaryV6018:not(.save) {
+ box-sizing:border-box!important;display:grid!important;
+ grid-template-columns:40px minmax(0,1fr)!important;gap:12px!important;
+ align-items:center!important;min-height:67px!important;height:auto!important;
+ margin:0 0 12px!important;padding:12px 13px!important;
+ border:2px solid #3deaf6!important;border-radius:16px!important;
+ background:linear-gradient(100deg,#075566 0%,#052635 65%,#041521 100%)!important;
+ box-shadow:0 0 13px #29e7ff72,inset 0 0 16px #26e8ff23!important;
+ color:#fff!important;font-size:0!important;text-align:left!important;
+}
+#events .rhLeaguePrimaryV6018:not(.save)::before {
+ content:'+';display:flex;align-items:center;justify-content:center;
+ width:39px;height:39px;grid-column:1;
+ border:2px solid #64f7ff;border-radius:50%;color:#ebffff;
+ font:900 31px/1 system-ui,sans-serif;box-shadow:0 0 9px #2bf3ff91;
+}
+#events .rhLeaguePrimaryV6018:not(.save)>span {min-width:0!important;grid-column:2;display:grid!important;gap:3px!important;}
+#events .rhLeaguePrimaryV6018:not(.save) b {
+ color:#fff!important;font:italic 950 clamp(17px,5.4vw,23px)/1.1 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ white-space:normal!important;overflow-wrap:anywhere!important;
+}
+#events .rhLeaguePrimaryV6018:not(.save) small {
+ color:#91e8f4!important;font:600 11px/1.35 system-ui,sans-serif!important;
+}
+#events .rhLeagueSectionV6018 {padding:12px!important;}
+#events .rhLeagueSectionV6018>h2 {
+ margin:0 0 9px!important;padding:0 0 8px!important;
+ border-bottom:1px solid #45dff067!important;color:#5deeff!important;
+ font:italic 950 17px/1.05 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ letter-spacing:.03em!important;
+}
+#events .rhLeagueCardV6018 {
+ box-sizing:border-box!important;min-height:65px!important;height:auto!important;
+ padding:11px 12px!important;margin:8px 0!important;
+ border:1px solid #318fa5!important;border-radius:12px!important;
+ background:linear-gradient(115deg,#092638,#04111b)!important;
+}
+#events .rhLeagueCardV6018 b {font:italic 900 16px/1.18 system-ui,sans-serif!important;overflow-wrap:anywhere!important;}
+#events .rhLeagueCardV6018 em {font:600 11px/1.3 system-ui,sans-serif!important;color:#9fc1c9!important;}
+#events .rhLeagueCardV6018 strong {font-size:26px!important;color:#65e7f4!important;}
+/* League Setup: native fields; compact, clearly grouped, visually consistent. */
+#events .rhLeagueFormV6018 {padding:12px 13px!important;}
+#events .rhLeagueFormV6018>label {display:grid!important;gap:7px!important;min-width:0!important;}
+#events .rhLeagueFormV6018 small,
+#events .rhLeagueFormBlockV6018>small {
+ color:#66eafb!important;
+ font:italic 900 12px/1.2 system-ui,sans-serif!important;
+ letter-spacing:.04em!important;text-transform:uppercase!important;
+}
+#events .rhLeagueFormV6018 input,
+#events .rhLeagueAddDriverV6018 input {
+ box-sizing:border-box!important;min-width:0!important;max-width:100%!important;
+ height:42px!important;min-height:42px!important;
+ padding:9px 11px!important;border:1.5px solid #3b9fb8!important;
+ border-radius:12px!important;background:#041622!important;color:#f7feff!important;
+ font-size:14px!important;box-shadow:inset 0 0 8px #10cef02d!important;
+}
+#events .rhLeagueFormV6018 input::placeholder {color:#91aeba!important;}
+#events .rhLeagueFormV6018 input:focus-visible,
+#events .rhLeagueFormV6018 button:focus-visible,
+#events .rhLeagueBackV6018:focus-visible,
+#events .rhLeaguePrimaryV6018:focus-visible {
+ outline:2px solid #a0fcff!important;outline-offset:2px!important;
+}
+#events .rhLeagueFormBlockV6018 {
+ box-sizing:border-box!important;margin-top:11px!important;padding:12px 0 3px!important;
+ border-top:1px solid #39d2e43b!important;
+}
+#events .rhLeagueFormBlockV6018>p,
+#events .rhLeagueFormBlockV6018>div + p {
+ color:#a9bfca!important;font-size:11px!important;line-height:1.38!important;
+ margin:7px 0 3px!important;
+}
+#events .rhLeagueModeV6018 {
+ display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:9px!important;margin:9px 0 0!important;
+}
+#events .rhLeagueModeV6018 button {
+ box-sizing:border-box!important;min-width:0!important;min-height:43px!important;
+ padding:9px 8px!important;border:1.5px solid #318ea9!important;
+ border-radius:12px!important;
+ background:#071c28!important;color:#bdcbd4!important;
+ font:italic 900 12px/1.15 system-ui,sans-serif!important;
+}
+#events .rhLeagueModeV6018 button.active {
+ border:2px solid #52f8ff!important;background:#076277!important;
+ color:#fff!important;box-shadow:0 0 9px #25e7fd72!important;
+}
+#events .rhLeagueStepperV6018 {
+ display:grid!important;grid-template-columns:49px minmax(67px,1fr) 49px!important;
+ width:min(100%,210px)!important;max-width:210px!important;
+ border:1.5px solid #3acde1!important;border-radius:12px!important;
+ overflow:hidden!important;margin:9px 0!important;
+}
+#events .rhLeagueStepperV6018 button,
+#events .rhLeagueStepperV6018 b {
+ box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ min-height:40px!important;height:40px!important;padding:5px!important;
+ border:0!important;color:#e9ffff!important;background:#052734!important;
+ font:900 22px/1 system-ui,sans-serif!important;
+}
+#events .rhLeagueStepperV6018 b {
+ border-inline:1px solid #3acde1!important;background:#041521!important;
+ font-size:19px!important;
+}
+#events .rhLeagueAddDriverV6018 {
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+ gap:7px!important;align-items:center!important;margin:9px 0 0!important;
+}
+#events .rhLeagueAddDriverV6018 button {
+ box-sizing:border-box!important;min-height:42px!important;padding:7px 11px!important;
+ border:1.5px solid #4edceb!important;border-radius:11px!important;
+ background:#094356!important;color:#fff!important;
+ font:italic 850 11px/1.12 system-ui,sans-serif!important;
+ white-space:nowrap!important;
+}
+#events .rhLeagueDriverV6018 {
+ box-sizing:border-box!important;min-height:47px!important;
+ margin:7px 0!important;padding:8px 10px!important;
+ border:1px solid #32879b!important;border-radius:11px!important;
+ background:#051a25!important;
+}
+#events .rhLeagueDriverV6018 b {color:#fff!important;font-size:13px!important;}
+#events .rhLeagueDriverV6018 button {min-width:34px;min-height:34px;border:1px solid #87535b!important;border-radius:9px!important;}
+#events .rhLeaguePrimaryV6018.save {
+ box-sizing:border-box!important;width:100%!important;height:auto!important;min-height:49px!important;
+ padding:12px!important;margin:13px 0 0!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ border:2px solid #62f6fe!important;border-radius:13px!important;
+ background:linear-gradient(100deg,#0c7285,#064657)!important;
+ box-shadow:0 0 13px #28eaf574!important;color:#fff!important;
+ font:italic 950 15px/1.14 system-ui,sans-serif!important;text-align:center!important;
+}
+@media(max-width:370px) {
+ #events .rhLeagueHeroV6018 {height:159px!important;min-height:159px!important;max-height:159px!important;}
+ #events .rhLeagueHeroV6018.compact {height:136px!important;min-height:136px!important;max-height:136px!important;}
+ #events .rhLeagueTitleV6018 h1 {font-size:23px!important;}
+ #events .rhLeagueEmptyV6018 {grid-template-columns:39px minmax(0,1fr)!important;gap:9px!important;padding:12px 10px!important;}
+ #events .rhLeagueEmptyV6018::before {height:38px;width:38px;}
+ #events .rhLeagueAddDriverV6018 {grid-template-columns:1fr!important;}
+ #events .rhLeagueAddDriverV6018 button {width:100%!important;}
+}

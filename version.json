@@ -1,5 +1,5 @@
 {
-  "version": "8.0.334",
-  "worker": "./otg-service-worker-v8334.js",
-  "message": "Custom Racing visual fix: shorter hero and compact empty Your Events state; no event data or functionality changed."
+  "version": "8.0.335",
+  "worker": "./otg-service-worker-v8335.js",
+  "message": "League Organiser and League Setup Smart Tile visual refresh; existing events, drivers, scoring and data unchanged."
 }
