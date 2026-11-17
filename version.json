@@ -1,5 +1,5 @@
 {
-  "version": "8.0.321",
-  "worker": "./otg-service-worker-v8321.js",
-  "message": "Brand-new compact Evil Headquarters UI. Hero first, current event only, and a separately opened Event List. Native racing and locked draw unchanged."
+  "version": "8.0.322",
+  "worker": "./otg-service-worker-v8322.js",
+  "message": "Dashboard typography, icon polish and compact Smart Tiles; presentation only. Evil, racing mechanics and data unchanged."
 }
