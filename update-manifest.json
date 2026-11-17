@@ -1,5 +1,5 @@
 {
-  "version": "8.0.324",
-  "worker": "./otg-service-worker-v8324.js",
-  "message": "Festival landing Smart Tile makeover with 10 game-neutral category headings, live native options and existing racing engines preserved."
+  "version": "8.0.325",
+  "worker": "./otg-service-worker-v8325.js",
+  "message": "Festival phone QA correction: compact Back and History, shorter hero, and sharp uncropped category icons. No racing logic or saved data changed."
 }
