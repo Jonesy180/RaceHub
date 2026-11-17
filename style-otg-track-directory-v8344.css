@@ -1,0 +1,115 @@
+/* OTG! MAIN v8.0.344 — FH5 Track Directory only.
+   Keep all nine native filter buttons, their order, handlers, search, route data and clues.
+   Correct legacy 8.0.74 mobile search offset. No JavaScript or racing logic changes. */
+
+/* Do not drag the directory search input right to clear the header Back button:
+   the Back button lives in the hero, not in the search row. */
+.rhTrackDirectoryPage8073 main .rhTrackDirectorySearch8073 {
+  box-sizing:border-box!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:8px!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+.rhTrackDirectoryPage8073 main .rhTrackDirectorySearch8073 > input {
+  box-sizing:border-box!important;
+  display:block!important;
+  grid-column:1!important;
+  flex:none!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important; /* overrides old width:calc(100% - 106px), margin-left:106px */
+  padding:11px 14px!important;
+  min-height:44px!important;
+  border-radius:13px!important;
+  font-size:clamp(13px,3.4vw,16px)!important;
+}
+.rhTrackDirectoryPage8073 main .rhTrackDirectorySearch8073 > b {
+  box-sizing:border-box!important;
+  display:block!important;
+  grid-column:1!important;
+  width:100%!important;
+  margin:0!important;
+  padding:1px 2px!important;
+  font-size:clamp(10px,2.8vw,12px)!important;
+  line-height:1.25!important;
+}
+/* On desktop all filters can share a wrapped line; on phones use precisely two
+   rows: first five categories, followed by the four additional FH5 categories.
+   20 equal tracks allow five 4-track buttons and four 5-track buttons. */
+.rhTrackDirectoryPage8073 main .rhTrackFilters8073 {
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  overflow:visible!important;
+  gap:6px!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:8px 0 10px!important;
+}
+.rhTrackDirectoryPage8073 main .rhTrackFilter8073 {
+  box-sizing:border-box!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:38px!important;
+  margin:0!important;
+  padding:7px 8px!important;
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  line-height:1.14!important;
+  text-align:center!important;
+  font-size:clamp(10px,2.65vw,12px)!important;
+}
+@media (max-width:600px) {
+  .rhTrackDirectoryPage8073 main .rhTrackFilters8073 {
+    display:grid!important;
+    grid-template-columns:repeat(20,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    gap:6px!important;
+    overflow:visible!important;
+  }
+  .rhTrackDirectoryPage8073 main .rhTrackFilter8073:nth-child(-n+5) {grid-column:span 4!important}
+  .rhTrackDirectoryPage8073 main .rhTrackFilter8073:nth-child(n+6) {grid-column:span 5!important}
+  .rhTrackDirectoryPage8073 main .rhTrackFilter8073 {
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    width:100%!important;
+    min-height:43px!important;
+    border-radius:13px!important;
+    padding:7px 3px!important;
+  }
+  /* Existing back button remains independently positioned and fully clickable. */
+  .rhTrackDirectoryPage8073 header {
+    min-height:145px!important;
+    padding-top:13px!important;
+    padding-bottom:13px!important;
+  }
+}
+/* Improve header contrast without changing the approved photo, its title or links. */
+.rhTrackDirectoryPage8073 header {
+  background:
+    linear-gradient(90deg,rgba(2,10,19,.88) 0%,rgba(3,12,22,.57) 65%,rgba(3,11,20,.48) 100%),
+    url('assets/final/records-background-APPROVED-v5728.png') center 35%/cover no-repeat!important;
+}
+.rhTrackDirectoryPage8073 header small {
+  color:#77e7f6!important;
+  text-shadow:0 1px 5px #000!important;
+}
+.rhTrackDirectoryPage8073 header h1 {
+  color:#fff!important;
+  text-shadow:0 2px 8px #000!important;
+}
+.rhTrackDirectoryPage8073 header p {
+  color:#d5e8ee!important;
+  font-size:clamp(11px,2.85vw,13px)!important;
+  line-height:1.35!important;
+  text-shadow:0 1px 5px #000!important;
+}
