@@ -1,5 +1,5 @@
 {
-  "version": "8.0.322",
-  "worker": "./otg-service-worker-v8322.js",
-  "message": "Dashboard typography, icon polish and compact Smart Tiles; presentation only. Evil, racing mechanics and data unchanged."
+  "version": "8.0.323",
+  "worker": "./otg-service-worker-v8323.js",
+  "message": "Dashboard approved design match: original approved bright hero, illustrated icons, neon Smart Tiles and motorsport typography. Visual-only; existing data and racing mechanics unchanged."
 }

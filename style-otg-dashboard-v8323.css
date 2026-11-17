@@ -1,0 +1,199 @@
+/* OTG! MAIN v8.0.323 — approved dashboard fidelity correction.
+   Presentation only: all original buttons, handlers, state, Garage, Evil and results stay intact.
+   Hero and icons are direct crops of the previously approved dashboard artwork. */
+#home .v7Dash{
+  background:#01060b;
+  color:#faffff;
+  min-height:100svh;
+}
+/* The approved artwork already contains the OTG! wordmark. Hide the duplicate
+   DOM logo visually, keeping the original DOM and navigation unchanged. */
+#home .v7DashHero{
+  height:auto;
+  aspect-ratio:852/429;
+  min-height:0;
+  max-height:320px;
+  background:#030d15 url('assets/ui/dashboard-hero-v8323.webp') center center/cover no-repeat;
+  border-bottom:1px solid rgba(25,226,253,.4);
+  box-shadow:0 2px 12px rgba(0,219,249,.12);
+}
+#home .v7DashHero .v7DashLogo{visibility:hidden}
+#home .v7DashBody{padding:0 4px calc(18px + env(safe-area-inset-bottom))}
+#home .otgTagline8111{
+  box-sizing:border-box;
+  position:relative;
+  margin:0 -4px 12px;
+  padding:11px 32px 12px;
+  background:linear-gradient(180deg,#02060b,#030910 52%,#01060b);
+  border:0;
+  border-top:2px solid rgba(9,232,246,.53);
+  border-bottom:2px solid rgba(9,232,246,.48);
+  box-shadow:0 4px 12px rgba(0,228,251,.2),inset 0 1px 8px rgba(0,217,247,.08);
+  color:#f8fdff;
+  font-family:Impact,'Arial Narrow','Roboto Condensed','Segoe UI',sans-serif;
+  font-weight:950;
+  font-style:italic;
+  font-size:clamp(14px,4vw,22px);
+  letter-spacing:-.025em;
+  line-height:1.13;
+  text-shadow:0 2px 0 #000,0 0 9px rgba(255,255,255,.24);
+}
+#home .otgTagline8111::before,#home .otgTagline8111::after{
+  content:'';
+  position:absolute;
+  top:50%;width:24px;height:17px;
+  transform:translateY(-50%) skew(-18deg);
+  background:conic-gradient(#02e7f8 25%,#001822 0 50%,#02e7f8 0 75%,#001822 0) 0 0/12px 12px;
+  filter:drop-shadow(0 0 5px rgba(0,237,247,.45));
+}
+#home .otgTagline8111::before{left:9px}
+#home .otgTagline8111::after{right:9px}
+#home .v7DashGrid{gap:9px}
+#home .v7DashTile:not(.tetLogoLauncher8129){
+  box-sizing:border-box;
+  min-width:0;
+  min-height:89px;
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr) 12px;
+  align-items:center;
+  column-gap:6px;
+  padding:7px 7px 7px 8px;
+  border:2px solid var(--a);
+  border-radius:19px;
+  background:
+    repeating-linear-gradient(132deg,transparent 0 5px,rgba(255,255,255,.022) 6px 7px),
+    linear-gradient(130deg,color-mix(in srgb,var(--a) 18%,#081019) 0%,#050b12 52%,color-mix(in srgb,var(--a) 9%,#05090f) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.23),
+    inset 0 -3px 0 color-mix(in srgb,var(--a) 23%,transparent),
+    inset 0 0 24px color-mix(in srgb,var(--a) 9%,transparent),
+    0 0 9px color-mix(in srgb,var(--a) 36%,transparent),
+    0 5px 12px #000;
+  transition:filter .15s ease;
+}
+/* Festival returns to an ordinary two-column Smart Tile beside the sponsor.
+   A later Evil tile decoration already supplies the working sponsor button. */
+#home .v7DashTile.festival{grid-column:auto;}
+#home .v7DashTile:not(.tetLogoLauncher8129)>i{
+  display:block;
+  box-sizing:border-box;
+  width:57px;
+  height:68px;
+  align-self:center;
+  border:0;
+  border-radius:13px;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  box-shadow:0 0 8px color-mix(in srgb,var(--a) 23%,transparent);
+  font-size:0!important;
+  color:transparent!important;
+  overflow:hidden;
+}
+#home .v7DashTile:not(.tetLogoLauncher8129)>i svg{display:none!important}
+#home .v7DashTile.festival>i{background-image:url('assets/ui/dashboard-icon-festival-v8323.webp')}
+#home .v7DashTile.raceoff>i{background-image:url('assets/ui/dashboard-icon-raceoff-v8323.webp')}
+#home .v7DashTile.custom>i{background-image:url('assets/ui/dashboard-icon-custom-v8323.webp')}
+#home .v7DashTile.garage>i{background-image:url('assets/ui/dashboard-icon-garage-v8323.webp')}
+#home .v7DashTile.setups>i{background-image:url('assets/ui/dashboard-icon-setups-v8323.webp')}
+#home .v7DashTile.pick>i{background-image:url('assets/ui/dashboard-icon-pick-v8323.webp')}
+#home .v7DashTile.records>i{background-image:url('assets/ui/dashboard-icon-records-v8323.webp')}
+#home .v7DashTile.stats>i{background-image:url('assets/ui/dashboard-icon-stats-v8323.webp')}
+#home .v7DashTile.settings>i{background-image:url('assets/ui/dashboard-icon-settings-v8323.webp')}
+#home .v7DashTile:not(.tetLogoLauncher8129)>span{
+  min-width:0;
+  display:flex;
+  flex-flow:column nowrap;
+  align-items:flex-start;
+  justify-content:center;
+  gap:4px;
+}
+#home .v7DashTile:not(.tetLogoLauncher8129)>span>b{
+  display:block;
+  max-width:100%;
+  font-family:Impact,'Arial Narrow','Roboto Condensed','Segoe UI',sans-serif;
+  font-size:clamp(15px,4.15vw,23px);
+  font-weight:950;
+  font-style:italic;
+  font-stretch:condensed;
+  letter-spacing:-.03em;
+  line-height:1.02;
+  white-space:normal;
+  overflow-wrap:normal;
+  word-break:normal;
+  text-transform:uppercase;
+  color:white;
+  text-shadow:0 1px 2px #000,0 0 5px rgba(255,255,255,.13);
+}
+#home .v7DashTile:not(.tetLogoLauncher8129)>span>small{
+  font-family:'Arial Narrow','Roboto Condensed','Segoe UI',sans-serif;
+  font-style:italic;
+  font-size:clamp(10px,2.75vw,15px);
+  font-weight:850;
+  letter-spacing:-.018em;
+  line-height:1.14;
+  color:var(--a);
+  overflow-wrap:normal;
+  word-break:normal;
+  text-shadow:0 0 8px color-mix(in srgb,var(--a) 17%,transparent);
+}
+#home .v7DashTile:not(.tetLogoLauncher8129)>em{
+  align-self:center;
+  justify-self:end;
+  color:var(--a);
+  font-size:31px;
+  font-weight:900;
+  text-shadow:0 0 10px color-mix(in srgb,var(--a) 64%,transparent);
+}
+#home .v7DashTile.custom,#home .v7DashTile.setups,#home .v7DashTile.pick{
+  grid-template-columns:58px minmax(0,1fr) 12px;
+  column-gap:6px;
+}
+/* Preserve the original Dave & Steve sponsor artwork and tap action. */
+#home .v7DashTile.evil8097.tetLogoLauncher8129{
+  min-height:89px!important;
+  border:2px solid #ff369b!important;
+  border-radius:19px!important;
+  box-shadow:inset 0 0 23px rgba(251,25,132,.23),0 0 10px rgba(253,27,137,.48),0 5px 12px #000!important;
+  background:repeating-linear-gradient(130deg,transparent 0 6px,rgba(255,255,255,.018) 7px 8px),linear-gradient(135deg,#270d24,#0c0715 80%)!important;
+}
+#home .v7DashTile.evil8097.tetLogoLauncher8129 .tetSponsorLogo8129{
+  max-height:83px!important;
+  filter:drop-shadow(0 0 5px rgba(255,64,153,.3))!important;
+}
+#home .v7DashFooter{margin:23px auto 0;gap:11px;color:#03e3f5}
+#home .v7DashFooter span{height:2px;box-shadow:0 0 6px rgba(0,231,248,.7)}
+#home .v7DashFooter b{
+  font-family:Impact,'Arial Narrow','Roboto Condensed',sans-serif;
+  font-style:italic;
+  font-size:clamp(26px,7vw,34px);
+  font-weight:950;
+  letter-spacing:.05em;
+  line-height:1;
+  color:#00d8f1;
+  text-shadow:0 0 9px rgba(0,220,245,.42);
+}
+#home .v7DashFooter small{
+  margin-top:0;
+  color:#dffcff;
+  font-size:10px;
+  letter-spacing:.39em;
+}
+#home .v7DashTile:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){#home .v7DashTile:hover{filter:brightness(1.13)}}
+@media(max-width:375px){
+ #home .v7DashTile:not(.tetLogoLauncher8129){
+  grid-template-columns:49px minmax(0,1fr) 10px;
+  min-height:80px;
+  gap:5px;
+  padding:6px 5px;
+ }
+ #home .v7DashTile:not(.tetLogoLauncher8129)>i{width:48px;height:58px}
+ #home .v7DashTile.custom,#home .v7DashTile.setups,#home .v7DashTile.pick{grid-template-columns:49px minmax(0,1fr) 10px;gap:5px}
+ #home .v7DashTile:not(.tetLogoLauncher8129)>span>b{font-size:clamp(13px,4vw,16px)}
+ #home .v7DashTile:not(.tetLogoLauncher8129)>span>small{font-size:clamp(9px,2.7vw,12px)}
+ #home .v7DashTile.evil8097.tetLogoLauncher8129{min-height:80px!important}
+ #home .v7DashGrid{gap:7px}
+ #home .otgTagline8111{font-size:clamp(12px,3.7vw,16px)}
+}
+@media(prefers-reduced-motion:reduce){#home .v7DashTile{transition:none}}
