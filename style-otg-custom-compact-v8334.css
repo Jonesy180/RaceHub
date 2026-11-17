@@ -1,0 +1,32 @@
+/* OTG! MAIN v8.0.334 — Custom Racing homepage spacing correction only.
+   No edits to event/league logic, data, navigation or modal controls. */
+#events .rhEventsHeroV1 {
+ height:198px!important;min-height:0!important;max-height:198px!important;
+ background-position:center 51%!important;
+}
+#events .rh3333HeroWord { top:80px!important; }
+#events .rhEventsListV1 { padding:10px 11px!important; }
+#events .rhEventsListV1>h2 { margin-bottom:7px!important;padding-bottom:7px!important; }
+#events .rhEventsListV1 .rhEmpty {
+ box-sizing:border-box!important;min-height:0!important;height:auto!important;
+ margin:0!important;padding:4px 5px 6px!important;
+ border:0!important;box-shadow:none!important;background:transparent!important;
+}
+#events .rhEventsListV1 .rhEmptyMark,
+#events .rhEventsListV1 .rhEmptyLine { display:none!important; }
+#events .rhEventsListV1 .rhEmpty h2 {
+ margin:2px 0 6px!important;
+ font:italic 950 clamp(18px,5vw,22px)/1.12 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ color:#f5ffff!important;letter-spacing:.025em!important;
+}
+#events .rhEventsListV1 .rhEmpty p {
+ max-width:470px!important;margin:0 auto!important;
+ color:#a9bdc7!important;font-size:11.5px!important;line-height:1.4!important;
+}
+/* Same native rhCreateEvent() action is already exposed in the prominent tile
+   immediately above this panel. Remove only its duplicate visible button. */
+#events .rhEventsListV1 .rhEmpty>.btn { display:none!important; }
+@media(max-width:370px){
+ #events .rhEventsHeroV1 {height:184px!important;max-height:184px!important;}
+ #events .rh3333HeroWord {top:76px!important;}
+}

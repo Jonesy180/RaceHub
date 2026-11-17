@@ -1,5 +1,5 @@
 {
-  "version": "8.0.333",
-  "worker": "./otg-service-worker-v8333.js",
-  "message": "Custom Racing, League Organiser and native Create Event visual makeover; existing racing data and actions preserved."
+  "version": "8.0.334",
+  "worker": "./otg-service-worker-v8334.js",
+  "message": "Custom Racing visual fix: shorter hero and compact empty Your Events state; no event data or functionality changed."
 }
