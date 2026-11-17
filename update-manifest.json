@@ -1,5 +1,5 @@
 {
-  "version": "8.0.342",
-  "worker": "./otg-service-worker-v8342.js",
-  "message": "Fix update navigation loop: worker now opens the matching current version 8.0.342; existing records, Spaces, Garage and results untouched."
+  "version": "8.0.343",
+  "worker": "./otg-service-worker-v8343.js",
+  "message": "Hall of Fame visual refinement: brighter existing trophy museum, compact empty state and less repeated text. No results or racing data changes."
 }
