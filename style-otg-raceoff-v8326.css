@@ -1,0 +1,198 @@
+/* OTG! MAIN v8.0.326 — RACE OFF LANDING ONLY. Seven pink Smart Tiles.
+   Other Race Off pages, Festival, Evil Campaign and racing logic untouched. */
+#raceoff > .rhFestivalV1.rhRaceOffV1.otg326-landing {
+  --otg-ro:#ff46cf;--otg-ro-bright:#ff76e9;--otg-ro-deep:#9d136e;
+  display:flex!important;flex-direction:column!important;min-width:0;
+  overflow-x:hidden!important;background:#08030f!important;color:#fff!important;
+}
+/* Older native code moves the original title below the artwork. Place that
+   original title ABOVE via flex order; no second copy of the heading. */
+#raceoff .otg326-landing > .otgFestivalStrip8146 {
+  order:-3!important;min-height:37px!important;box-sizing:border-box!important;
+  padding:6px 11px!important;background:linear-gradient(110deg,#23051f,#080612 82%)!important;
+  border:1px solid #f932bb!important;border-bottom:2px solid #ff5adc!important;
+  box-shadow:inset 0 0 10px #ff47d91b,0 0 15px #fa2eb75c!important;
+}
+#raceoff .otg326-landing .otgFestivalStrip8146 h1,
+#raceoff .otg326-landing .rhFestivalHeadV1 h1 {
+  font-family:Impact,'Arial Narrow','Roboto Condensed',sans-serif!important;
+  font-size:clamp(19px,5.8vw,26px)!important;font-weight:950!important;
+  font-style:italic!important;line-height:1.03!important;letter-spacing:.025em!important;
+  color:#fff!important;text-shadow:0 2px #000,0 0 10px #ff5cc45b!important;
+}
+#raceoff .otg326-landing .otgFestivalStrip8146 h1::before {content:'OTG!  /  ';color:#ff56d3;font-style:italic}
+#raceoff .otg326-landing .otgFestivalStrip8146 p,
+#raceoff .otg326-landing .rhFestivalHeadV1 p {display:none!important}
+#raceoff .otg326-landing > .rhRaceOffHeroV1 {
+  order:-2!important;height:clamp(112px,31vw,132px)!important;min-height:0!important;
+  position:relative!important;overflow:hidden!important;
+  background:linear-gradient(180deg,transparent 0%,rgba(10,1,12,.02) 45%,rgba(9,0,13,.65) 100%),
+    url('assets/ui/raceoff-hero-v8326.webp') center 56%/cover no-repeat!important;
+  border-bottom:2px solid #ff43ce!important;
+  box-shadow:0 3px 14px rgba(255,46,199,.29)!important;
+}
+#raceoff .otg326-landing > .rhFestivalBodyV1 {
+  order:0!important;box-sizing:border-box!important;width:100%;min-width:0;
+  padding:9px 10px calc(20px + env(safe-area-inset-bottom))!important;margin:0!important;
+  background:linear-gradient(180deg,#19051d 0%,#070612 55%,#07040e 100%)!important;
+}
+/* The live app's History button is relocated into the header by v8.0.75. */
+#raceoff .otg326-landing > .rhRaceOffHeroV1 > .rhFestivalHeadV1 {
+  position:absolute!important;top:auto!important;bottom:8px!important;left:10px!important;right:10px!important;
+  width:auto!important;margin:0!important;padding:0!important;z-index:8!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;
+}
+#raceoff .otg326-landing .rhFestivalHeadV1 > div {display:none!important}
+#raceoff .otg326-landing > .rhRaceOffHeroV1 .rhFestivalBackV1 {
+  flex:0 0 79px!important;width:79px!important;height:38px!important;
+  min-width:79px!important;min-height:38px!important;padding:0 6px!important;
+  box-sizing:border-box!important;border-radius:13px!important;border:2px solid #ff5ad9!important;
+  background:rgba(25,2,22,.91)!important;box-shadow:0 0 11px #ff42c7a1!important;
+  color:#fff!important;font-size:14px!important;font-weight:900!important;
+  line-height:1!important;letter-spacing:.02em!important;white-space:nowrap!important;
+}
+#raceoff .otg326-landing > .rhRaceOffHeroV1 .rhFestivalHeadV1 > .rhHistoryNavV8075 {
+  position:static!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+  flex:0 0 126px!important;width:126px!important;min-width:126px!important;
+  height:38px!important;min-height:38px!important;max-height:38px!important;
+  box-sizing:border-box!important;padding:4px 8px!important;margin:0!important;gap:4px!important;
+  border-radius:12px!important;border:1.5px solid #fb4ccf!important;
+  background:rgba(25,2,24,.93)!important;box-shadow:0 0 11px #ff3ac49f!important;
+  color:#fff!important;align-self:center!important;
+}
+#raceoff .otg326-landing .rhHistoryNavV8075 b {
+  color:#fff!important;font:italic 900 13px/1.1 Impact,'Arial Narrow',sans-serif!important;
+  letter-spacing:.025em!important;
+}
+#raceoff .otg326-landing .rhHistoryNavV8075 em {color:#ff92e5!important;font-size:9px!important;line-height:1.05!important}
+#raceoff .otg326-landing .rhHistoryNavV8075 > strong {color:#ff84e7!important;font-size:19px!important;line-height:1!important}
+/* Fallback while the History relocation observer has not yet run. */
+#raceoff .otg326-landing > .rhRaceOffHeroV1 > .rhHistoryHeroTileV8065:not(.rhHistoryNavV8075){
+  position:absolute!important;top:auto!important;bottom:8px!important;right:10px!important;left:auto!important;
+  width:126px!important;min-height:38px!important;padding:4px 8px!important;
+  border:1.5px solid #fb4ccf!important;border-radius:12px!important;
+  background:rgba(25,2,24,.93)!important;z-index:7!important;
+}
+#raceoff .otg326-landing .rhHistoryHeroTileV8065:not(.rhHistoryNavV8075) small {display:none!important}
+#raceoff .otg326-landing .rhHistoryHeroTileV8065:not(.rhHistoryNavV8075) b {font-size:12px!important;color:#fff!important}
+/* Live continue tournament(s) stay above the catalogue. No mock results. */
+#raceoff .otg326-landing .rhRaceOffContinue {
+  box-sizing:border-box!important;min-width:0!important;padding:9px 11px!important;
+  margin:0 0 9px!important;border:1.5px solid #ff55d5!important;
+  border-radius:16px!important;background:linear-gradient(112deg,#260822,#090b1a)!important;
+  box-shadow:inset 0 0 13px #ff4bc72a,0 0 12px #fa35c878!important;
+}
+#raceoff .otg326-landing .rhRaceOffContinue > h2 {
+  margin:0 0 7px!important;font:italic 900 14px/1.1 Impact,'Arial Narrow',sans-serif!important;
+  letter-spacing:.08em!important;color:#ff83e8!important;
+}
+#raceoff .otg326-landing .rhRaceOffContinue > p {margin:0 0 6px!important;font-size:11px!important;line-height:1.25!important;color:#bc92bb!important}
+#raceoff .otg326-landing .rhRaceOffContinue .rhChampCard {
+  min-width:0!important;width:100%!important;box-sizing:border-box!important;
+  min-height:54px!important;height:auto!important;margin:3px 0!important;
+  padding:7px 8px 7px 62px!important;position:relative!important;
+  display:grid!important;grid-template-columns:minmax(0,1fr) 21px!important;gap:8px!important;
+  border:1px solid #a42f87!important;border-radius:12px!important;
+  background:linear-gradient(105deg,#300b2b,#0e0717)!important;
+}
+#raceoff .otg326-landing .rhRaceOffContinue .rhChampCard::before {
+  content:'';position:absolute;left:7px;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;background:url('assets/ui/dashboard-icon-raceoff-v8323.webp') center/contain no-repeat;
+}
+#raceoff .otg326-landing .rhRaceOffContinue .rhChampCard span {min-width:0!important}
+#raceoff .otg326-landing .rhRaceOffContinue .rhChampCard b {
+  font:italic 900 clamp(15px,4.3vw,21px)/1.1 Impact,'Arial Narrow',sans-serif!important;
+  color:#fff!important;white-space:normal!important;overflow-wrap:anywhere!important;
+}
+#raceoff .otg326-landing .rhRaceOffContinue .rhChampCard small {font-size:11px!important;color:#ff8ae5!important;line-height:1.25!important;white-space:normal!important}
+#raceoff .otg326-landing .rhRaceOffContinue .rhChampCard em{color:#ff7ada!important}
+#raceoff .otg326-category-heading {
+  display:flex;align-items:center;gap:9px;margin:4px 3px 8px;
+  color:#fff;font:italic 950 clamp(17px,5.2vw,23px)/1 Impact,'Arial Narrow',sans-serif;
+  letter-spacing:.02em;text-shadow:0 0 10px #ff7cd955;
+}
+#raceoff .otg326-category-heading::before {
+  content:'';width:34px;height:17px;flex-shrink:0;
+  background:conic-gradient(#ff48d0 25%,#0b0615 0 50%,#ff48d0 0 75%,#0b0615 0) 0 0/15px 15px;
+}
+#raceoff .otg326-category-list {display:grid;gap:6px;min-width:0;margin-bottom:11px}
+#raceoff .otg326-category {
+  min-width:0;overflow:hidden;border:1.5px solid #ff42ce;border-radius:13px;
+  background:linear-gradient(105deg,#1d0920,#090816 70%,#24071e);
+  box-shadow:inset 0 0 12px #ff4bcc2c,0 0 8px #fe37ce72;
+}
+#raceoff .otg326-category > summary {
+  box-sizing:border-box!important;min-height:48px!important;max-width:100%!important;
+  display:grid!important;grid-template-columns:42px minmax(0,1fr) auto 19px!important;
+  gap:7px!important;align-items:center!important;margin:0!important;padding:3px 8px!important;
+  list-style:none!important;cursor:pointer!important;
+  background:linear-gradient(105deg,#250a25,#0c0716 80%)!important;
+}
+#raceoff .otg326-category > summary::-webkit-details-marker {display:none!important}
+#raceoff .otg326-category > summary::marker {content:''}
+#raceoff .otg326-category > summary img {
+  display:block;width:39px;height:39px;object-fit:contain;
+  filter:drop-shadow(0 0 5px #ff4cce9a);
+}
+#raceoff .otg326-category-label {
+  display:block;min-width:0;white-space:normal;overflow-wrap:normal;
+  font:italic 950 clamp(13px,3.85vw,18px)/1.03 Impact,'Arial Narrow','Roboto Condensed',sans-serif;
+  letter-spacing:.005em;color:#fff;text-shadow:0 1px #000,0 0 7px #ff5ac444;
+}
+#raceoff .otg326-category-count {
+  color:#ff87e9;font:italic 900 clamp(14px,4.25vw,20px)/1 Impact,'Arial Narrow',sans-serif;
+  text-shadow:0 0 5px #fd2fc17c;
+}
+#raceoff .otg326-category-chevron {color:#ffdbfa;font:900 23px/1 system-ui,sans-serif;transition:transform .16s ease}
+#raceoff .otg326-category[open] > summary {border-bottom:1px solid #b4248d!important}
+#raceoff .otg326-category[open] .otg326-category-chevron {transform:rotate(180deg)}
+#raceoff .otg326-category-content {padding:8px 10px 10px;min-width:0}
+#raceoff .otg326-category-content > .rhFestivalExpandedV1 {padding:0!important}
+#raceoff .otg326-category-content .rhFestivalDetailIntroV1 {
+  grid-template-columns:28px minmax(0,1fr)!important;gap:7px!important;
+  min-height:0!important;margin:0 0 7px!important;padding:5px 0!important;
+}
+#raceoff .otg326-category-content .rhFestivalDetailIntroV1 > b {
+  grid-column:1/-1!important;white-space:normal!important;text-align:left!important;
+  color:#ff8ade!important;line-height:1.25!important;
+}
+#raceoff .otg326-category-content .rhFestivalDetailIntroV1 > span {font-size:12px!important}
+#raceoff .otg326-landing .otg326-category .rhChampCard {
+  box-sizing:border-box!important;min-width:0!important;width:100%!important;
+  min-height:63px!important;height:auto!important;margin:0 0 6px!important;
+  padding:7px 9px!important;gap:8px!important;
+  grid-template-columns:48px minmax(0,1fr) 15px!important;
+  border:1px solid #663154!important;border-radius:12px!important;
+  background:linear-gradient(115deg,#270d27,#0a0712)!important;
+  box-shadow:inset 0 0 9px #fa40bf23!important;
+}
+#raceoff .otg326-category .rhChampCard img {width:44px!important;height:44px!important;object-fit:contain!important}
+#raceoff .otg326-category .rhChampCard span>b {
+  font:italic 900 clamp(14px,3.8vw,18px)/1.1 Impact,'Arial Narrow',sans-serif!important;
+  color:#fff!important;white-space:normal!important;overflow-wrap:anywhere!important;
+}
+#raceoff .otg326-category .rhChampCard span>small {font-size:11px!important;color:#ff86db!important;line-height:1.22!important;white-space:normal!important;overflow-wrap:anywhere!important}
+#raceoff .otg326-category .rhChampCard em {font-size:25px!important;color:#ff60cf!important}
+#raceoff .otg326-category .rhFestivalSearchV1 {min-height:42px!important;height:42px!important}
+#raceoff .otg326-category .rhFavouriteUnset {padding:10px!important}
+#raceoff .otg326-category .rhFavouriteUnset p {font-size:12px!important}
+#raceoff .otg326-special-note {margin:12px 0 5px;color:#ed9dce;font:italic 700 12px/1.2 system-ui,sans-serif}
+#raceoff .otg326-category .rhFH5RaceOffSpecial8056 {
+  min-height:0!important;margin:6px 0!important;padding:0!important;
+  border:1px solid #5f2753!important;border-radius:12px!important;background:#180817!important;
+}
+#raceoff .otg326-category .rhFH5RaceOffSpecial8056 > summary {padding:10px!important;min-height:43px!important;font-size:12px!important;line-height:1.25!important}
+#raceoff .otg326-unavailable {margin:5px 2px!important;font-size:12px!important;line-height:1.4!important;color:#c9a5bc!important}
+#raceoff .otg326-landing .rhFestivalInfoV1 {
+  padding:10px 12px!important;border:1px solid #d52ca8!important;
+  border-radius:13px!important;background:linear-gradient(105deg,#280a25,#100716)!important;
+}
+#raceoff .otg326-landing .rhFestivalInfoV1 p {font-size:11px!important;line-height:1.45!important}
+#raceoff .otg326-category:focus-within {outline:1px solid #ffc7f3;outline-offset:1px}
+@media(max-width:365px){
+  #raceoff .otg326-category > summary {grid-template-columns:36px minmax(0,1fr) auto 15px!important;gap:5px!important;padding:3px 6px!important}
+  #raceoff .otg326-category > summary img {width:35px;height:35px}
+  #raceoff .otg326-category-label {font-size:clamp(12px,3.5vw,14px)}
+  #raceoff .otg326-landing > .rhRaceOffHeroV1 .rhFestivalHeadV1 > .rhHistoryNavV8075 {flex-basis:118px!important;width:118px!important;min-width:118px!important}
+}
+@media(prefers-reduced-motion:reduce){#raceoff .otg326-category-chevron{transition:none}}

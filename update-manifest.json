@@ -1,5 +1,5 @@
 {
-  "version": "8.0.325",
-  "worker": "./otg-service-worker-v8325.js",
-  "message": "Festival phone QA correction: compact Back and History, shorter hero, and sharp uncropped category icons. No racing logic or saved data changed."
+  "version": "8.0.326",
+  "worker": "./otg-service-worker-v8326.js",
+  "message": "Race Off pink Smart Tile makeover: seven native expandable categories, compact hero and header, sharp icons, active runs and History retained. No result, competition, Garage or Evil changes."
 }
