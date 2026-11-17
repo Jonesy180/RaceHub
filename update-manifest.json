@@ -1,5 +1,5 @@
 {
-  "version": "8.0.340",
-  "worker": "./otg-service-worker-v8340.js",
-  "message": "Records visual fix: restored Back text, brighter Records hero, clearer descriptions. Racing data unchanged."
+  "version": "8.0.341",
+  "worker": "./otg-service-worker-v8341.js",
+  "message": "Records header: remove duplicated BACK label and improve approved hero visibility; no data or navigation changes."
 }
