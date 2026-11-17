@@ -1,0 +1,251 @@
+/* OTG! MAIN 8.0.327 — phone-first Garage / Catalogue / Manufacturer.
+   Pure CSS and read-only decoration; no catalogue, editor or storage logic. */
+#garage > .rhGarageV1.otg327-ready{
+ --g327:#41e9f6;--g327dim:#166e82;
+ display:flex!important;flex-direction:column!important;min-width:0!important;
+ background:#030a10!important;color:#f4ffff!important;overflow-x:hidden!important;
+}
+#garage .otg327-ready .otg327-top{
+ order:-2;display:flex;align-items:center;gap:9px;box-sizing:border-box;
+ padding:7px 9px;min-height:47px;max-width:100%;
+ border:1px solid #49dceb;border-bottom:2px solid #46eaff;
+ background:linear-gradient(110deg,#061a24,#020710 80%);
+ box-shadow:0 1px 12px #15cbec64,inset 0 0 11px #10cbe329;
+}
+#garage .otg327-top>button{
+ flex:0 0 73px!important;width:73px!important;height:34px!important;min-height:34px!important;
+ margin:0!important;padding:0 5px!important;border:1.5px solid #65f6ff!important;border-radius:15px!important;
+ background:#071921!important;box-shadow:0 0 8px #00e7ff6b!important;
+ color:white!important;font:italic 900 13px/1 system-ui,sans-serif!important;
+ white-space:nowrap!important;
+}
+#garage .otg327-top h1{
+ flex:1;min-width:0;margin:0!important;padding:0!important;white-space:nowrap;
+ font:italic 950 clamp(16px,5.2vw,25px)/1 Impact,'Arial Narrow','Roboto Condensed',sans-serif!important;
+ letter-spacing:.005em;color:#fff!important;overflow:hidden;text-overflow:ellipsis;
+}
+#garage .otg327-top h1 em{font-style:italic;color:#62e3fa}
+#garage .otg327-chequer{flex:0 0 auto;font-size:16px;letter-spacing:-4px;color:#1eeeff;transform:skewX(-13deg);margin-right:8px}
+#garage .otg327-ready > .rhGarageHeroV1{
+ order:-1;position:relative!important;height:clamp(123px,32vw,162px)!important;
+ min-height:0!important;margin:0!important;overflow:hidden!important;
+ background:linear-gradient(180deg,rgba(0,6,10,.08),rgba(0,3,7,.35)),url('assets/final/garage-clean-background-v5725.png') center 49%/cover no-repeat!important;
+ border-bottom:2px solid #32d9ed!important;box-shadow:0 3px 12px #1de5e64c!important;
+}
+#garage .otg327-ready > .rhGarageHeroV1 .rhGarageHeadV1{display:none!important}
+#garage .otg327-ready > .rhGarageBodyV1{
+ order:0!important;display:flex!important;flex-direction:column!important;box-sizing:border-box!important;
+ width:100%!important;min-width:0!important;margin:0!important;
+ padding:10px 10px calc(22px + env(safe-area-inset-bottom))!important;
+ background:linear-gradient(180deg,#071720,#030b13 46%,#03060c)!important;
+}
+#garage .otg327-welcome{margin:0 0 8px;padding:0 5px;min-width:0}
+#garage .otg327-welcome p{margin:0;color:#57eaf6!important;text-align:center;
+ font:italic 900 clamp(11px,3vw,15px)/1.3 Impact,'Arial Narrow',sans-serif!important;letter-spacing:.08em}
+#garage .otg327-catalogue-link{
+ width:100%!important;box-sizing:border-box!important;display:grid!important;
+ grid-template-columns:45px minmax(0,1fr) auto 16px!important;
+ align-items:center!important;gap:9px!important;min-height:75px!important;height:auto!important;
+ padding:9px 11px!important;margin:0 0 10px!important;text-align:left!important;
+ border:2px solid #41efff!important;border-radius:15px!important;
+ background:linear-gradient(110deg,#07333c,#071520 80%)!important;
+ box-shadow:inset 0 0 17px #18dcde3f,0 0 12px #17ecff88!important;
+ color:white!important;
+}
+#garage .otg327-home-icon{display:grid;place-items:center;width:42px;height:42px;
+ border:1px solid #52f2ff;border-radius:12px;background:#05232e;font:900 35px/1 system-ui,sans-serif;color:#45f7ff}
+#garage .otg327-catalogue-name{min-width:0;display:flex;flex-direction:column;gap:5px}
+#garage .otg327-catalogue-name strong{font:italic 950 clamp(16px,4.7vw,22px)/1 Impact,'Arial Narrow',sans-serif;color:#fff}
+#garage .otg327-catalogue-name small{font:600 11px/1.3 system-ui,sans-serif;color:#8de8f5;overflow-wrap:anywhere}
+#garage .otg327-owned{display:flex;flex-direction:column;align-items:flex-end;white-space:nowrap}
+#garage .otg327-owned b{font:italic 950 22px/1 Impact,'Arial Narrow',sans-serif;color:#c1faff}
+#garage .otg327-owned small{font:bold 10px/1.1 system-ui,sans-serif;color:#3ff5fc}
+#garage .otg327-arrow{color:#fff;font:900 26px/1 system-ui,sans-serif}
+#garage .otg327-home-note,
+#garage .otg327-legend{margin:10px 0 0;padding:10px 12px;border:1px solid #227f96;border-radius:12px;
+ background:#051724;color:#c3ecf4;font:600 11px/1.5 system-ui,sans-serif}
+#garage .otg327-legend b{display:inline-grid;place-items:center;margin:0 4px 0 8px;
+ min-width:24px;height:21px;padding:0 3px;border:1px solid #56c8d6;border-radius:6px;color:#86edf9}
+/* Keep the three ORIGINAL intelligence actions clickable and unchanged. */
+#garage .otg327-ready #otgIntelTileSet8122{
+ padding:0!important;margin:8px 0!important;border:0!important;background:none!important;box-shadow:none!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122>h2{
+ margin:0 0 8px!important;color:white!important;
+ font:italic 950 clamp(18px,5.4vw,24px)/1 Impact,'Arial Narrow',sans-serif!important;
+ letter-spacing:.035em!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122>h2::before{content:'▰ ▰ ';color:#41f4fc}
+#garage .otg327-ready #otgIntelTileSet8122>p{display:none!important}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122 button{
+ box-sizing:border-box!important;display:grid!important;
+ grid-template-columns:48px minmax(0,1fr) 18px!important;
+ grid-template-rows:auto auto!important;align-items:center!important;gap:2px 9px!important;
+ width:100%!important;min-width:0!important;min-height:58px!important;height:auto!important;
+ padding:7px 10px!important;margin:0!important;border:1.5px solid #42e9fb!important;border-radius:14px!important;
+ background:linear-gradient(105deg,#08313c,#041018 78%)!important;
+ box-shadow:inset 0 0 9px #13e1e638,0 0 9px #3df5ff75!important;
+ text-align:left!important;color:#fff!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122 button i{
+ grid-column:1;grid-row:1/3;display:grid!important;place-items:center;
+ min-width:43px;min-height:43px;font-size:26px!important;font-style:normal;
+ filter:drop-shadow(0 0 5px #43efff8c);
+}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122 button b{
+ grid-column:2;grid-row:1;font:italic 950 clamp(16px,4.45vw,22px)/1.05 Impact,'Arial Narrow',sans-serif!important;
+ min-width:0;white-space:normal;overflow-wrap:anywhere;color:white!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122 button small{
+ grid-column:2;grid-row:2;font:italic 650 12px/1.2 system-ui,sans-serif!important;color:#5beaf5!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122 button em{
+ grid-column:3;grid-row:1/3;font-size:0!important;font-style:normal;color:white!important;
+}
+#garage .otg327-ready #otgIntelTileSet8122 .otgIntelTileGrid8122 button em::after{content:'›';font:900 26px/1 system-ui,sans-serif}
+/* Switch between Home, Manufacturer directory and one maker's car list. */
+#garage .otg327-ready[data-otg327-view="home"] .rhGarageSummaryV1,
+#garage .otg327-ready[data-otg327-view="home"] .rhGarageToolsV1,
+#garage .otg327-ready[data-otg327-view="home"] .rhGarageMakesV1,
+#garage .otg327-ready[data-otg327-view="home"] .rhGarageV6Guide,
+#garage .otg327-ready[data-otg327-view="home"] .rhGarageNeedsBtn,
+#garage .otg327-ready[data-otg327-view="home"] .rhGarageInfoV1,
+#garage .otg327-ready[data-otg327-view="home"] .otg327-subnav,
+#garage .otg327-ready[data-otg327-view="home"] .otg327-no-match{display:none!important}
+#garage .otg327-ready:not([data-otg327-view="home"]) .otg327-welcome,
+#garage .otg327-ready:not([data-otg327-view="home"]) .otg327-catalogue-link,
+#garage .otg327-ready:not([data-otg327-view="home"]) .otg327-home-note,
+#garage .otg327-ready:not([data-otg327-view="home"]) .rhGarageSummaryV1,
+#garage .otg327-ready:not([data-otg327-view="home"]) #otgIntelTileSet8122,
+#garage .otg327-ready:not([data-otg327-view="home"]) .rhGarageV6Guide,
+#garage .otg327-ready:not([data-otg327-view="home"]) .rhGarageInfoV1{display:none!important}
+#garage .otg327-subnav{display:flex;gap:9px;align-items:center;margin:0 0 10px;padding:6px 1px}
+#garage .otg327-subnav .otg327-subback{
+ flex:0 0 auto!important;padding:8px 9px!important;min-height:34px!important;
+ border:1px solid #44dbed!important;border-radius:12px!important;
+ color:#f2ffff!important;background:#06202c!important;font:bold 11px/1 system-ui,sans-serif!important;
+}
+#garage .otg327-subcopy{min-width:0;display:flex;flex-direction:column;gap:3px}
+#garage .otg327-subcopy strong{
+ font:italic 950 clamp(16px,4.7vw,21px)/1.1 Impact,'Arial Narrow',sans-serif;
+ color:white;overflow-wrap:anywhere;text-shadow:0 0 8px #27ebf855;
+}
+#garage .otg327-subcopy small{font:italic 650 11px/1.2 system-ui,sans-serif;color:#48ebf4}
+#garage .otg327-ready .rhGarageToolsV1{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:7px!important;margin:0 0 11px!important}
+#garage .otg327-ready .rhGarageToolsV1 label{min-width:0;min-height:40px!important;height:40px!important;border:1.5px solid #45eaff!important;border-radius:13px!important;background:#051d29!important;box-shadow:0 0 9px #34ebf94d}
+#garage .otg327-ready .rhGarageToolsV1 input{min-width:0!important;font-size:12px!important;color:white!important}
+#garage .otg327-ready .rhGarageToolsV1>button{max-width:115px!important;font-size:11px!important;white-space:normal!important;height:40px!important;min-width:0!important}
+#garage .otg327-ready[data-otg327-catalogue="yes"] .rhGarageToolsV1{grid-template-columns:1fr!important}
+#garage .otg327-ready .rhGarageMakesV1{display:grid!important;gap:6px!important;overflow:visible!important;border:0!important;background:none!important;min-width:0}
+#garage .otg327-ready .rhGarageMakeV1{
+ min-width:0!important;margin:0!important;border:1.5px solid #1ddff2!important;
+ border-radius:12px!important;background:linear-gradient(110deg,#072631,#051019)!important;
+ box-shadow:0 0 8px #20e8f66a,inset 0 0 8px #12cce52e!important;overflow:hidden!important;
+}
+#garage .otg327-ready .rhGarageMakeHeadWrapV1{min-width:0!important;display:flex!important;align-items:center!important}
+#garage .otg327-ready .rhGarageMakeHeadV1{
+ box-sizing:border-box!important;min-width:0!important;width:100%!important;
+ min-height:44px!important;height:auto!important;padding:6px 11px!important;
+ grid-template-columns:minmax(0,1fr) auto 23px!important;gap:7px!important;
+ color:white!important;background:transparent!important;
+}
+#garage .otg327-ready .rhGarageMakeHeadV1 b{
+ min-width:0;white-space:normal!important;overflow-wrap:anywhere!important;
+ font:italic 950 clamp(14px,4.2vw,19px)/1.1 Impact,'Arial Narrow',sans-serif!important;
+}
+#garage .otg327-ready .rhGarageMakeHeadV1 span{font:italic 900 12px/1.1 Impact,'Arial Narrow',sans-serif!important;color:#67f4fc!important;white-space:nowrap!important}
+#garage .otg327-ready .rhGarageMakeHeadV1 em{font:900 22px/1 system-ui,sans-serif!important;color:#a8f8ff!important}
+#garage .otg327-ready[data-otg327-view="catalogue"] .rhGarageCarsV1{display:none!important}
+#garage .otg327-ready[data-otg327-view="make"] .rhGarageMakeV1:not(.otg327-selected){display:none!important}
+#garage .otg327-ready[data-otg327-view="make"] .rhGarageMakeV1 .rhGarageMakeHeadWrapV1{display:none!important}
+#garage .otg327-ready[data-otg327-view="make"] .rhGarageMakeV1.otg327-selected .rhGarageCarsV1{
+ display:grid!important;gap:6px!important;padding:6px!important;border:0!important;
+}
+#garage .otg327-ready[data-otg327-view="make"] .rhGarageMakeV1.otg327-selected .rhGarageCarsV1[hidden]{display:grid!important}
+#garage .otg327-no-match{display:none;margin:7px 0;padding:11px;text-align:center;color:#9debf5;font-size:12px}
+#garage .otg327-no-match.otg327-show{display:block!important}
+/* Preserves native ownership checkbox, edit buttons, and saved Car History opener. */
+#garage .otg327-ready .rhGarageCarV1.otg327-car-row,
+#garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row{
+ box-sizing:border-box!important;min-width:0!important;min-height:54px!important;height:auto!important;
+ margin:0!important;padding:7px 9px!important;border:1px solid #278e9d!important;
+ border-radius:10px!important;background:linear-gradient(100deg,#031620,#041019)!important;
+ box-shadow:inset 0 0 5px #2defff16!important;
+ display:grid!important;align-items:center!important;gap:8px!important;
+ grid-template-columns:minmax(0,1fr) auto!important;
+}
+#garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row{
+ grid-template-columns:23px minmax(0,1fr) auto!important;
+}
+#garage .otg327-ready .rhCatalogueGarageCar .rhCatalogueTick{display:none!important}
+#garage .otg327-ready .rhCatalogueGarageCar .rhCatalogueCheck{
+ width:19px!important;height:19px!important;margin:0!important;accent-color:#28e7f2;cursor:pointer;
+}
+#garage .otg327-ready .rhGarageCarV1.otg327-car-row>i{display:none!important}
+#garage .otg327-ready .rhGarageCarV1.otg327-car-row>span:not(.otg327-badges),
+#garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row>span:not(.rhCatalogueTick):not(.otg327-badges){
+ min-width:0!important;display:flex!important;flex-direction:column!important;gap:3px!important;align-items:flex-start!important;
+ overflow-wrap:anywhere!important;
+}
+#garage .otg327-ready .otg327-car-row>span>b,
+#garage .otg327-ready .otg327-car-row>span>strong{
+ min-width:0!important;max-width:100%;white-space:normal!important;
+ overflow-wrap:anywhere!important;color:white!important;
+ font:italic 900 clamp(12px,3.6vw,16px)/1.15 Impact,'Arial Narrow',sans-serif!important;
+}
+#garage .otg327-ready .otg327-car-row small{
+ white-space:normal!important;overflow-wrap:anywhere!important;
+ font:500 11px/1.2 system-ui,sans-serif!important;color:#c6dce1!important;
+}
+#garage .otg327-ready .rhCatalogueGarageCar.unowned{opacity:1!important}
+#garage .otg327-ready .rhCatalogueGarageCar.unowned>span:not(.otg327-badges){opacity:.68}
+#garage .otg327-ready .rhGarageCarV1.otg327-car-row>button:not(.v7HistoryBtn){
+ grid-column:1/-1!important;justify-self:end!important;width:auto!important;
+ height:27px!important;min-height:27px!important;font:800 11px/1 system-ui,sans-serif!important;
+ color:#8bf4ff!important;
+}
+#garage .otg327-ready .otg327-badges{
+ grid-column:-2/-1!important;display:flex!important;flex-direction:row!important;
+ gap:5px!important;align-items:center!important;justify-content:flex-end!important;
+ flex-wrap:nowrap!important;min-width:0!important;white-space:nowrap!important;
+}
+#garage .otg327-ready .otg327-mini-h,
+#garage .otg327-ready .otg327-mini-e{
+ box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ flex:0 0 29px!important;width:29px!important;min-width:29px!important;max-width:29px!important;
+ height:28px!important;min-height:28px!important;margin:0!important;padding:0!important;
+ border:1.4px solid #60777e!important;border-radius:7px!important;
+ background:#162328!important;box-shadow:none!important;color:#8c9fa6!important;
+ font:900 13px/1 system-ui,sans-serif!important;text-decoration:none!important;
+ opacity:1!important;pointer-events:auto!important;
+}
+#garage .otg327-ready .otg327-mini-h.otg327-h-active{
+ border-color:#39f1ff!important;color:#8af9ff!important;background:#04333c!important;
+ box-shadow:0 0 8px #17e5fd9c!important;
+}
+#garage .otg327-ready .otg327-mini-e[data-kind="cyan"]{border-color:#1ff0ff!important;color:#65faff!important;background:#06353c!important;box-shadow:0 0 9px #1fd9ff9c!important}
+#garage .otg327-ready .otg327-mini-e[data-kind="orange"]{border-color:#ff9d39!important;color:#ffc16b!important;background:#42230c!important;box-shadow:0 0 9px #ff9337a6!important}
+#garage .otg327-ready .otg327-mini-e[data-kind="green"]{border-color:#70e85b!important;color:#adff8d!important;background:#1c3618!important;box-shadow:0 0 9px #66ff7ca3!important}
+#garage .otg327-ready .otg327-mini-e[data-kind="purple"]{border-color:#ad72fb!important;color:#d8b4ff!important;background:#2d173e!important;box-shadow:0 0 9px #b75fffa3!important}
+#garage .otg327-ready:not([data-otg327-view="make"]) .otg327-legend{display:none!important}
+#garage .otg327-ready[data-otg327-view="home"] .otg327-legend{display:none!important}
+#garage .otg327-ready[data-otg327-view="make"] .rhGarageNeedsBtn{display:none!important}
+@media(max-width:360px){
+ #garage .otg327-top h1{font-size:16px!important}
+ #garage .otg327-ready .rhCatalogueGarageCar.otg327-car-row{grid-template-columns:20px minmax(0,1fr) auto!important;gap:5px!important;padding:6px!important}
+ #garage .otg327-ready .otg327-mini-h,#garage .otg327-ready .otg327-mini-e{width:26px!important;min-width:26px!important;flex-basis:26px!important}
+ #garage .otg327-catalogue-link{grid-template-columns:38px minmax(0,1fr) auto 12px!important;gap:6px!important}
+ #garage .otg327-owned b{font-size:18px}
+}
+
+/* GT7 manual specials share the catalogue row class but have an Edit button,
+   not an ownership checkbox. Keep their original editor fully accessible. */
+#garage .otg327-ready .rhCatalogueGarageCar.rhManualSpecialCar.otg327-car-row{
+ grid-template-columns:minmax(0,1fr) auto!important;
+}
+#garage .otg327-ready .rhManualSpecialCar.otg327-car-row>button:not(.v7HistoryBtn){
+ grid-column:1/-1!important;justify-self:end!important;
+}

@@ -1,0 +1,21 @@
+OTG! MAIN v8.0.327 — GARAGE SMART TILE MAKEOVER
+
+Incremental overlay on top of phone-approved v8.0.326.
+Extract over C:\RaceHub, replacing matching files. DO NOT delete old files.
+
+CHANGES (VISUAL / READ-ONLY):
+- Cyan Garage landing with compact hero, live collection count and existing
+  Forgotten Cars, Smart Car Finder and Car Comparison actions.
+- Catalogue manufacturer directory and per-manufacturer car listings,
+  retaining original search, ownership checkboxes, edit functions and Car History.
+- Every visible car row reserves H and E✓ cells, grey by default. H lights only
+  with a genuinely saved timed result. E✓ reflects the most recent proven
+  Evil race/result recognised by existing R1 and native R2 records.
+- No manufacturer badges or car thumbnails on car rows. Names wrap naturally.
+- Manual and dedicated catalogue Spaces remain supported.
+
+NO changes to saved Spaces, Garage ownership, racing data, Evil draws,
+entry, results, backups, trophy assignment or competition engines.
+
+One phone check: Garage landing, then Catalogue and an expanded make.
+No fake races or saved data needed.
