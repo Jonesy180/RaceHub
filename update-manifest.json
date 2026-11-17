@@ -1,5 +1,5 @@
 {
-  "version": "8.0.336",
-  "worker": "./otg-service-worker-v8336.js",
-  "message": "Compact Create New League tile on League Organiser; native League functionality and saved data unchanged."
+  "version": "8.0.337",
+  "worker": "./otg-service-worker-v8337.js",
+  "message": "Race Setups and New Race Setup Smart Tile makeover; existing saved configurations and logic preserved."
 }

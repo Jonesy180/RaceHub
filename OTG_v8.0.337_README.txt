@@ -1,0 +1,13 @@
+OTG! MAIN v8.0.337 — RACE SETUPS SMART TILES (DISPLAY ONLY)
+
+Incremental overlay for working MAIN v8.0.336.
+Extract onto C:\RaceHub and overwrite matching files. DO NOT delete old files.
+
+- Restyles Race Setups home with compact pit-lane header, saved setups,
+  New Race Setup button, empty state and About Race Setups.
+- Restyles New/Edit Race Setup: name, round rows, add/remove controls, save.
+- All native Race Setups JS and saved configuration handling are unchanged.
+- Does not touch Garage, Spaces, Championships, Evil, backups, or prior screens.
+
+Phone check: Dashboard > Race Setups, then tap Create Race Setup.
+Inspect both screens, without saving a dummy configuration.
