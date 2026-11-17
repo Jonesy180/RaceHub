@@ -1,0 +1,124 @@
+/* OTG! MAIN v8.0.339 — Records and its existing inner views.
+   Presentation layer only. No record, medal, Space, history or navigation-engine changes.
+   One section title per view. Use original source controls and real results. */
+:root{--otg339cyan:#66e8fa;--otg339gold:#eac35e;--otg339edge:rgba(86,218,242,.75);--otg339night:#030d17}
+#hall,#hall *,.rhTrackDirectoryPage8073,.rhTrackDirectoryPage8073 *{box-sizing:border-box}
+#hall{color:#f3fcff;background:#020911;min-height:100vh}
+#hall .rhRecordsV1,#hall .v7Records,#hall .rhHofV1{background:#020911;color:#f4fcff;min-height:100vh}
+/* The painted title lives ONLY in the header; artwork below remains artwork. */
+#hall .rhRecordsHeroV1,#hall .rhHofHeroV1{height:clamp(165px,26vw,222px)!important;min-height:165px!important;position:relative!important;background:linear-gradient(180deg,rgba(0,8,17,.11) 16%,rgba(0,8,15,.2) 58%,rgba(0,8,17,.86) 100%),url('assets/final/records-background-APPROVED-v5728.png') center 46%/cover no-repeat!important;border-bottom:2px solid rgba(76,216,244,.7)!important;box-shadow:0 7px 22px rgba(23,151,198,.14)!important}
+#hall .rhHofHeroV1{height:clamp(195px,31vw,260px)!important;min-height:195px!important;background:linear-gradient(180deg,rgba(0,6,12,.15) 0%,rgba(0,6,12,.04) 55%,rgba(0,8,15,.7)),url('assets/final/hall-of-fame-background-APPROVED-v5728.png') center 38%/cover no-repeat!important}
+#hall .rhRecordsHeadV1{position:absolute!important;left:0!important;right:0!important;top:0!important;display:flex!important;align-items:center!important;gap:11px!important;max-width:100%!important;padding:10px max(13px,env(safe-area-inset-left))!important;background:linear-gradient(90deg,rgba(0,9,19,.96),rgba(3,13,24,.88))!important;border-bottom:1px solid rgba(83,226,248,.54)!important;z-index:3}
+#hall .rhRecordsHeadV1>button{flex:0 0 auto!important;width:auto!important;min-width:88px!important;height:43px!important;min-height:43px!important;max-width:105px!important;margin:0!important;padding:0 12px!important;border-radius:17px!important;background:linear-gradient(145deg,#172f40,#071621)!important;border:1.5px solid rgba(81,217,245,.75)!important;box-shadow:0 0 12px rgba(48,201,236,.24)!important;color:transparent!important;font-size:0!important;display:grid!important;place-items:center!important;line-height:1!important}
+#hall .rhRecordsHeadV1>button::after{content:'‹ BACK';color:#f4f9fe;font:bold italic 15px/1 system-ui,sans-serif;white-space:nowrap}
+#hall .rhRecordsHeadV1>div{min-width:0!important;flex:1!important}
+#hall .rhRecordsHeadV1 h1{display:block!important;color:#f8fcff!important;font-size:clamp(19px,4.7vw,33px)!important;font-weight:1000!important;font-style:italic!important;line-height:1.08!important;letter-spacing:-.01em!important;margin:0!important;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+#hall .rhRecordsHeadV1 h1::before{content:'OTG! / ';color:#54c7e4!important}
+#hall .rhRecordsHeadV1 p{font-size:clamp(9px,2.4vw,12px)!important;line-height:1.1!important;margin:2px 0 0!important;color:#8cbdcb!important;font-style:italic!important}
+#hall .v7RecordsLanding>main{padding:15px 13px 32px!important;display:flex!important;flex-direction:column!important;gap:10px!important;background:linear-gradient(180deg,#03111c 0%,#020912 30%)!important}
+/* 4 real navigation actions. Preserve their original handlers, including FH5-only directory. */
+#hall .v7RecordsLanding>main>.v7Hall,#hall .v7RecordsLanding>main>.v7JourneyTile,#hall .v7RecordsLanding>main>.rhTrackDirectoryCard8073{display:grid!important;grid-template-columns:clamp(45px,12vw,64px) minmax(0,1fr) 18px!important;align-items:center!important;gap:12px!important;width:100%!important;min-height:90px!important;height:auto!important;max-width:none!important;margin:0!important;padding:13px 12px!important;border:1.5px solid rgba(73,218,242,.8)!important;border-radius:19px!important;background:linear-gradient(110deg,#061e2d,#020b17 70%)!important;box-shadow:0 0 12px rgba(26,203,242,.2),inset 0 0 22px rgba(37,195,224,.07)!important;color:#f6fbff!important;text-align:left!important;overflow:hidden!important;cursor:pointer!important}
+#hall .v7RecordsLanding>main>.v7Hall{border-color:rgba(250,203,83,.94)!important;background:linear-gradient(115deg,rgba(46,32,8,.87),#08131a 79%)!important;box-shadow:0 0 16px rgba(247,191,51,.3),inset 0 0 18px rgba(212,161,48,.1)!important}
+#hall .v7RecordsLanding>main>:is(.v7Hall,.v7JourneyTile,.rhTrackDirectoryCard8073)>span{width:clamp(45px,12vw,64px)!important;height:clamp(45px,12vw,64px)!important;margin:0!important;display:block!important;border:1px solid rgba(59,194,225,.3)!important;border-radius:13px!important;font-size:0!important;background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important;flex-shrink:0!important}
+#hall .v7RecordsLanding>main>.v7Hall>span{background-image:url('assets/ui/dashboard-icon-records-v8323.webp')!important;border-color:rgba(238,184,57,.4)!important}
+#hall .v7RecordsLanding>main>.rhTrackDirectoryCard8073>span{background-image:url('assets/ui/records-track-v8339.svg')!important}
+#hall .v7RecordsLanding>main>.v7JourneyTile:not(.otgClosestBattlesTile8114)>span{background-image:url('assets/ui/records-journey-v8339.svg')!important}
+#hall .v7RecordsLanding>main>.otgClosestBattlesTile8114>span{background-image:url('assets/ui/records-battles-v8339.svg')!important}
+#hall .v7RecordsLanding>main>:is(.v7Hall,.v7JourneyTile,.rhTrackDirectoryCard8073)>div{min-width:0!important;display:flex!important;flex-direction:column!important;gap:2px!important;flex-wrap:nowrap!important;align-items:stretch!important}
+#hall .v7RecordsLanding>main>:is(.v7Hall,.v7JourneyTile,.rhTrackDirectoryCard8073) b{color:#fcfdff!important;font-size:clamp(17px,4.3vw,24px)!important;line-height:1.1!important;font-weight:1000!important;font-style:italic!important;letter-spacing:.01em!important;overflow-wrap:anywhere!important}
+#hall .v7RecordsLanding>main>.v7Hall b{color:#fff0ad!important}
+#hall .v7RecordsLanding>main>:is(.v7Hall,.v7JourneyTile,.rhTrackDirectoryCard8073) small{font-size:clamp(11px,2.9vw,14px)!important;line-height:1.35!important;color:#ccd8dd!important;font-weight:550!important}
+#hall .v7RecordsLanding>main>:is(.v7Hall,.v7JourneyTile,.rhTrackDirectoryCard8073) em{color:#61dcf3!important;font-size:clamp(10px,2.7vw,12px)!important;font-style:italic!important;font-weight:950!important;letter-spacing:.02em!important;margin:3px 0 0!important}
+#hall .v7RecordsLanding>main>.v7Hall em{color:#eac35e!important}
+#hall .v7RecordsLanding>main>:is(.v7Hall,.v7JourneyTile,.rhTrackDirectoryCard8073)>i{color:#56e8ff!important;font-size:29px!important;line-height:1!important;font-style:normal!important;justify-self:end!important}
+#hall .v7RecordsLanding>main>.v7Hall>i{color:#edbb37!important}
+#hall .v7RecordsLanding .v7TrackRecordsTitle{display:none!important} /* Remove near-duplicate heading; actual record book heading remains. */
+#hall .v7TrackShell{margin:4px 0 0!important;border:1px solid rgba(74,219,241,.62)!important;background:rgba(3,16,26,.97)!important;border-radius:19px!important;box-shadow:0 0 12px rgba(23,159,195,.1)!important;overflow:hidden!important}
+#hall .v7TrackShell>header{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:13px 15px!important;min-height:60px!important;border-bottom:1px solid rgba(77,205,230,.28)!important;background:linear-gradient(100deg,#092434,#041019)!important}
+#hall .v7TrackShell>header>div{min-width:0!important}
+#hall .v7TrackShell>header small{font-size:10px!important;font-style:italic!important;color:#6edced!important}
+#hall .v7TrackShell>header h2{margin:3px 0 0!important;font-size:clamp(17px,4.7vw,22px)!important;color:#fff!important;font-style:italic!important;line-height:1.08!important}
+#hall .v7TrackShell>header>b{min-width:38px!important;width:auto!important;padding:4px 9px!important;height:35px!important;border-radius:12px!important;color:#5bdafa!important}
+#hall .v7Track>summary,#hall .v7Layout>summary{min-height:55px!important;padding:10px 13px!important;gap:8px!important}
+#hall .v7Track summary b,#hall .v7Layout summary b{font-style:italic!important;line-height:1.26!important;overflow-wrap:anywhere!important;color:#f9fcff!important}
+#hall .v7Track summary small,#hall .v7Layout summary small{color:#92c0ce!important;font-size:11px!important}
+#hall .v7RecordDetail{padding:2px 12px 13px!important}
+#hall .v7TrackBest,#hall .v7CompHistory>div{gap:9px!important;min-width:0!important}
+#hall .v7CompHistory>div>span{min-width:0;overflow-wrap:anywhere}
+#hall .v7About,#hall .rhRecordsInfoV1,#hall .rhHofIntroV1{margin:8px 0 0!important;padding:12px!important;border-radius:16px!important;border:1px solid rgba(65,201,224,.55)!important;background:linear-gradient(120deg,#051b27,#04111d)!important;box-shadow:inset 0 0 14px rgba(24,132,158,.08)!important}
+#hall .v7About p,#hall .rhRecordsInfoV1 p,#hall .rhHofIntroV1 p{font-size:clamp(12px,3vw,14px)!important;line-height:1.45!important;color:#cad7dd!important}
+#hall .rhHofIntroV1 p>b{display:none!important} /* Hero already says Hall of Fame. */
+#hall .rhRecordsInfoV1 p>b{font-size:12px!important;color:#66d7ed!important}
+#hall .rhRecordsBodyV1{padding:14px 13px 28px!important;background:linear-gradient(180deg,#041827,#020910 70%)!important}
+#hall .rhHofSectionV1 .rhHallGridV1{gap:10px!important;margin:12px 0!important}
+#hall .rhHofSectionV1 .rhHallCardV1{border-radius:16px!important;border:1px solid rgba(93,216,239,.46)!important;padding:12px!important;background:linear-gradient(160deg,#092333,#031019)!important}
+#hall .rhHofSectionV1 .rhHallCardV1>b{color:#75dcec!important;overflow-wrap:anywhere}
+#hall .rhHofSectionV1 .rhHallCardV1>span{overflow-wrap:anywhere}
+#hall .rhHofSectionV1 .rhHallCardV1 img{max-width:100%;object-fit:contain!important}
+#hall .rhHofSectionV1 .rhEmpty,#hall .rhHofSectionV1 .rhEmptyV1{border-radius:16px!important;background:#03141e!important}
+/* Journey and Closest Battles — one title in a compact top strip, original controls and real-data contents remain. */
+#hall .v7Journey{background:linear-gradient(180deg,rgba(1,10,17,.55),#020b15 36%),url('assets/final/hall-of-fame-background-otg-v6059.png') center top/100% auto no-repeat,#020b15!important;padding:0 0 29px!important;min-height:100svh!important}
+#hall .v7Journey .v7JourneyHead{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;align-items:center!important;column-gap:12px!important;row-gap:1px!important;margin:0!important;padding:12px 13px!important;min-height:74px!important;background:linear-gradient(115deg,#031421,#061d29)!important;border-bottom:1px solid rgba(84,222,242,.75)!important}
+#hall .v7Journey .v7JourneyHead>button{grid-column:1!important;grid-row:1/span 2!important;position:static!important;display:block!important;min-height:42px!important;width:auto!important;min-width:82px!important;max-width:124px!important;padding:9px 11px!important;margin:0!important;border:1.5px solid rgba(79,222,241,.7)!important;border-radius:16px!important;color:white!important;white-space:normal!important;font-size:11px!important;line-height:1.15!important;background:#09212e!important;box-shadow:0 0 10px rgba(54,189,212,.18)!important;font-style:italic!important}
+#hall .v7Journey .v7JourneyHead h1{grid-column:2!important;grid-row:1!important;font-size:clamp(18px,4.5vw,28px)!important;font-weight:1000!important;font-style:italic!important;line-height:1.1!important;margin:0!important;letter-spacing:-.015em!important;overflow-wrap:anywhere!important;color:#f8fdff!important}
+#hall .v7Journey .v7JourneyHead h1::before{content:'OTG! / ';color:#58d2ec!important}
+#hall .v7Journey .v7JourneyHead p{grid-column:2!important;grid-row:2!important;font-size:clamp(10px,2.5vw,13px)!important;color:#86bfd1!important;margin:1px 0 0!important;line-height:1.25!important;font-weight:650!important;font-style:italic!important}
+#hall .v7JourneyIntro,#hall .otgBattleIntro8117{margin:14px 13px 10px!important;padding:12px!important;gap:12px!important;border-radius:16px!important;border:1px solid rgba(77,221,237,.74)!important;background:linear-gradient(110deg,#071e2e,#04111e)!important;box-shadow:0 0 10px rgba(60,215,239,.18)!important}
+#hall .v7JourneyIntro>span,#hall .otgBattleIntro8117>span{font-size:28px!important;line-height:1.2!important;flex:0 0 35px!important}
+#hall .v7JourneyIntro div,#hall .otgBattleIntro8117>div{min-width:0;font-size:13px!important;line-height:1.38!important;color:#effaff!important}
+#hall .otgBattleIntro8117 b{font-size:clamp(15px,4vw,20px)!important;font-weight:1000!important;font-style:italic!important;color:#f9fbff!important}
+#hall .otgBattleIntro8117 p{font-size:12px!important;line-height:1.4!important;margin:4px 0 0!important;color:#c7d8dd!important}
+#hall .otgBattleGroup8117{margin:13px 13px 18px!important}
+#hall .otgBattleGroup8117 h2{margin:0 0 9px!important;padding:8px 10px!important;border-radius:10px!important;background:linear-gradient(90deg,#35d9ee,#083548)!important;color:#041421!important;font-size:15px!important;font-style:italic!important;font-weight:1000!important;letter-spacing:.025em!important}
+#hall .otgBattleFold8117{margin:0 0 9px!important;border:1.3px solid rgba(90,215,239,.72)!important;border-radius:16px!important;background:linear-gradient(110deg,#071e2b,#020e18)!important;box-shadow:0 0 9px rgba(23,181,211,.17)!important}
+#hall .otgBattleFold8117>summary{min-height:72px!important;padding:11px!important;gap:10px!important}
+#hall .otgBattleFoldIcon8117{font-size:24px!important;flex-basis:34px!important;align-self:center!important}
+#hall .otgBattleFoldText8117>strong{font-size:clamp(14px,3.7vw,19px)!important;line-height:1.15!important;color:#f8feff!important;font-style:italic!important}
+#hall .otgBattleFoldText8117>small{font-size:clamp(11px,2.8vw,13px)!important;color:#cad9df!important}
+#hall .otgBattleEmptyLabel8117{font-size:11px!important;color:#9dc3ce!important;margin-top:4px!important}
+#hall .otgBattleFoldAction8117{color:#67edfd!important;font-style:italic!important}
+#hall .v7Timeline{margin:10px 13px;padding-left:44px!important}
+#hall .v7Timeline:before{left:20px!important}
+#hall .v7Timeline article{margin-bottom:10px!important;padding:12px!important;gap:7px!important;border-radius:14px!important;background:linear-gradient(150deg,#071d2b,#03121d)!important;border-color:rgba(73,211,235,.65)!important}
+#hall .v7Timeline article>i{left:-43px!important;width:36px!important;height:36px!important;font-size:20px!important}
+#hall .v7JourneyEmpty{border:1px solid rgba(66,215,239,.62)!important;border-radius:14px!important;padding:17px 13px!important;font-size:13px!important;line-height:1.45!important;background:#061824!important}
+#hall .v7Journey footer,#hall .otgBattleFoot8117{margin:12px 13px!important;padding:12px!important;border:1px solid rgba(64,206,230,.5)!important;border-radius:14px!important;background:#041622!important;color:#a7c6cf!important;font-size:11px!important;line-height:1.45!important}
+#hall .otgReportsTile8113,#hall .otgChronTile8126{width:calc(100% - 26px)!important;margin:9px auto!important;padding:12px!important;min-height:68px!important;border:1.5px solid rgba(71,212,237,.76)!important;border-radius:16px!important;background:linear-gradient(100deg,#071f2c,#03111c)!important;box-shadow:0 0 10px rgba(39,186,215,.13)!important}
+#hall .otgReportsTile8113 b,#hall .otgChronTile8126 b{font-size:16px!important;color:#fff!important;font-weight:1000!important;font-style:italic!important;line-height:1.15!important}
+#hall .otgReportsTile8113 small,#hall .otgChronTile8126 small{font-size:12px!important;color:#b7d2da!important}
+#hall .otgChronTile8126{border-color:rgba(231,180,71,.75)!important;background:linear-gradient(100deg,#231d16,#05141b)!important}
+#hall .otgChronTile8126 em{color:#ffc66d!important}
+/* FH5 Track Directory retains exact searchable routes, native filters and location clues. */
+.rhTrackDirectoryPage8073{background:linear-gradient(#02111d,#020914)!important;color:#f4fdff!important}
+.rhTrackDirectoryPage8073 header{display:block!important;position:relative!important;top:auto!important;min-height:154px!important;padding:12px 14px 20px 120px!important;border-bottom:2px solid rgba(72,224,243,.66)!important;background:linear-gradient(180deg,rgba(2,8,17,.72),rgba(2,11,18,.5) 60%,#03111b),url('assets/final/records-background-APPROVED-v5728.png') center 30%/cover no-repeat!important}
+.rhTrackDirectoryBack8073{position:absolute!important;top:calc(13px + env(safe-area-inset-top))!important;left:13px!important;min-height:42px!important;padding:9px 11px!important;font-size:12px!important;font-style:italic!important;border-radius:15px!important;z-index:10070!important;box-shadow:0 0 12px rgba(38,192,222,.15)!important}
+.rhTrackDirectoryPage8073 header small{font-size:10px!important;color:#7bdfee!important;font-style:italic!important}
+.rhTrackDirectoryPage8073 header h1{font-size:clamp(17px,4.2vw,26px)!important;font-weight:1000!important;font-style:italic!important;line-height:1.16!important;margin:4px 0!important;color:#f6fdff!important}
+.rhTrackDirectoryPage8073 header h1::before{content:'OTG! / ';color:#5bd6f1!important}
+.rhTrackDirectoryPage8073 header p{font-size:11px!important;line-height:1.35!important;color:#c6d7db!important}
+.rhTrackDirectoryPage8073 main{padding:13px!important;max-width:800px!important}
+.rhTrackDirectorySearch8073{display:flex!important;flex-wrap:wrap!important;gap:8px!important;align-items:center!important}
+.rhTrackDirectorySearch8073>input{flex:1 1 230px!important;min-height:46px!important;border-color:rgba(83,219,240,.75)!important;border-radius:14px!important;font-size:15px!important;background:#051e2c!important;color:#fff!important}
+.rhTrackDirectorySearch8073>b{font-size:11px!important;color:#64e4f3!important}
+.rhTrackFilters8073{display:flex!important;gap:7px!important;margin:0!important;padding:10px 0!important;overflow-x:auto!important}
+.rhTrackFilter8073{padding:8px 10px!important;border:1px solid rgba(68,187,213,.6)!important;border-radius:999px!important;background:#071d2a!important;color:#e3f3f8!important;font-size:11px!important;white-space:nowrap!important}
+.rhTrackFilter8073.active{background:#16d7e8!important;color:#061b24!important;border-color:#69efff!important}
+.rhTrackLegend8073 span{font-size:10px!important;padding:4px 7px!important;background:#09202c!important}
+.rhTrackDirectoryList8073{gap:8px!important}
+.rhTrackDirectoryRow8073{min-height:68px!important;border:1px solid rgba(84,220,238,.72)!important;border-radius:15px!important;padding:10px 11px!important;background:linear-gradient(110deg,#082230,#04141e)!important;box-shadow:0 0 8px rgba(23,177,209,.12)!important;cursor:pointer!important}
+.rhTrackDirectoryRow8073 b{color:#f6fdff!important;font-weight:900!important;font-style:italic!important;font-size:15px!important}
+.rhTrackDirectoryRow8073 small{font-size:10px!important;color:#65e7f7!important}
+.rhTrackDirectoryRow8073 em{font-size:11px!important;line-height:1.4!important;color:#ccdae0!important}
+.rhTrackDirectoryRow8073 i{color:#6be9fb!important}
+.rhTrackSource8073{font-size:10px!important;color:#93afbd!important;line-height:1.45!important}
+@media(max-width:390px){
+ #hall .rhRecordsHeadV1 h1{font-size:18px!important}
+ #hall .rhRecordsHeadV1>button{min-width:75px!important;max-width:80px!important;padding:0 6px!important}
+ #hall .rhRecordsHeadV1>button::after{font-size:12px!important}
+ #hall .v7Journey .v7JourneyHead{column-gap:8px!important}
+ #hall .v7Journey .v7JourneyHead>button{min-width:72px!important;max-width:99px!important;font-size:10px!important}
+ #hall .v7Journey .v7JourneyHead h1{font-size:17px!important}
+ .rhTrackDirectoryPage8073 header{padding-left:103px!important}
+ .rhTrackDirectoryPage8073 header h1{font-size:16px!important}
+}
+@media(prefers-reduced-motion:reduce){#hall .otgBattleChevron8117{transition:none!important}}
