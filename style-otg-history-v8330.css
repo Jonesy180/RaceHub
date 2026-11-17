@@ -1,0 +1,150 @@
+/* OTG! MAIN v8.0.330 — Car History visual makeover only.
+   Dedicated to #rhCarHistoryV7001. Nothing in this file affects Garage rows,
+   race results, History calculations, storage, or Evil honours. */
+#rhCarHistoryV7001.v7CarHistory.otg330-history-ready{
+ --history-cyan:#4de7f5;--history-line:rgba(63,214,233,.66);
+ background:#030b12 url('assets/final/league-organiser-control-room-v6018.png') center top/100% auto no-repeat!important;
+ color:#f4fbff!important;
+}
+#rhCarHistoryV7001.otg330-history-ready:before{
+ background:linear-gradient(180deg,rgba(0,9,15,.36) 0,rgba(0,6,12,.88) 190px,#010810 440px)!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage{
+ box-sizing:border-box!important;max-width:720px!important;
+ padding:10px 12px 38px!important;min-width:0!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header{
+ display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;
+ gap:11px!important;align-items:center!important;
+ margin:0 0 10px!important;padding:6px 3px 11px!important;
+ border-bottom:2px solid var(--history-cyan)!important;
+ background:linear-gradient(100deg,rgba(0,21,29,.98),rgba(0,9,17,.84));
+ box-shadow:0 7px 17px rgba(0,241,255,.14)!important;
+}
+/* Keep the EXISTING Back button, including its established return-to-race handling. */
+#rhCarHistoryV7001.otg330-history-ready .rhCarHistoryBackV8066{display:none!important;}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header>button.rhCarHistoryLegacyBackV8066,
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header>button{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ position:static!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;
+ box-sizing:border-box!important;width:auto!important;min-width:74px!important;
+ height:36px!important;min-height:36px!important;padding:7px 11px!important;
+ margin:0!important;border:1.5px solid var(--history-cyan)!important;
+ border-radius:14px!important;color:white!important;background:#041720!important;
+ font:italic 900 14px/1 system-ui,sans-serif!important;white-space:nowrap!important;
+ box-shadow:0 0 10px rgba(34,221,247,.42)!important;cursor:pointer!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header>button:before{content:'‹ ';font-size:20px;color:#5eefff;line-height:12px;margin-right:4px}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header>div{min-width:0!important;}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header small{display:none!important;}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header h1{
+ border:0!important;margin:0!important;padding:0!important;min-width:0!important;
+ color:#fff!important;font:italic 950 clamp(19px,5.5vw,27px)/1.05 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ letter-spacing:.025em!important;overflow-wrap:anywhere!important;text-shadow:0 0 11px #063844;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7CarHistoryPage>header h1 em{font-style:italic;color:#53cfe6}
+#rhCarHistoryV7001.otg330-history-ready .otg330-carhero{
+ box-sizing:border-box;display:grid;grid-template-columns:42px minmax(0,1fr) auto;
+ align-items:center;gap:10px;margin:5px 0 10px;padding:11px 10px;
+ min-width:0;border:1px solid var(--history-line);border-radius:14px;
+ background:linear-gradient(110deg,rgba(4,37,48,.88),rgba(1,8,17,.95));
+ box-shadow:inset 0 0 16px #036a7d36,0 0 10px #11dafb35;
+}
+#rhCarHistoryV7001 .otg330-car-symbol{
+ width:39px;height:39px;border:1px solid #40dcec;border-radius:11px;
+ display:grid;place-items:center;background:#012832;color:#5ef3ff;
+ box-shadow:0 0 8px #13dafb4e;
+}
+#rhCarHistoryV7001 .otg330-car-symbol svg{width:30px;height:26px;display:block;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+#rhCarHistoryV7001 .otg330-car-copy{min-width:0;display:grid;gap:4px;}
+#rhCarHistoryV7001 .otg330-car-copy strong{
+ font:italic 900 clamp(15px,4.2vw,21px)/1.15 Impact,'Arial Narrow',system-ui,sans-serif;
+ overflow-wrap:anywhere;color:#f2ffff;text-transform:uppercase;
+}
+#rhCarHistoryV7001 .otg330-car-copy small{
+ color:#58dcec;font:italic 750 11px/1.3 system-ui,sans-serif;
+ text-transform:uppercase;overflow-wrap:anywhere;
+}
+#rhCarHistoryV7001 .otg330-history-badges{display:flex;gap:4px;flex:none;}
+#rhCarHistoryV7001 .otg330-history-badges span{
+ display:grid;place-items:center;box-sizing:border-box;
+ width:28px;height:27px;border:1px solid #556d79;border-radius:8px;
+ background:#07151b;color:#80949c;font:900 12px/1 system-ui,sans-serif;
+}
+#rhCarHistoryV7001 .otg330-history-badges .otg330-h-active{color:#67faff;border-color:#41dced;background:#0c3340;box-shadow:0 0 9px #19cce99a}
+#rhCarHistoryV7001 .otg330-history-badges [data-kind="cyan"]{color:#67faff;border-color:#41dced;box-shadow:0 0 8px #19cce988}
+#rhCarHistoryV7001 .otg330-history-badges [data-kind="orange"]{color:#ffb76e;border-color:#fc9c46;background:#3b230f;box-shadow:0 0 8px #fb853c88}
+#rhCarHistoryV7001 .otg330-history-badges [data-kind="green"]{color:#b9f89b;border-color:#78eb69;background:#16331c;box-shadow:0 0 8px #6eee5888}
+#rhCarHistoryV7001 .otg330-history-badges [data-kind="purple"]{color:#e5c0ff;border-color:#bc80f6;background:#2d193d;box-shadow:0 0 8px #af69ed88}
+/* Compact full-width race summary — preserve the live number from native History. */
+#rhCarHistoryV7001.otg330-history-ready .v7Races{
+ display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;
+ grid-template-rows:auto auto!important;align-items:center!important;column-gap:10px!important;
+ box-sizing:border-box!important;width:100%!important;height:auto!important;
+ min-height:55px!important;padding:10px 12px!important;margin:0 0 10px!important;
+ border:1.5px solid #40deee!important;border-radius:14px!important;
+ background:linear-gradient(95deg,#053341,#020f19)!important;
+ box-shadow:inset 0 0 10px #1bdcf43d,0 0 10px #17e0ee45!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7Races:before{
+ content:'RACING HISTORY';grid-column:2;grid-row:1/3;
+ font:italic 900 clamp(15px,4.7vw,21px)/1.1 Impact,'Arial Narrow',system-ui,sans-serif;
+ color:#f3ffff;text-align:left;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7Races>span{grid-column:1;grid-row:1/3;font-size:25px!important}
+#rhCarHistoryV7001.otg330-history-ready .v7Races>b{grid-column:3;grid-row:1;font-size:25px!important;line-height:1!important;color:#64f6ff!important;text-align:right}
+#rhCarHistoryV7001.otg330-history-ready .v7Races>small{grid-column:3;grid-row:2;margin:2px 0 0!important;color:#c7f7fb!important;font:italic 800 9px/1 system-ui,sans-serif!important;white-space:nowrap}
+/* Compact neon cards that auto-expand only as real history is added. */
+#rhCarHistoryV7001.otg330-history-ready .v7HistoryCard{
+ margin:0 0 10px!important;padding:0 11px!important;
+ border:1.5px solid rgba(43,215,231,.8)!important;border-radius:15px!important;
+ background:linear-gradient(105deg,rgba(3,25,35,.98),rgba(1,11,20,.97))!important;
+ box-shadow:0 0 11px #12cce93a,inset 0 0 9px #12546c27;
+}
+#rhCarHistoryV7001.otg330-history-ready .v7HistoryCard h2{
+ margin:0 -11px!important;padding:11px 12px!important;
+ border-bottom:1px solid rgba(62,215,234,.6)!important;
+ background:linear-gradient(95deg,rgba(5,61,73,.88),rgba(4,27,36,.32))!important;
+ color:#f6ffff!important;font:italic 900 clamp(16px,4.5vw,21px)/1.15 Impact,'Arial Narrow',system-ui,sans-serif!important;
+ text-transform:uppercase;
+}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerStats{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:5px!important;padding:9px 0!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerStats>div{
+ min-width:0!important;padding:9px 3px!important;border:1px solid #368ca0!important;
+ background:linear-gradient(#072a35,#020e18)!important;border-radius:10px!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerStats b{
+ color:#5becf6!important;font:italic 900 25px/1 Impact,'Arial Narrow',system-ui,sans-serif!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerStats small{
+ font:800 9px/1.2 system-ui,sans-serif!important;color:#d5e7eb!important;
+ letter-spacing:0!important;overflow-wrap:anywhere!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerRow,
+#rhCarHistoryV7001.otg330-history-ready .v7Honour,
+#rhCarHistoryV7001.otg330-history-ready .v7PB{
+ padding:10px 0!important;min-width:0!important;gap:8px!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerRow>span,
+#rhCarHistoryV7001.otg330-history-ready .v7Honour>span,
+#rhCarHistoryV7001.otg330-history-ready .v7PB>span{min-width:0;overflow-wrap:anywhere}
+#rhCarHistoryV7001.otg330-history-ready .v8088CareerRow>strong{white-space:normal!important;text-align:right!important}
+#rhCarHistoryV7001.otg330-history-ready .v7None{
+ padding:12px 8px!important;text-align:center!important;color:#c3d6de!important;
+ font:italic 500 13px/1.4 system-ui,sans-serif!important;
+}
+#rhCarHistoryV7001.otg330-history-ready .otg330-note{
+ display:flex;align-items:center;gap:9px;margin:10px 0 0;padding:10px;
+ color:#d0e5e9;font:600 11px/1.4 system-ui,sans-serif;
+ border:1px solid rgba(61,198,220,.5);border-radius:12px;background:rgba(1,19,28,.88);
+}
+#rhCarHistoryV7001.otg330-history-ready .otg330-note>b{font-size:23px;color:#50e4ed}
+@media(max-width:340px){
+ #rhCarHistoryV7001 .otg330-history-badges span{width:24px;height:25px;font-size:10px}
+ #rhCarHistoryV7001 .otg330-carhero{grid-template-columns:34px minmax(0,1fr) auto;gap:6px;padding:8px}
+ #rhCarHistoryV7001 .otg330-car-symbol{width:33px;height:34px}
+ #rhCarHistoryV7001.otg330-history-ready .v8088CareerStats small{font-size:8px!important}
+}

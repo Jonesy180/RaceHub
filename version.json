@@ -1,5 +1,5 @@
 {
-  "version": "8.0.329",
-  "worker": "./otg-service-worker-v8329.js",
-  "message": "Garage car-row height correction only: compact flexible rows, text wrapping and fixed H/E\u2713 badges. No changes to ownership, navigation or racing data."
+  "version": "8.0.330",
+  "worker": "./otg-service-worker-v8330.js",
+  "message": "Car History Smart Tile makeover: compact racing summary, career/honours/PBs and preserved Back navigation. No changes to saved results or Garage data."
 }
