@@ -1,0 +1,240 @@
+/* OTG! MAIN v8.0.346 — approved Settings Smart Tile styling.
+ * CSS ONLY: no modification to settings controls, callbacks, backup,
+ * catalogue repairs, import, space management, or destructive safeguards.
+ */
+#more:has(> .rhSettingsScene){background:#020913;color:#f2fbff}
+#more>.rhSettingsScene{
+  box-sizing:border-box!important;
+  height:clamp(175px,46vw,225px)!important;
+  min-height:0!important;
+  border-bottom:2px solid rgba(86,223,245,.62)!important;
+  background:linear-gradient(180deg,rgba(1,6,12,.16),rgba(2,11,21,.23)),url('assets/final/settings-background-v5744.png') center 47%/cover no-repeat!important;
+  box-shadow:0 4px 22px rgba(28,196,230,.13)!important;
+  isolation:isolate;
+}
+#more>.rhSettingsScene::before{
+  background:linear-gradient(180deg,rgba(1,7,15,.45),rgba(0,9,17,.16) 49%,rgba(0,8,15,.64))!important;
+}
+#more>.rhSettingsScene::after{height:14%!important;opacity:.45!important}
+#more>.rhSettingsScene .rhPageHead{
+  box-sizing:border-box!important;position:relative!important;z-index:3!important;
+  display:grid!important;grid-template-columns:88px minmax(0,1fr)!important;
+  align-items:center!important;gap:10px!important;
+  min-height:0!important;margin:0!important;
+  padding:calc(13px + env(safe-area-inset-top)) 12px 9px!important;
+}
+#more>.rhSettingsScene .rhPageHead>div{min-width:0!important}
+#more>.rhSettingsScene .rhPageHead h1{
+  margin:0!important;font-family:Impact,'Arial Narrow','Roboto Condensed','Segoe UI',sans-serif!important;
+  font-size:clamp(22px,6vw,32px)!important;font-weight:950!important;font-style:italic!important;
+  letter-spacing:.01em!important;line-height:1.1!important;white-space:normal!important;
+  color:#fff!important;text-shadow:0 2px 8px #000;
+}
+#more>.rhSettingsScene .rhPageHead h1::before{content:'OTG! / ';color:#62ddf6}
+#more>.rhSettingsScene .rhPageHead p{
+  margin:4px 0 0!important;color:#d3e7ef!important;font-size:clamp(11px,3vw,14px)!important;
+  font-weight:650!important;line-height:1.25!important;
+}
+/* Authoritative single-label back control; hide underlying text and older pseudos.
+   This prevents both the invisible label and BACK BACK regressions. */
+#more>.rhSettingsScene .rhPageHead>.rhBack{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;
+  box-sizing:border-box!important;flex:none!important;
+  width:88px!important;min-width:88px!important;max-width:88px!important;
+  height:44px!important;min-height:44px!important;max-height:44px!important;
+  padding:0 9px!important;white-space:nowrap!important;
+  border:1px solid rgba(104,229,249,.66)!important;border-radius:15px!important;
+  background:linear-gradient(135deg,rgba(17,42,55,.95),rgba(5,16,27,.94))!important;
+  box-shadow:inset 0 1px 0 #ffffff17,0 0 15px rgba(31,208,239,.18)!important;
+  text-indent:0!important;font-size:0!important;color:transparent!important;overflow:visible!important;
+}
+#more>.rhSettingsScene .rhPageHead>.rhBack::before{
+  content:'‹'!important;display:inline!important;position:static!important;transform:none!important;
+  width:auto!important;height:auto!important;
+  font:900 23px/1 'Segoe UI',sans-serif!important;color:#5edff4!important;
+}
+#more>.rhSettingsScene .rhPageHead>.rhBack::after{
+  content:'BACK'!important;display:inline!important;position:static!important;transform:none!important;
+  width:auto!important;height:auto!important;
+  font:italic 900 13px/1 'Segoe UI',sans-serif!important;color:white!important;
+}
+#more>.rhSettingsScene .rhPageHead>.rhHelp{display:none!important}
+
+/* Settings only: leave all subpages and other #more screens intact. */
+#more>.rhSettingsScene+.rhContent.rhConformance{
+  box-sizing:border-box!important;max-width:800px!important;
+  margin:0 auto!important;padding:12px 12px calc(25px + env(safe-area-inset-bottom))!important;
+  background:linear-gradient(180deg,#020b13,#010710)!important;
+}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSection,
+#more>.rhSettingsScene+.rhContent.rhConformance>#rhPortableBackupPanel8096{
+  box-sizing:border-box!important;position:relative!important;
+  margin:0 0 11px!important;padding:12px 14px!important;
+  background:linear-gradient(132deg,rgba(7,25,38,.97),rgba(2,12,22,.98))!important;
+  border:1.5px solid rgba(87,222,243,.48)!important;border-radius:19px!important;
+  box-shadow:inset 0 1px 0 #ffffff12,0 0 12px rgba(27,205,235,.10),0 7px 18px #0006!important;
+  overflow:hidden!important;
+}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSection>h2,
+#more>.rhSettingsScene+.rhContent.rhConformance>#rhPortableBackupPanel8096>h2{
+  display:flex!important;align-items:center!important;gap:9px!important;
+  margin:0 0 9px!important;
+  padding:1px 1px 8px!important;
+  border-bottom:1px solid rgba(99,223,243,.16)!important;
+  font:italic 900 clamp(17px,4.6vw,22px)/1.15 Impact,'Arial Narrow','Segoe UI',sans-serif!important;
+  letter-spacing:.04em!important;text-transform:uppercase!important;color:#6ce5f7!important;
+  overflow-wrap:anywhere!important;
+}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSection>h2::before,
+#more>.rhSettingsScene+.rhContent.rhConformance>#rhPortableBackupPanel8096>h2::before{
+  content:'◆';display:inline-flex;align-items:center;justify-content:center;
+  font:900 18px/1 system-ui,sans-serif;color:#65e4f6;
+  flex:none;width:27px;height:27px;border:1px solid #68e0f66b;border-radius:7px;
+  background:#04141f;box-shadow:0 0 8px #18ddfc3d;
+}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSettingPanel:has(.rhToggle)>h2::before{content:'✦'}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhAdvancedTimingSettingsV6013>h2::before{content:'◷'}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSettingPanel:has(#rhSettingsFavouriteSelect)>h2::before{content:'▣'}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSettingPanel:has(button[onclick*="rhManageSpaces"])>h2::before{content:'▤'}
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhSettingPanel:has(button[onclick*="rhDataBackups"])>h2::before{content:'▥'}
+#more>.rhSettingsScene+.rhContent.rhConformance>#rhUpdatePanel>h2::before{content:'↻'}
+#more>.rhSettingsScene+.rhContent.rhConformance>#rhCatalogueLibrary6079>h2::before{content:'▤'}
+#more>.rhSettingsScene+.rhContent.rhConformance>#rhPortableBackupPanel8096>h2::before{content:'⇅'}
+
+/* Short switch rows, generous touch targets, real inputs unchanged. */
+#more>.rhSettingsScene+.rhContent .rhToggle{
+  box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1fr) 29px!important;
+  align-items:center!important;gap:12px!important;padding:11px 4px!important;min-height:57px!important;
+  border-bottom:1px solid rgba(122,220,235,.13)!important;
+}
+#more>.rhSettingsScene+.rhContent .rhToggle:last-child{border-bottom:0!important}
+#more>.rhSettingsScene+.rhContent .rhToggle>span{gap:3px!important;min-width:0!important}
+#more>.rhSettingsScene+.rhContent .rhToggle b{
+  font:italic 850 15px/1.18 'Segoe UI',system-ui,sans-serif!important;color:#f5fdff!important;
+}
+#more>.rhSettingsScene+.rhContent .rhToggle small{
+  font:500 11px/1.36 'Segoe UI',system-ui,sans-serif!important;color:#a7bac4!important;
+}
+#more>.rhSettingsScene+.rhContent .rhToggle input[type=checkbox]{
+  width:24px!important;height:24px!important;margin:0!important;accent-color:#62e6f8!important;
+  justify-self:end!important;cursor:pointer!important;
+}
+#more>.rhSettingsScene+.rhContent .rhSettingPanel>label:not(.rhToggle){
+  display:block!important;margin:4px 0 7px!important;font-weight:750!important;
+  font-size:13px!important;color:#e4f5fa!important;
+}
+#more>.rhSettingsScene+.rhContent #rhSettingsFavouriteSelect{
+  box-sizing:border-box!important;width:100%!important;min-height:46px!important;padding:9px 12px!important;
+  font-size:16px!important;color:white!important;background:#03131e!important;
+  border:1px solid rgba(94,225,244,.4)!important;border-radius:13px!important;
+}
+#more>.rhSettingsScene+.rhContent .rhSettingPanel:has(#rhSettingsFavouriteSelect)>.rhPrimaryWide{
+  display:flex!important;width:100%!important;min-height:45px!important;
+  margin:10px 0 0!important;padding:10px 13px!important;
+  background:linear-gradient(125deg,#07384a,#06202f)!important;
+  font:italic 900 14px/1.2 'Segoe UI',system-ui!important;
+}
+#more>.rhSettingsScene+.rhContent .rhSettingPanel .rhCaution{
+  margin:9px 1px 0!important;color:#bac6cb!important;font-size:11px!important;line-height:1.4!important;
+}
+/* Settings links preserve their existing onclick actions. */
+#more>.rhSettingsScene+.rhContent .rhSettingRow,
+#more>.rhSettingsScene+.rhContent #catDiagBtn6081{
+  box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:none!important;
+  display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;gap:8px 12px!important;
+  min-height:52px!important;height:auto!important;
+  margin:7px 0 0!important;padding:11px 12px!important;
+  border:1px solid rgba(92,217,239,.45)!important;border-radius:13px!important;
+  background:linear-gradient(140deg,rgba(10,31,44,.96),rgba(2,12,23,.99))!important;
+  box-shadow:inset 0 1px 0 #ffffff0c,0 0 8px #00d9ee1a!important;
+  color:#f7fdff!important;text-align:left!important;white-space:normal!important;
+}
+#more>.rhSettingsScene+.rhContent .rhSettingRow>b,
+#more>.rhSettingsScene+.rhContent #catDiagBtn6081>b{
+  display:block!important;max-width:none!important;min-width:0!important;
+  font:italic 850 clamp(13px,3.5vw,16px)/1.18 'Segoe UI',system-ui,sans-serif!important;
+  color:white!important;white-space:normal!important;
+}
+#more>.rhSettingsScene+.rhContent .rhSettingRow>span,
+#more>.rhSettingsScene+.rhContent #catDiagBtn6081>span{
+  display:block!important;position:static!important;transform:none!important;max-width:42vw!important;
+  min-width:0!important;white-space:normal!important;overflow-wrap:anywhere!important;
+  text-align:right!important;color:#a7c0cc!important;font-size:clamp(10px,2.6vw,12px)!important;
+  line-height:1.3!important;
+}
+#more>.rhSettingsScene+.rhContent #rhUpdatePanel>p,
+#more>.rhSettingsScene+.rhContent #rhCatalogueLibrary6079>p,
+#more>.rhSettingsScene+.rhContent #rhPortableBackupPanel8096>p{
+  margin:5px 1px 9px!important;color:#b9cbd3!important;
+  font-size:12px!important;line-height:1.5!important;
+}
+#more>.rhSettingsScene+.rhContent #rhUpdateStatus{
+  box-sizing:border-box!important;margin:8px 0 0!important;padding:9px 10px!important;
+  border:1px solid #64daef2b!important;border-radius:10px!important;
+  color:#a7bec8!important;background:#000b16!important;font-size:11px!important;
+}
+/* Catalogue actions have long warnings: two-line rows read better than collisions. */
+#more>.rhSettingsScene+.rhContent #rhCatalogueLibrary6079 .rhSettingRow,
+#more>.rhSettingsScene+.rhContent #rhCatalogueLibrary6079 #catDiagBtn6081{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  justify-content:center!important;gap:5px!important;min-height:61px!important;
+}
+#more>.rhSettingsScene+.rhContent #rhCatalogueLibrary6079 .rhSettingRow>span,
+#more>.rhSettingsScene+.rhContent #rhCatalogueLibrary6079 #catDiagBtn6081>span{
+  text-align:left!important;max-width:none!important;font-size:11px!important;
+}
+/* Portable backup: preserve rollback state, input and every existing action. */
+#more>.rhSettingsScene+.rhContent #rhPortableBackupPanel8096 .rhSettingRow{
+  min-height:55px!important;
+}
+#more>.rhSettingsScene+.rhContent #rhPortableBackupPanel8096 button[hidden]{display:none!important}
+
+/* Destructive section stays bright red, visibly separate, and fully functional. */
+#more>.rhSettingsScene+.rhContent.rhConformance>.rhDangerFinal{
+  box-sizing:border-box!important;margin:2px 0 13px!important;padding:13px!important;
+  border:1.5px solid rgba(244,84,92,.76)!important;border-radius:18px!important;
+  background:linear-gradient(150deg,rgba(47,9,13,.9),rgba(16,3,8,.97))!important;
+  box-shadow:0 0 14px rgba(255,45,55,.11)!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal>h2{
+  color:#ff8188!important;font:italic 900 19px/1.15 Impact,'Segoe UI',sans-serif!important;
+  letter-spacing:.055em!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal>p{
+  color:#e4afb3!important;font-size:11px!important;margin:6px 0 10px!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal .rhDangerAction{
+  padding:12px!important;margin:0 0 8px!important;
+  border:1px solid rgba(255,100,104,.46)!important;border-radius:13px!important;
+  background:#130409d9!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal .rhDangerAction>div>b{
+  color:#fff!important;font:italic 900 15px/1.25 'Segoe UI',system-ui!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal .rhDangerAction>div>span{
+  color:#d6b8be!important;font-size:11px!important;line-height:1.4!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal .rhDangerAction>div>em{
+  color:#b9949a!important;font-size:10px!important;line-height:1.4!important;
+}
+#more>.rhSettingsScene+.rhContent>.rhDangerFinal .rhDangerAction>.dangerBtn{
+  display:flex!important;min-height:44px!important;width:100%!important;margin:10px 0 0!important;
+  border:1px solid #ff5e69b5!important;border-radius:11px!important;
+  background:linear-gradient(110deg,#561219,#380c13)!important;
+  color:#ffd6d6!important;font:italic 900 14px/1.1 'Segoe UI',system-ui!important;
+}
+/* Current-Space note corrected without touching the existing Stats renderer. */
+#more .rhStatsInfoWrap .rhStatsInfo{font-size:0!important}
+#more .rhStatsInfoWrap .rhStatsInfo::after{
+  content:'ⓘ  Main statistics reflect your current OTG! Space. Lifetime Career combines compatible achievements across all Spaces.';
+  display:block;color:#aabdc6;font:500 12px/1.5 'Segoe UI',system-ui,sans-serif;
+}
+@media(max-width:380px){
+  #more>.rhSettingsScene .rhPageHead{gap:8px!important;padding-left:10px!important;padding-right:10px!important;grid-template-columns:82px minmax(0,1fr)!important}
+  #more>.rhSettingsScene .rhPageHead>.rhBack{width:82px!important;min-width:82px!important;max-width:82px!important}
+  #more>.rhSettingsScene .rhPageHead h1{font-size:clamp(20px,5.7vw,25px)!important}
+  #more>.rhSettingsScene+.rhContent.rhConformance{padding-left:9px!important;padding-right:9px!important}
+  #more>.rhSettingsScene+.rhContent .rhSettingRow{grid-template-columns:minmax(0,1fr) minmax(75px,40%)!important}
+}
+@media(prefers-reduced-motion:reduce){#more>.rhSettingsScene+.rhContent *{transition:none!important}}

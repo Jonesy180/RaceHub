@@ -1,5 +1,5 @@
 {
-  "version": "8.0.345",
-  "worker": "./otg-service-worker-v8345.js",
-  "message": "Stats Smart Tile visual makeover: compact cockpit and PB cards, styled Career Museum and Lifetime Career, readable Space totals, Legends and Rivalry Files. Calculations and saved data unchanged."
+  "version": "8.0.346",
+  "worker": "./otg-service-worker-v8346.js",
+  "message": "Settings Smart Tile makeover: compact control-centre header, all existing Settings sections, improved contrast and danger zone. Stats Current Space / Lifetime Career note clarified. Functionality and saved data unchanged."
 }
