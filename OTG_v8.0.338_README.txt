@@ -1,0 +1,16 @@
+OTG! MAIN v8.0.338 — PICK MY DRIVE SMART TILE MAKEOVER
+
+Incremental overlay for working MAIN v8.0.337. Extract into C:\RaceHub,
+replacing matching files. Do NOT delete existing files or saved data.
+
+- Compact PMD racing hero; one title, back to Dashboard.
+- Live random theme and car count; no sample cars or invented results.
+- Compact car rows: number, actual car name, year/type and permanent H/E✓ badges.
+- H opens existing Car History. H cyan only for genuine saved activity.
+- E✓ remains grey unless an actual verified saved Evil result identifies its race type.
+- Choose Again, Let's Drive, Smart Car Finder, round editor, saved setup,
+  and existing Festival racing flow retain exactly their old behaviour.
+- All other approved sections and stored data are left unchanged.
+
+PHONE CHECK: Dashboard > Pick My Drive. Inspect draw screen and H/E✓ badges,
+then tap Let's Drive to check setup without starting/saving a fake race.
