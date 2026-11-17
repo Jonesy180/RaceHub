@@ -1,0 +1,186 @@
+/* OTG! MAIN v8.0.324 — Festival landing only; approved cyan 10-category Smart Tile style. */
+#festival > .rhFestivalV1.otg324-landing{
+  display:flex!important;flex-direction:column!important;
+  min-width:0;overflow-x:hidden;background:#010811;
+  color:#f2fcff;
+}
+/* An established artwork-first helper moves this original title strip below the
+   picture. Flex ordering displays it ABOVE the picture without duplicating it. */
+#festival .otg324-landing > .otgFestivalStrip8146{
+  order:-3!important; min-height:48px!important; box-sizing:border-box!important;
+  padding:8px 13px 9px!important;
+  background:linear-gradient(100deg,#041824,#020a11 80%)!important;
+  border:1px solid #00d4ee!important; border-bottom:2px solid #02e7ff!important;
+  box-shadow:0 0 15px #00d9f744,inset 0 0 10px #00e4ff0c!important;
+}
+#festival .otg324-landing .otgFestivalStrip8146 h1,
+#festival .otg324-landing .rhFestivalHeadV1 h1{
+  font-family:Impact,'Arial Narrow','Roboto Condensed',sans-serif!important;
+  font-size:clamp(24px,7vw,35px)!important;font-weight:950!important;
+  font-style:italic!important;line-height:1.03!important;letter-spacing:.025em!important;
+  color:#fff!important;text-shadow:0 2px #000,0 0 10px #ffffff42;
+}
+#festival .otg324-landing .otgFestivalStrip8146 h1::before{
+  content:'OTG!  /  ';color:#00e8ff;font-style:italic;
+}
+#festival .otg324-landing .otgFestivalStrip8146 p,
+#festival .otg324-landing .rhFestivalHeadV1 p{display:none!important}
+#festival .otg324-landing > .rhFestivalHeroV1{
+  order:-2!important;height:clamp(132px,43vw,195px)!important;min-height:0!important;
+  background:linear-gradient(180deg,transparent 0%,rgba(0,3,9,.1) 52%,rgba(0,9,16,.68) 100%),
+    url('assets/final/festival-approved-scene-v5718-clean.png') center center/cover no-repeat!important;
+  border-bottom:2px solid #04d8ef!important;
+  box-shadow:0 3px 14px rgba(0,210,255,.25)!important;
+}
+#festival .otg324-landing > .rhFestivalBodyV1{
+  order:0!important;box-sizing:border-box!important;width:100%;
+  padding:9px 10px calc(20px + env(safe-area-inset-bottom))!important;
+  margin:0!important;
+  background:linear-gradient(180deg,#03121d 0%,#010710 60%,#01060d 100%)!important;
+}
+/* Existing Back and History controls, moved visually to bottom of the compact hero. */
+#festival .otg324-landing .rhFestivalHeadV1{
+  top:auto!important;bottom:12px!important;left:11px!important;right:auto!important;
+  width:auto!important;z-index:8!important;
+}
+#festival .otg324-landing .rhFestivalBackV1{
+  width:93px!important;height:37px!important;min-width:93px!important;min-height:37px!important;
+  border:2px solid #02e9ff!important;border-radius:17px!important;
+  background:rgba(0,13,22,.9)!important;box-shadow:0 0 12px #00dfffaa!important;
+  color:#f4fdff!important;font-size:29px!important;line-height:1!important;
+}
+#festival .otg324-landing .rhFestivalHeadV1 > div{display:none!important}
+#festival .otg324-landing .rhFestivalHeroV1 > .rhHistoryHeroTileV8065{
+  position:absolute!important;top:auto!important;bottom:11px!important;left:auto!important;right:10px!important;
+  width:min(185px,46%)!important;min-height:42px!important;padding:5px 9px!important;
+  border:2px solid #05dfff!important;border-radius:14px!important;
+  background:rgba(0,14,25,.9)!important;box-shadow:0 0 10px #00e5ff9a!important;
+}
+#festival .otg324-landing .rhHistoryHeroTileV8065 small{display:none!important}
+#festival .otg324-landing .rhHistoryHeroTileV8065 b{
+  color:#fff!important;font-family:Impact,'Arial Narrow','Roboto Condensed',sans-serif!important;
+  font-size:18px!important;font-style:italic!important;letter-spacing:.02em!important;
+}
+#festival .otg324-landing .rhHistoryHeroTileV8065 em{color:#54ecff!important;font-size:10px!important}
+/* Active Continue is inserted by the unchanged renderer ONLY for an actual run. */
+#festival .otg324-landing .rhFestivalContinueV1{
+  min-height:68px!important;padding:7px 10px!important;margin:0 0 9px!important;
+  grid-template-columns:53px minmax(0,1fr) 24px!important;gap:9px!important;
+  border:2px solid #12e7ff!important;border-radius:17px!important;
+  background:linear-gradient(110deg,#082d3d,#02121f 76%)!important;
+  box-shadow:inset 0 0 16px #00d6fb26,0 0 12px #03e9f58b!important;
+}
+#festival .otg324-landing .rhFestivalContinueV1 > img{width:53px!important;height:53px!important;object-fit:contain!important}
+#festival .otg324-landing .rhFestivalContinueV1 span{min-width:0!important;white-space:normal!important}
+#festival .otg324-landing .rhFestivalContinueV1 span b{
+  font:italic 900 clamp(16px,4.7vw,22px)/1.07 Impact,'Arial Narrow',sans-serif!important;
+  color:#fff!important;overflow-wrap:anywhere!important;
+}
+#festival .otg324-landing .rhFestivalContinueV1 span small,
+#festival .otg324-landing .rhFestivalContinueV1 span em{color:#42e8ff!important;font-size:11px!important}
+#festival .otg324-landing .rhFestivalContinueV1 > strong{font-size:26px!important;grid-column:3!important}
+#festival .otg324-category-header{
+  display:flex;align-items:center;gap:10px;margin:4px 3px 7px;
+  font:italic 950 clamp(17px,5.2vw,23px)/1 Impact,'Arial Narrow',sans-serif;
+  letter-spacing:.02em;color:#fff;text-shadow:0 0 9px #ffffff26;
+}
+#festival .otg324-category-header::before{
+  content:'';width:34px;height:17px;flex-shrink:0;
+  background:conic-gradient(#04e4fb 25%,#04111b 0 50%,#04e4fb 0 75%,#04111b 0) 0 0/15px 15px;
+}
+#festival .otg324-category-list{display:grid;gap:6px;min-width:0;margin-bottom:10px}
+#festival .otg324-category{
+  min-width:0;overflow:hidden;border:1.5px solid #00dcf5;
+  border-radius:13px;background:linear-gradient(110deg,#021923,#020b13 70%,#06202b);
+  box-shadow:inset 0 0 11px #00e6ff20,0 0 7px #01dffa54;
+}
+#festival .otg324-category > summary{
+  box-sizing:border-box!important;min-height:48px!important;max-width:100%!important;
+  display:grid!important;grid-template-columns:43px minmax(0,1fr) auto 19px!important;
+  gap:7px!important;align-items:center!important;margin:0!important;
+  padding:3px 8px!important;list-style:none!important;cursor:pointer!important;
+  background:linear-gradient(130deg,#03202b,#030c15 80%)!important;
+}
+#festival .otg324-category > summary::-webkit-details-marker{display:none!important}
+#festival .otg324-category > summary::marker{content:''}
+#festival .otg324-category > summary img{
+  display:block;width:42px;height:31px;object-fit:cover;
+  filter:drop-shadow(0 0 4px #00dffa87);
+}
+#festival .otg324-category-label{
+  display:block;min-width:0;color:#f9feff;white-space:normal;overflow-wrap:normal;
+  font-family:Impact,'Arial Narrow','Roboto Condensed',sans-serif;
+  font-style:italic;font-size:clamp(13px,3.85vw,18px);font-weight:950;
+  letter-spacing:.005em;line-height:1.03;text-shadow:0 1px #000,0 0 4px #ffffff24;
+}
+#festival .otg324-category-count{
+  color:#19e8fc;font:italic 900 clamp(14px,4.25vw,20px)/1 Impact,'Arial Narrow',sans-serif;
+  text-shadow:0 0 5px #00e3ff73;
+}
+#festival .otg324-category-chevron{
+  color:#d9fbff;font:900 23px/1 system-ui,sans-serif;transition:transform .16s ease;
+}
+#festival .otg324-category[open] > summary{border-bottom:1px solid #00aacc}
+#festival .otg324-category[open] .otg324-category-chevron{transform:rotate(180deg)}
+#festival .otg324-category-content{padding:8px 10px 10px;min-width:0}
+#festival .otg324-category-content > .rhFestivalExpandedV1{padding:0!important}
+#festival .otg324-category-content .rhFestivalDetailIntroV1{
+  grid-template-columns:28px minmax(0,1fr)!important;gap:7px!important;min-height:0!important;
+  margin:0 0 7px!important;padding:5px 0!important;
+}
+#festival .otg324-category-content .rhFestivalDetailIntroV1>b{
+  grid-column:1/-1!important;white-space:normal!important;text-align:left!important;
+  color:#61ecff!important;line-height:1.25!important;
+}
+#festival .otg324-category-content .rhFestivalDetailIntroV1>span{font-size:12px!important}
+#festival .otg324-landing .otg324-category .rhChampCard{
+  box-sizing:border-box!important;min-width:0!important;width:100%!important;
+  min-height:63px!important;height:auto!important;margin:0 0 6px!important;
+  padding:7px 9px!important;gap:8px!important;
+  grid-template-columns:48px minmax(0,1fr) 15px!important;
+  border:1px solid #16566a!important;border-radius:12px!important;
+  background:linear-gradient(115deg,#082a36,#020d17)!important;
+  box-shadow:inset 0 0 9px #00c6ff16!important;
+}
+#festival .otg324-landing .otg324-category .rhChampCard .rhTrophyStageV6{
+  min-width:0!important;width:46px!important;height:46px!important;
+}
+#festival .otg324-landing .otg324-category .rhChampCard img{
+  width:44px!important;height:44px!important;object-fit:contain!important;
+}
+#festival .otg324-landing .otg324-category .rhChampCard span>b{
+  font-family:Impact,'Arial Narrow','Roboto Condensed',sans-serif!important;
+  font-weight:900!important;font-style:italic!important;
+  font-size:clamp(14px,3.8vw,18px)!important;line-height:1.1!important;
+  white-space:normal!important;overflow-wrap:anywhere!important;
+}
+#festival .otg324-landing .otg324-category .rhChampCard span>small{
+  color:#61e9ff!important;font-size:11px!important;
+  line-height:1.22!important;white-space:normal!important;overflow-wrap:anywhere!important;
+}
+#festival .otg324-landing .otg324-category .rhChampCard em{font-size:25px!important;color:#56dfff!important}
+#festival .otg324-category-content .rhFavouriteUnset{padding:10px!important}
+#festival .otg324-category-content .rhFavouriteUnset p{font-size:12px!important}
+#festival .otg324-category-content .rhFestivalSearchV1{min-height:42px!important;height:42px!important}
+#festival .otg324-unavailable{margin:5px 2px!important;font-size:12px!important;line-height:1.4!important;color:#a2beca!important}
+#festival .otg324-special-note{font:italic 700 12px/1.2 system-ui,sans-serif;color:#8de3f1;margin:13px 0 5px}
+#festival .otg324-category-content .rhFH5Special8056{
+  margin:6px 0!important;padding:0!important;min-height:0!important;border:1px solid #205466!important;
+  background:#05141e!important;border-radius:12px!important;
+}
+#festival .otg324-category-content .rhFH5Special8056 > summary{
+  padding:11px 12px!important;min-height:43px!important;font-size:12px!important;line-height:1.2!important;
+}
+#festival .otg324-landing .rhFestivalInfoV1{
+  padding:10px 12px!important;border:1px solid #02778d!important;
+  border-radius:13px!important;background:linear-gradient(105deg,#062733,#03111c)!important;
+}
+#festival .otg324-landing .rhFestivalInfoV1 p{font-size:11px!important}
+#festival .otg324-category:focus-within{outline:1px solid #b0f6ff;outline-offset:1px}
+@media(max-width:365px){
+ #festival .otg324-category > summary{grid-template-columns:35px minmax(0,1fr) auto 14px!important;gap:5px!important;padding:3px 6px!important}
+ #festival .otg324-category > summary img{width:34px;height:29px}
+ #festival .otg324-category-label{font-size:clamp(12px,3.5vw,14px)}
+ #festival .otg324-landing .rhFestivalHeroV1 > .rhHistoryHeroTileV8065{width:44%!important}
+}
+@media(prefers-reduced-motion:reduce){#festival .otg324-category-chevron{transition:none}}

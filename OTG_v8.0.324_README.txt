@@ -1,0 +1,26 @@
+OTG! MAIN v8.0.324 — FESTIVAL APPROVED SMART TILE MAKEOVER
+INCREMENTAL OVERLAY — install ON TOP OF accepted v8.0.323. Never delete the working project.
+
+FESTIVAL LANDING ONLY
+- Approved short Festival race-scene banner, cyan neon category Smart Tiles,
+  racing type, 10 game-neutral expandable category headings and approved icon art.
+- Existing festival Back, History, live Continue and all native Championship
+  setup/run buttons retain their original event handlers, counts and saved state.
+- Original Festival, Favourite, Vintage & Classic, Era, Class/Type, Manufacturer,
+  Lonely Hearts events stay available from their matching category.
+- FH5-only specialist presets remain discoverable *within* Class/Type, not as
+  separate top-level, game-wide categories.
+- Relay, Gauntlet, Swiss catalogue headings are visible with count 0 and an honest
+  availability note: the present app only contains standalone/isolated QA modes,
+  NOT official game-neutral Festival entry points. No new competition has been invented.
+- No Fake Race Off, Evil 2, Time Trial, Second Chance or Long Jump buttons added.
+- Dashboard v8.0.323 remains entirely unchanged; no racing engine/storage changes.
+
+INSTALL: Unzip over C:\RaceHub, replace matching files, do NOT delete anything first.
+From C:\RaceHub:
+  git add -A
+  git commit -m "OTG MAIN v8.0.324 Festival Smart Tiles"
+  git push origin main
+
+PHONE QA: Festival landing, one screenshot. Check opening one native accordion,
+then PASS/FIX. No fake racing results required.

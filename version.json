@@ -1,5 +1,5 @@
 {
-  "version": "8.0.323",
-  "worker": "./otg-service-worker-v8323.js",
-  "message": "Dashboard approved design match: original approved bright hero, illustrated icons, neon Smart Tiles and motorsport typography. Visual-only; existing data and racing mechanics unchanged."
+  "version": "8.0.324",
+  "worker": "./otg-service-worker-v8324.js",
+  "message": "Festival landing Smart Tile makeover with 10 game-neutral category headings, live native options and existing racing engines preserved."
 }
