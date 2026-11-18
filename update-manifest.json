@@ -1,5 +1,5 @@
 {
-  "version": "8.0.355",
-  "worker": "./otg-service-worker-v8355.js",
-  "message": "Stage 3 cosmetic correction: Drag Shootouts icon now matches other dark/cyan Festival category icons; no racing logic changes."
+  "version": "8.0.356",
+  "worker": "./otg-service-worker-v8356.js",
+  "message": "Stage 3: TET2-only final battles qualifier + variable-size knockout planning engine; no UI, saves, Garage or prior competition logic changed."
 }
