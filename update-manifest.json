@@ -1,5 +1,5 @@
 {
-  "version": "8.0.349",
-  "worker": "./otg-service-worker-v8349.js",
-  "message": "Stage 3: place existing Relay, Gauntlet, Long Jump and Second Chance controls in Festival categories; retain proven engines and data."
+  "version": "8.0.350",
+  "worker": "./otg-service-worker-v8350.js",
+  "message": "Stage 3 Festival entries; repair service-worker install pre-cache path for existing v8348 stylesheet."
 }
