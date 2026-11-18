@@ -1,5 +1,5 @@
 {
-  "version": "8.0.352",
-  "worker": "./otg-service-worker-v8352.js",
-  "message": "Stage 3: remove obsolete Evil native-racing QA card; introduce official Formula Drift score event (15 cars, Los Campos, one attempt each) without old knockout."
+  "version": "8.0.353",
+  "worker": "./otg-service-worker-v8353.js",
+  "message": "Stage 3 cleanup: remove unwanted new Formula Drift Zone Score entry; retain the proven 22-car Drift Car Championship in Class/Type."
 }
