@@ -1,0 +1,8 @@
+/* Stage 1: no old Evil List UI. TET2 rebrand comes in Stage 4. */
+#evilcampaign, .rhEvilHQ321, [data-screen="evilcampaign"],
+#otg-evil-hq-321, #otg-sc-launch-8220 {display:none!important;}
+
+/* Retired Evil List / Headquarters navigation only. Do not hide independent Festival competition tiles. */
+#evilcampaign, #e2p-launch, #e2trial-launch182, #otg-evil-hq-321,
+#otg-sc-launch-8220, [data-screen="evilcampaign"],
+[data-view="evilcampaign"], [data-target="evilcampaign"] {display:none!important;}

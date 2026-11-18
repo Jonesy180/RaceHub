@@ -1,5 +1,5 @@
 {
-  "version": "8.0.347",
-  "worker": "./otg-service-worker-v8347.js",
-  "message": "Stage 1: retired broken Evil List and obsolete QA entrypoints; kept Garage, Festival, Race Off and independent competition engines. No saved-data changes."
+  "version": "8.0.348",
+  "worker": "./otg-service-worker-v8348.js",
+  "message": "Stage 1: remove orphaned active Evil 2.0 test continuation from current Space; preserve Garage and independent competition engines."
 }
