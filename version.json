@@ -1,5 +1,5 @@
 {
-  "version": "8.0.353",
-  "worker": "./otg-service-worker-v8353.js",
-  "message": "Stage 3 cleanup: remove unwanted new Formula Drift Zone Score entry; retain the proven 22-car Drift Car Championship in Class/Type."
+  "version": "8.0.354",
+  "worker": "./otg-service-worker-v8354.js",
+  "message": "Stage 3: surface existing FH5 Drag Shootouts as a dedicated Festival category; preserve original one-run engine, entrants and results."
 }
