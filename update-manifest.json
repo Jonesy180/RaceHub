@@ -1,5 +1,5 @@
 {
-  "version": "8.0.350",
-  "worker": "./otg-service-worker-v8350.js",
-  "message": "Stage 3 Festival entries; repair service-worker install pre-cache path for existing v8348 stylesheet."
+  "version": "8.0.351",
+  "worker": "./otg-service-worker-v8351.js",
+  "message": "Festival: correct Aer\u00f3dromo Long Jump row; reserve Second Chance for tournament qualification, not the Festival menu."
 }
