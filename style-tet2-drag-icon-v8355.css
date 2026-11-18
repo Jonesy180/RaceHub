@@ -1,0 +1,11 @@
+/* TET2 Stage 3 v8.0.355: match existing Festival category icon presentation. */
+#festival .otg324-category-list > .tet2-354-drag > summary > img {
+  box-sizing:border-box!important;
+  display:block!important;
+  width:39px!important;height:39px!important;
+  object-fit:contain!important;
+  border-radius:11px!important;
+  background:#03121c!important;
+  opacity:1!important;
+  filter:drop-shadow(0 0 5px rgba(0,223,255,.42))!important;
+}
