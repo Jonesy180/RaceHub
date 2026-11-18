@@ -1,5 +1,5 @@
 {
-  "version": "8.0.348",
-  "worker": "./otg-service-worker-v8348.js",
-  "message": "Stage 1: remove orphaned active Evil 2.0 test continuation from current Space; preserve Garage and independent competition engines."
+  "version": "8.0.349",
+  "worker": "./otg-service-worker-v8349.js",
+  "message": "Stage 3: place existing Relay, Gauntlet, Long Jump and Second Chance controls in Festival categories; retain proven engines and data."
 }
