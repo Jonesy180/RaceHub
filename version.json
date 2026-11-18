@@ -1,5 +1,5 @@
 {
-  "version": "8.0.356",
-  "worker": "./otg-service-worker-v8356.js",
-  "message": "Stage 3: TET2-only final battles qualifier + variable-size knockout planning engine; no UI, saves, Garage or prior competition logic changed."
+  "version": "8.0.357",
+  "worker": "./otg-service-worker-v8357.js",
+  "message": "Fix repeated Update Available prompt and service worker navigation; retain TET2 Final Battles engine and existing racing data."
 }
