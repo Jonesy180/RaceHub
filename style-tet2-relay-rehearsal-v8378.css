@@ -1,0 +1,39 @@
+/* TET2 v8.0.378 — phone-first Relay current-group rehearsal. */
+#tet2-stage4-app .t2-r378{border:1px solid #d44a42;border-radius:16px;background:#080d14;padding:15px 13px;margin:14px 0;color:#edf4ff;box-shadow:inset 0 0 28px #d83c3718}
+#tet2-stage4-app .t2-r378 h3{font-size:18px;color:#ffc574;letter-spacing:.035em;margin:0 0 13px;line-height:1.3}
+#tet2-stage4-app .t2-r378 h4{font-size:15px;color:#90d2ee;margin:8px 0 10px}
+#tet2-stage4-app .t2-r378-alert{background:#24150c;border:1px solid #9a6b38;border-radius:10px;padding:12px;color:#f6d6a2;line-height:1.55;font-size:13px}
+#tet2-stage4-app .t2-r378-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:15px 0}
+#tet2-stage4-app .t2-r378-stats span{border:1px solid #2d526b;border-radius:11px;background:#09151f;padding:12px;min-width:0}
+#tet2-stage4-app .t2-r378-stats b{display:block;color:#f9de8b;font-size:25px;line-height:1.3}
+#tet2-stage4-app .t2-r378-stats small{display:block;color:#a6bed0;font-size:12px}
+#tet2-stage4-app .t2-r378-note{color:#b4c8d7;font-size:13px;line-height:1.55;margin:12px 1px}
+#tet2-stage4-app .t2-r378-confirm{background:#0c2b2c;border:1px solid #368b86;border-radius:10px;padding:11px;margin:11px 0;color:#b9f4dd;font-size:13px;line-height:1.5}
+#tet2-stage4-app .t2-r378-roster{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;margin:12px 0}
+#tet2-stage4-app .t2-r378-team{border:1px solid #315269;border-radius:12px;background:#091620;padding:12px;min-width:0}
+#tet2-stage4-app .t2-r378-team h4{font-size:16px;color:#f8d67a;margin:0 0 8px;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-r378-team p{font-size:13px;color:#bcd3e0;margin:11px 0 0}
+#tet2-stage4-app .t2-r378-team p b{color:#ffe39b}
+#tet2-stage4-app .t2-r378-leg{border-top:1px solid #28404d;padding:10px 0;min-width:0}
+#tet2-stage4-app .t2-r378-car{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#tet2-stage4-app .t2-r378-car small{background:#173747;border-radius:5px;color:#a9dae9;padding:4px 5px;font-size:10px;white-space:nowrap}
+#tet2-stage4-app .t2-r378-car b{flex:1 1 145px;min-width:0;overflow-wrap:anywhere;color:#e4f1f5;font-size:13px}
+#tet2-stage4-app .t2-r378-car span{font-size:11px;border-radius:5px;background:#6e3c1b;padding:3px 5px;color:#fff1be}
+#tet2-stage4-app .t2-r378-leg output{display:block;color:#83dbb0;font-weight:700;font-size:13px;margin-top:7px}
+#tet2-stage4-app .t2-r378-save{display:flex;gap:6px;margin-top:8px;min-width:0}
+#tet2-stage4-app .t2-r378-save input,#tet2-stage4-app .t2-r378-tracks input{min-width:0;min-height:44px;width:100%;box-sizing:border-box;border:1px solid #49758b;border-radius:8px;background:#101e2a;color:white;padding:10px;font-size:15px}
+#tet2-stage4-app .t2-r378-save button{min-width:75px;min-height:44px;background:#a73b32;color:#fff;border:1px solid #d36751;border-radius:8px;font-size:13px;font-weight:800}
+#tet2-stage4-app .t2-r378-tracks{border:1px solid #3d5c70;background:#0c1924;border-radius:11px;padding:12px;margin:12px 0}
+#tet2-stage4-app .t2-r378-tracks label{display:block;color:#bfd6e4;font-size:13px;font-weight:700;margin:11px 0}
+#tet2-stage4-app .t2-r378-tracks input{display:block;margin-top:6px}
+#tet2-stage4-app .t2-r378 .t2-btn{width:100%;min-height:46px;margin:7px 0;white-space:normal}
+#tet2-stage4-app .t2-r378-routegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:10px 0}
+#tet2-stage4-app .t2-r378-routegrid span{border:1px solid #294c5e;border-radius:9px;padding:8px 6px;min-width:0;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-r378-routegrid small{display:block;color:#98c1d7;font-size:10px}
+#tet2-stage4-app .t2-r378-routegrid b{display:block;font-size:11px;color:#f8dfaf}
+#tet2-stage4-app .t2-r378-finish{background:#12302d;border:1px solid #377e67;border-radius:9px;color:#c9f4d8;font-size:14px;font-weight:700;line-height:1.5;padding:12px}
+#tet2-stage4-app .t2-r378-leaders{border:1px solid #38566c;border-radius:11px;padding:13px;background:#101a25}
+#tet2-stage4-app .t2-r378-leaders ol{margin:0 0 10px;padding-left:19px;color:#e8f2fa;font-size:13px}
+#tet2-stage4-app .t2-r378-leaders li{margin:7px 0}
+#tet2-stage4-app .t2-r378-leaders small{color:#b1c6d4;font-size:11px}
+#tet2-stage4-app .t2-r378-error:not([hidden]){display:block;background:#4a1717;color:#ffe1ce;padding:11px;border-radius:9px;border:1px solid #c75f4b;overflow-wrap:anywhere}

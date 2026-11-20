@@ -1,5 +1,5 @@
 {
-  "version": "8.0.377",
-  "worker": "./otg-service-worker-v8377.js",
-  "message": "Aerodromo Double-Header isolated current-batch Drag-first, one Long Jump attempt per car, separate leaderboards; no official writes."
+  "version": "8.0.378",
+  "worker": "./otg-service-worker-v8378.js",
+  "message": "Mixed and Manufacturer Relay: current-group three-car-team rehearsal, native scoring, separate saved stage progression; official writes gated."
 }
