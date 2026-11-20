@@ -1,5 +1,5 @@
 {
-  "version": "8.0.379",
-  "worker": "./otg-service-worker-v8379.js",
-  "message": "Swiss Cup full FH5 Garage: 16-car Cup fields, 8 stage visits including bronze, current-visit isolated rehearsal. Official racing remains locked."
+  "version": "8.0.380",
+  "worker": "./otg-service-worker-v8380.js",
+  "message": "Lonely Hearts single-car manufacturer knockout rehearsal: stage draws, byes, saved times, bronze before final. Official racing remains locked."
 }
