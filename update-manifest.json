@@ -1,5 +1,5 @@
 {
-  "version": "8.0.370",
-  "worker": "./otg-service-worker-v8370.js",
-  "message": "Corrected TET2 locked scheduling rules: one 8-car-batch all-car Gauntlet, single-car-only Lonely Hearts, random 11-format opening; removed contradictory draft audit panels. No official tournament writes."
+  "version": "8.0.371",
+  "worker": "./otg-service-worker-v8371.js",
+  "message": "Complete candidate stage assembly: 11 random shakedown formats plus historical, Race Off, Relay, Swiss, Unified Gauntlet, Lonely Hearts, Drift, Top 3 and Aer\u00f3dromo. Read-only, endgames held; official racing not activated."
 }
