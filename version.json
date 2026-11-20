@@ -1,5 +1,5 @@
 {
-  "version": "8.0.368",
-  "worker": "./otg-service-worker-v8368.js",
-  "message": "TET2 read-only stage workload model: live full-maker Race Off match/slot counts, native Relay group counts, Gauntlet timed attempts and outstanding allocation safeguards; no official Evil List or data changes."
+  "version": "8.0.369",
+  "worker": "./otg-service-worker-v8369.js",
+  "message": "Read-only native Swiss cup, Lonely Hearts, Gauntlet batching and Drift workload reconciliation; exposes unapproved field choices rather than inventing official slots."
 }

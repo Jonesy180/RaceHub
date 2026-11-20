@@ -1,0 +1,29 @@
+/* TET2 v369: native source-backed workload cards; phone-first, collapsible. */
+#tet2-stage4-app .t2-next-collapse{border:1px solid #41768d;border-radius:10px;background:#07141c}
+#tet2-stage4-app .t2-next-collapse>summary{min-height:48px;padding:14px;cursor:pointer;color:#b9eeff;font-weight:800;line-height:1.3}
+#tet2-stage4-app .t2-next-collapse[open]>summary{border-bottom:1px solid #41768d}
+#tet2-stage4-app .t2-next-body{padding:11px;font-size:13px;line-height:1.5}
+#tet2-stage4-app .t2-next-warning{padding:11px;border-radius:8px;background:#261b0b;color:#ffe1aa;border:1px solid #b7863c}
+#tet2-stage4-app .t2-next-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:11px 0}
+#tet2-stage4-app .t2-next-kpis div{padding:10px;border:1px solid #397c99;border-radius:8px;min-width:0;background:#101d29}
+#tet2-stage4-app .t2-next-kpis strong{display:block;font-size:23px;color:#ffdc83}
+#tet2-stage4-app .t2-next-kpis small{display:block;color:#b6d4e0;font-size:12px}
+#tet2-stage4-app .t2-next-card{border:1px solid #305c78;background:#091b26;border-radius:10px;margin:11px 0;padding:12px;color:#e2edf4;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-next-card h3{font-weight:850;font-size:16px;color:#b7eaff;margin:0 0 7px}
+#tet2-stage4-app .t2-next-card p{margin:8px 0}
+#tet2-stage4-app .t2-next-card em{font-style:normal;color:#fee1ac}
+#tet2-stage4-app .t2-next-select{font-weight:700;display:grid;gap:8px;margin:10px 0}
+#tet2-stage4-app .t2-next-select select{width:100%;font-size:16px;min-width:0;min-height:46px;padding:9px;background:#172a37;color:#fff;border:1px solid #52a0c3;border-radius:8px}
+#tet2-stage4-app .t2-next-number{display:flex;gap:12px;align-items:center;background:#172a35;border-radius:8px;padding:10px;flex-wrap:wrap}
+#tet2-stage4-app .t2-next-number strong:first-child{font-size:24px;color:#ffdc83}
+#tet2-stage4-app .t2-next-number span{font-size:12px;flex:1;min-width:120px}
+#tet2-stage4-app .t2-next-muted{font-size:12px;color:#bdd0db}
+#tet2-stage4-app .t2-next-compare{display:grid;gap:8px}
+#tet2-stage4-app .t2-next-compare>div{border:1px solid #397489;border-radius:7px;padding:10px;background:#112430}
+#tet2-stage4-app .t2-next-compare b,#tet2-stage4-app .t2-next-compare strong,#tet2-stage4-app .t2-next-compare small{display:block;margin-bottom:4px}
+#tet2-stage4-app .t2-next-compare strong{color:#ffda82}
+#tet2-stage4-app .t2-next-compare small{color:#bfd2dd}
+#tet2-stage4-app .t2-next-total{border-color:#b98a36;background:#1a1d20}
+#tet2-stage4-app .t2-next-blockers{border:1px solid #96713a;border-radius:7px;padding:10px;background:#1a1712;color:#f4dfc3}
+#tet2-stage4-app .t2-next-blockers summary{cursor:pointer;font-weight:800;min-height:38px}
+#tet2-stage4-app .t2-next-blockers li{margin:9px 0}
