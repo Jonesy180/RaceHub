@@ -1,5 +1,5 @@
 {
-  "version": "8.0.372",
-  "worker": "./otg-service-worker-v8372.js",
-  "message": "Clean Evil List preview: one searchable 50-per-page timetable; engineering audit cards hidden. Candidate remains read-only pending slot validation."
+  "version": "8.0.373",
+  "worker": "./otg-service-worker-v8373.js",
+  "message": "Historic Race Off semifinals now lead to a separate bronze duel before source final, and qualification source identity is constrained. Still read-only."
 }
