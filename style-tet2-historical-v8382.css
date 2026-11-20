@@ -1,0 +1,17 @@
+/* TET2 historical source compatibility, one small Race Control panel only. */
+#tet2-stage4-app .t2-h382{border:1px solid #59788e;border-radius:14px;padding:15px;background:#08111d;color:#e5f3ff;margin:16px 0;line-height:1.5;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-h382 h3{color:#81dcff;font-size:20px;margin:0 0 12px}
+#tet2-stage4-app .t2-h382-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}
+#tet2-stage4-app .t2-h382-kpis div{background:#12243a;border:1px solid #355772;border-radius:8px;padding:9px;min-width:0}
+#tet2-stage4-app .t2-h382-kpis small{display:block;color:#a1bfd0;font-size:11px;line-height:1.2;min-height:29px}
+#tet2-stage4-app .t2-h382-kpis strong{display:block;font-size:clamp(15px,4vw,22px);color:#f9d585}
+#tet2-stage4-app .t2-h382-warning{background:#2b1515;border:1px solid #c34b39;color:#ffe1d3;padding:10px;border-radius:9px;font-weight:700}
+#tet2-stage4-app .t2-h382-caution{background:#211d0e;border-left:3px solid #f3bd63;padding:10px;color:#ffe8b1;font-size:13px}
+#tet2-stage4-app .t2-h382-hold{color:#ffbeb0;background:#301619;border-radius:8px;padding:12px;border:1px solid #a63a3a}
+#tet2-stage4-app .t2-h382-action{color:#e0c995}
+#tet2-stage4-app .t2-h382-ids{max-height:210px;overflow:auto;padding:9px 9px 9px 32px;background:#060e18;border-radius:7px}
+#tet2-stage4-app .t2-h382-ids li{padding:3px 0}
+#tet2-stage4-app .t2-h382-input{display:block;margin:8px 0;font-size:13px;font-weight:700}
+#tet2-stage4-app .t2-h382-input input{display:block;width:100%;font-size:16px;padding:12px;border:1px solid #55819d;border-radius:8px;color:white;background:#102b3a;box-sizing:border-box}
+#tet2-stage4-app .t2-h382-footer{font-size:12px;color:#9db2bf;margin-top:15px}
+@media(max-width:370px){#tet2-stage4-app .t2-h382-kpis{grid-template-columns:1fr 1fr}#tet2-stage4-app .t2-h382-kpis div:last-child{grid-column:1/-1}}

@@ -1,5 +1,5 @@
 {
-  "version": "8.0.381",
-  "worker": "./otg-service-worker-v8381.js",
-  "message": "Festival Top 3 isolated rehearsal: live Garage draw, one-track saved times, provisional podium; official racing locked."
+  "version": "8.0.382",
+  "worker": "./otg-service-worker-v8382.js",
+  "message": "Historical R1 visit compatibility: original anonymous stage metadata, live Garage candidate eligibility, prelaunch first-visit Race Off and Festival time entry. No official slots."
 }
