@@ -1,5 +1,5 @@
 {
-  "version": "8.0.363",
-  "worker": "./otg-service-worker-v8363.js",
-  "message": "TET2 lock real FH5 Garage practice draw, bank and resume practice results; no official tournament writes."
+  "version": "8.0.364",
+  "worker": "./otg-service-worker-v8364.js",
+  "message": "TET2 practice group provisional/final standings and Race Off winners/progress, read-only and Space-scoped; official Evil List untouched."
 }
