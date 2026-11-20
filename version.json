@@ -1,5 +1,5 @@
 {
-  "version": "8.0.373",
-  "worker": "./otg-service-worker-v8373.js",
-  "message": "Historic Race Off semifinals now lead to a separate bronze duel before source final, and qualification source identity is constrained. Still read-only."
+  "version": "8.0.374",
+  "worker": "./otg-service-worker-v8374.js",
+  "message": "Candidate Evil List stages now route into Race Control with live Garage eligibility and fail-closed native-draw readiness. Tournament remains safely unlaunched."
 }
