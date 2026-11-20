@@ -1,5 +1,5 @@
 {
-  "version": "8.0.374",
-  "worker": "./otg-service-worker-v8374.js",
-  "message": "Candidate Evil List stages now route into Race Control with live Garage eligibility and fail-closed native-draw readiness. Tournament remains safely unlaunched."
+  "version": "8.0.375",
+  "worker": "./otg-service-worker-v8375.js",
+  "message": "Manufacturer Race Off candidate stage rehearsal: draw exactly current visit, save/resume time results in isolated local store, enforce earlier visit and bronze lineage; still NOT official."
 }
