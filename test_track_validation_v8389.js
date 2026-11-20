@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict');
+const m=require('./js/tet2-track-validation-v8389.js');
+const base={rows:[{position:1,eventId:'A',name:'Event A',routeId:'r1'},{position:2,eventId:'B',name:'Event B'},{position:3,eventId:'C',name:'Event C',routeId:'bogus'}]};
+const registry={selected:{source:'fixture',rows:[{id:'r1',name:'Real Route'},{id:'r2',name:'Second Route'}]},sources:[]};
+const t=m.inspect(base,registry);
+assert.equal(t.validatedVisits,1);assert.equal(t.noRouteIds,1);assert.equal(t.unrecognisedRouteIds,1);assert.equal(t.blocked,true);assert.equal(t.officialRouteAssignmentsWritten,0);
+const all=m.inspect({rows:[{position:1,eventId:'A',routeId:'r1'},{position:2,eventId:'B',routeIds:['r1','r2']}]},registry);
+assert.equal(all.blocked,false);assert.equal(all.validatedVisits,2);assert.equal(all.repeatHotspots[0].count,2);
+assert.equal(m.inspect(base,{selected:null}).blocked,true);
+assert.equal(m.resolveCatalogue().selected,null);
+console.log('PASS: missing IDs, unrecognized IDs, verified IDs, repeats, registry absent, no writes');

@@ -1,5 +1,5 @@
 {
-  "version": "8.0.388",
-  "worker": "./otg-service-worker-v8388.js",
-  "message": "TET2 v388 independent candidate timetable integrity audit and launch blockers. Official racing stays locked; no Garage, results or medals changed."
+  "version": "8.0.389",
+  "worker": "./otg-service-worker-v8389.js",
+  "message": "TET2 v389 read-only official route identity provenance and missing-assignment validation. Official racing remains locked."
 }
