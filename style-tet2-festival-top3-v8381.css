@@ -1,0 +1,20 @@
+/* Festival Top 3 standalone, phone-first prelaunch stage card. */
+#tet2-stage4-app .t2-r381{border:1px solid #9e6134;border-radius:16px;margin:20px 0;padding:17px;background:linear-gradient(135deg,#210909 0%,#10101b 92%);color:#f4f2ee;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-r381 h3{margin:0 0 13px;font-size:1.15rem;color:#ffe0a5;line-height:1.35}
+#tet2-stage4-app .t2-r381 p{line-height:1.48}
+#tet2-stage4-app .t2-r381-safe{background:#360e0d;border:1px solid #b74a4a;padding:11px 13px;border-radius:11px;color:#ffcfbf;font-size:.86rem}
+#tet2-stage4-app .t2-r381-route{display:block;margin:15px 0 18px;color:#ffd69b;font-weight:700}
+#tet2-stage4-app .t2-r381-route input{box-sizing:border-box;width:100%;min-width:0;display:block;margin-top:8px;border:1px solid #9d6660;border-radius:10px;background:#10151f;color:#fff;padding:13px;font:inherit;font-weight:600}
+#tet2-stage4-app .t2-r381 button{width:100%;max-width:100%;white-space:normal;line-height:1.4;min-height:52px}
+#tet2-stage4-app .t2-r381-roster{padding:0;list-style:none;margin:10px 0 16px}
+#tet2-stage4-app .t2-r381-roster li{border:1px solid #503c3c;border-radius:10px;padding:11px 13px;display:flex;gap:14px;align-items:center;margin:8px 0}
+#tet2-stage4-app .t2-r381-roster b{font-size:1.15rem;color:#ffd97d}
+#tet2-stage4-app .t2-r381-locked{color:#ffd28d;font-weight:750}
+#tet2-stage4-app .t2-r381-board{border:1px solid #59443f;border-radius:12px;margin:14px 0;padding:14px;background:#0b111b}
+#tet2-stage4-app .t2-r381-board h4{color:#ffe1a9;margin:0 0 8px}
+#tet2-stage4-app .t2-r381-board ol{margin:0;padding:0;list-style:none}
+#tet2-stage4-app .t2-r381-board li{padding:10px 0;border-bottom:1px solid #333c4e;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between}
+#tet2-stage4-app .t2-r381-board li:last-child{border:0}
+#tet2-stage4-app .t2-r381-board li span{font-variant-numeric:tabular-nums;color:#9dd9ee}
+#tet2-stage4-app .t2-r381-board p{color:#b3bdc7;font-size:.86rem}
+#tet2-stage4-app .t2-r381-foot{color:#adbac5;font-size:.81rem;margin:18px 0 0}
