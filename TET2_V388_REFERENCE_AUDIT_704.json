@@ -1,0 +1,58 @@
+{
+  "reference": "704-car FH5 Garage donor snapshot (NOT live device data)",
+  "structuralPass": true,
+  "launchReady": false,
+  "problems": [],
+  "gates": [
+    {
+      "key": "courses",
+      "blocked": true,
+      "text": "2,071 / 2,071 visits have no frozen official route IDs. Track selection still needs its genuine course engine."
+    },
+    {
+      "key": "rosters",
+      "blocked": true,
+      "text": "Historical source roster IDs and current Garage eligibility still need per-competition approval. Manufacturer aliases: Mini / MINI, Subaru / SUBARU."
+    },
+    {
+      "key": "official",
+      "blocked": true,
+      "text": "Official slot freeze, results-to-honours publishing, immutable completion receipts and restart recovery are not yet connected end-to-end."
+    },
+    {
+      "key": "finals",
+      "blocked": true,
+      "text": "Second Chance and Champion of Champions remain conditional and unscheduled until their real qualification/results dependency engine is completed."
+    },
+    {
+      "key": "specialists",
+      "blocked": true,
+      "text": "Festival Top 3, the 22-car Drift Championship and remaining historical route/result adapters require final rule and course verification."
+    }
+  ],
+  "owned": 704,
+  "visits": 2071,
+  "competitions": 340,
+  "opening": 11,
+  "historical": 1221,
+  "historicalBronze": 93,
+  "maker": 257,
+  "makerCompetitions": 75,
+  "relay": 98,
+  "swissCups": 44,
+  "swissVisits": 352,
+  "lonely": 9,
+  "gauntlet": 88,
+  "aerodromo": 44,
+  "secondChanceSources": 44,
+  "championSourceFinals": 75,
+  "missingRouteIds": 2071,
+  "aliases": [
+    "Mini / MINI",
+    "Subaru / SUBARU"
+  ],
+  "protectedTail": 19,
+  "pendingSwissRows": 0,
+  "candidateOnly": true,
+  "officialSlotsWritten": 0
+}

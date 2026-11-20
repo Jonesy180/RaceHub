@@ -1,0 +1,15 @@
+/* v388 compact prelaunch audit — only under Race Control, NEVER in Evil List. */
+#tet2-stage4-app .t2-a388{font-size:13px;line-height:1.55;background:#0c1019;color:#e7eff6;border:1px solid #345b6b;border-radius:12px;padding:13px;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-a388-status{font-size:14px;font-weight:900;letter-spacing:.1px;margin:0 0 10px}
+#tet2-stage4-app .t2-a388-status.pass{color:#b2e3d2}
+#tet2-stage4-app .t2-a388-status.fail,#tet2-stage4-app .t2-a388-fail{color:#ff9ca9}
+#tet2-stage4-app .t2-a388-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#tet2-stage4-app .t2-a388-metrics>div{background:#151c25;border:1px solid #345b6b;border-radius:9px;padding:9px}
+#tet2-stage4-app .t2-a388-metrics strong{font-size:21px;color:#fff;display:block}
+#tet2-stage4-app .t2-a388-metrics small{font-size:11px;color:#b7ccd7;display:block}
+#tet2-stage4-app .t2-a388 details{border:1px solid #826535;border-radius:9px;padding:9px;margin:12px 0}
+#tet2-stage4-app .t2-a388 summary{color:#ffe1a4;font-weight:900;cursor:pointer}
+#tet2-stage4-app .t2-a388 li{margin:7px 0}
+#tet2-stage4-app .t2-a388 ul{padding-left:20px}
+#tet2-stage4-app .t2-a388-foot{font-size:11px;color:#b6c3cf;border-top:1px solid #32414c;padding-top:9px}
+@media(max-width:360px){#tet2-stage4-app .t2-a388{padding:9px}}
