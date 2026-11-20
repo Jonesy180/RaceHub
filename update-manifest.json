@@ -1,5 +1,5 @@
 {
-  "version": "8.0.375",
-  "worker": "./otg-service-worker-v8375.js",
-  "message": "Manufacturer Race Off candidate stage rehearsal: draw exactly current visit, save/resume time results in isolated local store, enforce earlier visit and bronze lineage; still NOT official."
+  "version": "8.0.376",
+  "worker": "./otg-service-worker-v8376.js",
+  "message": "Unified Gauntlet prelaunch current-visit 3-route draw and protected individual saved time entry. No official slot, records or medal writes."
 }
