@@ -1,0 +1,21 @@
+/* v8.0.366 source-backed candidate Evil List, mobile phone-first */
+#tet2-stage4-app .t2-plan-warning{background:#231a12;border:1px solid #d9a345;border-radius:9px;padding:12px;color:#ffe0a1;font-size:13px;line-height:1.45}
+#tet2-stage4-app .t2-plan-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+#tet2-stage4-app .t2-plan-stats>span{background:#131b23;border:1px solid #357a9c;border-radius:8px;padding:11px;min-width:0}
+#tet2-stage4-app .t2-plan-stats b{display:block;color:#ffdb6b;font-size:23px}
+#tet2-stage4-app .t2-plan-stats small{font-size:11px;color:#cbd6df;line-height:1.2;display:block}
+#tet2-stage4-app .t2-plan-foot{font-size:12px;color:#b9ccd8;line-height:1.45}
+#tet2-stage4-app .t2-plan-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+#tet2-stage4-app .t2-plan-controls label{font-size:12px;color:#dcebf4;display:grid;gap:5px;min-width:0}
+#tet2-stage4-app .t2-plan-controls input,#tet2-stage4-app .t2-plan-controls select{width:100%;min-width:0;background:#0d1922;border:1px solid #438aa8;border-radius:7px;color:white;padding:10px 8px;font-size:16px}
+#tet2-stage4-app .t2-plan-list{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+#tet2-stage4-app .t2-plan-row{min-width:0;padding:10px;border-radius:8px;border:1px solid #305c78;background:#101820;display:grid;gap:3px}
+#tet2-stage4-app .t2-plan-id{color:#83d9ff;font-size:12px;font-weight:900;letter-spacing:.05em}
+#tet2-stage4-app .t2-plan-name{font-size:15px;font-weight:850;color:#fff;line-height:1.2;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-plan-meta{font-size:12px;color:#ffdc82;line-height:1.4}
+#tet2-stage4-app .t2-plan-sub{font-size:11px;color:#b8cbd4;line-height:1.35}
+#tet2-stage4-app .t2-plan-count{font-size:12px;color:#a3e5ff}
+#tet2-stage4-app .t2-plan-pager{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0;color:#fff;font-size:12px}
+#tet2-stage4-app .t2-plan-pager button{padding:11px 10px;border-radius:8px;background:#152634;border:1px solid #49a6c8;color:#fff;font-weight:bold;font-size:13px;min-height:44px}
+#tet2-stage4-app .t2-plan-pager button:disabled{opacity:.4}
+@media(max-width:365px){#tet2-stage4-app .t2-plan-controls{grid-template-columns:1fr}#tet2-stage4-app .t2-plan-pager button{font-size:12px;padding:8px}}
