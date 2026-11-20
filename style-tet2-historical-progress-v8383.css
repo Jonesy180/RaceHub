@@ -1,0 +1,16 @@
+/* Historical progress panel: deliberately separate from the clean Evil List. */
+#tet2-stage4-app .t2-p383{border:1px solid #5e829b;border-radius:15px;padding:15px;margin:15px 0;background:#09111e;color:#e9f3ff;line-height:1.5;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-p383 h3{color:#84ddff;margin:0 0 12px;font-size:20px}
+#tet2-stage4-app .t2-p383-warning{background:#2c1818;border:1px solid #ba493c;color:#ffe8db;padding:10px;border-radius:9px;font-size:12px;font-weight:700}
+#tet2-stage4-app .t2-p383-visits{margin:12px 0;border-radius:10px;background:#101d2a;border:1px solid #36566e;padding:8px}
+#tet2-stage4-app .t2-p383-visits div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px;border-bottom:1px solid #263f53;font-size:12px}
+#tet2-stage4-app .t2-p383-visits div:last-child{border-bottom:0}
+#tet2-stage4-app .t2-p383-visits strong{flex-shrink:0;color:#ffd78f}
+#tet2-stage4-app .t2-p383-hold{color:#ffcdbe;background:#37191e;border:1px solid #a3434d;border-radius:9px;padding:13px;font-weight:700}
+#tet2-stage4-app .t2-p383-ready{color:#aff2d3;background:#0c2b28;border-left:3px solid #3ed9a5;padding:12px}
+#tet2-stage4-app .t2-p383-preview{max-height:240px;overflow-y:auto;background:#060f1b;border-radius:8px;padding:10px 10px 10px 32px}
+#tet2-stage4-app .t2-p383-preview li{padding:3px 0}
+#tet2-stage4-app .t2-p383-input{display:block;margin:10px 0;font-weight:700;font-size:13px}
+#tet2-stage4-app .t2-p383-input input{display:block;width:100%;box-sizing:border-box;padding:12px;font-size:16px;background:#142838;border:1px solid #7a9db3;border-radius:8px;color:white}
+#tet2-stage4-app .t2-p383-footer{color:#a3bac7;font-size:12px;margin-top:16px}
+@media(max-width:390px){#tet2-stage4-app .t2-p383-visits div{display:block}#tet2-stage4-app .t2-p383-visits strong{display:block;margin-top:4px}}

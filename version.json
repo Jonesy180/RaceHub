@@ -1,5 +1,5 @@
 {
-  "version": "8.0.382",
-  "worker": "./otg-service-worker-v8382.js",
-  "message": "Historical R1 visit compatibility: original anonymous stage metadata, live Garage candidate eligibility, prelaunch first-visit Race Off and Festival time entry. No official slots."
+  "version": "8.0.383",
+  "worker": "./otg-service-worker-v8383.js",
+  "message": "Historical competition source-linked stage progression: locked earlier results, Top 2 Festival groups, fixed multi-round Festival cohorts, knockout winners/semifinal bronze-before-final. Prelaunch only."
 }
