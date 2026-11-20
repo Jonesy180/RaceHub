@@ -1,0 +1,16 @@
+
+/* Read-only final-battles gate — TET2 Race Control, portrait-first. */
+#tet2-stage4-app .t2-f386 {border:1px solid #b73b45;border-radius:12px;background:linear-gradient(165deg,#1d121c,#090f17);padding:12px;margin-top:10px;color:#f5f5f6;}
+#tet2-stage4-app .t2-f386>h3{color:#ffcf84;font-weight:900;margin:0 0 9px;font-size:18px;letter-spacing:.3px}
+#tet2-stage4-app .t2-f386-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+#tet2-stage4-app .t2-f386-grid article{border:1px solid #602532;border-radius:9px;background:#121721;padding:12px;min-width:0}
+#tet2-stage4-app .t2-f386-title{font-size:15px;font-weight:900;color:#fbd38d}
+#tet2-stage4-app .t2-f386-lock{font-size:11px;font-weight:800;color:#ff8c94;margin:9px 0}
+#tet2-stage4-app .t2-f386-number{font-size:27px;font-weight:900;line-height:1.15;color:white}
+#tet2-stage4-app .t2-f386-number span{font-size:12px;font-weight:600;color:#ddd}
+#tet2-stage4-app .t2-f386 p{color:#dce0e6;font-size:13px;line-height:1.5;margin:8px 0}
+#tet2-stage4-app .t2-f386 p.t2-f386-small{font-size:12px;color:#c4cbda}
+#tet2-stage4-app .t2-f386 p.t2-f386-alert{color:#ff8c94;font-weight:700}
+#tet2-stage4-app .t2-f386 button[disabled]{display:block;width:100%;margin-top:12px;cursor:not-allowed;opacity:.75;background:#282b37;color:#f1b9be;border:1px solid #97434b;padding:10px 8px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:.2px;white-space:normal}
+#tet2-stage4-app .t2-f386 p.t2-f386-footer{border-top:1px solid #53313b;padding-top:10px;color:#dba5a9;font-size:11px}
+@media(max-width:700px){#tet2-stage4-app .t2-f386-grid{grid-template-columns:1fr}#tet2-stage4-app .t2-f386-number{font-size:28px}}

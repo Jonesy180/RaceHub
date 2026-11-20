@@ -1,5 +1,5 @@
 {
-  "version": "8.0.385",
-  "worker": "./otg-service-worker-v8385.js",
-  "message": "Historical R1 source-rule coverage: All Race Cars and four Rally Adventure classes; ambiguous road/race candidates shown as bounds, not certified entrants. No official racing or data reset."
+  "version": "8.0.386",
+  "worker": "./otg-service-worker-v8386.js",
+  "message": "TET2 conditional Second Chance + Champion of Champions eligibility gates. Real official receipts only; no draws or medals activated and no OTG data changed."
 }
