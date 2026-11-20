@@ -1,5 +1,5 @@
 {
-  "version": "8.0.367",
-  "worker": "./otg-service-worker-v8367.js",
-  "message": "Read-only full competition registration audit against live Garage and historical R1 source; identifies all new approved formats, maker Race Off qualifiers and unknown stage workloads. No official Evil List or OTG data changes."
+  "version": "8.0.368",
+  "worker": "./otg-service-worker-v8368.js",
+  "message": "TET2 read-only stage workload model: live full-maker Race Off match/slot counts, native Relay group counts, Gauntlet timed attempts and outstanding allocation safeguards; no official Evil List or data changes."
 }

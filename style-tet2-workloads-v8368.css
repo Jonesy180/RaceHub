@@ -1,0 +1,14 @@
+/* TET2 v368 workload audit; compact when closed and readable on narrow phones. */
+#tet2-stage4-app .t2-load-collapse{border:1px solid #2c7086;border-radius:10px;background:#07131c;color:#fff}
+#tet2-stage4-app .t2-load-collapse>summary{cursor:pointer;list-style:revert;padding:13px 15px;min-height:44px;font-weight:800;color:#8ad9f4}
+#tet2-stage4-app .t2-load-collapse[open]>summary{border-bottom:1px solid #2c7086}
+#tet2-stage4-app .t2-load-collapse>.t2-load-body{padding:10px}
+#tet2-stage4-app .t2-load-stats small{overflow-wrap:anywhere}
+#tet2-stage4-app .t2-load-subtotal{margin:12px 0;background:#122b33;border:1px solid #5392a5;border-radius:8px;padding:12px;line-height:1.45;color:#e9f6fa}
+#tet2-stage4-app .t2-load-subtotal strong{font-size:27px;color:#ffe28a}
+#tet2-stage4-app .t2-load-subtotal em{font-size:12px;color:#ffcf84}
+#tet2-stage4-app .t2-load-list h3{margin:15px 0 8px;font-size:15px;color:#a7e7ff}
+#tet2-stage4-app .t2-load-warnings{margin-top:15px;border:1px solid #80672b;background:#211b14;border-radius:8px;padding:10px;color:#ffdeab}
+#tet2-stage4-app .t2-load-warnings summary{cursor:pointer;font-weight:800;min-height:32px}
+#tet2-stage4-app .t2-load-warnings li{margin:7px 0;line-height:1.45;font-size:12px}
+#tet2-stage4-app .t2-load-list .t2-plan-sub{overflow-wrap:anywhere}
