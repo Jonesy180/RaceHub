@@ -1,5 +1,5 @@
 {
-  "version": "8.0.360",
-  "worker": "./otg-service-worker-v8360.js",
-  "message": "TET2 results-entry trial: 3-car group and Race Off pairings, no change to Garage or official results."
+  "version": "8.0.361",
+  "worker": "./otg-service-worker-v8361.js",
+  "message": "TET2 verified FH5 Garage link and isolated official-slot ledger foundation. No official schedule or results yet."
 }
