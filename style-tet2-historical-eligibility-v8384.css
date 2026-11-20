@@ -1,0 +1,15 @@
+/* v384 historical source-rule audit: Race Control only, not an Evil List dev panel. */
+#tet2-stage4-app .t2-e384{margin:16px 0;padding:15px;background:#0c1624;border:1px solid #39728b;border-radius:15px;color:#eaf4ff;overflow-wrap:anywhere;line-height:1.55}
+#tet2-stage4-app .t2-e384 h3{font-size:19px;color:#8adfff;margin:0 0 12px}
+#tet2-stage4-app .t2-e384-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0}
+#tet2-stage4-app .t2-e384-counts div{background:#101e2e;border:1px solid #345369;border-radius:10px;padding:10px 7px;text-align:center;min-width:0}
+#tet2-stage4-app .t2-e384-counts small{display:block;font-size:10px;color:#a9c0cd;line-height:1.3;min-height:26px}
+#tet2-stage4-app .t2-e384-counts strong{display:block;font-size:25px;color:#ffe39d;margin-top:5px}
+#tet2-stage4-app .t2-e384-state{background:#2e2214;color:#ffe4ad;padding:9px;border-radius:9px;font-weight:800;font-size:13px}
+#tet2-stage4-app .t2-e384-detail{background:#081120;border:1px solid #2f526a;border-radius:10px;padding:10px}
+#tet2-stage4-app .t2-e384-detail summary{cursor:pointer;font-weight:700;color:#c4eaff}
+#tet2-stage4-app .t2-e384-detail li{margin:7px 0}
+#tet2-stage4-app .t2-e384-detail small{color:#b0bfcd}
+#tet2-stage4-app .t2-e384-detail h4{color:#8ed1e9}
+#tet2-stage4-app .t2-e384-note{font-size:12px;color:#c2b3a9;border-left:3px solid #d8ab68;padding-left:9px}
+@media(max-width:350px){#tet2-stage4-app .t2-e384-counts strong{font-size:21px}#tet2-stage4-app .t2-e384-counts small{font-size:9px}}

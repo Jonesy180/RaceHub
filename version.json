@@ -1,5 +1,5 @@
 {
-  "version": "8.0.383",
-  "worker": "./otg-service-worker-v8383.js",
-  "message": "Historical competition source-linked stage progression: locked earlier results, Top 2 Festival groups, fixed multi-round Festival cohorts, knockout winners/semifinal bronze-before-final. Prelaunch only."
+  "version": "8.0.384",
+  "worker": "./otg-service-worker-v8384.js",
+  "message": "R1 historic eligibility source reconciliation: current Garage category vs original ecosystem with excluded-car evidence and protected review flags. Rehearsals only; no official draws."
 }
