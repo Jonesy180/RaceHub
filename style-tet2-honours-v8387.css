@@ -1,0 +1,15 @@
+/* v8.0.387: compact phone-first TET2 verified medals / record gates. No OTG style changes. */
+#tet2-stage4-app .t2-h387-summary,#tet2-stage4-app .t2-h387-card{border:1px solid #a53036;border-radius:15px;background:linear-gradient(165deg,#160b10,#050911 65%);color:#eaeff3;padding:16px;margin:0 0 14px;box-shadow:0 3px 18px #0007}
+#tet2-stage4-app .t2-h387-summary h2,#tet2-stage4-app .t2-h387-card h2{font-size:1.12rem;line-height:1.35;letter-spacing:.02em;color:#ffdc93;margin:2px 0 14px}
+#tet2-stage4-app .t2-h387-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0 15px}
+#tet2-stage4-app .t2-h387-stats>div{background:#050d17;border:1px solid #39546c;border-radius:11px;padding:12px 6px;text-align:center;min-width:0}
+#tet2-stage4-app .t2-h387-stats b{display:block;font-size:clamp(1.4rem,5.5vw,2.1rem);color:#ffdd93}
+#tet2-stage4-app .t2-h387-stats span{font-size:.72rem;color:#b7c1cb;line-height:1.2;display:block;margin-top:4px;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-h387-summary p,#tet2-stage4-app .t2-h387-card p{line-height:1.5;color:#cbd2dd;margin:10px 0}
+#tet2-stage4-app .t2-h387-guard{border-left:3px solid #e6b759;padding:10px 12px;background:#2c1d0b;color:#f8e4b4!important;border-radius:4px}
+#tet2-stage4-app .t2-h387-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+#tet2-stage4-app .t2-h387-table{width:100%;min-width:300px;border-collapse:collapse;font-size:.8rem;text-align:center}
+#tet2-stage4-app .t2-h387-table th{padding:10px 5px;background:#242a35;color:#fae6b0;position:sticky;top:0}
+#tet2-stage4-app .t2-h387-table td{padding:10px 5px;border-bottom:1px solid #253347;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-h387-table td:nth-child(2){text-align:left;min-width:95px}
+#tet2-stage4-app .t2-h387-empty{text-align:center!important;color:#b6c2d0;padding:18px 8px!important}

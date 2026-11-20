@@ -1,5 +1,5 @@
 {
-  "version": "8.0.386",
-  "worker": "./otg-service-worker-v8386.js",
-  "message": "TET2 conditional Second Chance + Champion of Champions eligibility gates. Real official receipts only; no draws or medals activated and no OTG data changed."
+  "version": "8.0.387",
+  "worker": "./otg-service-worker-v8387.js",
+  "message": "TET2 verified-only medal tables and read-only official honours / 3-level record projection. Still prelaunch; no practice imports or live awards."
 }
