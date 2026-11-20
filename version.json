@@ -1,5 +1,5 @@
 {
-  "version": "8.0.376",
-  "worker": "./otg-service-worker-v8376.js",
-  "message": "Unified Gauntlet prelaunch current-visit 3-route draw and protected individual saved time entry. No official slot, records or medal writes."
+  "version": "8.0.377",
+  "worker": "./otg-service-worker-v8377.js",
+  "message": "Aerodromo Double-Header isolated current-batch Drag-first, one Long Jump attempt per car, separate leaderboards; no official writes."
 }

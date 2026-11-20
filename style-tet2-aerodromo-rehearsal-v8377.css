@@ -1,0 +1,39 @@
+/* v8.0.377 Aerodromo Double-Header — prelaunch only, TET2-only styles */
+#tet2-stage4-app .t2-r377{margin:14px 0;border:1px solid #b95b62;border-radius:12px;background:linear-gradient(145deg,#281a20,#071522);padding:14px;color:#ebf1f5;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-r377 h3{color:#ffe6a0;font-size:18px;margin:0 0 10px;line-height:1.25}
+#tet2-stage4-app .t2-r377-warning{background:#39211c;border:1px solid #aa6e4f;border-radius:8px;padding:10px;font-size:13px;line-height:1.5;color:#ffe3d0}
+#tet2-stage4-app .t2-r377-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+#tet2-stage4-app .t2-r377-stats>div{border:1px solid #36596d;border-radius:9px;background:#071723;padding:9px}
+#tet2-stage4-app .t2-r377-stats strong{font-size:22px;display:block;color:#ffe394}
+#tet2-stage4-app .t2-r377-stats small{display:block;color:#aac5d3;font-size:12px}
+#tet2-stage4-app .t2-r377-field{font-weight:750;display:block;font-size:13px;margin:12px 0}
+#tet2-stage4-app .t2-r377-field select{display:block;width:100%;min-height:45px;box-sizing:border-box;background:#0b1d2d;border:1px solid #6b8493;color:white;border-radius:8px;margin-top:6px;font-size:16px;padding:9px}
+#tet2-stage4-app .t2-r377 .t2-btn{width:100%;min-height:45px;box-sizing:border-box;margin:8px 0}
+#tet2-stage4-app .t2-r377-frozen{font-size:13px;border-left:3px solid #ffe394;padding:6px 10px;background:#1e2932;margin-bottom:12px;line-height:1.5}
+#tet2-stage4-app .t2-r377-list{max-height:660px;overflow:auto;overscroll-behavior:contain;margin:10px 0}
+#tet2-stage4-app .t2-r377-car{background:#0c1723;border:1px solid #34516a;border-radius:10px;padding:10px;margin:0 0 9px}
+#tet2-stage4-app .t2-r377-car header{display:flex;gap:6px;align-items:center;line-height:1.4;margin-bottom:9px}
+#tet2-stage4-app .t2-r377-car header strong{font-size:14px;min-width:0;flex:1}
+#tet2-stage4-app .t2-r377-number{font-weight:900;color:#ffe394}
+#tet2-stage4-app .t2-r377-badges{display:flex;gap:4px}
+#tet2-stage4-app .t2-r377-badges b{font-size:11px;background:#234e5f;padding:2px 5px;border-radius:4px;color:#b5f4fc}
+#tet2-stage4-app .t2-r377-result{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:end;margin:6px 0}
+#tet2-stage4-app .t2-r377-result label{display:block;min-width:0;font-size:12px;color:#d8e9f2}
+#tet2-stage4-app .t2-r377-result label span{display:block;margin-bottom:4px}
+#tet2-stage4-app .t2-r377-result input,#tet2-stage4-app .t2-r377-result output{display:block;box-sizing:border-box;width:100%;min-height:42px;padding:9px;background:#051320;color:#fff;border:1px solid #4d728a;border-radius:7px;font-size:15px}
+#tet2-stage4-app .t2-r377-result input:disabled{opacity:.5}
+#tet2-stage4-app .t2-r377-result output{color:#9af0c6;border-color:#325f52;font-weight:bold}
+#tet2-stage4-app .t2-r377-result button{min-height:42px;min-width:95px;background:#b63848;border:1px solid #da7885;color:#fff;border-radius:7px;font-weight:850;font-size:12px;padding:8px}
+#tet2-stage4-app .t2-r377-result button:disabled{opacity:.42}
+#tet2-stage4-app .t2-r377-help{font-size:12px;line-height:1.5;color:#b5cad6}
+#tet2-stage4-app .t2-r377-done{padding:10px;border-radius:8px;background:#0d3b31;color:#a5ffdb;font-weight:bold;font-size:13px;line-height:1.5}
+#tet2-stage4-app .t2-r377-error:not([hidden]){border:1px solid #ec8c70;border-radius:7px;background:#39201e;padding:9px;font-size:13px;color:white}
+#tet2-stage4-app .t2-r377-leaders{border:1px solid #4c697b;border-radius:10px;background:#0a1925;padding:10px;margin:13px 0}
+#tet2-stage4-app .t2-r377-leaders h4{font-size:13px;color:#ffe394;margin:0 0 9px}
+#tet2-stage4-app .t2-r377-leaders>div{border-top:1px solid #344858;padding:9px 0 5px}
+#tet2-stage4-app .t2-r377-leaders strong{font-size:13px;color:#b0e3f3}
+#tet2-stage4-app .t2-r377-leaders ol{margin:7px 0;padding-left:20px;font-size:12px}
+#tet2-stage4-app .t2-r377-leaders li{padding:4px 0}
+#tet2-stage4-app .t2-r377-leaders li b{color:#ffdd8d}
+#tet2-stage4-app .t2-r377-leaders small{color:#9fbcca;font-size:11px}
+@media(max-width:350px){#tet2-stage4-app .t2-r377-result{display:flex;flex-direction:column;align-items:stretch}#tet2-stage4-app .t2-r377-result label{width:100%}}
