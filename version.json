@@ -1,5 +1,5 @@
 {
-  "version": "8.0.364",
-  "worker": "./otg-service-worker-v8364.js",
-  "message": "TET2 practice group provisional/final standings and Race Off winners/progress, read-only and Space-scoped; official Evil List untouched."
+  "version": "8.0.365",
+  "worker": "./otg-service-worker-v8365.js",
+  "message": "TET2 Evil List: randomised first-appearance coverage for independent competitions, with final battles held back; still read-only pending complete verified schedule."
 }
