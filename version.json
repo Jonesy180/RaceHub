@@ -1,5 +1,5 @@
 {
-  "version": "8.0.358",
-  "worker": "./otg-service-worker-v8358.js",
-  "message": "Add isolated verified tournament honours receipt bridge, manufacturer/car medal aggregation and Final Battles qualification feed; no automatic storage edits."
+  "version": "8.0.359",
+  "worker": "./otg-service-worker-v8359.js",
+  "message": "TET2 Stage 4: approved World Selector and seven TET2 screens with working navigation; read-only placeholders for unconnected live tournament data. OTG! preserved."
 }
