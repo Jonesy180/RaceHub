@@ -1,5 +1,5 @@
 {
-  "version": "8.0.384",
-  "worker": "./otg-service-worker-v8384.js",
-  "message": "R1 historic eligibility source reconciliation: current Garage category vs original ecosystem with excluded-car evidence and protected review flags. Rehearsals only; no official draws."
+  "version": "8.0.385",
+  "worker": "./otg-service-worker-v8385.js",
+  "message": "Historical R1 source-rule coverage: All Race Cars and four Rally Adventure classes; ambiguous road/race candidates shown as bounds, not certified entrants. No official racing or data reset."
 }
