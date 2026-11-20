@@ -1,5 +1,5 @@
 {
-  "version": "8.0.378",
-  "worker": "./otg-service-worker-v8378.js",
-  "message": "Mixed and Manufacturer Relay: current-group three-car-team rehearsal, native scoring, separate saved stage progression; official writes gated."
+  "version": "8.0.379",
+  "worker": "./otg-service-worker-v8379.js",
+  "message": "Swiss Cup full FH5 Garage: 16-car Cup fields, 8 stage visits including bronze, current-visit isolated rehearsal. Official racing remains locked."
 }
