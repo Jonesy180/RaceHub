@@ -1,0 +1,31 @@
+/* v8.0.372 — clean Evil List presentation; approved portrait design translated to live HTML. */
+#tet2-stage4-app .t2-s372{font-family:inherit;color:#f9fbff;line-height:1.35}
+#tet2-stage4-app .t2-s372-preview{font-size:12px;line-height:1.5;background:#22150e;border:1px solid #b67748;border-radius:10px;padding:11px 13px;color:#ffe9cb;margin:0 0 14px}
+#tet2-stage4-app .t2-s372-preview strong{color:#ffcf7a}
+#tet2-stage4-app .t2-s372-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:18px}
+#tet2-stage4-app .t2-s372-metrics>div{min-width:0;border:1px solid #4f6981;background:#06111c;border-radius:8px;padding:9px 5px;text-align:center}
+#tet2-stage4-app .t2-s372-metrics strong{font-size:clamp(19px,5vw,27px);display:block;color:#f5d57a;line-height:1.3}
+#tet2-stage4-app .t2-s372-metrics span{font-size:clamp(9px,2.6vw,12px);color:#bcd2e0;display:block;line-height:1.35}
+#tet2-stage4-app .t2-s372-controls{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:10px;margin:0 0 18px}
+#tet2-stage4-app .t2-s372-controls label{display:flex;flex-direction:column;gap:6px;min-width:0;font-size:13px;font-weight:800;color:#eaf3ff}
+#tet2-stage4-app .t2-s372-controls input,#tet2-stage4-app .t2-s372-controls select{box-sizing:border-box;min-width:0;width:100%;min-height:47px;font-size:16px;padding:10px;border:1px solid #3f6c86;border-radius:9px;background:#11202b;color:#fff}
+#tet2-stage4-app .t2-s372-topline{border-bottom:2px solid #e74647;padding:0 0 8px;display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap}
+#tet2-stage4-app .t2-s372-topline strong{font-size:17px;letter-spacing:.035em;color:#fff}
+#tet2-stage4-app .t2-s372-topline span{color:#93c6de;font-size:12px}
+#tet2-stage4-app .t2-s372-pager{display:flex;align-items:center;justify-content:space-between;gap:7px;padding:9px 0}
+#tet2-stage4-app .t2-s372-pager button{border:1px solid #466e80;background:#102634;border-radius:8px;color:#fff;min-height:44px;padding:7px 12px;font-size:13px;font-weight:800;font-family:inherit;white-space:nowrap}
+#tet2-stage4-app .t2-s372-pager button:disabled{opacity:.35}
+#tet2-stage4-app .t2-s372-pager span{font-size:12px;color:#dfe9f0;white-space:nowrap}
+#tet2-stage4-app .t2-s372-list{list-style:none;display:flex;flex-direction:column;gap:6px;padding:0;margin:0}
+#tet2-stage4-app .t2-s372-row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:9px;align-items:center;background:#06111b;border:1px solid #315c77;border-left:3px solid #d54249;border-radius:8px;padding:10px 9px;min-width:0}
+#tet2-stage4-app .t2-s372-num{font-size:13px;letter-spacing:.02em;font-weight:900;color:#7fcee9;white-space:nowrap}
+#tet2-stage4-app .t2-s372-main{min-width:0;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-s372-main b{display:block;font-size:14px;line-height:1.25;color:white}
+#tet2-stage4-app .t2-s372-main small{display:block;margin-top:4px;font-size:11px;color:#d1c19a;line-height:1.32}
+#tet2-stage4-app .t2-s372-state{display:flex;flex-direction:column;gap:5px;align-items:flex-end;font-size:10px;white-space:nowrap}
+#tet2-stage4-app .t2-s372-state em{font-size:10px;font-style:normal;color:#b4c6d2}
+#tet2-stage4-app .t2-s372-opening{background:#47b0c1;color:#06161d;padding:3px 5px;border-radius:4px;font-size:10px}
+#tet2-stage4-app .t2-s372-none{padding:15px;background:#091623;border-radius:8px;color:#c5ced7}
+#tet2-stage4-app .t2-s372-foot{margin:18px 0 0;font-size:12px;line-height:1.5;color:#b8c2c8}
+#tet2-stage4-app .t2-s372-safe{padding:18px;border:1px solid #b94c3c;color:#ffdbcb;border-radius:8px}
+@media(max-width:430px){#tet2-stage4-app .t2-s372-controls{grid-template-columns:1fr}#tet2-stage4-app .t2-s372-row{grid-template-columns:40px minmax(0,1fr);gap:7px;padding:9px 8px}#tet2-stage4-app .t2-s372-state{grid-column:2;display:flex;flex-direction:row;justify-content:flex-start;gap:8px;align-items:center}#tet2-stage4-app .t2-s372-main b{font-size:14px}}

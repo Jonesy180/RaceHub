@@ -1,5 +1,5 @@
 {
-  "version": "8.0.371",
-  "worker": "./otg-service-worker-v8371.js",
-  "message": "Complete candidate stage assembly: 11 random shakedown formats plus historical, Race Off, Relay, Swiss, Unified Gauntlet, Lonely Hearts, Drift, Top 3 and Aer\u00f3dromo. Read-only, endgames held; official racing not activated."
+  "version": "8.0.372",
+  "worker": "./otg-service-worker-v8372.js",
+  "message": "Clean Evil List preview: one searchable 50-per-page timetable; engineering audit cards hidden. Candidate remains read-only pending slot validation."
 }
