@@ -1,0 +1,23 @@
+/* TET2 8.0.363 – current-slot draw preview uses existing OTG/TET2 typography and Smart Tile controls */
+#tet2-stage4-app .t2-draw-page .t2-panel {margin-bottom:15px}
+#tet2-stage4-app .t2-draw-label {font-size:13px;display:block;font-weight:800;color:#ffd576;margin:12px 0 6px}
+#tet2-stage4-app .t2-draw-select {display:block;width:100%;min-height:44px;padding:9px 12px;margin:0 0 11px;color:#f7f9ff;background:#151a20;border:2px solid #d63144;border-radius:8px;font-size:16px}
+#tet2-stage4-app .t2-draw-list {max-height:460px;overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#ff4b64 #18161b}
+#tet2-stage4-app .t2-draw-row {display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:9px;padding:11px 7px;border-bottom:1px solid #613940;background:#1b1318;font-size:clamp(14px,3.8vw,17px)}
+#tet2-stage4-app .t2-draw-row:nth-child(even) {background:#111217}
+#tet2-stage4-app .t2-draw-row strong {color:#ffe174}
+#tet2-stage4-app .t2-draw-row span {overflow-wrap:anywhere}
+#tet2-stage4-app .t2-draw-match {border:1px solid #74404a;border-radius:8px;margin:8px 1px;padding:9px 10px;background:#1b1519;min-width:0}
+#tet2-stage4-app .t2-draw-match:nth-child(even) {background:#121319}
+#tet2-stage4-app .t2-draw-match strong {color:#ffd477;font-size:12px}
+#tet2-stage4-app .t2-draw-match div {font-weight:750;font-size:clamp(14px,3.8vw,17px);line-height:1.4;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-draw-match em {color:#fc6c78;font-weight:900;font-style:normal;font-size:12px;display:block;text-align:center}
+#tet2-stage4-app .t2-draw-page .t2-btn {margin-top:10px}
+#tet2-stage4-app .t2-draw-page .t2-locked p {font-size:13px}
+
+#tet2-stage4-app .t2-draw-hero {border-radius:10px;overflow:hidden;border:1px solid #ea3147;margin-bottom:7px;background:#090c11}
+#tet2-stage4-app .t2-draw-hero img {display:block;width:100%;height:auto;object-fit:cover}
+
+#tet2-stage4-app .t2-draw-page .t2-locked {margin:12px 0;border:1px solid #ffc964;background:#1b1715;padding:12px;border-radius:8px}
+#tet2-stage4-app .t2-draw-page .t2-locked strong {color:#ffe497}
+#tet2-stage4-app .t2-draw-page [hidden] {display:none!important}
