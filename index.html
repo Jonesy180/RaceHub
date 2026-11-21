@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.webmanifest?v=6069">
 <link rel="apple-touch-icon" href="icons/icon-v6069-192.png?v=6069">
 <title>Out The Garage!</title>
-<meta name="racehub-version" content="8.0.409">
+<meta name="racehub-version" content="8.0.410">
 <link rel="stylesheet" href="style-v595.css?v=7031">
 <link rel="stylesheet" href="style-v6020.css?v=6020">
 <link rel="stylesheet" href="style-v6021.css?v=6021">
@@ -219,7 +219,7 @@
 #tet2-stage4-app .t2-entry-e[data-kind="green"]{color:#9deb9a;background:#1a331d;border-color:#7ac576}
 #tet2-stage4-app .t2-entry-e[data-kind="purple"]{color:#d9bcff;background:#30223a;border-color:#ac85e3}
 
-/* OTG! 8.0.409 | compact original-style seven-segment time entry. */
+/* OTG! 8.0.410 | compact original-style seven-segment time entry. */
 #tet2-stage4-app .t2-time-console{
  box-sizing:border-box;display:block;position:relative;width:100%;min-width:0;
  border:2px solid #3786a3;border-radius:12px;background:radial-gradient(ellipse at top,rgba(0,174,219,.10),transparent 65%),#020b10;
@@ -258,7 +258,7 @@
 #tet2-stage4-app .t2-seg-digit .se{left:4%;bottom:7%}
 #tet2-stage4-app .t2-time-part:focus-within .t2-seg-digit span.on{background:#96f9ff;box-shadow:0 0 .16em #61f1ff,0 0 .34em #64edff8a}
 @media(max-width:360px){#tet2-stage4-app .t2-time-digits{font-size:clamp(23px,8.8vw,33px);gap:.04em}#tet2-stage4-app .t2-time-console{padding:9px 5px}}
-/* v8.0.409 — readable TRUE seven-segment numerals, not an all-8 test display.
+/* v8.0.410 — readable TRUE seven-segment numerals, not an all-8 test display.
    Unlit bars must NOT glow: the middle bar of a zero was making 00 resemble 88. */
 #tet2-stage4-app .t2-seg-digit span:not(.on){
  background:transparent!important;opacity:0!important;box-shadow:none!important;
@@ -282,7 +282,7 @@
  #tet2-stage4-app .t2-time-digits{font-size:clamp(23px,7.4vw,29px)}
 }
 
-/* v8.0.409 — clear Evil List progress at a glance, including on phones. */
+/* v8.0.410 — clear Evil List progress at a glance, including on phones. */
 #tet2-stage4-app .t2-list-summary409{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 12px}
 #tet2-stage4-app .t2-list-summary409>span{display:flex;flex-direction:column;min-width:0;padding:11px 9px;background:#0b1720;border:1px solid #405461;border-radius:10px;text-align:center}
 #tet2-stage4-app .t2-list-summary409 strong{font-size:clamp(21px,6vw,29px);font-weight:850;color:#f7f9fb;line-height:1.1}
@@ -306,6 +306,22 @@
 #tet2-stage4-app .t2-list-done .t2-list-stage409{color:#c8a8b0}
 #tet2-stage4-app .t2-list-empty409{list-style:none;padding:13px;color:#b8c9d0}
 @media(max-width:360px){#tet2-stage4-app .t2-list-item409{padding:9px 9px 10px}#tet2-stage4-app .t2-list-chip409{padding:2px 6px}}
+
+/* v8.0.410 — unmistakable neon green frame for the current Evil List slot. */
+#tet2-stage4-app .t2-list-item409.t2-list-current{
+  position:relative;
+  border:3px solid #63f995;
+  border-left-width:5px;
+  border-radius:15px;
+  background:linear-gradient(130deg,#123721 0%,#0b2719 55%,#091910 100%);
+  box-shadow:0 0 0 1px #62ff9566,0 0 19px #4af7886b,0 0 30px #49f18a32,inset 0 0 14px #2bd97317;
+}
+#tet2-stage4-app .t2-list-item409.t2-list-current .t2-list-chip409{
+  background:#173d27;box-shadow:0 0 9px #49ec8866;
+}
+#tet2-stage4-app .t2-list-item409.t2-list-current .t2-list-id409{
+  color:#b7ffcc;text-shadow:0 0 8px #71ff9285;
+}
 
 </style>
 </head>
@@ -349,7 +365,7 @@
 <script src="js/studio-race-flow-v5809.js?v=5829"></script>
 <script src="js/otg-idb-startup-v8278.js?v=8278"></script>
 <script src="js/otg-idb-primary-pilot-v8281.js?v=8281"></script>
-<script src="js/bootstrap-v8409.js?v=8409"></script>
+<script src="js/bootstrap-v8410.js?v=8410"></script>
 <script src="js/studio-grand-tour-v6043.js?v=6063?v=6044"></script>
 <script src="js/studio-race-end-v8061.js?v=8061"></script>
 <script src="js/studio-final-standings-v7023.js?v=7023"></script>
@@ -377,7 +393,7 @@
 <script src="js/catalogue-stability-v6088.js?v=6088"></script>
 <script src="js/reset-action-v6089.js?v=6089"></script>
 <script src="js/reset-functional-v6090.js?v=6090"></script>
-<script src="js/update-wire-v8409.js?v=8409"></script>
+<script src="js/update-wire-v8410.js?v=8410"></script>
 <script src="js/grand-tour-repair-v6092.js?v=6092"></script>
 <link rel="stylesheet" href="style-v6093.css?v=6093">
 <script src="js/grand-tour-polish-v6093.js?v=6093"></script>
@@ -653,6 +669,6 @@ window.rhHosRewardAssets8152 = [
 <script src="js/tet2-official-race-v8405.js?v=8405"></script>
 <script src="js/tet2-evil-list-v8409.js?v=8409"></script>
 <script src="js/tet2-live-views-v8401.js?v=8401"></script>
-<script src="js/tet2-worlds-v8401.js?v=8401"></script>
+<script src="js/tet2-worlds-v8410.js?v=8410"></script>
 </body>
 </html>

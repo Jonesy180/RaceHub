@@ -1,5 +1,5 @@
 {
-  "version": "8.0.409",
-  "worker": "./otg-service-worker-v8409.js",
-  "message": "Evil List colour coding: completed red, current green, upcoming cyan."
+  "version": "8.0.410",
+  "worker": "./otg-service-worker-v8410.js",
+  "message": "Neon green current Evil List slot and automatic jump to the next unbanked race result."
 }
