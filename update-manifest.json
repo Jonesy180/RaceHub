@@ -1,5 +1,5 @@
 {
-  "version": "8.0.397",
-  "worker": "./otg-service-worker-v8397.js",
-  "message": "Official, verified first-stage knockout racing, frozen draws and linked medal publication. Other formats remain gated."
+  "version": "8.0.398",
+  "worker": "./otg-service-worker-v8398.js",
+  "message": "Multi-format official racing: supported knockout, Festival Top 3, and timed all-car Gauntlet groups; remaining formats fail safely."
 }
