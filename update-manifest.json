@@ -1,5 +1,5 @@
 {
-  "version": "8.0.417",
-  "worker": "./otg-service-worker-v8417.js",
-  "message": "TET2 record celebration uses original Dave, Steve, Chief Tech Penguin and approved neutral TET2 concept car; live results displayed separately. No racing data changes."
+  "version": "8.0.418",
+  "worker": "./otg-service-worker-v8418.js",
+  "message": "Aer\u00f3dromo results now run car by car: Drag first, then Long Jump, then next car. Already saved results stay intact."
 }
