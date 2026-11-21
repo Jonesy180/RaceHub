@@ -1,0 +1,9 @@
+OTG! MAIN 8.0.391 — INSTALL BLOCK HOTFIX
+
+Identified exact cause: v8.0.391 referenced js/tet2-track-assignment-v8391.js, which was never packaged. The actual installed module remains js/tet2-track-assignment-v8390.js.
+
+Corrected in index.html, index-v8391.html, and both service-worker asset lists (ASSETS and critical). No JavaScript behaviour changed and no stored racing/garage data modified.
+
+Install by extracting this ZIP over C:\RaceHub (do not remove existing files), commit/push, then allow the phone to refresh. The v8.0.390 module must remain on the server.
+
+Regression assertions: corrected paths appear in both HTML pages and worker; nonexistent 8391 track-assignment path absent. Real-world phone test pending.
