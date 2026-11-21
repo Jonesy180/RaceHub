@@ -1,5 +1,5 @@
 {
-  "version": "8.0.411",
-  "worker": "./otg-service-worker-v8411.js",
-  "message": "Results entry starts at minutes; Slot 003 Drift Championship remains one 22-car timed event."
+  "version": "8.0.414",
+  "worker": "./otg-service-worker-v8414.js",
+  "message": "TET2 record celebrations and current/final standings restored on banking and Mark as Done; v8.0.413 illustrated navigation included."
 }
