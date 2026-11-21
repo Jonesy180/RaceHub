@@ -1,0 +1,12 @@
+OTG! v8.0.399 — verified test status
+PASS — JavaScript parsing for all seven new JS modules + new service worker.
+PASS — HTML v8399 script references and SW v8399 asset references match overlay files.
+PASS — version.json, update-manifest, bootstrap and update wire version identity.
+PASS — synthetic disjoint Relay rounds, three different member cars, final advancement and team podium.
+PASS — synthetic 32-car Aerodromo 2-stage batches, one Drag + one Long Jump per car, separate global standings.
+PASS — synthetic 22-car Drift Cars timing podium.
+PASS — official result entry UI bank callbacks for Relay leg and Aerodromo distance in centimetres.
+PASS — negative check rejects incomplete previously banked Relay group.
+CARRIED FORWARD — v398 synthetic knockout, full Swiss, Gauntlet, Festival Top 3 tests previously passed.
+NOT TESTED — user's live phone, browser full integration, actual 704-car full tournament and all 2071 visits.
+BLOCKED — 214 historical source competitions, dynamic next-slot Garage eligibility consistency, conditional Second Chance and Champion final competitions, full career records. NO REAL TOURNAMENT LAUNCH APPROVAL.
