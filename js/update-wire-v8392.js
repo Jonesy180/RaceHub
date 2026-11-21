@@ -158,13 +158,13 @@ async function priorInstalledVersion(){
 }
 window.rhStartupUpdateGate8063=async function(){
  const prior=await priorInstalledVersion();if(!prior)return false;
- try{const m=await latest();const target=cmp(m.version,CURRENT())>=0?m:{version:CURRENT(),worker:'./otg-service-worker-v8392.js',message:'Conditional Second Chance + Champion finals qualification gates / prelaunch read-only; official racing remains gated.'};showUpdate(target,{direct:true});return true;}
- catch(_){showUpdate({version:CURRENT(),worker:'./otg-service-worker-v8392.js',message:'Conditional Second Chance + Champion finals qualification gates / prelaunch read-only; official racing remains gated.'},{direct:true});return true;}
+ try{const m=await latest();const target=cmp(m.version,CURRENT())>=0?m:{version:CURRENT(),worker:'./otg-service-worker-v8392.js',message:'TET2 FH5 catalogue reconciliation read-only; Slot 001 remains locked.'};showUpdate(target,{direct:true});return true;}
+ catch(_){showUpdate({version:CURRENT(),worker:'./otg-service-worker-v8392.js',message:'TET2 FH5 catalogue reconciliation read-only; Slot 001 remains locked.'},{direct:true});return true;}
 };
 // A reload of /index-v8216.html keeps running 8.0.216 even after the worker upgrades.
 // Always navigate to the current, explicitly versioned entry instead.
 function openCurrentVersionPage(){
- const dest=new URL('./index-v8387.html',document.baseURI);
+ const dest=new URL('./index-v8392.html',document.baseURI);
  dest.search=location.search;dest.hash=location.hash;
  if(location.pathname===dest.pathname)location.reload();else location.replace(dest.href);
 }
