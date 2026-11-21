@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict'),m=require('./js/tet2-track-assignment-v8390.js');
+const source={selected:{source:'fixture',rows:[{id:'road-a',name:'A',kind:'Road Racing'},{id:'road-b',name:'B',kind:'Road Racing'},{id:'dirt-a',name:'C',kind:'Dirt Racing'}]}};
+const rows=Array.from({length:40},(_,i)=>({position:i+1,eventId:'E'+i,visit:1,raceType:i%3===0?'Dirt Racing':'Road Racing'}));
+const a=m.plan(rows,source),b=m.plan(rows,source);
+assert.deepEqual(a,b,'candidate must be reproducible');assert.equal(a.assigned.length,40);assert.equal(a.officialWrites,0);assert(a.assigned.filter(r=>r.family==='dirt').every(r=>r.routeId==='dirt-a'));
+assert(a.assigned.filter(r=>r.family==='road').every(r=>r.routeId.startsWith('road-')));
+assert.equal(m.plan([{position:1,eventId:'X',raceType:'Road Racing',routeId:'previous'}],source).assigned.length,0);
+assert.equal(m.plan([{position:1,eventId:'X',raceType:'Road Racing',routeClass:'Dirt Racing'}],source).assigned.length,0);
+assert.equal(m.plan([{position:1,eventId:'X',name:'Dirt Rally'}],source).assigned.length,0);
+assert.equal(m.plan(rows,{selected:null}).assigned.length,0);
+assert.equal(m.plan(rows,{selected:{source:'bad',rows:[{id:'duplicate',name:'A',kind:'road'},{id:'duplicate',name:'B',kind:'road'}]}}).assigned.length,0);
+assert.equal(a.blocked,true);console.log('PASS: 40 slots deterministic, category locked, no overwrites, no inference, unknown catalogue blocked, duplicate IDs blocked, zero writes');
