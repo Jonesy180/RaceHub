@@ -1,0 +1,11 @@
+const assert=require('assert');
+global.TET2TrackAssignment390={kind:x=>({road:'road',dirt:'dirt'}[x]||null),eventFamily:r=>r.raceFamily||null};
+const m=require('./js/tet2-route-reconciliation-v8392.js');
+const catalogue={selected:{source:'test-verified',rows:[{id:'R1',name:'Route One',kind:'road'},{id:'D1',name:'Dirt One',kind:'dirt'}]}};
+const rows=[{position:1,eventId:'A',visit:1,raceFamily:'road',routeId:'R1'}, {position:2,eventId:'B',visit:1,raceFamily:'dirt'}, {position:3,eventId:'C',visit:1,raceFamily:'road',routeId:'D1'}, {position:4,eventId:'D',visit:1}];
+const preview={blocked:true,officialWrites:0,assigned:[{position:2,eventId:'B',visit:1,routeId:'D1',routeName:'Dirt One',family:'dirt'}],unassigned:[]};
+const r=m.reconcile(rows,catalogue,preview);assert.equal(r.blocked,true);assert.equal(r.officialWrites,0);assert.equal(r.totals.validExisting,1);assert.equal(r.totals.proposed,1);assert.equal(r.totals.wrongFamilyExisting,1);assert.equal(r.totals.missingRaceFamily,1);assert.equal(r.totals.unresolved,1);
+const no=m.reconcile([{position:1,eventId:'A',visit:1}],{selected:null},{blocked:true,officialWrites:0,assigned:[],unassigned:[]});assert.equal(no.routeCount,0);assert.equal(no.blocked,true);
+const malicious=m.reconcile([{position:1,eventId:'<svg onload=alert(1)>',visit:1}],{selected:null},{blocked:true,officialWrites:0,assigned:[],unassigned:[]});assert(!m.html().includes('onload=alert(1)'));
+assert.throws(()=>m.reconcile(rows,catalogue,{blocked:false,officialWrites:1,assigned:[],unassigned:[]}));
+console.log('v8.0.392 reconciliation tests PASS');
