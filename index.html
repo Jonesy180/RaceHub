@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.webmanifest?v=6069">
 <link rel="apple-touch-icon" href="icons/icon-v6069-192.png?v=6069">
 <title>Out The Garage!</title>
-<meta name="racehub-version" content="8.0.418">
+<meta name="racehub-version" content="8.0.419">
 <link rel="stylesheet" href="style-v595.css?v=7031">
 <link rel="stylesheet" href="style-v6020.css?v=6020">
 <link rel="stylesheet" href="style-v6021.css?v=6021">
@@ -492,6 +492,21 @@
 
 </style>
 <link rel="stylesheet" href="style-tet2-pit-wall-v8416.css?v=8416">
+<style id="otg-tet2-aerodromo-keyboard-v8419">
+/* Drag/Jump is still car-first. Prioritise the ACTIVE input over explanations. */
+#tet2-stage4-app .t2-entry-aero-page .t2-entry-banner{margin-bottom:5px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-entry{margin-top:5px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-car{margin:9px 0;padding:10px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-step{margin:7px 0;padding:10px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-step p{margin-top:9px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-jump-step input{scroll-margin-top:20px;scroll-margin-bottom:20px;min-height:56px;font-size:23px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-aux,
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-bottom-details{margin-top:14px;opacity:.9}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-bottom-details .t2-entry-alert{margin-top:5px}
+#tet2-stage4-app .t2-entry-aero-page .t2-aero-bottom-details .t2-entry-subtitle{margin-bottom:12px}
+/* Keep ample scrollable space when mobile numeric keyboards overlay the page. */
+#tet2-stage4-app .t2-entry-aero-page:focus-within{padding-bottom:max(180px,33dvh)}
+</style>
 </head>
 <body>
 <div class="splash"><div class="splashInner"><img class="splashBrand splashBrandNew" src="assets/brand/otg-approved-painted-mark-v6052.png" alt="OTG!"></div></div>
@@ -533,7 +548,7 @@
 <script src="js/studio-race-flow-v5809.js?v=5829"></script>
 <script src="js/otg-idb-startup-v8278.js?v=8278"></script>
 <script src="js/otg-idb-primary-pilot-v8281.js?v=8281"></script>
-<script src="js/bootstrap-v8418.js?v=8418"></script>
+<script src="js/bootstrap-v8419.js?v=8419"></script>
 <script src="js/studio-grand-tour-v6043.js?v=6063?v=6044"></script>
 <script src="js/studio-race-end-v8061.js?v=8061"></script>
 <script src="js/studio-final-standings-v7023.js?v=7023"></script>
@@ -561,7 +576,7 @@
 <script src="js/catalogue-stability-v6088.js?v=6088"></script>
 <script src="js/reset-action-v6089.js?v=6089"></script>
 <script src="js/reset-functional-v6090.js?v=6090"></script>
-<script src="js/update-wire-v8418.js?v=8418"></script>
+<script src="js/update-wire-v8419.js?v=8419"></script>
 <script src="js/grand-tour-repair-v6092.js?v=6092"></script>
 <link rel="stylesheet" href="style-v6093.css?v=6093">
 <script src="js/grand-tour-polish-v6093.js?v=6093"></script>
@@ -821,7 +836,7 @@ window.rhHosRewardAssets8152 = [
 <script src="js/otg-intelligence-v8332.js?v=8332"></script>
 <script src="js/otg-custom-v8333.js?v=8333"></script>
 <script src="js/tet2-honours-bridge-v8401.js?v=8401"></script>
-<script src="js/tet2-results-entry-v8418.js?v=8418"></script>
+<script src="js/tet2-results-entry-v8419.js?v=8419"></script>
 <script src="js/tet2-slot-ledger-v8418.js?v=8418"></script>
 <script src="js/tet2-opening-coverage-v8370.js?v=8370"></script>
 <script src="js/tet2-r1-stage-inventory-v8366.js?v=8366"></script>
@@ -838,6 +853,6 @@ window.rhHosRewardAssets8152 = [
 <script src="js/tet2-evil-list-v8409.js?v=8409"></script>
 <script src="js/tet2-slot-presentations-v8417.js?v=8417"></script>
 <script src="js/tet2-live-views-v8416.js?v=8416"></script>
-<script src="js/tet2-worlds-v8415.js?v=8415"></script>
+<script src="js/tet2-worlds-v8419.js?v=8419"></script>
 </body>
 </html>
