@@ -1,5 +1,5 @@
 {
-  "version": "8.0.415",
-  "worker": "./otg-service-worker-v8415.js",
-  "message": "TET2 switch moved into a full-size red OTG! dashboard Smart Tile beside Settings; no floating world switch on other OTG! screens. TET2 Command Centre switch unchanged."
+  "version": "8.0.416",
+  "worker": "./otg-service-worker-v8416.js",
+  "message": "Pit Wall completed-event archive now uses colourful competition-themed cards, red DONE badges and clean expandable results; no racing logic changes."
 }
