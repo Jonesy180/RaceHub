@@ -1,5 +1,5 @@
 {
-  "version": "8.0.406",
-  "worker": "./otg-service-worker-v8406.js",
-  "message": "Results-entry E\u2713 centred; grey until saved TET2 race, then coloured by its latest Evil List event."
+  "version": "8.0.407",
+  "worker": "./otg-service-worker-v8407.js",
+  "message": "Original OTG! seven-segment digital stopwatch resized for TET2 result-entry tiles."
 }

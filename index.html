@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.webmanifest?v=6069">
 <link rel="apple-touch-icon" href="icons/icon-v6069-192.png?v=6069">
 <title>Out The Garage!</title>
-<meta name="racehub-version" content="8.0.406">
+<meta name="racehub-version" content="8.0.407">
 <link rel="stylesheet" href="style-v595.css?v=7031">
 <link rel="stylesheet" href="style-v6020.css?v=6020">
 <link rel="stylesheet" href="style-v6021.css?v=6021">
@@ -218,6 +218,46 @@
 #tet2-stage4-app .t2-entry-e[data-kind="orange"]{color:#ffc27a;background:#3a2619;border-color:#e6a04b}
 #tet2-stage4-app .t2-entry-e[data-kind="green"]{color:#9deb9a;background:#1a331d;border-color:#7ac576}
 #tet2-stage4-app .t2-entry-e[data-kind="purple"]{color:#d9bcff;background:#30223a;border-color:#ac85e3}
+
+/* OTG! 8.0.407 | compact original-style seven-segment time entry. */
+#tet2-stage4-app .t2-time-console{
+ box-sizing:border-box;display:block;position:relative;width:100%;min-width:0;
+ border:2px solid #3786a3;border-radius:12px;background:radial-gradient(ellipse at top,rgba(0,174,219,.10),transparent 65%),#020b10;
+ padding:10px 8px;box-shadow:inset 0 0 18px #000b,0 0 4px #32c8ed24;
+}
+#tet2-stage4-app .t2-time-console:focus-within{border-color:#69e6f9;box-shadow:inset 0 0 18px #000b,0 0 14px #3cdaf554}
+#tet2-stage4-app .t2-time-console.is-invalid{border-color:#ff746e}
+#tet2-stage4-app .t2-time-console.is-banked{opacity:.84}
+#tet2-stage4-app .t2-time-digits{
+ display:grid;grid-template-columns:1.17em .23em 1.17em .23em 1.77em;
+ gap:.06em;align-items:center;justify-content:center;width:100%;
+ font-size:clamp(26px,9vw,42px);font-weight:800;line-height:1;user-select:none;
+}
+#tet2-stage4-app .t2-time-part{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;height:1.04em;cursor:text}
+#tet2-stage4-app .t2-time-part input{
+ position:absolute!important;inset:0!important;box-sizing:border-box!important;z-index:2;
+ display:block!important;width:100%!important;height:100%!important;min-height:0!important;
+ border:0!important;padding:0!important;margin:0!important;background:transparent!important;
+ color:transparent!important;caret-color:transparent!important;opacity:.01!important;
+ appearance:none!important;-webkit-appearance:none!important;outline:none!important;
+}
+#tet2-stage4-app .t2-time-segments{display:inline-flex;justify-content:center;align-items:center;gap:.045em;white-space:nowrap;pointer-events:none}
+#tet2-stage4-app .t2-time-punct{display:grid;place-items:center;height:1.02em;color:#33e8ff;line-height:1;transform:translateY(-.05em);text-shadow:0 0 .24em #23e6ff66;pointer-events:none}
+#tet2-stage4-app .t2-seg-digit{position:relative;display:inline-block;width:.55em;height:1em;flex:0 0 .55em;opacity:.35}
+#tet2-stage4-app .t2-time-part.has-time .t2-seg-digit{opacity:1}
+#tet2-stage4-app .t2-seg-digit span{position:absolute;display:block;background:#0b404a;border-radius:999px;transition:background .12s}
+#tet2-stage4-app .t2-seg-digit span.on{background:#24e5f7;box-shadow:0 0 .13em #24e5f7b0,0 0 .3em #24e5f750}
+#tet2-stage4-app .t2-seg-digit .sa,#tet2-stage4-app .t2-seg-digit .sd,#tet2-stage4-app .t2-seg-digit .sg{left:16%;width:68%;height:8%}
+#tet2-stage4-app .t2-seg-digit .sa{top:2%}
+#tet2-stage4-app .t2-seg-digit .sg{top:46%}
+#tet2-stage4-app .t2-seg-digit .sd{bottom:2%}
+#tet2-stage4-app .t2-seg-digit .sb,#tet2-stage4-app .t2-seg-digit .sc,#tet2-stage4-app .t2-seg-digit .se,#tet2-stage4-app .t2-seg-digit .sf{width:10%;height:39%}
+#tet2-stage4-app .t2-seg-digit .sb{right:4%;top:7%}
+#tet2-stage4-app .t2-seg-digit .sc{right:4%;bottom:7%}
+#tet2-stage4-app .t2-seg-digit .sf{left:4%;top:7%}
+#tet2-stage4-app .t2-seg-digit .se{left:4%;bottom:7%}
+#tet2-stage4-app .t2-time-part:focus-within .t2-seg-digit span.on{background:#96f9ff;box-shadow:0 0 .16em #61f1ff,0 0 .34em #64edff8a}
+@media(max-width:360px){#tet2-stage4-app .t2-time-digits{font-size:clamp(23px,8.8vw,33px);gap:.04em}#tet2-stage4-app .t2-time-console{padding:9px 5px}}
 </style>
 </head>
 <body>
@@ -260,7 +300,7 @@
 <script src="js/studio-race-flow-v5809.js?v=5829"></script>
 <script src="js/otg-idb-startup-v8278.js?v=8278"></script>
 <script src="js/otg-idb-primary-pilot-v8281.js?v=8281"></script>
-<script src="js/bootstrap-v8406.js?v=8406"></script>
+<script src="js/bootstrap-v8407.js?v=8407"></script>
 <script src="js/studio-grand-tour-v6043.js?v=6063?v=6044"></script>
 <script src="js/studio-race-end-v8061.js?v=8061"></script>
 <script src="js/studio-final-standings-v7023.js?v=7023"></script>
@@ -288,7 +328,7 @@
 <script src="js/catalogue-stability-v6088.js?v=6088"></script>
 <script src="js/reset-action-v6089.js?v=6089"></script>
 <script src="js/reset-functional-v6090.js?v=6090"></script>
-<script src="js/update-wire-v8406.js?v=8406"></script>
+<script src="js/update-wire-v8407.js?v=8407"></script>
 <script src="js/grand-tour-repair-v6092.js?v=6092"></script>
 <link rel="stylesheet" href="style-v6093.css?v=6093">
 <script src="js/grand-tour-polish-v6093.js?v=6093"></script>
@@ -548,7 +588,7 @@ window.rhHosRewardAssets8152 = [
 <script src="js/otg-intelligence-v8332.js?v=8332"></script>
 <script src="js/otg-custom-v8333.js?v=8333"></script>
 <script src="js/tet2-honours-bridge-v8401.js?v=8401"></script>
-<script src="js/tet2-results-entry-v8406.js?v=8406"></script>
+<script src="js/tet2-results-entry-v8407.js?v=8407"></script>
 <script src="js/tet2-slot-ledger-v8404.js?v=8404"></script>
 <script src="js/tet2-opening-coverage-v8370.js?v=8370"></script>
 <script src="js/tet2-r1-stage-inventory-v8366.js?v=8366"></script>
