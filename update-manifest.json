@@ -1,5 +1,5 @@
 {
-  "version": "8.0.416",
-  "worker": "./otg-service-worker-v8416.js",
-  "message": "Pit Wall completed-event archive now uses colourful competition-themed cards, red DONE badges and clean expandable results; no racing logic changes."
+  "version": "8.0.417",
+  "worker": "./otg-service-worker-v8417.js",
+  "message": "TET2 record celebration uses original Dave, Steve, Chief Tech Penguin and approved neutral TET2 concept car; live results displayed separately. No racing data changes."
 }
