@@ -1,5 +1,5 @@
 {
-  "version": "8.0.404",
-  "worker": "./otg-service-worker-v8404.js",
-  "message": "One FH5 track per knockout round, enter racing without separate draw-lock step, explicit Mark as Done."
+  "version": "8.0.405",
+  "worker": "./otg-service-worker-v8405.js",
+  "message": "Single LOCATION button per round; native H and E\u2713 car badges restored."
 }

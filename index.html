@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.webmanifest?v=6069">
 <link rel="apple-touch-icon" href="icons/icon-v6069-192.png?v=6069">
 <title>Out The Garage!</title>
-<meta name="racehub-version" content="8.0.404">
+<meta name="racehub-version" content="8.0.405">
 <link rel="stylesheet" href="style-v595.css?v=7031">
 <link rel="stylesheet" href="style-v6020.css?v=6020">
 <link rel="stylesheet" href="style-v6021.css?v=6021">
@@ -191,6 +191,19 @@
 .t2-track-location403{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:34px;margin:4px 2px 4px 7px;padding:6px 11px;border:1px solid #52d5eb;border-radius:9px;background:#0b2835;color:#d5faff;font-size:.77em;font-weight:800;white-space:nowrap;cursor:pointer;letter-spacing:.03em;box-shadow:0 0 8px #0eddf72b}
 .t2-track-location403:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .t2-track-choice403{display:inline-block;margin:3px 0}
+
+/* TET2 v8.0.405 — original H + E✓ badges (grey=no saved activity). */
+.t2-entry-flags{display:inline-flex;align-items:center;gap:5px;margin-left:7px;vertical-align:middle;white-space:nowrap}
+.t2-entry-h,.t2-entry-e{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;border:1px solid #667786;border-radius:6px;background:#152029;color:#84949e;padding:3px 6px;min-width:28px;min-height:27px;font:800 12px/1 system-ui,sans-serif;letter-spacing:.02em}
+.t2-entry-h{cursor:pointer}
+.t2-entry-h.is-active{border-color:#5ddbea;color:#a4faff;background:#0b323e}
+.t2-entry-h:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.t2-entry-e.is-active{border-color:#4cdeea;color:#80f4fb;background:#102f35}
+.t2-entry-e[data-kind="offroad"]{border-color:#f6b558;color:#ffca7e;background:#39291c}
+.t2-entry-e[data-kind="drift"]{border-color:#c0a1f7;color:#d9c6ff;background:#29203b}
+.t2-round-route{margin:10px 0 16px;padding:10px 12px;border:1px solid #347c89;border-radius:11px;background:#0a2730;color:#ebfcff;line-height:1.5}
+.t2-round-route strong{display:block;color:#6feaf6;font-size:.78em;letter-spacing:.08em}
+.t2-entry-route:empty{display:none}
 </style>
 </head>
 <body>
@@ -233,7 +246,7 @@
 <script src="js/studio-race-flow-v5809.js?v=5829"></script>
 <script src="js/otg-idb-startup-v8278.js?v=8278"></script>
 <script src="js/otg-idb-primary-pilot-v8281.js?v=8281"></script>
-<script src="js/bootstrap-v8404.js?v=8404"></script>
+<script src="js/bootstrap-v8405.js?v=8405"></script>
 <script src="js/studio-grand-tour-v6043.js?v=6063?v=6044"></script>
 <script src="js/studio-race-end-v8061.js?v=8061"></script>
 <script src="js/studio-final-standings-v7023.js?v=7023"></script>
@@ -261,7 +274,7 @@
 <script src="js/catalogue-stability-v6088.js?v=6088"></script>
 <script src="js/reset-action-v6089.js?v=6089"></script>
 <script src="js/reset-functional-v6090.js?v=6090"></script>
-<script src="js/update-wire-v8404.js?v=8404"></script>
+<script src="js/update-wire-v8405.js?v=8405"></script>
 <script src="js/grand-tour-repair-v6092.js?v=6092"></script>
 <link rel="stylesheet" href="style-v6093.css?v=6093">
 <script src="js/grand-tour-polish-v6093.js?v=6093"></script>
@@ -521,7 +534,7 @@ window.rhHosRewardAssets8152 = [
 <script src="js/otg-intelligence-v8332.js?v=8332"></script>
 <script src="js/otg-custom-v8333.js?v=8333"></script>
 <script src="js/tet2-honours-bridge-v8401.js?v=8401"></script>
-<script src="js/tet2-results-entry-v8404.js?v=8404"></script>
+<script src="js/tet2-results-entry-v8405.js?v=8405"></script>
 <script src="js/tet2-slot-ledger-v8404.js?v=8404"></script>
 <script src="js/tet2-opening-coverage-v8370.js?v=8370"></script>
 <script src="js/tet2-r1-stage-inventory-v8366.js?v=8366"></script>
@@ -534,7 +547,7 @@ window.rhHosRewardAssets8152 = [
 <script src="js/tet2-route-control-v8404.js?v=8404"></script>
 <script src="js/tet2-track-location-v8403.js?v=8403"></script>
 <script src="js/tet2-historical-live-v8404.js?v=8404"></script>
-<script src="js/tet2-official-race-v8404.js?v=8404"></script>
+<script src="js/tet2-official-race-v8405.js?v=8405"></script>
 <script src="js/tet2-evil-list-v8401.js?v=8401"></script>
 <script src="js/tet2-live-views-v8401.js?v=8401"></script>
 <script src="js/tet2-worlds-v8401.js?v=8401"></script>
