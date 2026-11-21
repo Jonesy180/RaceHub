@@ -1,5 +1,5 @@
 {
-  "version": "8.0.393",
-  "worker": "./otg-service-worker-v8393.js",
-  "message": "TET2 track assignment readiness read-only; Slot 001 locked."
+  "version": "8.0.394",
+  "worker": "./otg-service-worker-v8394.js",
+  "message": "TET2 official track assignment evidence preflight, read only; Slot 001 locked."
 }

@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict');
+const m=require('./js/tet2-official-track-preflight-v8394.js');
+const r={readOnly:true,officialStartLocked:true,officialWrites:0,integrityOK:true,errors:[],source:'fh5-test-catalogue',completePreview:true,totals:{visits:2,verifiedExisting:1,previewReady:1,blocked:0,recentRepeat:0,missingFamily:0,missingCatalogue:0,invalidExisting:0,wrongFamily:0,invalidProposal:0,missingProposal:0}};
+const c={blocked:true,officialWrites:0,totals:{visits:2},issues:[]};
+const p={blocked:true,officialWrites:0,assigned:[{}],unassigned:[]};
+const j={officialStartLocked:true,officialWrites:0,ok:true,rows:[{},{}]};
+let a=m.evaluate(r,c,p,j);assert.equal(a.evidenceComplete,true);assert.equal(a.canAssignOfficially,false);assert.equal(a.officialStartLocked,true);assert.equal(a.officialWrites,0);
+a=m.evaluate({...r,totals:{...r.totals,recentRepeat:1}},c,p,j);assert.equal(a.evidenceComplete,false);assert.match(a.issues.join(' '),/repetition/);
+a=m.evaluate({...r,totals:{...r.totals,missingFamily:1,blocked:1,previewReady:0},completePreview:false},c,p,j);assert.equal(a.evidenceComplete,false);
+a=m.evaluate(r,{...c,issues:['missing ID']},p,j);assert.equal(a.evidenceComplete,false);
+a=m.evaluate(r,c,{...p,officialWrites:1},j);assert.equal(a.evidenceComplete,false);
+a=m.evaluate(null,null,null,null);assert.equal(a.evidenceComplete,false);assert.equal(a.canAssignOfficially,false);
+assert.match(m.html(),/NO RELEASE/);
+console.log('OFFICIAL TRACK PREFLIGHT TESTS PASS');
