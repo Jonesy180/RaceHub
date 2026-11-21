@@ -1,5 +1,5 @@
 {
-  "version": "8.0.396",
-  "worker": "./otg-service-worker-v8396.js",
-  "message": "TET2 FH5 verified track allocation with explicit isolated route lock; Slot 001 remains locked."
+  "version": "8.0.397",
+  "worker": "./otg-service-worker-v8397.js",
+  "message": "Official, verified first-stage knockout racing, frozen draws and linked medal publication. Other formats remain gated."
 }
