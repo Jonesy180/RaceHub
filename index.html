@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.webmanifest?v=6069">
 <link rel="apple-touch-icon" href="icons/icon-v6069-192.png?v=6069">
 <title>Out The Garage!</title>
-<meta name="racehub-version" content="8.0.408">
+<meta name="racehub-version" content="8.0.409">
 <link rel="stylesheet" href="style-v595.css?v=7031">
 <link rel="stylesheet" href="style-v6020.css?v=6020">
 <link rel="stylesheet" href="style-v6021.css?v=6021">
@@ -219,7 +219,7 @@
 #tet2-stage4-app .t2-entry-e[data-kind="green"]{color:#9deb9a;background:#1a331d;border-color:#7ac576}
 #tet2-stage4-app .t2-entry-e[data-kind="purple"]{color:#d9bcff;background:#30223a;border-color:#ac85e3}
 
-/* OTG! 8.0.408 | compact original-style seven-segment time entry. */
+/* OTG! 8.0.409 | compact original-style seven-segment time entry. */
 #tet2-stage4-app .t2-time-console{
  box-sizing:border-box;display:block;position:relative;width:100%;min-width:0;
  border:2px solid #3786a3;border-radius:12px;background:radial-gradient(ellipse at top,rgba(0,174,219,.10),transparent 65%),#020b10;
@@ -258,7 +258,7 @@
 #tet2-stage4-app .t2-seg-digit .se{left:4%;bottom:7%}
 #tet2-stage4-app .t2-time-part:focus-within .t2-seg-digit span.on{background:#96f9ff;box-shadow:0 0 .16em #61f1ff,0 0 .34em #64edff8a}
 @media(max-width:360px){#tet2-stage4-app .t2-time-digits{font-size:clamp(23px,8.8vw,33px);gap:.04em}#tet2-stage4-app .t2-time-console{padding:9px 5px}}
-/* v8.0.408 — readable TRUE seven-segment numerals, not an all-8 test display.
+/* v8.0.409 — readable TRUE seven-segment numerals, not an all-8 test display.
    Unlit bars must NOT glow: the middle bar of a zero was making 00 resemble 88. */
 #tet2-stage4-app .t2-seg-digit span:not(.on){
  background:transparent!important;opacity:0!important;box-shadow:none!important;
@@ -281,6 +281,31 @@
 @media(max-width:360px){
  #tet2-stage4-app .t2-time-digits{font-size:clamp(23px,7.4vw,29px)}
 }
+
+/* v8.0.409 — clear Evil List progress at a glance, including on phones. */
+#tet2-stage4-app .t2-list-summary409{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 12px}
+#tet2-stage4-app .t2-list-summary409>span{display:flex;flex-direction:column;min-width:0;padding:11px 9px;background:#0b1720;border:1px solid #405461;border-radius:10px;text-align:center}
+#tet2-stage4-app .t2-list-summary409 strong{font-size:clamp(21px,6vw,29px);font-weight:850;color:#f7f9fb;line-height:1.1}
+#tet2-stage4-app .t2-list-summary409 small{display:block;color:#acc5d0;font-size:clamp(11px,3vw,13px);margin-top:5px;line-height:1.25}
+#tet2-stage4-app .t2-list-legend409{display:flex;flex-wrap:wrap;gap:7px 14px;margin:0 0 15px;font-size:clamp(11px,3vw,13px);font-weight:800;letter-spacing:.02em}
+#tet2-stage4-app .t2-legend-done409{color:#ff6877}
+#tet2-stage4-app .t2-legend-current409{color:#82eaa0}
+#tet2-stage4-app .t2-legend-upcoming409{color:#68e5ff}
+#tet2-stage4-app .t2-list-count409{margin:11px 0 7px;color:#bbd0d8}
+#tet2-stage4-app .t2-list-rows409{list-style:none;counter-reset:none;margin:0;padding:0;display:grid;gap:9px}
+#tet2-stage4-app .t2-list-item409{--t2-status:#69e5ff;--t2-border:#2c6674;background:#07131a;border:1px solid var(--t2-border);border-left:5px solid var(--t2-status);border-radius:10px;margin:0;padding:11px 12px 12px;min-width:0;overflow-wrap:anywhere;box-shadow:inset 0 0 18px #050b0dc9}
+#tet2-stage4-app .t2-list-item409.t2-list-done{--t2-status:#ff6677;--t2-border:#69333c;background:#1e1015}
+#tet2-stage4-app .t2-list-item409.t2-list-current{--t2-status:#80ea9e;--t2-border:#3b9858;background:#0e2418;box-shadow:0 0 12px #3ab9672a,inset 0 0 18px #07120ac9;border-width:2px;border-left-width:5px}
+#tet2-stage4-app .t2-list-item409.t2-list-upcoming{--t2-status:#70e5ff;--t2-border:#2b6777}
+#tet2-stage4-app .t2-list-top409{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:0 0 6px}
+#tet2-stage4-app .t2-list-id409{font-size:clamp(14px,3.7vw,17px);letter-spacing:.035em;color:var(--t2-status);line-height:1.3}
+#tet2-stage4-app .t2-list-chip409{flex:0 0 auto;border:1px solid currentColor;border-radius:999px;padding:3px 8px;color:var(--t2-status);font-size:clamp(10px,2.7vw,12px);font-weight:850;letter-spacing:.025em;line-height:1.25;white-space:nowrap}
+#tet2-stage4-app .t2-list-name409{display:block;color:#fff;font-size:clamp(15px,4.05vw,19px);line-height:1.32;margin:0 0 5px}
+#tet2-stage4-app .t2-list-stage409{display:block;color:#b5c5cd;font-size:clamp(12px,3.25vw,14px);line-height:1.4;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-list-current .t2-list-name409{color:#edfff2}
+#tet2-stage4-app .t2-list-done .t2-list-stage409{color:#c8a8b0}
+#tet2-stage4-app .t2-list-empty409{list-style:none;padding:13px;color:#b8c9d0}
+@media(max-width:360px){#tet2-stage4-app .t2-list-item409{padding:9px 9px 10px}#tet2-stage4-app .t2-list-chip409{padding:2px 6px}}
 
 </style>
 </head>
@@ -324,7 +349,7 @@
 <script src="js/studio-race-flow-v5809.js?v=5829"></script>
 <script src="js/otg-idb-startup-v8278.js?v=8278"></script>
 <script src="js/otg-idb-primary-pilot-v8281.js?v=8281"></script>
-<script src="js/bootstrap-v8408.js?v=8408"></script>
+<script src="js/bootstrap-v8409.js?v=8409"></script>
 <script src="js/studio-grand-tour-v6043.js?v=6063?v=6044"></script>
 <script src="js/studio-race-end-v8061.js?v=8061"></script>
 <script src="js/studio-final-standings-v7023.js?v=7023"></script>
@@ -352,7 +377,7 @@
 <script src="js/catalogue-stability-v6088.js?v=6088"></script>
 <script src="js/reset-action-v6089.js?v=6089"></script>
 <script src="js/reset-functional-v6090.js?v=6090"></script>
-<script src="js/update-wire-v8408.js?v=8408"></script>
+<script src="js/update-wire-v8409.js?v=8409"></script>
 <script src="js/grand-tour-repair-v6092.js?v=6092"></script>
 <link rel="stylesheet" href="style-v6093.css?v=6093">
 <script src="js/grand-tour-polish-v6093.js?v=6093"></script>
@@ -626,7 +651,7 @@ window.rhHosRewardAssets8152 = [
 <script src="js/tet2-track-location-v8403.js?v=8403"></script>
 <script src="js/tet2-historical-live-v8404.js?v=8404"></script>
 <script src="js/tet2-official-race-v8405.js?v=8405"></script>
-<script src="js/tet2-evil-list-v8401.js?v=8401"></script>
+<script src="js/tet2-evil-list-v8409.js?v=8409"></script>
 <script src="js/tet2-live-views-v8401.js?v=8401"></script>
 <script src="js/tet2-worlds-v8401.js?v=8401"></script>
 </body>

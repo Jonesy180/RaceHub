@@ -1,5 +1,5 @@
 {
-  "version": "8.0.408",
-  "worker": "./otg-service-worker-v8408.js",
-  "message": "Compact OTG stopwatch digit clarity fix; no racing data changes."
+  "version": "8.0.409",
+  "worker": "./otg-service-worker-v8409.js",
+  "message": "Evil List colour coding: completed red, current green, upcoming cyan."
 }
