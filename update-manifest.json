@@ -1,5 +1,5 @@
 {
-  "version": "8.0.403",
-  "worker": "./otg-service-worker-v8403.js",
-  "message": "Original OTG! FH5 strict shuffle bags and WHERE THE FUCK IS IT? location clues in TET2 racing."
+  "version": "8.0.404",
+  "worker": "./otg-service-worker-v8404.js",
+  "message": "One FH5 track per knockout round, enter racing without separate draw-lock step, explicit Mark as Done."
 }
