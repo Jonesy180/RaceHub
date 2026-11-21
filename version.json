@@ -1,5 +1,5 @@
 {
-  "version": "8.0.392",
-  "worker": "./otg-service-worker-v8392.js",
-  "message": "TET2 FH5 catalogue/category reconciliation (read-only); Slot 001 locked."
+  "version": "8.0.393",
+  "worker": "./otg-service-worker-v8393.js",
+  "message": "TET2 track assignment readiness read-only; Slot 001 locked."
 }

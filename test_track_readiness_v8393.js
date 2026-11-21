@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');
+global.TET2TrackAssignment390={kind:s=>({road:'road',dirt:'dirt'}[s]||null),eventFamily:r=>r.raceFamily||null};
+const m=require('./js/tet2-track-readiness-v8393.js');
+const rows=[{position:1,eventId:'A',visit:1,raceFamily:'road',routeId:'R1'},{position:2,eventId:'B',visit:1,raceFamily:'dirt'},{position:3,eventId:'C',visit:1,raceFamily:'road',routeId:'D1'},{position:4,eventId:'D',visit:1}];
+const registry={selected:{source:'test',rows:[{id:'R1',name:'Road',kind:'road'},{id:'D1',name:'Dirt',kind:'dirt'}]}};
+const preview={blocked:true,officialWrites:0,assigned:[{position:2,eventId:'B',visit:1,routeId:'D1',routeName:'Dirt',family:'dirt'}],unassigned:[]};
+const joined={officialStartLocked:true,officialWrites:0,ok:true,rows:rows.map((r,i)=>({...r,routeId:i===1?'D1':null,status:i===1?'PROPOSED ONLY':'EXISTING ID — SEPARATE VERIFICATION'}))};
+const recon={blocked:true,officialWrites:0,issues:[],totals:{visits:4,proposed:1,validExisting:1}};
+let a=m.assess(rows,registry,preview,joined,recon);assert.equal(a.totals.previewReady,1);assert.equal(a.totals.verifiedExisting,1);assert.equal(a.totals.blocked,2);assert.equal(a.totals.wrongFamily,1);assert.equal(a.totals.missingFamily,1);assert.equal(a.officialStartLocked,true);assert.equal(a.officialWrites,0);assert.equal(a.completePreview,false);
+assert.throws(()=>m.assess(rows,registry,{...preview,officialWrites:1},joined,recon));
+const empty=m.assess([{position:1,eventId:'Z',visit:1,raceFamily:'road'}],{selected:null},{blocked:true,officialWrites:0,assigned:[],unassigned:[]},{officialStartLocked:true,officialWrites:0,ok:true,rows:[{position:1,eventId:'Z',visit:1}]},{blocked:true,officialWrites:0,issues:[],totals:{visits:1,proposed:0,validExisting:0}});assert.equal(empty.totals.blocked,1);assert.equal(empty.officialStartLocked,true);
+console.log('TRACK READINESS TESTS PASS');
