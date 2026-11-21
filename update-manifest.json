@@ -1,5 +1,5 @@
 {
-  "version": "8.0.414",
-  "worker": "./otg-service-worker-v8414.js",
-  "message": "TET2 record celebrations and current/final standings restored on banking and Mark as Done; v8.0.413 illustrated navigation included."
+  "version": "8.0.415",
+  "worker": "./otg-service-worker-v8415.js",
+  "message": "TET2 switch moved into a full-size red OTG! dashboard Smart Tile beside Settings; no floating world switch on other OTG! screens. TET2 Command Centre switch unchanged."
 }
