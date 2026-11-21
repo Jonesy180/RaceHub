@@ -1,5 +1,5 @@
 {
-  "version": "8.0.407",
-  "worker": "./otg-service-worker-v8407.js",
-  "message": "Original OTG! seven-segment digital stopwatch resized for TET2 result-entry tiles."
+  "version": "8.0.408",
+  "worker": "./otg-service-worker-v8408.js",
+  "message": "Compact OTG stopwatch digit clarity fix; no racing data changes."
 }
