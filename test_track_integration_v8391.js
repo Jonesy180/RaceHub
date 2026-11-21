@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');
+const mod=require('./js/tet2-track-integration-v8391.js');
+const rows=[{position:1,eventId:'A',visit:1,name:'A'},{position:2,eventId:'B',visit:1,name:'B'}];
+const preview={assigned:[],unassigned:[{position:1},{position:2}],officialWrites:0,blocked:true};
+const a=mod.join(rows,preview);
+assert.equal(a.ok,true);assert.equal(a.totals.unresolved,2);assert.equal(a.officialStartLocked,true);
+assert.equal(rows[0].routeId,undefined);
+assert.equal(mod.join([rows[0],rows[0]],preview).ok,false);
+assert.throws(()=>mod.join(rows,{...preview,officialWrites:1}),/Untrusted/);
+assert.equal(mod.join(rows,{...preview,assigned:[{position:999,eventId:'Q',visit:1,routeId:'foo',routeName:'Fake',family:'road'}]}).ok,false);
+assert.equal(mod.join(rows,{...preview,assigned:[{position:1,eventId:'A',visit:1,routeId:'foo',routeName:'Fake',family:'road'}]}).ok,false);
+console.log('v391 integration safety tests PASS');

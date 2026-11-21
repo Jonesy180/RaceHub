@@ -1,5 +1,5 @@
 {
-  "version": "8.0.390",
-  "worker": "./otg-service-worker-v8390.js",
-  "message": "TET2 deterministic read-only FH5 route candidate engine. Explicit race family and verified route IDs required. Official start locked."
+  "version": "8.0.391",
+  "worker": "./otg-service-worker-v8391.js",
+  "message": "TET2 verified timetable and FH5 route preview reconciliation; read-only, Slot 001 remains locked."
 }
