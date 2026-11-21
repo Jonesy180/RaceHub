@@ -1,5 +1,5 @@
 {
-  "version": "8.0.402",
-  "worker": "./otg-service-worker-v8402.js",
-  "message": "Fix missing approved competition dependency so the real TET2 Race Control and Slot 001 can load."
+  "version": "8.0.403",
+  "worker": "./otg-service-worker-v8403.js",
+  "message": "Original OTG! FH5 strict shuffle bags and WHERE THE FUCK IS IT? location clues in TET2 racing."
 }
