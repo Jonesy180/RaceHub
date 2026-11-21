@@ -1,5 +1,5 @@
 {
-  "version": "8.0.410",
-  "worker": "./otg-service-worker-v8410.js",
-  "message": "Neon green current Evil List slot and automatic jump to the next unbanked race result."
+  "version": "8.0.411",
+  "worker": "./otg-service-worker-v8411.js",
+  "message": "Results entry starts at minutes; Slot 003 Drift Championship remains one 22-car timed event."
 }
