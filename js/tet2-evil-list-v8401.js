@@ -1,0 +1,17 @@
+/* TET2 v8.0.401: real ordered Evil List using original source assembly */
+(function(root){'use strict';let q='',family='all',page=0;const PAGE=50;
+const E=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function get(){const d=root.TET2AssembledList379?.snapshot?.();if(!d?.audit?.ok)throw Error('Current approved Evil List is unavailable');return d;}
+function rows(d){const a=d.rows.filter(r=>(family==='all'||r.family===family)&&(!q||[r.position,r.name,r.stage,r.family,r.eventId].join(' ').toLowerCase().includes(q)));
+ page=Math.max(0,Math.min(page,Math.ceil(a.length/PAGE)-1));const slots=root.rhSpace?.()?.tet2OfficialSlotLedgerV8361?.slots||{};
+ const html=a.slice(page*PAGE,(page+1)*PAGE).map(r=>{const x=slots['TET2-'+r.position],done=!!x?.completedAt;const state=done?'DONE':x?'IN PROGRESS':'NEXT UP';return `<li class="t2-s371-item"><div class="t2-s371-heading"><strong class="t2-s371-id">SLOT ${String(r.position).padStart(4,'0')}</strong>${done?'<b>✓ DONE</b>':x?'<b>● LIVE</b>':''}</div><strong>${E(r.name)}</strong><small>${E(r.family)} · ${E(r.stage)}</small></li>`;}).join('');
+ return {html:html||'<li>No matching events.</li>',count:a.length,page,total:Math.max(1,Math.ceil(a.length/PAGE))};}
+function html(){try{const d=get(),r=rows(d),families=[...new Set(d.rows.map(x=>x.family))].sort();
+ return `<div class="t2-s371-summary"><span><strong>${d.rows.length.toLocaleString('en-GB')}</strong><small>Scheduled visits</small></span><span><strong>${d.audit.openingCount}</strong><small>Different opening formats</small></span></div><div class="t2-s371-controls"><label>Find an event<input id="t2-list-search" type="search" placeholder="Slot number or event name" value="${E(q)}"></label><label>Category<select id="t2-list-family"><option value="all">All</option>${families.map(f=>`<option value="${E(f)}" ${f===family?'selected':''}>${E(f)}</option>`).join('')}</select></label></div><p id="t2-list-count">${r.count} events found</p><ol id="t2-list-rows" class="t2-s371-rows">${r.html}</ol><div id="t2-list-pager" class="t2-s371-pager"><button data-t2-list="prev" ${!r.page?'disabled':''}>Previous</button> Page ${r.page+1}/${r.total} <button data-t2-list="next" ${r.page+1>=r.total?'disabled':''}>Next</button></div>`;
+ }catch(e){return '<p>'+E(e.message)+'</p>';}}
+function refresh(){try{const r=rows(get()),n=document.getElementById('t2-list-rows'),c=document.getElementById('t2-list-count'),p=document.getElementById('t2-list-pager');if(n)n.innerHTML=r.html;if(c)c.textContent=r.count+' events found';if(p)p.innerHTML=`<button data-t2-list="prev" ${!r.page?'disabled':''}>Previous</button> Page ${r.page+1}/${r.total} <button data-t2-list="next" ${r.page+1>=r.total?'disabled':''}>Next</button>`;}catch(_){}}
+function input(e){if(e.target.id==='t2-list-search'){q=e.target.value.toLowerCase().slice(0,120);page=0;refresh();return true;}return false;}
+function change(e){if(e.target.id==='t2-list-family'){family=e.target.value;page=0;refresh();return true;}return false;}
+function action(e){const el=e.target.closest?.('[data-t2-list]');if(!el)return false;page+=el.dataset.t2List==='next'?1:-1;refresh();return true;}
+root.TET2EvilList401=Object.freeze({html,input,change,action});
+})(typeof window!=='undefined'?window:globalThis);
