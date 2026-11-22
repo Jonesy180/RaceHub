@@ -1,5 +1,5 @@
 {
-  "version": "8.0.421",
-  "worker": "./otg-service-worker-v8421.js",
-  "message": "One-time safely gated TET2-only 12 fake results reset. Export full OTG backup first. Garage/OTG unaffected. Evil List shuffle is NEXT."
+  "version": "8.0.422",
+  "worker": "./otg-service-worker-v8422.js",
+  "message": "Real TET2 Evil List shuffled! Compulsory test opening removed; protected rounds, bronze and finale kept in order. Garage and OTG results untouched."
 }
