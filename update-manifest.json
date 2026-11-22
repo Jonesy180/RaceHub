@@ -1,5 +1,5 @@
 {
-  "version": "8.0.420",
-  "worker": "./otg-service-worker-v8420.js",
-  "message": "TET2 visual facelift: OTG!-style typography, red Smart Tiles, polished racing cards and standings. No results reset or Evil List shuffle."
+  "version": "8.0.421",
+  "worker": "./otg-service-worker-v8421.js",
+  "message": "One-time safely gated TET2-only 12 fake results reset. Export full OTG backup first. Garage/OTG unaffected. Evil List shuffle is NEXT."
 }
