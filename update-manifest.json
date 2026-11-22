@@ -1,5 +1,5 @@
 {
-  "version": "8.0.422",
-  "worker": "./otg-service-worker-v8422.js",
-  "message": "Real TET2 Evil List shuffled! Compulsory test opening removed; protected rounds, bronze and finale kept in order. Garage and OTG results untouched."
+  "version": "8.0.423",
+  "worker": "./otg-service-worker-v8423.js",
+  "message": "TET2 late Garage additions: tournament sequence stays pinned; already locked draws and results preserved."
 }
