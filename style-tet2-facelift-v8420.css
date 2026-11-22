@@ -1,0 +1,326 @@
+/* OTG! MAIN 8.0.420 — TET2 full presentation pass, after twelve phone-tested slots.
+   Presentation ONLY. No changes to draw eligibility, results, medals, time input,
+   service-worker saved state, approved art, icon hotspots, or keyboard scrolling.
+   The phone-approved Evil List is deliberately excluded from the facelift. */
+#tet2-stage4-app {
+  --t2f-red:#f44753;
+  --t2f-hot:#ff6b69;
+  --t2f-cream:#fff2e7;
+  --t2f-ink:#060910;
+  --t2f-muted:#b5becb;
+  --t2f-heading:Impact,'Arial Narrow','Roboto Condensed','Segoe UI',sans-serif;
+  --t2f-body:'Segoe UI',Arial,Helvetica,sans-serif;
+}
+/* All redesigns are restricted to named TET2 screens. The World Selector and
+   approved top-of-page illustrations are never filtered, resized, or relettered. */
+#tet2-stage4-app .t2-page:not(.t2-view-evil):not(.t2-view-summary):not(.t2-view-entry){
+  background:radial-gradient(ellipse at 50% -5%,#4b101f 0%,#1b1018 31%,#070b11 75%),#070a10;
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content{
+  padding:11px clamp(10px,3vw,18px) calc(28px + env(safe-area-inset-bottom,0px));
+  color:#f8fafe;
+  font-family:var(--t2f-body);
+}
+/* STAGE / CURRENT EVENT / MEDALS / SWISS / HALL / PIT outer panels */
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content > .t2-panel{
+  position:relative;
+  margin:10px 0 15px;
+  padding:13px clamp(12px,3.2vw,19px) 17px;
+  border:1.5px solid #ad3544;
+  border-top:2px solid #ff4f61;
+  border-radius:17px;
+  background:repeating-linear-gradient(130deg,transparent 0 9px,#ffffff04 10px 11px),
+    linear-gradient(145deg,#241a23 0%,#0a1018 65%,#0b0c13 100%);
+  box-shadow:inset 0 1px 0 #ffffff20,inset 0 0 21px #fb4c4d0a,0 0 16px #fa3c542d,0 8px 18px #0009;
+  overflow:hidden;
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content > .t2-panel > h2{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:-13px calc(-1 * clamp(12px,3.2vw,19px)) 14px;
+  min-height:50px;
+  padding:11px 14px 10px;
+  border:0;
+  border-bottom:1px solid #ff5b6980;
+  border-radius:15px 15px 0 0;
+  color:#fff8f6;
+  background:linear-gradient(105deg,#8f1427 0%,#4c1120 63%,#1b101a 100%);
+  font-family:var(--t2f-heading);
+  font-size:clamp(19px,5.1vw,27px);
+  font-weight:950;
+  font-style:italic;
+  line-height:1.02;
+  letter-spacing:.018em;
+  text-shadow:0 2px 3px #0009,0 0 9px #ffffff20;
+  overflow-wrap:anywhere;
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content > .t2-panel > h2::before{
+  content:'';display:inline-block;flex:none;width:23px;height:16px;
+  background:conic-gradient(#f6b8b1 25%,#54111b 0 50%,#f6b8b1 0 75%,#54111b 0) 0 0 / 10px 10px;
+  transform:skew(-13deg);
+  filter:drop-shadow(0 0 5px #e5445677);
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content > .t2-panel > h3,
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-panel h3{
+  font-family:var(--t2f-heading);
+  font-size:clamp(18px,4.8vw,25px);
+  font-style:italic;
+  font-weight:950;
+  letter-spacing:.008em;
+  line-height:1.15;
+  color:#fff4ea;
+  overflow-wrap:anywhere;
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-panel p,
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-panel li{
+  line-height:1.48;
+  overflow-wrap:anywhere;
+}
+/* OTG! Smart Tile visual language, TET2's own red/graphite version.
+   Source tile imagery remains EXACTLY the approved TET2 characters/art. */
+#tet2-stage4-app .t2-view-hq .t2-grid{
+  gap:clamp(9px,2.7vw,14px);
+  margin:14px 0 21px;
+}
+#tet2-stage4-app .t2-view-hq .t2-tile{
+  isolation:isolate;
+  border:2px solid #fa485e;
+  border-radius:17px;
+  background:#140811;
+  box-shadow:inset 0 0 0 1px #ffffff26,inset 0 -3px 0 #a73d59,0 0 13px #ef2e4a54,0 7px 15px #0009;
+  transition:transform .15s ease,filter .15s ease,box-shadow .15s ease;
+}
+#tet2-stage4-app .t2-view-hq .t2-tile img{display:block;width:100%;height:100%;object-fit:cover;}
+#tet2-stage4-app .t2-view-hq .t2-tile::after{
+  content:'';position:absolute;inset:0;pointer-events:none;border-radius:14px;
+  box-shadow:inset 0 1px 0 #ffffff55,inset 0 -22px 27px #00000050;
+}
+#tet2-stage4-app .t2-view-hq .t2-content>.t2-panel:first-child{
+  border-color:#ef515b;
+  box-shadow:0 0 20px #e61e453c,inset 0 0 22px #fa445311,0 9px 17px #0009;
+}
+#tet2-stage4-app .t2-view-hq .t2-content>.t2-panel:first-child p{
+  font-size:clamp(14px,3.9vw,18px);color:#f6eeee;line-height:1.37;
+  font-weight:700;margin:5px 2px 15px;
+}
+/* Same large, glove-friendly action tiles as OTG!, no new buttons/handlers. */
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-btn{
+  box-sizing:border-box;
+  min-height:53px;
+  padding:11px 14px;
+  border:2px solid #ff6c77;
+  border-radius:14px;
+  background:linear-gradient(110deg,#801424,#aa1b29 46%,#4c0e1a 100%);
+  box-shadow:inset 0 1px 0 #ffffff2e,inset 0 -2px 0 #4e0b15,0 0 12px #f02c4b46,0 4px 9px #000a;
+  font-family:var(--t2f-heading);
+  font-style:italic;
+  font-size:clamp(17px,4.6vw,23px);
+  font-weight:950;
+  letter-spacing:.012em;
+  line-height:1.05;
+  text-shadow:0 1px 2px #0009;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-btn.t2-secondary{
+  background:linear-gradient(110deg,#0e2430,#111b2c 78%,#060d16);
+  border-color:#4abed8;
+  box-shadow:inset 0 1px 0 #ffffff19,0 0 8px #34b2d541;
+}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-btn:disabled{filter:grayscale(.45);opacity:.52;box-shadow:none}
+#tet2-stage4-app .t2-page:not(.t2-view-evil) :is(button,summary,input,select):focus-visible{
+  outline:3px solid #a8f3ff;outline-offset:3px;
+}
+#tet2-stage4-app .t2-view-hq .t2-toggle{
+  display:flex;align-items:center;min-height:46px;
+  padding:9px 11px;border:1px solid #61434a;border-radius:12px;
+  background:#10151dcc;color:#cdd2df;line-height:1.35;
+}
+/* Race Control: utilitarian information is still readable, not turned into new events. */
+#tet2-stage4-app .t2-view-race .t2-row{
+  align-items:flex-start;gap:10px;margin:7px 0;padding:8px 10px;
+  border:1px solid #364454;border-radius:10px;background:#0b1520;
+  font-size:clamp(13px,3.65vw,16px);
+}
+#tet2-stage4-app .t2-view-race .t2-row strong{max-width:70%;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-view-race .t2-locked{
+  border-left:4px solid #e9ba73;border-radius:10px;
+  background:#281b14;padding:11px 13px;
+}
+/* Tables and medals: strong hierarchy, compact enough for long car names. */
+#tet2-stage4-app .t2-view-medals .t2-h387-table,
+#tet2-stage4-app .t2-view-medals .t2-table{
+  width:100%!important;border-collapse:separate;border-spacing:0 4px;
+  font-family:var(--t2f-body);font-size:clamp(12px,3.35vw,15px);
+  font-variant-numeric:tabular-nums;
+}
+#tet2-stage4-app .t2-view-medals .t2-h387-table thead th,
+#tet2-stage4-app .t2-view-medals .t2-table thead th{
+  padding:10px 6px;color:#ffd59c;border-bottom:1px solid #804654;font-weight:900;
+}
+#tet2-stage4-app .t2-view-medals .t2-h387-table td,
+#tet2-stage4-app .t2-view-medals .t2-table td{
+  padding:11px 6px;background:#0d1822;border-top:1px solid #344351;border-bottom:1px solid #344351;
+}
+#tet2-stage4-app .t2-view-medals .t2-h387-table td:first-child,
+#tet2-stage4-app .t2-view-medals .t2-table td:first-child{
+  border-left:1px solid #344351;border-radius:9px 0 0 9px;overflow-wrap:anywhere;
+}
+#tet2-stage4-app .t2-view-medals .t2-h387-table td:last-child,
+#tet2-stage4-app .t2-view-medals .t2-table td:last-child{border-right:1px solid #344351;border-radius:0 9px 9px 0;}
+#tet2-stage4-app .t2-view-medals .t2-h387-table :is(td,th):not(:first-child){text-align:center;min-width:34px}
+/* Pit Wall colour identity, red DONE, and expandable cards remain approved.
+   Only the outer heading and surrounding chrome change. */
+#tet2-stage4-app .t2-view-pit .t2-panel{overflow:visible!important}
+#tet2-stage4-app .t2-view-pit .t2-pit-count416{
+  padding:6px 1px 2px;margin-bottom:13px;
+}
+#tet2-stage4-app .t2-view-pit #t2-pit-search{
+  border-radius:14px;box-shadow:inset 0 0 13px #000b,0 0 7px #39c3ea23;
+}
+/* Swiss and Hall entries: OTG-style smart expandable subsections. */
+#tet2-stage4-app .t2-view-swiss .t2-panel > .t2-archive-item,
+#tet2-stage4-app .t2-view-hall .t2-panel > .t2-archive-item{
+  margin:9px 0;border:1px solid #a24a58;border-radius:13px;
+  background:linear-gradient(125deg,#261521,#07131d);overflow:hidden;
+}
+#tet2-stage4-app .t2-view-swiss .t2-panel > .t2-archive-item > summary,
+#tet2-stage4-app .t2-view-hall .t2-panel > .t2-archive-item > summary{
+  cursor:pointer;min-height:51px;padding:12px 14px;
+  font-weight:850;line-height:1.4;overflow-wrap:anywhere;
+}
+#tet2-stage4-app .t2-view-swiss .t2-panel > .t2-archive-item[open],
+#tet2-stage4-app .t2-view-hall .t2-panel > .t2-archive-item[open]{border-color:#fa6773}
+/* All racing entry modes: consistent compact cards, without ever changing the
+   current-car sequencing, H/E badge meanings or seven-segment timer internals. */
+#tet2-stage4-app .t2-view-entry .t2-entry-page{
+  box-sizing:border-box;width:min(100%,740px);margin:auto;
+  padding:clamp(10px,2.9vw,18px) clamp(9px,2.7vw,15px) calc(24px + env(safe-area-inset-bottom));
+  font-family:var(--t2f-body);
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-panel{
+  border:1.5px solid #ec4555;border-top-width:2px;
+  border-radius:18px;
+  background:linear-gradient(160deg,#1b111b 0%,#080d14 69%,#130a11);
+  box-shadow:inset 0 1px 0 #ffffff20,inset 0 0 18px #e52f4320,0 0 15px #df31442b;
+  overflow:visible;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-panel > h2{
+  font-family:var(--t2f-heading);
+  font-style:italic;
+  font-size:clamp(19px,5.6vw,27px);
+  font-weight:950;
+  letter-spacing:.02em;
+  line-height:1.04;
+  color:#fff8f1;
+  overflow-wrap:anywhere;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-strip{
+  display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;
+  padding:10px 11px;
+  border:1px solid #844352;border-radius:11px;
+  background:linear-gradient(110deg,#23111b,#101622);
+  color:#ffd7c3;font-size:clamp(12px,3.3vw,15px);
+  font-weight:900;line-height:1.28;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-list{display:grid;gap:10px}
+#tet2-stage4-app .t2-view-entry .t2-entry-car,
+#tet2-stage4-app .t2-view-entry .t2-entry-match{
+  min-width:0;
+  border-radius:14px;
+  border-color:#8e3542;
+  box-shadow:inset 0 0 15px #0009,0 4px 9px #0006;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-carname{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;flex-wrap:wrap;min-width:0;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-carname > strong{
+  min-width:0;flex:1 1 170px;overflow-wrap:anywhere;
+  font-size:clamp(15px,4vw,20px);line-height:1.22;
+  font-weight:900;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-flags{margin-left:auto}
+#tet2-stage4-app .t2-view-entry .t2-entry-matchhead{
+  border-radius:11px;padding:7px 8px;
+  color:#ffd7cb;font-weight:900;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-foot{
+  padding:12px 10px;border-left:3px solid #5f7b8d;border-radius:4px;
+  background:#0a121a;color:#aabac4;font-size:clamp(11px,3vw,13px);line-height:1.46;
+}
+#tet2-stage4-app .t2-view-entry .t2-entry-smallbtn,
+#tet2-stage4-app .t2-view-entry .t2-aero-step .t2-entry-smallbtn{
+  min-height:46px;padding:9px 15px;border-radius:11px;
+  font-family:var(--t2f-heading);font-style:italic;
+  font-size:clamp(17px,4.2vw,21px);letter-spacing:.012em;
+}
+/* Keep the 8.0.419 Samsung keyboard fix in full control of positioning/scroll.
+   No transform, fixed height or new overflow layer on the Jump input or page. */
+#tet2-stage4-app .t2-view-entry .t2-aero-step.is-current{
+  border:1px solid #2f899e;box-shadow:inset 0 0 10px #00c8e51a;
+}
+#tet2-stage4-app .t2-view-entry .t2-aero-counter{
+  color:#ffd099;font-weight:950;
+}
+/* Summary after each slot: clear provisional results, responsive tables and
+   existing strict rule that medals appear only when a competition finishes. */
+#tet2-stage4-app .t2-view-summary .t2-results-page414{
+  max-width:760px;margin:auto;
+  padding:clamp(13px,3.8vw,23px) clamp(11px,3vw,20px) calc(32px + env(safe-area-inset-bottom));
+  font-family:var(--t2f-body);
+}
+#tet2-stage4-app .t2-view-summary .t2-results-page414 h2{
+  font-family:var(--t2f-heading);font-style:italic;
+  font-size:clamp(25px,7vw,37px);font-weight:950;
+  letter-spacing:.01em;line-height:1.06;
+  color:#ffb8a9;text-shadow:0 0 12px #e83b3a40;
+}
+#tet2-stage4-app .t2-view-summary .t2-results-board414{
+  border:1px solid #506574;border-left:5px solid #5de0f1;
+  border-radius:17px;
+  padding:16px clamp(10px,3vw,18px);
+  background:linear-gradient(145deg,#091a26,#08121c 55%,#060b12);
+  box-shadow:inset 0 0 19px #6acbe312,0 7px 17px #0008;
+}
+#tet2-stage4-app .t2-view-summary .t2-results-board414 h3{
+  font-family:var(--t2f-heading);font-style:italic;
+  font-size:clamp(19px,5.2vw,28px);font-weight:950;
+  letter-spacing:.012em;
+}
+#tet2-stage4-app .t2-view-summary .t2-results-scroll414{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#tet2-stage4-app .t2-view-summary .t2-results-board414 td,
+#tet2-stage4-app .t2-view-summary .t2-results-board414 th{
+  padding:11px 6px;
+  font-variant-numeric:tabular-nums;
+}
+#tet2-stage4-app .t2-view-summary .t2-results-board414 td:nth-child(2){overflow-wrap:anywhere}
+#tet2-stage4-app .t2-view-summary .t2-results-board414 td:last-child{white-space:nowrap}
+#tet2-stage4-app .t2-view-summary .t2-results-next414{
+  min-height:59px;border:2px solid #ff6b73;border-radius:15px;
+  background:linear-gradient(115deg,#741422,#bd2636,#530d18);
+  box-shadow:0 0 15px #ee304b54,0 5px 10px #0008;
+  font:italic 950 clamp(20px,5.5vw,29px)/1.1 var(--t2f-heading);
+  letter-spacing:.015em;
+}
+#tet2-stage4-app .t2-view-summary .t2-summary-link414{
+  border-radius:11px;min-height:44px;
+}
+/* The seven-segment display, original hero navigation art, bright green
+   current-event border and all category-coloured Pit Wall cards are frozen. */
+@media(hover:hover) and (pointer:fine){
+ #tet2-stage4-app .t2-view-hq .t2-tile:hover{filter:brightness(1.13);transform:translateY(-2px);box-shadow:0 0 19px #ee516c87,0 8px 17px #0009}
+ #tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-btn:not(:disabled):hover{filter:brightness(1.1)}
+}
+@media(max-width:390px){
+ #tet2-stage4-app .t2-view-hq .t2-grid{gap:8px}
+ #tet2-stage4-app .t2-view-hq .t2-tile{border-radius:13px}
+ #tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content>.t2-panel{padding-left:11px;padding-right:11px}
+ #tet2-stage4-app .t2-page:not(.t2-view-evil) .t2-content>.t2-panel>h2{margin-left:-11px;margin-right:-11px;padding-inline:10px}
+ #tet2-stage4-app .t2-view-entry .t2-entry-carname>strong{flex-basis:148px}
+}
+@media(prefers-reduced-motion:reduce){
+ #tet2-stage4-app .t2-view-hq .t2-tile{transition:none!important}
+}
