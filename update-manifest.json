@@ -1,5 +1,5 @@
 {
-  "version": "8.0.425",
-  "worker": "./otg-service-worker-v8425.js",
-  "message": "Recommended colour-coded FH5 upgrade class before H and E\u2713 on TET2 results entry. All v8.0.424 championships and saved data preserved."
+  "version": "8.0.427",
+  "worker": "./otg-service-worker-v8427.js",
+  "message": "TET2 current competition trophy now appears on Race Control before result entry; Evil List, honours and Garage unchanged."
 }
