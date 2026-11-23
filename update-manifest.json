@@ -1,5 +1,5 @@
 {
-  "version": "8.0.427",
-  "worker": "./otg-service-worker-v8427.js",
-  "message": "TET2 current competition trophy now appears on Race Control before result entry; Evil List, honours and Garage unchanged."
+  "version": "8.0.426",
+  "worker": "./otg-service-worker-v8426.js",
+  "message": "Five verified FH5 stock S1 minimum corrections including Fast X Datsun. No Garage, medals, results, or trophy changes."
 }
