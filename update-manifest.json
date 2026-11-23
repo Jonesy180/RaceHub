@@ -1,5 +1,5 @@
 {
-  "version": "8.0.428",
-  "worker": "./otg-service-worker-v8428.js",
-  "message": "Five checked FH5 stock-class badges corrected; remaining recommended classes marked ?; no championship draw or saved results altered."
+  "version": "8.0.431",
+  "worker": "./otg-service-worker-v8431.js",
+  "message": "Fresh TET2-only start from Slot 001 after backup, correct FH5 stock-class groups, and CAR-FIRST multi-race result entry."
 }

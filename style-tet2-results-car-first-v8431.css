@@ -1,0 +1,21 @@
+/* v8.0.431 · car-first multi-course and team-first relay racing. */
+#tet2-stage4-app .t2-entry-car-first431 .t2-entry-active-car431{border:1px solid #397987;border-radius:14px;padding:12px;background:linear-gradient(145deg,#101e29,#071219);margin:13px 0}
+#tet2-stage4-app .t2-entry-car-first431 .t2-entry-active-car431>.t2-entry-carname{margin-bottom:13px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+#tet2-stage4-app .t2-entry-car-first431 .t2-entry-active-car431>.t2-entry-carname strong{font-size:1rem;flex:1 1 180px;overflow-wrap:anywhere}
+#tet2-stage4-app .t2-entry-leg431{border:1px solid #253b45;background:#0a151c;border-radius:11px;padding:12px 10px;margin:9px 0}
+#tet2-stage4-app .t2-entry-leg431 h4{margin:2px 0 12px;font-size:.93rem;color:#a2edff;line-height:1.4}
+#tet2-stage4-app .t2-entry-leg431.is-saved{border-color:#356846;background:#071a14}
+#tet2-stage4-app .t2-entry-leg431.is-locked{opacity:.52}
+#tet2-stage4-app .t2-entry-leg431.is-current{border-color:#49cae4;box-shadow:0 0 13px #1b9bac33}
+#tet2-stage4-app .t2-entry-leg431 .t2-entry-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#tet2-stage4-app .t2-entry-leg431 .t2-entry-controls .t2-time-console{flex:1 1 175px;min-width:0}
+#tet2-stage4-app .t2-entry-leg431 .t2-entry-smallbtn{flex:1 1 95px;min-height:48px}
+#tet2-stage4-app .t2-entry-leg431 .t2-entry-carname{margin-bottom:10px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+#tet2-stage4-app .t2-entry-banked431{font-weight:900;color:#a8f2bd;padding:9px 3px}
+#tet2-stage4-app .t2-entry-finished431{border:1px solid #36586a;background:#0b1921;border-radius:10px;margin:12px 0}
+#tet2-stage4-app .t2-entry-finished431 summary{cursor:pointer;padding:12px;color:#97e8ff;font-weight:800}
+#tet2-stage4-app .t2-entry-finished431 ol{margin:0;padding:0 14px 12px 32px}
+#tet2-stage4-app .t2-entry-finished431 li{margin:8px 0;border-bottom:1px solid #304552}
+#tet2-stage4-app .t2-entry-finished431 small{display:block;color:#b6c9d2;line-height:1.4;overflow-wrap:anywhere;padding:3px 0 8px}
+#tet2-stage4-app .t2-stock-tap431{cursor:pointer;appearance:none;-webkit-appearance:none;touch-action:manipulation}
+#tet2-stage4-app .t2-stock-tap431:focus-visible{outline:3px solid #ffffff;outline-offset:2px}
