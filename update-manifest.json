@@ -1,5 +1,5 @@
 {
-  "version": "8.0.426",
-  "worker": "./otg-service-worker-v8426.js",
-  "message": "Five verified FH5 stock S1 minimum corrections including Fast X Datsun. No Garage, medals, results, or trophy changes."
+  "version": "8.0.428",
+  "worker": "./otg-service-worker-v8428.js",
+  "message": "Five checked FH5 stock-class badges corrected; remaining recommended classes marked ?; no championship draw or saved results altered."
 }
