@@ -1,5 +1,5 @@
 {
-  "version": "8.0.431",
-  "worker": "./otg-service-worker-v8431.js",
-  "message": "Fresh TET2-only start from Slot 001 after backup, correct FH5 stock-class groups, and CAR-FIRST multi-race result entry."
+  "version": "8.0.432",
+  "worker": "./otg-service-worker-v8432.js",
+  "message": "Compact factory class badges and a new TET2 Garage Intelligence stock-PI panel. All race results, draws and car-first entry remain unchanged."
 }

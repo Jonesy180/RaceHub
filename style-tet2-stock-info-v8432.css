@@ -1,0 +1,107 @@
+/* OTG! MAIN v8.0.432 · compact class badges + cinematic factory PI card.
+   UI ONLY. No changes to banking, time fields, draw, storage or TET2 badges. */
+/* Normalise the actionable stock class to the SAME size as the H tile.
+   Explicitly constrain width AND height to override global button defaults
+   on Samsung Chrome, including large min-height and inherited font rules. */
+#tet2-stage4-app .t2-entry-flags .t2-upgrade-badge.t2-stock-tap431{
+  display:inline-grid;place-items:center;align-self:center;box-sizing:border-box;
+  flex:0 0 30px;width:30px;min-width:30px;max-width:30px;
+  height:30px;min-height:30px;max-height:30px;
+  margin:0;padding:0;border-radius:7px;
+  font:900 12px/1 system-ui,-apple-system,'Segoe UI',sans-serif;
+  letter-spacing:0;white-space:nowrap;text-align:center;vertical-align:middle;
+  appearance:none;-webkit-appearance:none;cursor:pointer;touch-action:manipulation;
+}
+#tet2-stage4-app .t2-entry-flags .t2-entry-h{
+  flex:0 0 30px;width:30px;min-width:30px;height:30px;min-height:30px;max-height:30px;
+  padding:0;line-height:1;align-self:center;
+}
+#tet2-stage4-app .t2-entry-flags {gap:5px;align-items:center;}
+#tet2-stage4-app .t2-entry-flags .t2-stock-tap431:focus-visible{
+  outline:2px solid #f9ffff;outline-offset:3px;
+}
+/* Full-screen glass backdrop, wholly separate from TET2 race-entry markup. */
+.t2-stock-layer432{
+ position:fixed;inset:0;z-index:2147483500;box-sizing:border-box;
+ display:flex;align-items:center;justify-content:center;
+ padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));
+ background:rgba(1,5,12,.83);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+ overscroll-behavior:contain;
+}
+.t2-stock-card432{
+ --t2-stock-accent:#faac67;
+ display:block;box-sizing:border-box;position:relative;overflow-y:auto;overscroll-behavior:contain;
+ width:min(440px,100%);max-height:calc(100dvh - 30px);
+ margin:0;isolation:isolate;border:1.5px solid #f075608c;border-top:2px solid #ff8b75;
+ border-radius:20px;color:#f7fbff;font-family:'Segoe UI',Arial,sans-serif;
+ background:radial-gradient(ellipse 120% 50% at 100% 0%,#59242e 0%,transparent 65%),
+  linear-gradient(153deg,#201522 0%,#101827 50%,#080f18 100%);
+ box-shadow:0 17px 65px #000e,0 0 22px #ea42504d,inset 0 1px #ffffff24;
+}
+.t2-stock-card432[data-tier="D"]{--t2-stock-accent:#f586b4}
+.t2-stock-card432[data-tier="C"]{--t2-stock-accent:#65e9c0}
+.t2-stock-card432[data-tier="B"]{--t2-stock-accent:#74bfff}
+.t2-stock-card432[data-tier="A"]{--t2-stock-accent:#f0cd69}
+.t2-stock-card432[data-tier="S1"]{--t2-stock-accent:#ffad69}
+.t2-stock-card432[data-tier="S2"]{--t2-stock-accent:#cba6ff}
+.t2-stock-card432[data-tier="X"]{--t2-stock-accent:#ff8993}
+.t2-stock-header432{display:flex;justify-content:space-between;align-items:center;gap:10px;
+ border-bottom:1px solid #ffffff21;padding:12px 16px 10px;
+ background:linear-gradient(95deg,#701927aa,#20101b00)}
+.t2-stock-brand432{font-size:10px;font-weight:900;letter-spacing:.12em;line-height:1.2;color:#ffebe9;}
+.t2-stock-brand432 em{font-style:normal;color:#83deef;margin:0 2px}
+.t2-stock-indicator432{display:inline-block;width:8px;height:8px;border-radius:50%;background:#fd7a68;box-shadow:0 0 8px #fd6c68;margin-right:6px;vertical-align:baseline}
+.t2-stock-card432 button{font-family:inherit;cursor:pointer}
+.t2-stock-x432{display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;min-height:32px;
+ color:#f5f5fb;border:1px solid #7683938c;border-radius:9px;background:#ffffff12;
+ font-size:22px;line-height:1;padding:0}
+.t2-stock-body432{padding:17px clamp(16px,5vw,23px) 19px}
+.t2-stock-overline432{color:#7de3f7;font:900 10px/1.4 'Segoe UI',Arial,sans-serif;letter-spacing:.16em}
+.t2-stock-body432 h2{margin:5px 0 16px;color:#fff4f3;
+ font:900 clamp(20px,5.3vw,26px)/1.14 'Segoe UI',Arial,sans-serif;letter-spacing:-.025em;
+ text-wrap:balance;overflow-wrap:anywhere}
+.t2-stock-spec-top432{display:grid;grid-template-columns:62px 1fr 1fr;align-items:center;
+ gap:8px;padding:15px 11px;border:1px solid #ffffff21;border-radius:13px;
+ background:linear-gradient(115deg,#ffffff0b,#060c15b3)}
+.t2-stock-emblem432{display:grid;place-items:center;width:54px;height:54px;border-radius:12px;
+ border:2px solid var(--t2-stock-accent);color:var(--t2-stock-accent);
+ background:#111d2a;box-shadow:inset 0 0 16px #000b,0 0 14px color-mix(in srgb,var(--t2-stock-accent) 24%,transparent);
+ font:950 20px/1 'Segoe UI',Arial,sans-serif}
+.t2-stock-factory432,.t2-stock-class432{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;text-align:center}
+.t2-stock-factory432 small,.t2-stock-class432 small{color:#b8c9d3;font-size:10px;font-weight:900;letter-spacing:.05em}
+.t2-stock-factory432 strong{font-size:clamp(25px,7vw,32px);font-weight:950;line-height:1.05;color:#fff}
+.t2-stock-class432 strong{font-size:clamp(23px,6.5vw,30px);font-weight:900;line-height:1.05;color:var(--t2-stock-accent)}
+.t2-stock-tracklabel432{display:flex;justify-content:space-between;gap:10px;align-items:center;
+ margin:18px 2px 7px;color:#c3d4de;font:800 11px/1.4 'Segoe UI',Arial,sans-serif;letter-spacing:.045em}
+.t2-stock-track432{height:8px;overflow:hidden;border-radius:999px;background:#32404d;box-shadow:inset 0 1px 3px #0009}
+.t2-stock-track432 span{display:block;height:100%;background:linear-gradient(90deg,#4bbacf,var(--t2-stock-accent));border-radius:999px;
+ box-shadow:0 0 12px var(--t2-stock-accent)}
+.t2-stock-room432{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:16px 0 15px;
+ border:1px solid #45b5c54f;border-radius:12px;padding:12px 13px;
+ background:linear-gradient(100deg,#12364294,#13222c9e)}
+.t2-stock-room432>div{flex:none;display:flex;flex-direction:column;gap:1px}
+.t2-stock-room432 small{font-size:10px;line-height:1.2;font-weight:850;letter-spacing:.06em;color:#a2dbeb}
+.t2-stock-room432 strong{font-size:28px;line-height:1.15;font-weight:950;color:#7ae6f5;white-space:nowrap}
+.t2-stock-room432 strong span{font-size:14px}
+.t2-stock-room432 p{max-width:155px;margin:0;color:#d0dce5;line-height:1.35;font-size:12px;font-weight:650}
+.t2-stock-note432{margin:13px 0 16px;color:#c0c9d3;font-size:12px;line-height:1.43}
+.t2-stock-note432 strong{color:#edfaff}
+.t2-stock-dismiss432{display:flex;align-items:center;justify-content:center;gap:10px;
+ width:100%;min-height:46px;padding:10px 14px;border:1.5px solid #ed5d6c;border-radius:11px;
+ color:#fff;font-size:15px;font-weight:950;letter-spacing:.065em;
+ background:linear-gradient(100deg,#9b2334,#781925);box-shadow:0 2px 10px #e9323a35}
+.t2-stock-dismiss432 span{color:#9bf7fe;font-size:19px}
+.t2-stock-card432 :is(button):focus-visible{outline:3px solid #8cf5ff;outline-offset:3px}
+@media(max-width:350px){
+ .t2-stock-layer432{padding:10px}
+ .t2-stock-body432{padding:13px 13px 15px}
+ .t2-stock-room432{gap:7px;padding:10px}
+ .t2-stock-room432 p{font-size:11px}
+ .t2-stock-spec-top432{grid-template-columns:48px 1fr 1fr;gap:5px}
+ .t2-stock-emblem432{height:43px;width:43px;font-size:17px}
+ .t2-stock-brand432{font-size:9px}
+}
+@media(prefers-reduced-motion:no-preference){
+ .t2-stock-card432{animation:t2-stock-enter432 .18s ease-out both}
+ @keyframes t2-stock-enter432{from{opacity:.45;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+}
