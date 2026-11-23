@@ -1,5 +1,5 @@
 {
-  "version": "8.0.432",
-  "worker": "./otg-service-worker-v8432.js",
-  "message": "Compact factory class badges and a new TET2 Garage Intelligence stock-PI panel. All race results, draws and car-first entry remain unchanged."
+  "version": "8.0.433",
+  "worker": "./otg-service-worker-v8433.js",
+  "message": "Removes the temporary Fresh Evil Tournament start-over panel from TET2 Command Centre. Keeps your current tournament, stock-PI panels, results and Garage unchanged."
 }
