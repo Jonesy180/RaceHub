@@ -1,5 +1,5 @@
 {
-  "version": "8.0.433",
-  "worker": "./otg-service-worker-v8433.js",
-  "message": "Removes the temporary Fresh Evil Tournament start-over panel from TET2 Command Centre. Keeps your current tournament, stock-PI panels, results and Garage unchanged."
+  "version": "8.0.434",
+  "worker": "./otg-service-worker-v8434.js",
+  "message": "Stock Class Championships are factory-only, pre-race setup reminders for every next car, and a backup-gated TET2-only reset from Slot 001."
 }
