@@ -1,0 +1,11 @@
+/* Shared result screen: preserve TET2 controls, show one-course entrants / round fixtures. */
+.t2-single-entrant437 .t2-entry-leg431{margin:10px 0;padding:12px;border-radius:14px}
+.t2-single-entrant437 .t2-entry-leg431.is-locked{opacity:.72}
+.t2-all-fixtures437{margin:16px 0;padding:14px;border:1px solid rgba(124,168,185,.32);border-radius:14px;background:rgba(2,12,20,.75)}
+.t2-all-fixtures437 h3{font-size:14px;margin:0 0 12px;color:#b5d6e0}
+.t2-all-fixtures437 ol{padding-left:20px;margin:0}
+.t2-all-fixtures437 li{padding:9px 4px;border-bottom:1px solid rgba(255,255,255,.10);overflow-wrap:anywhere}
+.t2-all-fixtures437 li:last-child{border-bottom:0}
+.t2-all-fixtures437 li small{display:block;color:#9bb2bd;font-size:11px}
+.t2-all-fixtures437 li.is-current{color:#fff;border-left:3px solid #f35857;padding-left:12px}
+.t2-all-fixtures437 li.is-saved{color:#91c2b1}
