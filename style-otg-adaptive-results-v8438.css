@@ -1,0 +1,29 @@
+/* Shared result screen: preserve TET2 controls, show one-course entrants / round fixtures. */
+.t2-single-entrant437 .t2-entry-leg431{margin:10px 0;padding:12px;border-radius:14px}
+.t2-single-entrant437 .t2-entry-leg431.is-locked{opacity:.72}
+.t2-all-fixtures437{margin:16px 0;padding:14px;border:1px solid rgba(124,168,185,.32);border-radius:14px;background:rgba(2,12,20,.75)}
+.t2-all-fixtures437 h3{font-size:14px;margin:0 0 12px;color:#b5d6e0}
+.t2-all-fixtures437 ol{padding-left:20px;margin:0}
+.t2-all-fixtures437 li{padding:9px 4px;border-bottom:1px solid rgba(255,255,255,.10);overflow-wrap:anywhere}
+.t2-all-fixtures437 li:last-child{border-bottom:0}
+.t2-all-fixtures437 li small{display:block;color:#9bb2bd;font-size:11px}
+.t2-all-fixtures437 li.is-current{color:#fff;border-left:3px solid #f35857;padding-left:12px}
+.t2-all-fixtures437 li.is-saved{color:#91c2b1}
+
+/* v8.0.438: Swiss current-round fixtures are all visible, with active-car input inline. */
+.t2-swiss-grid438{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0}
+.t2-swiss-fixture438{min-width:0;border:1px solid rgba(128,176,194,.3);border-radius:16px;background:rgba(0,12,20,.78);padding:13px;overflow-wrap:anywhere}
+.t2-swiss-fixture438.is-current{border-color:#c5484f;box-shadow:0 0 0 1px rgba(210,58,69,.34),0 0 18px rgba(210,58,69,.18)}
+.t2-swiss-fixture438.is-saved{border-color:rgba(94,178,143,.55)}
+.t2-swiss-fixture438.is-pending{opacity:.68}
+.t2-swiss-fixture438 header{display:flex;justify-content:space-between;gap:9px;align-items:center;font-size:13px}
+.t2-swiss-fixture438 header small{font-size:11px;color:#adbec7;white-space:nowrap}
+.t2-swiss-pair438{margin:12px 0;line-height:1.45;font-weight:700;color:#f5f7fa}
+.t2-swiss-pair438 span{color:#e5a052;padding:0 3px}
+.t2-swiss-next438{font-size:12px;color:#a7c0ce;margin:9px 0 0}
+.t2-swiss-result438{display:grid;gap:7px;font-size:12px;color:#bce9da}
+.t2-swiss-result438 span{display:flex;justify-content:space-between;gap:9px}
+.t2-swiss-result438 b{white-space:nowrap;color:#fff}
+.t2-swiss-result438 strong{font-size:12px;color:#78e3b7}
+.t2-swiss-round438 .t2-entry-car{margin:10px 0}
+@media (min-width:900px){.t2-swiss-grid438{grid-template-columns:repeat(2,minmax(0,1fr))}}
